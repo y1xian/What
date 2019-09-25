@@ -1,0 +1,83 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+
+    compileSdkVersion build_version.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion build_version.minSdkVersion
+        targetSdkVersion build_version.targetSdkVersion
+        versionCode build_version.versionCode
+        versionName build_version.versionName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //Kotlin中使用Java8特性
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    //防止编译的时候oom、GC
+    dexOptions {
+        preDexLibraries true
+        maxProcessCount 8
+        //分配给gradle的内存
+        javaMaxHeapSize "4g"
+    }
+
+    //解决.9图问题
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation libs.junit
+    // 约束
+    api libs.constraint
+    //  v7 v4
+    api([libs.support_v7, libs.support_v4, libs.design, libs.annotations])
+    // jetpack
+    api([libs.arch_comp_java8, libs.arch_comp_runtime, libs.arch_comp_extensions])
+//    // gson  https://github.com/google/gson
+//    api libs.gson
+    // 避免65K限制       https://developer.android.com/tools/building/multidex.html
+    api libs.multidex
+    // kt
+    api libs.kotlin_stdlib
+    api libs.kotlin_coroutines
+    api libs.kotlin_coroutines_core
+//    // mmkv
+//    api libs.mmkv
+//    // ac 侧滑
+    api libs.swipe
+    api libs.swipe_support
+    // 消息总线
+    api libs.live_event_bus
+}

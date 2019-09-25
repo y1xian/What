@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':arch', ':module_mian', ':module_base', ':module_user', ':module_video', ':module_login', ':module_news', ':module_novel', ':module_music', ':http'
 rootProject.name='What'

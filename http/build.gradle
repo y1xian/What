@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    compileSdkVersion build_version.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion build_version.minSdkVersion
+        targetSdkVersion build_version.targetSdkVersion
+        versionCode build_version.versionCode
+        versionName build_version.versionName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //Kotlin中使用Java8特性
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+
+    // jetpack
+    api([libs.arch_comp_runtime, libs.arch_comp_extensions])
+    // retrofit2    https://github.com/square/retrofit
+    api([libs.retrofit2, libs.retrofit2_gson, libs.retrofit2_kotlin_coroutines])
+    // okhttp3     https://github.com/square/okhttp
+    api([libs.okhttp3, libs.okhttp3_logging])
+    // gson  https://github.com/google/gson
+    api libs.gson
+    // mmkv
+    api libs.mmkv
+    // kt
+    api libs.kotlin_stdlib
+    api libs.kotlin_coroutines
+    api libs.kotlin_coroutines_core
+
+}

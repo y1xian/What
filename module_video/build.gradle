@@ -1,0 +1,28 @@
+apply from: rootProject.file('module.gradle')
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_video'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+
+    if (runAsApp) {
+        //模块化下需要引用到的模块
+//        addComponent ''
+    }
+
+}
