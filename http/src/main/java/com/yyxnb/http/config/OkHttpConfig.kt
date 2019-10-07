@@ -5,7 +5,6 @@ import android.text.TextUtils
 import com.yyxnb.http.utils.SSLUtils
 import com.yyxnb.http.RetrofitMultiUrl
 import com.yyxnb.http.interceptor.*
-import com.yyxnb.yyxarch.http.interceptor.*
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
