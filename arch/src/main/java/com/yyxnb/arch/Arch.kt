@@ -20,7 +20,7 @@ import java.lang.reflect.ParameterizedType
 /**
  * 初始化相关
  */
-object AppUtils : Serializable {
+object Arch : Serializable {
 
     private lateinit var mWeakReferenceContext: WeakReference<Context>
 

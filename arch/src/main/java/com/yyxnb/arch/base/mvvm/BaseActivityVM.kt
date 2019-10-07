@@ -3,7 +3,7 @@ package com.yyxnb.arch.base.mvvm
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.yyxnb.arch.AppUtils
+import com.yyxnb.arch.Arch
 import com.yyxnb.arch.base.BaseActivity
 
 abstract class BaseActivityVM<VM : BaseViewModel> : BaseActivity() {
@@ -14,7 +14,7 @@ abstract class BaseActivityVM<VM : BaseViewModel> : BaseActivity() {
     protected lateinit var mViewModel: VM
 
     override fun initView(savedInstanceState: Bundle?) {
-        mViewModel = initViewModel(this, AppUtils.getInstance(this, 0)!!)
+        mViewModel = initViewModel(this, Arch.getInstance(this, 0)!!)
         lifecycle.addObserver(mViewModel)
         initObservable()
     }

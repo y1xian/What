@@ -2,7 +2,7 @@ package com.yyxnb.arch.base.mvvm
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import com.yyxnb.arch.AppUtils
+import com.yyxnb.arch.Arch
 import com.yyxnb.arch.base.BaseFragment
 
 
@@ -21,17 +21,18 @@ abstract class BaseFragmentVM<VM : BaseViewModel> : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mViewModel = initViewModel(AppUtils.getInstance(this, 0)!!)
+        mViewModel = initViewModel(Arch.getInstance(this, 0)!!)
         lifecycle.addObserver(mViewModel)
     }
 
     override fun initViewData() {
-        super.initViewData()
+//        super.initViewData()
         initObservable()
     }
 
     /**
-     * 回调网络数据
+     * 初始化界面观察者的监听
+     * 接收数据结果
      */
     open fun initObservable() {}
 

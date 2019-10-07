@@ -1,7 +1,7 @@
 package com.yyxnb.arch.common
 
 import android.graphics.Color
-import com.yyxnb.arch.AppUtils
+import com.yyxnb.arch.Arch
 import com.yyxnb.arch.R
 import com.yyxnb.arch.interfaces.BarStyle
 import java.io.Serializable
@@ -57,7 +57,7 @@ object AppConfig : Serializable {
     /**
      * 状态栏颜色
      */
-    var statusBarColor: Int = AppUtils.context.resources.getColor(R.color.statusBar)
+    var statusBarColor: Int = Arch.context.resources.getColor(R.color.statusBar)
     /**
      * 如果状态栏处于白色且状态栏文字也处于白色，避免看不见
      */

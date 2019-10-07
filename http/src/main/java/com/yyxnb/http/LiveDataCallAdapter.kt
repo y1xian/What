@@ -23,14 +23,11 @@ class LiveDataCallAdapter<R>(private val responseType: Type) :
                 if (started.compareAndSet(false, true)) {//确保执行一次
                     call.enqueue(object : Callback<R> {
                         override fun onResponse(call: Call<R>, response: Response<R>) {
-
-                            if (response.isSuccessful){
+                            if (response.isSuccessful) {
                                 postValue(response.body())
-                            }else{
+                            } else {
                                 postValue(null)
                             }
-                            print("------onResponse ${response.isSuccessful }")
-
                         }
 
                         override fun onFailure(call: Call<R>, throwable: Throwable) {

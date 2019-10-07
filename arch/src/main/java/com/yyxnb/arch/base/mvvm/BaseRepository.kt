@@ -17,7 +17,7 @@ abstract class BaseRepository<T : Any> : DefaultLifecycleObserver {
     protected lateinit var mApi: T
 
 //    init {
-//        mApi = initApiServer(AppUtils.getInstance<Class<T>>(this, 0)!!)
+//        mApi = initApiServer(Arch.getInstance<Class<T>>(this, 0)!!)
 //    }
 //
 //    private fun initApiServer(modelClass: Class<T>): T {

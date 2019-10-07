@@ -8,7 +8,7 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.view.View
-import com.yyxnb.arch.AppUtils
+import com.yyxnb.arch.Arch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -59,28 +59,28 @@ val Context.screenHeight
  * @return 当前应用程序的包名。
  */
 val appPackage: String
-    get() = AppUtils.context.packageName
+    get() = Arch.context.packageName
 
 /**
  * 获取当前应用程序的名称。
  * @return 当前应用程序的名称。
  */
 val appName: String
-    get() = AppUtils.context.resources.getString(AppUtils.context.applicationInfo.labelRes)
+    get() = Arch.context.resources.getString(Arch.context.applicationInfo.labelRes)
 
 /**
  * 获取当前应用程序的版本名。
  * @return 当前应用程序的版本名。
  */
 val appVersionName: String
-    get() = AppUtils.context.packageManager.getPackageInfo(appPackage, 0).versionName
+    get() = Arch.context.packageManager.getPackageInfo(appPackage, 0).versionName
 
 /**
  * 获取当前应用程序的版本号。
  * @return 当前应用程序的版本号。
  */
 val appVersionCode: Int
-    get() = AppUtils.context.packageManager.getPackageInfo(appPackage, 0).versionCode
+    get() = Arch.context.packageManager.getPackageInfo(appPackage, 0).versionCode
 
 /**
  * 获取当前时间的字符串，格式为yyyyMMddHHmmss。
@@ -115,7 +115,7 @@ fun sleep(millis: Long) {
  * @return 字符串资源id对应的字符串内容。
  */
 fun getString(resId: Int): String {
-    return AppUtils.context.resources.getString(resId)
+    return Arch.context.resources.getString(resId)
 }
 
 /**
@@ -128,7 +128,7 @@ fun getString(resId: Int): String {
  * @return 指定资源名的资源id。
  */
 fun getResourceId(name: String, type: String): Int {
-    return AppUtils.context.resources.getIdentifier(name, type, appPackage)
+    return Arch.context.resources.getIdentifier(name, type, appPackage)
 }
 
 /**
@@ -140,9 +140,9 @@ fun getResourceId(name: String, type: String): Int {
 fun getApplicationMetaData(key: String): String? {
     var applicationInfo: ApplicationInfo? = null
     try {
-        applicationInfo = AppUtils.context.packageManager.getApplicationInfo(appPackage, PackageManager.GET_META_DATA)
+        applicationInfo = Arch.context.packageManager.getApplicationInfo(appPackage, PackageManager.GET_META_DATA)
     } catch (e: PackageManager.NameNotFoundException) {
-        AppUtils.debugLog(e.message!!)
+        Arch.debugLog(e.message!!)
     }
     if (applicationInfo == null) return ""
     return applicationInfo.metaData.getString(key)
@@ -249,7 +249,7 @@ fun getConvertedNumber(number: Int) = when {
  */
 fun isInstalled(packageName: String): Boolean {
     val packageInfo: PackageInfo? = try {
-        AppUtils.context.packageManager.getPackageInfo(packageName, 0)
+        Arch.context.packageManager.getPackageInfo(packageName, 0)
     } catch (e: PackageManager.NameNotFoundException) {
         null
     }
@@ -260,7 +260,7 @@ fun isInstalled(packageName: String): Boolean {
  * 获取当前应用程序的图标。
  */
 fun getAppIcon(): Drawable {
-    val packageManager = AppUtils.context.packageManager
+    val packageManager = Arch.context.packageManager
     val applicationInfo = packageManager.getApplicationInfo(appPackage, 0)
     return packageManager.getApplicationIcon(applicationInfo)
 }

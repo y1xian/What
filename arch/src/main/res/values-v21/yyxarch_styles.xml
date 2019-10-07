@@ -17,5 +17,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:screenOrientation">portrait</item>
         <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_right</item>
     </style>
 </resources>

@@ -5,13 +5,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.ActivityCompat
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+import android.widget.FrameLayout
 import com.billy.android.swipe.SmartSwipe
 import com.billy.android.swipe.consumer.ActivitySlidingBackConsumer
 import com.yyxnb.arch.ContainerActivity
+import com.yyxnb.arch.R
+import com.yyxnb.arch.base.nav.FragmentHelper
+import com.yyxnb.arch.base.nav.PresentAnimation
 import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.ext.hideKeyBoard
 import com.yyxnb.arch.interfaces.*
@@ -36,6 +42,8 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
 
     protected lateinit var mContext: Context
 
+//    protected var fragmentContainer: FrameLayout? = null
+
     private val lifecycleDelegate by lazy { LifecycleDelegate(this) }
 
     private var statusBarTranslucent = AppConfig.statusBarTranslucent
@@ -54,6 +62,13 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
         initWindows()
         initAttributes()
         setContentView(initLayoutResId())
+//        if (initLayoutResId() == 0) {
+//            fragmentContainer = FrameLayout(this)
+//            fragmentContainer!!.id = android.R.id.content
+//            setContentView(fragmentContainer)
+//        } else {
+//            setContentView(initLayoutResId())
+//        }
         initView(savedInstanceState)
     }
 
@@ -93,11 +108,6 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
     @LayoutRes
     abstract fun initLayoutResId(): Int
 
-//    /**
-//     * 状态栏颜色
-//     */
-//    open fun initStatusBarColor(): Int = AppConfig.statusBarColor
-
     /**
      * 初始化
      */
@@ -106,7 +116,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
     /**
      * 初始化复杂数据 懒加载
      */
-    open fun initViewData() {}
+//    open fun initViewData() {}
 
     //开启沉浸式
     fun setStatusBarTranslucent(translucent: Boolean, fitsSystemWindows: Boolean) {
@@ -165,14 +175,14 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
         StatusBarUtils.setNavigationBarHidden(window, hidden)
     }
 
-    override fun onBackPressed() {
-        val fragments = supportFragmentManager.fragments
-        if (fragments.size > 0) {
-            ActivityCompat.finishAfterTransition(this)
-        } else {
-            super.onBackPressed()
-        }
-    }
+//    override fun onBackPressed() {
+//        val fragments = supportFragmentManager.fragments
+//        if (fragments.size > 0) {
+//            ActivityCompat.finishAfterTransition(this)
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
 
     fun startFragment(targetFragment: BaseFragment) {
         scheduleTaskAtStarted(Runnable {
@@ -181,11 +191,11 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
             intent.putExtra(AppConfig.FRAGMENT, targetFragment.javaClass.canonicalName)
             intent.putExtra(AppConfig.BUNDLE, targetFragment.initArguments())
             startActivity(intent)
-            overridePendingTransition(com.yyxnb.arch.R.anim.slide_in_right, com.yyxnb.arch.R.anim.slide_out_left)
+//            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         })
     }
 
-    fun setRootFragment(fragment: BaseFragment, containerId: Int = com.yyxnb.arch.R.id.content) {
+    fun setRootFragment(fragment: BaseFragment, containerId: Int = R.id.content) {
         scheduleTaskAtStarted(Runnable {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(containerId, fragment, fragment.getSceneId())
@@ -238,4 +248,106 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
     }
 
 
+    override fun onBackPressed() {
+        val fragmentManager = supportFragmentManager
+        val count = fragmentManager.backStackEntryCount
+        if (count > 0) {
+            val entry = fragmentManager.getBackStackEntryAt(count - 1)
+            val fragment = fragmentManager.findFragmentByTag(entry.name) as BaseFragment?
+            if (fragment != null && fragment.isAdded && !fragment.dispatchBackPressed()) {
+                if (count == 1) {
+                    if (!handleBackPressed()) {
+                        ActivityCompat.finishAfterTransition(this)
+                    }
+                } else {
+                    dismissFragment(fragment)
+                }
+            }
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    protected fun handleBackPressed(): Boolean {
+        return false
+    }
+
+    fun presentFragment(fragment: BaseFragment) {
+        scheduleTaskAtStarted(Runnable { presentFragmentInternal(fragment) })
+    }
+
+    private fun presentFragmentInternal(fragment: BaseFragment) {
+        FragmentHelper.addFragmentToBackStack(supportFragmentManager, android.R.id.content, fragment, PresentAnimation.Push)
+    }
+
+    fun dismissFragment(fragment: BaseFragment) {
+        scheduleTaskAtStarted(Runnable { dismissFragmentInternal(fragment) })
+    }
+
+    private fun dismissFragmentInternal(fragment: BaseFragment) {
+        if (!fragment.isAdded) {
+            return
+        }
+        val fragmentManager = supportFragmentManager
+        FragmentHelper.executePendingTransactionsSafe(fragmentManager)
+
+        val topFragment = fragmentManager.findFragmentById(android.R.id.content) as BaseFragment?
+                ?: return
+        topFragment.setAnimation(PresentAnimation.Push)
+        val presented = getPresentedFragment(fragment)
+        if (presented != null) {
+            fragment.setAnimation(PresentAnimation.Push)
+            topFragment.userVisibleHint = false
+            topFragment.onHiddenChanged(true)
+            supportFragmentManager.popBackStack(presented.getSceneId(), FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            FragmentHelper.executePendingTransactionsSafe(supportFragmentManager)
+//            fragment.onFragmentResult(topFragment.getRequestCode(), topFragment.getResultCode(), topFragment.getResultData())
+        } else {
+            val presenting = getPresentingFragment(fragment)
+            presenting?.setAnimation(PresentAnimation.Push)
+            fragment.userVisibleHint = false
+            if (presenting == null) {
+                ActivityCompat.finishAfterTransition(this)
+            } else {
+                fragmentManager.popBackStack(fragment.getSceneId(), FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                FragmentHelper.executePendingTransactionsSafe(fragmentManager)
+//                presenting.onFragmentResult(fragment.getRequestCode(), fragment.getResultCode(), fragment.getResultData())
+            }
+        }
+    }
+
+    fun getPresentedFragment(fragment: BaseFragment): BaseFragment? {
+        return FragmentHelper.getLatterFragment(supportFragmentManager, fragment)
+    }
+
+    fun getPresentingFragment(fragment: BaseFragment): BaseFragment? {
+        return FragmentHelper.getAheadFragment(supportFragmentManager, fragment)
+    }
+
+    @JvmOverloads
+    fun startActivityRootFragment(rootFragment: BaseFragment, containerId: Int = android.R.id.content) {
+        scheduleTaskAtStarted(Runnable { setRootFragmentInternal(rootFragment, containerId) })
+    }
+
+    private fun setRootFragmentInternal(fragment: BaseFragment, containerId: Int) {
+        val fragmentManager = supportFragmentManager
+        val count = fragmentManager.backStackEntryCount
+        if (count > 0) {
+            val tag = fragmentManager.getBackStackEntryAt(0).name
+            val former = fragmentManager.findFragmentByTag(tag) as BaseFragment?
+            if (former != null && former.isAdded) {
+                former.setAnimation(PresentAnimation.Push)
+                fragmentManager.popBackStack(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+//                hasFormerRoot = true
+            }
+        }
+
+        val transaction = fragmentManager.beginTransaction()
+//        transaction.setReorderingAllowed(true)
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        fragment.setAnimation(PresentAnimation.Push)
+        transaction.add(containerId, fragment, fragment.getSceneId())
+        transaction.addToBackStack(fragment.getSceneId())
+        transaction.commit()
+    }
 }

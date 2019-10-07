@@ -63,10 +63,7 @@ class LazyProxy(
 
     fun onActivityCreated(savedInstanceState: Bundle?) {
         isViewCreated = true
-        //当设备旋转时，fragment会随托管activity一起销毁并重建。
-//        retainInstance = true
         mILazyOwner?.initView(savedInstanceState)
-
         // !isHidden() 默认为 true  在调用 hide show 的时候可以使用
         if (!mFragment!!.isHidden && mFragment!!.userVisibleHint) {
             // 这里的限制只能限制 A - > B 两层嵌套
@@ -135,7 +132,7 @@ class LazyProxy(
         if (visible) {
             if (mIsFirstVisible) {
                 mIsFirstVisible = false
-                mILazyOwner?.initViewData()
+                mILazyOwner!!.initViewData()
             }
             if (isFragmentVisible(mFragment!!)) {
                 mILazyOwner?.onVisible()

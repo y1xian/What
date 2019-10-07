@@ -1,4 +1,4 @@
-package com.yyxnb.yyxarch.http.interceptor
+package com.yyxnb.http.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

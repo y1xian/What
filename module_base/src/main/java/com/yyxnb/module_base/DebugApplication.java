@@ -13,6 +13,7 @@ import com.yyxnb.module_base.module.ModuleLifecycleConfig;
 import okhttp3.OkHttpClient;
 
 import static com.yyxnb.module_base.BaseAPI.BASE_URL;
+import static com.yyxnb.module_base.BaseAPI.BASE_URL_MOCKY;
 
 /**
  * debug包下的代码不参与编译，仅作为独立模块运行时初始化数据
@@ -55,8 +56,8 @@ public class DebugApplication extends BaseApplication {
         RetrofitManager.INSTANCE
                 .init(this)
                 .setBaseUrl(BASE_URL)
-//                .setHeaderPriorityEnable(true)
-//                .putHeaderBaseUrl("", "")
+                .setHeaderPriorityEnable(true)
+                .putHeaderBaseUrl("mocky", BASE_URL_MOCKY)
                 .setOkClient(mClient);
 
     }

@@ -2,7 +2,7 @@ package com.yyxnb.arch.utils
 
 import android.annotation.SuppressLint
 import android.widget.Toast
-import com.yyxnb.arch.AppUtils
+import com.yyxnb.arch.Arch
 import java.io.Serializable
 
 
@@ -13,7 +13,7 @@ import java.io.Serializable
 @SuppressLint("StaticFieldLeak")
 object ToastUtils : Serializable {
 
-    private val mContext = AppUtils.context
+    private val mContext = Arch.context
 
     /** Toast对象  */
     private var mToast: Toast? = null
@@ -37,7 +37,7 @@ object ToastUtils : Serializable {
      * @param msg
      */
     fun debug(msg: CharSequence) {
-        if (AppUtils.isDebug) {
+        if (Arch.isDebug) {
             normal(msg)
         }
     }

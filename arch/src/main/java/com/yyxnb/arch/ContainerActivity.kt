@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import com.yyxnb.arch.base.BaseActivity
 import com.yyxnb.arch.base.BaseFragment
+import com.yyxnb.arch.base.nav.NavigationFragment
 import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.ext.tryCatch
 import com.yyxnb.arch.utils.log.LogUtils
@@ -38,7 +39,10 @@ class ContainerActivity : BaseActivity() {
                 fragment.arguments = it
             }
 
-            setRootFragment(fragment, R.id.fragmentContent)
+//            val navigationFragment = NavigationFragment()
+//            navigationFragment.setRootFragment(fragment)
+            startActivityRootFragment(fragment, R.id.fragmentContent)
+//            setRootFragment(fragment, R.id.fragmentContent)
 
         }, {
             LogUtils.e(it.message.toString())

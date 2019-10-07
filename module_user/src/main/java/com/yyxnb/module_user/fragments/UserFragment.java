@@ -14,6 +14,7 @@ import com.yyxnb.arch.interfaces.BarStyle;
 import com.yyxnb.arch.interfaces.StatusBarDarkTheme;
 import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.arch.utils.StatusBarUtils;
+import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_user.R;
 
 import org.jetbrains.annotations.Nullable;
@@ -72,7 +73,8 @@ public class UserFragment extends BaseFragment {
 //        }
 
         clHead.setOnClickListener(v -> {
-            ARouter.getInstance().build(LOGIN_ACTIVITY).navigation();
+//            ARouter.getInstance().build(LOGIN_ACTIVITY).navigation();
+            startFragment((BaseFragment)ARouter.getInstance().build("/login/LoginFragment").navigation());
         });
 
 
@@ -81,6 +83,8 @@ public class UserFragment extends BaseFragment {
     @Override
     public void initViewData() {
         super.initViewData();
+
+        LogUtils.INSTANCE.d("------");
 //        SwipeExtKt.wrap(clHead);
 //        SwipeExtKt.wrap(getMRootView());
     }

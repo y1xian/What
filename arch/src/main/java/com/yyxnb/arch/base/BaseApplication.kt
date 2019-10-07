@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
 import com.jeremyliao.liveeventbus.LiveEventBus
-import com.yyxnb.arch.AppUtils
+import com.yyxnb.arch.Arch
 import com.yyxnb.arch.utils.log.LogUtils
 
 
@@ -25,7 +25,7 @@ open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        AppUtils.init(this)
+        Arch.init(this)
 
         LiveEventBus
                 .config()
@@ -34,7 +34,7 @@ open class BaseApplication : Application() {
                 .autoClear(false)
         LogUtils.init()
                 .setTag("Test")//设置全局tag
-                .setShowThreadInfo(true).setDebug(AppUtils.isDebug) //是否显示日志，默认true，发布时最好关闭
+                .setShowThreadInfo(true).setDebug(Arch.isDebug) //是否显示日志，默认true，发布时最好关闭
 
     }
 
