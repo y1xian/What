@@ -1,8 +1,12 @@
 package com.yyxnb.module_login;
 
+import android.content.res.Resources;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.arch.base.RootActivity;
+
+import me.jessyan.autosize.AutoSizeCompat;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.LOGIN_ACTIVITY;
 

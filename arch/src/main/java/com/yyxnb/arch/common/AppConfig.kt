@@ -27,6 +27,10 @@ object AppConfig : Serializable {
      */
     var retryDelay: Long = 3000
     /**
+     * 侧滑
+     */
+    var swipeBack: Int = 0
+    /**
      * 状态栏透明
      */
     var statusBarTranslucent: Boolean = true

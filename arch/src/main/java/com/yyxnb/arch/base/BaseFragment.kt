@@ -21,6 +21,7 @@ import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.common.AppConfig.statusBarColor
 import com.yyxnb.arch.interfaces.*
 import com.yyxnb.arch.jetpack.LifecycleDelegate
+import com.yyxnb.arch.utils.FragmentManagerUtils
 import com.yyxnb.arch.utils.MainThreadUtils
 import com.yyxnb.arch.utils.StatusBarUtils
 import kotlinx.coroutines.CoroutineScope
@@ -34,7 +35,7 @@ import java.util.*
  * @author : yyx
  * @date ：2016/10
  */
-abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScope(){
+abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScope() {
 
     protected lateinit var mActivity: AppCompatActivity
     protected lateinit var mContext: Context
@@ -47,6 +48,7 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
     private var fitsSystemWindows = AppConfig.fitsSystemWindows
     private var statusBarHidden = AppConfig.statusBarHidden
     private var statusBarDarkTheme = AppConfig.statusBarStyle
+    private var swipeBack = AppConfig.swipeBack
 
     private val lifecycleDelegate by lazy { LifecycleDelegate(this) }
 
@@ -92,6 +94,7 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
         initAttributes()
         if (null == mRootView) {
             mRootView = inflater.inflate(initLayoutResId(), container, false)
+            FragmentManagerUtils.createFragment(this, mRootView!!)
         } else {
             //  二次加载删除上一个子view
             val viewGroup = mRootView?.parent as ViewGroup
@@ -101,7 +104,6 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
             mActivity.onTouchEvent(event)
             return@setOnTouchListener false
         }
-//        FragmentManagerUtils.createFragment(this, mRootView!!)
         return mRootView
     }
 
@@ -122,10 +124,12 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
             javaClass.getAnnotation(StatusBarDarkTheme::class.java)?.let { statusBarDarkTheme = it.value }
             javaClass.getAnnotation(TagValue::class.java)?.let { sceneId = it.value }
             javaClass.getAnnotation(FitsSystemWindows::class.java)?.let { fitsSystemWindows = it.value }
+            javaClass.getAnnotation(SwipeBack::class.java)?.let { swipeBack = it.value }
 
             setStatusBarTranslucent(statusBarTranslucent, fitsSystemWindows)
             setStatusBarStyle(statusBarDarkTheme)
             setStatusBarHidden(statusBarHidden)
+            setSwipeBack(swipeBack)
         })
     }
 
@@ -161,7 +165,7 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
 
     override fun onDestroyView() {
         super.onDestroyView()
-//        FragmentManagerUtils.destroyFragment(this)
+        FragmentManagerUtils.destroyFragment(this)
         cancel() // 关闭页面后，结束所有协程任务
         mRootView = null
     }
@@ -288,19 +292,22 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
     fun setStatusBarHidden(hidden: Boolean) = (mActivity as? BaseActivity)?.setStatusBarHidden(hidden)
             ?: let { StatusBarUtils.setStatusBarHidden(getWindow(), hidden) }
 
+    fun setSwipeBack(mSwipeBack: Int = 0) = (mActivity as? BaseActivity)?.setSwipeBack(mSwipeBack)
+
+
     //更新状态栏样式
     fun setNeedsStatusBarAppearanceUpdate() {
 
-        // statusBarHidden
+        // 隐藏
         val hidden = statusBarHidden
         setStatusBarHidden(hidden)
 
-        // statusBarStyle
+        // 文字颜色
         val statusBarStyle = statusBarDarkTheme
         setStatusBarStyle(statusBarStyle)
 
-        // statusBarColor
-        if (hidden) {
+        // 隐藏 、 不留空间 则透明
+        if (hidden || !fitsSystemWindows) {
             setStatusBarColor(Color.TRANSPARENT)
         } else {
             var statusBarColor = initStatusBarColor()

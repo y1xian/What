@@ -2,15 +2,16 @@ package com.yyxnb.arch.base
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.ActivityCompat
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+import com.github.anzewei.parallaxbacklayout.ParallaxBack
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper
 import com.yyxnb.arch.ContainerActivity
 import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.ext.hideKeyBoard
@@ -22,6 +23,10 @@ import com.yyxnb.arch.utils.StatusBarUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import me.jessyan.autosize.AutoSizeCompat
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_DEFAULT
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_FULL
+
 
 /**
  * Description: BaseActivity
@@ -29,6 +34,7 @@ import kotlinx.coroutines.cancel
  * @author : yyx
  * @date : 2018/6/10
  */
+@ParallaxBack(edgeMode = ParallaxBack.EdgeMode.FULLSCREEN)
 abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     protected val TAG = javaClass.canonicalName
@@ -42,6 +48,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
     private var statusBarHidden = AppConfig.statusBarHidden
     private var statusBarDarkTheme = AppConfig.statusBarStyle
     private var navigationBarDarkTheme = AppConfig.navigationBarStyle
+    private var swipeBack = AppConfig.swipeBack
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,11 +68,13 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
             javaClass.getAnnotation(StatusBarHidden::class.java)?.let { statusBarHidden = it.value }
             javaClass.getAnnotation(StatusBarDarkTheme::class.java)?.let { statusBarDarkTheme = it.value }
             javaClass.getAnnotation(FitsSystemWindows::class.java)?.let { fitsSystemWindows = it.value }
+            javaClass.getAnnotation(SwipeBack::class.java)?.let { swipeBack = it.value }
 
             setStatusBarTranslucent(statusBarTranslucent, fitsSystemWindows)
             setStatusBarStyle(statusBarDarkTheme)
             setNavigationBarStyle(navigationBarDarkTheme)
             setStatusBarHidden(statusBarHidden)
+            setSwipeBack(swipeBack)
         })
     }
 
@@ -90,6 +99,34 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
      * 初始化
      */
     abstract fun initView(savedInstanceState: Bundle?)
+
+
+    override fun getResources(): Resources {
+        //需要升级到 v1.1.2 及以上版本才能使用 AutoSizeCompat
+        AutoSizeCompat.autoConvertDensityOfGlobal(super.getResources())//如果没有自定义需求用这个方法
+//        AutoSizeCompat.autoConvertDensity(super.getResources(), 667f, false)//如果有自定义需求就用这个方法
+        return super.getResources()
+    }
+
+    //侧滑
+    fun setSwipeBack(mSwipeBack: Int = 0) {
+        val layout = ParallaxHelper.getParallaxBackLayout(this, true)
+        when (mSwipeBack) {
+            0 -> {
+                ParallaxHelper.enableParallaxBack(this)
+                layout.setEdgeMode(EDGE_MODE_FULL) //全屏滑动
+            }
+            -1 -> {
+                ParallaxHelper.disableParallaxBack(this)
+            }
+            else -> {
+                ParallaxHelper.enableParallaxBack(this)
+                layout.setEdgeMode(EDGE_MODE_DEFAULT) //边缘滑动
+            }
+
+        }
+
+    }
 
     //开启沉浸式
     fun setStatusBarTranslucent(translucent: Boolean, fitsSystemWindows: Boolean) {

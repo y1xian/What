@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 import com.yyxnb.arch.base.mvvm.BaseFragmentVM;
 import com.yyxnb.arch.base.nav.StackModeManager;
+import com.yyxnb.arch.interfaces.FitsSystemWindows;
+import com.yyxnb.arch.interfaces.StatusBarTranslucent;
 import com.yyxnb.arch.utils.ToastUtils;
 import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_login.vm.TestViewModel;
@@ -21,6 +24,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * A simple {@link Fragment} subclass.
  */
+@FitsSystemWindows(value = false)
 @Route(path = "/login/LoginFragment")
 public class LoginFragment extends BaseFragmentVM<TestViewModel> {
 
@@ -71,10 +75,10 @@ public class LoginFragment extends BaseFragmentVM<TestViewModel> {
 
     }
 
-    @Override
-    public int initStatusBarColor() {
-        return getResources().getColor(R.color.green);
-    }
+//    @Override
+//    public int initStatusBarColor() {
+//        return getResources().getColor(R.color.transparent);
+//    }
 
     @Override
     public void initObservable() {

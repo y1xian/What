@@ -73,4 +73,8 @@ dependencies {
     api libs.kotlin_coroutines_core
     // 消息总线
     api libs.live_event_bus
+    //https://github.com/JessYanCoding/AndroidAutoSize
+    api 'me.jessyan:autosize:1.1.2'
+    //
+    api libs.parallaxbacklayout
 }

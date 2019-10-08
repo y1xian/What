@@ -3,9 +3,11 @@ package com.yyxnb.arch.base
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.yyxnb.arch.Arch
 import com.yyxnb.arch.utils.log.LogUtils
+import me.jessyan.autosize.AutoSizeConfig
 
 
 /**
@@ -26,6 +28,10 @@ open class BaseApplication : Application() {
         super.onCreate()
 
         Arch.init(this)
+
+        AutoSizeConfig.getInstance().isCustomFragment = true
+
+        registerActivityLifecycleCallbacks(ParallaxHelper.getInstance())
 
         LiveEventBus
                 .config()

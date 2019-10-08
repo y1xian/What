@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseActivity;
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.module_base.weight.NoScrollViewPager;
 import com.yyxnb.module_base.weight.tabbar.Tab;
 import com.yyxnb.module_base.weight.tabbar.TabBarView;
@@ -23,6 +24,7 @@ import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
 /**
  * @author yyx
  */
+@SwipeBack(value = -1)
 public class MainActivity extends BaseActivity {
 
     private NoScrollViewPager mViewPager;

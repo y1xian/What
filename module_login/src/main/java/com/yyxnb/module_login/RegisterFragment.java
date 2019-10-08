@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.arch.utils.log.LogUtils;
 
 import org.jetbrains.annotations.Nullable;
