@@ -81,11 +81,14 @@ public class UserFragment extends BaseFragment {
     }
 
     @Override
-    public void initViewData() {
-        super.initViewData();
+    public void onInVisible() {
+        super.onInVisible();
+        LogUtils.INSTANCE.d("---onInVisible---");
+    }
 
-        LogUtils.INSTANCE.d("------");
-//        SwipeExtKt.wrap(clHead);
-//        SwipeExtKt.wrap(getMRootView());
+    @Override
+    public void onVisible() {
+        super.onVisible();
+        LogUtils.INSTANCE.d("---onVisible---");
     }
 }

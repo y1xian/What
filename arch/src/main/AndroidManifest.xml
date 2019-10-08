@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yyxnb.arch" >
 
     <!-- 基本模块（必须）START -->
@@ -9,7 +10,9 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 基本模块 END -->
 
-    <application>
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="N">
         <activity
             android:name=".ContainerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
