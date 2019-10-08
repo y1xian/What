@@ -27,18 +27,6 @@ object AppConfig : Serializable {
      */
     var retryDelay: Long = 3000
     /**
-     * 是否侧滑
-     */
-    var swipeBackEnabled: Boolean = true
-    /**
-     * 侧滑边距 0为全屏
-     */
-    var swipeEdgeSize: Int = 0
-    /**
-     * 状态栏动画
-     */
-    var animated: Boolean = false
-    /**
      * 状态栏透明
      */
     var statusBarTranslucent: Boolean = true

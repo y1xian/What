@@ -1,12 +1,11 @@
 package com.yyxnb.module_mian.fragments;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.module_mian.R;
 
 import org.jetbrains.annotations.Nullable;
@@ -14,7 +13,6 @@ import org.jetbrains.annotations.Nullable;
 /**
  * A simple {@link Fragment} subclass.
  */
-@SwipeBack(value = false)
 //@StatusBarDarkTheme(value = BarStyle.LightContent)
 public class MainHomeFragment extends BaseFragment {
 
@@ -36,16 +34,16 @@ public class MainHomeFragment extends BaseFragment {
 
     @Override
     public int initStatusBarColor() {
-        return getResources().getColor(R.color.green);
+        return getResources().getColor(R.color.purple);
     }
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-//        onResume();
         tvShow = findViewById(R.id.tvShow);
 
         tvShow.setOnClickListener(v -> {
-//            startFragment(new MainHomeFragment());
+            startFragment(new MainClassificationFragment());
+//            startFragment((BaseFragment) ARouter.getInstance().build("/login/LoginFragment").navigation());
         });
 
     }
@@ -60,11 +58,5 @@ public class MainHomeFragment extends BaseFragment {
 //        },0);
 
 
-    }
-
-    @Override
-    public void onVisible() {
-        super.onVisible();
-//        setNeedsStatusBarAppearanceUpdate();
     }
 }

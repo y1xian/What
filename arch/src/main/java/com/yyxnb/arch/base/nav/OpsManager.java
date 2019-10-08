@@ -130,13 +130,11 @@ public final class OpsManager implements OpsInterface {
         if (bundle != null) {
             target.setArguments(bundle);
         }
-        NavigationFragment navigationFragment = new NavigationFragment();
-        navigationFragment.setRootFragment(target);
 
         FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
         transaction
                 .setTransition(FragmentTransaction.TRANSIT_NONE)  // fragment缺省的动画
-                .replace(Resource.getId(context, "FrameLayoutId"), navigationFragment, navigationFragment.getClass().getCanonicalName())
+                .replace(Resource.getId(context, "FrameLayoutId"), target, target.getClass().getCanonicalName())
                 .commit();
         FragmentStack.getInstance().put(context.getClass().getCanonicalName(), target);
     }

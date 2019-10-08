@@ -12,20 +12,16 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.arch.interfaces.BarStyle;
 import com.yyxnb.arch.interfaces.StatusBarDarkTheme;
-import com.yyxnb.arch.interfaces.SwipeBack;
-import com.yyxnb.arch.utils.StatusBarUtils;
 import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_user.R;
 
 import org.jetbrains.annotations.Nullable;
 
-import static com.yyxnb.module_base.arouter.ARouterConstant.LOGIN_ACTIVITY;
 import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-@SwipeBack(value = false)
 @StatusBarDarkTheme(value = BarStyle.LightContent)
 @Route(path = USER_FRAGMENT)
 public class UserFragment extends BaseFragment {
@@ -61,8 +57,8 @@ public class UserFragment extends BaseFragment {
         clHead = findViewById(R.id.clHead);
 
         tvName = findViewById(R.id.tvName);
-//
-        tvName.setText("yyyy更新 " + StatusBarUtils.INSTANCE.getStatusBarHeight(getMContext()));
+
+//        tvName.setText("yyyy更新 " + StatusBarUtils.INSTANCE.getStatusBarHeight(getMContext()));
 //
 //        tvShow.setOnClickListener(v -> {
 //            ToastUtils.INSTANCE.normal(" tvShow user 13213123213213");

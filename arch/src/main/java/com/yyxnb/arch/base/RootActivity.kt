@@ -22,7 +22,6 @@ import java.util.ArrayList
  */
 abstract class RootActivity : AppCompatActivity() {
     lateinit var stackManager: OpsManager
-//    private var mAnimBean: FragmentAnimBean? = null
 
     /**
      * 当前附着在activity上的顶层fragment
@@ -106,14 +105,6 @@ abstract class RootActivity : AppCompatActivity() {
         rootLayout.id = Resource.getId(this, "FrameLayoutId")
         return rootLayout
     }
-    //    private SwipeBackLayout fragmentContainer() {
-    //        SwipeBackLayout rootLayout = new SwipeBackLayout(this);
-    //        rootLayout.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-    //                ViewGroup.LayoutParams.MATCH_PARENT));
-    //        rootLayout.setId(Resource.getId(this, "FrameLayoutId"));
-    //        rootLayout.setSwipeListener(this);
-    //        return rootLayout;
-    //    }
 
     /**
      * activity对应的根部fragment
@@ -181,89 +172,5 @@ abstract class RootActivity : AppCompatActivity() {
 //        }
 //    }
 
-    protected fun handleBackPressed(): Boolean {
-        return false
-    }
-
-    fun presentFragment(fragment: BaseFragment) {
-        presentFragmentInternal(fragment)
-    }
-
-    private fun presentFragmentInternal(fragment: BaseFragment) {
-        FragmentHelper.addFragmentToBackStack(supportFragmentManager, android.R.id.content, fragment, PresentAnimation.Push)
-    }
-
-    fun dismissFragment(fragment: BaseFragment) {
-        dismissFragmentInternal(fragment)
-    }
-
-    private fun dismissFragmentInternal(fragment: BaseFragment) {
-        if (!fragment.isAdded) {
-            return
-        }
-        val fragmentManager = supportFragmentManager
-        FragmentHelper.executePendingTransactionsSafe(fragmentManager)
-
-        val topFragment = fragmentManager.findFragmentById(android.R.id.content) as BaseFragment?
-                ?: return
-        topFragment.setAnimation(PresentAnimation.Push)
-        val presented = getPresentedFragment(fragment)
-        if (presented != null) {
-            fragment.setAnimation(PresentAnimation.Push)
-            topFragment.userVisibleHint = false
-            topFragment.onHiddenChanged(true)
-            supportFragmentManager.popBackStack(presented.getSceneId(), FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            FragmentHelper.executePendingTransactionsSafe(supportFragmentManager)
-//            fragment.onFragmentResult(topFragment.getRequestCode(), topFragment.getResultCode(), topFragment.getResultData())
-        } else {
-            val presenting = getPresentingFragment(fragment)
-            presenting?.setAnimation(PresentAnimation.Push)
-            fragment.userVisibleHint = false
-            if (presenting == null) {
-                ActivityCompat.finishAfterTransition(this)
-            } else {
-                fragmentManager.popBackStack(fragment.getSceneId(), FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                FragmentHelper.executePendingTransactionsSafe(fragmentManager)
-//                presenting.onFragmentResult(fragment.getRequestCode(), fragment.getResultCode(), fragment.getResultData())
-            }
-        }
-    }
-
-    fun getPresentedFragment(fragment: BaseFragment): BaseFragment? {
-        return FragmentHelper.getLatterFragment(supportFragmentManager, fragment)
-    }
-
-    fun getPresentingFragment(fragment: BaseFragment): BaseFragment? {
-        return FragmentHelper.getAheadFragment(supportFragmentManager, fragment)
-    }
-
-    @JvmOverloads
-    fun startActivityRootFragment(rootFragment: BaseFragment, containerId: Int = android.R.id.content) {
-//        scheduleTaskAtStarted(Runnable {
-            setRootFragmentInternal(rootFragment, containerId)
-//        })
-    }
-
-    private fun setRootFragmentInternal(fragment: BaseFragment, containerId: Int) {
-        val fragmentManager = supportFragmentManager
-        val count = fragmentManager.backStackEntryCount
-        if (count > 0) {
-            val tag = fragmentManager.getBackStackEntryAt(0).name
-            val former = fragmentManager.findFragmentByTag(tag) as BaseFragment?
-            if (former != null && former.isAdded) {
-                former.setAnimation(PresentAnimation.Push)
-                fragmentManager.popBackStack(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-//                hasFormerRoot = true
-            }
-        }
-
-        val transaction = fragmentManager.beginTransaction()
-        transaction.setReorderingAllowed(true)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-        fragment.setAnimation(PresentAnimation.Push)
-        transaction.add(containerId, fragment, fragment.getSceneId())
-        transaction.addToBackStack(fragment.getSceneId())
-        transaction.commit()
-    }
 
 }
