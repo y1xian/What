@@ -97,15 +97,15 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
     public CommonTitleBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        loadAttributes(context.getApplicationContext(), attrs);
-        initGlobalViews(context.getApplicationContext());
-        initMainViews(context.getApplicationContext());
+        loadAttributes(context, attrs);
+        initGlobalViews(context);
+        initMainViews(context);
     }
 
     private void loadAttributes(Context context, AttributeSet attrs) {
-        PADDING_12 = ScreenUtils.dp2PxInt(context.getApplicationContext(), 12);
+        PADDING_12 = ScreenUtils.dp2PxInt(context, 12);
 
-        TypedArray array = context.getApplicationContext().obtainStyledAttributes(attrs, R.styleable.CommonTitleBar);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CommonTitleBar);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // notice 未引入沉浸式标题栏之前,隐藏标题栏撑起布局
@@ -113,7 +113,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
         }
 
         titleBarColor = array.getColor(R.styleable.CommonTitleBar_titleBarColor, getResources().getColor(R.color.titleBar));
-        titleBarHeight = (int) array.getDimension(R.styleable.CommonTitleBar_titleBarHeight, ScreenUtils.dp2PxInt(context.getApplicationContext(), 56));
+        titleBarHeight = (int) array.getDimension(R.styleable.CommonTitleBar_titleBarHeight, ScreenUtils.dp2PxInt(context, 48));
 
         showBottomLine = array.getBoolean(R.styleable.CommonTitleBar_showBottomLine, true);
         bottomLineColor = array.getColor(R.styleable.CommonTitleBar_bottomLineColor, getResources().getColor(R.color.item_div_bg));
@@ -122,7 +122,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
         if (leftType == TYPE_LEFT_TEXTVIEW) {
             leftText = array.getString(R.styleable.CommonTitleBar_leftText);
             leftTextColor = array.getColor(R.styleable.CommonTitleBar_leftTextColor, getResources().getColor(R.color.title_color));
-            leftTextSize = array.getDimension(R.styleable.CommonTitleBar_leftTextSize, ScreenUtils.dp2PxInt(context.getApplicationContext(), 16));
+            leftTextSize = array.getDimension(R.styleable.CommonTitleBar_leftTextSize, ScreenUtils.dp2PxInt(context, 16));
             leftDrawable = array.getResourceId(R.styleable.CommonTitleBar_leftDrawable, 0);
             leftDrawablePadding = array.getDimension(R.styleable.CommonTitleBar_leftDrawablePadding, 5);
         } else if (leftType == TYPE_LEFT_IMAGEBUTTON) {
@@ -135,22 +135,22 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
         if (rightType == TYPE_RIGHT_TEXTVIEW) {
             rightText = array.getString(R.styleable.CommonTitleBar_rightText);
             rightTextColor = array.getColor(R.styleable.CommonTitleBar_rightTextColor, getResources().getColor(R.color.title_color));
-            rightTextSize = array.getDimension(R.styleable.CommonTitleBar_rightTextSize, ScreenUtils.dp2PxInt(context.getApplicationContext(), 16));
+            rightTextSize = array.getDimension(R.styleable.CommonTitleBar_rightTextSize, ScreenUtils.dp2PxInt(context, 16));
         } else if (rightType == TYPE_RIGHT_IMAGEBUTTON) {
             rightImageResource = array.getResourceId(R.styleable.CommonTitleBar_rightImageResource, 0);
         } else if (rightType == TYPE_RIGHT_CUSTOM_VIEW) {
             rightCustomViewRes = array.getResourceId(R.styleable.CommonTitleBar_rightCustomView, 0);
         }
 
-        centerType = array.getInt(R.styleable.CommonTitleBar_centerType, TYPE_CENTER_NONE);
+        centerType = array.getInt(R.styleable.CommonTitleBar_centerType, TYPE_CENTER_TEXTVIEW);
         if (centerType == TYPE_CENTER_TEXTVIEW) {
             centerText = array.getString(R.styleable.CommonTitleBar_centerText);
             centerTextColor = array.getColor(R.styleable.CommonTitleBar_centerTextColor, getResources().getColor(R.color.title_color));
-            centerTextSize = array.getDimension(R.styleable.CommonTitleBar_centerTextSize, ScreenUtils.dp2PxInt(context.getApplicationContext(), 20));
+            centerTextSize = array.getDimension(R.styleable.CommonTitleBar_centerTextSize, ScreenUtils.dp2PxInt(context, 20));
             centerTextMarquee = array.getBoolean(R.styleable.CommonTitleBar_centerTextMarquee, true);
             centerSubText = array.getString(R.styleable.CommonTitleBar_centerSubText);
             centerSubTextColor = array.getColor(R.styleable.CommonTitleBar_centerSubTextColor, getResources().getColor(R.color.auxiliary_color));
-            centerSubTextSize = array.getDimension(R.styleable.CommonTitleBar_centerSubTextSize, ScreenUtils.dp2PxInt(context.getApplicationContext(), 12));
+            centerSubTextSize = array.getDimension(R.styleable.CommonTitleBar_centerSubTextSize, ScreenUtils.dp2PxInt(context, 12));
         } else if (centerType == TYPE_CENTER_CUSTOM_VIEW) {
             centerCustomViewRes = array.getResourceId(R.styleable.CommonTitleBar_centerCustomView, 0);
         }
@@ -172,8 +172,8 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         // 构建标题栏填充视图
         if (fillStatusBar) {
-            int statusBarHeight = StatusBarUtils.INSTANCE.getStatusBarHeight(context.getApplicationContext());
-            viewStatusBarFill = new View(context.getApplicationContext());
+            int statusBarHeight = StatusBarUtils.INSTANCE.getStatusBarHeight(context);
+            viewStatusBarFill = new View(context);
             viewStatusBarFill.setId(StatusBarUtils.INSTANCE.generateViewId());
             //状态栏颜色与标题栏颜色一致 非渐变
             viewStatusBarFill.setBackgroundColor(titleBarColor);
@@ -183,7 +183,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
         }
 
         // 构建主视图
-        rlMain = new RelativeLayout(context.getApplicationContext());
+        rlMain = new RelativeLayout(context);
         rlMain.setId(StatusBarUtils.INSTANCE.generateViewId());
         rlMain.setBackgroundColor(titleBarColor);
         LayoutParams mainParams = new LayoutParams(MATCH_PARENT, titleBarHeight);
@@ -195,7 +195,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         // 计算主布局高度
         if (showBottomLine) {
-            mainParams.height = titleBarHeight - Math.max(1, ScreenUtils.dp2PxInt(context, 0.4f));
+            mainParams.height = titleBarHeight - Math.max(1, ScreenUtils.dp2PxInt(context, 0.1f));
         } else {
             mainParams.height = titleBarHeight;
         }
@@ -206,7 +206,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
             // 已设置显示标题栏分隔线,5.0以下机型,显示分隔线
             viewBottomLine = new View(context);
             viewBottomLine.setBackgroundColor(bottomLineColor);
-            LayoutParams bottomLineParams = new LayoutParams(MATCH_PARENT, Math.max(1, ScreenUtils.dp2PxInt(context, 0.4f)));
+            LayoutParams bottomLineParams = new LayoutParams(MATCH_PARENT, Math.max(1, ScreenUtils.dp2PxInt(context, 0.1f)));
             bottomLineParams.addRule(RelativeLayout.BELOW, rlMain.getId());
 
             addView(viewBottomLine, bottomLineParams);
@@ -220,13 +220,13 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
      */
     private void initMainViews(Context context) {
         if (leftType != TYPE_LEFT_NONE) {
-            initMainLeftViews(context.getApplicationContext());
+            initMainLeftViews(context);
         }
         if (rightType != TYPE_RIGHT_NONE) {
-            initMainRightViews(context.getApplicationContext());
+            initMainRightViews(context);
         }
         if (centerType != TYPE_CENTER_NONE) {
-            initMainCenterViews(context.getApplicationContext());
+            initMainCenterViews(context);
         }
     }
 
@@ -243,7 +243,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         if (leftType == TYPE_LEFT_TEXTVIEW) {
             // 初始化左边TextView
-            tvLeft = new TextView(context.getApplicationContext());
+            tvLeft = new TextView(context);
             tvLeft.setId(StatusBarUtils.INSTANCE.generateViewId());
             tvLeft.setText(leftText);
             tvLeft.setTextColor(leftTextColor);
@@ -266,7 +266,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         } else if (leftType == TYPE_LEFT_IMAGEBUTTON) {
             // 初始化左边ImageButton
-            btnLeft = new ImageButton(context.getApplicationContext());
+            btnLeft = new ImageButton(context);
             btnLeft.setId(StatusBarUtils.INSTANCE.generateViewId());
             btnLeft.setBackgroundColor(Color.TRANSPARENT);
             btnLeft.setImageResource(leftImageResource);
@@ -277,7 +277,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         } else if (leftType == TYPE_LEFT_CUSTOM_VIEW) {
             // 初始化自定义View
-            viewCustomLeft = LayoutInflater.from(context.getApplicationContext()).inflate(leftCustomViewRes, rlMain, false);
+            viewCustomLeft = LayoutInflater.from(context).inflate(leftCustomViewRes, rlMain, false);
             if (viewCustomLeft.getId() == View.NO_ID) {
                 viewCustomLeft.setId(StatusBarUtils.INSTANCE.generateViewId());
             }
@@ -298,7 +298,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         if (rightType == TYPE_RIGHT_TEXTVIEW) {
             // 初始化右边TextView
-            tvRight = new TextView(context.getApplicationContext());
+            tvRight = new TextView(context);
             tvRight.setId(StatusBarUtils.INSTANCE.generateViewId());
             tvRight.setText(rightText);
             tvRight.setTextColor(rightTextColor);
@@ -311,7 +311,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         } else if (rightType == TYPE_RIGHT_IMAGEBUTTON) {
             // 初始化右边ImageBtn
-            btnRight = new ImageButton(context.getApplicationContext());
+            btnRight = new ImageButton(context);
             btnRight.setId(StatusBarUtils.INSTANCE.generateViewId());
             btnRight.setImageResource(rightImageResource);
             btnRight.setBackgroundColor(Color.TRANSPARENT);
@@ -322,7 +322,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         } else if (rightType == TYPE_RIGHT_CUSTOM_VIEW) {
             // 初始化自定义view
-            viewCustomRight = LayoutInflater.from(context.getApplicationContext()).inflate(rightCustomViewRes, rlMain, false);
+            viewCustomRight = LayoutInflater.from(context).inflate(rightCustomViewRes, rlMain, false);
             if (viewCustomRight.getId() == View.NO_ID) {
                 viewCustomRight.setId(StatusBarUtils.INSTANCE.generateViewId());
             }
@@ -338,7 +338,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
     private void initMainCenterViews(Context context) {
         if (centerType == TYPE_CENTER_TEXTVIEW) {
             // 初始化中间子布局
-            llMainCenter = new LinearLayout(context.getApplicationContext());
+            llMainCenter = new LinearLayout(context);
             llMainCenter.setId(StatusBarUtils.INSTANCE.generateViewId());
             llMainCenter.setGravity(Gravity.CENTER);
             llMainCenter.setOrientation(LinearLayout.VERTICAL);
@@ -351,14 +351,14 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
             rlMain.addView(llMainCenter, centerParams);
 
             // 初始化标题栏TextView
-            tvCenter = new TextView(context.getApplicationContext());
+            tvCenter = new TextView(context);
             tvCenter.setText(centerText);
             tvCenter.setTextColor(centerTextColor);
             tvCenter.setTextSize(TypedValue.COMPLEX_UNIT_PX, centerTextSize);
             tvCenter.setGravity(Gravity.CENTER);
             tvCenter.setSingleLine(true);
             // 设置跑马灯效果
-            tvCenter.setMaxWidth((int) (ScreenUtils.getScreenPixelSize(context.getApplicationContext())[0] * 3 / 5.0));
+            tvCenter.setMaxWidth((int) (ScreenUtils.getScreenPixelSize(context)[0] * 3 / 5.0));
             if (centerTextMarquee) {
                 tvCenter.setEllipsize(TextUtils.TruncateAt.MARQUEE);
                 tvCenter.setMarqueeRepeatLimit(-1);
@@ -370,17 +370,17 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
             llMainCenter.addView(tvCenter, centerTextParams);
 
             // 初始化进度条, 显示于标题栏左边
-            progressCenter = new ProgressBar(context.getApplicationContext());
+            progressCenter = new ProgressBar(context);
             progressCenter.setIndeterminateDrawable(getResources().getDrawable(R.mipmap.icon_titlebar_progress_circular));
             progressCenter.setVisibility(View.GONE);
-            int progressWidth = ScreenUtils.dp2PxInt(context.getApplicationContext(), 18);
+            int progressWidth = ScreenUtils.dp2PxInt(context, 18);
             LayoutParams progressParams = new LayoutParams(progressWidth, progressWidth);
             progressParams.addRule(RelativeLayout.CENTER_VERTICAL);
             progressParams.addRule(RelativeLayout.START_OF, llMainCenter.getId());
             rlMain.addView(progressCenter, progressParams);
 
             // 初始化副标题栏
-            tvCenterSub = new TextView(context.getApplicationContext());
+            tvCenterSub = new TextView(context);
             tvCenterSub.setText(centerSubText);
             tvCenterSub.setTextColor(centerSubTextColor);
             tvCenterSub.setTextSize(TypedValue.COMPLEX_UNIT_PX, centerSubTextSize);
@@ -395,7 +395,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
 
         } else if (centerType == TYPE_CENTER_CUSTOM_VIEW) {
             // 初始化中间自定义布局
-            centerCustomView = LayoutInflater.from(context.getApplicationContext()).inflate(centerCustomViewRes, rlMain, false);
+            centerCustomView = LayoutInflater.from(context).inflate(centerCustomViewRes, rlMain, false);
             if (centerCustomView.getId() == View.NO_ID) {
                 centerCustomView.setId(StatusBarUtils.INSTANCE.generateViewId());
             }

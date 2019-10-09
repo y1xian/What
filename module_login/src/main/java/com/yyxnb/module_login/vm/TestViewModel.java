@@ -19,16 +19,11 @@ public class TestViewModel extends BaseViewModel {
 
     private MutableLiveData<Map<String, String>> reqTeam = new MutableLiveData();
 
-    public MutableLiveData<BaseDatas<List<TestData>>> reqTest = new MutableLiveData();
-//
-
-    public LiveData<BaseDatas<List<TestData>>> getTest(){
+    public LiveData<BaseDatas<List<TestData>>> getTest() {
         return Transformations.switchMap(reqTeam, input -> mRepository.getTest());
     }
 
-
-//
-    public void reqTest(){
+    public void reqTest() {
         Map<String, String> map = new LinkedHashMap<>();
         map.put("name", "李白");
         reqTeam.postValue(map);

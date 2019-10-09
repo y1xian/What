@@ -3,17 +3,11 @@ package com.yyxnb.module_login;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 import com.yyxnb.arch.base.mvvm.BaseFragmentVM;
-import com.yyxnb.arch.base.nav.StackModeManager;
-import com.yyxnb.arch.interfaces.FitsSystemWindows;
-import com.yyxnb.arch.interfaces.StatusBarTranslucent;
+import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.arch.utils.ToastUtils;
 import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_login.vm.TestViewModel;
@@ -24,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * A simple {@link Fragment} subclass.
  */
-@FitsSystemWindows(value = false)
+@SwipeBack
 @Route(path = "/login/LoginFragment")
 public class LoginFragment extends BaseFragmentVM<TestViewModel> {
 

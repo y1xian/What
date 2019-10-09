@@ -12,6 +12,8 @@ import android.view.View
 import android.widget.EditText
 import com.github.anzewei.parallaxbacklayout.ParallaxBack
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_DEFAULT
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_FULL
 import com.yyxnb.arch.ContainerActivity
 import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.ext.hideKeyBoard
@@ -24,8 +26,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import me.jessyan.autosize.AutoSizeCompat
-import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_DEFAULT
-import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_FULL
 
 
 /**
@@ -34,7 +34,7 @@ import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE
  * @author : yyx
  * @date : 2018/6/10
  */
-@ParallaxBack(edgeMode = ParallaxBack.EdgeMode.FULLSCREEN)
+@ParallaxBack(edgeMode = ParallaxBack.EdgeMode.EDGE)
 abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     protected val TAG = javaClass.canonicalName

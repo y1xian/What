@@ -29,7 +29,7 @@ object AppConfig : Serializable {
     /**
      * 侧滑
      */
-    var swipeBack: Int = 0
+    var swipeBack: Int = 1
     /**
      * 状态栏透明
      */

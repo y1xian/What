@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.module_main.R;
 
 import org.jetbrains.annotations.Nullable;
@@ -13,6 +14,7 @@ import org.jetbrains.annotations.Nullable;
  * A simple {@link Fragment} subclass.
  */
 //@StatusBarDarkTheme(value = BarStyle.LightContent)
+@SwipeBack(value = -1)
 public class MainHomeFragment extends BaseFragment {
 
     private TextView tvShow;
@@ -44,18 +46,11 @@ public class MainHomeFragment extends BaseFragment {
             startFragment(new MainClassificationFragment());
 //            startFragment((BaseFragment) ARouter.getInstance().build("/login/LoginFragment").navigation());
         });
-
     }
 
     @Override
     public void initViewData() {
         super.initViewData();
-
-//        scheduleTaskAtStarted(() -> {
-//            setNeedsStatusBarAppearanceUpdate();
-//            LogUtils.INSTANCE.d(" " + getStatusBarDarkTheme());
-//        },0);
-
 
     }
 }

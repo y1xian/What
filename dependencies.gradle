@@ -175,7 +175,7 @@ ext {
             shimmerlayout                  : [group: 'io.supercharge', name: 'shimmerlayout', version: '2.1.0'],
 
             //https://github.com/JeremyLiao/LiveEventBus
-            live_event_bus                 : [group: 'com.jeremyliao', name: 'live-event-bus', version: '1.5.0'],
+            live_event_bus                 : [group: 'com.jeremyliao', name: 'live-event-bus', version: '1.5.2'],
 
             //https://github.com/anzewei/ParallaxBackLayout
             parallaxbacklayout             : [group: 'com.github.anzewei', name: 'parallaxbacklayout', version: '1.1.9'],
