@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.arch.interfaces.BarStyle;
+import com.yyxnb.arch.interfaces.FitsSystemWindows;
 import com.yyxnb.arch.interfaces.StatusBarDarkTheme;
 import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_user.R;
@@ -22,6 +23,7 @@ import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
 /**
  * A simple {@link Fragment} subclass.
  */
+@FitsSystemWindows
 @StatusBarDarkTheme(value = BarStyle.LightContent)
 @Route(path = USER_FRAGMENT)
 public class UserFragment extends BaseFragment {

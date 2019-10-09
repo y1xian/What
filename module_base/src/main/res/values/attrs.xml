@@ -27,6 +27,8 @@
     <declare-styleable name="CommonTitleBar">
         <!-- 标题栏背景 图片或颜色 -->
         <attr name="titleBarColor" format="color" />
+        <!-- 填充状态栏 -->
+        <attr name="fillStatusBar" format="boolean" />
         <!-- 标题栏高度 -->
         <attr name="titleBarHeight" format="dimension" />
         <!-- 显示标题栏分割线 -->

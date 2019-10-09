@@ -37,7 +37,7 @@ object AppConfig : Serializable {
     /**
      * 给系统窗口留出空间
      */
-    var fitsSystemWindows: Boolean = true
+    var fitsSystemWindows: Boolean = false
     /**
      * 状态栏文字颜色
      */
