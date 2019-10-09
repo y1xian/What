@@ -1,12 +1,11 @@
-package com.yyxnb.module_mian.fragments;
+package com.yyxnb.module_main.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.module_mian.R;
+import com.yyxnb.module_main.R;
 
 import org.jetbrains.annotations.Nullable;
 

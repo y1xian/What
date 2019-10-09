@@ -30,7 +30,7 @@ android {
 
 dependencies {
 
-    implementation project(':module_mian')
+    implementation project(':module_main')
 
     addComponent 'module_login'
     addComponent 'module_user'

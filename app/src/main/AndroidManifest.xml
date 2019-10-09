@@ -37,7 +37,7 @@
             android:value="portrait|landscape" />
 
         <activity
-            android:name="com.yyxnb.module_mian.SplashActivity"
+            android:name="com.yyxnb.module_main.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

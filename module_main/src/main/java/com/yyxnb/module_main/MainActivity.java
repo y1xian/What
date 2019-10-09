@@ -1,4 +1,4 @@
-package com.yyxnb.module_mian;
+package com.yyxnb.module_main;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,8 +11,8 @@ import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.module_base.weight.NoScrollViewPager;
 import com.yyxnb.module_base.weight.tabbar.Tab;
 import com.yyxnb.module_base.weight.tabbar.TabBarView;
-import com.yyxnb.module_mian.fragments.MainClassificationFragment;
-import com.yyxnb.module_mian.fragments.MainHomeFragment;
+import com.yyxnb.module_main.fragments.MainClassificationFragment;
+import com.yyxnb.module_main.fragments.MainHomeFragment;
 
 import org.jetbrains.annotations.Nullable;
 

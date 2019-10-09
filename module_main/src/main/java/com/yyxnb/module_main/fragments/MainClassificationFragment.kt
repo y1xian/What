@@ -1,14 +1,11 @@
-package com.yyxnb.module_mian.fragments
+package com.yyxnb.module_main.fragments
 
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.yyxnb.arch.base.BaseFragment
 
-import com.yyxnb.module_mian.R
+import com.yyxnb.module_main.R
 
 /**
  * A simple [Fragment] subclass.

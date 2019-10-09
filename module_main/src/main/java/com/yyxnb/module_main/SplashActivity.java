@@ -1,4 +1,4 @@
-package com.yyxnb.module_mian;
+package com.yyxnb.module_main;
 
 import android.content.Intent;
 import android.os.Bundle;

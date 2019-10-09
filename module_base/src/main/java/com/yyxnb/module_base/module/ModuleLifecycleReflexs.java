@@ -8,7 +8,7 @@ package com.yyxnb.module_base.module;
 public class ModuleLifecycleReflexs {
 
     //主业务模块
-    private static final String MAIN_INIT = "com.yyxnb.module_mian.ModuleInit";
+    private static final String MAIN_INIT = "com.yyxnb.module_main.ModuleInit";
     //登录注册模块
     private static final String LOGIN_INIT = "com.yyxnb.module_login.ModuleInit";
     //用户业务模块

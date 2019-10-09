@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yyxnb.module_mian">
+    package="com.yyxnb.module_main">
 
     <application>
         <activity
-            android:name=".SplashActivity"
+            android:name="com.yyxnb.module_main.SplashActivity"
             android:theme="@style/SplashTheme" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.yyxnb.module_main.MainActivity" />
     </application>
 
 </manifest>
