@@ -1,11 +1,11 @@
 package com.yyxnb.module_base;
 
+import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
 import com.yyxnb.arch.BuildConfig;
-import com.yyxnb.arch.base.BaseApplication;
 import com.yyxnb.http.RetrofitManager;
 import com.yyxnb.http.config.OkHttpConfig;
 import com.yyxnb.module_base.module.ModuleLifecycleConfig;
@@ -21,7 +21,7 @@ import static com.yyxnb.module_base.BaseAPI.BASE_URL_MOCKY;
  * @author yyx
  */
 
-public class DebugApplication extends BaseApplication {
+public class DebugApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();

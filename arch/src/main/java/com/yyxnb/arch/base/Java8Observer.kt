@@ -8,7 +8,7 @@ import java.io.Serializable
 class Java8Observer(var tag: String) : DefaultLifecycleObserver, Serializable {
 
     override fun onCreate(owner: LifecycleOwner) {
-        Log.i("---onCreate $tag", owner.lifecycle.currentState.name)
+        Log.w("---onCreate $tag", owner.lifecycle.currentState.name)
     }
 
     override fun onStart(owner: LifecycleOwner) {
@@ -28,7 +28,7 @@ class Java8Observer(var tag: String) : DefaultLifecycleObserver, Serializable {
     }
 
     override fun onDestroy(owner: LifecycleOwner) {
-        Log.i("---onDestroy $tag", owner.lifecycle.currentState.name)
+        Log.e("---onDestroy $tag", owner.lifecycle.currentState.name)
     }
 
 }

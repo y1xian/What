@@ -1,18 +1,18 @@
 package com.yyxnb.arch.utils
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
-import com.yyxnb.arch.base.BaseActivity
-import com.yyxnb.arch.interfaces.OnActivityStatusChangeListener
+import com.yyxnb.arch.interfaces.IOnActivityStatusChangeListener
 import java.io.Serializable
 import java.util.*
 
 object ActivityManagerUtils :Serializable{
 
-    private var onActivityStatusChangeListener: OnActivityStatusChangeListener? = null
-    private var activityStack: Stack<BaseActivity>? = null
+    private var onActivityStatusChangeListener: IOnActivityStatusChangeListener? = null
+    private var activityStack: Stack<Activity>? = null
 
-    fun setOnActivityStatusChangeListener(onActivityStatusChangeListener: OnActivityStatusChangeListener) {
+    fun setOnActivityStatusChangeListener(onActivityStatusChangeListener: IOnActivityStatusChangeListener) {
         ActivityManagerUtils.onActivityStatusChangeListener = onActivityStatusChangeListener
     }
 
@@ -25,7 +25,7 @@ object ActivityManagerUtils :Serializable{
     /**
      * 添加Activity到堆栈
      */
-    fun pushActivity(activity: BaseActivity) {
+    fun pushActivity(activity: Activity) {
         if (activityStack == null) {
             activityStack = Stack()
         }
@@ -36,8 +36,8 @@ object ActivityManagerUtils :Serializable{
     /**
      * 获取当前Activity（堆栈中最后一个压入的）
      */
-    fun currentActivity(): BaseActivity? {
-        var activity: BaseActivity? = null
+    fun currentActivity(): Activity? {
+        var activity: Activity? = null
         if (!activityStack!!.empty()) {
             activity = activityStack!!.lastElement()
         }
@@ -55,7 +55,7 @@ object ActivityManagerUtils :Serializable{
     /**
      * 结束指定的Activity
      */
-    fun killActivity(activity: BaseActivity?) {
+    fun killActivity(activity: Activity?) {
         var _activity = activity
         if (_activity != null) {
             _activity.finish()
@@ -69,7 +69,7 @@ object ActivityManagerUtils :Serializable{
      */
     fun killActivity(cls: Class<*>) {
         val iterator = activityStack!!.iterator()
-        var temp: BaseActivity? = null
+        var temp: Activity? = null
         while (iterator.hasNext()) {
             val activity = iterator.next()
             if (activity != null && activity.javaClass == cls) {
@@ -115,7 +115,7 @@ object ActivityManagerUtils :Serializable{
     /**
      * 关闭指定 Activity
      */
-    fun deleteActivity(activity: BaseActivity?) {
+    fun deleteActivity(activity: Activity?) {
         if (activity != null) {
             activityStack!!.remove(activity)
             onActivityStatusChangeListener?.onActivityDestroy(activity)
@@ -131,7 +131,7 @@ object ActivityManagerUtils :Serializable{
     fun killOtherActivityExclude(vararg cls: Class<*>) {
         val excludeList = listOf(*cls)
         if (activityStack != null) {
-            val activityStackCache = Stack<BaseActivity>()
+            val activityStackCache = Stack<Activity>()
             activityStackCache.addAll(activityStack!!)
             val iterator = activityStackCache.iterator()
             while (iterator.hasNext()) {
@@ -150,13 +150,13 @@ object ActivityManagerUtils :Serializable{
      *
      * @param cls activity
      */
-    fun getActivityInstance(cls: Class<*>): BaseActivity? {
+    fun getActivityInstance(cls: Class<*>): Activity? {
         if (!activityStack!!.empty()) {
-            val reverseList = Stack<BaseActivity>()
+            val reverseList = Stack<Activity>()
             reverseList.addAll(activityStack!!)
             Collections.reverse(reverseList)
             val iterator = reverseList.iterator()
-            var temp: BaseActivity? = null
+            var temp: Activity? = null
             while (iterator.hasNext()) {
                 val activity = iterator.next()
                 if (activity != null && activity.javaClass == cls) {

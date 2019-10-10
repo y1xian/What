@@ -161,23 +161,12 @@ object Arch : Serializable {
         }
 
     /**
-     * 获取设备的IMSI
-     *
-     * @param context
-     * @return
-     */
-    fun getIMSI(context: Context): String {
-        return getSubscriberId(context)
-    }
-
-    /**
      * 获取设备的IMEI
      *
-     * @param context
      * @return
      */
     @SuppressLint("HardwareIds", "MissingPermission")
-    fun getDeviceIdIMEI(context: Context): String {
+    fun getDeviceIdIMEI(): String {
         val id: String
         //android.telephony.TelephonyManager
         val mTelephony = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
@@ -193,11 +182,10 @@ object Arch : Serializable {
     /**
      * 获取设备的软件版本号
      *
-     * @param context
      * @return
      */
     @SuppressLint("MissingPermission")
-    fun getDeviceSoftwareVersion(context: Context): String {
+    fun getDeviceSoftwareVersion(): String {
         val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         return tm.deviceSoftwareVersion
     }
@@ -224,22 +212,19 @@ object Arch : Serializable {
     /**
      * 获取ANDROID ID
      *
-     * @param context
      * @return
      */
     @SuppressLint("HardwareIds")
-    fun getAndroidId(context: Context): String {
+    fun getAndroidId(): String {
         return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
     }
 
     /**
-     * 获取唯一的用户ID
-     *
-     * @param context
+     * 获取设备的IMSI
      * @return
      */
     @SuppressLint("MissingPermission", "HardwareIds")
-    fun getSubscriberId(context: Context): String {
+    fun getIMSI(): String {
         val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         return tm.subscriberId
     }
@@ -247,10 +232,9 @@ object Arch : Serializable {
     /**
      * 判断设备是否是手机
      *
-     * @param context 上下文
      * @return `true`: 是<br></br>`false`: 否
      */
-    fun isPhone(context: Context): Boolean {
+    fun isPhone(): Boolean {
         val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         return tm.phoneType != TelephonyManager.PHONE_TYPE_NONE
     }

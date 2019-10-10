@@ -19,7 +19,6 @@ import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.ext.hideKeyBoard
 import com.yyxnb.arch.interfaces.*
 import com.yyxnb.arch.jetpack.LifecycleDelegate
-import com.yyxnb.arch.utils.ActivityManagerUtils
 import com.yyxnb.arch.utils.MainThreadUtils
 import com.yyxnb.arch.utils.StatusBarUtils
 import kotlinx.coroutines.CoroutineScope
@@ -54,7 +53,6 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
         super.onCreate(savedInstanceState)
         mContext = this
         lifecycle.addObserver(Java8Observer(TAG))
-        ActivityManagerUtils.pushActivity(this)
         initWindows()
         initAttributes()
         setContentView(initLayoutResId())
@@ -80,7 +78,6 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
 
     override fun onDestroy() {
         super.onDestroy()
-        ActivityManagerUtils.deleteActivity(this)
         cancel() // 关闭页面后，结束所有协程任务
     }
 
@@ -123,9 +120,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
                 ParallaxHelper.enableParallaxBack(this)
                 layout.setEdgeMode(EDGE_MODE_DEFAULT) //边缘滑动
             }
-
         }
-
     }
 
     //开启沉浸式
@@ -177,14 +172,14 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
         }
     }
 
-    fun startFragment(targetFragment: BaseFragment) {
+    @JvmOverloads
+    fun <T : BaseFragment> startFragment(targetFragment: T, requestCode: Int = 0) {
         scheduleTaskAtStarted(Runnable {
             val intent = Intent(this, ContainerActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             intent.putExtra(AppConfig.FRAGMENT, targetFragment.javaClass.canonicalName)
             intent.putExtra(AppConfig.BUNDLE, targetFragment.initArguments())
-            startActivity(intent)
-//            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            startActivityForResult(intent, requestCode)
         })
     }
 
@@ -195,9 +190,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope()
             transaction.addToBackStack(fragment.getSceneId())
             transaction.commitAllowingStateLoss()
         })
-
     }
-
 
     @JvmOverloads
     protected fun scheduleTaskAtStarted(runnable: Runnable, interval: Long = 1L) {

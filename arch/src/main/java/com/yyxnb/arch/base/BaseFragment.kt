@@ -21,7 +21,6 @@ import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.common.AppConfig.statusBarColor
 import com.yyxnb.arch.interfaces.*
 import com.yyxnb.arch.jetpack.LifecycleDelegate
-import com.yyxnb.arch.utils.FragmentManagerUtils
 import com.yyxnb.arch.utils.MainThreadUtils
 import com.yyxnb.arch.utils.StatusBarUtils
 import kotlinx.coroutines.CoroutineScope
@@ -94,7 +93,6 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
         initAttributes()
         if (null == mRootView) {
             mRootView = inflater.inflate(initLayoutResId(), container, false)
-            FragmentManagerUtils.createFragment(this, mRootView!!)
         } else {
             //  二次加载删除上一个子view
             val viewGroup = mRootView?.parent as ViewGroup
@@ -165,7 +163,6 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
 
     override fun onDestroyView() {
         super.onDestroyView()
-        FragmentManagerUtils.destroyFragment(this)
         cancel() // 关闭页面后，结束所有协程任务
         mRootView = null
     }
@@ -274,7 +271,7 @@ abstract class BaseFragment : Fragment(), ILazyOwner, CoroutineScope by MainScop
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             intent.putExtra(AppConfig.FRAGMENT, targetFragment.javaClass.canonicalName)
             intent.putExtra(AppConfig.BUNDLE, initArguments())
-            mActivity.startActivity(intent)
+            startActivityForResult(intent, requestCode)
         })
     }
 

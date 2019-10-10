@@ -3,7 +3,6 @@ package com.yyxnb.module_login.vm;
 
 import android.arch.lifecycle.LiveData;
 
-import com.yyxnb.arch.bean.Lcee;
 import com.yyxnb.http.RetrofitManager;
 import com.yyxnb.module_login.BaseDatas;
 import com.yyxnb.module_login.TestData;
