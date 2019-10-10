@@ -12,6 +12,7 @@ import com.yyxnb.arch.utils.ToastUtils;
 import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_login.vm.TestViewModel;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -80,6 +81,7 @@ public class LoginFragment extends BaseFragmentVM<TestViewModel> {
 
         LogUtils.INSTANCE.d("---initObservable--");
 
+
         mViewModel.reqTest();
 
         mViewModel.getTest().observe(this, baseData -> {
@@ -99,6 +101,11 @@ public class LoginFragment extends BaseFragmentVM<TestViewModel> {
             }
 
         });
+    }
+
+    @Override
+    public void initMsg(@NotNull String msg) {
+        ToastUtils.INSTANCE.normal(msg);
     }
 
     public static LoginFragment newInstance() {

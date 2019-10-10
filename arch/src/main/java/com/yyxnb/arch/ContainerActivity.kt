@@ -9,7 +9,6 @@ import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.ext.tryCatch
 import com.yyxnb.arch.utils.log.LogUtils
 
-
 /**
  * Description: 盛装Fragment的一个容器(代理)Activity
  * 普通界面只需要编写Fragment,使用此Activity盛装,这样就不需要每个界面都在AndroidManifest中注册一遍
@@ -45,16 +44,5 @@ class ContainerActivity : BaseActivity() {
         })
 
     }
-
-//    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
-//        if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            val fragment = supportFragmentManager.findFragmentById(R.id.fragmentContent)
-//            if (fragment is BaseFragment) {
-//                fragment.onBackPressed()
-//                return true
-//            }
-//        }
-//        return super.onKeyDown(keyCode, event)
-//    }
 }
 

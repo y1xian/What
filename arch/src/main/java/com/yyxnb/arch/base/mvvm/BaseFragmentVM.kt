@@ -1,5 +1,6 @@
 package com.yyxnb.arch.base.mvvm
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import com.yyxnb.arch.Arch
@@ -27,6 +28,7 @@ abstract class BaseFragmentVM<VM : BaseViewModel> : BaseFragment() {
 
     override fun initViewData() {
         initObservable()
+        mViewModel.msg.observe(this, Observer { it?.let { initMsg(it) } })
     }
 
     /**
@@ -34,6 +36,11 @@ abstract class BaseFragmentVM<VM : BaseViewModel> : BaseFragment() {
      * 接收数据结果
      */
     open fun initObservable() {}
+
+    /**
+     * 返回错误消息
+     */
+    open fun initMsg(msg: String) {}
 
     /**
      * 初始化ViewModel

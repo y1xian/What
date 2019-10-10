@@ -1,6 +1,7 @@
 package com.yyxnb.arch
 
 import android.app.Application
+import android.arch.lifecycle.ProcessLifecycleOwner
 import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
@@ -39,6 +40,7 @@ class LibraryInitializer : ContentProvider() {
                 //系统会在每个 Activity 执行完对应的生命周期后都调用这个实现类中对应的方法
                 it.registerActivityLifecycleCallbacks(ParallaxHelper.getInstance())
                 it.registerActivityLifecycleCallbacks(ManagerActivityLifecycleCallbacksImplI())
+                ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifeObserver())
 
                 LiveEventBus
                         .config()
@@ -47,7 +49,7 @@ class LibraryInitializer : ContentProvider() {
                         .autoClear(false)
 
                 LogUtils.init()
-                        .setTag("Test")//设置全局tag
+                        .setTag("Arch")//设置全局tag
                         .setShowThreadInfo(true).setDebug(Arch.isDebug) //是否显示日志，默认true，发布时最好关闭
             }
         }

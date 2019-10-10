@@ -6,13 +6,13 @@ import android.arch.lifecycle.LiveData;
 import com.yyxnb.http.RetrofitManager;
 import com.yyxnb.module_login.BaseDatas;
 import com.yyxnb.module_login.TestData;
-import com.yyxnb.module_login.api;
+import com.yyxnb.module_login.LoginApi;
 
 import java.util.List;
 
 public class TestRepository {
 
-    private api mApi = RetrofitManager.INSTANCE.createApi(api.class);
+    private LoginApi mApi = RetrofitManager.INSTANCE.createApi(LoginApi.class);
 
 //    public LiveData<Lcee<BaseDatas<List<TestData>>>> getTest(){
 //        return LiveDataObservableAdapter.INSTANCE.fromDeferredLcee(mApi.getTest());

@@ -2,6 +2,7 @@ package com.yyxnb.arch.base.mvvm
 
 import android.arch.lifecycle.DefaultLifecycleObserver
 import android.arch.lifecycle.LifecycleOwner
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.support.annotation.CallSuper
 import com.yyxnb.arch.ext.tryCatch
@@ -18,6 +19,8 @@ import kotlinx.coroutines.*
  */
 abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
 
+    val msg: MutableLiveData<String> = MutableLiveData()
+
     open val mScope: CoroutineScope by lazy {
         CoroutineScope(SupervisorJob() + Dispatchers.Main)
     }
@@ -29,6 +32,12 @@ abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
             }, {
                 throw it
             })
+        }
+    }
+
+    suspend fun <T> launchOnIO(block: suspend CoroutineScope.() -> T) {
+        withContext(Dispatchers.IO) {
+            block
         }
     }
 

@@ -9,7 +9,7 @@ import retrofit2.http.Headers;
 
 import static com.yyxnb.module_base.BaseAPI.HEAD_MOCKY;
 
-public interface api {
+public interface LoginApi {
 
     @Headers(HEAD_MOCKY)
     @GET("v2/5cc2a63e3300000d007e5330")
