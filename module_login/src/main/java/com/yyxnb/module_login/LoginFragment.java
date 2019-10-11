@@ -84,11 +84,10 @@ public class LoginFragment extends BaseFragmentVM<TestViewModel> {
 
         mViewModel.reqTest();
 
+        //无状态
         mViewModel.getTest().observe(this, baseData -> {
 
-            if (baseData != null) {
                 TestData data = baseData.getResult().get(0);
-//                    tvShow.setText(baseDataLcee.getData().getResult().get(0).toString());
                 tvTitle.setText(data.getTestInt() + " \n"
                         + data.getTestInt2() + " \n"
                         + data.getTestInt3() + " \n"
@@ -98,9 +97,33 @@ public class LoginFragment extends BaseFragmentVM<TestViewModel> {
                         + data.getTestString() + " \n"
                         + data.getTestString2() + " \n"
                         + data.getTestString3() + " \n\n\n\n\n\n" + data.toString());
-            }
 
         });
+
+        //有状态
+//        mViewModel.getTest2().observe(this, baseData -> {
+//
+//            if (baseData != null) {
+//                switch (baseData.getStatus()) {
+//                    case LOADING:
+//                        LogUtils.INSTANCE.w("---LOADING--");
+//                        break;
+//                    case ERROR:
+//                        LogUtils.INSTANCE.e("---initObservable--" + baseData.getMessage());
+//                        break;
+//                    case SUCCESS:
+//                        if (baseData.getData() != null) {
+//                            tvTitle.setText(baseData.getData().getResult().get(0).toString());
+//                            LogUtils.INSTANCE.w("---SUCCESS--");
+//                        }else {
+//                            LogUtils.INSTANCE.w("---SUCCESS-- null");
+//                        }
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        });
     }
 
     @Override

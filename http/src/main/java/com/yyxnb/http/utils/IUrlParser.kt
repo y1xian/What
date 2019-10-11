@@ -1,4 +1,4 @@
-package com.yyxnb.http
+package com.yyxnb.http.utils
 
 import okhttp3.HttpUrl
 import okhttp3.Request

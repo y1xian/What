@@ -1,4 +1,4 @@
-package com.yyxnb.http
+package com.yyxnb.http.network
 
 
 import android.arch.lifecycle.LiveData

@@ -7,6 +7,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.tencent.mmkv.MMKV
 import com.yyxnb.http.config.OkHttpConfig
 import com.yyxnb.http.gson.GsonAdapter
+import com.yyxnb.http.network.LiveDataCallAdapterFactory
 import com.yyxnb.http.utils.ISPKeys
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

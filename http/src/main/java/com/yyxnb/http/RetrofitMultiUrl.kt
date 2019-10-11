@@ -3,6 +3,7 @@ package com.yyxnb.http
 
 import android.text.TextUtils
 import android.util.Log
+import com.yyxnb.http.utils.IUrlParser
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.Interceptor
