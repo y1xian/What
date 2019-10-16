@@ -16,14 +16,14 @@ import java.text.ParseException
 /**
  * 统一处理了API异常错误
  */
-class ApiException(throwable: Throwable) : Exception(throwable) {
+class ApiException : Exception() {
 
-    override var message: String = throwable.message.toString()
+    override var message: String = "unknown error"
 
     companion object {
 
         fun handleException(e: Throwable): ApiException {
-            val ex = ApiException(e)
+            val ex = ApiException()
             when (e) {
                 is HttpException -> {
                     try {

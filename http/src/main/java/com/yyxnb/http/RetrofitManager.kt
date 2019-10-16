@@ -3,7 +3,6 @@ package com.yyxnb.http
 import android.app.Application
 import android.content.Context
 import android.util.Log
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.tencent.mmkv.MMKV
 import com.yyxnb.http.config.OkHttpConfig
 import com.yyxnb.http.gson.GsonAdapter
@@ -54,7 +53,6 @@ object RetrofitManager : Serializable {
     private var mCacheEnable: Boolean = true
 
     private val mRetrofitBuilder = Retrofit.Builder().apply {
-        addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
         addCallAdapterFactory(LiveDataCallAdapterFactory())
         addConverterFactory(GsonConverterFactory.create(GsonAdapter.buildGson()))
     }
