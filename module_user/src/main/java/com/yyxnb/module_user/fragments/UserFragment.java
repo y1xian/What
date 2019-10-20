@@ -48,10 +48,10 @@ public class UserFragment extends BaseFragment {
         return R.layout.fragment_user;
     }
 
-    @Override
-    public int initStatusBarColor() {
-        return getResources().getColor(R.color.user_head);
-    }
+//    @Override
+//    public int initStatusBarColor() {
+//        return getResources().getColor(R.color.user_head);
+//    }
 
 
     @Override

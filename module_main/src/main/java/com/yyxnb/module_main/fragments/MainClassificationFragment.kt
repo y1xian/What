@@ -4,6 +4,7 @@ package com.yyxnb.module_main.fragments
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.yyxnb.arch.base.BaseFragment
+import com.yyxnb.arch.interfaces.FitsSystemWindows
 import com.yyxnb.arch.interfaces.SwipeBack
 
 import com.yyxnb.module_main.R
@@ -12,6 +13,7 @@ import com.yyxnb.module_main.R
  * A simple [Fragment] subclass.
  */
 @SwipeBack(value = -1)
+@FitsSystemWindows
 class MainClassificationFragment : BaseFragment() {
 
     override fun initLayoutResId(): Int = R.layout.fragment_main_classification
