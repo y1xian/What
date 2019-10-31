@@ -1,9 +1,9 @@
-package com.yyxnb.arch.interfaces
+package com.yyxnb.arch.annotations
 
 /**
- * 侧滑
+ * 状态栏透明
  */
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 @MustBeDocumented
-annotation class SwipeBack(val value: Int = 0)
+annotation class StatusBarTranslucent(val value: Boolean = true)

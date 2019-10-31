@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.interfaces.BarStyle;
-import com.yyxnb.arch.interfaces.FitsSystemWindows;
-import com.yyxnb.arch.interfaces.StatusBarDarkTheme;
-import com.yyxnb.arch.interfaces.SwipeBack;
+import com.yyxnb.arch.annotations.BarStyle;
+import com.yyxnb.arch.annotations.FitsSystemWindows;
+import com.yyxnb.arch.annotations.StatusBarDarkTheme;
+import com.yyxnb.arch.annotations.SwipeBack;
 import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_user.R;
 

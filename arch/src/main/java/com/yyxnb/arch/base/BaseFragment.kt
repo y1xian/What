@@ -17,6 +17,7 @@ import android.view.ViewGroup
 import android.view.Window
 import com.yyxnb.arch.Arch
 import com.yyxnb.arch.ContainerActivity
+import com.yyxnb.arch.annotations.*
 import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.common.AppConfig.statusBarColor
 import com.yyxnb.arch.interfaces.*

@@ -3,7 +3,7 @@ package com.yyxnb.arch.common
 import android.graphics.Color
 import com.yyxnb.arch.Arch
 import com.yyxnb.arch.R
-import com.yyxnb.arch.interfaces.BarStyle
+import com.yyxnb.arch.annotations.BarStyle
 import java.io.Serializable
 
 /**

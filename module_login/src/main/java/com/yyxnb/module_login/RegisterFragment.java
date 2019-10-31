@@ -3,13 +3,9 @@ package com.yyxnb.module_login;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.interfaces.SwipeBack;
 import com.yyxnb.arch.utils.log.LogUtils;
 
 import org.jetbrains.annotations.Nullable;

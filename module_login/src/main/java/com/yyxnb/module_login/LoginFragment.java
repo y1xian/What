@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.base.mvvm.BaseFragmentVM;
-import com.yyxnb.arch.interfaces.SwipeBack;
+import com.yyxnb.arch.annotations.SwipeBack;
 import com.yyxnb.arch.utils.ToastUtils;
 import com.yyxnb.arch.utils.log.LogUtils;
 import com.yyxnb.module_login.vm.TestViewModel;

@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseActivity;
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.interfaces.SwipeBack;
+import com.yyxnb.arch.annotations.SwipeBack;
 import com.yyxnb.module_base.weight.NoScrollViewPager;
 import com.yyxnb.module_base.weight.tabbar.Tab;
 import com.yyxnb.module_base.weight.tabbar.TabBarView;

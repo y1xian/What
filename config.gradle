@@ -17,8 +17,8 @@ ext {
 
             support             : '28.0.0',
             arch_comp_lifecycle : '1.1.1',
-            arch_comp_room      : '1.1.0',
-            arch_comp_navigation: '1.0.0-alpha09',
+            arch_comp_room      : '1.1.1',
+            arch_comp_navigation: '1.0.0',
             arch_comp_paging    : '1.0.1',
 
             retrofit            : '2.6.0',
@@ -32,7 +32,7 @@ ext {
             rxbinding           : '2.2.0',
             autodispose         : '1.2.0',
 
-            gson                : '2.8.5',
+            gson                : '2.8.6',
 
             butterknife         : '9.0.0',
 
@@ -46,7 +46,9 @@ ext {
     build_plugins = [
             android_gradle    : [group: 'com.android.tools.build', name: 'gradle', version: versions.android_plugin],
             kotlin_gradle     : [group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: versions.kotlin],
-            butterknife_gradle: [group: 'com.jakewharton', name: 'butterknife-gradle-plugin', version: versions.butterknife]
+            butterknife_gradle: [group: 'com.jakewharton', name: 'butterknife-gradle-plugin', version: versions.butterknife],
+            //https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx
+            aspectjx_gradle   : [group: 'com.hujiang.aspectjx', name: 'gradle-android-plugin-aspectjx', version: '2.0.8']
     ]
 
     libs = [
@@ -168,14 +170,14 @@ ext {
             espresso_test_rules            : [group: 'com.android.support.test.espresso', name: 'rules', version: '1.1.0'],
 
             //https://github.com/Tencent/MMKV
-            mmkv                           : [group: 'com.tencent', name: 'mmkv', version: '1.0.22'],
+            mmkv                           : [group: 'com.tencent', name: 'mmkv', version: '1.0.23'],
 
             //https://github.com/ethanhua/Skeleton
             skeleton                       : [group: 'com.ethanhua', name: 'skeleton', version: '1.1.2'],
             shimmerlayout                  : [group: 'io.supercharge', name: 'shimmerlayout', version: '2.1.0'],
 
             //https://github.com/JeremyLiao/LiveEventBus
-            live_event_bus                 : [group: 'com.jeremyliao', name: 'live-event-bus', version: '1.5.2'],
+            live_event_bus                 : [group: 'com.jeremyliao', name: 'live-event-bus', version: '1.5.5'],
 
             //https://github.com/anzewei/ParallaxBackLayout
             parallaxbacklayout             : [group: 'com.github.anzewei', name: 'parallaxbacklayout', version: '1.1.9'],

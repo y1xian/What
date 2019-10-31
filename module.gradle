@@ -16,6 +16,8 @@ try {
 //  ext.mainApp的将仅代表是否作为主app，为true时以application方式编译，为false或未配置时以local.properties中的配置为准
 //  兼容以前的runAsApp设置，ext.runAsApp的功能保持不变，runAsApp优先级高于local.properties
 def runAsApp = ext.has('runAsApp')
+//是否kt
+def isKt = ext.has('isKt')
 if (runAsApp) {
     runAsApp = ext.runAsApp
 } else if (ext.has('mainApp') && ext.mainApp) { //ext.mainApp为true时，代表以app方式运行
@@ -30,12 +32,25 @@ if (runAsApp) {
 ext.runAsApp = runAsApp
 if (runAsApp) {
     apply plugin: 'com.android.application'
+//    apply plugin: 'android-aspectjx'
 } else {
     apply plugin: 'com.android.library'
 }
-//apply plugin: 'kotlin-android'
-//apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'kotlin-kapt'
+if (isKt) {
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
+    apply plugin: 'kotlin-kapt'
+
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+    println("------1--------> runAsApp $runAsApp  isKt $isKt")
+}
+
+
+
 
 //对组件库的依赖格式： addComponent dependencyName [, realDependency]
 // 使用示例见demo/build.gradle
@@ -104,15 +119,7 @@ ext.addComponent = { dependencyName, realDependency = null ->
 
 //默认配置了AndroidManifest.xml在library模式和application模式下的文件路径
 android {
-    //签名
-    signingConfigs {
-        release {
-            keyAlias 'what'
-            keyPassword '123123'
-            storeFile file('../what.jks')
-            storePassword '123123'
-        }
-    }
+    println("------2--------> runAsApp $runAsApp  isKt $isKt")
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
 //    buildToolsVersion build_version.buildToolsVersion
@@ -124,14 +131,54 @@ android {
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-//        consumerProguardFiles 'consumer-rules.pro'
+        consumerProguardFiles 'consumer-rules.pro'
         //阿里路由框架配置
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+        if (!isKt) {
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments = [AROUTER_MODULE_NAME: project.getName()]
+                }
             }
         }
-        signingConfig signingConfigs.release
+    }
+
+    //签名
+    signingConfigs {
+        what {
+            keyAlias 'what'
+            keyPassword '123123'
+            storeFile file('../what.jks')
+            storePassword '123123'
+        }
+    }
+
+    buildTypes {
+        debug {
+            //混淆
+            minifyEnabled false
+//            applicationIdSuffix ".debug"
+//            versionNameSuffix "-DEV"
+//            //停用 Crashlytics（Fabric）
+//            ext.enableCrashlytics = false
+            //是否清理无用资源
+            shrinkResources false
+            //是否启用zipAlign压缩
+            zipAlignEnabled false
+            signingConfig signingConfigs.what
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            //混淆
+            minifyEnabled false
+            //是否清理无用资源
+            shrinkResources false
+            //是否启用zipAlign压缩
+            zipAlignEnabled false
+            signingConfig signingConfigs.what
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 
     sourceSets {
@@ -150,36 +197,27 @@ android {
                 }
             }
             // 注：2018-03-12推荐：将组件单独以app运行时的测试代码及资源放到src/main/debug/目录下
-//            if (runAsApp) {
-//                //debug模式下，如果存在src/main/debug/assets，则自动将其添加到assets源码目录
-//                if (project.file('src/main/debug/assets').exists()) {
-//                    assets.srcDirs = ['src/main/assets', 'src/main/debug/assets']
+            if (runAsApp) {
+                //debug模式下，如果存在src/main/debug/assets，则自动将其添加到assets源码目录
+                if (project.file('src/main/debug/assets').exists()) {
+                    assets.srcDirs = ['src/main/assets', 'src/main/debug/assets']
+                }
+                //debug模式下，如果存在src/main/debug/java，则自动将其添加到java源码目录
+//                if (project.file('src/main/debug').exists()) {
+//                    java.srcDirs = ['src/main/java', 'src/main/debug']
 //                }
-//                //debug模式下，如果存在src/main/debug/java，则自动将其添加到java源码目录
-//                if (project.file('src/main/debug/java').exists()) {
-//                    java.srcDirs = ['src/main/java', 'src/main/debug/java']
-//                }
-//                //debug模式下，如果存在src/main/debug/res，则自动将其添加到资源目录
-//                if (project.file('src/main/debug/res').exists()) {
-//                    res.srcDirs = ['src/main/res', 'src/main/debug/res']
-//                }
-//            }
+                //debug模式下，如果存在src/main/debug/java，则自动将其添加到java源码目录
+                if (project.file('src/main/debug/java').exists()) {
+                    java.srcDirs = ['src/main/java', 'src/main/debug/java']
+                }
+                //debug模式下，如果存在src/main/debug/res，则自动将其添加到资源目录
+                if (project.file('src/main/debug/res').exists()) {
+                    res.srcDirs = ['src/main/res', 'src/main/debug/res']
+                }
+            }
 
         }
     }
-
-//    buildTypes {
-//        debug {
-//            //停用 Crashlytics（Fabric）
-//            ext.enableCrashlytics = false
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//    }
 
     repositories {
         flatDir {
@@ -192,6 +230,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    if (isKt){
+        //Kotlin中使用Java8特性
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
+    }
+
     //防止编译的时候oom、GC
     dexOptions {
         preDexLibraries false
@@ -201,6 +246,11 @@ android {
     }
 
     lintOptions {
+        // true--关闭lint报告的分析进度
+//        quiet false
+        //  true--所有正式版构建执行规则生成崩溃的lint检查，如果有崩溃问题将停止构建
+        checkReleaseBuilds false
+        // true--错误发生后停止gradle构建
         abortOnError false
     }
 
@@ -221,8 +271,12 @@ dependencies {
 
     implementation project(':module_base')
     //组件中依赖阿里路由编译框架
-    annotationProcessor libs.arouter_compiler
-
+    if (isKt) {
+        kapt libs.arouter_compiler
+    } else {
+        annotationProcessor libs.arouter_compiler
+    }
+    println("------3--------> runAsApp $runAsApp  isKt $isKt")
     //2018-06-03新增：这里是为了示例添加全局拦截器
     if (project.ext.has('runAsApp') && project.ext.runAsApp) {
         //说明：需要兼容的情况有3种(单独组件作为app运行、打包在主app内、组件在多个app上复用但全局拦截器不同)

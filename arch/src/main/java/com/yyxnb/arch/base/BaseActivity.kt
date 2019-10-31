@@ -15,9 +15,9 @@ import com.github.anzewei.parallaxbacklayout.ParallaxHelper
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_DEFAULT
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_FULL
 import com.yyxnb.arch.ContainerActivity
+import com.yyxnb.arch.annotations.*
 import com.yyxnb.arch.common.AppConfig
 import com.yyxnb.arch.ext.hideKeyBoard
-import com.yyxnb.arch.interfaces.*
 import com.yyxnb.arch.jetpack.LifecycleDelegate
 import com.yyxnb.arch.utils.MainThreadUtils
 import com.yyxnb.arch.utils.StatusBarUtils

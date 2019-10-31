@@ -14,6 +14,7 @@ import okhttp3.OkHttpClient;
 
 import static com.yyxnb.module_base.BaseAPI.BASE_URL;
 import static com.yyxnb.module_base.BaseAPI.BASE_URL_MOCKY;
+import static com.yyxnb.module_base.BaseAPI.URL_KEY_1;
 
 /**
  * debug包下的代码不参与编译，仅作为独立模块运行时初始化数据
@@ -57,7 +58,7 @@ public class DebugApplication extends Application {
                 .init(this)
                 .setBaseUrl(BASE_URL)
                 .setHeaderPriorityEnable(true)
-                .putHeaderBaseUrl("mocky", BASE_URL_MOCKY)
+                .putHeaderBaseUrl(URL_KEY_1, BASE_URL_MOCKY)
                 .setOkClient(mClient);
 
     }

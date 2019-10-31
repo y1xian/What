@@ -1,4 +1,4 @@
-package com.yyxnb.arch.interfaces
+package com.yyxnb.arch.annotations
 
 enum class BarStyle {
 

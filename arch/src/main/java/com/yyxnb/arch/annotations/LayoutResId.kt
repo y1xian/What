@@ -1,4 +1,4 @@
-package com.yyxnb.yyxarch.interfaces
+package com.yyxnb.arch.annotations
 
 import android.support.annotation.LayoutRes
 

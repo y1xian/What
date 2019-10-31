@@ -1,4 +1,4 @@
-package com.yyxnb.arch.interfaces
+package com.yyxnb.arch.annotations
 
 /**
  * 底栏深色浅色切换

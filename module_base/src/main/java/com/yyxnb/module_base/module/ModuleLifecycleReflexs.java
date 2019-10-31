@@ -13,6 +13,8 @@ public class ModuleLifecycleReflexs {
     private static final String LOGIN_INIT = "com.yyxnb.module_login.ModuleInit";
     //用户业务模块
     private static final String USER_INIT = "com.yyxnb.module_user.ModuleInit";
+    //视频模块
+    private static final String VIDEO_INIT = "com.yyxnb.module_video.ModuleInit";
 
-    public static String[] initModuleNames = {MAIN_INIT, LOGIN_INIT, USER_INIT};
+    public static String[] initModuleNames = {MAIN_INIT, LOGIN_INIT, USER_INIT, VIDEO_INIT};
 }

@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.interfaces.SwipeBack;
+import com.yyxnb.arch.annotations.SwipeBack;
 import com.yyxnb.module_main.R;
 
 import org.jetbrains.annotations.Nullable;
+
+import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_VIDEO;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,8 +46,9 @@ public class MainHomeFragment extends BaseFragment {
         tvShow = findViewById(R.id.tvShow);
 
         tvShow.setOnClickListener(v -> {
-            startFragment(new MainClassificationFragment());
+//            startFragment(new MainClassificationFragment());
 //            startFragment((BaseFragment) ARouter.getInstance().build("/login/LoginFragment").navigation());
+             ARouter.getInstance().build(VIDEO_VIDEO).navigation();
         });
     }
 

@@ -12,12 +12,6 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
     android.applicationVariants.all { variant ->
 
         // 更新至Android Studio 3.3 gradle 4.10.1
@@ -34,6 +28,7 @@ dependencies {
 
     addComponent 'module_login'
     addComponent 'module_user'
+    addComponent 'module_video'
 
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.1'
     implementation 'com.tencent.tinker:tinker-android-lib:1.9.9'

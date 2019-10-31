@@ -64,7 +64,7 @@ dependencies {
     //  v7 v4
     api([libs.support_v7, libs.support_v4, libs.design, libs.annotations])
     // jetpack
-    api([libs.arch_comp_java8, libs.arch_comp_runtime, libs.arch_comp_extensions])
+    api([libs.arch_comp_java8, libs.arch_comp_extensions])
     // 避免65K限制       https://developer.android.com/tools/building/multidex.html
     api libs.multidex
     // kt
