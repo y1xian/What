@@ -1,46 +1,12 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-
-android {
-
-    compileSdkVersion build_version.compileSdkVersion
-
-    defaultConfig {
-        minSdkVersion build_version.minSdkVersion
-        targetSdkVersion build_version.targetSdkVersion
-        versionCode build_version.versionCode
-        versionName build_version.versionName
-        multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    //Kotlin中使用Java8特性
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-}
+ext.isKt = true
+ext.isLibrary = true
+apply from: rootProject.file('module.gradle')
 
 dependencies {
 
     api project(':arch')
     api project(':http')
+//    api 'com.github.y1xian.What:http:1.0.4'
 
     api libs.arouter_api
 

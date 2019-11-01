@@ -18,6 +18,10 @@ try {
 def runAsApp = ext.has('runAsApp')
 //是否kt
 def isKt = ext.has('isKt')
+ext.isKt = isKt
+//是否library
+def isLibrary = ext.has('isLibrary')
+ext.isLibrary = isLibrary
 if (runAsApp) {
     runAsApp = ext.runAsApp
 } else if (ext.has('mainApp') && ext.mainApp) { //ext.mainApp为true时，代表以app方式运行
@@ -32,7 +36,7 @@ if (runAsApp) {
 ext.runAsApp = runAsApp
 if (runAsApp) {
     apply plugin: 'com.android.application'
-//    apply plugin: 'android-aspectjx'
+    apply plugin: 'android-aspectjx'
 } else {
     apply plugin: 'com.android.library'
 }
@@ -46,10 +50,7 @@ if (isKt) {
             arg("AROUTER_MODULE_NAME", project.getName())
         }
     }
-    println("------1--------> runAsApp $runAsApp  isKt $isKt")
 }
-
-
 
 
 //对组件库的依赖格式： addComponent dependencyName [, realDependency]
@@ -60,6 +61,7 @@ if (isKt) {
 //    realDependency可以为如下2种中的一种:
 //      module依赖 : project(':demo_component_b') //如果module名称跟dependencyName相同，可省略(推荐)
 //      maven依赖  : 'com.billy.demo:demoB:1.1.0' //如果使用了maven私服，请使用此方式
+
 ext.addComponent = { dependencyName, realDependency = null ->
     def curModuleIsBuildingApk = false //当前task是否为给本module打apk包
     def taskNames = project.gradle.startParameter.taskNames
@@ -119,7 +121,6 @@ ext.addComponent = { dependencyName, realDependency = null ->
 
 //默认配置了AndroidManifest.xml在library模式和application模式下的文件路径
 android {
-    println("------2--------> runAsApp $runAsApp  isKt $isKt")
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
 //    buildToolsVersion build_version.buildToolsVersion
@@ -203,10 +204,6 @@ android {
                     assets.srcDirs = ['src/main/assets', 'src/main/debug/assets']
                 }
                 //debug模式下，如果存在src/main/debug/java，则自动将其添加到java源码目录
-//                if (project.file('src/main/debug').exists()) {
-//                    java.srcDirs = ['src/main/java', 'src/main/debug']
-//                }
-                //debug模式下，如果存在src/main/debug/java，则自动将其添加到java源码目录
                 if (project.file('src/main/debug/java').exists()) {
                     java.srcDirs = ['src/main/java', 'src/main/debug/java']
                 }
@@ -230,7 +227,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    if (isKt){
+    if (isKt) {
         //Kotlin中使用Java8特性
         kotlinOptions {
             jvmTarget = '1.8'
@@ -269,14 +266,16 @@ dependencies {
     androidTestImplementation libs.test_runner
     androidTestImplementation libs.test_espresso
 
-    implementation project(':module_base')
+    if (!isLibrary) {
+        implementation project(':module_base')
+    }
     //组件中依赖阿里路由编译框架
     if (isKt) {
         kapt libs.arouter_compiler
     } else {
         annotationProcessor libs.arouter_compiler
     }
-    println("------3--------> runAsApp $runAsApp  isKt $isKt")
+
     //2018-06-03新增：这里是为了示例添加全局拦截器
     if (project.ext.has('runAsApp') && project.ext.runAsApp) {
         //说明：需要兼容的情况有3种(单独组件作为app运行、打包在主app内、组件在多个app上复用但全局拦截器不同)

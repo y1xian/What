@@ -1,10 +1,11 @@
 package com.yyxnb.module_base;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.leakcanary.LeakCanary;
-import com.tencent.mmkv.MMKV;
 import com.yyxnb.arch.BuildConfig;
 import com.yyxnb.http.RetrofitManager;
 import com.yyxnb.http.config.OkHttpConfig;
@@ -23,19 +24,22 @@ import static com.yyxnb.module_base.BaseAPI.URL_KEY_1;
  */
 
 public class DebugApplication extends Application {
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        // you must install multiDex whatever tinker is installed!
+        MultiDex.install(base);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         //初始化组件
         ModuleLifecycleConfig.getInstance().initModule(this);
 
-        MMKV.initialize(getApplicationContext());
-
         initRxHttp();
 
-//        SmartSwipeBack.activitySlidingBack(this, null);
-
-        //开启打印日志
         //初始化阿里路由框架
         if (BuildConfig.DEBUG) {
             ARouter.openLog();     // 打印日志

@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 android {
 
     compileSdkVersion build_version.compileSdkVersion
@@ -11,7 +13,6 @@ android {
         versionCode build_version.versionCode
         versionName build_version.versionName
         multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -54,11 +55,11 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testImplementation libs.junit
+//    api fileTree(dir: 'libs', include: ['*.jar'])
+//    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+//    testImplementation libs.junit
     // 约束
     api libs.constraint
     //  v7 v4
@@ -77,4 +78,6 @@ dependencies {
     api 'me.jessyan:autosize:1.1.2'
     //侧滑
     api libs.parallaxbacklayout
+    //
+    api 'org.aspectj:aspectjrt:1.9.4'
 }

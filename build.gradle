@@ -17,6 +17,9 @@ buildscript {
 //        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
         //升级 热更新
         classpath "com.tencent.bugly:tinker-support:1.2.0"
+        //AspectJX
+//        classpath 'org.aspectj:aspectjtools:1.9.4'
+        classpath build_plugins.aspectjx_gradle
     }
 }
 
@@ -28,12 +31,8 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
     tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:none', '-quiet') //忽略javadoc错误
-        option s {
-            encoding "UTF-8"
-            charSet 'UTF-8'
-            links "http://docs.oracle.com/javase/7/docs/api"
-        }
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
     }
 }
 
