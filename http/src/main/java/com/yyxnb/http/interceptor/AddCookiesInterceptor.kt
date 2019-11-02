@@ -1,8 +1,8 @@
 package com.yyxnb.http.interceptor
 
 import android.util.Log
-import com.tencent.mmkv.MMKV
 import com.yyxnb.http.utils.ISPKeys
+import com.yyxnb.http.utils.SPUtils
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -16,7 +16,7 @@ class AddCookiesInterceptor : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder()
-        val preferences = MMKV.defaultMMKV().decodeStringSet(ISPKeys.COOKIE, HashSet<String>()) as? HashSet<String>
+        val preferences = SPUtils.getParam(ISPKeys.COOKIE, HashSet<String>()) as? HashSet<String>
         if (preferences != null) {
             for (cookie in preferences) {
                 builder.addHeader("Cookie", cookie)

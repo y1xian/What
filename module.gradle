@@ -36,7 +36,6 @@ if (runAsApp) {
 ext.runAsApp = runAsApp
 if (runAsApp) {
     apply plugin: 'com.android.application'
-    apply plugin: 'android-aspectjx'
 } else {
     apply plugin: 'com.android.library'
 }

@@ -6,9 +6,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.yyxnb.arch.annotations.Puppet
-import com.yyxnb.arch.annotations.Swiper
-import com.yyxnb.arch.rigger.Rigger
 import com.yyxnb.module_video.R
 import kotlinx.android.synthetic.main.fragment_video_main.*
 
@@ -16,8 +13,6 @@ import kotlinx.android.synthetic.main.fragment_video_main.*
 /**
  * A simple [Fragment] subclass.
  */
-@Swiper
-@Puppet
 class VideoMainFragment() : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +25,6 @@ class VideoMainFragment() : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         tvStart.setOnClickListener {
-            Rigger.getRigger(this).startFragment(VideoMainFragment())
         }
     }
 

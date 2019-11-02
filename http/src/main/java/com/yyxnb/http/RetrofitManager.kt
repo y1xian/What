@@ -3,11 +3,11 @@ package com.yyxnb.http
 import android.app.Application
 import android.content.Context
 import android.util.Log
-import com.tencent.mmkv.MMKV
 import com.yyxnb.http.config.OkHttpConfig
 import com.yyxnb.http.gson.GsonAdapter
 import com.yyxnb.http.network.LiveDataCallAdapterFactory
 import com.yyxnb.http.utils.ISPKeys
+import com.yyxnb.http.utils.SPUtils
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -29,7 +29,7 @@ object RetrofitManager : Serializable {
      */
     fun init(application: Application): RetrofitManager {
         mWeakReferenceContext = WeakReference(application.applicationContext)
-        MMKV.initialize(mWeakReferenceContext.get()?.applicationContext)
+        SPUtils.init(application)
         return this
     }
 
@@ -80,7 +80,7 @@ object RetrofitManager : Serializable {
      * 获取Cookie
      */
     val cookie: HashSet<String>
-        get() = MMKV.defaultMMKV().decodeStringSet(ISPKeys.COOKIE, HashSet<String>()) as HashSet<String>
+        get() = SPUtils.getParam(ISPKeys.COOKIE, HashSet<String>()) as HashSet<String>
 
     /**
      * 设置全局BaseUrl

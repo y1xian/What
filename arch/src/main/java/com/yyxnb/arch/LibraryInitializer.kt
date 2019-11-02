@@ -8,7 +8,6 @@ import android.database.Cursor
 import android.net.Uri
 import android.support.multidex.MultiDex
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
-import com.jeremyliao.liveeventbus.LiveEventBus
 import com.yyxnb.arch.base.ManagerActivityLifecycleCallbacksImplI
 import com.yyxnb.arch.utils.log.LogUtils
 import kotlinx.coroutines.GlobalScope
@@ -41,12 +40,6 @@ class LibraryInitializer : ContentProvider() {
                 it.registerActivityLifecycleCallbacks(ParallaxHelper.getInstance())
                 it.registerActivityLifecycleCallbacks(ManagerActivityLifecycleCallbacksImplI())
                 ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifeObserver())
-
-                LiveEventBus
-                        .config()
-                        .supportBroadcast(it)
-                        .lifecycleObserverAlwaysActive(true)
-                        .autoClear(false)
 
                 LogUtils.init()
                         .setTag("Arch")//设置全局tag

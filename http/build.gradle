@@ -46,8 +46,6 @@ dependencies {
     api([libs.okhttp3, libs.okhttp3_logging])
     // gson  https://github.com/google/gson
     api libs.gson
-    // mmkv
-    api libs.mmkv
     // kt
     api libs.kotlin_stdlib
     api libs.kotlin_coroutines

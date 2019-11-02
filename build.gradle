@@ -17,9 +17,6 @@ buildscript {
 //        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
         //升级 热更新
         classpath "com.tencent.bugly:tinker-support:1.2.0"
-        //AspectJX
-//        classpath 'org.aspectj:aspectjtools:1.9.4'
-        classpath build_plugins.aspectjx_gradle
     }
 }
 
