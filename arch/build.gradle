@@ -93,4 +93,7 @@ dependencies {
     //侧滑
     api libs.parallaxbacklayout
 
+    api libs.kotlin_stdlib
+    api libs.kotlin_coroutines
+    api libs.kotlin_coroutines_core
 }
