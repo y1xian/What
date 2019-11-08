@@ -1,6 +1,10 @@
 ext.isKt = true
 apply from: rootProject.file('lib.gradle')
 
+android {
+
+}
+
 dependencies {
 
     // jetpack
