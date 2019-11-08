@@ -4,9 +4,8 @@ apply from: rootProject.file('module.gradle')
 
 dependencies {
 
-    api project(':arch')
-    api project(':http')
-//    api 'com.github.y1xian.What:http:1.0.4'
+    api 'com.github.y1xian.Widget:http:1.0.1'
+    api 'com.github.y1xian.Widget:http:1.0.1'
 
     api libs.arouter_api
 
