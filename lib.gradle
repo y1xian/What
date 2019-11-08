@@ -12,7 +12,7 @@ if (isKt) {
 android {
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
-    buildToolsVersion build_version.buildToolsVersion
+//    buildToolsVersion build_version.buildToolsVersion
     defaultConfig {
         minSdkVersion build_version.minSdkVersion
         targetSdkVersion build_version.targetSdkVersion
