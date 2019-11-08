@@ -113,11 +113,6 @@ ext.addComponent = { dependencyName, realDependency = null ->
     }
 }
 
-//repositories {
-//    maven { url rootProject.file("repo-local") }
-//    jcenter()
-//}
-
 //默认配置了AndroidManifest.xml在library模式和application模式下的文件路径
 android {
     //版本配置
@@ -267,13 +262,12 @@ dependencies {
 
     if (!isLibrary) {
         implementation project(':module_base')
-    }else{
-        //组件中依赖阿里路由编译框架
-        if (isKt) {
-            kapt libs.arouter_compiler
-        } else {
-            annotationProcessor libs.arouter_compiler
-        }
+    }
+    //组件中依赖阿里路由编译框架
+    if (isKt) {
+        kapt libs.arouter_compiler
+    } else {
+        annotationProcessor libs.arouter_compiler
     }
 
     //2018-06-03新增：这里是为了示例添加全局拦截器
