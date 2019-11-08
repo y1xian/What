@@ -2,7 +2,7 @@ ext {
 
     build_version = [
             compileSdkVersion: 28,
-            buildToolsVersion: '28.0.0',
+            buildToolsVersion: '28.0.3',
             minSdkVersion    : 19,
             applicationId    : "com.yyxnb.what",
             targetSdkVersion : 28,
@@ -184,6 +184,9 @@ ext {
 
             //https://github.com/luckybilly/SmartSwipe
             swipe                          : [group: 'com.billy.android', name: 'smart-swipe', version: '1.0.8'],
-            swipe_support                  : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0']
+            swipe_support                  : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0'],
+
+            //https://github.com/JessYanCoding/AndroidAutoSize
+            autosize                  : [group: 'me.jessyan', name: 'autosize', version: '1.1.2']
     ]
 }

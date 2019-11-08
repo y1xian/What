@@ -122,7 +122,7 @@ ext.addComponent = { dependencyName, realDependency = null ->
 android {
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
-//    buildToolsVersion build_version.buildToolsVersion
+    buildToolsVersion build_version.buildToolsVersion
     defaultConfig {
         minSdkVersion build_version.minSdkVersion
         targetSdkVersion build_version.targetSdkVersion
@@ -267,12 +267,13 @@ dependencies {
 
     if (!isLibrary) {
         implementation project(':module_base')
-    }
-    //组件中依赖阿里路由编译框架
-    if (isKt) {
-        kapt libs.arouter_compiler
-    } else {
-        annotationProcessor libs.arouter_compiler
+    }else{
+        //组件中依赖阿里路由编译框架
+        if (isKt) {
+            kapt libs.arouter_compiler
+        } else {
+            annotationProcessor libs.arouter_compiler
+        }
     }
 
     //2018-06-03新增：这里是为了示例添加全局拦截器

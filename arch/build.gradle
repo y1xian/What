@@ -1,60 +1,16 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
-android {
-
-    compileSdkVersion build_version.compileSdkVersion
-
-    defaultConfig {
-        minSdkVersion build_version.minSdkVersion
-        targetSdkVersion build_version.targetSdkVersion
-        versionCode build_version.versionCode
-        versionName build_version.versionName
-        multiDexEnabled true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    //Kotlin中使用Java8特性
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
-
-}
+ext.isKt = true
+apply from: rootProject.file('lib.gradle')
 
 dependencies {
-    // 约束
-    api libs.constraint
-    //  v7 v4
-    api([libs.support_v7, libs.support_v4, libs.design, libs.annotations])
+    //  v7 v4 约束
+    api([libs.support_v7, libs.support_v4, libs.design, libs.annotations, libs.constraint])
     // jetpack
-    api([libs.arch_comp_java8, libs.arch_comp_extensions])
+    api libs.arch_comp_java8, libs.arch_comp_extensions
     // 避免65K限制       https://developer.android.com/tools/building/multidex.html
     api libs.multidex
-    // kt
-    api libs.kotlin_stdlib
-    api libs.kotlin_coroutines
-    api libs.kotlin_coroutines_core
     //https://github.com/JessYanCoding/AndroidAutoSize
-    api 'me.jessyan:autosize:1.1.2'
+    api libs.autosize
     //侧滑
     api libs.parallaxbacklayout
+
 }
