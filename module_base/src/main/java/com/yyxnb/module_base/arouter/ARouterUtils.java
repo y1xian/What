@@ -12,7 +12,7 @@ import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.yyxnb.arch.utils.log.LogUtils;
+import com.yyxnb.common.log.LogUtils;
 
 /**
  * ARouter路由跳转工具类
@@ -47,7 +47,7 @@ public class ARouterUtils {
      * 销毁资源
      */
     public static void destroy() {
-        LogUtils.INSTANCE.i("销毁路由资源");
+        LogUtils.i("销毁路由资源");
         ARouter.getInstance().destroy();
     }
 
@@ -218,25 +218,25 @@ public class ARouterUtils {
         NavigationCallback callback = new NavCallback() {
             @Override
             public void onArrival(Postcard postcard) {
-                LogUtils.INSTANCE.i("ARouterUtils" + "---跳转完了");
+                LogUtils.i("ARouterUtils" + "---跳转完了");
             }
 
             @Override
             public void onFound(Postcard postcard) {
                 super.onFound(postcard);
-                LogUtils.INSTANCE.i("ARouterUtils" + "---找到了");
+                LogUtils.i("ARouterUtils" + "---找到了");
             }
 
             @Override
             public void onInterrupt(Postcard postcard) {
                 super.onInterrupt(postcard);
-                LogUtils.INSTANCE.i("ARouterUtils" + "---被拦截了");
+                LogUtils.i("ARouterUtils" + "---被拦截了");
             }
 
             @Override
             public void onLost(Postcard postcard) {
                 super.onLost(postcard);
-                LogUtils.INSTANCE.i("ARouterUtils" + "---找不到了");
+                LogUtils.i("ARouterUtils" + "---找不到了");
                 //降级处理
                 //DegradeServiceImpl degradeService = new DegradeServiceImpl();
                 //degradeService.onLost(Utils.getApp(),postcard);

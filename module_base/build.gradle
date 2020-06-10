@@ -1,11 +1,15 @@
-ext.isKt = true
 ext.isLibrary = true
 apply from: rootProject.file('module.gradle')
 
 dependencies {
 
-    api 'com.github.y1xian.Widget:arch:1.0.1'
-    api 'com.github.y1xian.Widget:http:1.0.1'
+    def b_v = "1.0.2.1"
+    api 'com.github.y1xian.Amazing:lib_arch:' + b_v
+    api 'com.github.y1xian.Amazing:lib_http:' + b_v
+
+    api libs.widget_utils
+    api libs.widget_view
+    api libs.widget_adapter
 
     api libs.arouter_api
 
@@ -20,7 +24,7 @@ dependencies {
     }
 
     api libs.glide
-    kapt libs.glide_compiler
+    annotationProcessor libs.glide_compiler
 
     //https://github.com/yangchong211/YCWebView
 //    api 'cn.yc:WebViewLib:1.1.2'

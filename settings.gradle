@@ -1,2 +1,2 @@
 include ':app', ':module_main', ':module_base', ':module_user', ':module_video', ':module_login', ':module_news', ':module_novel', ':module_music'
-rootProject.name='What'
+rootProject.name = 'What'

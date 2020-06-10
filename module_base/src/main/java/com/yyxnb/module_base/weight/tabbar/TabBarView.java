@@ -21,8 +21,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.yyxnb.arch.utils.StatusBarUtils;
 import com.yyxnb.module_base.R;
+import com.yyxnb.view.utils.NavigationBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -434,7 +434,7 @@ public class TabBarView extends LinearLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (context != null) {
             if (paddingNavigationBar && !isInEditMode()) {
-                int navHeight = StatusBarUtils.INSTANCE.getNavbarHeight((Activity) context);
+                int navHeight = NavigationBarUtil.getNavbarHeight((Activity) context);
                 int newHeight = height + navHeight;
                 setMeasuredDimension(getMeasuredWidth(), newHeight);//设置宽高
                 setPadding(0, -navHeight / 2, 0, navHeight / 2);

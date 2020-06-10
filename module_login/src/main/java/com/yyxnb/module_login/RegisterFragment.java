@@ -6,9 +6,7 @@ import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.utils.log.LogUtils;
-
-import org.jetbrains.annotations.Nullable;
+import com.yyxnb.common.log.LogUtils;
 
 
 /**
@@ -33,8 +31,7 @@ public class RegisterFragment extends BaseFragment {
     }
 
     @Override
-    public void initView(@Nullable Bundle savedInstanceState) {
-        LogUtils.INSTANCE.d("-RegisterFragment--initView--");
+    public void initView(Bundle savedInstanceState) {
 
         tvShow = findViewById(R.id.tvShow);
         tvShow.setOnClickListener(v -> {
@@ -46,7 +43,7 @@ public class RegisterFragment extends BaseFragment {
     @Override
     public void initViewData() {
         super.initViewData();
-        LogUtils.INSTANCE.d("-RegisterFragment--initViewData--");
+        LogUtils.d("-RegisterFragment--initViewData--");
 
     }
 }

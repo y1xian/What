@@ -8,7 +8,7 @@ package com.yyxnb.module_base.module;
 public class ModuleLifecycleReflexs {
 
     //主业务模块
-//    private static final String MAIN_INIT = "com.yyxnb.module_main.ModuleInit";
+    private static final String MAIN_INIT = "com.yyxnb.module_main.ModuleInit";
     //登录注册模块
     private static final String LOGIN_INIT = "com.yyxnb.module_login.ModuleInit";
     //用户业务模块
@@ -16,5 +16,5 @@ public class ModuleLifecycleReflexs {
     //视频模块
     private static final String VIDEO_INIT = "com.yyxnb.module_video.ModuleInit";
 
-    public static String[] initModuleNames = {/*MAIN_INIT,*/ LOGIN_INIT, USER_INIT, VIDEO_INIT};
+    public static String[] initModuleNames = {MAIN_INIT, LOGIN_INIT, USER_INIT, VIDEO_INIT};
 }

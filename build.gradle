@@ -10,7 +10,6 @@ buildscript {
     }
     dependencies {
         classpath build_plugins.android_gradle
-        classpath build_plugins.kotlin_gradle
 
         classpath "com.alibaba:arouter-register:1.0.2"
         //登录 分享

@@ -2,6 +2,7 @@ package com.yyxnb.module_user.fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
@@ -9,24 +10,21 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.annotations.BarStyle;
-import com.yyxnb.arch.annotations.FitsSystemWindows;
-import com.yyxnb.arch.annotations.StatusBarDarkTheme;
-import com.yyxnb.arch.annotations.SwipeBack;
-import com.yyxnb.arch.utils.log.LogUtils;
+import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.module_user.R;
 
-import org.jetbrains.annotations.Nullable;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-@SwipeBack(value = -1)
-@FitsSystemWindows
-@StatusBarDarkTheme(value = BarStyle.LightContent)
+//@SwipeBack(value = -1)
+//@FitsSystemWindows
+//@StatusBarDarkTheme(value = BarStyle.LightContent)
+//    @BindRes(statusBarColor = R.color.user_head)
 @Route(path = USER_FRAGMENT)
 public class UserFragment extends BaseFragment {
 
@@ -48,10 +46,10 @@ public class UserFragment extends BaseFragment {
         return R.layout.fragment_user;
     }
 
-    @Override
-    public int initStatusBarColor() {
-        return getResources().getColor(R.color.user_head);
-    }
+//    @Override
+//    public int initStatusBarColor() {
+//        return getResources().getColor(R.color.user_head);
+//    }
 
 
     @Override
@@ -83,12 +81,12 @@ public class UserFragment extends BaseFragment {
     @Override
     public void onInVisible() {
         super.onInVisible();
-        LogUtils.INSTANCE.d("---onInVisible---");
+        LogUtils.d("---onInVisible---");
     }
 
     @Override
     public void onVisible() {
         super.onVisible();
-        LogUtils.INSTANCE.d("---onVisible---");
+        LogUtils.d("---onVisible---");
     }
 }

@@ -1,6 +1,4 @@
 apply from: rootProject.file('module.gradle')
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
 
@@ -8,13 +6,6 @@ android {
         //仅在以application方式编译时才添加applicationId属性
         if (runAsApp) {
             applicationId build_version.applicationId + '.module_main'
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -27,5 +18,4 @@ dependencies {
 //        addComponent ''
     }
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

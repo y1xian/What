@@ -7,11 +7,11 @@
     android:orientation="vertical"
     tools:context=".fragments.MainHomeFragment">
 
-    <com.yyxnb.module_base.weight.CommonTitleBar
+    <com.yyxnb.view.titlebar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:centerText="推荐"
-        app:titleBarColor="@color/green"
+        app:titleBarColor="@color/black"
         />
 
     <TextView

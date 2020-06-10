@@ -16,9 +16,6 @@ try {
 //  ext.mainApp的将仅代表是否作为主app，为true时以application方式编译，为false或未配置时以local.properties中的配置为准
 //  兼容以前的runAsApp设置，ext.runAsApp的功能保持不变，runAsApp优先级高于local.properties
 def runAsApp = ext.has('runAsApp')
-//是否kt
-def isKt = ext.has('isKt')
-ext.isKt = isKt
 //是否library
 def isLibrary = ext.has('isLibrary')
 ext.isLibrary = isLibrary
@@ -39,18 +36,6 @@ if (runAsApp) {
 } else {
     apply plugin: 'com.android.library'
 }
-if (isKt) {
-    apply plugin: 'kotlin-android'
-    apply plugin: 'kotlin-android-extensions'
-    apply plugin: 'kotlin-kapt'
-
-    kapt {
-        arguments {
-            arg("AROUTER_MODULE_NAME", project.getName())
-        }
-    }
-}
-
 
 //对组件库的依赖格式： addComponent dependencyName [, realDependency]
 // 使用示例见demo/build.gradle
@@ -117,7 +102,7 @@ ext.addComponent = { dependencyName, realDependency = null ->
 android {
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
-    buildToolsVersion build_version.buildToolsVersion
+//    buildToolsVersion build_version.buildToolsVersion
     defaultConfig {
         minSdkVersion build_version.minSdkVersion
         targetSdkVersion build_version.targetSdkVersion
@@ -128,11 +113,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
         //阿里路由框架配置
-        if (!isKt) {
-            javaCompileOptions {
-                annotationProcessorOptions {
-                    arguments = [AROUTER_MODULE_NAME: project.getName()]
-                }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
@@ -221,13 +204,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    if (isKt) {
-        //Kotlin中使用Java8特性
-        kotlinOptions {
-            jvmTarget = '1.8'
-        }
-    }
-
     //防止编译的时候oom、GC
     dexOptions {
         preDexLibraries false
@@ -253,22 +229,20 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testImplementation libs.junit
-    androidTestImplementation libs.test_runner
-    androidTestImplementation libs.test_espresso
+    if (runAsApp) {
+        androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        testImplementation libs.junit
+        androidTestImplementation libs.test_runner
+        androidTestImplementation libs.test_espresso
+    }
 
     if (!isLibrary) {
         implementation project(':module_base')
     }
     //组件中依赖阿里路由编译框架
-    if (isKt) {
-        kapt libs.arouter_compiler
-    } else {
-        annotationProcessor libs.arouter_compiler
-    }
+    annotationProcessor libs.arouter_compiler
 
     //2018-06-03新增：这里是为了示例添加全局拦截器
     if (project.ext.has('runAsApp') && project.ext.runAsApp) {
