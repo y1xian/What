@@ -15,6 +15,20 @@ public class ModuleLifecycleReflexs {
     private static final String USER_INIT = "com.yyxnb.module_user.ModuleInit";
     //视频模块
     private static final String VIDEO_INIT = "com.yyxnb.module_video.ModuleInit";
+    //音乐模块
+    private static final String MUSIC_INIT = "com.yyxnb.module_music.ModuleInit";
+    //小说模块
+    private static final String NOVEL_INIT = "com.yyxnb.module_music.ModuleInit";
+    //新闻模块
+    private static final String NEWS_INIT = "com.yyxnb.module_music.ModuleInit";
 
-    public static String[] initModuleNames = {MAIN_INIT, LOGIN_INIT, USER_INIT, VIDEO_INIT};
+    public static String[] initModuleNames = {
+            MAIN_INIT
+            , LOGIN_INIT
+            , USER_INIT
+            , VIDEO_INIT
+            , MUSIC_INIT
+            , NOVEL_INIT
+            , NEWS_INIT
+    };
 }

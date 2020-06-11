@@ -225,6 +225,13 @@ android {
         //停用 PNG 处理
         cruncherEnabled false
     }
+
+    // 4.0
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
 }
 
 dependencies {

@@ -6,7 +6,7 @@ import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.leakcanary.LeakCanary;
-import com.yyxnb.arch.BuildConfig;
+import com.yyxnb.common.AppConfig;
 import com.yyxnb.module_base.module.ModuleLifecycleConfig;
 
 /**
@@ -27,15 +27,17 @@ public class DebugApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //初始化组件
-        ModuleLifecycleConfig.getInstance().initModule(this);
 
         //初始化阿里路由框架
-        if (BuildConfig.DEBUG) {
+        if (AppConfig.getInstance().isDebug()) {
             ARouter.openLog();     // 打印日志
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
-        ARouter.init(this); // 尽可能早，推荐在Application中初始化
+        // 尽可能早，推荐在Application中初始化
+        ARouter.init(this);
+
+        //初始化组件
+        ModuleLifecycleConfig.getInstance().initModule(this);
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.

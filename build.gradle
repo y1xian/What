@@ -6,14 +6,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-
     }
     dependencies {
         classpath build_plugins.android_gradle
 
         classpath "com.alibaba:arouter-register:1.0.2"
-        //登录 分享
-//        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
         //升级 热更新
         classpath "com.tencent.bugly:tinker-support:1.2.0"
     }
