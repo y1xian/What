@@ -34,7 +34,7 @@ public class MainHomeFragment extends BaseFragment {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        tvShow = findViewById(R.id.tvShow);
+        tvShow = findViewById(R.id.tvTitle);
 
         tvShow.setOnClickListener(v -> {
 //            startFragment(new MainClassificationFragment());

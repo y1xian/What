@@ -3,28 +3,18 @@ package com.yyxnb.module_main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
-import com.yyxnb.arch.base.BaseActivity;
-
-
+import com.yyxnb.arch.base.IActivity;
 
 /**
  * 启动页
  *
  * @author yyx
  */
-public class SplashActivity extends BaseActivity {
-
-//    @Override
-//    protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        //将window的背景图设置为空
-////        getWindow().setBackgroundDrawable(null);
-//        super.onCreate(savedInstanceState);
-////        setStatusBarTranslucent(true, true);
-////        setStatusBarColor(Color.TRANSPARENT);
-////        setNavigationBarHidden(true);
-//    }
+public class SplashActivity extends AppCompatActivity implements IActivity {
 
     @Override
     public int initLayoutResId() {
@@ -33,11 +23,29 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        new Handler().postDelayed(this::inMain, 2 * 1000);
+        // 白屏时间 + 2秒进入首页 ≈ 3~5秒
+        handler.sendEmptyMessageDelayed(1, 2 * 1000);
     }
+
+    private final Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message message) {
+            if (message.what == 1) {
+                inMain();
+            }
+            return false;
+        }
+    });
 
     private void inMain() {
         startActivity(new Intent(this, MainActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 避免内存泄漏
+        handler.removeCallbacksAndMessages(null);
     }
 }

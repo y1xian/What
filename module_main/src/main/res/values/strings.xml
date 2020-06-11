@@ -3,5 +3,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_home_title">你也是来学习的吧</string>
 
 </resources>

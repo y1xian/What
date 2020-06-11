@@ -5,13 +5,15 @@ dependencies {
 
     def b_v = "1.0.2.1"
     api 'com.github.y1xian.Amazing:lib_arch:' + b_v
-    api 'com.github.y1xian.Amazing:lib_http:' + b_v
+    api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
 
     api libs.widget_utils
     api libs.widget_view
     api libs.widget_adapter
 
     api libs.arouter_api
+
+    api libs.constraint
 
     debugImplementation libs.leak_canary_debug
     releaseImplementation libs.leak_canary_release
