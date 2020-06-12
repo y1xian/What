@@ -3,36 +3,39 @@ apply from: rootProject.file('module.gradle')
 
 dependencies {
 
-    def b_v = "1.0.2.1"
+    // jetpack
+    def b_v = "1.0.2.2"
     api 'com.github.y1xian.Amazing:lib_arch:' + b_v
     api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
-
+    // 常用控件
     api libs.widget_utils
     api libs.widget_view
     api libs.widget_adapter
 
+    // 路由
     api libs.arouter_api
-
+    // 2.0
     api libs.constraint
 
+    // 内存泄漏检测
     debugImplementation libs.leak_canary_debug
     releaseImplementation libs.leak_canary_release
     // Optional, if you use support library fragments:
     debugImplementation libs.leak_canary_debug_support
 
-    //https://github.com/vinc3m1/RoundedImageView
+    // 圆角图片 https://github.com/vinc3m1/RoundedImageView
     api('com.makeramen:roundedimageview:2.3.0') {
         exclude group: 'com.android.support'
     }
-
+    // 图片框架
     api libs.glide
     annotationProcessor libs.glide_compiler
 
     //https://github.com/yangchong211/YCWebView
 //    api 'cn.yc:WebViewLib:1.1.2'
 
-    //https://github.com/scwang90/SmartRefreshLayout
-    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.0-alpha-1'      //核心必须依赖
-    implementation 'com.scwang.smart:refresh-header-classics:2.0.0-alpha-1'    //经典刷新头
-    implementation 'com.scwang.smart:refresh-header-material:2.0.0-alpha-1'    //谷歌刷新头
+    // 刷新框架 https://github.com/scwang90/SmartRefreshLayout
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.0-alpha-1'      //核心必须依赖
+    api 'com.scwang.smart:refresh-header-classics:2.0.0-alpha-1'    //经典刷新头
+    api 'com.scwang.smart:refresh-header-material:2.0.0-alpha-1'    //谷歌刷新头
 }

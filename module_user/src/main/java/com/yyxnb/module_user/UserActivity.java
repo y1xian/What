@@ -1,16 +1,16 @@
 package com.yyxnb.module_user;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yyxnb.arch.ContainerActivity;
+import com.yyxnb.module_user.fragments.UserFragment;
 
 @Route(path = "/user/userMain/ac")
-public class UserActivity extends AppCompatActivity {
+public class UserActivity extends ContainerActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+    public Fragment initBaseFragment() {
+        return new UserFragment();
     }
 }

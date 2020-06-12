@@ -20,4 +20,9 @@ public class MainClassificationFragment extends Fragment implements IFragment {
     public void initView(Bundle savedInstanceState) {
 
     }
+
+    @Override
+    public void onVisible() {
+        getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
+    }
 }

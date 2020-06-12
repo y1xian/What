@@ -5,9 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.arch.base.BaseActivity;
-import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.module_base.arouter.ARouterUtils;
 import com.yyxnb.module_base.weight.NoScrollViewPager;
 import com.yyxnb.module_base.weight.tabbar.Tab;
 import com.yyxnb.module_base.weight.tabbar.TabBarView;
@@ -44,7 +43,7 @@ public class MainActivity extends BaseActivity {
         fragments = new ArrayList<>();
         fragments.add(new MainHomeFragment());
         fragments.add(new MainClassificationFragment());
-        fragments.add((BaseFragment) ARouter.getInstance().build(USER_FRAGMENT).navigation());
+        fragments.add((Fragment) ARouterUtils.navFragment(USER_FRAGMENT));
 
         List<Tab> tabs = new ArrayList<>();
         tabs.add(new Tab(this, "推荐", R.mipmap.icon_main_sy));

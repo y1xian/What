@@ -6,6 +6,7 @@ public class ARouterConstant {
     //======login
     //跳转到登陆页面
     public static final String LOGIN_ACTIVITY = "/login/LoginActivity";
+    public static final String LOGIN_FRAGMENT = "/login/LoginFragment";
     //跳转到注册页面
     public static final String REGISTER_ACTIVITY = "/login/RegisterActivity";
 

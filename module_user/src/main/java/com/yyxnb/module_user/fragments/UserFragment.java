@@ -3,62 +3,36 @@ package com.yyxnb.module_user.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.Fragment;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.module_base.arouter.ARouterUtils;
 import com.yyxnb.module_user.R;
+import com.yyxnb.module_user.databinding.FragmentUserBinding;
 
-
+import static com.yyxnb.module_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 我的 - 界面.
  */
-//@SwipeBack(value = -1)
-//@FitsSystemWindows
-//@StatusBarDarkTheme(value = BarStyle.LightContent)
-//    @BindRes(statusBarColor = R.color.user_head)
+@BindRes(statusBarStyle = BarStyle.LightContent)
 @Route(path = USER_FRAGMENT)
 public class UserFragment extends BaseFragment {
 
-    private TextView tvName;
-    private CoordinatorLayout mCoordinatorLayout;
-    private ConstraintLayout clHead;
-
-    public static UserFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        UserFragment fragment = new UserFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private FragmentUserBinding binding;
 
     @Override
     public int initLayoutResId() {
         return R.layout.fragment_user;
     }
 
-//    @Override
-//    public int initStatusBarColor() {
-//        return getResources().getColor(R.color.user_head);
-//    }
-
-
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-
-        mCoordinatorLayout = findViewById(R.id.mCoordinatorLayout);
-        clHead = findViewById(R.id.clHead);
-
-        tvName = findViewById(R.id.tvName);
+        binding = getBinding();
 
 //        tvName.setText("yyyy更新 " + StatusBarUtils.INSTANCE.getStatusBarHeight(getMContext()));
 //
@@ -70,9 +44,9 @@ public class UserFragment extends BaseFragment {
 //            SwipeExtKt.wrap(Objects.requireNonNull(getMRootView()));
 //        }
 
-        clHead.setOnClickListener(v -> {
+        binding.clHead.setOnClickListener(v -> {
 //            ARouter.getInstance().build(LOGIN_ACTIVITY).navigation();
-            startFragment((BaseFragment)ARouter.getInstance().build("/login/LoginFragment").navigation());
+            startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
         });
 
 
@@ -87,6 +61,7 @@ public class UserFragment extends BaseFragment {
     @Override
     public void onVisible() {
         super.onVisible();
+        getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
         LogUtils.d("---onVisible---");
     }
 }

@@ -1,84 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mCoordinatorLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.UserFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/AppFragment_AppBarLayout"
+    <data>
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/mCoordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/user_head"
-        app:elevation="0dp">
+        android:layout_height="match_parent"
+        tools:context=".fragments.UserFragment">
 
-        <!--需要折叠的CollapsingToolbarLayout部分-->
-        <android.support.design.widget.CollapsingToolbarLayout
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/AppFragment_AppBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:contentScrim="@color/user_head"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            android:layout_height="wrap_content"
+            android:background="@color/user_head"
+            app:elevation="0dp">
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/clHead"
+            <!--需要折叠的CollapsingToolbarLayout部分-->
+            <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
+                android:layout_height="match_parent"
+                app:contentScrim="@color/user_head"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/ivHead"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="24dp"
-                    android:src="@mipmap/ic_launcher"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:riv_border_color="@color/white"
-                    app:riv_border_width="1dp"
-                    app:riv_corner_radius="6dp" />
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/clHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
 
-                <TextView
-                    android:id="@+id/tvName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="游客"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/ivHead" />
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/ivHead"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:src="@mipmap/ic_launcher"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:riv_border_color="@color/white"
+                        app:riv_border_width="1dp"
+                        app:riv_corner_radius="6dp" />
 
-                <TextView
-                    android:id="@+id/tvSign"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:maxLines="2"
-                    android:text="没有签名"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toStartOf="@+id/ivHead"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="游客"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/ivHead" />
 
-
-            </android.support.constraint.ConstraintLayout>
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorGray"
-        android:visibility="gone">
+                    <TextView
+                        android:id="@+id/tvSign"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:maxLines="2"
+                        android:text="没有签名"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/ivHead"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
 
-    </android.support.constraint.ConstraintLayout>
+                </android.support.constraint.ConstraintLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGray"
+            android:visibility="gone">
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

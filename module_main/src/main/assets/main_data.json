@@ -4,41 +4,63 @@
     "type": 1,
     "title": "xxx",
     "des": "",
-    "url": ""
+    "url": "",
+    "color": "",
+    "span": 3
   },
   {
     "id": 2,
-    "type": 0,
+    "type": 2,
     "title": "xxx",
     "des": "",
-    "url": ""
+    "url": "",
+    "color": "",
+    "span": 2
   },
   {
     "id": 3,
-    "type": 0,
+    "type": 2,
     "title": "xxx",
     "des": "",
-    "url": ""
+    "url": "",
+    "color": "",
+    "span": 2
   },
   {
     "id": 4,
-    "type": 0,
+    "type": 3,
     "title": "xxx",
     "des": "",
-    "url": ""
+    "url": "",
+    "color": "",
+    "span": 1
   },
   {
     "id": 5,
-    "type": 0,
+    "type": 3,
     "title": "xxx",
     "des": "",
-    "url": ""
+    "url": "",
+    "color": "",
+    "span": 1
   },
   {
     "id": 6,
+    "type": 3,
+    "title": "xxx",
+    "des": "",
+    "url": "",
+    "color": "",
+    "span": 1
+  },
+  {
+    "id": 7,
     "type": 1,
     "title": "xxx",
     "des": "",
-    "url": ""
+    "url": "",
+    "color": "",
+    "span": 3
   }
+
 ]
