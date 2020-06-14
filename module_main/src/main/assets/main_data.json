@@ -1,66 +1,74 @@
 [
   {
     "id": 1,
-    "type": 1,
-    "title": "xxx",
+    "type": 20,
+    "title": "搜索",
     "des": "",
     "url": "",
     "color": "",
-    "span": 3
+    "span": 4
   },
   {
     "id": 2,
     "type": 2,
-    "title": "xxx",
+    "title": "视频",
     "des": "",
     "url": "",
-    "color": "",
+    "color": "#badc58",
     "span": 2
   },
   {
     "id": 3,
     "type": 2,
-    "title": "xxx",
+    "title": "null",
     "des": "",
     "url": "",
-    "color": "",
+    "color": "#a29bfe",
     "span": 2
   },
   {
     "id": 4,
     "type": 3,
-    "title": "xxx",
+    "title": "null",
     "des": "",
     "url": "",
-    "color": "",
+    "color": "#81ecec",
     "span": 1
   },
   {
     "id": 5,
     "type": 3,
-    "title": "xxx",
+    "title": "null",
     "des": "",
     "url": "",
-    "color": "",
-    "span": 1
+    "color": "#fab1a0",
+    "span": 3
   },
   {
     "id": 6,
     "type": 3,
-    "title": "xxx",
+    "title": "null",
     "des": "",
     "url": "",
-    "color": "",
-    "span": 1
+    "color": "#fdcb6e",
+    "span": 3
   },
   {
     "id": 7,
     "type": 1,
-    "title": "xxx",
+    "title": "null",
     "des": "",
     "url": "",
-    "color": "",
-    "span": 3
+    "color": "#00cec9",
+    "span": 1
+  },
+  {
+    "id": 8,
+    "type": 3,
+    "title": "null",
+    "des": "",
+    "url": "",
+    "color": "#f8a5c2",
+    "span": 4
   }
-
 ]
