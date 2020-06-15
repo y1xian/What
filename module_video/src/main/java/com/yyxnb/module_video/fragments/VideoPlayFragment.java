@@ -8,8 +8,10 @@ import android.widget.FrameLayout;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.util.L;
+import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;
@@ -26,8 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 视频播放
+ * 短视频播放的fragment 可以上下滑动
  */
+@BindRes(subPage = true)
 public class VideoPlayFragment extends BaseFragment {
 
     @BindViewModel
@@ -52,28 +55,22 @@ public class VideoPlayFragment extends BaseFragment {
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
         mViewPager = binding.mViewPager;
+    }
+
+    @Override
+    public void initViewData() {
         initViewPager();
         initVideoView();
         mPreloadManager = PreloadManager.getInstance(getContext());
 
         addData(null);
 
-        mViewPager.post(new Runnable() {
-            @Override
-            public void run() {
-                startPlay(0);
-            }
-        });
-    }
-
-    @Override
-    public void initViewData() {
-
+        mViewPager.post(() -> startPlay(0));
     }
 
     @Override
     public void initObservable() {
-        mViewModel.reqVideoList();
+//        mViewModel.reqVideoList();
 
         mViewModel.result.observe(this, data -> {
 
@@ -81,14 +78,14 @@ public class VideoPlayFragment extends BaseFragment {
     }
 
     private void initVideoView() {
-        mVideoView = new VideoView(getContext());
+        mVideoView = new VideoView(getActivity());
         mVideoView.setLooping(true);
 
         //以下只能二选一，看你的需求
         mVideoView.setRenderViewFactory(TikTokRenderViewFactory.create());
 //        mVideoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
 
-        mController = new TikTokController(getContext());
+        mController = new TikTokController(getActivity());
         mVideoView.setVideoController(mController);
     }
 
@@ -118,7 +115,9 @@ public class VideoPlayFragment extends BaseFragment {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                if (position == mCurPos) return;
+                if (position == mCurPos) {
+                    return;
+                }
                 startPlay(position);
             }
 
@@ -169,7 +168,9 @@ public class VideoPlayFragment extends BaseFragment {
      * 将View从父控件中移除
      */
     public void removeViewFormParent(View v) {
-        if (v == null) return;
+        if (v == null) {
+            return;
+        }
         ViewParent parent = v.getParent();
         if (parent instanceof FrameLayout) {
             ((FrameLayout) parent).removeView(v);
@@ -177,11 +178,24 @@ public class VideoPlayFragment extends BaseFragment {
     }
 
     @Override
+    public void onVisible() {
+        LogUtils.e("Play onVisible");
+    }
+
+    @Override
+    public void onInVisible() {
+        LogUtils.e("Play onInVisible");
+        if (mVideoView != null) {
+            mVideoView.pause();
+        }
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-        if (mVideoView != null) {
-            mVideoView.resume();
-        }
+//        if (mVideoView != null) {
+//            mVideoView.resume();
+//        }
     }
 
     @Override

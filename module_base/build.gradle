@@ -32,7 +32,7 @@ dependencies {
     annotationProcessor libs.glide_compiler
 
     //https://github.com/yangchong211/YCWebView
-    implementation 'cn.yc:WebViewLib:1.2.7'
+//    implementation 'cn.yc:WebViewLib:1.2.7'
 
     // 刷新框架 https://github.com/scwang90/SmartRefreshLayout
     api 'com.scwang.smart:refresh-layout-kernel:2.0.0-alpha-1'      //核心必须依赖
@@ -41,4 +41,7 @@ dependencies {
 
     // 通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
     api 'com.noober.background:core:1.6.3'
+
+    //https://github.com/hackware1993/MagicIndicator
+    api 'com.github.hackware1993:MagicIndicator:1.6.0'
 }

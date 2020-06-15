@@ -1,0 +1,96 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.yyxnb.module_video.fragments.VideoMainBottomFragment">
+
+        <FrameLayout
+            android:id="@+id/replaced"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/bg_home_bottom"
+            android:orientation="horizontal">
+
+            <com.yyxnb.view.text.DrawableRadioButton
+                android:id="@+id/btn_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="首页"
+                android:textColor="@color/main_text"
+                android:textSize="16sp" />
+
+            <com.yyxnb.view.text.DrawableRadioButton
+                android:id="@+id/btn_find"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="70dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingTop="2dp"
+                android:text="发现"
+                android:textColor="@color/main_text"
+                android:textSize="16sp" />
+
+            <com.yyxnb.view.text.DrawableRadioButton
+                android:id="@+id/btn_msg"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="消息"
+                android:textColor="@color/main_text"
+                android:textSize="16sp" />
+
+            <com.yyxnb.view.text.DrawableRadioButton
+                android:id="@+id/btn_me"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="-3dp"
+                android:gravity="center"
+                android:text="我"
+                android:textColor="@color/main_text"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/btn_record"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="2dp"
+            android:src="@mipmap/icon_record" />
+
+        <ImageView
+            android:id="@+id/record_tip"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btn_record"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/icon_no_works"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+</layout>

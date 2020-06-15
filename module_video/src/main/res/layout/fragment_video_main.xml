@@ -1,15 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.yyxnb.module_video.fragments.VideoMainFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
-        android:id="@+id/tvStart"
+    <data>
+
+    </data>
+
+    <com.yyxnb.module_base.weight.NoScrollViewPager
+        android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="跳转" />
+        tools:context="com.yyxnb.module_video.fragments.VideoMainFragment">
 
-</FrameLayout>
+    </com.yyxnb.module_base.weight.NoScrollViewPager>
+</layout>
