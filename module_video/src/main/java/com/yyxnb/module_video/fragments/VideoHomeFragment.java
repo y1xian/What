@@ -67,6 +67,8 @@ public class VideoHomeFragment extends BaseFragment {
         }
 
         initIndicator();
+        mIndicator.onPageSelected(1);
+        mViewPager.setCurrentItem(1);
     }
 
     private void initIndicator() {

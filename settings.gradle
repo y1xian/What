@@ -1,2 +1,11 @@
-include ':app', ':module_main', ':module_base', ':module_user', ':module_video', ':module_login', ':module_news', ':module_novel', ':module_music'
+include ':app',
+        ':module_main',
+        ':module_base',
+        ':module_user',
+        ':module_video',
+        ':module_login',
+        ':module_message',
+        ':module_novel',
+        ':module_music',
+        ':module_community'
 rootProject.name = 'What'

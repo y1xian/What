@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.module_base.weight.NoScrollViewPager;
@@ -13,10 +14,13 @@ import com.yyxnb.module_video.databinding.FragmentVideoMainBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_MAIN_FRAGMENT;
+
 /**
  * 视频首页
  */
 @BindRes
+@Route(path = VIDEO_MAIN_FRAGMENT)
 public class VideoMainFragment extends BaseFragment {
 
     private FragmentVideoMainBinding binding;

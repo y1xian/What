@@ -3,7 +3,7 @@ apply from: rootProject.file('module.gradle')
 
 dependencies {
 
-    // jetpack
+    // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.2.3"
     api 'com.github.y1xian.Amazing:lib_arch:' + b_v
     api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
@@ -11,6 +11,8 @@ dependencies {
     api libs.widget_utils
     api libs.widget_view
     api libs.widget_adapter
+
+    api libs.support_v4
 
     // 路由
     api libs.arouter_api

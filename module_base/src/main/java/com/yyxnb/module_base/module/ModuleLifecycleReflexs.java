@@ -18,9 +18,11 @@ public class ModuleLifecycleReflexs {
     //音乐模块
     private static final String MUSIC_INIT = "com.yyxnb.module_music.ModuleInit";
     //小说模块
-    private static final String NOVEL_INIT = "com.yyxnb.module_music.ModuleInit";
-    //新闻模块
-    private static final String NEWS_INIT = "com.yyxnb.module_music.ModuleInit";
+    private static final String NOVEL_INIT = "com.yyxnb.module_novel.ModuleInit";
+    //消息模块
+    private static final String NEWS_INIT = "com.yyxnb.module_message.ModuleInit";
+    //社区模块
+    private static final String COMMUNITY_INIT = "com.yyxnb.module_community.ModuleInit";
 
     public static String[] initModuleNames = {
             MAIN_INIT
@@ -30,5 +32,6 @@ public class ModuleLifecycleReflexs {
             , MUSIC_INIT
             , NOVEL_INIT
             , NEWS_INIT
+            , COMMUNITY_INIT
     };
 }
