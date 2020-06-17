@@ -11,6 +11,7 @@ import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.common.AppConfig;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokAdapter;
@@ -66,6 +67,10 @@ public class VideoPlayFragment extends BaseFragment {
         addData(null);
 
         mViewPager.post(() -> startPlay(0));
+
+        mAdapter.setOnSelectListener((v, position, text) -> {
+            AppConfig.getInstance().toast(text);
+        });
     }
 
     @Override
@@ -180,6 +185,9 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onVisible() {
         LogUtils.e("Play onVisible");
+        if (mVideoView != null) {
+            mVideoView.resume();
+        }
     }
 
     @Override
@@ -193,9 +201,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-//        if (mVideoView != null) {
-//            mVideoView.resume();
-//        }
+
     }
 
     @Override

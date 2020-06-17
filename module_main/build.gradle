@@ -17,12 +17,13 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     if (runAsApp) {
         //模块化下需要引用到的模块
+        addComponent 'module_login'
         addComponent 'module_user'
         addComponent 'module_video'
-        addComponent 'module_login'
-        addComponent 'module_news'
-        addComponent 'module_novel'
+        addComponent 'module_message'
+        addComponent 'module_community'
         addComponent 'module_music'
+        addComponent 'module_novel'
     }
 
 }

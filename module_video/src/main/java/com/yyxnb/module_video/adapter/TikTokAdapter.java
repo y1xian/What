@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.yyxnb.common.interfaces.OnSelectListener;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.utils.cache.PreloadManager;
@@ -27,7 +27,13 @@ public class TikTokAdapter extends PagerAdapter {
      */
     private List<View> mViewPool = new ArrayList<>();
 
-   /**
+    private OnSelectListener onSelectListener;
+
+    public void setOnSelectListener(OnSelectListener onSelectListener) {
+        this.onSelectListener = onSelectListener;
+    }
+
+    /**
      * 数据源
      */
     private List<TikTokBean> mVideoBeans;
@@ -72,10 +78,34 @@ public class TikTokAdapter extends PagerAdapter {
 //                .placeholder(android.R.color.white)
                 .into(viewHolder.mThumb);
         viewHolder.mTitle.setText(item.title);
-        viewHolder.mTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "点击了标题", Toast.LENGTH_SHORT).show();
+        viewHolder.mTitle.setOnClickListener(v -> {
+            if (onSelectListener != null) {
+                onSelectListener.onClick(v, 0, "标题");
+            }
+        });
+        viewHolder.mFollow.setOnClickListener(v -> {
+            if (onSelectListener != null) {
+                onSelectListener.onClick(v, 1, "标题");
+            }
+        });
+        viewHolder.mLike.setOnClickListener(v -> {
+            if (onSelectListener != null) {
+                onSelectListener.onClick(v, 2, "点赞");
+            }
+        });
+        viewHolder.mComment.setOnClickListener(v -> {
+            if (onSelectListener != null) {
+                onSelectListener.onClick(v, 3, "评论");
+            }
+        });
+        viewHolder.mShare.setOnClickListener(v -> {
+            if (onSelectListener != null) {
+                onSelectListener.onClick(v, 4, "分享");
+            }
+        });
+        viewHolder.mAvatar.setOnClickListener(v -> {
+            if (onSelectListener != null) {
+                onSelectListener.onClick(v, 5, "头像");
             }
         });
         viewHolder.mPosition = position;
@@ -102,6 +132,11 @@ public class TikTokAdapter extends PagerAdapter {
         public int mPosition;
         public TextView mTitle;//标题
         public ImageView mThumb;//封面图
+        public ImageView mAvatar;//头像
+        public ImageView mFollow;//关注
+        public ImageView mLike;//赞
+        public ImageView mComment;//评论
+        public ImageView mShare;//分享
         public TikTokView mTikTokView;
         public FrameLayout mPlayerContainer;
 
@@ -109,6 +144,11 @@ public class TikTokAdapter extends PagerAdapter {
             mTikTokView = itemView.findViewById(R.id.tiktok_View);
             mTitle = mTikTokView.findViewById(R.id.tv_title);
             mThumb = mTikTokView.findViewById(R.id.iv_thumb);
+            mAvatar = mTikTokView.findViewById(R.id.ivAvatar);
+            mFollow = mTikTokView.findViewById(R.id.btn_follow);
+            mLike = mTikTokView.findViewById(R.id.btn_zan);
+            mComment = mTikTokView.findViewById(R.id.btn_comment);
+            mShare = mTikTokView.findViewById(R.id.btn_share);
             mPlayerContainer = itemView.findViewById(R.id.container);
             itemView.setTag(this);
         }
