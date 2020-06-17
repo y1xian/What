@@ -4,7 +4,7 @@ apply from: rootProject.file('module.gradle')
 dependencies {
 
     // jetpack
-    def b_v = "1.0.2.2"
+    def b_v = "1.0.2.3"
     api 'com.github.y1xian.Amazing:lib_arch:' + b_v
     api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
     // 常用控件
