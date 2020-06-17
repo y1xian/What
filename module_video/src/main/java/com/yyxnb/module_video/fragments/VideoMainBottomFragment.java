@@ -144,24 +144,17 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_home:
-                toggleHome();
-                break;
-            case R.id.btn_find:
-                toggleFind();
-                break;
-            case R.id.btn_msg:
-                toggleMsg();
-                break;
-            case R.id.btn_me:
-                toggleMe();
-                break;
-            case R.id.record_tip:
-                // 跳录制
-                break;
-            default:
-                break;
+        int id = v.getId();
+        if (id == R.id.btn_home) {
+            toggleHome();
+        } else if (id == R.id.btn_find) {
+            toggleFind();
+        } else if (id == R.id.btn_msg) {
+            toggleMsg();
+        } else if (id == R.id.btn_me) {
+            toggleMe();
+        } else if (id == R.id.record_tip) {
+            // 跳录制
         }
     }
 

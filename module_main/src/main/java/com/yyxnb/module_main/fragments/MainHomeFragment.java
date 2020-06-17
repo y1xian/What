@@ -8,7 +8,6 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.ItemDecoration;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
@@ -25,7 +24,7 @@ import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.view.popup.Popup;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
-import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_VIDEO;
+import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_MAIN_FRAGMENT;
 
 /**
  * 主页
@@ -102,7 +101,7 @@ public class MainHomeFragment extends BaseFragment {
                         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity(), mLayout, "transitionSearch").toBundle());
                         break;
                     case 2:
-                        ARouter.getInstance().build(VIDEO_VIDEO).navigation();
+                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
                         break;
                     default:break;
                 }
