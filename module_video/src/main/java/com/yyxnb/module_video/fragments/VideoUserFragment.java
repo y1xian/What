@@ -1,13 +1,17 @@
 package com.yyxnb.module_video.fragments;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.yyxnb.adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.arch.annotations.BarStyle;
@@ -17,8 +21,10 @@ import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.module_base.utils.DrawableTintUtil;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;
+import com.yyxnb.module_video.widget.AppBarStateListener;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -45,11 +51,14 @@ public class VideoUserFragment extends BaseFragment {
     private FragmentVideoUserBinding binding;
     private MagicIndicator mIndicator;
     private ViewPager mViewPager;
-    private CoordinatorLayout mCoordinatorLayout;
+    private AppBarLayout mAppBarLayout;
+    private RelativeLayout mTitleLayout;
+    private TextView mTitleName;
 
-    private String[] titles = {"作品", "动态","喜欢"};
+    private String[] titles = {"作品", "动态", "喜欢"};
     private List<Fragment> fragments;
     private boolean isUser;
+    private boolean mAppBarExpand = true;//AppBarLayout是否展开
 
     public static VideoUserFragment newInstance(boolean isUser) {
 
@@ -70,7 +79,9 @@ public class VideoUserFragment extends BaseFragment {
         binding = getBinding();
         mIndicator = binding.mIndicator;
         mViewPager = binding.mViewPager;
-        mCoordinatorLayout = binding.mCoordinatorLayout;
+        mAppBarLayout = binding.mAppBarLayout;
+        mTitleLayout = binding.mTitleLayout;
+        mTitleName = binding.mTitleName;
 
     }
 
@@ -94,12 +105,48 @@ public class VideoUserFragment extends BaseFragment {
     @Override
     public void initObservable() {
 
+
+        mAppBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+            float totalScrollRange = appBarLayout.getTotalScrollRange();
+            float rate = -1 * verticalOffset / totalScrollRange;
+//                mTitle.setAlpha(rate);
+            mTitleName.setAlpha(rate);
+//            Drawable compat = DrawableCompat.wrap(binding.btnBack.getDrawable());
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                DrawableCompat.setTintList(compat, ColorStateList.valueOf(Color.argb(rate,0,0,0)));
+//            }
+            Log.w("000000", "r : " + rate);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (rate <= 0.2f){
+                    binding.btnBack.setImageDrawable(DrawableTintUtil.tintDrawable(binding.btnBack.getDrawable(),Color.WHITE));
+                }else {
+                    binding.btnBack.setImageDrawable(DrawableTintUtil.tintListDrawable(binding.btnBack.getDrawable()
+                            , ColorStateList.valueOf(Color.argb(rate, 0, 0, 0))));
+                }
+            }
+        });
+
+        mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int state) {
+                switch (state) {
+                    case AppBarStateListener.EXPANDED:
+                        //L.e("#mAppBarLayout--------->展开");
+                        mAppBarExpand = true;
+                        break;
+                    case AppBarStateListener.COLLAPSED:
+                        //L.e("#mAppBarLayout--------->收起");
+                        mAppBarExpand = false;
+                        break;
+                }
+            }
+        });
     }
 
     @Override
     public void onVisible() {
-        isUser = getArguments().getBoolean("isUser", false);
-        binding.btnBack.setVisibility(isUser ? View.GONE : View.VISIBLE);
+//        isUser = getArguments().getBoolean("isUser", false);
+//        binding.btnBack.setVisibility(isUser ? View.GONE : View.VISIBLE);
         Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false));
         LogUtils.w("user v");
 //        if (!isUser && binding.btnBack.getVisibility() == View.VISIBLE){
@@ -124,7 +171,7 @@ public class VideoUserFragment extends BaseFragment {
 
     @SuppressWarnings("ConstantConditions")
     private void monitor(boolean b) {
-        if (b){
+        if (b) {
             getView().setFocusableInTouchMode(true);
             getView().requestFocus();
             getView().setOnKeyListener((v, keyCode, event) -> {
@@ -135,7 +182,7 @@ public class VideoUserFragment extends BaseFragment {
                 }
                 return false;
             });
-        }else {
+        } else {
             getView().setFocusableInTouchMode(false);
             getView().setOnKeyListener(null);
         }
@@ -166,7 +213,7 @@ public class VideoUserFragment extends BaseFragment {
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
                 //设置宽度
-                indicator.setLineWidth(DpUtils.dp2px(getContext(),20));
+                indicator.setLineWidth(DpUtils.dp2px(getContext(), 20));
                 //设置高度
                 indicator.setLineHeight(DpUtils.dp2px(getContext(), 2));
                 //设置颜色

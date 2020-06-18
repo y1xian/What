@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+
+    <!-- ?arrt/ -->
+    <attr name="colorBackground" format="color|reference" />
+    <attr name="colorBackgroundItem" format="reference|color" />
+    <attr name="colorTitle" format="color|reference" />
+    <attr name="colorText" format="color|reference" />
+    <attr name="colorHint" format="color|reference" />
+
+
+
+
+
     <declare-styleable name="TabBar">
         <attr name="android:layout_height" />
 

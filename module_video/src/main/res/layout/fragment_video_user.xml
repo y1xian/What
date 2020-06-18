@@ -18,7 +18,7 @@
             android:layout_height="match_parent">
 
             <android.support.design.widget.AppBarLayout
-                android:id="@+id/appBarLayout"
+                android:id="@+id/mAppBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -153,8 +153,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    >
+                    android:layout_height="50dp">
 
                     <net.lucode.hackware.magicindicator.MagicIndicator
                         android:id="@+id/mIndicator"
@@ -177,20 +176,23 @@
         </android.support.design.widget.CoordinatorLayout>
 
         <RelativeLayout
+            android:id="@+id/mTitleLayout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:visibility="gone">
+            android:layout_height="70dp"
+            android:visibility="visible">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/mTitleName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:alpha="1"
-                android:background="@color/black"
-                android:gravity="center_horizontal"
+                android:alpha="0"
+                android:background="@color/white"
+                android:gravity="center"
                 android:paddingTop="20dp"
-                android:textColor="#fff"
+                android:text="名称"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -202,7 +204,7 @@
                 android:layout_marginBottom="5dp"
                 android:padding="7dp"
                 android:src="@mipmap/icon_back"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/btn_more"
