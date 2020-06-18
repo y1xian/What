@@ -10,7 +10,6 @@ import com.yyxnb.adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.common.DpUtils;
-import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoHomeBinding;
 
@@ -58,11 +57,13 @@ public class VideoHomeFragment extends BaseFragment {
 
     @Override
     public void initViewData() {
-        LogUtils.e("home initViewData ");
 
         if (fragments == null) {
             fragments = new ArrayList<>();
-            fragments.add(new VideoFollowFragment());
+//            fragments.add(new VideoFollowFragment());
+//            fragments.add(VideoPlayFragment.newInstance(0, null));
+//            fragments.add(VideoPlayFragment.newInstance(0, null));
+            fragments.add(new VideoPlayFragment());
             fragments.add(new VideoPlayFragment());
         }
 
@@ -96,7 +97,7 @@ public class VideoHomeFragment extends BaseFragment {
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
                 //设置宽度
-                indicator.setLineWidth(DpUtils.dp2px(getContext(),20));
+                indicator.setLineWidth(DpUtils.dp2px(getContext(), 20));
                 //设置高度
                 indicator.setLineHeight(DpUtils.dp2px(getContext(), 2));
                 //设置颜色

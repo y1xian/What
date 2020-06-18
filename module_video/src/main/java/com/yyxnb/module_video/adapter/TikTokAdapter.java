@@ -85,7 +85,7 @@ public class TikTokAdapter extends PagerAdapter {
         });
         viewHolder.mFollow.setOnClickListener(v -> {
             if (onSelectListener != null) {
-                onSelectListener.onClick(v, 1, "标题");
+                onSelectListener.onClick(v, 1, "关注");
             }
         });
         viewHolder.mLike.setOnClickListener(v -> {

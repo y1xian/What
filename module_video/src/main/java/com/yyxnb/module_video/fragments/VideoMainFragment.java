@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.arch.common.Bus;
 import com.yyxnb.module_base.weight.NoScrollViewPager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBinding;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_MAIN_FRAGMENT;
+import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 视频首页
@@ -37,6 +40,7 @@ public class VideoMainFragment extends BaseFragment {
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
         mViewPager = binding.mViewPager;
+        mViewPager.setNoScroll(true);
     }
 
     @Override
@@ -44,7 +48,7 @@ public class VideoMainFragment extends BaseFragment {
         if (fragments == null){
             fragments = new ArrayList<>();
             fragments.add(new VideoMainBottomFragment());
-            fragments.add(new VideoUserFragment());
+            fragments.add(VideoUserFragment.newInstance(false));
         }
         mViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
@@ -55,6 +59,20 @@ public class VideoMainFragment extends BaseFragment {
             @Override
             public int getCount() {
                 return fragments.size();
+            }
+        });
+    }
+
+    @Override
+    public void initObservable() {
+        Bus.observe(this,msgEvent -> {
+            switch (msgEvent.getCode()) {
+                case KEY_VIDEO_BOTTOM_VP:
+                    mViewPager.setNoScroll((Boolean) msgEvent.getData());
+                    break;
+                case KEY_VIDEO_BOTTOM_VP_SWITCH:
+                    mViewPager.setCurrentItem((Integer) msgEvent.getData(),true);
+                    break;
             }
         });
     }

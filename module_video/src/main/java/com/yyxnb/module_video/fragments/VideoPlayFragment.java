@@ -11,6 +11,8 @@ import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.arch.common.Bus;
+import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.module_video.R;
@@ -22,16 +24,19 @@ import com.yyxnb.module_video.utils.cache.PreloadManager;
 import com.yyxnb.module_video.utils.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_video.viewmodel.VideoViewModel;
 import com.yyxnb.module_video.widget.TikTokController;
-import com.yyxnb.module_video.widget.TikTokRenderViewFactory;
 import com.yyxnb.module_video.widget.VerticalViewPager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 短视频播放的fragment 可以上下滑动
  */
-@BindRes(subPage = true)
+@BindRes
 public class VideoPlayFragment extends BaseFragment {
 
     @BindViewModel
@@ -47,6 +52,16 @@ public class VideoPlayFragment extends BaseFragment {
     private List<TikTokBean> mVideoList = new ArrayList<>();
     private int mCurPos;
 
+    public static VideoPlayFragment newInstance(int pos, List<TikTokBean> data) {
+
+        Bundle args = new Bundle();
+        args.putInt("CurPos",pos);
+        args.putSerializable("data", (Serializable) data);
+        VideoPlayFragment fragment = new VideoPlayFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public int initLayoutResId() {
         return R.layout.fragment_video_play;
@@ -56,19 +71,29 @@ public class VideoPlayFragment extends BaseFragment {
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
         mViewPager = binding.mViewPager;
+
     }
 
     @Override
     public void initViewData() {
+//        mCurPos = getArguments().getInt("CurPos",0);
+//        mVideoList = (List<TikTokBean>) getArguments().getSerializable("data");
         initViewPager();
         initVideoView();
         mPreloadManager = PreloadManager.getInstance(getContext());
 
         addData(null);
 
-        mViewPager.post(() -> startPlay(0));
+        mViewPager.post(() -> startPlay(mCurPos));
 
         mAdapter.setOnSelectListener((v, position, text) -> {
+            switch (position){
+                case 0:
+                    break;
+                case 5:
+                    Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
+                    break;
+            }
             AppConfig.getInstance().toast(text);
         });
     }
@@ -87,8 +112,8 @@ public class VideoPlayFragment extends BaseFragment {
         mVideoView.setLooping(true);
 
         //以下只能二选一，看你的需求
-        mVideoView.setRenderViewFactory(TikTokRenderViewFactory.create());
-//        mVideoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
+//        mVideoView.setRenderViewFactory(TikTokRenderViewFactory.create());
+        mVideoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
 
         mController = new TikTokController(getActivity());
         mVideoView.setVideoController(mController);
@@ -165,7 +190,9 @@ public class VideoPlayFragment extends BaseFragment {
     }
 
     public void addData(View view) {
-        mVideoList.addAll(DataConfig.getTikTokBeans());
+//        if (mCurPos == 0 && mVideoList == null){
+            mVideoList.addAll(DataConfig.getTikTokBeans());
+//        }
         mAdapter.notifyDataSetChanged();
     }
 
@@ -185,6 +212,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onVisible() {
         LogUtils.e("Play onVisible");
+        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
         if (mVideoView != null) {
             mVideoView.resume();
         }
@@ -193,6 +221,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onInVisible() {
         LogUtils.e("Play onInVisible");
+        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
         if (mVideoView != null) {
             mVideoView.pause();
         }
@@ -223,7 +252,9 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mPreloadManager.removeAllPreloadTask();
+        if (mPreloadManager != null) {
+            mPreloadManager.removeAllPreloadTask();
+        }
         //清除缓存，实际使用可以不需要清除，这里为了方便测试
         ProxyVideoCacheManager.clearAllCache(getContext());
     }

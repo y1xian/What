@@ -81,7 +81,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
             mSparseArray.put(HOME, mHomeFragment);
             mSparseArray.put(FIND, new VideoFindFragment());
             mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
-            mSparseArray.put(ME, new VideoUserFragment());
+            mSparseArray.put(ME, VideoUserFragment.newInstance(true));
         }
 
         mCurKey = HOME;

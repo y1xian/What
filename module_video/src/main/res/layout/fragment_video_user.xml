@@ -9,10 +9,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
+        android:background="@color/white"
         tools:context="com.yyxnb.module_video.fragments.VideoUserFragment">
 
         <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/mCoordinatorLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -20,61 +21,144 @@
                 android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent">
+                android:background="@color/transparent"
+                app:layout_behavior="com.yyxnb.module_video.widget.FixAppBarLayoutBehavior">
 
-                <RelativeLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/top_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="65dp"
+                    android:minHeight="60dp"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                    <ImageView
+                        android:id="@+id/ivHeadBg"
+                        android:layout_width="match_parent"
+                        android:layout_height="115dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_launcher"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:id="@+id/avatar"
-                        android:layout_width="92dp"
-                        android:layout_height="92dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="70dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="100dp"
                         android:scaleType="centerCrop"
                         android:src="@color/gray"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:riv_border_color="@color/white"
+                        app:riv_border_width="2dp"
                         app:riv_oval="true" />
 
-                    <TextView
-                        android:id="@+id/id_val"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/avatar"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_toEndOf="@+id/avatar"
-                        android:text=""
-                        android:textColor="#fff"
-                        android:textSize="16sp" />
+                    <com.noober.background.view.BLTextView
+                        android:layout_width="160dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="24dp"
+                        android:gravity="center"
+                        android:text="+ 关注"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        app:bl_corners_radius="3dp"
+                        app:bl_solid_color="@color/red"
+                        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+                        app:layout_constraintStart_toEndOf="@+id/avatar"
+                        app:layout_constraintTop_toTopOf="@+id/avatar" />
 
                     <TextView
-                        android:id="@+id/id_vip"
+                        android:id="@+id/tvName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/id_val"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/avatar"
+                        android:layout_alignStart="@+id/avatar"
+                        android:layout_marginTop="8dp"
+                        android:text="名称"
+                        android:textColor="@color/title_color"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/avatar"
+                        app:layout_constraintTop_toBottomOf="@+id/avatar" />
+
+                    <TextView
+                        android:id="@+id/tvId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvName"
                         android:layout_toEndOf="@+id/avatar"
-                        android:text=""
-                        android:textColor="#fff"
-                        android:textSize="16sp"
-                        android:visibility="visible" />
+                        android:text="id:12345"
+                        android:textColor="@color/text_color"
+                        android:textSize="13sp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="@+id/avatar"
+                        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
+                    <TextView
+                        android:id="@+id/tvDes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="个性签名"
+                        android:textColor="@color/text_color"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvId" />
 
-                </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tvLiked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="200w获赞"
+                        android:textColor="@color/title_color"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDes" />
+
+                    <TextView
+                        android:id="@+id/tvFollow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="200w关注"
+                        android:textColor="@color/title_color"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@+id/tvLiked"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDes" />
+
+                    <TextView
+                        android:id="@+id/tvFans"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="200w粉丝"
+                        android:textColor="@color/title_color"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@+id/tvFollow"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDes" />
+
+                </android.support.constraint.ConstraintLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="20dp">
+                    >
 
                     <net.lucode.hackware.magicindicator.MagicIndicator
                         android:id="@+id/mIndicator"
-                        android:layout_width="250dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="7dp" />
@@ -94,7 +178,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="65dp">
+            android:layout_height="60dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/title"
@@ -104,7 +189,7 @@
                 android:alpha="1"
                 android:background="@color/black"
                 android:gravity="center_horizontal"
-                android:paddingTop="30dp"
+                android:paddingTop="20dp"
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -116,7 +201,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="5dp"
                 android:padding="7dp"
-                android:src="@mipmap/icon_back" />
+                android:src="@mipmap/icon_back"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/btn_more"

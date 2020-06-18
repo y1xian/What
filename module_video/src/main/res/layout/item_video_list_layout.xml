@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.yyxnb.module_video.bean.TikTokBean" />
+
+        <import type="com.yyxnb.module_video.config.DataConfig"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/ivThumb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/item_div_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:url="@{data.coverUrl}" />
+
+        <TextView
+            android:id="@+id/tvLikeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/white"
+            android:text="@{DataConfig.formatNum(data.likeCount)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

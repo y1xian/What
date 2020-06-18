@@ -7,6 +7,7 @@ import android.view.View;
 import com.dueeeke.videoplayer.player.AbstractPlayer;
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.render.IRenderView;
+import com.yyxnb.common.log.LogUtils;
 
 /**
  * TikTok专用RenderView，横屏视频默认显示，竖屏视频居中裁剪
@@ -27,6 +28,7 @@ public class TikTokRenderView implements IRenderView {
 
     @Override
     public void setVideoSize(int videoWidth, int videoHeight) {
+        LogUtils.e(" setVideoSize : w " + videoWidth + " , h " +videoHeight);
         if (videoWidth > 0 && videoHeight > 0) {
             mProxyRenderView.setVideoSize(videoWidth, videoHeight);
             if (videoHeight > videoWidth) {
