@@ -7,85 +7,407 @@
 
     </data>
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/mCoordinatorLayout"
+    <RelativeLayout
+        android:id="@+id/mLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?skinBackground"
         tools:context=".fragments.UserFragment">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/AppFragment_AppBarLayout"
+        <ImageView
+            android:id="@+id/ivHeadBg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/user_head"
-            app:elevation="0dp">
+            android:layout_height="450dp"
+            android:scaleType="centerCrop"
+            android:src="@color/user_head" />
 
-            <!--需要折叠的CollapsingToolbarLayout部分-->
-            <android.support.design.widget.CollapsingToolbarLayout
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentScrim="@color/user_head"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                android:layout_height="match_parent">
 
-                <android.support.constraint.ConstraintLayout
+                <LinearLayout
                     android:id="@+id/clHead"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp">
+                    android:layout_height="300dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/ivHead"
-                        android:layout_width="50dp"
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/ivHead"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginBottom="16dp"
+                            android:src="@mipmap/ic_launcher"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:riv_border_color="@color/white"
+                            app:riv_border_width="1dp"
+                            app:riv_corner_radius="6dp" />
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="4dp"
+                            android:text="游客"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/ivHead" />
+
+                        <TextView
+                            android:id="@+id/tvSign"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="16dp"
+                            android:maxLines="2"
+                            android:text="没有签名"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toStartOf="@+id/ivHead"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <!--中间数量-->
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.15"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="关注"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.38"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="关注"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.62"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="关注"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.85"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="关注"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                    </android.support.constraint.ConstraintLayout>
+
+
+                    <!--目录-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:id="@+id/mLayoutMenu1"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="?skinBackground" />
+
+                        <com.noober.background.view.BLConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_margin="20dp"
+                            app:bl_corners_radius="8dp"
+                            app:bl_solid_color="@color/white">
+
+                            <com.yyxnb.view.text.TextImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableTop="@color/item_div_bg"
+                                android:drawablePadding="2dp"
+                                android:gravity="center"
+                                android:text="文字"
+                                android:textColor="@color/colorText"
+                                app:drawableTopHeight="25dp"
+                                app:drawableTopWidth="25dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.yyxnb.view.text.TextImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableTop="@color/item_div_bg"
+                                android:drawablePadding="2dp"
+                                android:gravity="center"
+                                android:text="文字"
+                                android:textColor="@color/colorText"
+                                app:drawableTopHeight="25dp"
+                                app:drawableTopWidth="25dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.yyxnb.view.text.TextImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableTop="@color/item_div_bg"
+                                android:drawablePadding="2dp"
+                                android:gravity="center"
+                                android:text="文字"
+                                android:textColor="@color/colorText"
+                                app:drawableTopHeight="25dp"
+                                app:drawableTopWidth="25dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.8"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </com.noober.background.view.BLConstraintLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/mLayoutMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="?skinBackground"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clHead" />
+
+                <com.noober.background.view.BLLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="?skinBackground"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    app:bl_corners_radius="8dp"
+                    app:bl_solid_color="@color/white"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clHead">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="24dp"
-                        android:src="@mipmap/ic_launcher"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:riv_border_color="@color/white"
-                        app:riv_border_width="1dp"
-                        app:riv_corner_radius="6dp" />
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:text="游客"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/ivHead" />
+                        <com.yyxnb.view.text.DrawableRadioButton
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:button="@null"
+                            android:drawablePadding="12dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="10dp"
+                            android:text="夜间模式"
+                            android:textColor="@color/text_color"
+                            app:left_drawable="@color/item_div_bg"
+                            app:left_drawableSize="27dp" />
 
-                    <TextView
-                        android:id="@+id/tvSign"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="16dp"
-                        android:maxLines="2"
-                        android:text="没有签名"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toStartOf="@+id/ivHead"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                        <CheckBox
+                            android:id="@+id/mCheckBox"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="16dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="?skinLine" />
+
+                    <com.yyxnb.view.text.DrawableRadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:button="@null"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                        android:text="文字"
+                        android:textColor="@color/text_color"
+                        app:left_drawable="@color/item_div_bg"
+                        app:left_drawableSize="27dp"
+                        app:right_drawable="@color/item_div_bg"
+                        app:right_drawableSize="15dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="?skinLine" />
+
+                    <com.yyxnb.view.text.DrawableRadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:button="@null"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                        android:text="文字"
+                        android:textColor="@color/text_color"
+                        app:left_drawable="@color/item_div_bg"
+                        app:left_drawableSize="27dp"
+                        app:right_drawable="@color/item_div_bg"
+                        app:right_drawableSize="15dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="?skinLine" />
+
+                    <com.yyxnb.view.text.DrawableRadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:button="@null"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                        android:text="文字"
+                        android:textColor="@color/text_color"
+                        app:left_drawable="@color/item_div_bg"
+                        app:left_drawableSize="27dp"
+                        app:right_drawable="@color/item_div_bg"
+                        app:right_drawableSize="15dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="?skinLine" />
+
+                    <com.yyxnb.view.text.DrawableRadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:button="@null"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                        android:text="文字"
+                        android:textColor="@color/text_color"
+                        app:left_drawable="@color/item_div_bg"
+                        app:left_drawableSize="27dp"
+                        app:right_drawable="@color/item_div_bg"
+                        app:right_drawableSize="15dp" />
+
+                </com.noober.background.view.BLLinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
 
-                </android.support.constraint.ConstraintLayout>
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-        </android.support.design.widget.AppBarLayout>
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorGray"
-            android:visibility="gone">
-
-
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.design.widget.CoordinatorLayout>
+    </RelativeLayout>
 </layout>

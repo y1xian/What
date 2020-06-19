@@ -7,11 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!-- 自定义 -->
-        <item name="colorBackground">@color/colorBackground</item>
-        <item name="colorBackgroundItem">@color/colorBackgroundItem</item>
-        <item name="colorTitle">@color/colorText</item>
-        <item name="colorText">@color/colorText</item>
-        <item name="colorHint">@color/colorHint</item>
+        <item name="skinBackground">@color/colorBackground</item>
+        <item name="skinBackgroundItem">@color/colorBackgroundItem</item>
+        <item name="skinTitle">@color/colorTitle</item>
+        <item name="skinText">@color/colorText</item>
+        <item name="skinHint">@color/colorHint</item>
+        <item name="skinLine">@color/colorLine</item>
     </style>
 
     <!-- 夜间 -->
@@ -20,11 +21,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
         <item name="colorAccent">@color/colorAccentNight</item>
         <!-- 自定义 -->
-        <item name="colorBackground">@color/colorBackgroundNight</item>
-        <item name="colorBackgroundItem">@color/colorBackgroundItemNight</item>
-        <item name="colorTitle">@color/colorTextNight</item>
-        <item name="colorText">@color/colorTextNight</item>
-        <item name="colorHint">@color/colorHintNight</item>
+        <item name="skinBackground">@color/colorBackgroundNight</item>
+        <item name="skinBackgroundItem">@color/colorBackgroundItemNight</item>
+        <item name="skinTitle">@color/colorTitleNight</item>
+        <item name="skinText">@color/colorTextNight</item>
+        <item name="skinHint">@color/colorHintNight</item>
+        <item name="skinLine">@color/colorLineNight</item>
     </style>
 
 </resources>

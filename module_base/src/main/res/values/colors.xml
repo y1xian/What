@@ -8,21 +8,23 @@
     <!-- 亮 -->
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="colorAccent">#dff9fb</color>
-    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorAccent">#74b9ff</color>
+    <color name="colorBackground">#f1f2f6</color>
     <color name="colorBackgroundItem">#E7E7E7</color>
     <color name="colorTitle">#000000</color>
     <color name="colorText">#000000</color>
-    <color name="colorHint">#888888</color>
+    <color name="colorHint">#bdc3c7</color>
+    <color name="colorLine">#eeeeee</color>
 
     <!-- 暗 -->
     <color name="colorPrimaryNight">#3C3F41</color>
     <color name="colorPrimaryDarkNight">#323232</color>
-    <color name="colorAccentNight">#30336b</color>
-    <color name="colorBackgroundNight">#2B2B2B</color>
-    <color name="colorBackgroundItemNight">#383838</color>
+    <color name="colorAccentNight">#fab1a0</color>
+    <color name="colorBackgroundNight">#2f3640</color>
+    <color name="colorBackgroundItemNight">#353b48</color>
     <color name="colorTitleNight">#95a5a6</color>
     <color name="colorTextNight">#707070</color>
     <color name="colorHintNight">#3D3D3D</color>
+    <color name="colorLineNight">#eeeeee</color>
 
 </resources>

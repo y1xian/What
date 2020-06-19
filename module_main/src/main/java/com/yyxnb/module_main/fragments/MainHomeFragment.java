@@ -13,7 +13,9 @@ import com.yyxnb.adapter.ItemDecoration;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.arch.common.Bus;
 import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.lib_skin.SkinTheme;
 import com.yyxnb.module_base.arouter.ARouterUtils;
 import com.yyxnb.module_main.MainSearchActivity;
 import com.yyxnb.module_main.R;
@@ -25,6 +27,7 @@ import com.yyxnb.view.popup.Popup;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
 import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_MAIN_FRAGMENT;
+import static com.yyxnb.module_base.config.Constants.KEY_SKIN_SWITCH;
 
 /**
  * 主页
@@ -69,6 +72,18 @@ public class MainHomeFragment extends BaseFragment {
         binding.mRecyclerView.addItemDecoration(decoration);
         binding.mRecyclerView.setAdapter(mAdapter);
 
+
+        SkinTheme theme = new SkinTheme.Builder(getActivity())
+                .backgroundColor(R.id.mLayout,R.attr.skinBackground)
+                .build();
+
+        theme.setTheme(SkinTheme.getCurrentThemeId());
+
+        Bus.observe(this, msgEvent -> {
+            if (msgEvent.getCode() == KEY_SKIN_SWITCH){
+                theme.setTheme((Integer) msgEvent.getData());
+            }
+        });
     }
 
     @Override
@@ -108,6 +123,11 @@ public class MainHomeFragment extends BaseFragment {
 
             }
         });
+    }
+
+    @Override
+    public void initObservable() {
+
     }
 
     @Override
