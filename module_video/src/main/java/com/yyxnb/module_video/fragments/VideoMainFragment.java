@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.arch.common.Bus;
+import com.yyxnb.module_base.base.BaseFragment;
 import com.yyxnb.module_base.weight.NoScrollViewPager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBinding;

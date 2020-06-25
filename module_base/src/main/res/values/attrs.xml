@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-
-    <!-- ?arrt/ -->
-    <attr name="skinBackground" format="color|reference" />
-    <attr name="skinBackgroundItem" format="reference|color" />
-    <attr name="skinTitle" format="color|reference" />
-    <attr name="skinText" format="color|reference" />
-    <attr name="skinHint" format="color|reference" />
-    <attr name="skinLine" format="color|reference" />
-
-
+    <attr name="enable" format="boolean"/>
 
     <declare-styleable name="TabBar">
         <attr name="android:layout_height" />

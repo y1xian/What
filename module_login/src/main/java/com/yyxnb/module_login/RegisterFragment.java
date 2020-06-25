@@ -2,15 +2,14 @@ package com.yyxnb.module_login;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
-import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.module_base.base.BaseFragment;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * 注册
  */
 public class RegisterFragment extends BaseFragment {
 

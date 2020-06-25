@@ -1,0 +1,14 @@
+ext.mainApp = true //标记为主app module
+apply from: rootProject.file('module.gradle')
+
+android {
+    defaultConfig {
+        applicationId "com.yyxnb.what.skin_night"
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "night.apk"
+        }
+    }
+}

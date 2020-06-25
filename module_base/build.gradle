@@ -4,14 +4,15 @@ apply from: rootProject.file('module.gradle')
 dependencies {
 
     // jetpack https://github.com/y1xian/Amazing
-    def b_v = "1.0.2.3"
+    def b_v = "1.0.3.1"
     api 'com.github.y1xian.Amazing:lib_arch:' + b_v
     api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
     // 常用控件
     api libs.widget_utils
     api libs.widget_view
     api libs.widget_adapter
-    api libs.widget_skin
+//    api libs.widget_skin
+    api libs.widget_skinloader
 
     api libs.support_v4
 
@@ -47,4 +48,10 @@ dependencies {
 
     //https://github.com/hackware1993/MagicIndicator
     api 'com.github.hackware1993:MagicIndicator:1.6.0'
+
+    //https://github.com/JessYanCoding/AndroidAutoSize
+    api libs.autosize
+    //侧滑
+    api libs.parallaxbacklayout
+
 }

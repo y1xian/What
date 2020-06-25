@@ -5,12 +5,6 @@
 
     <application>
         <activity android:name=".CommunityActivity"></activity>
-        <activity
-            android:name="com.yyxnb.arch.ContainerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/DayTheme"
-            tools:replace="android:theme" />
     </application>
 
 </manifest>

@@ -12,12 +12,6 @@
             android:name=".MainSearchActivity"
             android:label="搜索"
             android:screenOrientation="portrait" />
-        <activity
-            android:name="com.yyxnb.arch.ContainerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/DayTheme"
-            tools:replace="android:theme" />
     </application>
 
 </manifest>

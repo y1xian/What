@@ -2,26 +2,29 @@ package com.yyxnb.module_login;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.module_base.base.BaseFragment;
+import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.vm.TestViewModel;
+
+import static com.yyxnb.module_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * 登录
  */
-@Route(path = "/login/LoginFragment")
+@Route(path = LOGIN_FRAGMENT)
+@BindRes
 public class LoginFragment extends BaseFragment {
+
+    private FragmentLoginBinding binding;
 
     @BindViewModel
     TestViewModel mViewModel;
-
-    private TextView tvTitle;
 
     @Override
     public int initLayoutResId() {
@@ -30,16 +33,10 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        tvTitle = findViewById(R.id.tvTitle);
+        binding = getBinding();
 
-        tvTitle.setOnClickListener(v -> {
-
-//            if (mViewModel != null) {
-//
-//                mViewModel.reqTest();
-//            }
-            startFragment(RegisterFragment.newInstance());
-//            addFragment(this, RegisterFragment.newInstance(), null, null, StackModeManager.STANDARD);
+        binding.ivBack.setOnClickListener(v -> {
+            finish();
         });
 
     }

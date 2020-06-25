@@ -10,11 +10,11 @@ import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.module_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;
@@ -51,6 +51,7 @@ public class VideoPlayFragment extends BaseFragment {
     private TikTokAdapter mAdapter;
     private List<TikTokBean> mVideoList = new ArrayList<>();
     private int mCurPos;
+    private boolean isCur;
 
     public static VideoPlayFragment newInstance(int pos, List<TikTokBean> data) {
 
@@ -182,7 +183,11 @@ public class VideoPlayFragment extends BaseFragment {
                 mVideoView.setUrl(playUrl);
                 mController.addControlComponent(viewHolder.mTikTokView, true);
                 viewHolder.mPlayerContainer.addView(mVideoView, 0);
-                mVideoView.start();
+                if (isCur) {
+                    mVideoView.start();
+                }else {
+                    mVideoView.pause();
+                }
                 mCurPos = position;
                 break;
             }
@@ -211,6 +216,7 @@ public class VideoPlayFragment extends BaseFragment {
 
     @Override
     public void onVisible() {
+        isCur = true;
         LogUtils.e("Play onVisible");
         Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
         if (mVideoView != null) {
@@ -220,6 +226,7 @@ public class VideoPlayFragment extends BaseFragment {
 
     @Override
     public void onInVisible() {
+        isCur = false;
         LogUtils.e("Play onInVisible");
         Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
         if (mVideoView != null) {
@@ -236,6 +243,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
+        isCur = false;
         if (mVideoView != null) {
             mVideoView.pause();
         }
@@ -244,6 +252,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        isCur = false;
         if (mVideoView != null) {
             mVideoView.release();
         }
@@ -252,6 +261,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        isCur = false;
         if (mPreloadManager != null) {
             mPreloadManager.removeAllPreloadTask();
         }

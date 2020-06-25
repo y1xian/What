@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 日间 -->
-    <style name="DayTheme" parent="BaseAppTheme">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <!-- 自定义 -->
-        <item name="skinBackground">@color/colorBackground</item>
-        <item name="skinBackgroundItem">@color/colorBackgroundItem</item>
-        <item name="skinTitle">@color/colorTitle</item>
-        <item name="skinText">@color/colorText</item>
-        <item name="skinHint">@color/colorHint</item>
-        <item name="skinLine">@color/colorLine</item>
-    </style>
-
-    <!-- 夜间 -->
-    <style name="NightTheme" parent="DayTheme">
-        <item name="colorPrimary">@color/colorPrimaryNight</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
-        <item name="colorAccent">@color/colorAccentNight</item>
-        <!-- 自定义 -->
-        <item name="skinBackground">@color/colorBackgroundNight</item>
-        <item name="skinBackgroundItem">@color/colorBackgroundItemNight</item>
-        <item name="skinTitle">@color/colorTitleNight</item>
-        <item name="skinText">@color/colorTextNight</item>
-        <item name="skinHint">@color/colorHintNight</item>
-        <item name="skinLine">@color/colorLineNight</item>
-    </style>
 
 </resources>

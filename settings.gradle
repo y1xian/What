@@ -1,3 +1,4 @@
+include ':skin_night'
 include ':app',
         ':module_main',
         ':module_base',

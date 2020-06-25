@@ -8,8 +8,8 @@ import android.support.v4.view.ViewPager;
 
 import com.yyxnb.adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.base.BaseFragment;
 import com.yyxnb.common.DpUtils;
+import com.yyxnb.module_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoHomeBinding;
 

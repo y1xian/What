@@ -43,7 +43,7 @@ ext {
             robolectric         : '3.3.2',
             junit               : '4.12',
 
-            widget              : '1.0.6'
+            widget              : '1.0.7.1'
     ]
 
     build_plugins = [
@@ -185,7 +185,8 @@ ext {
             widget_adapter                 : [group: 'com.github.y1xian.Widget', name: 'lib_adapter', version: versions.widget],
             widget_view                    : [group: 'com.github.y1xian.Widget', name: 'lib_view', version: versions.widget],
             widget_utils                   : [group: 'com.github.y1xian.Widget', name: 'lib_utils', version: versions.widget],
-            widget_skin                    : [group: 'com.github.y1xian.Widget', name: 'lib_skin', version: versions.widget]
+            widget_skin                    : [group: 'com.github.y1xian.Widget', name: 'lib_skin', version: versions.widget],
+            widget_skinloader              : [group: 'com.github.y1xian.Widget', name: 'lib_skinloader', version: versions.widget]
     ]
 
 }

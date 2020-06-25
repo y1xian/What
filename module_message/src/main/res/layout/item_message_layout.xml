@@ -10,7 +10,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:src="@color/item_div_bg"
+        android:src="@color/colorLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,7 +23,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:tag="名字"
-        android:textColor="@color/title_color"
+        android:textColor="@color/colorTitle"
         app:layout_constraintStart_toEndOf="@+id/ivAvatar"
         app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
 
@@ -37,7 +37,7 @@
         android:layout_marginBottom="8dp"
         android:singleLine="true"
         android:tag="内容"
-        android:textColor="@color/text_color"
+        android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivAvatar"

@@ -1,6 +1,7 @@
 package com.yyxnb.module_user.fragments;
 
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.CheckBox;
@@ -8,18 +9,23 @@ import android.widget.CheckBox;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.base.BaseFragment;
-import com.yyxnb.arch.common.Bus;
-import com.yyxnb.arch.common.MsgEvent;
+import com.yyxnb.common.SPUtils;
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.lib_skin.SkinTheme;
 import com.yyxnb.module_base.arouter.ARouterUtils;
+import com.yyxnb.module_base.base.BaseFragment;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
+import com.yyxnb.module_user.fragments.wallet.UserWalletFragment;
+import com.yyxnb.skinloader.SkinManager;
+import com.yyxnb.skinloader.util.AssetFileUtils;
+import com.yyxnb.utils.permission.PermissionListener;
+import com.yyxnb.utils.permission.PermissionUtils;
+
+import java.io.File;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
-import static com.yyxnb.module_base.config.Constants.KEY_SKIN_SWITCH;
+import static com.yyxnb.module_base.config.Constants.SKIN_PATH;
 
 /**
  * 我的 - 界面.
@@ -42,38 +48,57 @@ public class UserFragment extends BaseFragment {
         binding = getBinding();
         mCheckBox = binding.mCheckBox;
 
-//        tvName.setText("yyyy更新 " + StatusBarUtils.INSTANCE.getStatusBarHeight(getMContext()));
-//
-//        tvShow.setOnClickListener(v -> {
-//            ToastUtils.INSTANCE.normal(" tvShow user 13213123213213");
-//        });
-
-//        if (null != getMRootView()){
-//            SwipeExtKt.wrap(Objects.requireNonNull(getMRootView()));
-//        }
 
         binding.clHead.setOnClickListener(v -> {
-//            ARouter.getInstance().build(LOGIN_ACTIVITY).navigation();
             startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
         });
+        binding.ivWallet.setOnClickListener(v -> {
+            startFragment(new UserWalletFragment());
+        });
 
-
-        mCheckBox.setChecked(SkinTheme.getCurrentThemeId() == R.style.NightTheme);
-
-        SkinTheme theme = new SkinTheme.Builder(getActivity())
-                .backgroundColor(R.id.mLayout,R.attr.skinBackground)
-                .backgroundColor(R.id.mLayoutMenu1,R.attr.skinBackground)
-                .backgroundColor(R.id.mLayoutMenu,R.attr.skinBackground)
-                .build();
+        mCheckBox.setChecked(!SkinManager.get().isUsingDefaultSkin());
 
         mCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (!isChecked) {
-                theme.setTheme(R.style.DayTheme);
+                SkinManager.get().restoreToDefaultSkin();
+                SPUtils.clear(SKIN_PATH);
             } else {
-                theme.setTheme(R.style.NightTheme);
+                changeSkin();
             }
-            Bus.post(new MsgEvent(KEY_SKIN_SWITCH, SkinTheme.getCurrentThemeId()));
         });
+
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    private void changeSkin() {
+        // 存储权限
+        PermissionUtils.with(getActivity())
+                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .setPermissionsCheckListener(new PermissionListener() {
+                    @Override
+                    public void permissionRequestSuccess() {
+                        //将assets目录下的皮肤文件拷贝到data/data/.../cache目录下
+                        String saveDir = getActivity().getCacheDir().getAbsolutePath() + "/skins";
+                        //将打包生成的apk文件, 重命名为'xxx.skin', 防止apk结尾的文件造成混淆.
+                        String savefileName = "/night.skin";
+                        String asset_dir = "skins/night.apk";
+                        File file = new File(saveDir + File.separator + savefileName);
+//                        if (!file.exists()) {
+                            AssetFileUtils.copyAssetFile(getActivity(), asset_dir, saveDir, savefileName);
+//                        }
+                        LogUtils.w(" " + file.getAbsolutePath());
+                        SPUtils.setParam(SKIN_PATH, file.getAbsolutePath());
+                        SkinManager.get().loadSkin(file.getAbsolutePath());
+                    }
+
+                    @Override
+                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
+                    }
+                })
+                .createConfig()
+                .setForceAllPermissionsGranted(true)
+                .buildConfig()
+                .startCheckPermission();
 
     }
 

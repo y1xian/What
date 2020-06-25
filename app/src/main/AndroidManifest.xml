@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/DayTheme">
+        android:theme="@style/BaseAppTheme">
 
         <meta-data
             android:name="android.max_aspect"
@@ -45,13 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name="com.yyxnb.arch.ContainerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/DayTheme"
-            tools:replace="android:theme" />
 
     </application>
 

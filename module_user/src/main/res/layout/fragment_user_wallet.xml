@@ -1,0 +1,29 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        skin:enable="true"
+        tools:context="com.yyxnb.module_user.fragments.wallet.UserWalletFragment">
+
+        <com.yyxnb.view.titlebar.TitleBar
+            android:id="@+id/mTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tb_centerText="钱包"
+            app:tb_titleBarColor="@color/colorPrimary"
+            app:tb_statusBarColor="@color/colorPrimary"
+            app:tb_centerTextColor="@color/colorTitle"
+            skin:enable="true" />
+
+    </LinearLayout>
+</layout>

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">module_base</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="feed_back">意见反馈</string>
+    <string name="set_up">设置</string>
 </resources>

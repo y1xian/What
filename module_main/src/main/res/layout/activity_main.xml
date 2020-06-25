@@ -24,7 +24,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/item_div_bg" />
+        android:background="@color/colorLine" />
 
     <com.yyxnb.module_base.weight.tabbar.TabBarView
         android:id="@+id/mTabLayout"
@@ -32,7 +32,7 @@
         android:layout_height="50dp"
         app:tabFocusColor="@color/colorTheme"
         app:tabIconPadding="2dp"
-        app:tabNormalColor="@color/text_color"
+        app:tabNormalColor="@color/colorText"
         app:tabPaddingNavigationBar="false"
         app:tabTextSize="10sp" />
 

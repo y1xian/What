@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3C3F41</color>
+    <color name="colorPrimaryDark">#323232</color>
+    <color name="colorAccent">#fab1a0</color>
+    <color name="colorBackground">#2f3640</color>
+    <color name="colorBackgroundItem">#353b48</color>
+    <color name="colorTitle">#f5f6fa</color>
+    <color name="colorText">#f1f2f6</color>
+    <color name="colorHint">#dfe6e9</color>
+    <color name="colorLine">#2f3640</color>
+
+    <color name="statusBar">@color/colorPrimary</color>
+    <color name="titleBar">@color/colorPrimary</color>
+
+    <color name="colorUserHead">#3c6382</color>
+
+</resources>

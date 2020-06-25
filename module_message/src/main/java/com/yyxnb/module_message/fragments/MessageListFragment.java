@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.arch.base.BaseFragment;
+import com.yyxnb.module_base.base.BaseFragment;
 import com.yyxnb.module_message.R;
 import com.yyxnb.module_message.adapter.MessageAdapter;
 import com.yyxnb.module_message.config.DataConfig;
