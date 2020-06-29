@@ -15,6 +15,10 @@ public class ExtraAttrRegister {
         SkinResDeployerFactory.registerDeployer("tb_statusBarColor", new TitleStatusColorResDeployer());
         SkinResDeployerFactory.registerDeployer("tb_titleBarColor", new TitleColorResDeployer());
         SkinResDeployerFactory.registerDeployer("tb_centerTextColor", new TitleTextColorResDeployer());
+        SkinResDeployerFactory.registerDeployer("tb_bottomLineColor", new TitleBottomLineColorResDeployer());
+
+        //rv分割线
+        SkinResDeployerFactory.registerDeployer("line", new RecycleViewResDeployer());
 
 //        SkinResDeployerFactory.registerDeployer(CUSTIOM_VIEW_TEXT_COLOR, new BLBackgroundColorResDeployer());
 

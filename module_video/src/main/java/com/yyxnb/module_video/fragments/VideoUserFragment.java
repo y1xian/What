@@ -232,4 +232,14 @@ public class VideoUserFragment extends BaseFragment {
         //与ViewPagger联动
         ViewPagerHelper.bind(mIndicator, mViewPager);
     }
+
+    public interface OnBackClickListener {
+        void onBackClick();
+    }
+
+    private OnBackClickListener mOnBackClickListener;
+
+    public void setOnBackClickListener(OnBackClickListener listener) {
+        mOnBackClickListener = listener;
+    }
 }

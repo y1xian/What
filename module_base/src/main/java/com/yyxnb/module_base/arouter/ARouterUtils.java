@@ -10,10 +10,14 @@ import com.yyxnb.arch.base.IFragment;
 public class ARouterUtils {
 
     /**
-     *
+     *  获取fragment
      */
     public static IFragment navFragment(String path) {
         return (IFragment) ARouter.getInstance().build(path).navigation();
+    }
+
+    public static void navActivity(String path) {
+        ARouter.getInstance().build(path).navigation();
     }
 
 

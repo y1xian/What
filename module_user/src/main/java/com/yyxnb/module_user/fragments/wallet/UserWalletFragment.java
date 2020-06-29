@@ -24,6 +24,8 @@ public class UserWalletFragment extends BaseFragment {
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
 
-        binding.mTitle.setBackListener(v -> finish());
+        binding.iTitle.mTitle.getCenterTextView().setText("钱包");
+        binding.iTitle.mTitle.setBackListener(v -> finish());
+
     }
 }

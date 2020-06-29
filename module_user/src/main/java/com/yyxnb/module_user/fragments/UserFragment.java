@@ -83,9 +83,9 @@ public class UserFragment extends BaseFragment {
                         String savefileName = "/night.skin";
                         String asset_dir = "skins/night.apk";
                         File file = new File(saveDir + File.separator + savefileName);
-//                        if (!file.exists()) {
+                        if (!file.exists()) {
                             AssetFileUtils.copyAssetFile(getActivity(), asset_dir, saveDir, savefileName);
-//                        }
+                        }
                         LogUtils.w(" " + file.getAbsolutePath());
                         SPUtils.setParam(SKIN_PATH, file.getAbsolutePath());
                         SkinManager.get().loadSkin(file.getAbsolutePath());

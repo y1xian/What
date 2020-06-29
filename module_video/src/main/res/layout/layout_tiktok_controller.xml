@@ -10,6 +10,7 @@
         android:id="@+id/iv_thumb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:scaleType="centerCrop" />
 
     <ImageView
@@ -75,13 +76,13 @@
             android:src="@mipmap/icon_video_like" />
 
         <TextView
-            android:id="@+id/zan"
+            android:id="@+id/tvLikeCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:text="100"
             android:textColor="#fff"
-            android:textSize="14sp"
-            android:translationY="-5dp" />
+            android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/btn_comment"
@@ -91,13 +92,13 @@
             android:src="@mipmap/icon_video_comment" />
 
         <TextView
-            android:id="@+id/comment"
+            android:id="@+id/tvCommentCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:text="99"
             android:textColor="#fff"
-            android:textSize="14sp"
-            android:translationY="-5dp" />
+            android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/btn_share"
@@ -107,13 +108,12 @@
             android:src="@mipmap/icon_video_share" />
 
         <TextView
-            android:id="@+id/share"
+            android:id="@+id/tvShareCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="#fff"
-            android:textSize="14sp"
-            android:translationY="-5dp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 

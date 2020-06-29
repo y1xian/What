@@ -1,7 +1,9 @@
 package com.yyxnb.module_video.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.yyxnb.common.DpUtils;
 import com.yyxnb.common.interfaces.OnSelectListener;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
+import com.yyxnb.module_video.config.DataConfig;
 import com.yyxnb.module_video.utils.cache.PreloadManager;
 import com.yyxnb.module_video.widget.TikTokView;
 
@@ -73,11 +79,41 @@ public class TikTokAdapter extends PagerAdapter {
         TikTokBean item = mVideoBeans.get(position);
         //开始预加载
         PreloadManager.getInstance(context).addPreloadTask(item.videoUrl, position);
-        Glide.with(context)
+
+        Glide.with(viewHolder.mThumb.getContext())
                 .load(item.coverUrl)
-//                .placeholder(android.R.color.white)
-                .into(viewHolder.mThumb);
+                .into(new SimpleTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        ImageView imageView = viewHolder.mThumb;
+                        ViewGroup.LayoutParams params = imageView.getLayoutParams();
+
+                        int w = resource.getMinimumWidth();
+                        int h = resource.getMinimumHeight();
+                        float wh = 0f;
+
+                        if (w < h) {
+                            wh = (float) h / (float) w;
+                        } else {
+                            wh = (float) w / (float) h;
+                        }
+
+                        int pw = DpUtils.getScreenWidth(imageView.getContext());
+
+                        int hh = (int) (pw * wh);
+
+                        params.width = pw;
+                        params.height = hh;
+
+                        imageView.setLayoutParams(params);
+                        imageView.setImageDrawable(resource);
+                    }
+                });
+
         viewHolder.mTitle.setText(item.title);
+        viewHolder.tvLikeCount.setText(DataConfig.formatNum(item.likeCount));
+        viewHolder.tvCommentCount.setText(DataConfig.formatNum(item.commentCount));
+
         viewHolder.mTitle.setOnClickListener(v -> {
             if (onSelectListener != null) {
                 onSelectListener.onClick(v, 0, "标题");
@@ -131,6 +167,8 @@ public class TikTokAdapter extends PagerAdapter {
 
         public int mPosition;
         public TextView mTitle;//标题
+        public TextView tvLikeCount;//点赞数
+        public TextView tvCommentCount;//评论数
         public ImageView mThumb;//封面图
         public ImageView mAvatar;//头像
         public ImageView mFollow;//关注
@@ -143,6 +181,8 @@ public class TikTokAdapter extends PagerAdapter {
         ViewHolder(View itemView) {
             mTikTokView = itemView.findViewById(R.id.tiktok_View);
             mTitle = mTikTokView.findViewById(R.id.tv_title);
+            tvLikeCount = mTikTokView.findViewById(R.id.tvLikeCount);
+            tvCommentCount = mTikTokView.findViewById(R.id.tvCommentCount);
             mThumb = mTikTokView.findViewById(R.id.iv_thumb);
             mAvatar = mTikTokView.findViewById(R.id.ivAvatar);
             mFollow = mTikTokView.findViewById(R.id.btn_follow);

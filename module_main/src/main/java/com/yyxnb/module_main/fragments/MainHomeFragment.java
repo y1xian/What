@@ -24,7 +24,7 @@ import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.view.popup.Popup;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
-import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_MAIN_FRAGMENT;
+import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_VIDEO;
 
 /**
  * 主页
@@ -113,9 +113,11 @@ public class MainHomeFragment extends BaseFragment {
                         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity(), mLayout, "transitionSearch").toBundle());
                         break;
                     case 2:
-                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
+//                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
+                        ARouterUtils.navActivity(VIDEO_VIDEO);
                         break;
-                    default:break;
+                    default:
+                        break;
                 }
 
             }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.yyxnb.view.titlebar.TitleBar
+            android:id="@+id/mTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tb_bottomLineColor="@color/colorLine"
+            app:tb_centerTextColor="@color/colorTitle"
+            app:tb_statusBarColor="@color/colorPrimary"
+            app:tb_titleBarColor="@color/colorPrimary"
+            skin:enable="true" />
+
+    </LinearLayout>
+</layout>

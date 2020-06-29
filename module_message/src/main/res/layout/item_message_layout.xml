@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.noober.background.view.BLConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
     android:id="@+id/mLayout"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="80dp"
+    android:background="@color/colorPrimary"
+    skin:enable="true">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/ivAvatar"
@@ -22,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:tag="名字"
         android:textColor="@color/colorTitle"
         app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-        app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
+        app:layout_constraintTop_toTopOf="@+id/ivAvatar"
+        skin:enable="true" />
 
     <TextView
         android:id="@+id/tvText"
@@ -36,11 +39,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:singleLine="true"
-        android:tag="内容"
         android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        skin:enable="true" />
 
-</com.noober.background.view.BLConstraintLayout>
+</android.support.constraint.ConstraintLayout>

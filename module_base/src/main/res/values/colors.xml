@@ -9,7 +9,7 @@
     <color name="colorPrimaryDark">@color/white</color>
     <color name="colorAccent">#74b9ff</color>
     <color name="colorBackground">#f5f6fa</color>
-    <color name="colorBackgroundItem">#E7E7E7</color>
+    <color name="colorBackgroundItem">#f5f6fa</color>
     <color name="colorTitle">#000000</color>
     <color name="colorText">#57606f</color>
     <color name="colorHint">#bdc3c7</color>

@@ -20,7 +20,6 @@ import com.yyxnb.common.SPUtils;
 import com.yyxnb.module_base.module.ModuleLifecycleConfig;
 import com.yyxnb.module_base.weight.ExtraAttrRegister;
 import com.yyxnb.skinloader.SkinManager;
-import com.yyxnb.skinloader.bean.SkinConfig;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -52,8 +51,9 @@ public class DebugApplication extends Application {
         // 尽可能早，推荐在Application中初始化
         ARouter.init(this);
 
+        // 换肤
         ExtraAttrRegister.init();
-        SkinConfig.DEBUG = true;
+//        SkinConfig.DEBUG = true;
         SkinManager.get().init(getApplicationContext());
         SkinManager.get().loadSkin((String) SPUtils.getParam(SKIN_PATH, ""));
 

@@ -12,7 +12,7 @@
         android:id="@+id/mLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         skin:enable="true"
         tools:context=".fragments.MainHomeFragment">

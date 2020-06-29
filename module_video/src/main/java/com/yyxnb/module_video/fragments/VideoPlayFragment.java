@@ -24,6 +24,7 @@ import com.yyxnb.module_video.utils.cache.PreloadManager;
 import com.yyxnb.module_video.utils.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_video.viewmodel.VideoViewModel;
 import com.yyxnb.module_video.widget.TikTokController;
+import com.yyxnb.module_video.widget.TikTokRenderViewFactory;
 import com.yyxnb.module_video.widget.VerticalViewPager;
 
 import java.io.Serializable;
@@ -56,7 +57,7 @@ public class VideoPlayFragment extends BaseFragment {
     public static VideoPlayFragment newInstance(int pos, List<TikTokBean> data) {
 
         Bundle args = new Bundle();
-        args.putInt("CurPos",pos);
+        args.putInt("CurPos", pos);
         args.putSerializable("data", (Serializable) data);
         VideoPlayFragment fragment = new VideoPlayFragment();
         fragment.setArguments(args);
@@ -87,8 +88,9 @@ public class VideoPlayFragment extends BaseFragment {
 
         mViewPager.post(() -> startPlay(mCurPos));
 
+        // 点赞、评论等交互
         mAdapter.setOnSelectListener((v, position, text) -> {
-            switch (position){
+            switch (position) {
                 case 0:
                     break;
                 case 5:
@@ -113,15 +115,16 @@ public class VideoPlayFragment extends BaseFragment {
         mVideoView.setLooping(true);
 
         //以下只能二选一，看你的需求
-//        mVideoView.setRenderViewFactory(TikTokRenderViewFactory.create());
-        mVideoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
+        mVideoView.setRenderViewFactory(TikTokRenderViewFactory.create());
+//        mVideoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
 
         mController = new TikTokController(getActivity());
         mVideoView.setVideoController(mController);
+
     }
 
     private void initViewPager() {
-        mViewPager.setOffscreenPageLimit(4);
+//        mViewPager.setOffscreenPageLimit(4);
         mAdapter = new TikTokAdapter(mVideoList);
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
@@ -183,11 +186,7 @@ public class VideoPlayFragment extends BaseFragment {
                 mVideoView.setUrl(playUrl);
                 mController.addControlComponent(viewHolder.mTikTokView, true);
                 viewHolder.mPlayerContainer.addView(mVideoView, 0);
-                if (isCur) {
-                    mVideoView.start();
-                }else {
-                    mVideoView.pause();
-                }
+                mVideoView.start();
                 mCurPos = position;
                 break;
             }
@@ -196,7 +195,7 @@ public class VideoPlayFragment extends BaseFragment {
 
     public void addData(View view) {
 //        if (mCurPos == 0 && mVideoList == null){
-            mVideoList.addAll(DataConfig.getTikTokBeans());
+        mVideoList.addAll(DataConfig.getTikTokBeans());
 //        }
         mAdapter.notifyDataSetChanged();
     }
@@ -229,21 +228,6 @@ public class VideoPlayFragment extends BaseFragment {
         isCur = false;
         LogUtils.e("Play onInVisible");
         Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
-        if (mVideoView != null) {
-            mVideoView.pause();
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        isCur = false;
         if (mVideoView != null) {
             mVideoView.pause();
         }

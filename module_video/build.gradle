@@ -29,5 +29,5 @@ dependencies {
     implementation 'com.github.dueeeke.dkplayer:player-ijk:3.2.6'
     // 可选，如需要缓存或者抖音预加载功能请引入此库
     implementation 'com.github.dueeeke.dkplayer:videocache:3.2.6'
-    implementation 'com.android.support:support-v4:28.0.0'
+//    implementation 'com.android.support:support-v4:28.0.0'
 }

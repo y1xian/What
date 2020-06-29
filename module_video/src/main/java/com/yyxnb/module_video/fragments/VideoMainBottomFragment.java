@@ -238,6 +238,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
                 mBtnMe.doToggle();
             }
             setCanScroll(false);
+            toggleRecordTip(true);
         } else {
             forwardLogin();
         }

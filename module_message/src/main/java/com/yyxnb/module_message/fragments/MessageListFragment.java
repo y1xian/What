@@ -5,11 +5,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yyxnb.adapter.ItemDecoration;
 import com.yyxnb.module_base.base.BaseFragment;
 import com.yyxnb.module_message.R;
 import com.yyxnb.module_message.adapter.MessageAdapter;
 import com.yyxnb.module_message.config.DataConfig;
 import com.yyxnb.module_message.databinding.FragmentMessageListBinding;
+import com.yyxnb.skinloader.SkinManager;
 
 import static com.yyxnb.module_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
 
@@ -34,8 +36,13 @@ public class MessageListFragment extends BaseFragment {
         mRecyclerView = binding.mRecyclerView;
         mAdapter = new MessageAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        ItemDecoration decoration = new ItemDecoration(getContext());
+        mRecyclerView.addItemDecoration(decoration);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+
+        SkinManager.get().setSkinViewResource(mRecyclerView, "line", R.color.colorLine);
+
     }
 
     @Override
