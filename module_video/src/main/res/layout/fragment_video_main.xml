@@ -5,11 +5,11 @@
 
     </data>
 
-    <com.yyxnb.module_base.weight.NoScrollViewPager
+    <com.yyxnb.common_base.weight.NoScrollViewPager
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.yyxnb.module_video.fragments.VideoMainFragment">
 
-    </com.yyxnb.module_base.weight.NoScrollViewPager>
+    </com.yyxnb.common_base.weight.NoScrollViewPager>
 </layout>

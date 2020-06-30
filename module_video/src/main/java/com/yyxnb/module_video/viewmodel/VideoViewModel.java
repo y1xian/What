@@ -4,9 +4,9 @@ import android.arch.lifecycle.MutableLiveData;
 
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.http.BaseViewModel;
-import com.yyxnb.module_base.base.BaseData;
-import com.yyxnb.module_base.base.StateData;
-import com.yyxnb.module_base.config.Http;
+import com.yyxnb.common_base.base.BaseData;
+import com.yyxnb.common_base.base.StateData;
+import com.yyxnb.common_base.config.Http;
 import com.yyxnb.module_video.api.IService;
 import com.yyxnb.module_video.bean.TikTokBean;
 

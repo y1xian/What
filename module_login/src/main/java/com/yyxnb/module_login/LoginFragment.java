@@ -7,11 +7,11 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.module_base.base.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.vm.TestViewModel;
 
-import static com.yyxnb.module_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 
 
 /**

@@ -13,8 +13,8 @@ import com.yyxnb.adapter.ItemDecoration;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.module_base.arouter.ARouterUtils;
-import com.yyxnb.module_base.base.BaseFragment;
+import com.yyxnb.common_base.arouter.ARouterUtils;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_main.MainSearchActivity;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.adapter.MainHomeAdapter;
@@ -23,8 +23,8 @@ import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.view.popup.Popup;
 
-import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
-import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_VIDEO;
+import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
 
 /**
  * 主页

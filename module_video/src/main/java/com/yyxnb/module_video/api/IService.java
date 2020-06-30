@@ -1,7 +1,7 @@
 package com.yyxnb.module_video.api;
 
-import com.yyxnb.module_base.base.BaseData;
-import com.yyxnb.module_base.base.StateData;
+import com.yyxnb.common_base.base.BaseData;
+import com.yyxnb.common_base.base.StateData;
 import com.yyxnb.module_video.bean.TikTokBean;
 
 import java.util.Map;

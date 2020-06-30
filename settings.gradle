@@ -1,7 +1,7 @@
 include ':skin_night'
 include ':app',
         ':module_main',
-        ':module_base',
+        ':common_base',
         ':module_user',
         ':module_video',
         ':module_login',

@@ -2,7 +2,7 @@ package com.yyxnb.module_main;
 
 import android.app.Application;
 
-import com.yyxnb.module_base.module.IModuleInit;
+import com.yyxnb.common_base.module.IModuleInit;
 
 public class ModuleInit implements IModuleInit {
     @Override

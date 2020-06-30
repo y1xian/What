@@ -20,8 +20,8 @@ import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.module_base.base.BaseFragment;
-import com.yyxnb.module_base.utils.DrawableTintUtil;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.utils.DrawableTintUtil;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;
 import com.yyxnb.module_video.widget.AppBarStateListener;
@@ -39,8 +39,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 视频 - 个人页面

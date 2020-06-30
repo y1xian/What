@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.yyxnb.module_base.weight.NoScrollViewPager
+    <com.yyxnb.common_base.weight.NoScrollViewPager
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -26,7 +26,7 @@
         android:layout_height="1px"
         android:background="@color/colorLine" />
 
-    <com.yyxnb.module_base.weight.tabbar.TabBarView
+    <com.yyxnb.common_base.weight.tabbar.TabBarView
         android:id="@+id/mTabLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"

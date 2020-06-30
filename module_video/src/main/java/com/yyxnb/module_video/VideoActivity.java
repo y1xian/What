@@ -8,8 +8,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.common.Bus;
-import com.yyxnb.module_base.base.BaseActivity;
-import com.yyxnb.module_base.weight.NoScrollViewPager;
+import com.yyxnb.common_base.base.BaseActivity;
+import com.yyxnb.common_base.weight.NoScrollViewPager;
 import com.yyxnb.module_video.databinding.ActivityVideoMainBinding;
 import com.yyxnb.module_video.fragments.VideoMainBottomFragment;
 import com.yyxnb.module_video.fragments.VideoUserFragment;
@@ -17,9 +17,9 @@ import com.yyxnb.module_video.fragments.VideoUserFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.module_base.arouter.ARouterConstant.VIDEO_VIDEO;
-import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 @Route(path = VIDEO_VIDEO)
 public class VideoActivity extends BaseActivity {

@@ -246,7 +246,7 @@ dependencies {
     }
 
     if (!isLibrary) {
-        implementation project(':module_base')
+        implementation project(':common_base')
     }
     //组件中依赖阿里路由编译框架
     annotationProcessor libs.arouter_compiler

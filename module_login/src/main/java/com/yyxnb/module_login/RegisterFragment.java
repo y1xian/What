@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.module_base.base.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 
 
 /**

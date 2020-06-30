@@ -12,15 +12,15 @@ import android.view.animation.TranslateAnimation;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.module_base.arouter.ARouterUtils;
-import com.yyxnb.module_base.base.BaseFragment;
-import com.yyxnb.module_base.config.BaseConfig;
+import com.yyxnb.common_base.arouter.ARouterUtils;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.config.BaseConfig;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.view.text.DrawableRadioButton;
 
-import static com.yyxnb.module_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
-import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
 
 /**
  * 主页

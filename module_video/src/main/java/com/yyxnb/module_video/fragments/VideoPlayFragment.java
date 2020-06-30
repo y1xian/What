@@ -14,7 +14,7 @@ import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.module_base.base.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;
@@ -31,8 +31,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.module_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 短视频播放的fragment 可以上下滑动

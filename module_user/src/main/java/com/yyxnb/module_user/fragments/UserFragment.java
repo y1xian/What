@@ -11,8 +11,8 @@ import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.common.SPUtils;
 import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.module_base.arouter.ARouterUtils;
-import com.yyxnb.module_base.base.BaseFragment;
+import com.yyxnb.common_base.arouter.ARouterUtils;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.fragments.wallet.UserWalletFragment;
@@ -23,9 +23,9 @@ import com.yyxnb.utils.permission.PermissionUtils;
 
 import java.io.File;
 
-import static com.yyxnb.module_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
-import static com.yyxnb.module_base.arouter.ARouterConstant.USER_FRAGMENT;
-import static com.yyxnb.module_base.config.Constants.SKIN_PATH;
+import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
+import static com.yyxnb.common_base.config.Constants.SKIN_PATH;
 
 /**
  * 我的 - 界面.

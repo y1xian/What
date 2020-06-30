@@ -3,7 +3,7 @@ package com.yyxnb.module_user.fragments.wallet;
 import android.os.Bundle;
 
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.module_base.base.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserWalletBinding;
 

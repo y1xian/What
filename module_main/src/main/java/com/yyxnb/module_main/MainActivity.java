@@ -2,7 +2,7 @@ package com.yyxnb.module_main;
 
 import android.support.v4.app.Fragment;
 
-import com.yyxnb.module_base.base.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.module_main.fragments.MainHomeFragment;
 
 /**

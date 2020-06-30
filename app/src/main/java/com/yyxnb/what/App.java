@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.tencent.bugly.beta.Beta;
-import com.yyxnb.module_base.DebugApplication;
+import com.yyxnb.common_base.DebugApplication;
 
 public class App extends DebugApplication {
 
