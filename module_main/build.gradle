@@ -21,7 +21,7 @@ dependencies {
         addComponent 'module_user'
         addComponent 'module_video'
         addComponent 'module_message'
-        addComponent 'module_community'
+        addComponent 'module_joke'
         addComponent 'module_music'
         addComponent 'module_novel'
     }

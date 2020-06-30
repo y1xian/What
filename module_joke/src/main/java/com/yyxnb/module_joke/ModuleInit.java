@@ -1,4 +1,4 @@
-package com.yyxnb.module_community;
+package com.yyxnb.module_joke;
 
 import android.app.Application;
 

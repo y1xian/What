@@ -28,6 +28,12 @@ public class ARouterConstant {
 
 
 
+    //========joke
+    public static final String JOKE_MAIN = "/joke/JokeActivity";
+    public static final String JOKE_MAIN_FRAGMENT = "/joke/JokeMainFragment";
+    public static final String JOKE_HOME_FRAGMENT = "/joke/JokeHomeFragment";
+
+
     //==========其他
 
     //跳转到关于项目更多页面

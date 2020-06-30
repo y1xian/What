@@ -8,5 +8,5 @@ include ':app',
         ':module_message',
         ':module_novel',
         ':module_music',
-        ':module_community'
+        ':module_joke'
 rootProject.name = 'What'

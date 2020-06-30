@@ -23,6 +23,7 @@ import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.view.popup.Popup;
 
+import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
 
@@ -115,6 +116,9 @@ public class MainHomeFragment extends BaseFragment {
                     case 2:
 //                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
                         ARouterUtils.navActivity(VIDEO_VIDEO);
+                        break;
+                    case 3:
+                        startFragment(ARouterUtils.navFragment(JOKE_MAIN_FRAGMENT));
                         break;
                     default:
                         break;
