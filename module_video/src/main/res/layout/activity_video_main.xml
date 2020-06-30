@@ -9,7 +9,7 @@
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VideoActivity">
+        tools:context=".ui.VideoActivity">
 
     </com.yyxnb.common_base.weight.NoScrollViewPager>
 </layout>

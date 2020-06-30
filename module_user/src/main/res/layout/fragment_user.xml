@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorBackground"
         skin:enable="true"
-        tools:context=".fragments.UserFragment">
+        tools:context=".ui.UserFragment">
 
         <ImageView
             android:id="@+id/ivHeadBg"

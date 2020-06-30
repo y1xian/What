@@ -4,7 +4,7 @@
     package="com.yyxnb.module_video">
 
     <application>
-        <activity android:name=".VideoActivity"></activity>
+        <activity android:name=".ui.VideoActivity"></activity>
     </application>
 
 </manifest>

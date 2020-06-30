@@ -4,7 +4,7 @@
     package="com.yyxnb.module_joke">
 
     <application>
-        <activity android:name="com.yyxnb.module_joke.JokeActivity"></activity>
+        <activity android:name="com.yyxnb.module_joke.ui.JokeActivity"></activity>
     </application>
 
 </manifest>

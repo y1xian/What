@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils"></import>
+
+        <import type="android.view.View"></import>
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+<!--    <com.yyxnb.module_joke.view.CornerFrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginRight="16dp"-->
+<!--        android:background="@color/colorLine"-->
+<!--        android:orientation="vertical"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:paddingBottom="10dp"-->
+<!--        app:clip_radius="6dp"-->
+<!--        app:clip_side="all">-->
+
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_gravity="right|top"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:src="@color/colorLine"></ImageView>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <com.yyxnb.module_joke.view.PPImageView-->
+<!--                    android:id="@+id/avatar"-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    tools:src="@mipmap/ic_launcher_round">-->
+
+<!--                </com.yyxnb.module_joke.view.PPImageView>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_name"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="12sp"-->
+<!--                    tools:text="神秘的jetpack"></TextView>-->
+
+<!--                <Space-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="1px"-->
+<!--                    android:layout_weight="1"></Space>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:textSize="12sp"-->
+<!--                    tools:text="1000"></TextView>-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="2dp"-->
+<!--                    tools:src="@color/colorLine">-->
+
+<!--                </ImageView>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginRight="36dp"-->
+<!--                android:ellipsize="end"-->
+<!--                android:maxLines="2"-->
+<!--                android:textColor="@color/white"-->
+<!--                tools:text="神秘的JetPack神秘的JetPack神秘的JetPack"></TextView>-->
+
+<!--            <FrameLayout-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                >-->
+
+<!--                <com.yyxnb.module_joke.view.PPImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@color/colorLine"-->
+<!--                    tools:src="@mipmap/ic_launcher"></com.yyxnb.module_joke.view.PPImageView>-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:src="@color/white"-->
+<!--                    ></ImageView>-->
+<!--            </FrameLayout>-->
+
+<!--        </LinearLayout>-->
+<!--    </com.yyxnb.module_joke.view.CornerFrameLayout>-->
+</layout>

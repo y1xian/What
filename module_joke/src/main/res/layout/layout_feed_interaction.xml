@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+
+<!--        <android.support.design.button.MaterialButton-->
+<!--            android:id="@+id/like"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            app:backgroundTint="@color/white"-->
+<!--            app:cornerRadius="0dp"-->
+<!--            app:iconGravity="textStart"-->
+<!--            app:iconPadding="4dp"-->
+<!--            tools:text="1000"-->
+<!--            tools:textColor="@color/white"></android.support.design.button.MaterialButton>-->
+
+
+<!--        <android.support.design.button.MaterialButton-->
+<!--            android:id="@+id/diss"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            app:backgroundTint="@color/white"-->
+<!--            app:cornerRadius="0dp"-->
+<!--            app:iconGravity="textStart"-->
+<!--            app:iconPadding="4dp"-->
+<!--            ></android.support.design.button.MaterialButton>-->
+
+
+<!--        <android.support.design.button.MaterialButton-->
+<!--            android:id="@+id/comment"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textColor="@color/white"-->
+<!--            app:backgroundTint="@color/white"-->
+<!--            app:cornerRadius="0dp"-->
+<!--            app:iconGravity="textStart"-->
+<!--            app:iconPadding="4dp"-->
+<!--            tools:text="1000"-->
+<!--            tools:textColor="@color/white"></android.support.design.button.MaterialButton>-->
+
+
+<!--        <android.support.design.button.MaterialButton-->
+<!--            android:id="@+id/share"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textColor="@color/white"-->
+<!--            app:backgroundTint="@color/white"-->
+<!--            app:cornerRadius="0dp"-->
+<!--            app:iconGravity="textStart"-->
+<!--            app:iconPadding="4dp"-->
+<!--            tools:text="1000"-->
+<!--            tools:textColor="@color/white"></android.support.design.button.MaterialButton>-->
+
+    </LinearLayout>
+</layout>

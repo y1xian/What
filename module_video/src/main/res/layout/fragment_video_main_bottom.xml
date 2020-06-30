@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context="com.yyxnb.module_video.fragments.VideoMainBottomFragment">
+        tools:context="com.yyxnb.module_video.ui.main.VideoMainBottomFragment">
 
         <FrameLayout
             android:id="@+id/replaced"

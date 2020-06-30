@@ -13,7 +13,7 @@
         android:background="@color/colorBackground"
         android:orientation="vertical"
         skin:enable="true"
-        tools:context="com.yyxnb.module_user.fragments.wallet.UserWalletFragment">
+        tools:context="com.yyxnb.module_user.ui.wallet.UserWalletFragment">
 
         <include
             android:id="@+id/iTitle"

@@ -15,7 +15,7 @@
         android:background="@color/colorPrimary"
         android:orientation="vertical"
         skin:enable="true"
-        tools:context=".fragments.MainHomeFragment">
+        tools:context=".ui.MainHomeFragment">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

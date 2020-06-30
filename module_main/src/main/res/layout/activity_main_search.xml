@@ -10,7 +10,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.yyxnb.module_main.MainSearchActivity">
+        tools:context="com.yyxnb.module_main.ui.MainSearchActivity">
 
         <com.noober.background.view.BLConstraintLayout
             android:id="@+id/mLayout"

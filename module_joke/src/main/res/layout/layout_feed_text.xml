@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="feedText"
+            type="java.lang.String" />
+
+        <variable
+            name="lines"
+            type="java.lang.Integer" />
+
+        <import type="android.text.TextUtils"></import>
+
+        <import type="android.view.View"></import>
+    </data>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="end"
+        android:maxLines="@{lines}"
+        android:orientation="vertical"
+        android:text="@{feedText}"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:visibility="@{TextUtils.isEmpty(feedText)?View.GONE:View.VISIBLE}"
+        tools:text="神秘的jetpack神秘的jetpack">
+
+    </TextView>
+</layout>

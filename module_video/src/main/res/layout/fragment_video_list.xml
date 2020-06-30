@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.yyxnb.module_video.fragments.VideoListFragment">
+        tools:context="com.yyxnb.module_video.ui.VideoListFragment">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/mRecyclerView"

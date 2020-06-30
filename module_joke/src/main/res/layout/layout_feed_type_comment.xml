@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <import type="android.view.View"></import>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+
+<!--        <include-->
+<!--            layout="@layout/layout_feed_author"-->
+<!--            ></include>-->
+
+<!--        <include-->
+<!--            layout="@layout/layout_feed_text"-->
+<!--            app:lines="@{3}"></include>-->
+
+<!--        <com.yyxnb.module_joke.view.CornerLinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:layout_marginRight="16dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@color/gray"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingLeft="16dp"-->
+<!--            app:clip_radius="6dp"-->
+<!--            app:clip_side="all">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:ellipsize="end"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:singleLine="true"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"></TextView>-->
+
+<!--            <FrameLayout-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp">-->
+
+<!--                <com.yyxnb.module_joke.view.PPImageView-->
+<!--                    android:id="@+id/icon_cover"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    app:clip_radius="6dp"-->
+<!--                    app:clip_side="right"></com.yyxnb.module_joke.view.PPImageView>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/icon_video"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"></ImageView>-->
+<!--            </FrameLayout>-->
+
+<!--        </com.yyxnb.module_joke.view.CornerLinearLayout>-->
+
+
+<!--        <include layout="@layout/layout_feed_tag"></include>-->
+
+
+        <!--        <include-->
+        <!--            android:id="@+id/interaction_binding"-->
+        <!--            layout="@layout/layout_profile_tab_comment_interaction"-->
+        <!--            app:feed="@{feed}"-->
+        <!--            app:lifeCycleOwner="@{lifeCycleOwner}"></include>-->
+    </LinearLayout>
+</layout>

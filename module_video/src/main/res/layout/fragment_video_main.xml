@@ -9,7 +9,7 @@
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.yyxnb.module_video.fragments.VideoMainFragment">
+        tools:context="com.yyxnb.module_video.ui.main.VideoMainFragment">
 
     </com.yyxnb.common_base.weight.NoScrollViewPager>
 </layout>

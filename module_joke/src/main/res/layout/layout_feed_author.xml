@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+<!--        <com.makeramen.roundedimageview.RoundedImageView-->
+<!--            android:id="@+id/avatar"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:riv_oval="true"-->
+<!--            tools:src="@mipmap/ic_launcher_round"></com.makeramen.roundedimageview.RoundedImageView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/author_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="@color/colorTitle"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/create_time"-->
+<!--            app:layout_constraintLeft_toRightOf="@+id/avatar"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:text="use_name"></TextView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/create_time"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:textColor="@color/colorText"-->
+<!--            android:textSize="12sp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toRightOf="@+id/avatar"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/author_name"-->
+<!--            tools:text="1小时前"></TextView>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/feed_delete"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="10dp"-->
+<!--            android:src="@color/colorLine"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

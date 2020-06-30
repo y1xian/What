@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tagText"
+            type="java.lang.String" />
+
+        <import type="android.text.TextUtils"></import>
+
+        <import type="android.view.View"></import>
+    </data>
+
+    <android.support.design.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:orientation="vertical"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:stateListAnimator="@null"
+        android:text="@{tagText}"
+        android:textColor="@color/colorText"
+        android:textSize="10sp"
+        app:backgroundTint="@color/colorText"
+        app:cornerRadius="10dp"
+        app:iconGravity="textStart"
+        app:iconPadding="4dp"
+        app:iconSize="12dp"
+        app:iconTintMode="multiply"
+        tools:text="神秘的jetpack">
+
+    </android.support.design.button.MaterialButton>
+</layout>

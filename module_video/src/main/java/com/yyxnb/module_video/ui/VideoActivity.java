@@ -1,0 +1,93 @@
+package com.yyxnb.module_video.ui;
+
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yyxnb.arch.common.Bus;
+import com.yyxnb.common_base.base.BaseActivity;
+import com.yyxnb.common_base.weight.NoScrollViewPager;
+import com.yyxnb.module_video.R;
+import com.yyxnb.module_video.databinding.ActivityVideoMainBinding;
+import com.yyxnb.module_video.ui.main.VideoMainBottomFragment;
+import com.yyxnb.module_video.ui.user.VideoUserFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+
+@Route(path = VIDEO_VIDEO)
+public class VideoActivity extends BaseActivity {
+
+//    @Override
+//    public Fragment initBaseFragment() {
+//        return new VideoMainFragment();
+//    }
+
+    private ActivityVideoMainBinding binding;
+
+    private NoScrollViewPager mViewPager;
+
+    private List<Fragment> fragments;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_video_main);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
+        mViewPager = binding.mViewPager;
+        mViewPager.setNoScroll(true);
+    }
+
+    @Override
+    public void initViewData() {
+        if (fragments == null) {
+            fragments = new ArrayList<>();
+            fragments.add(new VideoMainBottomFragment());
+            fragments.add(VideoUserFragment.newInstance(false));
+        }
+        mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int i) {
+                return fragments.get(i);
+            }
+
+            @Override
+            public int getCount() {
+                return fragments.size();
+            }
+        });
+    }
+
+    @Override
+    public void initObservable() {
+        Bus.observe(this, msgEvent -> {
+            switch (msgEvent.getCode()) {
+                case KEY_VIDEO_BOTTOM_VP:
+                    mViewPager.setNoScroll((Boolean) msgEvent.getData());
+                    break;
+                case KEY_VIDEO_BOTTOM_VP_SWITCH:
+                    mViewPager.setCurrentItem((Integer) msgEvent.getData(), true);
+                    break;
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mViewPager != null && mViewPager.getCurrentItem() != 0) {
+            mViewPager.setCurrentItem(0, true);
+            return;
+        }
+        super.onBackPressed();
+    }
+}

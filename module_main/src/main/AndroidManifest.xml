@@ -5,11 +5,11 @@
 
     <application>
         <activity
-            android:name="com.yyxnb.module_main.SplashActivity"
+            android:name="com.yyxnb.module_main.ui.SplashActivity"
             android:theme="@style/SplashTheme" />
-        <activity android:name="com.yyxnb.module_main.MainActivity" />
+        <activity android:name="com.yyxnb.module_main.ui.MainActivity" />
         <activity
-            android:name=".MainSearchActivity"
+            android:name=".ui.MainSearchActivity"
             android:label="搜索"
             android:screenOrientation="portrait" />
     </application>

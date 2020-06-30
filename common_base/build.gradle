@@ -18,6 +18,7 @@ dependencies {
 
     // 路由
     api libs.arouter_api
+    annotationProcessor libs.arouter_compiler
     // 2.0
     api libs.constraint
 
