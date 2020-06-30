@@ -8,6 +8,8 @@ android {
             applicationId build_version.applicationId + '.module_video'
         }
     }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "video_"
 
 }
 

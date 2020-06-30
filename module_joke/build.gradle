@@ -8,12 +8,13 @@ android {
             applicationId build_version.applicationId + '.module_joke'
         }
     }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "joke_"
 
 }
 
 dependencies {
 
-    implementation 'com.android.support:support-v4:28.0.0'
     if (runAsApp) {
         //模块化下需要引用到的模块
         addComponent 'module_user'
