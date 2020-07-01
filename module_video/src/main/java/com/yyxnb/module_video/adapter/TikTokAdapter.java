@@ -21,7 +21,7 @@ import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.config.DataConfig;
 import com.yyxnb.common_video.cache.PreloadManager;
-import com.yyxnb.module_video.widget.TikTokView;
+import com.yyxnb.module_video.widget.tiktok.TikTokView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,8 @@ public class TikTokAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         Context context = container.getContext();
         View view = null;
-        if (mViewPool.size() > 0) {//取第一个进行复用
+        if (mViewPool.size() > 0) {
+            //取第一个进行复用
             view = mViewPool.get(0);
             mViewPool.remove(0);
         }

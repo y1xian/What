@@ -3,8 +3,6 @@ package com.yyxnb.module_video.ui.play;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
@@ -16,16 +14,17 @@ import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_video.Utils;
+import com.yyxnb.common_video.cache.PreloadManager;
+import com.yyxnb.common_video.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.config.DataConfig;
 import com.yyxnb.module_video.databinding.FragmentVideoPlayBinding;
-import com.yyxnb.common_video.cache.PreloadManager;
-import com.yyxnb.common_video.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_video.viewmodel.VideoViewModel;
-import com.yyxnb.module_video.widget.TikTokController;
-import com.yyxnb.module_video.widget.TikTokRenderViewFactory;
+import com.yyxnb.module_video.widget.tiktok.TikTokController;
+import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory;
 import com.yyxnb.module_video.widget.VerticalViewPager;
 
 import java.io.Serializable;
@@ -122,7 +121,20 @@ public class VideoPlayFragment extends BaseFragment {
         mController = new TikTokController(getActivity());
         mVideoView.setVideoController(mController);
 
-        VideoViewManager.instance().add(mVideoView,"tiktop");
+        mVideoView.addOnStateChangeListener(new VideoView.SimpleOnStateChangeListener() {
+            @Override
+            public void onPlayStateChanged(int playState) {
+                if (playState == VideoView.STATE_PLAYING) {
+                    LogUtils.e("Play STATE_PLAYING");
+                    // 处理快速切换界面，缓存刚刚好就回继续播放的问题
+                    if (!isCur) {
+                        mVideoView.pause();
+                    }
+                }
+            }
+        });
+
+        VideoViewManager.instance().add(mVideoView, "tiktok");
     }
 
     private void initViewPager() {
@@ -180,7 +192,7 @@ public class VideoPlayFragment extends BaseFragment {
             TikTokAdapter.ViewHolder viewHolder = (TikTokAdapter.ViewHolder) itemView.getTag();
             if (viewHolder.mPosition == position) {
                 mVideoView.release();
-                removeViewFormParent(mVideoView);
+                Utils.removeViewFormParent(mVideoView);
 
                 TikTokBean tiktokBean = mVideoList.get(position);
                 String playUrl = mPreloadManager.getPlayUrl(tiktokBean.videoUrl);
@@ -200,19 +212,6 @@ public class VideoPlayFragment extends BaseFragment {
         mVideoList.addAll(DataConfig.getTikTokBeans());
 //        }
         mAdapter.notifyDataSetChanged();
-    }
-
-    /**
-     * 将View从父控件中移除
-     */
-    public void removeViewFormParent(View v) {
-        if (v == null) {
-            return;
-        }
-        ViewParent parent = v.getParent();
-        if (parent instanceof FrameLayout) {
-            ((FrameLayout) parent).removeView(v);
-        }
     }
 
     @Override
@@ -238,8 +237,8 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        isCur = false;
         if (mVideoView != null) {
+            VideoViewManager.instance().releaseByTag("tiktok");
             mVideoView.release();
         }
     }
@@ -247,7 +246,6 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        isCur = false;
         if (mPreloadManager != null) {
             mPreloadManager.removeAllPreloadTask();
         }

@@ -33,14 +33,25 @@ public class PPImageView extends AppCompatImageView {
         ViewHelper.setViewOutline(this, attrs, defStyleAttr, 0);
     }
 
-
     public void setImageUrl(String imageUrl) {
-        setImageUrl(this, imageUrl, false);
+//        setImageUrl(this, imageUrl, false);
+
+        Glide.with(this)
+                .load(imageUrl)
+                .into(new SimpleTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        setSize(resource.getIntrinsicWidth(), resource.getIntrinsicHeight(), 16, DpUtils.getScreenWidth(getContext()),
+                                DpUtils.getScreenWidth(getContext()));
+                        setImageDrawable(resource);
+                    }
+                });
+
     }
 
     @BindingAdapter(value = {"image_url", "isCircle"})
     public static void setImageUrl(PPImageView view, String imageUrl, boolean isCircle) {
-        view.setImageUrl(view, imageUrl, isCircle, 0);
+        setImageUrl(view, imageUrl, isCircle, 0);
     }
 
     @BindingAdapter(value = {"image_url", "isCircle", "radius"}, requireAll = false)
@@ -60,7 +71,7 @@ public class PPImageView extends AppCompatImageView {
 
 
     public void bindData(int widthPx, int heightPx, int marginLeft, String imageUrl) {
-//        bindData(widthPx, heightPx, marginLeft, PixUtils.getScreenWidth(), PixUtils.getScreenWidth(), imageUrl);
+        bindData(widthPx, heightPx, marginLeft, DpUtils.getScreenWidth(getContext()), DpUtils.getScreenWidth(getContext()), imageUrl);
     }
 
     public void bindData(int widthPx, int heightPx, final int marginLeft, final int maxWidth, final int maxHeight, String imageUrl) {
@@ -102,9 +113,9 @@ public class PPImageView extends AppCompatImageView {
         params.width = finalWidth;
         params.height = finalHeight;
         if (params instanceof FrameLayout.LayoutParams) {
-            ((FrameLayout.LayoutParams) params).leftMargin = height > width ? DpUtils.dp2px(getContext(),marginLeft) : 0;
+            ((FrameLayout.LayoutParams) params).leftMargin = height > width ? DpUtils.dp2px(getContext(), marginLeft) : 0;
         } else if (params instanceof LinearLayout.LayoutParams) {
-            ((LinearLayout.LayoutParams) params).leftMargin = height > width ? DpUtils.dp2px(getContext(),marginLeft) : 0;
+            ((LinearLayout.LayoutParams) params).leftMargin = height > width ? DpUtils.dp2px(getContext(), marginLeft) : 0;
         }
         setLayoutParams(params);
     }

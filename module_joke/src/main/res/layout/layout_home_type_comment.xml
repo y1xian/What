@@ -18,11 +18,11 @@
 
 
 <!--        <include-->
-<!--            layout="@layout/layout_feed_author"-->
+<!--            layout="@layout/layout_home_author"-->
 <!--            ></include>-->
 
 <!--        <include-->
-<!--            layout="@layout/layout_feed_text"-->
+<!--            layout="@layout/layout_home_text"-->
 <!--            app:lines="@{3}"></include>-->
 
 <!--        <com.yyxnb.module_joke.view.CornerLinearLayout-->
@@ -69,7 +69,7 @@
 <!--        </com.yyxnb.module_joke.view.CornerLinearLayout>-->
 
 
-<!--        <include layout="@layout/layout_feed_tag"></include>-->
+<!--        <include layout="@layout/layout_home_tag"></include>-->
 
 
         <!--        <include-->

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="data"
+            type="TikTokBean" />
+
+        <import type="com.yyxnb.module_joke.bean.TikTokBean" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <include layout="@layout/layout_home_author" />
+
+        <include
+            layout="@layout/layout_home_text"
+            app:lines="@{3}"
+            app:text="@{data.title}" />
+
+
+        <!--   视频区域-->
+        <FrameLayout
+            android:id="@+id/player_container"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@android:color/black">
+
+            <com.dueeeke.videocontroller.component.PrepareView
+                android:id="@+id/prepare_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+
+        <!--        <include layout="@layout/layout_home_tag"></include>-->
+
+        <include layout="@layout/layout_home_top_comment" />
+
+        <include
+            android:id="@+id/interaction_binding"
+            layout="@layout/layout_home_interaction" />
+
+    </LinearLayout>
+</layout>

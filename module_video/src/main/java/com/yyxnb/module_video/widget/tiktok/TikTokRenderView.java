@@ -1,4 +1,4 @@
-package com.yyxnb.module_video.widget;
+package com.yyxnb.module_video.widget.tiktok;
 
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;

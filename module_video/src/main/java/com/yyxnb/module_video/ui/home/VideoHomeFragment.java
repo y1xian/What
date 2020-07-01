@@ -61,10 +61,7 @@ public class VideoHomeFragment extends BaseFragment {
 
         if (fragments == null) {
             fragments = new ArrayList<>();
-//            fragments.add(new VideoFollowFragment());
-//            fragments.add(VideoPlayFragment.newInstance(0, null));
-//            fragments.add(VideoPlayFragment.newInstance(0, null));
-            fragments.add(new VideoPlayFragment());
+            fragments.add(new VideoFollowFragment());
             fragments.add(new VideoPlayFragment());
         }
 

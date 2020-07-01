@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
 
     <data>
 
         <variable
-            name="feedText"
+            name="text"
             type="java.lang.String" />
 
         <variable
@@ -27,11 +28,11 @@
         android:ellipsize="end"
         android:maxLines="@{lines}"
         android:orientation="vertical"
-        android:text="@{feedText}"
+        android:text="@{text}"
         android:textColor="@color/colorText"
         android:textSize="16sp"
-        android:visibility="@{TextUtils.isEmpty(feedText)?View.GONE:View.VISIBLE}"
-        tools:text="神秘的jetpack神秘的jetpack">
+        android:visibility="@{TextUtils.isEmpty(text)?View.GONE:View.VISIBLE}"
+        tools:text="内容">
 
     </TextView>
 </layout>
