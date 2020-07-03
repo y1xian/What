@@ -3,4 +3,8 @@
     <string name="night_mode">夜间模式</string>
     <string name="feed_back">意见反馈</string>
     <string name="set_up">设置</string>
+    <string name="not_logged_in">未登录</string>
+    <string name="no_signature">暂无签名</string>
+    <string name="wallet">钱包</string>
+    <string name="login_out">退出登录</string>
 </resources>

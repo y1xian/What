@@ -2,15 +2,18 @@ package com.yyxnb.module_login.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.common.ToastUtils;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.config.UserManager;
 import com.yyxnb.module_login.R;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
-import com.yyxnb.module_login.viewmodel.TestViewModel;
+import com.yyxnb.module_login.viewmodel.LoginViewModel;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 
@@ -24,8 +27,10 @@ public class LoginFragment extends BaseFragment {
 
     private FragmentLoginBinding binding;
 
+    private EditText etPhone;
+
     @BindViewModel
-    TestViewModel mViewModel;
+    LoginViewModel mViewModel;
 
     @Override
     public int initLayoutResId() {
@@ -35,9 +40,21 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
         binding = getBinding();
+        etPhone = binding.etPhone;
+
+        etPhone.setText(UserManager.getInstance().getUserBean().phone);
 
         binding.ivBack.setOnClickListener(v -> {
             finish();
+        });
+        binding.tvLogin.setOnClickListener(v -> {
+            String phone = etPhone.getText().toString();
+
+            if (phone.isEmpty()) {
+                ToastUtils.normal("手机号不能为空！");
+                return;
+            }
+            mViewModel.reqLogin(phone);
         });
 
     }
@@ -53,6 +70,19 @@ public class LoginFragment extends BaseFragment {
         super.initObservable();
 
         LogUtils.d("---initObservable--");
+
+        mViewModel.getUser().observe(this, userBean -> {
+            if (userBean != null) {
+                LogUtils.e("userBean : " + userBean.toString());
+                UserManager.getInstance().setUserBean(userBean);
+                finish();
+            }
+        });
+//        mViewModel.getUserAll().observe(this, userBean -> {
+//            if (userBean != null) {
+//                LogUtils.list(userBean);
+//            }
+//        });
 
 
 //        mViewModel.reqTest();

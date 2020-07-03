@@ -249,8 +249,8 @@ dependencies {
         implementation project(':common_base')
         //组件中依赖阿里路由编译框架
         annotationProcessor libs.arouter_compiler
+        annotationProcessor libs.arch_comp_room_compiler
     }
-
 
     //2018-06-03新增：这里是为了示例添加全局拦截器
     if (project.ext.has('runAsApp') && project.ext.runAsApp) {

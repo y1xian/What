@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.yyxnb.adapter.ItemDecoration;
-import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.skinloader.bean.SkinAttr;
 import com.yyxnb.skinloader.bean.SkinConfig;
 import com.yyxnb.skinloader.skinInterface.ISkinResDeployer;
@@ -39,7 +38,7 @@ public class RecycleViewResDeployer implements ISkinResDeployer {
             recyclerView.removeItemDecorationAt(0);
             recyclerView.addItemDecoration(decoration);
 
-            LogUtils.e("-----" + skinAttr.attrValueTypeName + " , " + skinAttr.attrValueRefId);
+//            LogUtils.e("-----" + skinAttr.attrValueTypeName + " , " + skinAttr.attrValueRefId);
         }
 
 

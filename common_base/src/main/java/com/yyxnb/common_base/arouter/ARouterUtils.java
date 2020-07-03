@@ -21,4 +21,7 @@ public class ARouterUtils {
     }
 
 
+    public static void startFragment(Class aClass){
+
+    }
 }

@@ -1,5 +1,6 @@
 package com.yyxnb.module_video.ui.play;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -23,9 +24,11 @@ import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.config.DataConfig;
 import com.yyxnb.module_video.databinding.FragmentVideoPlayBinding;
 import com.yyxnb.module_video.viewmodel.VideoViewModel;
+import com.yyxnb.module_video.widget.VerticalViewPager;
 import com.yyxnb.module_video.widget.tiktok.TikTokController;
 import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory;
-import com.yyxnb.module_video.widget.VerticalViewPager;
+import com.yyxnb.utils.permission.PermissionListener;
+import com.yyxnb.utils.permission.PermissionUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -74,6 +77,21 @@ public class VideoPlayFragment extends BaseFragment {
         binding = getBinding();
         mViewPager = binding.mViewPager;
 
+        PermissionUtils.with(getActivity())
+                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .setPermissionsCheckListener(new PermissionListener() {
+                    @Override
+                    public void permissionRequestSuccess() {
+                    }
+
+                    @Override
+                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
+                    }
+                })
+                .createConfig()
+                .setForceAllPermissionsGranted(true)
+                .buildConfig()
+                .startCheckPermission();
     }
 
     @Override
@@ -84,9 +102,9 @@ public class VideoPlayFragment extends BaseFragment {
         initVideoView();
         mPreloadManager = PreloadManager.getInstance(getContext());
 
-        addData(null);
+//        addData(null);
 
-        mViewPager.post(() -> startPlay(mCurPos));
+//        mViewPager.post(() -> startPlay(mCurPos));
 
         // 点赞、评论等交互
         mAdapter.setOnSelectListener((v, position, text) -> {
@@ -103,10 +121,15 @@ public class VideoPlayFragment extends BaseFragment {
 
     @Override
     public void initObservable() {
-//        mViewModel.reqVideoList();
+        mViewModel.reqVideoList();
 
-        mViewModel.result.observe(this, data -> {
-
+        mViewModel.result1().observe(this, data -> {
+            if (data != null) {
+                mVideoList.addAll(data);
+//                LogUtils.list(mVideoList);
+            }
+            mAdapter.notifyDataSetChanged();
+            mViewPager.post(() -> startPlay(mCurPos));
         });
     }
 

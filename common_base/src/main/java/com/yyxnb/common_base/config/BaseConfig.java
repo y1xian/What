@@ -2,14 +2,16 @@ package com.yyxnb.common_base.config;
 
 import android.os.Environment;
 
+import com.tencent.mmkv.MMKV;
+
 public class BaseConfig {
 
     private volatile static BaseConfig config;
 
     public static BaseConfig getInstance() {
-        if (config == null){
-            synchronized (BaseConfig.class){
-                if (config == null){
+        if (config == null) {
+            synchronized (BaseConfig.class) {
+                if (config == null) {
                     config = new BaseConfig();
                 }
             }
@@ -30,20 +32,6 @@ public class BaseConfig {
     //拍照时图片保存路径
     public static final String CAMERA_IMAGE_PATH = DCMI_PATH + "/cache/camera/";
 
-
-    // 是否登录
-    public boolean isLogin(){
-        return true;
-    }
-
-    // token
-    public String token(){
-        return "wjekwqnkenwnekjwqnjk";
-    }
-
-    // 退出登录
-    public void loginOut(){
-
-    }
+    public final MMKV kv = MMKV.defaultMMKV();
 
 }

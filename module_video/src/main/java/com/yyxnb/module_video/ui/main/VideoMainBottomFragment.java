@@ -14,13 +14,14 @@ import com.yyxnb.common.DpUtils;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.config.BaseConfig;
+import com.yyxnb.common_base.config.UserManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
 import com.yyxnb.module_video.ui.home.VideoHomeFragment;
 import com.yyxnb.view.text.DrawableRadioButton;
 
+import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
 
@@ -47,8 +48,6 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
     private SparseArray<Fragment> mSparseArray;
     private FragmentManager mFragmentManager;
     private VideoHomeFragment mHomeFragment;
-    //判断是否未登录
-    private boolean mLogout;
     private boolean mShowingRecordTip;
 
     private FragmentVideoMainBottomBinding binding;
@@ -110,26 +109,10 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
         mAnimation.setDuration(400);
     }
 
-    public void onLogout() {
-        mLogout = true;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
 
     @Override
     public void onVisible() {
         LogUtils.e("main ov");
-        if (mLogout) {
-            toggleHome();
-        }
-        if (BaseConfig.getInstance().isLogin()) {
-            mLogout = false;
-            toggleRecordTip(mShowingRecordTip);
-        }
     }
 
     public void showRecordTip(boolean show) {
@@ -198,19 +181,15 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
     }
 
     /**
-     * 切换到关注
+     * 切换到发现
      */
     private void toggleFind() {
-        if (BaseConfig.getInstance().isLogin()) {
-            toggle(FIND);
-            if (mBtnFind != null) {
-                mBtnFind.doToggle();
-            }
-            setCanScroll(false);
-            toggleRecordTip(false);
-        } else {
-            forwardLogin();
+        toggle(FIND);
+        if (mBtnFind != null) {
+            mBtnFind.doToggle();
         }
+        setCanScroll(false);
+        toggleRecordTip(false);
 
     }
 
@@ -218,32 +197,32 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
      * 切换到消息
      */
     private void toggleMsg() {
-        if (BaseConfig.getInstance().isLogin()) {
+//        if (BaseConfig.getInstance().isLogin()) {
             toggle(MSG);
             if (mBtnMsg != null) {
                 mBtnMsg.doToggle();
             }
             setCanScroll(false);
             toggleRecordTip(false);
-        } else {
-            forwardLogin();
-        }
+//        } else {
+//            forwardLogin();
+//        }
     }
 
     /**
      * 切换到我的
      */
     private void toggleMe() {
-        if (BaseConfig.getInstance().isLogin()) {
+//        if (BaseConfig.getInstance().isLogin()) {
             toggle(ME);
             if (mBtnMe != null) {
                 mBtnMe.doToggle();
             }
             setCanScroll(false);
             toggleRecordTip(true);
-        } else {
-            forwardLogin();
-        }
+//        } else {
+//            forwardLogin();
+//        }
     }
 
     // 显示动画
@@ -269,7 +248,8 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     // 跳转登录
     private void forwardLogin() {
-
+        LogUtils.e("跳登录 " + UserManager.getInstance().getUserBean().toString());
+        startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
     }
 
     // 最底层vp { @link VideoMainFragment } 是否能切换 （视频/个人）

@@ -1,31 +1,27 @@
 package com.yyxnb.module_user.ui;
 
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.CheckBox;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.tencent.mmkv.MMKV;
 import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.SPUtils;
+import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.config.BaseConfig;
+import com.yyxnb.common_base.config.UserManager;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
-import com.yyxnb.skinloader.SkinManager;
-import com.yyxnb.skinloader.util.AssetFileUtils;
-import com.yyxnb.utils.permission.PermissionListener;
-import com.yyxnb.utils.permission.PermissionUtils;
-
-import java.io.File;
+import com.yyxnb.module_user.viewmodel.UserViewModel;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
-import static com.yyxnb.common_base.config.Constants.SKIN_PATH;
+import static com.yyxnb.common_base.config.Constants.USER_ID;
 
 /**
  * 我的 - 界面.
@@ -36,7 +32,8 @@ public class UserFragment extends BaseFragment {
 
     private FragmentUserBinding binding;
 
-    private CheckBox mCheckBox;
+    @BindViewModel
+    UserViewModel mViewModel;
 
     @Override
     public int initLayoutResId() {
@@ -46,60 +43,38 @@ public class UserFragment extends BaseFragment {
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
         binding = getBinding();
-        mCheckBox = binding.mCheckBox;
-
 
         binding.clHead.setOnClickListener(v -> {
-            startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
+            if (!UserManager.getInstance().getUserBean().isLogin) {
+                startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
+            }
         });
         binding.ivWallet.setOnClickListener(v -> {
             startFragment(new UserWalletFragment());
         });
 
-        mCheckBox.setChecked(!SkinManager.get().isUsingDefaultSkin());
-
-        mCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (!isChecked) {
-                SkinManager.get().restoreToDefaultSkin();
-                SPUtils.clear(SKIN_PATH);
-            } else {
-                changeSkin();
-            }
+        binding.rbSetUp.setOnClickListener(v -> {
+            startFragment(new UserSetUpFragment());
         });
 
     }
 
-    @SuppressWarnings("ConstantConditions")
-    private void changeSkin() {
-        // 存储权限
-        PermissionUtils.with(getActivity())
-                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .setPermissionsCheckListener(new PermissionListener() {
-                    @Override
-                    public void permissionRequestSuccess() {
-                        //将assets目录下的皮肤文件拷贝到data/data/.../cache目录下
-                        String saveDir = getActivity().getCacheDir().getAbsolutePath() + "/skins";
-                        //将打包生成的apk文件, 重命名为'xxx.skin', 防止apk结尾的文件造成混淆.
-                        String savefileName = "/night.skin";
-                        String asset_dir = "skins/night.apk";
-                        File file = new File(saveDir + File.separator + savefileName);
-                        if (!file.exists()) {
-                            AssetFileUtils.copyAssetFile(getActivity(), asset_dir, saveDir, savefileName);
-                        }
-                        LogUtils.w(" " + file.getAbsolutePath());
-                        SPUtils.setParam(SKIN_PATH, file.getAbsolutePath());
-                        SkinManager.get().loadSkin(file.getAbsolutePath());
-                    }
+    @Override
+    public void initViewData() {
 
-                    @Override
-                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
-                    }
-                })
-                .createConfig()
-                .setForceAllPermissionsGranted(true)
-                .buildConfig()
-                .startCheckPermission();
+    }
 
+    @Override
+    public void initObservable() {
+
+        mViewModel.getUser().observe(this, userBean -> {
+            if (userBean != null) {
+                UserManager.getInstance().setUserBean(userBean);
+                binding.setData(userBean);
+                LogUtils.e("u : " + userBean.toString() + " \n "+ UserManager.getInstance().getUserBean().toString());
+            }
+            binding.setData(userBean);
+        });
     }
 
     @Override
@@ -112,6 +87,7 @@ public class UserFragment extends BaseFragment {
     public void onVisible() {
         super.onVisible();
         getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
-        LogUtils.d("---onVisible---");
+        LogUtils.d("---onVisible---" + MMKV.defaultMMKV().decodeInt(USER_ID,0));
+        mViewModel.reqUserId.postValue(BaseConfig.getInstance().kv.decodeInt(USER_ID,0));
     }
 }

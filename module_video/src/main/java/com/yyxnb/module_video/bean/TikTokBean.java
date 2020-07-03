@@ -1,7 +1,11 @@
 package com.yyxnb.module_video.bean;
 
+import android.arch.persistence.room.Entity;
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
+@Entity(tableName = "video", primaryKeys = {"id", "title"})
 public class TikTokBean implements Serializable {
 
 
@@ -22,6 +26,10 @@ public class TikTokBean implements Serializable {
      * createTime : 1575445406000
      */
 
+//    @PrimaryKey(autoGenerate = true)
+//    public int _id;
+
+//    @ColumnInfo(name ="vid")
     public int id;
     public int videoId;
     public int userId;
@@ -29,13 +37,32 @@ public class TikTokBean implements Serializable {
     public int commentCount;
     public String coverUrl;
     public String videoUrl;
+    @NonNull
     public String title;
     public int state;
     public int type;
-    public Object description;
+    public String description;
     public int likeCount;
     public int playCount;
     public String createTime;
 
-
+    @Override
+    public String toString() {
+        return "TikTokBean{" +
+                "id=" + id +
+                ", videoId=" + videoId +
+                ", userId=" + userId +
+                ", itemId=" + itemId +
+                ", commentCount=" + commentCount +
+                ", coverUrl='" + coverUrl + '\'' +
+                ", videoUrl='" + videoUrl + '\'' +
+                ", title='" + title + '\'' +
+                ", state=" + state +
+                ", type=" + type +
+                ", description='" + description + '\'' +
+                ", likeCount=" + likeCount +
+                ", playCount=" + playCount +
+                ", createTime='" + createTime + '\'' +
+                '}';
+    }
 }

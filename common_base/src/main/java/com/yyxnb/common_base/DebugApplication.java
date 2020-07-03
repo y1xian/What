@@ -15,8 +15,8 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.squareup.leakcanary.LeakCanary;
+import com.tencent.mmkv.MMKV;
 import com.yyxnb.common.AppConfig;
-import com.yyxnb.common.SPUtils;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
 import com.yyxnb.common_base.weight.skin.ExtraAttrRegister;
 import com.yyxnb.skinloader.SkinManager;
@@ -51,11 +51,13 @@ public class DebugApplication extends Application {
         // 尽可能早，推荐在Application中初始化
         ARouter.init(this);
 
+        MMKV.initialize(this);
+
         // 换肤
         ExtraAttrRegister.init();
 //        SkinConfig.DEBUG = true;
         SkinManager.get().init(getApplicationContext());
-        SkinManager.get().loadSkin((String) SPUtils.getParam(SKIN_PATH, ""));
+        SkinManager.get().loadSkin(MMKV.defaultMMKV().decodeString(SKIN_PATH, ""));
 
         // 布局
         AutoSizeConfig.getInstance().setCustomFragment(true);
