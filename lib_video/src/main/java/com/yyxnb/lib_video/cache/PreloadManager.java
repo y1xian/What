@@ -1,4 +1,4 @@
-package com.yyxnb.common_video.cache;
+package com.yyxnb.lib_video.cache;
 
 import android.content.Context;
 

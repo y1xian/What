@@ -7,4 +7,5 @@
     <string name="no_signature">暂无签名</string>
     <string name="wallet">钱包</string>
     <string name="login_out">退出登录</string>
+    <string name="personal_details">个人详情</string>
 </resources>

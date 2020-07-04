@@ -10,7 +10,7 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.ToastUtils;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.config.UserManager;
+import com.yyxnb.module_login.config.UserManager;
 import com.yyxnb.module_login.R;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.viewmodel.LoginViewModel;

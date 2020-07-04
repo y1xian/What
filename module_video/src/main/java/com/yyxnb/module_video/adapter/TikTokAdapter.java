@@ -20,7 +20,7 @@ import com.yyxnb.common.interfaces.OnSelectListener;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.config.DataConfig;
-import com.yyxnb.common_video.cache.PreloadManager;
+import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.module_video.widget.tiktok.TikTokView;
 
 import java.util.ArrayList;

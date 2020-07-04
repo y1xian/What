@@ -2,6 +2,10 @@ package com.yyxnb.common_base.arouter;
 
 
 public class ARouterConstant {
+
+    // == 服务
+    public static final String LOGIN_SERVICE = "/login/login_service";
+
     
     //======login
     //跳转到登陆页面

@@ -22,5 +22,5 @@ dependencies {
         addComponent 'module_message'
     }
 
-    implementation project(':common_video')
+    implementation project(':lib_video')
 }

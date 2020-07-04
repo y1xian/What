@@ -13,8 +13,8 @@ import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
+import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.config.UserManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
@@ -248,7 +248,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     // 跳转登录
     private void forwardLogin() {
-        LogUtils.e("跳登录 " + UserManager.getInstance().getUserBean().toString());
+        LogUtils.e("跳登录 " + LoginImpl.getInstance().getUserInfo().toString());
         startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
     }
 

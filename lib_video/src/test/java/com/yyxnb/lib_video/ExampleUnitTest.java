@@ -1,4 +1,4 @@
-package com.yyxnb.common_video;
+package com.yyxnb.lib_video;
 
 import org.junit.Test;
 

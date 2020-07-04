@@ -1,4 +1,4 @@
-include ':common_video'
+include ':lib_video'
 include ':skin_night'
 include ':app',
         ':module_main',

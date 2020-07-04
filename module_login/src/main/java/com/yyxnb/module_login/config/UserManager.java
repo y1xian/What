@@ -1,4 +1,4 @@
-package com.yyxnb.common_base.config;
+package com.yyxnb.module_login.config;
 
 import com.tencent.mmkv.MMKV;
 import com.yyxnb.common_base.bean.UserBean;

@@ -36,6 +36,7 @@ public class LoginViewModel extends BaseViewModel {
         UserBean userBean = new UserBean();
         userBean.userId = Math.abs(("uid_" + phone).hashCode());
         userBean.phone = phone;
+        userBean.signature = "暂无签名";
         userBean.token = MD5Utils.parseStrToMd5L32(userBean.userId + "-token-" + userBean.phone);
         userBean.nickname = "游客" + phone.substring(7);
         userBean.isLogin = true;

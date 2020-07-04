@@ -1,4 +1,4 @@
-package com.yyxnb.common_video.cache;
+package com.yyxnb.lib_video.cache;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.dueeeke.videoplayer.util.L;
