@@ -23,8 +23,10 @@ import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.view.popup.Popup;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
+import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN_FRAGMENT;
 
 /**
  * 主页
@@ -108,16 +110,27 @@ public class MainHomeFragment extends BaseFragment {
 //                AppConfig.getInstance().toast("item  第 " + position);
                 switch (mAdapter.getData().get(position).id) {
                     case 1:
+                        // 搜索
                         ConstraintLayout mLayout = holder.getView(R.id.mLayout);
                         Intent intent = new Intent(getContext(), MainSearchActivity.class);
                         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity(), mLayout, "transitionSearch").toBundle());
                         break;
                     case 2:
+                        // 短视频
 //                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
                         ARouterUtils.navActivity(VIDEO_VIDEO);
                         break;
                     case 3:
+                        // 娱乐
                         startFragment(ARouterUtils.navFragment(JOKE_MAIN_FRAGMENT));
+                        break;
+                    case 4:
+                        // 消息
+                        startFragment(ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
+                        break;
+                    case 5:
+                        // 玩安卓
+                        startFragment(ARouterUtils.navFragment(WAN_MAIN_FRAGMENT));
                         break;
                     default:
                         break;

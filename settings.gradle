@@ -1,3 +1,4 @@
+include ':module_wanandroid'
 include ':lib_video'
 include ':skin_night'
 include ':app',

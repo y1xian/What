@@ -38,6 +38,10 @@ public class ARouterConstant {
     public static final String JOKE_HOME_FRAGMENT = "/joke/JokeHomeFragment";
 
 
+    // ====== wanandroid
+    public static final String WAN_MAIN = "/wan/WanActivity";
+    public static final String WAN_MAIN_FRAGMENT = "/wan/WanMainFragment";
+
     //==========其他
 
     //跳转到关于项目更多页面

@@ -23,6 +23,8 @@ public class ModuleLifecycleReflexs {
     private static final String NEWS_INIT = "com.yyxnb.module_message.ModuleInit";
     //笑话模块
     private static final String JOKE_INIT = "com.yyxnb.module_joke.ModuleInit";
+    //玩安卓模块
+    private static final String WAN_INIT = "com.yyxnb.module_wanandroid.ModuleInit";
 
     public static String[] initModuleNames = {
             MAIN_INIT
@@ -33,5 +35,6 @@ public class ModuleLifecycleReflexs {
             , NOVEL_INIT
             , NEWS_INIT
             , JOKE_INIT
+            , WAN_INIT
     };
 }
