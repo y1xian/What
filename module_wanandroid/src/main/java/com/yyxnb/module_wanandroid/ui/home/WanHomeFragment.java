@@ -1,0 +1,158 @@
+package com.yyxnb.module_wanandroid.ui.home;
+
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.youth.banner.Banner;
+import com.yyxnb.adapter.BaseViewHolder;
+import com.yyxnb.adapter.MultiItemTypeAdapter;
+import com.yyxnb.arch.annotations.BindRes;
+import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.weight.GlideImageLoader;
+import com.yyxnb.module_wanandroid.R;
+import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
+import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
+import com.yyxnb.module_wanandroid.databinding.FragmentWanHomeBinding;
+import com.yyxnb.module_wanandroid.viewmodel.WanHomeViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
+
+/**
+ * 首页.
+ */
+@BindRes(subPage = true)
+public class WanHomeFragment extends BaseFragment {
+
+    @BindViewModel
+    WanHomeViewModel mViewModel;
+
+    private FragmentWanHomeBinding binding;
+
+    private SmartRefreshLayout mRefreshLayout;
+    private RecyclerView mRecyclerView;
+    private WanHomeAdapter mAdapter;
+    private Banner mBanner;
+
+    private int mPage = 0;
+
+    @Override
+    public int initLayoutResId() {
+        return R.layout.fragment_wan_home;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
+        binding = getBinding();
+        mRefreshLayout = binding.iRvLayout.mRefreshLayout;
+        mRecyclerView = binding.iRvLayout.mRecyclerView;
+
+//        mRefreshLayout.setEnablePureScrollMode(false)
+//                .setEnableRefresh(true).setEnableLoadMore(true);
+
+        binding.ivSearch.setOnClickListener(v -> {
+            startFragment(new WanSearchFragment());
+        });
+    }
+
+    @Override
+    public void initViewData() {
+        mAdapter = new WanHomeAdapter();
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setAdapter(mAdapter);
+
+        View mHeader = LayoutInflater.from(getContext()).inflate(R.layout.item_home_header_layout, mRecyclerView, false);
+        mBanner = mHeader.findViewById(R.id.mBanner);
+        mBanner.setImageLoader(new GlideImageLoader());
+        mAdapter.addHeaderView(mHeader);
+
+        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, BaseViewHolder holder, int position) {
+                super.onItemClick(view, holder, position);
+
+            }
+        });
+
+        mRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mPage++;
+                mViewModel.getAritrilList(mPage);
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mPage = 0;
+                mViewModel.getBanner();
+                mViewModel.getTopAritrilList();
+//                mViewModel.reqHomeList(mPage);
+            }
+        });
+    }
+
+    @Override
+    public void initObservable() {
+        mViewModel.getBanner();
+        mViewModel.getTopAritrilList();
+
+        mViewModel.bannerData.observe(this, data -> {
+
+            List<String> list = new ArrayList<>();
+            if (data != null) {
+                for (WanAriticleBean s : data) {
+                    list.add(s.imagePath);
+                }
+                //设置图片集合
+                mBanner.setImages(list);
+                mBanner.start();
+            }
+        });
+
+        mViewModel.topArticleData.observe(this, data -> {
+            if (data != null) {
+                mAdapter.setDataItems(data);
+                mViewModel.getAritrilList(mPage);
+            }
+        });
+
+        mViewModel.homeListData.observe(this, data -> {
+            mRefreshLayout.finishRefresh().finishLoadMore();
+            if (data != null) {
+//                if (mPage == 0) {
+//                    mAdapter.addDataItem(data.datas);
+//                } else {
+                mAdapter.addDataItem(data.datas);
+//                }
+                if (data.size < DATA_SIZE) {
+                    mRefreshLayout.finishRefreshWithNoMoreData();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onVisible() {
+        if (mBanner != null) {
+            mBanner.startAutoPlay();
+        }
+    }
+
+    @Override
+    public void onInVisible() {
+        if (mBanner != null) {
+            mBanner.stopAutoPlay();
+        }
+    }
+}

@@ -1,8 +1,7 @@
 package com.yyxnb.common_base.config;
 
+import android.util.Log;
 import android.util.LruCache;
-
-import com.yyxnb.common.AppConfig;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class UrlInterceptor implements Interceptor {
         this.urlBucket = map;
     }
 
-    public static final String URL_PREFIX = "URL: ";
+    public static final String URL_PREFIX = "URL:";
     private Map<String, HttpUrl> urlBucket;
 
     private LruCache<String, String> urlCache = new LruCache<>(100);
@@ -92,7 +91,7 @@ public class UrlInterceptor implements Interceptor {
             }
 
             HttpUrl newHttpUrl = createHttpUrl(headerHttpUrl, oldHttpUrl);
-            AppConfig.getInstance().log("-----", "pageSize = " + pathSize + ", old http url is " + oldHttpUrl + ", new http url is " + newHttpUrl);
+            Log.w("-----", "pageSize = " + pathSize + ", old http url is " + oldHttpUrl + ", new http url is " + newHttpUrl);
             return newHttpUrl;
         }
 
@@ -105,7 +104,7 @@ public class UrlInterceptor implements Interceptor {
     private HttpUrl createHttpUrl(HttpUrl headerHttpUrl, HttpUrl oldHttpUrl) {
         HttpUrl.Builder builder = createHttpBuilder(headerHttpUrl, oldHttpUrl);
 
-        HttpUrl newHttpUrl = builder
+        final HttpUrl newHttpUrl = builder
                 .scheme(headerHttpUrl.scheme())
                 .host(headerHttpUrl.host())
                 .port(headerHttpUrl.port())

@@ -38,7 +38,8 @@
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:srlEnablePureScrollMode="true">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"

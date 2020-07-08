@@ -1,4 +1,4 @@
-package com.yyxnb.module_video.api;
+package com.yyxnb.module_video.config;
 
 import com.yyxnb.common_base.base.BaseData;
 import com.yyxnb.common_base.base.StateData;
@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 
-public interface IService {
+public interface VideoService {
 
 //        @Headers(HEADER_APIOPEN)
     @GET("v2/5ecfd21e320000f1aee3d61a")

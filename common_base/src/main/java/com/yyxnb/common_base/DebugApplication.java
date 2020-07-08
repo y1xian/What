@@ -60,7 +60,12 @@ public class DebugApplication extends Application {
         SkinManager.get().loadSkin(MMKV.defaultMMKV().decodeString(SKIN_PATH, ""));
 
         // 布局
-        AutoSizeConfig.getInstance().setCustomFragment(true);
+        AutoSizeConfig.getInstance()
+                //按照宽度适配 默认true
+                .setBaseOnWidth(true)
+                //是否让框架支持自定义 Fragment 的适配参数, 由于这个需求是比较少见的, 所以须要使用者手动开启
+                //如果没有这个需求建议不开启
+                .setCustomFragment(true);
         // 侧滑监听
         AppConfig.getInstance().getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
 
@@ -81,8 +86,8 @@ public class DebugApplication extends Application {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
             @Override
             public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
-                layout.setPrimaryColorsId(R.color.transparent, R.color.white);//全局设置主题颜色
-                layout.setEnablePureScrollMode(true);
+                layout.setPrimaryColorsId(R.color.transparent, R.color.colorText);//全局设置主题颜色
+//                layout.setEnablePureScrollMode(true);
                 layout.setEnableOverScrollBounce(true);
                 layout.setDragRate(0.4f);
                 return new ClassicsHeader(context);//.setTimeFormat(new DynamicTimeFormat("更新于 %s"));//指定为经典Header，默认是 贝塞尔雷达Header

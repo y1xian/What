@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.yyxnb.module_wanandroid.bean.WanAriticleBean" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{TextUtils.isEmpty(data.author) ? data.shareUser : data.author}"
+                android:textColor="@color/colorText"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="作者" />
+
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tvTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:text="置顶"
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:visibility="@{data.type == 1 ? View.VISIBLE : View.GONE}"
+                app:bl_stroke_color="@color/red"
+                app:bl_stroke_width="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
+                app:layout_constraintStart_toEndOf="@+id/tvAuthor"
+                app:layout_constraintTop_toTopOf="@+id/tvAuthor"
+                tools:visibility="visible" />
+
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tvNew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
+                android:text="新"
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:visibility="@{data.fresh ? View.VISIBLE : View.GONE}"
+                app:bl_stroke_color="@color/red"
+                app:bl_stroke_width="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
+                app:layout_constraintStart_toEndOf="@+id/tvTop"
+                app:layout_constraintTop_toTopOf="@+id/tvAuthor" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@{data.niceDate}"
+                android:textColor="@color/colorHint"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvAuthor"
+                tools:text="时间" />
+
+            <ImageView
+                android:id="@+id/ivPic"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/tvChapterName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
+                app:url="@{data.envelopePic}" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{data.title}"
+                android:textColor="@color/colorTitle"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivPic"
+                app:layout_constraintTop_toTopOf="@+id/ivPic"
+                tools:text="标题" />
+
+            <TextView
+                android:id="@+id/tvChapterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text='@{data.superChapterName +" · "+ data.chapterName}'
+                android:textColor="@color/colorHint"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="分类" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

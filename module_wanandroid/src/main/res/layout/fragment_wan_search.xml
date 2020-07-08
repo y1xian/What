@@ -1,0 +1,96 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.yyxnb.module_wanandroid.ui.home.WanSearchFragment">
+
+        <include
+            android:id="@+id/iTitle"
+            layout="@layout/include_title_layout" />
+
+        <com.noober.background.view.BLLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            app:bl_corners_radius="10dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/colorLine"
+            app:bl_stroke_width="1dp">
+
+            <EditText
+                android:id="@+id/etInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="搜索关键字"
+                android:paddingStart="30dp"
+                android:singleLine="true"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:src="@mipmap/ic_close"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvSearch"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="搜索" />
+
+        </com.noober.background.view.BLLinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="热门搜索"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <com.yyxnb.view.text.FlowlayoutTags
+            android:id="@+id/mHotTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:tag_backgroundColor="@color/colorLine"
+            app:tag_radius="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="历史搜索"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <com.yyxnb.view.text.FlowlayoutTags
+            android:id="@+id/mHistoryTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:tag_backgroundColor="@color/colorLine"
+            app:tag_radius="2dp" />
+
+
+    </LinearLayout>
+</layout>

@@ -8,6 +8,8 @@ import java.util.List;
 import okhttp3.Interceptor;
 
 import static com.yyxnb.common_base.config.BaseAPI.URL_APIOPEN;
+import static com.yyxnb.common_base.config.BaseAPI.URL_MOCKY;
+import static com.yyxnb.common_base.config.BaseAPI.URL_WAN_ANDROID;
 
 
 public class Http extends AbstractHttp {
@@ -27,17 +29,19 @@ public class Http extends AbstractHttp {
 
     @Override
     protected String baseUrl() {
-        return BaseAPI.URL_MOCKY;
+        return URL_MOCKY;
     }
 
     @Override
     protected Iterable<Interceptor> interceptors() {
 
-        List<String> urlBucket = new ArrayList<>();
+        final List<String> urlBucket = new ArrayList<>();
+        urlBucket.add(URL_WAN_ANDROID);
         urlBucket.add(URL_APIOPEN);
 
-        List<Interceptor> interceptorList = new ArrayList<>();
+        final List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new UrlInterceptor(urlBucket));
+//        interceptorList.add(new BaseUrlInterceptor());
         return interceptorList;
     }
 }

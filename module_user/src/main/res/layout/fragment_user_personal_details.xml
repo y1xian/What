@@ -28,7 +28,8 @@
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:srlEnablePureScrollMode="true">
 
             <LinearLayout
                 android:layout_width="match_parent"

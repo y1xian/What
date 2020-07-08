@@ -51,7 +51,7 @@ dependencies {
     api 'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
 
     // 通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
-    api 'com.noober.background:core:1.6.3'
+    api 'com.noober.background:core:1.6.5'
 
     //https://github.com/hackware1993/MagicIndicator
     api 'com.github.hackware1993:MagicIndicator:1.6.0'
@@ -60,5 +60,7 @@ dependencies {
     api libs.autosize
     //侧滑
     api libs.parallaxbacklayout
+    // 轮播 https://github.com/youth5201314/banner/tree/release-1.4.10
+    api 'com.youth.banner:banner:1.4.10'
 
 }
