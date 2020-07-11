@@ -11,6 +11,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
+import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
@@ -22,7 +23,8 @@ import com.yyxnb.module_wanandroid.viewmodel.WanProjectViewModel;
 /**
  * 项目 list数据.
  */
-public class WanProjectListtFragment extends BaseFragment {
+@BindRes(subPage = true)
+public class WanProjectListFragment extends BaseFragment {
 
     private IncludeRlRvLayoutBinding binding;
     private SmartRefreshLayout mRefreshLayout;
@@ -36,16 +38,15 @@ public class WanProjectListtFragment extends BaseFragment {
     private int mId;
     private boolean isNew;
 
-    public static WanProjectListtFragment newInstance(boolean isNew, int id) {
+    public static WanProjectListFragment newInstance(boolean isNew, int id) {
 
         Bundle args = new Bundle();
         args.putInt("id", id);
         args.putBoolean("isNew", isNew);
-        WanProjectListtFragment fragment = new WanProjectListtFragment();
+        WanProjectListFragment fragment = new WanProjectListFragment();
         fragment.setArguments(args);
         return fragment;
     }
-
 
     @Override
     public int initLayoutResId() {
@@ -58,8 +59,10 @@ public class WanProjectListtFragment extends BaseFragment {
         mRefreshLayout = binding.mRefreshLayout;
         mRecyclerView = binding.mRecyclerView;
 
-        mId = getArguments().getInt("id", mId);
-        isNew = getArguments().getBoolean("isNew", false);
+        if (getArguments() != null) {
+            mId = getArguments().getInt("id", mId);
+            isNew = getArguments().getBoolean("isNew", false);
+        }
 
     }
 
@@ -85,7 +88,7 @@ public class WanProjectListtFragment extends BaseFragment {
                 if (isNew) {
                     mViewModel.getProjecNewData(mPage);
                 } else {
-                    mViewModel.getProjecDataByType(mPage, mId);
+                    mViewModel.getProjecDataByType(mPage + 1, mId);
                 }
             }
 
@@ -95,7 +98,7 @@ public class WanProjectListtFragment extends BaseFragment {
                 if (isNew) {
                     mViewModel.getProjecNewData(mPage);
                 } else {
-                    mViewModel.getProjecDataByType(mPage, mId);
+                    mViewModel.getProjecDataByType(mPage + 1, mId);
                 }
             }
         });
@@ -106,7 +109,7 @@ public class WanProjectListtFragment extends BaseFragment {
         if (isNew) {
             mViewModel.getProjecNewData(mPage);
         } else {
-            mViewModel.getProjecDataByType(mPage, mId);
+            mViewModel.getProjecDataByType(mPage + 1, mId);
         }
 
         mViewModel.projecNewData.observe(this, data -> {
@@ -126,7 +129,7 @@ public class WanProjectListtFragment extends BaseFragment {
         mViewModel.projecDataByType.observe(this, data -> {
             mRefreshLayout.finishRefresh().finishLoadMore();
             if (data != null) {
-                if (mPage == 0) {
+                if (mPage == 1) {
                     mAdapter.setDataItems(data.datas);
                 } else {
                     mAdapter.addDataItem(data.datas);

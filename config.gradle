@@ -27,7 +27,7 @@ ext {
             rxjava2             : '2.2.19',
             rxandroid2          : '2.1.1',
             rxbinding2          : '2.2.0',
-            autodispose         : '1.2.0',
+            autodispose         : '1.0.0-RC3',
 
             rxjava3             : '3.0.2',
             rxandroid3          : '3.0.0',
@@ -131,6 +131,7 @@ ext {
             autodispose                    : [group: 'com.uber.autodispose', name: 'autodispose-android', version: versions.autodispose],
             autodispose_ktx                : [group: 'com.uber.autodispose', name: 'autodispose-ktx', version: versions.autodispose],
             autodispose_android_ktx        : [group: 'com.uber.autodispose', name: 'autodispose-android-ktx', version: versions.autodispose],
+            autodispose_archs              : [group: 'com.uber.autodispose', name: 'autodispose-android-archcomponents', version: versions.autodispose],
             autodispose_archs_ktx          : [group: 'com.uber.autodispose', name: 'autodispose-android-archcomponents-ktx', version: versions.autodispose],
 
             //内存泄漏    https://github.com/square/leakcanary

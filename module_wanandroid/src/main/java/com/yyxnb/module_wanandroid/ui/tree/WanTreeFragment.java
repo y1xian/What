@@ -10,6 +10,7 @@ import com.yyxnb.adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
+import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanTreeBinding;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -19,7 +20,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,7 +76,7 @@ public class WanTreeFragment extends BaseFragment {
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
+                ScaleTransitionPagerTitleView colorTransitionPagerTitleView = new ScaleTransitionPagerTitleView(context);
                 colorTransitionPagerTitleView.setNormalColor(Color.WHITE);
                 colorTransitionPagerTitleView.setSelectedColor(Color.WHITE);
                 colorTransitionPagerTitleView.setText(titles[index]);

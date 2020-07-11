@@ -7,10 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.yyxnb.adapter.BaseFragmentPagerAdapter;
+import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
+import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanProjectBinding;
 import com.yyxnb.module_wanandroid.viewmodel.WanProjectViewModel;
@@ -22,7 +24,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ import java.util.List;
 /**
  * 项目.
  */
+@BindRes
 public class WanProjectFragment extends BaseFragment {
 
     private FragmentWanProjectBinding binding;
@@ -40,8 +42,8 @@ public class WanProjectFragment extends BaseFragment {
     @BindViewModel
     WanProjectViewModel mViewModel;
 
-    private List<String> titles;
-    private List<Fragment> fragments;
+    private List<String> titles = new ArrayList<>();
+    private List<Fragment> fragments = new ArrayList<>();
 
     @Override
     public int initLayoutResId() {
@@ -58,7 +60,6 @@ public class WanProjectFragment extends BaseFragment {
 
     @Override
     public void initViewData() {
-
     }
 
     @Override
@@ -71,18 +72,21 @@ public class WanProjectFragment extends BaseFragment {
                 fragments = new ArrayList<>();
 
                 titles.add("最新项目");
-                fragments.add(WanProjectListtFragment.newInstance(false, 0));
+                fragments.add(WanProjectListFragment.newInstance(false, 0));
 
                 for (WanClassifyBean classifyBean : data) {
                     titles.add(classifyBean.name);
-                    fragments.add(WanProjectListtFragment.newInstance(false, classifyBean.id));
+                    fragments.add(WanProjectListFragment.newInstance(false, classifyBean.id));
                 }
+
                 initIndicator();
+
             }
         });
     }
 
     private void initIndicator() {
+
         CommonNavigator commonNavigator = new CommonNavigator(getActivity());
         //ture 即标题平分屏幕宽度的模式
         commonNavigator.setAdjustMode(false);
@@ -90,16 +94,16 @@ public class WanProjectFragment extends BaseFragment {
 
             @Override
             public int getCount() {
-                return titles.size();
+                return fragments.size();
             }
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
+                ScaleTransitionPagerTitleView colorTransitionPagerTitleView = new ScaleTransitionPagerTitleView(context);
                 colorTransitionPagerTitleView.setNormalColor(Color.WHITE);
                 colorTransitionPagerTitleView.setSelectedColor(Color.WHITE);
                 colorTransitionPagerTitleView.setText(titles.get(index));
-                colorTransitionPagerTitleView.setOnClickListener(view -> mViewPager.setCurrentItem(index));
+                colorTransitionPagerTitleView.setOnClickListener(view -> mViewPager.setCurrentItem(index, false));
                 return colorTransitionPagerTitleView;
             }
 
@@ -125,5 +129,6 @@ public class WanProjectFragment extends BaseFragment {
         mViewPager.setAdapter(new BaseFragmentPagerAdapter(getChildFragmentManager(), fragments, titles));
         //与ViewPagger联动
         ViewPagerHelper.bind(mIndicator, mViewPager);
+
     }
 }

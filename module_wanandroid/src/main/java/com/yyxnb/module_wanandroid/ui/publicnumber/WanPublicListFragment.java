@@ -11,6 +11,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
+import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
@@ -23,6 +24,7 @@ import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
 /**
  * 公众号 list.
  */
+@BindRes(subPage = true)
 public class WanPublicListFragment extends BaseFragment {
 
     private IncludeRlRvLayoutBinding binding;
@@ -33,7 +35,7 @@ public class WanPublicListFragment extends BaseFragment {
     WanPublicViewModel mViewModel;
 
     private WanHomeAdapter mAdapter;
-    private int mPage;
+    private int mPage = 1;
     private int mId;
 
     public static WanPublicListFragment newInstance(int id) {
@@ -83,7 +85,7 @@ public class WanPublicListFragment extends BaseFragment {
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mPage = 0;
+                mPage = 1;
                 mViewModel.getPublicData(mPage, mId);
             }
         });
@@ -96,12 +98,12 @@ public class WanPublicListFragment extends BaseFragment {
         mViewModel.publicData.observe(this, data -> {
             mRefreshLayout.finishRefresh().finishLoadMore();
             if (data != null) {
-                if (mPage == 0){
+                if (mPage == 1) {
                     mAdapter.setDataItems(data.datas);
-                }else {
+                } else {
                     mAdapter.addDataItem(data.datas);
                 }
-                if (data.size < DATA_SIZE){
+                if (data.size < DATA_SIZE) {
                     mRefreshLayout.finishRefreshWithNoMoreData();
                 }
             }

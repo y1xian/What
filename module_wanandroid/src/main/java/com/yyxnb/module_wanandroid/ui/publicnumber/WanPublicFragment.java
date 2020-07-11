@@ -11,6 +11,7 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
+import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanPublicBinding;
 import com.yyxnb.module_wanandroid.viewmodel.WanPublicViewModel;
@@ -22,7 +23,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +70,7 @@ public class WanPublicFragment extends BaseFragment {
 
                 titles = new ArrayList<>();
                 fragments = new ArrayList<>();
+//                Collections.reverse(data);
                 for (WanClassifyBean classifyBean : data){
                     titles.add(classifyBean.name);
                     fragments.add(WanPublicListFragment.newInstance(classifyBean.id));
@@ -93,7 +94,7 @@ public class WanPublicFragment extends BaseFragment {
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
+                ScaleTransitionPagerTitleView colorTransitionPagerTitleView = new ScaleTransitionPagerTitleView(context);
                 colorTransitionPagerTitleView.setNormalColor(Color.WHITE);
                 colorTransitionPagerTitleView.setSelectedColor(Color.WHITE);
                 colorTransitionPagerTitleView.setText(titles.get(index));
