@@ -48,6 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
     public BaseActivity() {
         java8Observer = new Java8Observer(TAG);
         getLifecycle().addObserver(java8Observer);
+        getLifecycle().addObserver(mActivityDelegate);
     }
 
     @Override

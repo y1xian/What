@@ -51,6 +51,7 @@ public abstract class BaseFragment extends Fragment implements IFragment {
     public BaseFragment() {
         java8Observer = new Java8Observer(TAG);
         getLifecycle().addObserver(java8Observer);
+        getLifecycle().addObserver(mFragmentDelegate);
     }
 
     public <B extends ViewDataBinding> B getBinding() {

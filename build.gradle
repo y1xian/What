@@ -9,7 +9,7 @@ buildscript {
     }
     dependencies {
         classpath build_plugins.android_gradle
-
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath "com.alibaba:arouter-register:1.0.2"
         //升级 热更新
         classpath "com.tencent.bugly:tinker-support:1.2.0"

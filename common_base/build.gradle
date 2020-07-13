@@ -3,10 +3,12 @@ apply from: rootProject.file('module.gradle')
 
 dependencies {
 
+    api project(':lib_arch')
+    api project(':lib_rxhttp')
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"
-    api 'com.github.y1xian.Amazing:lib_arch:' + b_v
-    api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
+//    api 'com.github.y1xian.Amazing:lib_arch:' + b_v
+//    api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
     // 常用控件
     api libs.widget_utils
     api libs.widget_view
