@@ -1,0 +1,10 @@
+ext.isLibrary = true
+apply from: rootProject.file('lib.gradle')
+
+dependencies {
+    implementation libs.widget_common
+    // jetpack
+    implementation libs.arch_comp_extensions
+    // rx全家桶
+    api([libs.rxjava2, libs.rxandroid2, libs.rxbinding2])
+}

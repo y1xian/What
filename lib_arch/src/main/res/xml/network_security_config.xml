@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Android 9.0 https请求适配   https://www.jianshu.com/p/aed44ea46850-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+ <!--   <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">你的服务端接口地址</domain>
+        <domain includeSubdomains="true">第三方接口路径</domain>
+    </domain-config>-->
+</network-security-config>

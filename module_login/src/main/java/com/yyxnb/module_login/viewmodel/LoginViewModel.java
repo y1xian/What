@@ -9,7 +9,7 @@ import com.yyxnb.common_base.bean.UserBean;
 import com.yyxnb.common_base.config.Http;
 import com.yyxnb.common_base.db.AppDatabase;
 import com.yyxnb.common_base.db.UserDao;
-import com.yyxnb.http.BaseViewModel;
+import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_login.config.LoginApi;
 import com.yyxnb.utils.encrypt.MD5Utils;
 

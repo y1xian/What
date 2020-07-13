@@ -7,7 +7,7 @@ import android.arch.lifecycle.Transformations;
 import com.yyxnb.common_base.bean.UserBean;
 import com.yyxnb.common_base.db.AppDatabase;
 import com.yyxnb.common_base.db.UserDao;
-import com.yyxnb.http.BaseViewModel;
+import com.yyxnb.network.BaseViewModel;
 
 public class UserViewModel extends BaseViewModel {
 

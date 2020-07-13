@@ -1,5 +1,5 @@
-include ':lib_rxhttp'
-include ':lib_rx'
+include ':lib_network'
+include ':lib_rxtool'
 include ':lib_arch'
 include ':module_wanandroid'
 include ':lib_video'

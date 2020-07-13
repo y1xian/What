@@ -4,7 +4,7 @@ apply from: rootProject.file('module.gradle')
 dependencies {
 
     api project(':lib_arch')
-    api project(':lib_rxhttp')
+    api project(':lib_network')
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"
 //    api 'com.github.y1xian.Amazing:lib_arch:' + b_v

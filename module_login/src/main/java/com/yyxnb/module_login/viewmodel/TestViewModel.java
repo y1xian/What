@@ -1,6 +1,6 @@
 package com.yyxnb.module_login.viewmodel;
 
-import com.yyxnb.http.BaseViewModel;
+import com.yyxnb.network.BaseViewModel;
 
 public class TestViewModel extends BaseViewModel {
 

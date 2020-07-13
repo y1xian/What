@@ -1,7 +1,7 @@
 package com.yyxnb.module_message.config;
 
 import com.yyxnb.common.AppConfig;
-import com.yyxnb.http.utils.GsonUtils;
+import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.module_message.bean.MessageBean;
 import com.yyxnb.utils.FileUtils;
 

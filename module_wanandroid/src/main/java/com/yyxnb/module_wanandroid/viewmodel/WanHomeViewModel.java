@@ -4,7 +4,7 @@ import android.arch.lifecycle.MutableLiveData;
 
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.config.Http;
-import com.yyxnb.http.BaseViewModel;
+import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
