@@ -1,9 +1,3 @@
-include ':lib_network'
-include ':lib_rxtool'
-include ':lib_arch'
-include ':module_wanandroid'
-include ':lib_video'
-include ':skin_night'
 include ':app',
         ':module_main',
         ':common_base',
@@ -13,5 +7,13 @@ include ':app',
         ':module_message',
         ':module_novel',
         ':module_music',
-        ':module_joke'
+        ':module_joke',
+        ':module_wanandroid'
+
+include ':lib_network',
+        ':lib_rxtool',
+        ':lib_arch',
+        ':lib_video'
+
+include ':skin_night'
 rootProject.name = 'What'
