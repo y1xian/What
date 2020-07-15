@@ -1,9 +1,11 @@
 package com.yyxnb.common_base.utils;
 
+import android.app.Notification;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
@@ -17,9 +19,13 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.NotificationTarget;
 import com.bumptech.glide.request.target.Target;
+import com.yyxnb.common_base.R;
 
 import java.io.File;
+
+import static com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.withCrossFade;
 
 /**
  * Glide图片加载工具类
@@ -29,49 +35,47 @@ public class GlideUtils {
     /**
      * 默认加载方式
      *
-     * @param context
      * @param url
      * @param imageView
      */
-    public static void loadImage(Context context, String url, ImageView imageView) {
+    public static void loadImage(String url, ImageView imageView) {
         RequestOptions requestOptions = new RequestOptions()
                 .priority(Priority.HIGH)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate();
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
-                .apply(requestOptions)
+                .apply(initCommonRequestOption())
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(imageView);
     }
 
-    public static void loadImage(Context context, String url, int placeholder, int error, ImageView imageView) {
+    public static void loadImage(String url, int placeholder, int error, ImageView imageView) {
         RequestOptions options = new RequestOptions()
 //                .centerCrop()
                 .placeholder(placeholder) //占位图
                 .error(error)       //错误图
 //                .priority(Priority.HIGH)
                 .diskCacheStrategy(DiskCacheStrategy.ALL);
-        Glide.with(context).load(url).apply(options).into(imageView);
+        Glide.with(imageView.getContext()).load(url).apply(options).into(imageView);
     }
 
     /**
      * 加载圆形图片
      *
-     * @param context
      * @param url
      * @param imageView
      */
     @SuppressWarnings("AccessStaticViaInstance")
-    public static void loadCircleImage(Context context, String url, ImageView imageView) {
+    public static void loadCircleImage(String url, ImageView imageView) {
         RequestOptions requestOptions = new RequestOptions()
                 .priority(Priority.HIGH)
                 .dontAnimate()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .bitmapTransform(new CircleCrop());
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
                 .apply(requestOptions)
                 .transition(DrawableTransitionOptions.withCrossFade())
@@ -81,19 +85,18 @@ public class GlideUtils {
     /**
      * 加载圆角图片
      *
-     * @param context
      * @param url
      * @param imageView
      * @param radius    圆角大小
      */
-    public static void loadRoundImage(Context context, String url, ImageView imageView, int radius) {
+    public static void loadRoundImage(String url, ImageView imageView, int radius) {
         RequestOptions requestOptions = new RequestOptions()
                 .priority(Priority.HIGH)
                 .dontAnimate()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .transforms(new CenterCrop(), new RoundedCorners(radius));
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
                 .apply(requestOptions)
                 .transition(DrawableTransitionOptions.withCrossFade())
@@ -199,6 +202,38 @@ public class GlideUtils {
                 .preload();
     }
 
+
+    /**
+     * 为notification加载图
+     */
+    public static void loadNotification(Context context, RemoteViews rv, int id,
+                                        Notification notification, int NOTIFICATION_ID, String url) {
+        displayImageForTarget(context,
+                initNotificationTarget(context, id, rv, notification, NOTIFICATION_ID), url);
+    }
+
+    /**
+     * 为非view加载图片
+     */
+    private static void displayImageForTarget(Context context, Target target, String url) {
+        Glide.with(context)
+                .asBitmap()
+                .load(url)
+                .apply(initCommonRequestOption())
+                .transition(withCrossFade())
+                .into(target);
+    }
+
+    /**
+     * 初始化Notification Target
+     */
+    private static NotificationTarget initNotificationTarget(Context context, int id, RemoteViews rv,
+                                                             Notification notification, int NOTIFICATION_ID) {
+        NotificationTarget notificationTarget =
+                new NotificationTarget(context, id, rv, notification, NOTIFICATION_ID);
+        return notificationTarget;
+    }
+
     /**
      * 下载图片
      *
@@ -219,5 +254,15 @@ public class GlideUtils {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    private static RequestOptions initCommonRequestOption() {
+        RequestOptions options = new RequestOptions();
+        options.placeholder(R.color.colorLine)
+                .error(R.color.colorLine)
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                .skipMemoryCache(false)
+                .priority(Priority.NORMAL);
+        return options;
     }
 }

@@ -24,6 +24,8 @@ import com.yyxnb.view.popup.Popup;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_HOME_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
 import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN_FRAGMENT;
@@ -131,6 +133,14 @@ public class MainHomeFragment extends BaseFragment {
                     case 5:
                         // 玩安卓
                         startFragment(ARouterUtils.navFragment(WAN_MAIN_FRAGMENT));
+                        break;
+                    case 6:
+                        // 音乐
+                        startFragment(ARouterUtils.navFragment(MUSIC_HOME_FRAGMENT));
+                        break;
+                    case 7:
+                        // 小说
+                        ARouterUtils.navActivity(NOVEL_MAIN);
                         break;
                     default:
                         break;

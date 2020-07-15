@@ -39,7 +39,7 @@ public class BindingAdapters {
         if (error == 0){
             error = Color.BLACK;
         }
-        GlideUtils.loadImage(imageView.getContext(), url, placeholder, error, imageView);
+        GlideUtils.loadImage(url, placeholder, error, imageView);
     }
 
     /**

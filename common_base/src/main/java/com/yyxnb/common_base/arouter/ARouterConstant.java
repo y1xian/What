@@ -7,32 +7,33 @@ public class ARouterConstant {
     public static final String LOGIN_SERVICE = "/login/login_service";
 
     
-    //======login
+    //====== login
     //跳转到登陆页面
     public static final String LOGIN_ACTIVITY = "/login/LoginActivity";
     public static final String LOGIN_FRAGMENT = "/login/LoginFragment";
     //跳转到注册页面
     public static final String REGISTER_ACTIVITY = "/login/RegisterActivity";
 
-    //======user
+    //====== user
     //跳转到用户页面
     public static final String USER_FRAGMENT = "/user/UserFragment";
 
 
-    //==========video
+    //========== video
 
     //跳转到视频页面
     public static final String VIDEO_VIDEO = "/video/VideoActivity";
     public static final String VIDEO_MAIN_FRAGMENT = "/video/VideoMainFragment";
 
 
-    //=======message
+    //======= message
     //消息列表
+    public static final String MESSAGE_MAIN = "/message/MessageActivity";
     public static final String MESSAGE_LIST_FRAGMENT = "/message/MessageListFragment";
 
 
 
-    //========joke
+    //======== joke
     public static final String JOKE_MAIN = "/joke/JokeActivity";
     public static final String JOKE_MAIN_FRAGMENT = "/joke/JokeMainFragment";
     public static final String JOKE_HOME_FRAGMENT = "/joke/JokeHomeFragment";
@@ -41,6 +42,17 @@ public class ARouterConstant {
     // ====== wanandroid
     public static final String WAN_MAIN = "/wan/WanActivity";
     public static final String WAN_MAIN_FRAGMENT = "/wan/WanMainFragment";
+
+
+    // ====== 音乐
+    public static final String MUSIC_MAIN = "/music/MusicActivity";
+    public static final String MUSIC_HOME_FRAGMENT = "/music/MusicHomeFragment";
+
+
+
+    // ====== 小说
+    public static final String NOVEL_MAIN = "/novel/NovelActivity";
+
 
     //==========其他
 

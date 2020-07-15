@@ -214,7 +214,7 @@ public class AppManager {
     /**
      * 退出应用程序
      */
-    public void Exit() {
+    public void exit() {
         try {
             finishAllActivity();
             // 杀死该应用进程
@@ -224,7 +224,7 @@ public class AppManager {
 //            finish()是Activity的类方法，仅仅针对Activity，当调用finish()时，只是将活动推向后台，并没有立即释放内存，活动的资源并没有被清理；
 //            当调用System.exit(0)时，退出当前Activity并释放资源（内存），但是该方法不可以结束整个App如有多个Activty或者有其他组件service等不会结束。
 //            其实android的机制决定了用户无法完全退出应用，当你的application最长时间没有被用过的时候，android自身会决定将application关闭了。
-            //System.exit(0);
+            System.exit(0);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -242,7 +242,7 @@ public class AppManager {
     /**
      * 退回桌面进入后台
      */
-    public void ReturnDesktop(Activity activity) {
+    public void returnDesktop(Activity activity) {
         Intent homeIntent = new Intent(Intent.ACTION_MAIN);
         homeIntent.addCategory(Intent.CATEGORY_HOME);
         homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

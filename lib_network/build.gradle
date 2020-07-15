@@ -2,9 +2,9 @@ ext.isLibrary = true
 apply from: rootProject.file('lib.gradle')
 
 dependencies {
-    implementation libs.widget_common
+    compileOnly libs.widget_common
     // jetpack
-    api libs.arch_comp_java8, libs.arch_comp_extensions
+    compileOnly libs.arch_comp_java8, libs.arch_comp_extensions
     // paging
     api libs.arch_comp_paging
     // retrofit2    https://github.com/square/retrofit

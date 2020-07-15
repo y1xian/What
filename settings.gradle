@@ -4,7 +4,7 @@ include ':app',
         ':module_user',
         ':module_video',
         ':module_login',
-        ':module_message',
+        ':module_chat',
         ':module_novel',
         ':module_music',
         ':module_joke',
@@ -13,7 +13,8 @@ include ':app',
 include ':lib_network',
         ':lib_rxtool',
         ':lib_arch',
-        ':lib_video'
+        ':lib_video',
+        ':lib_audio'
 
 include ':skin_night'
 rootProject.name = 'What'

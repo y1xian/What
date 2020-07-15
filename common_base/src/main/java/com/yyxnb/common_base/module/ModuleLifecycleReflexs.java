@@ -20,7 +20,7 @@ public class ModuleLifecycleReflexs {
     //小说模块
     private static final String NOVEL_INIT = "com.yyxnb.module_novel.ModuleInit";
     //消息模块
-    private static final String NEWS_INIT = "com.yyxnb.module_message.ModuleInit";
+    private static final String NEWS_INIT = "com.yyxnb.module_chat.ModuleInit";
     //笑话模块
     private static final String JOKE_INIT = "com.yyxnb.module_joke.ModuleInit";
     //玩安卓模块
