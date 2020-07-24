@@ -4,8 +4,4 @@ apply from: rootProject.file('lib.gradle')
 dependencies {
     implementation libs.support_v7, libs.design
     implementation project(':lib_adapter'), project(':lib_common')
-//    compileOnly libs.widget_common
-//    // jetpack
-//    compileOnly libs.arch_comp_java8, libs.arch_comp_extensions
-
 }

@@ -4,7 +4,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.y1xian'
 
-
 android {
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
