@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.yyxnb.common_base.R;
+import com.yyxnb.image_loader.ImageManager;
 
 public class BindingAdapters {
 
@@ -33,13 +34,13 @@ public class BindingAdapters {
      */
     @BindingAdapter(value = {"url", "placeholder", "error"}, requireAll = false)
     public static void loadImage(ImageView imageView, String url, int placeholder, int error) {
-        if (placeholder == 0){
+        if (placeholder == 0) {
             placeholder = Color.BLACK;
         }
-        if (error == 0){
+        if (error == 0) {
             error = Color.BLACK;
         }
-        GlideUtils.loadImage(url, placeholder, error, imageView);
+        ImageManager.getInstance().displayImage(url, imageView, placeholder, error);
     }
 
     /**

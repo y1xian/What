@@ -21,7 +21,7 @@ import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.DpUtils;
 import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.utils.DrawableTintUtil;
+import com.yyxnb.image_loader.utils.DrawableTintUtil;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;
 import com.yyxnb.module_video.ui.VideoListFragment;

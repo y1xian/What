@@ -1,18 +1,44 @@
 package com.yyxnb.module_music.ui;
 
 import android.Manifest;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yyxnb.adapter.BaseFragmentPagerAdapter;
+import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.common.DpUtils;
+import com.yyxnb.common.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.lib_audio.AudioHelper;
-import com.yyxnb.lib_audio.bean.AudioBean;
+import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
+import com.yyxnb.lib_music.MusicPlayerManager;
+import com.yyxnb.lib_music.interfaces.MusicInitializeCallBack;
+import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
+import com.yyxnb.lib_music.interfaces.MusicPlayerInfoListener;
 import com.yyxnb.module_music.R;
-import com.yyxnb.module_music.service.MusicService;
+import com.yyxnb.module_music.bean.MusicBean;
+import com.yyxnb.module_music.bean.MusicRecordBean;
+import com.yyxnb.module_music.databinding.FragmentMusicHomeBinding;
+import com.yyxnb.module_music.db.MusicDatabase;
+import com.yyxnb.module_music.view.BottomMusicView;
+import com.yyxnb.module_music.viewmodel.MusicViewModel;
 import com.yyxnb.utils.permission.PermissionListener;
 import com.yyxnb.utils.permission.PermissionUtils;
 
+import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.ViewPagerHelper;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_HOME_FRAGMENT;
 
@@ -20,9 +46,21 @@ import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_HOME_FRAGMENT;
  * 音乐首页.
  */
 @Route(path = MUSIC_HOME_FRAGMENT)
-public class MusicHomeFragment extends BaseFragment {
+public class MusicHomeFragment extends BaseFragment implements MusicPlayerEventListener<MusicBean> {
 
-    private ArrayList<AudioBean> mLists = new ArrayList<>();
+    private FragmentMusicHomeBinding binding;
+
+    private MagicIndicator mIndicator;
+    private ViewPager mViewPager;
+
+    private BottomMusicView mBottomMusicView;
+    @BindViewModel
+    MusicViewModel mViewModel;
+    private ArrayList<MusicBean> mLists = new ArrayList<>();
+
+    private String[] titles = {"本地音乐", "网络音乐"};
+    private List<Fragment> fragments;
+    private boolean isFirstPlay = true;
 
     @Override
     public int initLayoutResId() {
@@ -31,13 +69,31 @@ public class MusicHomeFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        binding = getBinding();
+        mIndicator = binding.mIndicator;
+        mViewPager = binding.mViewPager;
+        mBottomMusicView = binding.mBottomMusicView;
+    }
+
+    @Override
+    public void initViewData() {
+
+        if (fragments == null) {
+            fragments = new ArrayList<>();
+            fragments.add(new MusicLocalListFragment());
+            fragments.add(new MusicNetworkFragment());
+        }
+        initIndicator();
+
         PermissionUtils.with(getActivity())
                 .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .addPermissions(Manifest.permission.WAKE_LOCK)
+                .addPermissions(Manifest.permission.VIBRATE)
                 .setPermissionsCheckListener(new PermissionListener() {
                     @Override
                     public void permissionRequestSuccess() {
-                        initData();
+//                        initData();
+//                        mViewModel.reqMusicData();
                     }
 
                     @Override
@@ -50,37 +106,158 @@ public class MusicHomeFragment extends BaseFragment {
                 .startCheckPermission();
     }
 
-    private void initData() {
-        mLists.add(new AudioBean("100001", "/storage/emulated/0/bbcc_uoro/uoro_music649542575086109004.mp3",
-                "本地1", "周杰伦", "本地1", "电影《不能说的秘密》主题曲,尤其以最美的不是下雨天,是与你一起躲过雨的屋檐最为经典",
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559698076304&di=e6e99aa943b72ef57b97f0be3e0d2446&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201401%2F04%2F20140104170315_XdG38.jpeg",
-                "4:30"));
-        mLists.add(new AudioBean("100001", "/storage/emulated/0/bbcc_uoro/uoro_music649542575086109003.mp3",
-                "本地2", "周杰伦", "本地2", "电影《不能说的秘密》主题曲,尤其以最美的不是下雨天,是与你一起躲过雨的屋檐最为经典",
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559698076304&di=e6e99aa943b72ef57b97f0be3e0d2446&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201401%2F04%2F20140104170315_XdG38.jpeg",
-                "4:30"));
+    @Override
+    public void initObservable() {
+//        if (!LoginImpl.getInstance().isLogin()) {
+//            startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
+//        }
 
-        mLists.add(new AudioBean("100001", "http://sp-sycdn.kuwo.cn/resource/n2/85/58/433900159.mp3",
-                "以你的名字喊我", "周杰伦", "七里香", "电影《不能说的秘密》主题曲,尤其以最美的不是下雨天,是与你一起躲过雨的屋檐最为经典",
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559698076304&di=e6e99aa943b72ef57b97f0be3e0d2446&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201401%2F04%2F20140104170315_XdG38.jpeg",
-                "4:30"));
-        mLists.add(
-                new AudioBean("100002", "http://sq-sycdn.kuwo.cn/resource/n1/98/51/3777061809.mp3", "勇气",
-                        "梁静茹", "勇气", "电影《不能说的秘密》主题曲,尤其以最美的不是下雨天,是与你一起躲过雨的屋檐最为经典",
-                        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559698193627&di=711751f16fefddbf4cbf71da7d8e6d66&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D213168965%2C1040740194%26fm%3D214%26gp%3D0.jpg",
-                        "4:40"));
-        mLists.add(
-                new AudioBean("100003", "http://sp-sycdn.kuwo.cn/resource/n2/52/80/2933081485.mp3", "灿烂如你",
-                        "汪峰", "春天里", "电影《不能说的秘密》主题曲,尤其以最美的不是下雨天,是与你一起躲过雨的屋檐最为经典",
-                        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559698239736&di=3433a1d95c589e31a36dd7b4c176d13a&imgtype=0&src=http%3A%2F%2Fpic.zdface.com%2Fupload%2F201051814737725.jpg",
-                        "3:20"));
-        mLists.add(
-                new AudioBean("100004", "http://sr-sycdn.kuwo.cn/resource/n2/33/25/2629654819.mp3", "小情歌",
-                        "五月天", "小幸运", "电影《不能说的秘密》主题曲,尤其以最美的不是下雨天,是与你一起躲过雨的屋檐最为经典",
-                        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559698289780&di=5146d48002250bf38acfb4c9b4bb6e4e&imgtype=0&src=http%3A%2F%2Fpic.baike.soso.com%2Fp%2F20131220%2Fbki-20131220170401-1254350944.jpg",
-                        "2:45"));
+//        MusicService.startMusicService();
 
-        MusicService.startMusicService();
-        AudioHelper.controller().setQueue(mLists);
+//        mViewModel.reqMusicData();
+
+        MusicPlayerManager.getInstance().initialize(getActivity(), new MusicInitializeCallBack() {
+            @Override
+            public void onSuccess() {
+                LogUtils.w("初始化");
+                mBottomMusicView.showFirstView();
+            }
+        });
+
+
+//        mViewModel.getMusicData().observe(this, data -> {
+//            if (data != null) {
+////                AudioHelper.controller().setQueue(data);
+////                MusicPlayerManager.getInstance().setPlayingChannel(MusicConstants.CHANNEL_HISTROY);
+//                MusicPlayerManager.getInstance().setMusic(data, 0);
+////                MusicPlayerManager.getInstance().playOrPause();
+//                mBottomMusicView.showFirstView();
+//                LogUtils.list(data);
+//                MusicPlayerManager.getInstance().addOnPlayerEventListener(this);
+//            }
+//        });
+
+        MusicPlayerManager.getInstance().setPlayInfoListener((MusicPlayerInfoListener<MusicBean>) (musicInfo, position) -> {
+            LogUtils.e(position + " , onPlayMusicOnInfo：" + musicInfo.toString());
+
+            MusicRecordBean recordBean = new MusicRecordBean();
+            recordBean.musicBean = musicInfo;
+//            recordBean.currenTime = 0;
+            recordBean.updateTime = System.currentTimeMillis();
+            MusicDatabase.getInstance().recordDao().insertItem(recordBean);
+            MusicPlayerManager.getInstance().addOnPlayerEventListener(this);
+        });
+
+
+//        mViewModel.getRecordData().observe(this, data -> {
+//            if (data != null && isFirstPlay) {
+//                mBottomMusicView.showFirstView();
+//                MusicPlayerManager.getInstance().addOnPlayerEventListener(this);
+//                isFirstPlay = false;
+//            }
+//        });
+
+//        AudioHelper.controller().setQueue(mLists);
+
+
+//        LogUtils.w("当前 ：" + MusicDatabase.getInstance().recordDao().getLastRecord());
+//         // 全部记录
+//        LogUtils.list(MusicDatabase.getInstance().recordDao().getRecordAll());
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MusicPlayerManager.getInstance().removeAllPlayerListener();
+    }
+
+    @Override
+    public void onMusicPlayerState(int playerState, String message) {
+        LogUtils.e("playerState : " + playerState + " , message : " + message);
+    }
+
+    @Override
+    public void onPrepared(long totalDuration) {
+        LogUtils.e("totalDuration : " + totalDuration);
+    }
+
+    @Override
+    public void onBufferingUpdate(int percent) {
+
+    }
+
+    @Override
+    public void onInfo(int event, int extra) {
+
+    }
+
+    @Override
+    public void onPlayMusicOnInfo(MusicBean musicInfo, int position) {
+
+    }
+
+    @Override
+    public void onMusicPathInvalid(MusicBean musicInfo, int position) {
+
+    }
+
+    @Override
+    public void onTaskRuntime(long totalDuration, long currentDuration, long alarmResidueDuration, int bufferProgress) {
+        //更新进度
+        MusicRecordBean recordBean = new MusicRecordBean();
+        recordBean.currenTime = currentDuration;
+        recordBean.updateTime = System.currentTimeMillis();
+        recordBean.musicBean = MusicPlayerManager.getInstance().getCurrentPlayerMusic();
+        MusicDatabase.getInstance().recordDao().insertItem(recordBean);
+    }
+
+    @Override
+    public void onPlayerConfig(int playModel, int alarmModel, boolean isToast) {
+
+    }
+
+    private void initIndicator() {
+        CommonNavigator commonNavigator = new CommonNavigator(getActivity());
+        //ture 即标题平分屏幕宽度的模式
+        commonNavigator.setAdjustMode(true);
+        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
+
+            @Override
+            public int getCount() {
+                return titles.length;
+            }
+
+            @Override
+            public IPagerTitleView getTitleView(Context context, final int index) {
+                ScaleTransitionPagerTitleView colorTransitionPagerTitleView = new ScaleTransitionPagerTitleView(context);
+                colorTransitionPagerTitleView.setNormalColor(Color.WHITE);
+                colorTransitionPagerTitleView.setSelectedColor(Color.WHITE);
+                colorTransitionPagerTitleView.setText(titles[index]);
+                colorTransitionPagerTitleView.setOnClickListener(view -> mViewPager.setCurrentItem(index));
+                return colorTransitionPagerTitleView;
+            }
+
+            @Override
+            public IPagerIndicator getIndicator(Context context) {
+                LinePagerIndicator indicator = new LinePagerIndicator(context);
+                //设置宽度
+                indicator.setLineWidth(DpUtils.dp2px(getContext(), 20));
+                //设置高度
+                indicator.setLineHeight(DpUtils.dp2px(getContext(), 2));
+                //设置颜色
+                indicator.setColors(Color.WHITE);
+                //设置圆角
+                indicator.setRoundRadius(5);
+                //设置模式
+                indicator.setMode(LinePagerIndicator.MODE_EXACTLY);
+                return indicator;
+            }
+        });
+        mIndicator.setNavigator(commonNavigator);
+
+        mViewPager.setOffscreenPageLimit(titles.length);
+        mViewPager.setAdapter(new BaseFragmentPagerAdapter(getChildFragmentManager(), fragments, Arrays.asList(titles)));
+        //与ViewPagger联动
+        ViewPagerHelper.bind(mIndicator, mViewPager);
     }
 }

@@ -55,6 +55,7 @@ public class ARouterConstant {
 
 
     //==========其他
+    public static final String WIDGET_MAIN = "/widget/WidgetMainActivity";
 
     //跳转到关于项目更多页面
     public static final String OTHER_ABOUT_ME = "/other/AboutMeActivity";

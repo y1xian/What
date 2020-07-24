@@ -7,16 +7,23 @@
 
     <application>
         <activity android:name=".ui.MusicActivity"></activity>
+        <!--播放-->
         <activity
             android:name=".ui.MusicPlayerActivity"
             android:enabled="true"
             android:exported="false"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
-        <service
-            android:name=".service.MusicService"
-            android:enabled="true"
-            android:exported="false" />
+        <!--锁屏-->
+        <activity
+            android:name=".ui.MusicLockActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="music.player.lock"
+            android:theme="@style/MusicLockScreenTheme" />
 
     </application>
 

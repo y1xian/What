@@ -4,6 +4,7 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
 
+import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.common.AppConfig;
 
 /**
@@ -24,6 +25,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     void onStart() {
+        ArchConfig.isOnForground = true;
         AppConfig.getInstance().log("应用进入前台");
     }
 
@@ -33,6 +35,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     void onStop() {
+        ArchConfig.isOnForground = false;
         AppConfig.getInstance().log("应用进入后台");
     }
 

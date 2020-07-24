@@ -258,6 +258,17 @@ dependencies {
         //     为了兼容以上3种情况，建议将全局拦截器作为一个单独的module，在此处给不同app添加不同拦截器module
 //        implementation project(':demo_interceptors')
     }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion versions.support
+                }
+            }
+        }
+    }
 }
 
 

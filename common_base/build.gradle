@@ -5,6 +5,15 @@ dependencies {
 
     api project(':lib_arch')
     api project(':lib_network')
+    // 图片框架
+    api project(':lib_image_loader')
+    annotationProcessor libs.glide_compiler
+    // 对话框
+    api project(':lib_dialog')
+    api project(':lib_popup')
+    // 适配器
+    api project(':lib_adapter')
+
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"
 //    api 'com.github.y1xian.Amazing:lib_arch:' + b_v
@@ -12,7 +21,7 @@ dependencies {
     // 常用控件
     api libs.widget_utils
     api libs.widget_view
-    api libs.widget_adapter
+//    api libs.widget_adapter
 //    api libs.widget_skin
     api libs.widget_skinloader
 
@@ -40,9 +49,6 @@ dependencies {
     api('com.makeramen:roundedimageview:2.3.0') {
         exclude group: 'com.android.support'
     }
-    // 图片框架
-    api libs.glide
-    annotationProcessor libs.glide_compiler
 
     //https://github.com/yangchong211/YCWebView
 //    implementation 'cn.yc:WebViewLib:1.2.7'

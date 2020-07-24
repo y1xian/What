@@ -1,0 +1,8 @@
+ext.isLibrary = true
+apply from: rootProject.file('lib.gradle')
+
+dependencies {
+
+    compileOnly libs.design
+    compileOnly libs.glide
+}

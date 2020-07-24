@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_gray">#999999</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+
+    <color name="num_select_color">#7d7dff</color>
+
+    <color name="image_overlay_true">#80000000</color>
+    <color name="image_overlay_false">#10000000</color>
+</resources>

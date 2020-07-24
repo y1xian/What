@@ -14,7 +14,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.yyxnb.adapter.BaseAdapter;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.common.DpUtils;
-import com.yyxnb.lib_video.cache.PreloadManager;
+import com.yyxnb.video.cache.PreloadManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.widget.tiktok.TikTokView;

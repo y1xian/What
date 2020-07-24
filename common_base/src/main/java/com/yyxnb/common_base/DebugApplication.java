@@ -19,6 +19,7 @@ import com.tencent.mmkv.MMKV;
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
 import com.yyxnb.common_base.weight.skin.ExtraAttrRegister;
+import com.yyxnb.image_loader.ImageManager;
 import com.yyxnb.skinloader.SkinManager;
 
 import me.jessyan.autosize.AutoSizeConfig;
@@ -52,6 +53,8 @@ public class DebugApplication extends Application {
         ARouter.init(this);
 
         MMKV.initialize(this);
+
+        ImageManager.getInstance().init(this.getApplicationContext());
 
         // 换肤
         ExtraAttrRegister.init();

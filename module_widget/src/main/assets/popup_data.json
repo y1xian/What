@@ -1,0 +1,163 @@
+[
+  {
+    "id": 10,
+    "type": 1,
+    "title": "Center",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 11,
+    "type": 0,
+    "title": "显示Confirm弹窗",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 12,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 13,
+    "type": 0,
+    "title": "显示带输入框的Confirm弹窗",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 14,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 15,
+    "type": 0,
+    "title": "显示Center类型的List弹窗",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 16,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 17,
+    "type": 0,
+    "title": "List列表弹窗，带选中效果",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 18,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 19,
+    "type": 0,
+    "title": "Loading",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 20,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 40,
+    "type": 1,
+    "title": "Bottom",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 41,
+    "type": 0,
+    "title": "显示Bottom类型的List弹窗",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 42,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 43,
+    "type": 0,
+    "title": "显示Bottom类型的List弹窗(带选中效果)",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 44,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 45,
+    "type": 0,
+    "title": "显示自定义Bottom弹窗（自带拖拽交互）",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 46,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 47,
+    "type": 0,
+    "title": "显示复杂交互的Bottom弹窗（各种手势滑动嵌套）",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 48,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 60,
+    "type": 1,
+    "title": "FullScreen",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 61,
+    "type": 0,
+    "title": "全屏弹窗",
+    "des": "",
+    "url": ""
+  },
+  {
+    "id": 62,
+    "type": 0,
+    "title": "自定义",
+    "des": "",
+    "url": ""
+  }
+]

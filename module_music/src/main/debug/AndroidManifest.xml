@@ -15,10 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme">
         <activity
+            android:name=".ui.MusicLockActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="music.player.lock"
+            android:theme="@style/MusicLockScreenTheme" />
+        <activity
             android:name=".ui.MusicPlayerActivity"
             android:enabled="true"
             android:exported="false"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.MusicActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,10 +36,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".service.MusicService"
-            android:enabled="true"
-            android:exported="false" />
     </application>
 
 </manifest>
