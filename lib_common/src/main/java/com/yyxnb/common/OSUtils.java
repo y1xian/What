@@ -7,6 +7,8 @@ import java.lang.reflect.Method;
 
 /**
  * 手机系统判断
+ *
+ * @author yyx
  */
 public class OSUtils {
 
@@ -24,6 +26,7 @@ public class OSUtils {
         String property = getSystemProperty(KEY_MIUI_VERSION_NAME, "");
         return !TextUtils.isEmpty(property);
     }
+
     /**
      * 判断是否为emui
      * Is emui boolean.

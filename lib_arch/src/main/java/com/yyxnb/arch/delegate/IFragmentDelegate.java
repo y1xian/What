@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * @author yyx
+ */
 public interface IFragmentDelegate {
 
     void onAttached(Context context);

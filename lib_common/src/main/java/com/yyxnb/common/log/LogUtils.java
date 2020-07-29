@@ -5,62 +5,62 @@ import java.util.Map;
 
 public final class LogUtils {
 
-    private static final IPrinter printer = new LoggerPrinter();
+    private static final IPrinter LOGGER_PRINTER = new LoggerPrinter();
 
     private LogUtils() {
 
     }
 
     public static LogConfig init() {
-        return printer.init();
+        return LOGGER_PRINTER.init();
     }
 
     public static String getFormatLog() {
-        return printer.getFormatLog();
+        return LOGGER_PRINTER.getFormatLog();
     }
 
     public static void d(String message, Object... args) {
-        printer.d(message, args);
+        LOGGER_PRINTER.d(message, args);
     }
 
     public static void e(String message, Object... args) {
-        printer.e(null, message, args);
+        LOGGER_PRINTER.e(null, message, args);
     }
 
     public static void e(Throwable throwable, String message, Object... args) {
-        printer.e(throwable, message, args);
+        LOGGER_PRINTER.e(throwable, message, args);
     }
 
     public static void i(String message, Object... args) {
-        printer.i(message, args);
+        LOGGER_PRINTER.i(message, args);
     }
 
     public static void v(String message, Object... args) {
-        printer.v(message, args);
+        LOGGER_PRINTER.v(message, args);
     }
 
     public static void w(String message, Object... args) {
-        printer.w(message, args);
+        LOGGER_PRINTER.w(message, args);
     }
 
     public static void wtf(String message, Object... args) {
-        printer.wtf(message, args);
+        LOGGER_PRINTER.wtf(message, args);
     }
 
     public static void json(String json) {
-        printer.json(json);
+        LOGGER_PRINTER.json(json);
     }
 
     public static void xml(String xml) {
-        printer.xml(xml);
+        LOGGER_PRINTER.xml(xml);
     }
 
     public static void map(Map map) {
-        printer.map(map);
+        LOGGER_PRINTER.map(map);
     }
 
     public static void list(List list) {
-        printer.list(list);
+        LOGGER_PRINTER.list(list);
     }
 
 }

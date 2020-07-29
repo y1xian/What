@@ -61,7 +61,7 @@ public class DataConfig {
             } else {
                 i = i + 1;
                 String v = formatNumStr.substring(i, i + 1);
-                if (!v.equals("0")) {
+                if (!"0".equals(v)) {
                     sb.append(formatNumStr.substring(0, i + 1)).append(nuit);
                 } else {
                     sb.append(formatNumStr.substring(0, i - 1)).append(nuit);

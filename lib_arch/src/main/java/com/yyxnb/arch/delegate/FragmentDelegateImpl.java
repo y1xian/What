@@ -18,6 +18,8 @@ import java.lang.reflect.Field;
 /**
  * FragmentLifecycleCallbacks 监听 Fragment 生命周期
  * PS ：先走 Fragment 再走 FragmentLifecycleCallbacks
+ *
+ * @author yyx
  */
 public class FragmentDelegateImpl implements IFragmentDelegate {
 

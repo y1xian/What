@@ -200,7 +200,7 @@ public class GsonUtils {
                     @Override
                     public boolean shouldSkipField(FieldAttributes f) {
                         //过滤掉字段名包含"id","address"的字段
-                        return f.getName().equals("id") | f.getName().equals("groupGuid");
+                        return "id".equals(f.getName()) | "groupGuid".equals(f.getName());
                     }
 
                     @Override

@@ -63,17 +63,17 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
     public void setSwipeBack(int mSwipeBack) {
         final ParallaxBackLayout layout = ParallaxHelper.getParallaxBackLayout(this, true);
         switch (mSwipeBack) {
-            case SwipeStyle.Full:
+            case SwipeStyle.FULL:
                 ParallaxHelper.enableParallaxBack(this);
                 //全屏滑动
                 layout.setEdgeMode(ParallaxBackLayout.EDGE_MODE_FULL);
                 break;
-            case SwipeStyle.Edge:
+            case SwipeStyle.EDGE:
                 ParallaxHelper.enableParallaxBack(this);
                 //边缘滑动
                 layout.setEdgeMode(ParallaxBackLayout.EDGE_MODE_DEFAULT);
                 break;
-            case SwipeStyle.None:
+            case SwipeStyle.NONE:
                 ParallaxHelper.disableParallaxBack(this);
                 break;
             default:

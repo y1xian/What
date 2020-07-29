@@ -27,6 +27,8 @@ RetentionPolicy.RUNTIME	注解不仅被保存到class文件中，jvm加载class�
 
 /**
  * 资源绑定
+ *
+ * @author yyx
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
@@ -55,7 +57,7 @@ public @interface BindRes {
     /**
      * 状态栏文字颜色
      */
-    @BarStyle int statusBarStyle() default BarStyle.DarkContent;
+    @BarStyle int statusBarStyle() default BarStyle.DARK_CONTENT;
 
     /**
      * 状态栏颜色
@@ -65,7 +67,7 @@ public @interface BindRes {
     /**
      * 侧滑 Fragment
      */
-    @SwipeStyle int swipeBack() default SwipeStyle.Edge;
+    @SwipeStyle int swipeBack() default SwipeStyle.EDGE;
 
     /**
      * 页面是否需要登录

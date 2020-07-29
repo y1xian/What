@@ -17,6 +17,8 @@ import com.yyxnb.common.log.LogUtils;
 
 /**
  * 使用ContentProvider初始化三方库
+ *
+ * @author yyx
  */
 public class LibraryInitializer extends ContentProvider {
     @Override

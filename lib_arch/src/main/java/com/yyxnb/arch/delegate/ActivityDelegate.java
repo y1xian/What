@@ -25,6 +25,8 @@ import java.util.Objects;
 
 /**
  * Activity 代理
+ *
+ * @author yyx
  */
 public class ActivityDelegate implements DefaultLifecycleObserver {
 
@@ -66,7 +68,7 @@ public class ActivityDelegate implements DefaultLifecycleObserver {
             } else {
                 StatusBarUtils.setStatusBarColor(getWindow(), statusBarColor);
             }
-            StatusBarUtils.setStatusBarStyle(getWindow(), statusBarDarkTheme == BarStyle.DarkContent);
+            StatusBarUtils.setStatusBarStyle(getWindow(), statusBarDarkTheme == BarStyle.DARK_CONTENT);
             StatusBarUtils.setStatusBarTranslucent(getWindow(), statusBarTranslucent, fitsSystemWindows);
         }
 
@@ -118,7 +120,7 @@ public class ActivityDelegate implements DefaultLifecycleObserver {
                 layoutRes = bindRes.layoutRes();
                 fitsSystemWindows = bindRes.fitsSystemWindows();
                 statusBarTranslucent = bindRes.statusBarTranslucent();
-                if (bindRes.statusBarStyle() != BarStyle.None) {
+                if (bindRes.statusBarStyle() != BarStyle.NONE) {
                     statusBarDarkTheme = bindRes.statusBarStyle();
                 }
                 if (bindRes.statusBarColor() != 0) {

@@ -169,53 +169,47 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            //播放模式
-            case R.id.music_btn_model:
-                MusicPlayerManager.getInstance().changedPlayerPlayModel();
-                break;
+        int id = v.getId();
+        //播放模式
+        if (id == R.id.music_btn_model) {
+            MusicPlayerManager.getInstance().changedPlayerPlayModel();
             //上一首
-            case R.id.music_btn_last:
-//                int lastPosition = MusicPlayerManager.getInstance().playLastIndex();
+        } else if (id == R.id.music_btn_last) {
+            //                int lastPosition = MusicPlayerManager.getInstance().playLastIndex();
 //                setCurrentMusicItem(lastPosition);
-                MusicPlayerManager.getInstance().playLastMusic();
-                break;
+            MusicPlayerManager.getInstance().playLastMusic();
             //开始、暂停
-            case R.id.music_btn_play_pause:
+        } else if (id == R.id.music_btn_play_pause) {
+            LogUtils.w("MusicSetting.IS_FIRST_PLAY : " + MusicSetting.IS_FIRST_PLAY);
 
-                LogUtils.w("MusicSetting.IS_FIRST_PLAY : " + MusicSetting.IS_FIRST_PLAY);
-
-                if (MusicSetting.IS_FIRST_PLAY) {
-                    MusicSetting.IS_FIRST_PLAY = false;
-                    List<MusicBean> beans = MusicDatabase.getInstance().musicDao().getMusicList();
-                    MusicPlayerManager.getInstance().setMusic(beans, MusicUtils.getInstance().getCurrentPlayIndex(beans, mMusicBean.mid));
-                    if (mRecordBean.currenTime > 0) {
-                        MusicPlayerManager.getInstance().play();
-                        MusicPlayerManager.getInstance().seekTo(mRecordBean.currenTime);
-                    } else {
-                        MusicPlayerManager.getInstance().play();
-                    }
+            if (MusicSetting.IS_FIRST_PLAY) {
+                MusicSetting.IS_FIRST_PLAY = false;
+                List<MusicBean> beans = MusicDatabase.getInstance().musicDao().getMusicList();
+                MusicPlayerManager.getInstance().setMusic(beans, MusicUtils.getInstance().getCurrentPlayIndex(beans, mMusicBean.mid));
+                if (mRecordBean.currenTime > 0) {
+                    MusicPlayerManager.getInstance().play();
+                    MusicPlayerManager.getInstance().seekTo(mRecordBean.currenTime);
                 } else {
-                    MusicPlayerManager.getInstance().playOrPause();
+                    MusicPlayerManager.getInstance().play();
                 }
+            } else {
+                MusicPlayerManager.getInstance().playOrPause();
+            }
 
-                break;
             //下一首
-            case R.id.music_btn_next:
-//                int nextPosition = MusicPlayerManager.getInstance().playNextIndex();
+        } else if (id == R.id.music_btn_next) {
+            //                int nextPosition = MusicPlayerManager.getInstance().playNextIndex();
 //                setCurrentMusicItem(nextPosition);
-                MusicPlayerManager.getInstance().playNextMusic();
-                break;
+            MusicPlayerManager.getInstance().playNextMusic();
             //菜单
-            case R.id.music_btn_menu:
-//                MusicPlayerListDialog.getInstance(MusicPlayerActivity.this).
+        } else if (id == R.id.music_btn_menu) {
+            //                MusicPlayerListDialog.getInstance(MusicPlayerActivity.this).
 //                        setMusicOnItemClickListener(new MusicOnItemClickListener() {
 //                            @Override
 //                            public void onItemClick(View view, int posotion, long musicID) {
 //                                setCurrentMusicItem(posotion);
 //                            }
 //                        }).show();
-                break;
             //闹钟定时
 //            case R.id.music_btn_alarm:
 //                MusicAlarmSettingDialog.getInstance(MusicPlayerActivity.this).
@@ -234,13 +228,12 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
 //                        }).show();
 //                break;
             //关闭
-            case R.id.music_back:
-//                onBackOutPlayer();
-                finish();
-                break;
+        } else if (id == R.id.music_back) {
+            //                onBackOutPlayer();
+            finish();
             //收藏
-            case R.id.music_top_collect:
-//                if (null != mMusicJukeBoxView && null != mMusicJukeBoxView.getCurrentMedia()) {
+        } else if (id == R.id.music_top_collect) {
+            //                if (null != mMusicJukeBoxView && null != mMusicJukeBoxView.getCurrentMedia()) {
 //                    BaseAudioInfo currentMedia = mMusicJukeBoxView.getCurrentMedia();
 //                    if (mBtnCollect.isSelected()) {
 //                        boolean isSuccess = MusicPlayerManager.getInstance().unCollectMusic(currentMedia.getAudioId());
@@ -255,10 +248,6 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
 //                        }
 //                    }
 //                }
-                break;
-
-            default:
-                break;
         }
     }
 
@@ -516,7 +505,7 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
     public void update(Observable o, Object arg) {
         if (o instanceof MusicSubjectObservable && null != arg && arg instanceof MusicStatus) {
             //收藏状态,针对可能在锁屏界面收藏的同步
-            ToastUtils.normal("收藏");
+//            ToastUtils.normal("收藏");
             LogUtils.e("收藏");
         }
     }

@@ -26,6 +26,8 @@ import java.lang.reflect.Method;
 
 /**
  * 状态栏工具
+ *
+ * @author yyx
  */
 public class StatusBarUtils implements Serializable {
 
@@ -55,7 +57,7 @@ public class StatusBarUtils implements Serializable {
     }
 
     public static boolean isXiaomi() {
-        return Build.MANUFACTURER.toLowerCase().equals("xiaomi");
+        return "xiaomi".equals(Build.MANUFACTURER.toLowerCase());
     }
 
     public static boolean isVivo() {
@@ -514,12 +516,13 @@ public class StatusBarUtils implements Serializable {
 
         try {
             ClassLoader cl = context.getClassLoader();
+            @SuppressLint("PrivateApi")
             Class ftFeature = cl.loadClass("android.util.FtFeature");
             Method[] methods = ftFeature.getDeclaredMethods();
-            if (methods != null) {
+            if (null != methods) {
                 for (int i = 0; i < methods.length; i++) {
                     Method method = methods[i];
-                    if (method.getName().equalsIgnoreCase("isFeatureSupport")) {
+                    if ("isFeatureSupport".equalsIgnoreCase(method.getName())) {
                         ret = (boolean) method.invoke(ftFeature, NOTCH_IN_SCREEN_VOIO);
                         break;
                     }

@@ -46,7 +46,7 @@ import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 /**
  * 视频 - 个人页面
  */
-@BindRes(statusBarStyle = BarStyle.LightContent)
+@BindRes(statusBarStyle = BarStyle.LIGHT_CONTENT)
 public class VideoUserFragment extends BaseFragment {
 
     private FragmentVideoUserBinding binding;

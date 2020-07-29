@@ -5,13 +5,24 @@ import android.support.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-@IntDef({SwipeStyle.Full, SwipeStyle.Edge, SwipeStyle.None})
+/**
+ * 侧滑 注解
+ *
+ * @author yyx
+ */
+@IntDef({SwipeStyle.FULL, SwipeStyle.EDGE, SwipeStyle.NONE})
 @Retention(RetentionPolicy.SOURCE)
 public @interface SwipeStyle {
-    // 全屏
-    int Full = 1;
-    // 边缘
-    int Edge = 2;
-    // none
-    int None = 0;
+    /**
+     * 全屏
+     */
+    int FULL = 1;
+    /**
+     * 边缘
+     */
+    int EDGE = 2;
+    /**
+     * none
+     */
+    int NONE = 0;
 }

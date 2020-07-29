@@ -12,6 +12,11 @@ import android.view.View;
 import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.utils.AppManager;
 
+/**
+ * Fragment 注册生命周期监听
+ *
+ * @author yyx
+ */
 public class FragmentLifecycle extends FragmentManager.FragmentLifecycleCallbacks {
 
     private volatile static FragmentLifecycle lifecycle = null;

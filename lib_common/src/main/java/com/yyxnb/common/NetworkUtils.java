@@ -29,7 +29,7 @@ public class NetworkUtils {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
-    private static Context context= AppConfig.getInstance().getContext();
+    private static Context context = AppConfig.getInstance().getContext();
 
     public enum NetworkType {
         NETWORK_WIFI,
@@ -86,12 +86,15 @@ public class NetworkUtils {
 
     /**
      * Android 判断是否能真正上网(避免连入wifi无网的状态)
+     *
      * @return
      */
     public static final boolean ping() {
         try {
-            String ip = "www.baidu.com";// ping 的地址，可以换成任何一种可靠的外网
-            Process p = Runtime.getRuntime().exec("ping -c 3 -w 100 " + ip);// ping网址3次
+            // ping 的地址，可以换成任何一种可靠的外网
+            String ip = "www.baidu.com";
+            // ping网址3次
+            Process p = Runtime.getRuntime().exec("ping -c 3 -w 100 " + ip);
             // ping的状态
             int status = p.waitFor();
             if (status == 0) {
@@ -101,6 +104,7 @@ public class NetworkUtils {
         }
         return false;
     }
+
     /**
      * 判断移动数据是否打开
      *
@@ -213,9 +217,9 @@ public class NetworkUtils {
         return tm != null ? tm.getNetworkOperatorName() : null;
     }
 
-    private static final int NETWORK_TYPE_GSM      = 16;
+    private static final int NETWORK_TYPE_GSM = 16;
     private static final int NETWORK_TYPE_TD_SCDMA = 17;
-    private static final int NETWORK_TYPE_IWLAN    = 18;
+    private static final int NETWORK_TYPE_IWLAN = 18;
 
     /**
      * 获取当前网络类型
@@ -270,9 +274,9 @@ public class NetworkUtils {
                     default:
 
                         String subtypeName = info.getSubtypeName();
-                        if (subtypeName.equalsIgnoreCase("TD-SCDMA")
-                                || subtypeName.equalsIgnoreCase("WCDMA")
-                                || subtypeName.equalsIgnoreCase("CDMA2000")) {
+                        if ("TD-SCDMA".equalsIgnoreCase(subtypeName)
+                                || "WCDMA".equalsIgnoreCase(subtypeName)
+                                || "CDMA2000".equalsIgnoreCase(subtypeName)) {
                             netType = NetworkType.NETWORK_3G;
                         } else {
                             netType = NetworkType.NETWORK_UNKNOWN;

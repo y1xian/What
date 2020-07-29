@@ -3,6 +3,9 @@ package com.yyxnb.arch.base;
 import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.os.Bundle;
 
+/**
+ * @author yyx
+ */
 public interface IView extends DefaultLifecycleObserver {
 
     /**

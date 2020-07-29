@@ -5,10 +5,13 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.yyxnb.common.AppConfig;
-
 import java.io.Serializable;
 
+/**
+ * 打印页面生命周期
+ *
+ * @author yyx
+ */
 public class Java8Observer implements DefaultLifecycleObserver, Serializable {
 
     private String tag;

@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 /**
  * 保存工具类
+ *
+ * @author yyx
  */
 public class SPUtils {
 
@@ -12,7 +14,7 @@ public class SPUtils {
      * 保存在手机里面的文件名
      */
     private static final String FILE_NAME = "share_date";
-    private static final Context mContext = AppConfig.getInstance().getContext();
+    private static final Context CONTEXT = AppConfig.getInstance().getContext();
 
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
@@ -23,7 +25,7 @@ public class SPUtils {
     public static void setParam(String key, Object object) {
 
         String type = object.getClass().getSimpleName();
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = CONTEXT.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
         switch (type) {
@@ -42,6 +44,8 @@ public class SPUtils {
             case "Long":
                 editor.putLong(key, (Long) object);
                 break;
+            default:
+                break;
         }
         editor.apply();
     }
@@ -55,7 +59,7 @@ public class SPUtils {
      */
     public static Object getParam(String key, Object defaultObject) {
         String type = defaultObject.getClass().getSimpleName();
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = CONTEXT.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
 
         switch (type) {
             case "String":
@@ -68,6 +72,8 @@ public class SPUtils {
                 return sp.getFloat(key, (Float) defaultObject);
             case "Long":
                 return sp.getLong(key, (Long) defaultObject);
+            default:
+                break;
         }
         return null;
     }
@@ -76,7 +82,7 @@ public class SPUtils {
      * 清除所有数据
      */
     public static void clearAll() {
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = CONTEXT.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.clear().apply();
@@ -86,7 +92,7 @@ public class SPUtils {
      * 清除指定数据
      */
     public static void clear(String key) {
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = CONTEXT.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);

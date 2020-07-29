@@ -17,6 +17,8 @@ import java.lang.reflect.Field;
 /**
  * ActivityLifecycleCallbacks 监听 Activity 生命周期
  * PS ：先走 ActivityLifecycleCallbacks 再走 Activity
+ *
+ * @author yyx
  */
 public class ActivityDelegateImpl implements IActivityDelegate {
 

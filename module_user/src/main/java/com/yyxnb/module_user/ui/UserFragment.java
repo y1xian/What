@@ -26,7 +26,7 @@ import static com.yyxnb.common_base.config.Constants.USER_ID;
 /**
  * 我的 - 界面.
  */
-@BindRes(statusBarStyle = BarStyle.LightContent)
+@BindRes(statusBarStyle = BarStyle.LIGHT_CONTENT)
 @Route(path = USER_FRAGMENT)
 public class UserFragment extends BaseFragment {
 

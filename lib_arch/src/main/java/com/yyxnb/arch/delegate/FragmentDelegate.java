@@ -33,6 +33,8 @@ import java.util.Objects;
 
 /**
  * Fragment 代理
+ *
+ * @author yyx
  */
 public class FragmentDelegate implements DefaultLifecycleObserver {
 
@@ -57,7 +59,7 @@ public class FragmentDelegate implements DefaultLifecycleObserver {
     private boolean fitsSystemWindows = ArchConfig.fitsSystemWindows;
     private int statusBarColor = ArchConfig.statusBarColor;
     private int statusBarDarkTheme = ArchConfig.statusBarStyle;
-    private int swipeBack = SwipeStyle.Edge;
+    private int swipeBack = SwipeStyle.EDGE;
     private boolean subPage;
     private boolean needLogin;
 
@@ -163,7 +165,7 @@ public class FragmentDelegate implements DefaultLifecycleObserver {
                 statusBarTranslucent = bindRes.statusBarTranslucent();
                 swipeBack = bindRes.swipeBack();
                 subPage = bindRes.subPage();
-                if (bindRes.statusBarStyle() != BarStyle.None) {
+                if (bindRes.statusBarStyle() != BarStyle.NONE) {
                     statusBarDarkTheme = bindRes.statusBarStyle();
                 }
                 if (bindRes.statusBarColor() != 0) {
@@ -192,7 +194,7 @@ public class FragmentDelegate implements DefaultLifecycleObserver {
 
         // 文字颜色
         int statusBarStyle = statusBarDarkTheme;
-        StatusBarUtils.setStatusBarStyle(getWindow(), statusBarStyle == BarStyle.DarkContent);
+        StatusBarUtils.setStatusBarStyle(getWindow(), statusBarStyle == BarStyle.DARK_CONTENT);
 
         // 隐藏 or 不留空间 则透明
         if (!fitsSystemWindows) {
@@ -204,7 +206,7 @@ public class FragmentDelegate implements DefaultLifecycleObserver {
             boolean shouldAdjustForWhiteStatusBar = !StatusBarUtils.isBlackColor(statusBarColor, 176);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                shouldAdjustForWhiteStatusBar = shouldAdjustForWhiteStatusBar && statusBarStyle == BarStyle.LightContent;
+                shouldAdjustForWhiteStatusBar = shouldAdjustForWhiteStatusBar && statusBarStyle == BarStyle.LIGHT_CONTENT;
             }
             // 如果状态栏处于白色且状态栏文字也处于白色，避免看不见
             if (shouldAdjustForWhiteStatusBar) {

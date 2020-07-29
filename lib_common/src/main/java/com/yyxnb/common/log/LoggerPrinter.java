@@ -230,26 +230,26 @@ final class LoggerPrinter implements IPrinter {
     private void logChunk(int priority, String chunk) {
         logStr.append(LINE_SEPARATOR);
         logStr.append(chunk);
-        String TAG = config.getTag();
+        String tag = config.getTag();
         switch (priority) {
             case Log.ERROR:
-                Log.e(TAG, chunk);
+                Log.e(tag, chunk);
                 break;
             case Log.INFO:
-                Log.i(TAG, chunk);
+                Log.i(tag, chunk);
                 break;
             case Log.VERBOSE:
-                Log.v(TAG, chunk);
+                Log.v(tag, chunk);
                 break;
             case Log.WARN:
-                Log.w(TAG, chunk);
+                Log.w(tag, chunk);
                 break;
             case Log.ASSERT:
-                Log.wtf(TAG, chunk);
+                Log.wtf(tag, chunk);
                 break;
             case Log.DEBUG:
             default:
-                Log.d(TAG, chunk);
+                Log.d(tag, chunk);
                 break;
         }
     }

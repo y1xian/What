@@ -9,6 +9,11 @@ import android.util.LruCache;
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.utils.AppManager;
 
+/**
+ * Activity 注册监听生命周期
+ *
+ * @author yyx
+ */
 public class ActivityLifecycle implements Application.ActivityLifecycleCallbacks {
 
     private volatile static ActivityLifecycle lifecycle = null;

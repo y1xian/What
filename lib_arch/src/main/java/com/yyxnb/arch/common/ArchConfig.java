@@ -16,15 +16,18 @@ public class ArchConfig implements Serializable {
     public static final String REQUEST_CODE = "REQUEST_CODE";
     public static final String MSG_EVENT = "MSG_EVENT";
 
-    // 是否处于前台 true为前台
+    /**
+     * 是否处于前台 true为前台
+     */
     public static boolean isOnForground = true;
-
+    /**
+     * 登录code
+     */
     public static final int NEED_LOGIN_CODE = -100;
-
     /**
      * 侧滑
      */
-    public static int swipeBack = SwipeStyle.Edge;
+    public static int swipeBack = SwipeStyle.EDGE;
     /**
      * 状态栏透明
      */
@@ -36,7 +39,7 @@ public class ArchConfig implements Serializable {
     /**
      * 状态栏文字颜色
      */
-    public static int statusBarStyle = BarStyle.DarkContent;
+    public static int statusBarStyle = BarStyle.DARK_CONTENT;
     /**
      * 状态栏颜色
      */
@@ -52,13 +55,11 @@ public class ArchConfig implements Serializable {
     /**
      * 虚拟键颜色
      */
-    public static int navigationBarStyle = BarStyle.DarkContent;
+    public static int navigationBarStyle = BarStyle.DARK_CONTENT;
     /**
      * 登录状态
      */
     public static boolean needLogin = false;
-
-
 
 
 }

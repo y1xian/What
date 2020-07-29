@@ -1237,7 +1237,7 @@ public class MusicPlayerService extends Service implements IMusicPlayer, MediaPl
     public void startServiceForeground(Notification notification, int notifiid) {
         showNotification(notification, notifiid, true);
     }
-
+    
     @Override
     public synchronized void stopServiceForeground() {
         cleanNotification(NOTIFICATION_ID);
@@ -1258,6 +1258,10 @@ public class MusicPlayerService extends Service implements IMusicPlayer, MediaPl
         showNotification(notification, notifiid, mForegroundEnable);
     }
 
+    /**
+     * 更新通知栏
+     * @param state
+     */
     @Override
     public void updateNotification(int state) {
         //仅当用户在已经至少一次播放音乐后才尝试更新通知栏
@@ -1266,10 +1270,15 @@ public class MusicPlayerService extends Service implements IMusicPlayer, MediaPl
         }
     }
 
+    /**
+     * 关掉通知栏
+     */
     @SuppressLint("WrongConstant")
     @Override
     public void cleanNotification() {
         cleanNotification(NOTIFICATION_ID);
+        //停止音乐
+        pause();
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 stopForeground(NOTIFICATION_ID);

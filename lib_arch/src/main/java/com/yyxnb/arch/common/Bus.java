@@ -22,7 +22,7 @@ public class Bus {
     }
 
     public static void broadcast(@NonNull MsgEvent msgEvent) {
-        LiveEventBus.get(MSG_EVENT, MsgEvent.class).broadcast(msgEvent);
+        LiveEventBus.get(MSG_EVENT, MsgEvent.class).broadcast(msgEvent, false, false);
     }
 
     public static void observe(@NonNull LifecycleOwner owner, @NonNull Observer<MsgEvent> observer) {
