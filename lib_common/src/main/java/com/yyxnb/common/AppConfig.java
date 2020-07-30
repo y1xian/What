@@ -13,16 +13,16 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 
+/**
+ * app 管理
+ *
+ * @author yyx
+ */
 @SuppressWarnings("rawtypes")
 public final class AppConfig implements Serializable {
 
     @SuppressLint("StaticFieldLeak")
     private volatile static AppConfig appConfig;
-
-    /**
-     * 是否处于前台 true为前台
-     */
-    private boolean isOnForground;
 
     private AppConfig() {
     }
@@ -90,15 +90,6 @@ public final class AppConfig implements Serializable {
         if (isDebug()) {
             log("------AppConfig------", s);
         }
-    }
-
-
-    public boolean isOnForground() {
-        return isOnForground;
-    }
-
-    public void setOnForground(boolean onForground) {
-        isOnForground = onForground;
     }
 
     /**

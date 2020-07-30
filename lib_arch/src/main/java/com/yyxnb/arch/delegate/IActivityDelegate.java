@@ -1,15 +1,16 @@
 package com.yyxnb.arch.delegate;
 
 import android.app.Activity;
-import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
 
+import com.yyxnb.common.interfaces.ILifecycle;
+
 /**
  * @author yyx
  */
-public interface IActivityDelegate extends DefaultLifecycleObserver {
+public interface IActivityDelegate extends ILifecycle {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreate(Bundle savedInstanceState);

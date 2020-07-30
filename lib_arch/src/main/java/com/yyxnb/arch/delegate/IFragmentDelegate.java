@@ -1,16 +1,17 @@
 package com.yyxnb.arch.delegate;
 
-import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+import com.yyxnb.common.interfaces.ILifecycle;
+
 /**
  * @author yyx
  */
-public interface IFragmentDelegate extends DefaultLifecycleObserver {
+public interface IFragmentDelegate extends ILifecycle {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onAttached(Context context);

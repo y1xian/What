@@ -22,7 +22,6 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     void onStart() {
-        AppConfig.getInstance().setOnForground(true);
         AppConfig.getInstance().log("应用进入前台");
     }
 
@@ -32,7 +31,6 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     void onStop() {
-        AppConfig.getInstance().setOnForground(false);
         AppConfig.getInstance().log("应用进入后台");
     }
 

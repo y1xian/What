@@ -1,12 +1,15 @@
 package com.yyxnb.arch.base;
 
-import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.os.Bundle;
 
+import com.yyxnb.common.interfaces.ILifecycle;
+
 /**
+ * Activity 、Fragment
+ *
  * @author yyx
  */
-public interface IView extends DefaultLifecycleObserver {
+public interface IView extends ILifecycle {
 
     /**
      * 初始化布局

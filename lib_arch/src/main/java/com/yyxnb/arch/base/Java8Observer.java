@@ -1,9 +1,10 @@
 package com.yyxnb.arch.base;
 
-import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
+import com.yyxnb.common.interfaces.ILifecycle;
 
 import java.io.Serializable;
 
@@ -12,7 +13,7 @@ import java.io.Serializable;
  *
  * @author yyx
  */
-public class Java8Observer implements DefaultLifecycleObserver, Serializable {
+public class Java8Observer implements ILifecycle, Serializable {
 
     private String tag;
 
