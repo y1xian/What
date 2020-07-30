@@ -1,6 +1,7 @@
 package com.yyxnb.network.interceptor;
 
-import com.yyxnb.common.NetworkUtils;
+
+import com.yyxnb.common.utils.NetworkUtils;
 
 import java.io.IOException;
 
