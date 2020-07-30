@@ -16,10 +16,7 @@ public class ArchConfig implements Serializable {
     public static final String REQUEST_CODE = "REQUEST_CODE";
     public static final String MSG_EVENT = "MSG_EVENT";
 
-    /**
-     * 是否处于前台 true为前台
-     */
-    public static boolean isOnForground = true;
+
     /**
      * 登录code
      */

@@ -9,7 +9,7 @@ import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.video.Utils;
 import com.yyxnb.video.cache.PreloadManager;

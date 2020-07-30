@@ -3,7 +3,6 @@ package com.yyxnb.module_main.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -28,14 +27,11 @@ public class SplashActivity extends AppCompatActivity implements IActivity {
         handler.sendEmptyMessageDelayed(1, 2 * 1000);
     }
 
-    private final Handler handler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message message) {
-            if (message.what == 1) {
-                inMain();
-            }
-            return false;
+    private final Handler handler = new Handler(message -> {
+        if (message.what == 1) {
+            inMain();
         }
+        return false;
     });
 
     private void inMain() {

@@ -1,11 +1,8 @@
-package com.yyxnb.arch;
+package com.yyxnb.common;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
-
-import com.yyxnb.arch.common.ArchConfig;
-import com.yyxnb.common.AppConfig;
 
 /**
  * 监听整个应用应用状态，与Activity数量无关
@@ -25,7 +22,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     void onStart() {
-        ArchConfig.isOnForground = true;
+        AppConfig.getInstance().setOnForground(true);
         AppConfig.getInstance().log("应用进入前台");
     }
 
@@ -35,7 +32,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     void onStop() {
-        ArchConfig.isOnForground = false;
+        AppConfig.getInstance().setOnForground(false);
         AppConfig.getInstance().log("应用进入后台");
     }
 

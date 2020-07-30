@@ -13,7 +13,7 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.AppConfig;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.video.Utils;
 import com.yyxnb.video.cache.PreloadManager;

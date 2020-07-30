@@ -1,4 +1,4 @@
-package com.yyxnb.common;
+package com.yyxnb.common.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+
+import com.yyxnb.common.AppConfig;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;

@@ -1,4 +1,4 @@
-package com.yyxnb.common.log;
+package com.yyxnb.common.utils.log;
 
 import android.text.TextUtils;
 

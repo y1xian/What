@@ -1,7 +1,9 @@
-package com.yyxnb.common;
+package com.yyxnb.common.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.yyxnb.common.AppConfig;
 
 /**
  * 保存工具类

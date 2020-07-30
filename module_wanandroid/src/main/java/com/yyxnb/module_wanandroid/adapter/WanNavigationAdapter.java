@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.adapter;
 
 import com.yyxnb.adapter.BaseAdapter;
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.common.ToastUtils;
+import com.yyxnb.common.utils.ToastUtils;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanNavigationBean;

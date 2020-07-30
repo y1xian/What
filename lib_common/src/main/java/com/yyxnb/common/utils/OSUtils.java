@@ -1,4 +1,4 @@
-package com.yyxnb.common;
+package com.yyxnb.common.utils;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;

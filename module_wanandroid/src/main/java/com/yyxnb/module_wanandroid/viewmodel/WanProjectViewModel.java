@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import android.arch.lifecycle.MutableLiveData;
 
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.config.Http;
 import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;

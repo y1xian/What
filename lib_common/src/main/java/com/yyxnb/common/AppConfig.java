@@ -5,7 +5,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
+import com.yyxnb.common.utils.ToastUtils;
 
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
@@ -17,6 +18,11 @@ public final class AppConfig implements Serializable {
 
     @SuppressLint("StaticFieldLeak")
     private volatile static AppConfig appConfig;
+
+    /**
+     * 是否处于前台 true为前台
+     */
+    private boolean isOnForground;
 
     private AppConfig() {
     }
@@ -84,6 +90,15 @@ public final class AppConfig implements Serializable {
         if (isDebug()) {
             log("------AppConfig------", s);
         }
+    }
+
+
+    public boolean isOnForground() {
+        return isOnForground;
+    }
+
+    public void setOnForground(boolean onForground) {
+        isOnForground = onForground;
     }
 
     /**

@@ -10,8 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.DpUtils;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.DpUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;

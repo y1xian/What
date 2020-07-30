@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.yyxnb.common.DpUtils;
+import com.yyxnb.common.utils.DpUtils;
 import com.yyxnb.common.interfaces.OnSelectListener;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;

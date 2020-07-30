@@ -1,4 +1,4 @@
-package com.yyxnb.common;
+package com.yyxnb.common.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.R;
 
 import java.io.Serializable;
 

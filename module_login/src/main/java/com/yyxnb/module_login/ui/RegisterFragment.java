@@ -4,7 +4,7 @@ package com.yyxnb.module_login.ui;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_login.R;
 

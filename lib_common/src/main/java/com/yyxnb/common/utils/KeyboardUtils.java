@@ -1,4 +1,4 @@
-package com.yyxnb.common;
+package com.yyxnb.common.utils;
 
 import android.content.Context;
 import android.content.res.Resources;

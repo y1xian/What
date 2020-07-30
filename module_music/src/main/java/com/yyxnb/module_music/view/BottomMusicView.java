@@ -12,8 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.yyxnb.common.ToastUtils;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.ToastUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.image_loader.ImageManager;
 import com.yyxnb.lib_music.MusicPlayerManager;
 import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;

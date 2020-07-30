@@ -1,5 +1,6 @@
-package com.yyxnb.arch;
+package com.yyxnb.common;
 
+import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,9 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
 
-import com.jeremyliao.liveeventbus.LiveEventBus;
-import com.yyxnb.arch.delegate.ActivityLifecycle;
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.utils.log.LogUtils;
 
 /**
  * 使用ContentProvider初始化三方库
@@ -29,12 +28,15 @@ public class LibraryInitializer extends ContentProvider {
             // 突破65535的限制
             MultiDex.install(context);
 
-            // 系统会在每个 Activity 执行完对应的生命周期后都调用这个实现类中对应的方法
-            AppConfig.getInstance().getApp().registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
+            // 应用监听
+            ProcessLifecycleOwner.get().getLifecycle().addObserver(new AppLifeObserver());
 
-            LiveEventBus
-                    .config()
-                    .enableLogger(AppConfig.getInstance().isDebug());
+            LogUtils.init()
+                    //设置全局tag
+                    .setTag("---What---")
+                    //是否显示日志，默认true，发布时最好关闭
+                    .setShowThreadInfo(AppConfig.getInstance().isDebug())
+                    .setDebug(AppConfig.getInstance().isDebug());
 
         }
 

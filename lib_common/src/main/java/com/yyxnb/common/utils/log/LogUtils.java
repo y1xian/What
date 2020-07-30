@@ -1,4 +1,4 @@
-package com.yyxnb.common.log;
+package com.yyxnb.common.utils.log;
 
 import java.util.List;
 import java.util.Map;

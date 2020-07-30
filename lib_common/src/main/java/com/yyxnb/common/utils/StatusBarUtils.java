@@ -1,4 +1,4 @@
-package com.yyxnb.common;
+package com.yyxnb.common.utils;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;

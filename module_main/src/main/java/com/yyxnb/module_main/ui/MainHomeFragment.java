@@ -12,7 +12,7 @@ import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.ItemDecoration;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
 import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_main.R;
@@ -20,7 +20,7 @@ import com.yyxnb.module_main.adapter.MainHomeAdapter;
 import com.yyxnb.module_main.config.DataConfig;
 import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
-import com.yyxnb.view.popup.Popup;
+import com.yyxnb.popup.PopupManager;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
@@ -97,7 +97,7 @@ public class MainHomeFragment extends BaseFragment {
         });
 
         binding.tvTitle.setOnClickListener(v -> {
-            new Popup.Builder(getContext())
+            new PopupManager.Builder(getContext())
                     .asConfirm("警告", "有内鬼，终止学术交流", () -> {
                         // 确定
                     }, () -> {

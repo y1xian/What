@@ -21,7 +21,7 @@ import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.ActivityDelegate;
-import com.yyxnb.common.KeyboardUtils;
+import com.yyxnb.common.utils.KeyboardUtils;
 import com.yyxnb.skinloader.SkinInflaterFactory;
 
 import java.lang.ref.WeakReference;

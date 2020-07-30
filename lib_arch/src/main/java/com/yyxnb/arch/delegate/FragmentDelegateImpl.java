@@ -11,7 +11,7 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.livedata.ViewModelFactory;
 import com.yyxnb.arch.utils.AppManager;
-import com.yyxnb.common.MainThreadUtils;
+import com.yyxnb.common.utils.MainThreadUtils;
 
 import java.lang.reflect.Field;
 
@@ -23,14 +23,14 @@ import java.lang.reflect.Field;
  */
 public class FragmentDelegateImpl implements IFragmentDelegate {
 
-    private Fragment fragment = null;
-    private FragmentManager fragmentManager = null;
+    private Fragment mFragment = null;
+    private FragmentManager mFragmentManager = null;
 
     private IFragment iFragment = null;
 
     public FragmentDelegateImpl(Fragment fragment, FragmentManager fragmentManager) {
-        this.fragment = fragment;
-        this.fragmentManager = fragmentManager;
+        this.mFragment = fragment;
+        this.mFragmentManager = fragmentManager;
         this.iFragment = (IFragment) fragment;
     }
 
@@ -41,6 +41,7 @@ public class FragmentDelegateImpl implements IFragmentDelegate {
         delegate = iFragment.getBaseDelegate();
         if (delegate != null) {
             delegate.onAttach(context);
+            mFragment.getLifecycle().addObserver(this);
         }
     }
 
@@ -48,6 +49,7 @@ public class FragmentDelegateImpl implements IFragmentDelegate {
     public void onCreated(Bundle savedInstanceState) {
         if (delegate != null) {
             delegate.onCreate(savedInstanceState);
+            mFragment.getLifecycle().addObserver(iFragment);
         }
     }
 
@@ -103,8 +105,8 @@ public class FragmentDelegateImpl implements IFragmentDelegate {
             delegate = null;
         }
         AppManager.getInstance().getFragmentDelegates().remove(iFragment.hashCode());
-        this.fragmentManager = null;
-        this.fragment = null;
+        this.mFragmentManager = null;
+        this.mFragment = null;
         this.iFragment = null;
     }
 
@@ -114,7 +116,7 @@ public class FragmentDelegateImpl implements IFragmentDelegate {
 
     @Override
     public boolean isAdd() {
-        return fragment.isAdded();
+        return mFragment.isAdded();
     }
 
     public void initDeclaredFields() {
@@ -144,9 +146,9 @@ public class FragmentDelegateImpl implements IFragmentDelegate {
 
     public ViewModel getViewModel(Field field, boolean isActivity) {
         if (isActivity) {
-            return ViewModelFactory.createViewModel(fragment.getActivity(), field);
+            return ViewModelFactory.createViewModel(mFragment.getActivity(), field);
         } else {
-            return ViewModelFactory.createViewModel(fragment, field);
+            return ViewModelFactory.createViewModel(mFragment, field);
         }
     }
 }

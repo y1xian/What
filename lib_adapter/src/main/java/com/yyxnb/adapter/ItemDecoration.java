@@ -14,7 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
-import com.yyxnb.common.DpUtils;
+import com.yyxnb.common.utils.DpUtils;
 
 
 /*

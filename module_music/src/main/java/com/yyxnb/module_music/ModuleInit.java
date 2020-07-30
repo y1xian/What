@@ -2,7 +2,7 @@ package com.yyxnb.module_music;
 
 import android.app.Application;
 
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.module.IModuleInit;
 import com.yyxnb.lib_music.MusicPlayerManager;
 import com.yyxnb.lib_music.interfaces.MusicConstants;

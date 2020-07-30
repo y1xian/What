@@ -10,7 +10,7 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.livedata.ViewModelFactory;
 import com.yyxnb.arch.utils.AppManager;
-import com.yyxnb.common.MainThreadUtils;
+import com.yyxnb.common.utils.MainThreadUtils;
 
 import java.lang.reflect.Field;
 
@@ -40,7 +40,9 @@ public class ActivityDelegateImpl implements IActivityDelegate {
             delegate = iActivity.getBaseDelegate();
             if (delegate != null) {
                 delegate.onCreate(savedInstanceState);
+                mActivity.getLifecycle().addObserver(this);
             }
+            mActivity.getLifecycle().addObserver(iActivity);
             initDeclaredFields();
             iActivity.initView(savedInstanceState);
         }
