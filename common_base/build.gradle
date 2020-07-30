@@ -3,7 +3,9 @@ apply from: rootProject.file('module.gradle')
 
 dependencies {
 
+    // 底层架构
     api project(':lib_arch')
+    // 网络框架
     api project(':lib_network')
     // 图片框架
     api project(':lib_image_loader')
@@ -23,20 +25,18 @@ dependencies {
     api libs.widget_view
 //    api libs.widget_adapter
 //    api libs.widget_skin
+    // 换肤
     api libs.widget_skinloader
 
-    api libs.support_v4
-
-    //room
+    // room 数据库
     api libs.arch_comp_room
     annotationProcessor libs.arch_comp_room_compiler
 
     // 路由
     api libs.arouter_api
     annotationProcessor libs.arouter_compiler
-    // 2.0
-    api libs.constraint
 
+    // 微信 键值对储存
     api libs.mmkv
 
     // 内存泄漏检测
@@ -50,10 +50,10 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
-    //https://github.com/yangchong211/YCWebView
+    // 网页 https://github.com/yangchong211/YCWebView
 //    implementation 'cn.yc:WebViewLib:1.2.7'
 
-    // 刷新框架 https://github.com/scwang90/SmartRefreshLayout
+    // 刷新框架  https://github.com/scwang90/SmartRefreshLayout
     api 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
     api 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
     api 'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
@@ -64,11 +64,11 @@ dependencies {
     //https://github.com/hackware1993/MagicIndicator
     api 'com.github.hackware1993:MagicIndicator:1.6.0'
 
-    //https://github.com/JessYanCoding/AndroidAutoSize
+    // 屏幕适配 https://github.com/JessYanCoding/AndroidAutoSize
     api libs.autosize
-    //侧滑
+    // 侧滑
     api libs.parallaxbacklayout
-    // 轮播 https://github.com/youth5201314/banner/tree/release-1.4.10
+    // 轮播  https://github.com/youth5201314/banner/tree/release-1.4.10
     api 'com.youth.banner:banner:1.4.10'
 
 }
