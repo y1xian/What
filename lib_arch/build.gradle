@@ -1,0 +1,11 @@
+ext.isLibrary = true
+apply from: rootProject.file('lib.gradle')
+
+dependencies {
+//    api libs.widget_common
+    api project(':lib_common')
+    //  v7 v4 约束
+    api([libs.support_v4, libs.annotations, libs.constraint])
+    //bus
+    api libs.live_event_bus
+}

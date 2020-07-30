@@ -1,8 +1,8 @@
 package com.yyxnb.module_main.config;
 
 import com.yyxnb.common.AppConfig;
-import com.yyxnb.common.log.LogUtils;
-import com.yyxnb.http.utils.GsonUtils;
+import com.yyxnb.common.utils.log.LogUtils;
+import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.module_main.bean.MainHomeBean;
 import com.yyxnb.utils.FileUtils;
 

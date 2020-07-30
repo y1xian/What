@@ -1,2 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yyxnb.module_music" />
+    package="com.yyxnb.module_music">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application>
+        <activity android:name=".ui.MusicActivity"></activity>
+        <!--播放-->
+        <activity
+            android:name=".ui.MusicPlayerActivity"
+            android:enabled="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--锁屏-->
+        <activity
+            android:name=".ui.MusicLockActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="music.player.lock"
+            android:theme="@style/MusicLockScreenTheme" />
+
+    </application>
+
+</manifest>

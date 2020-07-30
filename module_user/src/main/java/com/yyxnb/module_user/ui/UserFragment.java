@@ -9,11 +9,11 @@ import com.tencent.mmkv.MMKV;
 import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
+import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.config.BaseConfig;
-import com.yyxnb.common_base.config.UserManager;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
@@ -26,7 +26,7 @@ import static com.yyxnb.common_base.config.Constants.USER_ID;
 /**
  * 我的 - 界面.
  */
-@BindRes(statusBarStyle = BarStyle.LightContent)
+@BindRes(statusBarStyle = BarStyle.LIGHT_CONTENT)
 @Route(path = USER_FRAGMENT)
 public class UserFragment extends BaseFragment {
 
@@ -45,8 +45,10 @@ public class UserFragment extends BaseFragment {
         binding = getBinding();
 
         binding.clHead.setOnClickListener(v -> {
-            if (!UserManager.getInstance().getUserBean().isLogin) {
+            if (!LoginImpl.getInstance().isLogin()) {
                 startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
+            }else {
+                startFragment(new UserPersonalDetailsFragment());
             }
         });
         binding.ivWallet.setOnClickListener(v -> {
@@ -69,9 +71,9 @@ public class UserFragment extends BaseFragment {
 
         mViewModel.getUser().observe(this, userBean -> {
             if (userBean != null) {
-                UserManager.getInstance().setUserBean(userBean);
+                LoginImpl.getInstance().updateUserInfo(userBean);
                 binding.setData(userBean);
-                LogUtils.e("u : " + userBean.toString() + " \n "+ UserManager.getInstance().getUserBean().toString());
+                LogUtils.e("u : " + userBean.toString() + " \n "+ LoginImpl.getInstance().getUserInfo().toString());
             }
             binding.setData(userBean);
         });

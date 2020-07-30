@@ -29,12 +29,13 @@ dependencies {
     addComponent 'module_login'
     addComponent 'module_user'
     addComponent 'module_video'
-    addComponent 'module_message'
+    addComponent 'module_chat'
     addComponent 'module_joke'
     addComponent 'module_music'
     addComponent 'module_novel'
+    addComponent 'module_wanandroid'
 
-    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.1'
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
     implementation 'com.tencent.tinker:tinker-android-lib:1.9.9'
     implementation 'com.tencent.bugly:nativecrashreport:3.7.3'
 }

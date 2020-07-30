@@ -18,10 +18,10 @@ import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
-import com.yyxnb.common.DpUtils;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.DpUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.utils.DrawableTintUtil;
+import com.yyxnb.image_loader.utils.DrawableTintUtil;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;
 import com.yyxnb.module_video.ui.VideoListFragment;
@@ -46,7 +46,7 @@ import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 /**
  * 视频 - 个人页面
  */
-@BindRes(statusBarStyle = BarStyle.LightContent)
+@BindRes(statusBarStyle = BarStyle.LIGHT_CONTENT)
 public class VideoUserFragment extends BaseFragment {
 
     private FragmentVideoUserBinding binding;

@@ -18,6 +18,6 @@ dependencies {
     if (runAsApp) {
         //模块化下需要引用到的模块
         addComponent 'module_login'
-        addComponent 'module_message'
+        addComponent 'module_chat'
     }
 }

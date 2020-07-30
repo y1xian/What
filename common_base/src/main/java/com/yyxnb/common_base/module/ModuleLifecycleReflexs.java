@@ -20,9 +20,13 @@ public class ModuleLifecycleReflexs {
     //小说模块
     private static final String NOVEL_INIT = "com.yyxnb.module_novel.ModuleInit";
     //消息模块
-    private static final String NEWS_INIT = "com.yyxnb.module_message.ModuleInit";
+    private static final String NEWS_INIT = "com.yyxnb.module_chat.ModuleInit";
     //笑话模块
     private static final String JOKE_INIT = "com.yyxnb.module_joke.ModuleInit";
+    //玩安卓模块
+    private static final String WAN_INIT = "com.yyxnb.module_wanandroid.ModuleInit";
+    //功能测试模块
+    private static final String WIDGET_INIT = "com.yyxnb.module_widget.ModuleInit";
 
     public static String[] initModuleNames = {
             MAIN_INIT
@@ -33,5 +37,7 @@ public class ModuleLifecycleReflexs {
             , NOVEL_INIT
             , NEWS_INIT
             , JOKE_INIT
+            , WAN_INIT
+            , WIDGET_INIT
     };
 }

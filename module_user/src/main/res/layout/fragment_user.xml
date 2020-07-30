@@ -38,7 +38,8 @@
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:srlEnablePureScrollMode="true">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -91,7 +92,7 @@
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="16dp"
                             android:maxLines="2"
-                            android:text="@{!TextUtils.isEmpty(data.signature) ? data.signature : @string/no_signature "
+                            android:text="@{!TextUtils.isEmpty(data.signature) ? data.signature : @string/no_signature }"
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toStartOf="@+id/ivAvatar"

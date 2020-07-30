@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/music_default_music_bg"
+        tools:context="com.yyxnb.module_music.ui.MusicPlayerActivity">
+
+        <!--标题栏-->
+        <RelativeLayout
+            android:id="@+id/music_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="19dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/music_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:src="@mipmap/ic_titlebar_back"
+                android:tint="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/music_top_collect"
+                android:layout_toRightOf="@+id/music_back"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/music_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    tools:text="标题" />
+
+                <TextView
+                    android:id="@+id/music_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textColor="#ECECEC"
+                    android:textSize="11dp"
+                    tools:text="副标题" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/music_top_collect"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:src="@drawable/music_player_collect_white_selector" />
+        </RelativeLayout>
+
+
+        <!--唱片机-->
+        <FrameLayout
+            android:id="@+id/music_discview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/music_seek_time"
+            android:layout_below="@id/music_top_bar" />
+
+        <!--进度条、时间-->
+        <LinearLayout
+            android:id="@+id/music_seek_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/music_controller_view"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/music_current_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                tools:text="00:00" />
+
+            <SeekBar
+                android:id="@+id/music_seek_bar"
+                style="@style/MusicSeekBarStyle" />
+
+            <TextView
+                android:id="@+id/music_total_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                tools:text="00:00" />
+        </LinearLayout>
+
+        <!--底部控制器-->
+        <LinearLayout
+            android:id="@+id/music_controller_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/music_btn_model"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_music_model_loop_noimal" />
+
+            <ImageView
+                android:id="@+id/music_btn_last"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_music_last_noimal" />
+
+            <ImageView
+                android:id="@+id/music_btn_play_pause"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_music_play_noimal" />
+
+            <ImageView
+                android:id="@+id/music_btn_next"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:src="@drawable/ic_music_next_noimal" />
+
+            <ImageView
+                android:id="@+id/music_btn_menu"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:src="@drawable/ic_music_menu_noimal" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

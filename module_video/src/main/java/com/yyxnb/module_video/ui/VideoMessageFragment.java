@@ -3,7 +3,7 @@ package com.yyxnb.module_video.ui;
 import android.os.Bundle;
 
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.log.LogUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 

@@ -1,13 +1,27 @@
-include ':common_video'
-include ':skin_night'
 include ':app',
-        ':module_main',
         ':common_base',
+        ':module_main',
         ':module_user',
         ':module_video',
         ':module_login',
-        ':module_message',
+        ':module_chat',
         ':module_novel',
         ':module_music',
-        ':module_joke'
+        ':module_joke',
+        ':module_wanandroid',
+        ':module_widget'
+
+include ':lib_network',
+        ':lib_rxtool',
+        ':lib_arch',
+        ':lib_video',
+        ':lib_music',
+        ':lib_dialog',
+        ':lib_image_loader',
+        ':lib_common',
+        ':lib_adapter',
+        ':lib_popup',
+        ':lib_localservice'
+
+include ':skin_night'
 rootProject.name = 'What'

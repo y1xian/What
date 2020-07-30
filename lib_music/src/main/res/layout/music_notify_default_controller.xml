@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/music_notice_def_notify_root"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/music_notice_def_cover"
+        android:layout_width="66dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop" />
+
+    <!-- 标题文字 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/music_notice_def_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="周杰伦" />
+
+        <TextView
+            android:id="@+id/music_notice_def_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="周杰伦"
+            android:textSize="12sp" />
+        <!--android:textColor="#6A6A6A"-->
+    </LinearLayout>
+
+    <!-- 点击 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/music_notice_def_btn_last"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_music_mini_last_noimal" />
+
+        <ImageView
+            android:id="@+id/music_notice_def_btn_pause"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_music_mini_play_noimal" />
+
+        <ImageView
+            android:id="@+id/music_notice_def_btn_next"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_music_mini_next_noimal" />
+
+        <TextView
+            android:id="@+id/music_notice_def_btn_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:text="词"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/music_notice_def_btn_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:src="@drawable/ic_music_mini_close" />
+    </LinearLayout>
+
+</LinearLayout>
