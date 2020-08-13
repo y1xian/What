@@ -4,7 +4,7 @@ ext {
             compileSdkVersion: 28,
             buildToolsVersion: '28.0.3',
             minSdkVersion    : 21,
-            applicationId    : "com.yyxnb.what",
+            applicationId    : "com.yyxnb.what.ktx",
             targetSdkVersion : 28,
             versionCode      : 1,
             versionName      : '1.0.1'
