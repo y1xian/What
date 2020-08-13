@@ -1,7 +1,7 @@
 package com.yyxnb.rxtool.task;
 
-import android.support.annotation.NonNull;
 
+import androidx.annotation.NonNull;
 
 /**
  * 通用的遍历数组或者集合的异步任务，在io线程中进行数据处理，在ui线程中刷新ui

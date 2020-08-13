@@ -1,9 +1,10 @@
 package com.yyxnb.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.util.DiffUtil;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DiffUtil;
 
 import com.yyxnb.common.interfaces.IData;
 
@@ -47,7 +48,7 @@ public class DiffCallBack<T extends IData<T>> extends DiffUtil.Callback {
      * 去得到这个Item（有哪些）改变的payload。
      * 例如，如果你用RecyclerView配合DiffUtils，你可以返回  这个Item改变的那些字段，
      *
-     * {@link android.support.v7.widget.RecyclerView.ItemAnimator ItemAnimator} 可以用那些信息去执行正确的动画
+     * {@link androidx.recyclerview.widget.RecyclerView.ItemAnimator ItemAnimator} 可以用那些信息去执行正确的动画
      *
      * 返回 一个 代表着新老item的改变内容的 payload对象
      */

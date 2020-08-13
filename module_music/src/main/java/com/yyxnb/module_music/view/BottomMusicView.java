@@ -1,7 +1,6 @@
 package com.yyxnb.module_music.view;
 
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -11,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.yyxnb.common.utils.ToastUtils;
 import com.yyxnb.common.utils.log.LogUtils;
@@ -82,7 +83,7 @@ public class BottomMusicView extends RelativeLayout implements MusicPlayerEventL
                 return;
             }
             //跳到音乐播放Activitity
-            MusicPlayerActivity.start((Activity) mContext);
+            MusicPlayerActivity.start((AppCompatActivity) mContext);
 
         });
         mLeftView = rootView.findViewById(R.id.album_view);

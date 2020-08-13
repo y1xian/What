@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 绑定 {@link android.arch.lifecycle.ViewModel}
+ * 绑定 {@link androidx.lifecycle.ViewModel}
  *
  * @author yyx
  */

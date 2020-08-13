@@ -1,8 +1,9 @@
 package com.yyxnb.arch.base;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
+
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.arch.delegate.FragmentDelegate;
 import com.yyxnb.arch.utils.AppManager;

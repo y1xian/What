@@ -1,17 +1,18 @@
 package com.yyxnb.popup.code;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.yyxnb.popup.R;
 
@@ -74,7 +75,7 @@ public class FullScreenDialog extends Dialog {
 
     public boolean isActivityStatusBarLightMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            View decorView = ((Activity) contentView.getContext()).getWindow().getDecorView();
+            View decorView = ((AppCompatActivity) contentView.getContext()).getWindow().getDecorView();
             int vis = decorView.getSystemUiVisibility();
             return (vis & View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) != 0;
         }
@@ -165,8 +166,8 @@ public class FullScreenDialog extends Dialog {
     }
 
     public void passClick(MotionEvent event) {
-        if (contentView != null && contentView.getContext() instanceof Activity) {
-            ((Activity) contentView.getContext()).dispatchTouchEvent(event);
+        if (contentView != null && contentView.getContext() instanceof AppCompatActivity) {
+            ((AppCompatActivity) contentView.getContext()).dispatchTouchEvent(event);
         }
     }
 }

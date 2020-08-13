@@ -1,14 +1,15 @@
 package com.yyxnb.module_wanandroid.viewmodel;
 
-import android.arch.lifecycle.MutableLiveData;
+
+import androidx.lifecycle.MutableLiveData;
 
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.config.Http;
-import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.config.WanService;
+import com.yyxnb.network.BaseViewModel;
 
 import java.util.List;
 

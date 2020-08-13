@@ -1,16 +1,17 @@
 package com.yyxnb.module_login.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Transformations;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.bean.UserBean;
 import com.yyxnb.common_base.config.Http;
 import com.yyxnb.common_base.db.AppDatabase;
 import com.yyxnb.common_base.db.UserDao;
-import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_login.config.LoginApi;
+import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.utils.encrypt.MD5Utils;
 
 import java.util.List;

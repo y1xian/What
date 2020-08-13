@@ -3,8 +3,9 @@ package com.yyxnb.arch.delegate;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.LruCache;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.utils.AppManager;

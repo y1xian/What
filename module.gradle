@@ -36,6 +36,15 @@ if (runAsApp) {
 } else {
     apply plugin: 'com.android.library'
 }
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 //对组件库的依赖格式： addComponent dependencyName [, realDependency]
 // 使用示例见demo/build.gradle
@@ -113,11 +122,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
         //阿里路由框架配置
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
     }
 
     //签名
@@ -236,20 +245,20 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    if (runAsApp) {
-        androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
-            exclude group: 'com.android.support', module: 'support-annotations'
-        })
-        testImplementation libs.junit
-        androidTestImplementation libs.test_runner
-        androidTestImplementation libs.test_espresso
-    }
+//    if (runAsApp) {
+//        androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+//            exclude group: 'com.android.support', module: 'support-annotations'
+//        })
+//        testImplementation libs.junit
+//        androidTestImplementation libs.test_runner
+//        androidTestImplementation libs.test_espresso
+//    }
 
     if (!isLibrary) {
         implementation project(':common_base')
         //组件中依赖阿里路由编译框架
-        annotationProcessor libs.arouter_compiler
-        annotationProcessor libs.arch_comp_room_compiler
+        kapt libs.arouter_compiler
+        kapt libs.arch_comp_room_compiler
     }
 
     //2018-06-03新增：这里是为了示例添加全局拦截器
@@ -259,16 +268,16 @@ dependencies {
 //        implementation project(':demo_interceptors')
     }
 
-    configurations.all {
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == 'com.android.support') {
-                if (!requested.name.startsWith("multidex")) {
-                    details.useVersion versions.support
-                }
-            }
-        }
-    }
+//    configurations.all {
+//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//            def requested = details.requested
+//            if (requested.group == 'com.android.support') {
+//                if (!requested.name.startsWith("multidex")) {
+//                    details.useVersion versions.support
+//                }
+//            }
+//        }
+//    }
 }
 
 

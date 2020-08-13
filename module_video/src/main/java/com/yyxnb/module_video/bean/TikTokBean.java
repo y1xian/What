@@ -1,7 +1,8 @@
 package com.yyxnb.module_video.bean;
 
-import android.arch.persistence.room.Entity;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
 
 import java.io.Serializable;
 

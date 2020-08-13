@@ -1,6 +1,9 @@
 //设置到ext中，供module的build.gradle使用（例如用于设置sourceSets配置）
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.y1xian'
 
@@ -96,16 +99,16 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    configurations.all {
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == 'com.android.support') {
-                if (!requested.name.startsWith("multidex")) {
-                    details.useVersion versions.support
-                }
-            }
-        }
-    }
+//    configurations.all {
+//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//            def requested = details.requested
+//            if (requested.group == 'com.android.support') {
+//                if (!requested.name.startsWith("multidex")) {
+//                    details.useVersion versions.support
+//                }
+//            }
+//        }
+//    }
 }
 
 

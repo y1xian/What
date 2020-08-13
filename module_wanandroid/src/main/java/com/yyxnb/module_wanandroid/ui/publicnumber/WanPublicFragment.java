@@ -3,15 +3,16 @@ package com.yyxnb.module_wanandroid.ui.publicnumber;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.yyxnb.adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.utils.DpUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
+import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanPublicBinding;
 import com.yyxnb.module_wanandroid.viewmodel.WanPublicViewModel;

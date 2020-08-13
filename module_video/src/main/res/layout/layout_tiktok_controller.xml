@@ -17,21 +17,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@mipmap/bg_video_shadow_top" />
+        app:srcCompat="@mipmap/bg_video_shadow_top" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
-        android:src="@mipmap/bg_video_shadow_bottom" />
+        app:srcCompat="@mipmap/bg_video_shadow_bottom" />
 
     <ImageView
         android:id="@+id/play_btn"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerInParent="true"
-        android:src="@mipmap/icon_play"
+        app:srcCompat="@mipmap/icon_play"
         android:visibility="gone"
         tools:visibility="visible" />
 
@@ -64,7 +64,7 @@
                 android:layout_height="24dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="36dp"
-                android:src="@mipmap/icon_video_unfollow" />
+                app:srcCompat="@mipmap/icon_video_unfollow" />
 
         </RelativeLayout>
 
@@ -73,7 +73,7 @@
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/icon_video_like" />
+            app:srcCompat="@mipmap/icon_video_like" />
 
         <TextView
             android:id="@+id/tvLikeCount"
@@ -89,7 +89,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/icon_video_comment" />
+            app:srcCompat="@mipmap/icon_video_comment" />
 
         <TextView
             android:id="@+id/tvCommentCount"
@@ -105,7 +105,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/icon_video_share" />
+            app:srcCompat="@mipmap/icon_video_share" />
 
         <TextView
             android:id="@+id/tvShareCount"

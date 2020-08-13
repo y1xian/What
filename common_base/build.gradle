@@ -9,7 +9,7 @@ dependencies {
     api project(':lib_network')
     // 图片框架
     api project(':lib_image_loader')
-    annotationProcessor libs.glide_compiler
+    kapt libs.glide_compiler
     // 对话框
     api project(':lib_dialog')
     api project(':lib_popup')
@@ -30,11 +30,11 @@ dependencies {
 
     // room 数据库
     api libs.arch_comp_room
-    annotationProcessor libs.arch_comp_room_compiler
+    kapt libs.arch_comp_room_compiler
 
     // 路由
     api libs.arouter_api
-    annotationProcessor libs.arouter_compiler
+    kapt libs.arouter_compiler
 
     // 微信 键值对储存
     api libs.mmkv

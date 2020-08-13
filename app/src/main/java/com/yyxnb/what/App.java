@@ -1,7 +1,8 @@
 package com.yyxnb.what;
 
 import android.content.Context;
-import android.support.multidex.MultiDex;
+
+import androidx.multidex.MultiDex;
 
 import com.tencent.bugly.beta.Beta;
 import com.yyxnb.common_base.DebugApplication;

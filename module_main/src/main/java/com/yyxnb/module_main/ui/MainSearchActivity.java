@@ -1,9 +1,10 @@
 package com.yyxnb.module_main.ui;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.common.utils.KeyboardUtils;

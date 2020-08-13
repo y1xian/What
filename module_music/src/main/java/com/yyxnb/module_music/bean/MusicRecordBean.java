@@ -1,9 +1,10 @@
 package com.yyxnb.module_music.bean;
 
-import android.arch.persistence.room.Embedded;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.RoomWarnings;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.RoomWarnings;
 
 import java.io.Serializable;
 

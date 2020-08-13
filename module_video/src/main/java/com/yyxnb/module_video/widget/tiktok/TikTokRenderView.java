@@ -1,8 +1,9 @@
 package com.yyxnb.module_video.widget.tiktok;
 
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.dueeeke.videoplayer.player.AbstractPlayer;
 import com.dueeeke.videoplayer.render.IRenderView;

@@ -1,6 +1,5 @@
 package com.yyxnb.popup.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
@@ -21,7 +20,6 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-import android.support.annotation.FloatRange;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -32,6 +30,9 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import androidx.annotation.FloatRange;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.yyxnb.popup.code.AttachPopupView;
 import com.yyxnb.popup.code.BasePopupView;
@@ -559,11 +560,11 @@ public class PopupUtils {
         return View.LAYOUT_DIRECTION_RTL == view.getLayoutDirection();
     }
 
-    public static Activity context2Activity(View view) {
+    public static AppCompatActivity context2Activity(View view) {
         Context context = view.getContext();
         while (context instanceof ContextWrapper) {
-            if (context instanceof Activity) {
-                return ((Activity) context);
+            if (context instanceof AppCompatActivity) {
+                return ((AppCompatActivity) context);
             } else {
                 context = ((ContextWrapper) context).getBaseContext();
             }

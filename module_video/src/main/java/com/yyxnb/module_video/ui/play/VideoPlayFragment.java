@@ -2,8 +2,9 @@ package com.yyxnb.module_video.ui.play;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
@@ -15,9 +16,6 @@ import com.yyxnb.arch.common.MsgEvent;
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.video.Utils;
-import com.yyxnb.video.cache.PreloadManager;
-import com.yyxnb.video.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;
@@ -29,6 +27,9 @@ import com.yyxnb.module_video.widget.tiktok.TikTokController;
 import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory;
 import com.yyxnb.utils.permission.PermissionListener;
 import com.yyxnb.utils.permission.PermissionUtils;
+import com.yyxnb.video.Utils;
+import com.yyxnb.video.cache.PreloadManager;
+import com.yyxnb.video.cache.ProxyVideoCacheManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;

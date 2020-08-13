@@ -2,9 +2,10 @@ package com.yyxnb.module_music.ui;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
@@ -13,10 +14,10 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.lib_music.MusicPlayerManager;
 import com.yyxnb.localservice.LocalConfig;
-import com.yyxnb.localservice.manager.AudioLoaderManager;
-import com.yyxnb.localservice.manager.DataCallback;
 import com.yyxnb.localservice.bean.LocalFolder;
 import com.yyxnb.localservice.bean.LocalMedia;
+import com.yyxnb.localservice.manager.AudioLoaderManager;
+import com.yyxnb.localservice.manager.DataCallback;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.adapter.MusicLocalListAdapter;
 import com.yyxnb.module_music.bean.MusicBean;

@@ -1,7 +1,7 @@
 package com.yyxnb.popup.interfaces;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.yyxnb.popup.code.ImageViewerPopupView;
 

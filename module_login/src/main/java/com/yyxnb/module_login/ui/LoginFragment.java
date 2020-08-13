@@ -1,8 +1,9 @@
 package com.yyxnb.module_login.ui;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.EditText;
+
+import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.arch.annotations.BindRes;
@@ -10,8 +11,8 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common.utils.ToastUtils;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_login.config.UserManager;
 import com.yyxnb.module_login.R;
+import com.yyxnb.module_login.config.UserManager;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.viewmodel.LoginViewModel;
 

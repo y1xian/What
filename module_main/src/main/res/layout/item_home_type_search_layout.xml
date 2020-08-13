@@ -28,7 +28,7 @@
         android:layout_height="30dp"
         android:layout_marginEnd="16dp"
         android:padding="4dp"
-        android:src="@mipmap/ic_microphone"
+        app:srcCompat="@mipmap/ic_microphone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivCamera"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="16dp"
-        android:src="@mipmap/ic_camera"
+        app:srcCompat="@mipmap/ic_camera"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

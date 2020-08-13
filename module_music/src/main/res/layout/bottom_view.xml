@@ -77,7 +77,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
-                android:src="@mipmap/note_btn_play_white" />
+                app:srcCompat="@mipmap/note_btn_play_white" />
 
             <ImageView
                 android:id="@+id/show_list_view"
@@ -85,7 +85,7 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="20dp"
-                android:src="@mipmap/audio_black_cat" />
+                app:srcCompat="@mipmap/audio_black_cat" />
         </LinearLayout>
 
     </RelativeLayout>

@@ -1,12 +1,13 @@
 package com.yyxnb.lib_music;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.yyxnb.lib_music.interfaces.IMusic;
 import com.yyxnb.lib_music.interfaces.IMusicPlayer;
@@ -15,8 +16,8 @@ import com.yyxnb.lib_music.interfaces.MusicInitializeCallBack;
 import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
 import com.yyxnb.lib_music.interfaces.MusicPlayerInfoListener;
 import com.yyxnb.lib_music.service.MusicPlayerBinder;
-import com.yyxnb.lib_music.utils.MusicPlayerConfig;
 import com.yyxnb.lib_music.service.MusicPlayerService;
+import com.yyxnb.lib_music.utils.MusicPlayerConfig;
 import com.yyxnb.lib_music.utils.MusicSubjectObservable;
 import com.yyxnb.lib_music.utils.MusicUtils;
 
@@ -103,7 +104,7 @@ public final class MusicPlayerManager implements IMusicPlayer {
      *
      * @param context Activity类型上下文
      */
-    public void unInitialize(Activity context) {
+    public void unInitialize(AppCompatActivity context) {
         unInitialize(context, false);
     }
 
@@ -113,7 +114,7 @@ public final class MusicPlayerManager implements IMusicPlayer {
      * @param context Activity类型上下文
      * @param destroy 是否同步注销内部服务组件，true:注销服务结束播放
      */
-    public void unInitialize(Activity context, boolean destroy) {
+    public void unInitialize(AppCompatActivity context, boolean destroy) {
         //释放锁屏设置
         mActivityLockClassName = null;
         if (null != mBinder && mBinder.pingBinder()) {
@@ -142,7 +143,7 @@ public final class MusicPlayerManager implements IMusicPlayer {
      * @param destroy 是否同步注销内部服务组件，true:注销服务结束播放
      */
     private void unBindService(Context context, boolean destroy) {
-        if (null != context && context instanceof Activity) {
+        if (null != context && context instanceof AppCompatActivity) {
             try {
                 if (null != mConnection && null != mBinder) {
                     context.unbindService(mConnection);

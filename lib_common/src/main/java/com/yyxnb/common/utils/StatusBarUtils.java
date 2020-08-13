@@ -5,13 +5,11 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.view.ViewCompat;
 import android.view.DisplayCutout;
 import android.view.Gravity;
 import android.view.View;
@@ -20,6 +18,9 @@ import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -437,7 +438,7 @@ public class StatusBarUtils implements Serializable {
      * @param activity
      * @return
      */
-    public static boolean isCutout(Activity activity) {
+    public static boolean isCutout(AppCompatActivity activity) {
         if (sHasCheckCutout) {
             return sIsCutout;
         }

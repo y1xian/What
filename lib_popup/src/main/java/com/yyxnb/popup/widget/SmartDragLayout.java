@@ -2,8 +2,6 @@ package com.yyxnb.popup.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v4.view.NestedScrollingParent;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -11,6 +9,9 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
+
+import androidx.core.view.NestedScrollingParent;
+import androidx.core.view.ViewCompat;
 
 import com.yyxnb.popup.PopupManager;
 import com.yyxnb.popup.animator.ShadowBgAnimator;

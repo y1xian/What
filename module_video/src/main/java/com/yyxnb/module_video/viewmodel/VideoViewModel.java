@@ -1,16 +1,17 @@
 package com.yyxnb.module_video.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.yyxnb.common_base.base.StateData;
 import com.yyxnb.common_base.config.Http;
-import com.yyxnb.network.BaseViewModel;
-import com.yyxnb.module_video.config.VideoService;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.config.DataConfig;
+import com.yyxnb.module_video.config.VideoService;
 import com.yyxnb.module_video.db.VideoDao;
 import com.yyxnb.module_video.db.VideoDatabase;
+import com.yyxnb.network.BaseViewModel;
 
 import java.util.List;
 

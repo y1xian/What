@@ -3,8 +3,8 @@ package com.yyxnb.lib_music.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
-import android.support.v4.util.LruCache;
 import android.text.TextUtils;
+import android.util.LruCache;
 
 /**
  * Music AlbumCache
@@ -61,7 +61,9 @@ public class MusicImageCache {
      * @return bitmap
      */
     public Bitmap getBitmap(String key) {
-        if (TextUtils.isEmpty(key)) return null;
+        if (TextUtils.isEmpty(key)) {
+            return null;
+        }
         if (null != cache && cache.size() > 0) {
             return cache.get(key);
         }

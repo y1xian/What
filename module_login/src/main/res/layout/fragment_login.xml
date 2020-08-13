@@ -7,7 +7,7 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -21,7 +21,7 @@
             android:layout_marginTop="40dp"
             android:padding="5dp"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_close"
+            app:srcCompat="@mipmap/ic_close"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clInput"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -67,7 +67,7 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:src="@mipmap/ic_phone"
+                app:srcCompat="@mipmap/ic_phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,7 +112,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="30dp"
-                android:src="@mipmap/ic_password"
+                app:srcCompat="@mipmap/ic_password"
                 app:layout_constraintStart_toStartOf="@+id/ivPhone"
                 app:layout_constraintTop_toBottomOf="@+id/ivPhone" />
 
@@ -151,7 +151,7 @@
                 android:background="@color/colorLine"
                 app:layout_constraintTop_toBottomOf="@+id/ivPassword" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/tvLogin"
@@ -180,7 +180,7 @@
             app:layout_constraintStart_toStartOf="@+id/tvLogin"
             app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="16dp"
@@ -238,7 +238,7 @@
                 app:riv_oval="true" />
 
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

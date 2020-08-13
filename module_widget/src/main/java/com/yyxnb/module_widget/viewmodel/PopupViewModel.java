@@ -1,8 +1,9 @@
 package com.yyxnb.module_widget.viewmodel;
 
-import android.arch.paging.DataSource;
-import android.arch.paging.PageKeyedDataSource;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.paging.DataSource;
+import androidx.paging.PageKeyedDataSource;
 
 import com.yyxnb.module_widget.bean.MainBean;
 import com.yyxnb.module_widget.config.DataConfig;

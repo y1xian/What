@@ -1,9 +1,10 @@
 package com.yyxnb.module_joke.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
 
 
 public class CornerLinearLayout extends LinearLayout {

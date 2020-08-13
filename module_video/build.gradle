@@ -23,4 +23,5 @@ dependencies {
     }
 
     implementation project(':lib_video')
+    implementation 'com.google.android.material:material:1.2.0'
 }

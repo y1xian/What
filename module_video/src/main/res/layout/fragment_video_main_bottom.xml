@@ -1,4 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -79,7 +80,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:padding="2dp"
-            android:src="@mipmap/icon_record" />
+            app:srcCompat="@mipmap/icon_record" />
 
         <ImageView
             android:id="@+id/record_tip"
@@ -89,7 +90,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            android:src="@mipmap/icon_no_works"
+            app:srcCompat="@mipmap/icon_no_works"
             android:visibility="invisible" />
 
 

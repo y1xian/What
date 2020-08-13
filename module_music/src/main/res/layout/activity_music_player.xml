@@ -30,7 +30,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:padding="5dp"
-                android:src="@mipmap/ic_titlebar_back"
+                app:srcCompat="@mipmap/ic_titlebar_back"
                 android:tint="@color/white" />
 
             <LinearLayout
@@ -70,7 +70,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
-                android:src="@drawable/music_player_collect_white_selector" />
+                app:srcCompat="@drawable/music_player_collect_white_selector" />
         </RelativeLayout>
 
 
@@ -130,21 +130,21 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_model_loop_noimal" />
+                app:srcCompat="@drawable/ic_music_model_loop_noimal" />
 
             <ImageView
                 android:id="@+id/music_btn_last"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_last_noimal" />
+                app:srcCompat="@drawable/ic_music_last_noimal" />
 
             <ImageView
                 android:id="@+id/music_btn_play_pause"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_play_noimal" />
+                app:srcCompat="@drawable/ic_music_play_noimal" />
 
             <ImageView
                 android:id="@+id/music_btn_next"
@@ -152,7 +152,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_next_noimal" />
+                app:srcCompat="@drawable/ic_music_next_noimal" />
 
             <ImageView
                 android:id="@+id/music_btn_menu"
@@ -160,7 +160,7 @@
                 android:layout_height="20dp"
                 android:layout_centerInParent="true"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_menu_noimal" />
+                app:srcCompat="@drawable/ic_music_menu_noimal" />
         </LinearLayout>
 
     </RelativeLayout>

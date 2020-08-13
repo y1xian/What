@@ -11,10 +11,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.transition.ChangeBounds;
 import android.transition.ChangeImageTransform;
 import android.transition.ChangeTransform;
@@ -31,6 +27,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.yyxnb.popup.PopupManager;
 import com.yyxnb.popup.R;
 import com.yyxnb.popup.enums.PopupStatus;
@@ -39,9 +40,9 @@ import com.yyxnb.popup.interfaces.OnSrcViewUpdateListener;
 import com.yyxnb.popup.interfaces.PopupImageLoader;
 import com.yyxnb.popup.photoview.OnMatrixChangedListener;
 import com.yyxnb.popup.photoview.PhotoView;
+import com.yyxnb.popup.util.Permission;
 import com.yyxnb.popup.util.PermissionConstants;
 import com.yyxnb.popup.util.PopupUtils;
-import com.yyxnb.popup.util.Permission;
 import com.yyxnb.popup.widget.BlankView;
 import com.yyxnb.popup.widget.HackyViewPager;
 import com.yyxnb.popup.widget.PhotoViewContainer;
@@ -495,8 +496,9 @@ public class ImageViewerPopupView extends BasePopupView implements OnDragChangeL
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
             final PhotoView photoView = new PhotoView(container.getContext());
             // call LoadImageListener
-            if (imageLoader != null)
+            if (imageLoader != null) {
                 imageLoader.loadImage(position, urls.get(isInfinite ? position % urls.size() : position), photoView);
+            }
 
             photoView.setOnMatrixChangeListener(new OnMatrixChangedListener() {
                 @Override

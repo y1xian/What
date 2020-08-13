@@ -1,17 +1,9 @@
 package com.yyxnb.popup.code;
 
-import android.app.Activity;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -20,6 +12,15 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.popup.PopupManager;
 import com.yyxnb.popup.animator.BlurAnimator;
@@ -173,7 +174,7 @@ public abstract class BasePopupView extends FrameLayout implements OnNavigationB
     }
 
     public BasePopupView show() {
-        Activity activity = PopupUtils.context2Activity(this);
+        AppCompatActivity activity = PopupUtils.context2Activity(this);
         if (activity == null || activity.isFinishing()) {
             return this;
         }

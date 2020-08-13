@@ -1,19 +1,20 @@
 package com.yyxnb.module_music.ui;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.databinding.DataBindingUtil;
 
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseActivity;
@@ -53,7 +54,7 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
     private MusicBean mMusicBean;
     private MusicRecordBean mRecordBean;
 
-    public static void start(Activity context) {
+    public static void start(AppCompatActivity context) {
         Intent intent = new Intent(context, MusicPlayerActivity.class);
         ActivityCompat.startActivity(context, intent,
                 ActivityOptionsCompat.makeSceneTransitionAnimation(context).toBundle());

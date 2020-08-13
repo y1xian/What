@@ -1,8 +1,9 @@
 package com.yyxnb.popup.interfaces;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
 
 import java.io.File;
 

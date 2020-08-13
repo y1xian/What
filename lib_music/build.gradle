@@ -2,5 +2,5 @@ ext.isLibrary = true
 apply from: rootProject.file('lib.gradle')
 
 dependencies {
-    implementation libs.design, libs.glide
+    implementation libs.appcompat, libs.glide
 }

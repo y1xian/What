@@ -1,9 +1,10 @@
 package com.yyxnb.module_user.ui;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.widget.CompoundButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tencent.mmkv.MMKV;
 import com.yyxnb.common.utils.ToastUtils;
@@ -31,7 +32,7 @@ public class UserPresenter {
 
     private static void toggleSkin(Context context) {
         // 存储权限
-        PermissionUtils.with((Activity) context)
+        PermissionUtils.with((AppCompatActivity) context)
                 .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .setPermissionsCheckListener(new PermissionListener() {
                     @Override

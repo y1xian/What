@@ -44,7 +44,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:padding="8dp"
-                android:src="@mipmap/ic_close"
+                app:srcCompat="@mipmap/ic_close"
                 android:visibility="gone"
                 tools:visibility="visible" />
 

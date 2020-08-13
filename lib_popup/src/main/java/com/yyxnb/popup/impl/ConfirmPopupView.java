@@ -1,12 +1,13 @@
 package com.yyxnb.popup.impl;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.popup.PopupManager;
 import com.yyxnb.popup.R;

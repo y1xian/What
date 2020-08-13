@@ -1,9 +1,10 @@
 package com.yyxnb.lib_music.utils;
 
 import android.os.Build;
-import android.support.v4.os.EnvironmentCompat;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.core.os.EnvironmentCompat;
 
 import java.io.BufferedReader;
 import java.io.IOException;

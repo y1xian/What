@@ -2,10 +2,11 @@ package com.yyxnb.adapter;
 
 
 import android.annotation.SuppressLint;
-import android.arch.core.executor.ArchTaskExecutor;
-import android.arch.paging.ItemKeyedDataSource;
-import android.arch.paging.PagedList;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.arch.core.executor.ArchTaskExecutor;
+import androidx.paging.ItemKeyedDataSource;
+import androidx.paging.PagedList;
 
 import java.util.ArrayList;
 import java.util.Collections;

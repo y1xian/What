@@ -1,12 +1,13 @@
 package com.yyxnb.module_main.viewmodel;
 
-import android.arch.paging.DataSource;
-import android.arch.paging.PageKeyedDataSource;
-import android.support.annotation.NonNull;
 
-import com.yyxnb.network.BasePagedViewModel;
+import androidx.annotation.NonNull;
+import androidx.paging.DataSource;
+import androidx.paging.PageKeyedDataSource;
+
 import com.yyxnb.module_main.bean.MainHomeBean;
 import com.yyxnb.module_main.config.DataConfig;
+import com.yyxnb.network.BasePagedViewModel;
 
 import java.util.Collections;
 

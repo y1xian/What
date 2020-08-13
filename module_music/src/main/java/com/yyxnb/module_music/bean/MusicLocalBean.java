@@ -1,6 +1,7 @@
 package com.yyxnb.module_music.bean;
 
-import android.arch.persistence.room.Entity;
+
+import androidx.room.Entity;
 
 import java.io.Serializable;
 

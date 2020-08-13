@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/music_notice_big_notify_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -55,7 +56,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1.2"
-                android:src="@drawable/ic_music_collect_noimal" />
+                app:srcCompat="@drawable/ic_music_collect_noimal" />
 
             <ImageView
                 android:id="@+id/music_notice_def_btn_last"
@@ -63,7 +64,7 @@
                 android:layout_height="16dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_mini_last_noimal" />
+                app:srcCompat="@drawable/ic_music_mini_last_noimal" />
 
             <ImageView
                 android:id="@+id/music_notice_def_btn_pause"
@@ -71,7 +72,7 @@
                 android:layout_height="28dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_mini_play_noimal" />
+                app:srcCompat="@drawable/ic_music_mini_play_noimal" />
 
             <ImageView
                 android:id="@+id/music_notice_def_btn_next"
@@ -79,7 +80,7 @@
                 android:layout_height="16dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:src="@drawable/ic_music_mini_next_noimal" />
+                app:srcCompat="@drawable/ic_music_mini_next_noimal" />
 
             <TextView
                 android:id="@+id/music_notice_def_btn_word"
@@ -108,6 +109,6 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
         android:padding="6dp"
-        android:src="@drawable/ic_music_mini_close" />
+        app:srcCompat="@drawable/ic_music_mini_close" />
 
 </RelativeLayout>

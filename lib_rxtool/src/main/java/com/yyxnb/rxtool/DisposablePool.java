@@ -1,6 +1,7 @@
 package com.yyxnb.rxtool;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.util.Iterator;
 import java.util.Map;

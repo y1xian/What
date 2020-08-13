@@ -3,10 +3,11 @@ package com.yyxnb.popup.impl;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.popup.PopupManager;
 import com.yyxnb.popup.R;

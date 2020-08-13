@@ -61,7 +61,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
             android:layout_weight="0"
-            android:src="@color/colorLine"
+            app:srcCompat="@color/colorLine"
             android:visibility="gone" />
 
         <ImageView
@@ -72,7 +72,7 @@
             android:layout_weight="0"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
-            android:src="@color/colorLine" />
+            app:srcCompat="@color/colorLine" />
     </LinearLayout>
 
     <View

@@ -1,6 +1,7 @@
 package com.yyxnb.adapter;
 
-import android.support.v4.util.SparseArrayCompat;
+
+import androidx.collection.SparseArrayCompat;
 
 public class ItemDelegateManager<T> {
 

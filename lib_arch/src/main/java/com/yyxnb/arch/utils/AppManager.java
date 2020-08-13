@@ -2,7 +2,9 @@ package com.yyxnb.arch.utils;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.base.IFragment;
@@ -242,7 +244,7 @@ public class AppManager {
     /**
      * 退回桌面进入后台
      */
-    public void returnDesktop(Activity activity) {
+    public void returnDesktop(AppCompatActivity activity) {
         Intent homeIntent = new Intent(Intent.ACTION_MAIN);
         homeIntent.addCategory(Intent.CATEGORY_HOME);
         homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

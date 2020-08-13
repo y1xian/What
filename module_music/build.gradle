@@ -22,6 +22,5 @@ dependencies {
     }
 
     implementation project(':lib_music'),project(':lib_localservice')
-    implementation 'com.android.support:support-v4:28.0.0'
 
 }

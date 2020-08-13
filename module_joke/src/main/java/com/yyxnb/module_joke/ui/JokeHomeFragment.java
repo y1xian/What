@@ -3,13 +3,14 @@ package com.yyxnb.module_joke.ui;
 import android.content.pm.ActivityInfo;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dueeeke.videocontroller.StandardVideoController;
@@ -27,19 +28,19 @@ import com.yyxnb.adapter.ItemDecoration;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.video.Utils;
-import com.yyxnb.video.cache.PreloadManager;
-import com.yyxnb.video.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_joke.R;
 import com.yyxnb.module_joke.adapter.JokeHomeAdapter;
 import com.yyxnb.module_joke.bean.TikTokBean;
 import com.yyxnb.module_joke.config.DataConfig;
 import com.yyxnb.module_joke.databinding.FragmentJokeHomeBinding;
+import com.yyxnb.video.Utils;
+import com.yyxnb.video.cache.PreloadManager;
+import com.yyxnb.video.cache.ProxyVideoCacheManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
+import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_HOME_FRAGMENT;
 
 /**

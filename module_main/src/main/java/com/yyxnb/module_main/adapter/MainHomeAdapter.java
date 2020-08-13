@@ -2,8 +2,9 @@ package com.yyxnb.module_main.adapter;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.constraint.ConstraintLayout;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.noober.background.drawable.DrawableCreator;
 import com.yyxnb.adapter.BaseViewHolder;

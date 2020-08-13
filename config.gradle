@@ -1,28 +1,37 @@
 ext {
 
     build_version = [
-            compileSdkVersion: 28,
-            buildToolsVersion: '28.0.3',
+            compileSdkVersion: 30,
+            buildToolsVersion: '30.0.1',
             minSdkVersion    : 21,
             applicationId    : "com.yyxnb.what.ktx",
-            targetSdkVersion : 28,
+            targetSdkVersion : 30,
             versionCode      : 1,
             versionName      : '1.0.1'
     ]
 
     versions = [
             android_plugin      : '4.0.0',
+            kotlin_gradle       : '1.3.72',
+            kotlin_coroutines   : '1.3.7',
 
-            support             : '28.0.0',
-            arch_comp_lifecycle : '1.1.1',
-            arch_comp_room      : '1.1.1',
-            arch_comp_navigation: '1.0.0',
-            arch_comp_paging    : '1.0.1',
-            arch_comp_work      : '1.0.1',
+            appcompat           : "1.2.0",
+            core_ktx            : "1.3.1",
+            fragment            : "1.2.5",
+            annotation          : "1.1.0",
+            recyclerview        : "1.1.0",
+            constraint          : "1.1.3",
+            cardview            : "1.0.0",
+
+            arch_comp_lifecycle : '2.2.0',
+            arch_comp_room      : '2.2.5',
+            arch_comp_navigation: '2.3.0',
+            arch_comp_paging    : '2.1.2',
+            arch_comp_work      : '2.4.0',
 
             retrofit            : '2.5.0',
             okhttp              : '3.12.0',
-            glide               : '4.6.1',
+            glide               : '4.11.0',
 
             rxjava2             : '2.2.19',
             rxandroid2          : '2.1.1',
@@ -48,47 +57,48 @@ ext {
 
     build_plugins = [
             android_gradle : [group: 'com.android.tools.build', name: 'gradle', version: versions.android_plugin],
+            kotlin_gradle  : [group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: versions.kotlin_gradle],
             //https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx
             aspectjx_gradle: [group: 'com.hujiang.aspectjx', name: 'gradle-android-plugin-aspectjx', version: '2.0.8']
     ]
     libs = [
-            support_v4                     : [group: 'com.android.support', name: 'support-v4', version: versions.support],
-            support_v7                     : [group: 'com.android.support', name: 'appcompat-v7', version: versions.support],
-            support_v13                    : [group: 'com.android.support', name: 'support-v13', version: versions.support],
-            design                         : [group: 'com.android.support', name: 'design', version: versions.support],
-            recyclerview                   : [group: 'com.android.support', name: 'recyclerview-v7', version: versions.support],
-            cardview                       : [group: 'com.android.support', name: 'cardview-v7', version: versions.support],
-            annotations                    : [group: 'com.android.support', name: 'support-annotations', version: versions.support],
+            // kotlin
+            kotlin_stdlib                  : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin],
+            kotlin_stdlib_common           : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-common', version: versions.kotlin],
+            // 协程    https://github.com/Kotlin/kotlinx.coroutines
+            kotlin_coroutines              : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-android', version: versions.kotlin_coroutines],
+            kotlin_coroutines_core         : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: versions.kotlin_coroutines],
 
-            constraint                     : [group: 'com.android.support.constraint', name: 'constraint-layout', version: '2.0.0-beta6'],
-            flexbox                        : [group: 'com.google.android', name: 'flexbox', version: '1.1.0'],
+            appcompat                      : [group: 'androidx.appcompat', name: 'appcompat', version: versions.appcompat],
+            core_ktx                       : [group: 'androidx.core', name: 'core-ktx', version: versions.core_ktx],
+            fragment                       : [group: 'androidx.fragment', name: 'fragment', version: versions.fragment],
+            recyclerview                   : [group: 'androidx.recyclerview', name: 'recyclerview', version: versions.recyclerview],
+            cardview                       : [group: 'androidx.cardview', name: 'cardview', version: versions.cardview],
+            annotations                    : [group: 'androidx.annotation', name: 'annotation', version: versions.annotation],
+            constraint                     : [group: 'androidx.constraintlayout', name: 'constraintlayout', version: versions.constraint],
 
-            arch_comp_extensions           : [group: 'android.arch.lifecycle', name: 'extensions', version: versions.arch_comp_lifecycle],
-            arch_comp_java8                : [group: 'android.arch.lifecycle', name: 'common-java8', version: versions.arch_comp_lifecycle],
-            arch_comp_compiler             : [group: 'android.arch.lifecycle', name: 'compiler', version: versions.arch_comp_lifecycle],
-            arch_comp_viewmodel            : [group: 'android.arch.lifecycle', name: 'viewmodel', version: versions.arch_comp_lifecycle],
-            arch_comp_livedata             : [group: 'android.arch.lifecycle', name: 'livedata', version: versions.arch_comp_lifecycle],
-            arch_comp_livedata_rx          : [group: 'android.arch.lifecycle', name: 'reactivestreams', version: versions.arch_comp_lifecycle],
-            arch_comp_runtime              : [group: 'android.arch.lifecycle', name: 'runtime', version: versions.arch_comp_lifecycle],
+            arch_comp_extensions           : [group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: versions.arch_comp_lifecycle],
+            arch_comp_java8                : [group: 'androidx.lifecycle', name: 'lifecycle-common-java8', version: versions.arch_comp_lifecycle],
+            arch_comp_compiler             : [group: 'androidx.lifecycle', name: 'lifecycle-compiler', version: versions.arch_comp_lifecycle],
+            arch_comp_viewmodel            : [group: 'androidx.lifecycle', name: 'lifecycle-viewmodel', version: versions.arch_comp_lifecycle],
+            arch_comp_livedata             : [group: 'androidx.lifecycle', name: 'lifecycle-livedata', version: versions.arch_comp_lifecycle],
+            arch_comp_runtime              : [group: 'androidx.lifecycle', name: 'lifecycle-runtime', version: versions.arch_comp_lifecycle],
 
-            arch_comp_navigation_runtime   : [group: 'android.arch.navigation', name: 'navigation-runtime', version: versions.arch_comp_navigation],
-            arch_comp_navigation_common    : [group: 'android.arch.navigation', name: 'navigation-common', version: versions.arch_comp_navigation],
-            arch_comp_navigation_common_ktx: [group: 'android.arch.navigation', name: 'navigation-common-ktx', version: versions.arch_comp_navigation],
-            arch_comp_navigation           : [group: 'android.arch.navigation', name: 'navigation-fragment-ktx', version: versions.arch_comp_navigation],
-            arch_comp_navigation_ui        : [group: 'android.arch.navigation', name: 'navigation-ui-ktx', version: versions.arch_comp_navigation],
+            arch_comp_navigation_runtime   : [group: 'androidx.navigation', name: 'navigation-runtime', version: versions.arch_comp_navigation],
+            arch_comp_navigation_common    : [group: 'androidx.navigation', name: 'navigation-common', version: versions.arch_comp_navigation],
+            arch_comp_navigation_common_ktx: [group: 'androidx.navigation', name: 'navigation-common-ktx', version: versions.arch_comp_navigation],
+            arch_comp_navigation           : [group: 'androidx.navigation', name: 'navigation-fragment-ktx', version: versions.arch_comp_navigation],
+            arch_comp_navigation_ui        : [group: 'androidx.navigation', name: 'navigation-ui-ktx', version: versions.arch_comp_navigation],
 
-            arch_comp_work                 : [group: 'android.arch.work', name: 'work-runtime', version: versions.arch_comp_work],
+            arch_comp_work                 : [group: 'androidx.work', name: 'work-runtime', version: versions.arch_comp_work],
 
-            arch_comp_paging               : [group: 'android.arch.paging', name: 'runtime', version: versions.arch_comp_paging],
-            arch_comp_paging_rxjava        : [group: 'android.arch.paging', name: 'rxjava2', version: versions.arch_comp_paging],
+            arch_comp_paging               : [group: 'androidx.paging', name: 'paging-runtime', version: versions.arch_comp_paging],
+            arch_comp_paging_rxjava        : [group: 'androidx.paging', name: 'paging-rxjava2', version: versions.arch_comp_paging],
 
-            arch_comp_room                 : [group: 'android.arch.persistence.room', name: 'runtime', version: versions.arch_comp_room],
-            arch_comp_room_compiler        : [group: 'android.arch.persistence.room', name: 'compiler', version: versions.arch_comp_room],
-            arch_comp_room_rxjava          : [group: 'android.arch.persistence.room', name: 'rxjava2', version: versions.arch_comp_room],
-            arch_comp_room_test            : [group: 'android.arch.persistence.room', name: 'testing', version: versions.arch_comp_room],
-            arch_comp_test                 : [group: 'android.arch.persistence.arch.core', name: 'core-testing', version: versions.arch_comp_lifecycle],
-
-            arrow                          : [group: 'io.arrow-kt', name: 'arrow-core', version: '0.7.3'],
+            arch_comp_room                 : [group: 'androidx.room', name: 'room-runtime', version: versions.arch_comp_room],
+            arch_comp_room_compiler        : [group: 'androidx.room', name: 'room-compiler', version: versions.arch_comp_room],
+            arch_comp_room_rxjava          : [group: 'androidx.room', name: 'room-rxjava2', version: versions.arch_comp_room],
+            arch_comp_room_test            : [group: 'androidx.room', name: 'room-testing', version: versions.arch_comp_room],
 
             //阿里路由框架    https://github.com/alibaba/ARouter
             "arouter_api"                  : "com.alibaba:arouter-api:1.5.0",
@@ -147,7 +157,7 @@ ext {
             test_runner                    : [group: 'com.android.support.test', name: 'runner', version: '1.0.2'],
             test_espresso                  : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: '3.0.2'],
 
-            multidex                       : [group: 'com.android.support', name: 'multidex', version: '1.0.3'],
+            multidex                       : [group: 'androidx.multidex', name: 'multidex', version: '2.0.1'],
 
             //单元测试
             robolectric                    : [group: 'org.robolectric', name: 'robolectric', version: versions.robolectric],

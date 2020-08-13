@@ -5,10 +5,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.annotation.RequiresApi;
 
 import com.yyxnb.popup.animator.PopupAnimation;
 import com.yyxnb.popup.animator.PopupAnimator;

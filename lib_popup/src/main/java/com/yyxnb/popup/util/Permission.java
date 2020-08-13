@@ -1,7 +1,6 @@
 package com.yyxnb.popup.util;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,13 +8,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -121,7 +122,7 @@ public final class Permission {
     }
 
     @TargetApi(Build.VERSION_CODES.M)
-    private void startWriteSettingsActivity(final Activity activity, final int requestCode) {
+    private void startWriteSettingsActivity(final AppCompatActivity activity, final int requestCode) {
         Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
         intent.setData(Uri.parse("package:" + context.getPackageName()));
         if (!isIntentAvailable(intent)) {
@@ -152,7 +153,7 @@ public final class Permission {
     }
 
     @TargetApi(Build.VERSION_CODES.M)
-    private void startOverlayPermissionActivity(final Activity activity, final int requestCode) {
+    private void startOverlayPermissionActivity(final AppCompatActivity activity, final int requestCode) {
         Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
         intent.setData(Uri.parse("package:" + context.getPackageName()));
         if (!isIntentAvailable(intent)) {
@@ -285,7 +286,7 @@ public final class Permission {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private boolean rationale(final Activity activity) {
+    private boolean rationale(final AppCompatActivity activity) {
         boolean isRationale = false;
         if (mOnRationaleListener != null) {
             for (String permission : mPermissionsRequest) {
@@ -310,7 +311,7 @@ public final class Permission {
         return isRationale;
     }
 
-    private void getPermissionsStatus(final Activity activity) {
+    private void getPermissionsStatus(final AppCompatActivity activity) {
         for (String permission : mPermissionsRequest) {
             if (isGranted(permission)) {
                 mPermissionsGranted.add(permission);
@@ -350,14 +351,14 @@ public final class Permission {
         mThemeCallback = null;
     }
 
-    private void onRequestPermissionsResult(final Activity activity) {
+    private void onRequestPermissionsResult(final AppCompatActivity activity) {
         getPermissionsStatus(activity);
         requestCallback();
     }
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    public static class PermissionActivity extends Activity {
+    public static class PermissionActivity extends AppCompatActivity {
 
         private static final String TYPE = "TYPE";
         public static final int TYPE_RUNTIME = 0x01;
@@ -470,6 +471,6 @@ public final class Permission {
     }
 
     public interface ThemeCallback {
-        void onActivityCreate(Activity activity);
+        void onActivityCreate(AppCompatActivity activity);
     }
 }

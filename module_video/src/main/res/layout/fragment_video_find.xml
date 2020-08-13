@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         tools:context="com.yyxnb.module_video.ui.find.VideoFindFragment">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
