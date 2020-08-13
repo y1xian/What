@@ -15,7 +15,6 @@ import com.scwang.smart.refresh.layout.api.RefreshHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
-import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
@@ -76,12 +75,6 @@ public class DebugApplication extends Application {
         //初始化组件
         ModuleLifecycleConfig.getInstance().initModule(this);
 
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
     }
 
     //static 代码段可以防止内存泄露

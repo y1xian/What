@@ -99,16 +99,29 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-//    configurations.all {
-//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-//            def requested = details.requested
-//            if (requested.group == 'com.android.support') {
-//                if (!requested.name.startsWith("multidex")) {
-//                    details.useVersion versions.support
-//                }
-//            }
-//        }
-//    }
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'androidx.appcompat') {
+                details.useVersion versions.appcompat
+            }
+            if (requested.group == 'androidx.lifecycle') {
+                details.useVersion versions.lifecycle
+            }
+            if (requested.group == 'androidx.paging') {
+                details.useVersion versions.paging
+            }
+            if (requested.group == 'androidx.recyclerview') {
+                details.useVersion versions.recyclerview
+            }
+            if (requested.group == 'androidx.fragment') {
+                details.useVersion versions.fragment
+            }
+            if (details.requested.group == 'androidx.core') {
+                details.useVersion versions.core
+            }
+        }
+    }
 }
 
 
