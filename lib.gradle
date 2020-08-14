@@ -98,6 +98,7 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
+    api libs.kotlin_stdlib, libs.kotlin_coroutines, libs.kotlin_coroutines_core
 
     configurations.all {
         resolutionStrategy.eachDependency { DependencyResolveDetails details ->

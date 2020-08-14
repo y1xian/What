@@ -18,7 +18,7 @@ import java.util.List;
 
 public class LoginViewModel extends BaseViewModel {
 
-    private LoginApi mApi = Http.getInstance().create(LoginApi.class);
+    private LoginApi mApi = Http.INSTANCE.create(LoginApi.class);
     private UserDao userDao = AppDatabase.getInstance().userDao();
 
     private MutableLiveData<UserBean> reqUser = new MutableLiveData();

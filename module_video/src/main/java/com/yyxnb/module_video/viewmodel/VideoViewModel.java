@@ -11,7 +11,6 @@ import com.yyxnb.module_video.config.DataConfig;
 import com.yyxnb.module_video.config.VideoService;
 import com.yyxnb.module_video.db.VideoDao;
 import com.yyxnb.module_video.db.VideoDatabase;
-import com.yyxnb.network.BaseViewModel;
 
 import java.util.List;
 

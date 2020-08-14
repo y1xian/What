@@ -2,7 +2,6 @@ package com.yyxnb.module_widget.config;
 
 import com.yyxnb.common.AppConfig;
 import com.yyxnb.module_widget.bean.MainBean;
-import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.utils.FileUtils;
 
 import java.util.ArrayList;

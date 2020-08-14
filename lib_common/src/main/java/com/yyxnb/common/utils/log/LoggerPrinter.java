@@ -270,10 +270,12 @@ final class LoggerPrinter implements IPrinter {
                 continue;
             }
             String className = element.getClassName();
-            if (className.startsWith("android.")
-                    || className.contains("com.android")
-                    || className.contains("java.lang")
-                    || className.contains("com.yyxnb.arch")) {
+            if (
+                    className.startsWith("android.")
+                            || className.startsWith("androidx.")
+                            || className.contains("com.android")
+                            || className.contains("java.lang")
+                            || className.contains("com.yyxnb.arch")) {
                 continue;
             }
             perTrace.append(element.getClassName())

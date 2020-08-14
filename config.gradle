@@ -32,8 +32,8 @@ ext {
             paging             : '2.1.2',
             work               : '2.4.0',
 
-            retrofit           : '2.5.0',
-            okhttp             : '3.12.0',
+            retrofit           : '2.9.0',
+            okhttp             : '4.8.1',
             glide              : '4.11.0',
 
             rxjava2            : '2.2.19',
@@ -41,7 +41,7 @@ ext {
             rxbinding2         : '2.2.0',
             autodispose        : '1.0.0-RC3',
 
-            rxjava3            : '3.0.2',
+            rxjava3            : '3.0.5',
             rxandroid3         : '3.0.0',
             rxbinding3         : '3.1.0',
 
@@ -52,7 +52,7 @@ ext {
             leakcanary         : '2.3',
 
             espresso           : '3.2.0',
-            robolectric        : '3.3.2',
+            robolectric        : '4.3.1',
             junit              : '4.12',
 
             widget             : '1.0.7.1'
@@ -156,8 +156,7 @@ ext {
             junit                    : [group: 'junit', name: 'junit', version: versions.junit],
             junitx                   : [group: 'androidx.test.ext', name: 'junit', version: '1.1.1'],
 
-            test_runner              : [group: 'com.android.support.test', name: 'runner', version: '1.0.2'],
-            test_espresso            : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: '3.0.2'],
+            test_runner              : [group: 'androidx.test', name: 'runner', version: '1.2.0'],
 
             multidex                 : [group: 'androidx.multidex', name: 'multidex', version: '2.0.1'],
 
