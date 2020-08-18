@@ -11,6 +11,7 @@ import com.yyxnb.module_music.db.MusicDao;
 import com.yyxnb.module_music.db.MusicDatabase;
 import com.yyxnb.module_music.db.MusicLocalDao;
 import com.yyxnb.module_music.db.RecordDao;
+import com.yyxnb.network.BaseViewModel;
 
 import java.util.List;
 

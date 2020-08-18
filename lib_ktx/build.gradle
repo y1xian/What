@@ -3,5 +3,4 @@ apply from: rootProject.file('lib.gradle')
 
 dependencies {
     implementation project(':lib_common')
-    api libs.lifecycle_extensions
 }

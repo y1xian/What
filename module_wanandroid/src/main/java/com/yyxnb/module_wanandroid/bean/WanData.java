@@ -32,4 +32,9 @@ public class WanData<T> implements IData<T> {
     public boolean isSuccess() {
         return errorCode == 0;
     }
+
+    @Override
+    public int id() {
+        return hashCode();
+    }
 }

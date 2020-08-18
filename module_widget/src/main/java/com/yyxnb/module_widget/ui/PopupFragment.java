@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.MultiItemTypePagedAdapter;
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 import com.yyxnb.common_base.base.AbsListFragment;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.bean.MainBean;
@@ -82,7 +82,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnInputConfirmListener() {
                                     @Override
                                     public void onConfirm(String text) {
-                                        AppConfig.getInstance().toast("input text: " + text);
+                                        CommonManager.INSTANCE.toast("input text: " + text);
 //                                new XPopup.Builder(getContext()).asLoading().show();
                                     }
                                 })
@@ -98,7 +98,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        AppConfig.getInstance().toast("click " + text);
+                                        CommonManager.INSTANCE.toast("click " + text);
                                     }
                                 })
 //                        .bindLayout(R.layout.my_custom_attach_popup) //自定义布局
@@ -113,7 +113,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        AppConfig.getInstance().toast("click " + text);
+                                        CommonManager.INSTANCE.toast("click " + text);
                                     }
                                 })
 //                        .bindLayout(R.layout.my_custom_attach_popup) //自定义布局
@@ -131,7 +131,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        AppConfig.getInstance().toast("click " + text);
+                                        CommonManager.INSTANCE.toast("click " + text);
                                     }
                                 })
 //                        .bindLayout(R.layout.my_custom_attach_popup) //自定义布局
@@ -156,7 +156,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                 loadingPopup.delayDismissWith(3000, new Runnable() {
                     @Override
                     public void run() {
-                        AppConfig.getInstance().toast("我消失了！！！");
+                        CommonManager.INSTANCE.toast("我消失了！！！");
                     }
                 });
                 break;
@@ -175,7 +175,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        AppConfig.getInstance().toast("click " + text);
+                                        CommonManager.INSTANCE.toast("click " + text);
                                     }
                                 })
                         .show();
@@ -191,7 +191,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        AppConfig.getInstance().toast("click " + text);
+                                        CommonManager.INSTANCE.toast("click " + text);
                                     }
                                 })
                         .show();

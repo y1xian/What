@@ -1,6 +1,6 @@
 package com.yyxnb.network.interceptor
 
-import com.yyxnb.common.AppConfig
+import com.yyxnb.common.CommonManager
 import com.yyxnb.network.utils.JsonUtils.formatJson
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.UnsupportedEncodingException
@@ -28,7 +28,7 @@ class LoggingInterceptor : HttpLoggingInterceptor.Logger {
             mMessage.append(message).append("\r\n")
             // 请求或者响应结束，打印整条日志
             if (message.startsWith("<-- END HTTP")) {
-                AppConfig.getInstance().log("Http", mMessage.toString())
+                CommonManager.log("Http", mMessage.toString())
             }
         } catch (e: UnsupportedEncodingException) {
             e.printStackTrace()

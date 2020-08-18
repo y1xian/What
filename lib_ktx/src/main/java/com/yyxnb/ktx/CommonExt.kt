@@ -6,7 +6,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.text.TextUtils
 import android.view.View
-import com.yyxnb.common.AppConfig
+import com.yyxnb.common.CommonManager
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -19,11 +19,11 @@ inline fun tryCatch(tryBlock: () -> Unit, catchBlock: (Exception) -> Unit) {
 }
 
 fun Any.toast(msg: String) {
-    AppConfig.getInstance().toast(msg)
+    CommonManager.toast(msg)
 }
 
 fun Any.log(msg: String) {
-    AppConfig.getInstance().log(msg)
+    CommonManager.log(msg)
 }
 
 /**
@@ -92,11 +92,11 @@ fun sleep(millis: Long) {
  * @return 字符串资源id对应的字符串内容。
  */
 fun getString(resId: Int): String {
-    return AppConfig.getInstance().context.resources.getString(resId)
+    return CommonManager.getContext().resources.getString(resId)
 }
 
 fun getColor(resId: Int): Int {
-    return AppConfig.getInstance().context.resources.getColor(resId)
+    return CommonManager.getContext().resources.getColor(resId)
 }
 
 /**
@@ -200,7 +200,7 @@ fun getConvertedNumber(number: Int) = when {
  */
 fun isInstalled(packageName: String): Boolean {
     val packageInfo: PackageInfo? = try {
-        AppConfig.getInstance().context.packageManager.getPackageInfo(packageName, 0)
+        CommonManager.getContext().packageManager.getPackageInfo(packageName, 0)
     } catch (e: PackageManager.NameNotFoundException) {
         null
     }

@@ -7,7 +7,6 @@ import android.widget.CompoundButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.common.utils.ToastUtils;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.skinloader.SkinManager;
 import com.yyxnb.skinloader.util.AssetFileUtils;
@@ -22,7 +21,6 @@ public class UserPresenter {
 
     public static void jumpWallet() {
 //        ((context)BaseFragment).startFragment(new UserWalletFragment());
-        ToastUtils.normal("跳");
     }
 
     public void jumpSetUp() {

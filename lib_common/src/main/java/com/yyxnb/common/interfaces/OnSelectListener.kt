@@ -1,14 +1,13 @@
-package com.yyxnb.common.interfaces;
+package com.yyxnb.common.interfaces
 
-import android.view.View;
+import android.view.View
 
 /**
  * 选择回调
  *
  * @author yyx
  */
-public interface OnSelectListener {
-
+interface OnSelectListener {
     /**
      * 点击回调
      *
@@ -16,5 +15,5 @@ public interface OnSelectListener {
      * @param position 当前位置
      * @param text     内容
      */
-    void onClick(View v, int position, String text);
+    fun onClick(v: View?, position: Int, text: String?)
 }

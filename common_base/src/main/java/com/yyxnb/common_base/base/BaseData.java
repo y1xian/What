@@ -27,4 +27,9 @@ public class BaseData<T> implements IData<T> {
     public boolean isSuccess() {
         return "200".equals(status);
     }
+
+    @Override
+    public int id() {
+        return hashCode();
+    }
 }

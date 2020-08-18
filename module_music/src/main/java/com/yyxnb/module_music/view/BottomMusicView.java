@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.yyxnb.common.CommonManager;
 import com.yyxnb.common.utils.ToastUtils;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.image_loader.ImageManager;
@@ -79,7 +80,7 @@ public class BottomMusicView extends RelativeLayout implements MusicPlayerEventL
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.bottom_view, this);
         rootView.setOnClickListener(v -> {
             if (mMusicBean == null) {
-                ToastUtils.normal("暂无播放内容");
+                CommonManager.INSTANCE.toast("暂无播放内容");
                 return;
             }
             //跳到音乐播放Activitity
@@ -99,7 +100,7 @@ public class BottomMusicView extends RelativeLayout implements MusicPlayerEventL
         mPlayView.setOnClickListener(v -> {
             //处理播放暂停事件
             if (mMusicBean == null) {
-                ToastUtils.normal("暂无播放内容");
+                CommonManager.INSTANCE.toast("暂无播放内容");
                 return;
             }
 
@@ -131,7 +132,7 @@ public class BottomMusicView extends RelativeLayout implements MusicPlayerEventL
         mRightView = rootView.findViewById(R.id.show_list_view);
         mRightView.setOnClickListener(v -> {
             //显示音乐列表对话框
-            ToastUtils.normal("列表对话框");
+            CommonManager.INSTANCE.toast("列表对话框");
 //        MusicListDialog dialog = new MusicListDialog(mContext);
 //        dialog.show();
         });

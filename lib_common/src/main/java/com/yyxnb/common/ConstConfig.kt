@@ -1,54 +1,63 @@
-package com.yyxnb.common;
+package com.yyxnb.common
 
-import java.io.Serializable;
-import java.text.DecimalFormat;
+import java.io.Serializable
+import java.text.DecimalFormat
 
 /**
  * 常量
  */
-public class ConstConfig implements Serializable {
-    /******************** 存储相关常量  */
+object ConstConfig : Serializable {
+    /******************** 存储相关常量   */
     /**
      * Byte与Byte的倍数
      */
-    public static int BYTE = 1;
+    const val BYTE = 1
+
     /**
      * KB与Byte的倍数
      */
-    public static int KB = 1024;
+    const val KB = 1024
+
     /**
      * MB与Byte的倍数
      */
-    public static int MB = 1048576;
+    const val MB = 1048576
+
     /**
      * GB与Byte的倍数
      */
-    public static int GB = 1073741824;
+    const val GB = 1073741824
+
     /**
      * 毫秒与毫秒的倍数
      */
-    public static int MSEC = 1;
-    /******************** 时间相关常量  */
+    const val MSEC = 1
+    /******************** 时间相关常量   */
     /**
      * 秒与毫秒的倍数
      */
-    public static int SEC = 1000;
+    const val SEC = 1000
+
     /**
      * 分与毫秒的倍数
      */
-    public static int MIN = 60000;
+    const val MIN = 60000
+
     /**
      * 时与毫秒的倍数
      */
-    public static int HOUR = 3600000;
+    const val HOUR = 3600000
+
     /**
      * 天与毫秒的倍数
      */
-    public static int DAY = 86400000;
+    const val DAY = 86400000
+
     /**
      * 正则：手机号（简单）
      */
-    public static String REGEX_MOBILE_SIMPLE = "^[1]\\d{10}$";
+    const val REGEX_MOBILE_SIMPLE = "^[1]\\d{10}$"
+
     /**
      * 正则：手机号（精确）
      * 移动：134(0-8)、135、136、137、138、139、147、150、151、152、157、158、159、178、182、183、184、187、188
@@ -57,9 +66,8 @@ public class ConstConfig implements Serializable {
      * 全球星：1349
      * 虚拟运营商：170
      */
-    public static String REGEX_MOBILE_EXACT = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|(147))\\d{8}$";
-
-    /******************** 正则相关常量  */ //--------------------------------------------正则表达式-----------------------------------------
+    const val REGEX_MOBILE_EXACT = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|(147))\\d{8}$"
+    /******************** 正则相关常量   */ //--------------------------------------------正则表达式-----------------------------------------
     /**
      * 原文链接：http://caibaojian.com/regexp-example.html
      * 提取信息中的网络链接:(h|H)(r|R)(e|E)(f|F) *= *('|")?(\w|\\|\/|\.)+('|"| *|>)?
@@ -78,69 +86,85 @@ public class ConstConfig implements Serializable {
     /**
      * 正则：电话号码
      */
-    public static String REGEX_TEL = "^0\\d{2,3}[- ]?\\d{7,8}";
+    const val REGEX_TEL = "^0\\d{2,3}[- ]?\\d{7,8}"
+
     /**
      * 正则：身份证号码15位
      */
-    public static String REGEX_IDCARD15 = "^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$";
+    const val REGEX_IDCARD15 = "^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$"
+
     /**
      * 正则：身份证号码18位
      */
-    public static String REGEX_IDCARD18 = "^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9Xx])$";
+    const val REGEX_IDCARD18 = "^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9Xx])$"
+
     /**
      * 正则：身份证号码15或18位 包含以x结尾
      */
-    public static String REGEX_IDCARD = "(^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$|^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|x|X)$)";
+    const val REGEX_IDCARD = "(^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$|^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|x|X)$)"
+
     /**
      * 正则：邮箱
      */
-    public static String REGEX_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+    const val REGEX_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
+
     /**
      * 正则：URL
      */
-    public static String REGEX_URL = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?";
+    const val REGEX_URL = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?"
+
     /**
      * 正则：汉字
      */
-    public static String REGEX_CHZ = "^[\\u4e00-\\u9fa5]+$";
+    const val REGEX_CHZ = "^[\\u4e00-\\u9fa5]+$"
+
     /**
      * 正则：用户名，取值范围为a-z,A-Z,0-9,"_",汉字，不能以"_"结尾,用户名必须是6-20位
      */
-    public static String REGEX_USERNAME = "^[\\w\\u4e00-\\u9fa5]{6,20}(?<!_)$";
+    const val REGEX_USERNAME = "^[\\w\\u4e00-\\u9fa5]{6,20}(?<!_)$"
+
     /**
      * 正则：yyyy-MM-dd格式的日期校验，已考虑平闰年
      */
-    public static String REGEX_DATE = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$";
+    const val REGEX_DATE = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$"
+
     /**
      * 速度格式化
      */
-    public static DecimalFormat FORMAT_ONE = new DecimalFormat("#.#");
+    val FORMAT_ONE = DecimalFormat("#.#")
+
     /**
      * 距离格式化
      */
-    public static DecimalFormat FORMAT_TWO = new DecimalFormat("#.##");
+    val FORMAT_TWO = DecimalFormat("#.##")
+
     /**
      * 速度格式化
      */
-    public static DecimalFormat FORMAT_THREE = new DecimalFormat("#.###");
+    val FORMAT_THREE = DecimalFormat("#.###")
+
     /**
      * 正则：IP地址
      */
-    public static String REGEX_IP = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
-    //Date格式
-    public static String DATE_FORMAT_LINK = "yyyyMMddHHmmssSSS";
-    //Date格式 常用
-    public static String DATE_FORMAT_DETACH = "yyyy-MM-dd HH:mm:ss";
-    //Date格式 带毫秒
-    public static String DATE_FORMAT_DETACH_SSS = "yyyy-MM-dd HH:mm:ss SSS";
-    //时间格式 分钟：秒钟 一般用于视频时间显示
-    public static String DATE_FORMAT_MM_SS = "mm:ss";
+    const val REGEX_IP = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)"
 
-    public enum MemoryUnit {
+    //Date格式
+    const val DATE_FORMAT_LINK = "yyyyMMddHHmmssSSS"
+
+    //Date格式 常用
+    const val DATE_FORMAT_DETACH = "yyyy-MM-dd HH:mm:ss"
+
+    //Date格式 带毫秒
+    const val DATE_FORMAT_DETACH_SSS = "yyyy-MM-dd HH:mm:ss SSS"
+
+    //时间格式 分钟：秒钟 一般用于视频时间显示
+    const val DATE_FORMAT_MM_SS = "mm:ss"
+
+    enum class MemoryUnit {
         BYTE, KB, MB, GB
     }
 
-    public enum TimeUnit {
+    enum class TimeUnit {
         MSEC, SEC, MIN, HOUR, DAY
     }
 }

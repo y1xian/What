@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.adapter;
 
 import com.yyxnb.adapter.BaseAdapter;
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.common.utils.ToastUtils;
+import com.yyxnb.common.CommonManager;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
 import com.yyxnb.module_wanandroid.bean.WanSystemBean;
@@ -31,7 +31,7 @@ public class WanSystemAdapter extends BaseAdapter<WanSystemBean> {
         mFlowlayout.setOnTagClickListener(new FlowlayoutTags.OnTagClickListener() {
             @Override
             public void onTagClick(String tag) {
-                ToastUtils.normal(tag);
+                CommonManager.INSTANCE.toast(tag);
             }
         });
     }

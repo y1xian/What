@@ -1,6 +1,6 @@
 package com.yyxnb.network
 
-import com.yyxnb.common.AppConfig
+import com.yyxnb.common.CommonManager
 import com.yyxnb.network.interceptor.CacheInterceptor
 import com.yyxnb.network.utils.GsonUtils.gson
 import com.yyxnb.network.utils.SSLUtils
@@ -122,7 +122,7 @@ abstract class AbstractHttp {
             builder.addInterceptor(logInterceptor)
         }
         if (saveCache()) {
-            val externalCacheDir = AppConfig.getInstance().context.externalCacheDir
+            val externalCacheDir = CommonManager.getContext().externalCacheDir
             if (null != externalCacheDir) {
                 builder.cache(Cache(File(externalCacheDir.path + "/HttpCacheData"), 20 * 1024 * 1024))
                 builder.addInterceptor(CacheInterceptor())

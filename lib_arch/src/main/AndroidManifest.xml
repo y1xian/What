@@ -31,12 +31,17 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" />
+
         <!-- 使用ContentProvider初始化三方库 -->
         <provider
-            android:name=".LibraryInitializer"
-            android:authorities="${applicationId}.LibraryInitializer"
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
-            android:multiprocess="true" />
+            tools:node="merge">
+            <meta-data
+                android:name="com.yyxnb.arch.ArchInitializer"
+                android:value="@string/androidx_startup" />
+        </provider>
     </application>
 
 </manifest>

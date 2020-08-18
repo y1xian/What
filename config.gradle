@@ -12,8 +12,8 @@ ext {
 
     versions = [
             android_plugin     : '4.0.0',
-            kotlin_gradle      : '1.3.72',
-            kotlin_coroutines  : '1.3.7',
+            kotlin_gradle      : '1.4.0',
+            kotlin_coroutines  : '1.3.9',
 
             appcompat          : "1.2.0",
             core_ktx           : "1.3.1",
@@ -22,6 +22,10 @@ ext {
             recyclerview       : "1.1.0",
             constraint         : "1.1.3",
             cardview           : "1.0.0",
+            viewpager2         : "1.0.0",
+            startup            : "1.0.0-alpha02",
+
+            hilt               : "2.28-alpha",
 
             core               : "1.3.0",
             versionedparcelable: "1.1.0",
@@ -66,135 +70,138 @@ ext {
     ]
     libs = [
             // kotlin
-            kotlin_stdlib            : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin],
-            kotlin_stdlib_common     : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-common', version: versions.kotlin],
+            kotlin_stdlib          : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin],
+            kotlin_stdlib_common   : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-common', version: versions.kotlin],
             // 协程    https://github.com/Kotlin/kotlinx.coroutines
-            kotlin_coroutines        : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-android', version: versions.kotlin_coroutines],
-            kotlin_coroutines_core   : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: versions.kotlin_coroutines],
+            kotlin_coroutines      : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-android', version: versions.kotlin_coroutines],
+            kotlin_coroutines_core : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: versions.kotlin_coroutines],
 
-            appcompat                : [group: 'androidx.appcompat', name: 'appcompat', version: versions.appcompat],
-            core_ktx                 : [group: 'androidx.core', name: 'core-ktx', version: versions.core_ktx],
-            fragment                 : [group: 'androidx.fragment', name: 'fragment', version: versions.fragment],
-            recyclerview             : [group: 'androidx.recyclerview', name: 'recyclerview', version: versions.recyclerview],
-            cardview                 : [group: 'androidx.cardview', name: 'cardview', version: versions.cardview],
-            annotations              : [group: 'androidx.annotation', name: 'annotation', version: versions.annotation],
-            constraint               : [group: 'androidx.constraintlayout', name: 'constraintlayout', version: versions.constraint],
+            appcompat              : [group: 'androidx.appcompat', name: 'appcompat', version: versions.appcompat],
+            core_ktx               : [group: 'androidx.core', name: 'core-ktx', version: versions.core_ktx],
+            fragment               : [group: 'androidx.fragment', name: 'fragment', version: versions.fragment],
+            recyclerview           : [group: 'androidx.recyclerview', name: 'recyclerview', version: versions.recyclerview],
+            cardview               : [group: 'androidx.cardview', name: 'cardview', version: versions.cardview],
+            annotations            : [group: 'androidx.annotation', name: 'annotation', version: versions.annotation],
+            constraint             : [group: 'androidx.constraintlayout', name: 'constraintlayout', version: versions.constraint],
+            viewpager2             : [group: 'androidx.viewpager2', name: 'viewpager2', version: versions.viewpager2],
 
-            lifecycle_extensions     : [group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: versions.lifecycle],
-            lifecycle_java8          : [group: 'androidx.lifecycle', name: 'lifecycle-common-java8', version: versions.lifecycle],
-            lifecycle_compiler       : [group: 'androidx.lifecycle', name: 'lifecycle-compiler', version: versions.lifecycle],
-            lifecycle_viewmodel      : [group: 'androidx.lifecycle', name: 'lifecycle-viewmodel', version: versions.lifecycle],
-            lifecycle_livedata       : [group: 'androidx.lifecycle', name: 'lifecycle-livedata', version: versions.lifecycle],
-            lifecycle_runtime        : [group: 'androidx.lifecycle', name: 'lifecycle-runtime', version: versions.lifecycle],
+            startup                : [group: 'androidx.startup', name: 'startup-runtime', version: versions.startup],
 
-            navigation_runtime       : [group: 'androidx.navigation', name: 'navigation-runtime', version: versions.navigation],
-            navigation_common        : [group: 'androidx.navigation', name: 'navigation-common', version: versions.navigation],
-            navigation_common_ktx    : [group: 'androidx.navigation', name: 'navigation-common-ktx', version: versions.navigation],
-            navigation               : [group: 'androidx.navigation', name: 'navigation-fragment-ktx', version: versions.navigation],
-            navigation_ui            : [group: 'androidx.navigation', name: 'navigation-ui-ktx', version: versions.navigation],
+            lifecycle_extensions   : [group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: versions.lifecycle],
+            lifecycle_java8        : [group: 'androidx.lifecycle', name: 'lifecycle-common-java8', version: versions.lifecycle],
+            lifecycle_compiler     : [group: 'androidx.lifecycle', name: 'lifecycle-compiler', version: versions.lifecycle],
+            lifecycle_viewmodel    : [group: 'androidx.lifecycle', name: 'lifecycle-viewmodel', version: versions.lifecycle],
+            lifecycle_livedata     : [group: 'androidx.lifecycle', name: 'lifecycle-livedata', version: versions.lifecycle],
+            lifecycle_runtime      : [group: 'androidx.lifecycle', name: 'lifecycle-runtime', version: versions.lifecycle],
 
-            work                     : [group: 'androidx.work', name: 'work-runtime', version: versions.work],
+            navigation_runtime     : [group: 'androidx.navigation', name: 'navigation-runtime', version: versions.navigation],
+            navigation_common      : [group: 'androidx.navigation', name: 'navigation-common', version: versions.navigation],
+            navigation_common_ktx  : [group: 'androidx.navigation', name: 'navigation-common-ktx', version: versions.navigation],
+            navigation             : [group: 'androidx.navigation', name: 'navigation-fragment-ktx', version: versions.navigation],
+            navigation_ui          : [group: 'androidx.navigation', name: 'navigation-ui-ktx', version: versions.navigation],
 
-            paging                   : [group: 'androidx.paging', name: 'paging-runtime', version: versions.paging],
-            paging_rxjava            : [group: 'androidx.paging', name: 'paging-rxjava2', version: versions.paging],
+            work                   : [group: 'androidx.work', name: 'work-runtime', version: versions.work],
 
-            room                     : [group: 'androidx.room', name: 'room-runtime', version: versions.room],
-            room_compiler            : [group: 'androidx.room', name: 'room-compiler', version: versions.room],
-            room_rxjava              : [group: 'androidx.room', name: 'room-rxjava2', version: versions.room],
-            room_test                : [group: 'androidx.room', name: 'room-testing', version: versions.room],
+            paging                 : [group: 'androidx.paging', name: 'paging-runtime', version: versions.paging],
+            paging_rxjava          : [group: 'androidx.paging', name: 'paging-rxjava2', version: versions.paging],
+
+            room                   : [group: 'androidx.room', name: 'room-runtime', version: versions.room],
+            room_compiler          : [group: 'androidx.room', name: 'room-compiler', version: versions.room],
+            room_rxjava            : [group: 'androidx.room', name: 'room-rxjava2', version: versions.room],
+            room_test              : [group: 'androidx.room', name: 'room-testing', version: versions.room],
 
             //阿里路由框架    https://github.com/alibaba/ARouter
-            "arouter_api"            : "com.alibaba:arouter-api:1.5.0",
-            "arouter_compiler"       : "com.alibaba:arouter-compiler:1.2.2",
+            "arouter_api"          : "com.alibaba:arouter-api:1.5.0",
+            "arouter_compiler"     : "com.alibaba:arouter-compiler:1.2.2",
 
             //glide     https://github.com/bumptech/glide
-            glide                    : [group: 'com.github.bumptech.glide', name: 'glide', version: versions.glide],
-            glide_compiler           : [group: 'com.github.bumptech.glide', name: 'compiler', version: versions.glide],
+            glide                  : [group: 'com.github.bumptech.glide', name: 'glide', version: versions.glide],
+            glide_compiler         : [group: 'com.github.bumptech.glide', name: 'compiler', version: versions.glide],
 
             //https://github.com/square/okhttp
-            okhttp3                  : [group: 'com.squareup.okhttp3', name: 'okhttp', version: versions.okhttp],
-            okhttp3_logging          : [group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: versions.okhttp],
+            okhttp3                : [group: 'com.squareup.okhttp3', name: 'okhttp', version: versions.okhttp],
+            okhttp3_logging        : [group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: versions.okhttp],
 
             //retrofit      https://github.com/square/retrofit
-            retrofit2                : [group: 'com.squareup.retrofit2', name: 'retrofit', version: versions.retrofit],
-            retrofit2_gson           : [group: 'com.squareup.retrofit2', name: 'converter-gson', version: versions.retrofit],
-            retrofit2_rxjava         : [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: versions.retrofit],
+            retrofit2              : [group: 'com.squareup.retrofit2', name: 'retrofit', version: versions.retrofit],
+            retrofit2_gson         : [group: 'com.squareup.retrofit2', name: 'converter-gson', version: versions.retrofit],
+            retrofit2_rxjava       : [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: versions.retrofit],
 
             //rxjava2
             // https://github.com/ReactiveX/RxJava
-            rxjava2                  : [group: 'io.reactivex.rxjava2', name: 'rxjava', version: versions.rxjava2],
+            rxjava2                : [group: 'io.reactivex.rxjava2', name: 'rxjava', version: versions.rxjava2],
             //  https://github.com/ReactiveX/RxAndroid
-            rxandroid2               : [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: versions.rxandroid2],
+            rxandroid2             : [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: versions.rxandroid2],
 
             // rxjava3
-            rxjava3                  : [group: 'io.reactivex.rxjava3', name: 'rxjava', version: versions.rxjava3],
-            rxandroid3               : [group: 'io.reactivex.rxjava3', name: 'rxandroid', version: versions.rxandroid3],
-            rxbinding3               : [group: 'com.jakewharton.rxbinding3', name: 'rxbinding', version: versions.rxbinding3],
+            rxjava3                : [group: 'io.reactivex.rxjava3', name: 'rxjava', version: versions.rxjava3],
+            rxandroid3             : [group: 'io.reactivex.rxjava3', name: 'rxandroid', version: versions.rxandroid3],
+            rxbinding3             : [group: 'com.jakewharton.rxbinding3', name: 'rxbinding', version: versions.rxbinding3],
 
             //  https://github.com/tbruyelle/RxPermissions
-            rxpermissions            : [group: 'com.github.tbruyelle', name: 'rxpermissions', version: '0.10.2'],
+            rxpermissions          : [group: 'com.github.tbruyelle', name: 'rxpermissions', version: '0.10.2'],
 
-            rximagepicker            : [group: 'com.github.qingmei2', name: 'rximagepicker', version: '2.3.0-alpha03'],
-            rxweaver                 : [group: 'com.github.qingmei2.rxweaver', name: 'rxweaver', version: '0.3.0'],
+            rximagepicker          : [group: 'com.github.qingmei2', name: 'rximagepicker', version: '2.3.0-alpha03'],
+            rxweaver               : [group: 'com.github.qingmei2.rxweaver', name: 'rxweaver', version: '0.3.0'],
             //  https://github.com/JakeWharton/RxBinding
-            rxbinding2               : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding', version: versions.rxbinding2],
-            rxbinding2_v7            : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding-appcompat-v7', version: versions.rxbinding2],
+            rxbinding2             : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding', version: versions.rxbinding2],
+            rxbinding2_v7          : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding-appcompat-v7', version: versions.rxbinding2],
 
             //https://github.com/uber/AutoDispose
-            autodispose              : [group: 'com.uber.autodispose', name: 'autodispose-android', version: versions.autodispose],
-            autodispose_ktx          : [group: 'com.uber.autodispose', name: 'autodispose-ktx', version: versions.autodispose],
-            autodispose_android_ktx  : [group: 'com.uber.autodispose', name: 'autodispose-android-ktx', version: versions.autodispose],
-            autodispose_archs        : [group: 'com.uber.autodispose', name: 'autodispose-android-archcomponents', version: versions.autodispose],
-            autodispose_archs_ktx    : [group: 'com.uber.autodispose', name: 'autodispose-android-archcomponents-ktx', version: versions.autodispose],
+            autodispose            : [group: 'com.uber.autodispose', name: 'autodispose-android', version: versions.autodispose],
+            autodispose_ktx        : [group: 'com.uber.autodispose', name: 'autodispose-ktx', version: versions.autodispose],
+            autodispose_android_ktx: [group: 'com.uber.autodispose', name: 'autodispose-android-ktx', version: versions.autodispose],
+            autodispose_archs      : [group: 'com.uber.autodispose', name: 'autodispose-android-archcomponents', version: versions.autodispose],
+            autodispose_archs_ktx  : [group: 'com.uber.autodispose', name: 'autodispose-android-archcomponents-ktx', version: versions.autodispose],
 
             //内存泄漏    https://github.com/square/leakcanary
-            leak_canary_debug        : [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: versions.leakcanary],
+            leak_canary_debug      : [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: versions.leakcanary],
 
             //https://github.com/google/gson
-            gson                     : [group: 'com.google.code.gson', name: 'gson', version: versions.gson],
+            gson                   : [group: 'com.google.code.gson', name: 'gson', version: versions.gson],
 
-            junit                    : [group: 'junit', name: 'junit', version: versions.junit],
-            junitx                   : [group: 'androidx.test.ext', name: 'junit', version: '1.1.1'],
+            junit                  : [group: 'junit', name: 'junit', version: versions.junit],
+            junitx                 : [group: 'androidx.test.ext', name: 'junit', version: '1.1.1'],
 
-            test_runner              : [group: 'androidx.test', name: 'runner', version: '1.2.0'],
+            test_runner            : [group: 'androidx.test', name: 'runner', version: '1.2.0'],
 
-            multidex                 : [group: 'androidx.multidex', name: 'multidex', version: '2.0.1'],
-
-            //单元测试
-            robolectric              : [group: 'org.robolectric', name: 'robolectric', version: versions.robolectric],
-            robolectric_v4           : [group: 'org.robolectric', name: 'shadows-support-v4', version: versions.robolectric],
+            multidex               : [group: 'androidx.multidex', name: 'multidex', version: '2.0.1'],
 
             //单元测试
-            espresso_core            : [group: 'androidx.test.espresso', name: 'espresso-core', version: versions.espresso],
+            robolectric            : [group: 'org.robolectric', name: 'robolectric', version: versions.robolectric],
+            robolectric_v4         : [group: 'org.robolectric', name: 'shadows-support-v4', version: versions.robolectric],
+
+            //单元测试
+            espresso_core          : [group: 'androidx.test.espresso', name: 'espresso-core', version: versions.espresso],
 
             //https://github.com/Tencent/MMKV
-            mmkv                     : [group: 'com.tencent', name: 'mmkv', version: versions.mmkv],
-            mmkv_static              : [group: 'com.tencent', name: 'mmkv-static', version: versions.mmkv],
+            mmkv                   : [group: 'com.tencent', name: 'mmkv', version: versions.mmkv],
+            mmkv_static            : [group: 'com.tencent', name: 'mmkv-static', version: versions.mmkv],
 
             //https://github.com/ethanhua/Skeleton
-            skeleton                 : [group: 'com.ethanhua', name: 'skeleton', version: '1.1.2'],
-            shimmerlayout            : [group: 'io.supercharge', name: 'shimmerlayout', version: '2.1.0'],
+            skeleton               : [group: 'com.ethanhua', name: 'skeleton', version: '1.1.2'],
+            shimmerlayout          : [group: 'io.supercharge', name: 'shimmerlayout', version: '2.1.0'],
 
             //https://github.com/JeremyLiao/LiveEventBus
-            live_event_bus           : [group: 'com.jeremyliao', name: 'live-event-bus-x', version: '1.7.2'],
+            live_event_bus         : [group: 'com.jeremyliao', name: 'live-event-bus-x', version: '1.7.2'],
 
             //https://github.com/anzewei/ParallaxBackLayout
-            parallaxbacklayout       : [group: 'com.github.anzewei', name: 'parallaxbacklayout', version: '1.1.9'],
+            parallaxbacklayout     : [group: 'com.github.anzewei', name: 'parallaxbacklayout', version: '1.1.9'],
 
             //https://github.com/luckybilly/SmartSwipe
-            swipe                    : [group: 'com.billy.android', name: 'smart-swipe', version: '1.0.8'],
-            swipe_support            : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0'],
+            swipe                  : [group: 'com.billy.android', name: 'smart-swipe', version: '1.0.8'],
+            swipe_support          : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0'],
 
             //https://github.com/JessYanCoding/AndroidAutoSize
-            autosize                 : [group: 'me.jessyan', name: 'autosize', version: '1.2.1'],
+            autosize               : [group: 'me.jessyan', name: 'autosize', version: '1.2.1'],
 
             //https://github.com/y1xian/Widget
-            widget_common            : [group: 'com.github.y1xian.Widget', name: 'lib_common', version: versions.widget],
-            widget_adapter           : [group: 'com.github.y1xian.Widget', name: 'lib_adapter', version: versions.widget],
-            widget_view              : [group: 'com.github.y1xian.Widget', name: 'lib_view', version: versions.widget],
-            widget_utils             : [group: 'com.github.y1xian.Widget', name: 'lib_utils', version: versions.widget],
-            widget_skin              : [group: 'com.github.y1xian.Widget', name: 'lib_skin', version: versions.widget],
-            widget_skinloader        : [group: 'com.github.y1xian.Widget', name: 'lib_skinloader', version: versions.widget]
+            widget_common          : [group: 'com.github.y1xian.Widget', name: 'lib_common', version: versions.widget],
+            widget_adapter         : [group: 'com.github.y1xian.Widget', name: 'lib_adapter', version: versions.widget],
+            widget_view            : [group: 'com.github.y1xian.Widget', name: 'lib_view', version: versions.widget],
+            widget_utils           : [group: 'com.github.y1xian.Widget', name: 'lib_utils', version: versions.widget],
+            widget_skin            : [group: 'com.github.y1xian.Widget', name: 'lib_skin', version: versions.widget],
+            widget_skinloader      : [group: 'com.github.y1xian.Widget', name: 'lib_skinloader', version: versions.widget]
     ]
 
 }
