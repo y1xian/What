@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 import com.yyxnb.common_base.bean.UserBean;
 
 /**
@@ -27,7 +27,7 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE =
-                            Room.databaseBuilder(AppConfig.getInstance().getContext(), AppDatabase.class, "what_base.db")
+                            Room.databaseBuilder(CommonManager.getInstance().getContext(), AppDatabase.class, "what_base.db")
                                     .allowMainThreadQueries() //room默认数据库的查询是不能在主线程中执行的，除非这样设置
                                     .fallbackToDestructiveMigration() //不想提供migration，而且希望更新版本之后清空数据库
                                     .build();

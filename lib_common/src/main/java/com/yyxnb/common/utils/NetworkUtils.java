@@ -7,7 +7,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -31,7 +31,7 @@ public class NetworkUtils {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
-    private static Context context = AppConfig.getInstance().getContext();
+    private static Context context = CommonManager.getInstance().getContext();
 
     public enum NetworkType {
         NETWORK_WIFI,

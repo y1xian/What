@@ -21,7 +21,7 @@ public class LibraryInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
         // 初始化
-        Context context = AppConfig.getInstance().getContext();
+        Context context = CommonManager.getInstance().getContext();
 
         if (context != null) {
 
@@ -35,8 +35,8 @@ public class LibraryInitializer extends ContentProvider {
                     //设置全局tag
                     .setTag("---What---")
                     //是否显示日志，默认true，发布时最好关闭
-                    .setShowThreadInfo(AppConfig.getInstance().isDebug())
-                    .setDebug(AppConfig.getInstance().isDebug());
+                    .setShowThreadInfo(CommonManager.getInstance().isDebug())
+                    .setDebug(CommonManager.getInstance().isDebug());
 
         }
 

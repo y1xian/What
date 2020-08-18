@@ -12,7 +12,7 @@ import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.video.Utils;
@@ -115,7 +115,7 @@ public class VideoPlayFragment extends BaseFragment {
                     Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
                     break;
             }
-            AppConfig.getInstance().toast(text);
+            CommonManager.getInstance().toast(text);
         });
     }
 

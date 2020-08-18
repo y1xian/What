@@ -6,7 +6,7 @@ import android.arch.lifecycle.Observer;
 import android.support.annotation.MainThread;
 import android.support.annotation.Nullable;
 
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -21,7 +21,7 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
     public void observe(LifecycleOwner owner, final Observer<T> observer) {
 
         if (hasActiveObservers()) {
-            AppConfig.getInstance().log(TAG, "Multiple observers registered but only one will be notified of changes.");
+            CommonManager.getInstance().log(TAG, "Multiple observers registered but only one will be notified of changes.");
         }
 
         // Observe the internal MutableLiveData

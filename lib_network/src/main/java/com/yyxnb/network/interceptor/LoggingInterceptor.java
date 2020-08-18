@@ -1,6 +1,6 @@
 package com.yyxnb.network.interceptor;
 
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 import com.yyxnb.network.utils.JsonUtils;
 
 import java.net.URLDecoder;
@@ -40,7 +40,7 @@ public class LoggingInterceptor implements HttpLoggingInterceptor.Logger {
             mMessage.append(message).append("\r\n");
             // 请求或者响应结束，打印整条日志
             if (message.startsWith("<-- END HTTP")) {
-                AppConfig.getInstance().log("Http", mMessage.toString());
+                CommonManager.getInstance().log("Http", mMessage.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();

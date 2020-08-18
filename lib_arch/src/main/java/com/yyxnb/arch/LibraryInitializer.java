@@ -11,7 +11,7 @@ import android.support.multidex.MultiDex;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.yyxnb.arch.delegate.ActivityLifecycle;
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 
 /**
  * 使用ContentProvider初始化三方库
@@ -22,7 +22,7 @@ public class LibraryInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
         // 初始化
-        Context context = AppConfig.getInstance().getContext();
+        Context context = CommonManager.getInstance().getContext();
 
         if (context != null) {
 
@@ -30,11 +30,11 @@ public class LibraryInitializer extends ContentProvider {
             MultiDex.install(context);
 
             // 系统会在每个 Activity 执行完对应的生命周期后都调用这个实现类中对应的方法
-            AppConfig.getInstance().getApp().registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
+            CommonManager.getInstance().getApp().registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
 
             LiveEventBus
                     .config()
-                    .enableLogger(AppConfig.getInstance().isDebug());
+                    .enableLogger(CommonManager.getInstance().isDebug());
 
         }
 

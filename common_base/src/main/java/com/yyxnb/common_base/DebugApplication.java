@@ -16,7 +16,7 @@ import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.common.AppConfig;
+import com.yyxnb.common.CommonManager;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
 import com.yyxnb.common_base.weight.skin.ExtraAttrRegister;
 import com.yyxnb.image_loader.ImageManager;
@@ -45,7 +45,7 @@ public class DebugApplication extends Application {
     public void onCreate() {
         super.onCreate();
         //初始化阿里路由框架
-        if (AppConfig.getInstance().isDebug()) {
+        if (CommonManager.getInstance().isDebug()) {
             ARouter.openLog();     // 打印日志
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
@@ -70,7 +70,7 @@ public class DebugApplication extends Application {
                 //如果没有这个需求建议不开启
                 .setCustomFragment(true);
         // 侧滑监听
-        AppConfig.getInstance().getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
+        CommonManager.getInstance().getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
 
         //初始化组件
         ModuleLifecycleConfig.getInstance().initModule(this);

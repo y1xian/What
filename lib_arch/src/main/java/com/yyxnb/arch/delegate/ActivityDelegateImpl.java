@@ -1,11 +1,14 @@
 package com.yyxnb.arch.delegate;
 
 import android.app.Activity;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yyxnb.arch.annotations.BindDataBinding;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.livedata.ViewModelFactory;
@@ -96,6 +99,7 @@ public class ActivityDelegateImpl implements IActivityDelegate {
                  *  并且 创建 ViewModel 实例, 注入到变量中
                  */
                 final BindViewModel viewModel = field.getAnnotation(BindViewModel.class);
+                final BindDataBinding dataBinding = field.getAnnotation(BindDataBinding.class);
                 if (viewModel != null) {
                     try {
                         field.set(iActivity, ViewModelFactory.createViewModel(mActivity, field));
@@ -103,6 +107,17 @@ public class ActivityDelegateImpl implements IActivityDelegate {
                         e.printStackTrace();
                     }
                 }
+//                if (dataBinding != null) {
+//                    try {
+//                        ViewDataBinding viewDataBinding = DataBindingUtil.setContentView(mActivity, iActivity.initLayoutResId());
+//                        viewDataBinding.setLifecycleOwner(mActivity);
+//                        field.set(mActivity, viewDataBinding);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }else {
+//
+//                }
             }
         });
     }

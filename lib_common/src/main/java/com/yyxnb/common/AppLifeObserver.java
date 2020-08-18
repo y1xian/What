@@ -14,7 +14,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreate() {
-        AppConfig.getInstance().log("应用首次创建");
+        CommonManager.getInstance().log("应用首次创建");
     }
 
     /**
@@ -22,7 +22,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     void onStart() {
-        AppConfig.getInstance().log("应用进入前台");
+        CommonManager.getInstance().log("应用进入前台");
     }
 
     /**
@@ -31,7 +31,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     void onStop() {
-        AppConfig.getInstance().log("应用进入后台");
+        CommonManager.getInstance().log("应用进入后台");
     }
 
     /**
@@ -39,6 +39,6 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     void onDestroy() {
-        AppConfig.getInstance().log("ON_DESTROY");
+        CommonManager.getInstance().log("ON_DESTROY");
     }
 }

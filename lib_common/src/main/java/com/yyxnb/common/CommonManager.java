@@ -19,30 +19,30 @@ import java.lang.reflect.ParameterizedType;
  * @author yyx
  */
 @SuppressWarnings("rawtypes")
-public final class AppConfig implements Serializable {
+public final class CommonManager implements Serializable {
 
     @SuppressLint("StaticFieldLeak")
-    private volatile static AppConfig appConfig;
+    private volatile static CommonManager commonManager;
 
-    private AppConfig() {
+    private CommonManager() {
     }
 
-    public static AppConfig getInstance() {
-        if (appConfig == null) {
-            synchronized (AppConfig.class) {
-                if (appConfig == null) {
-                    appConfig = new AppConfig();
+    public static CommonManager getInstance() {
+        if (commonManager == null) {
+            synchronized (CommonManager.class) {
+                if (commonManager == null) {
+                    commonManager = new CommonManager();
                 }
             }
         }
-        return appConfig;
+        return commonManager;
     }
 
     /**
      * 避免序列化破坏单例模式
      */
     private Object readResolve() {
-        return appConfig;
+        return commonManager;
     }
 
     private WeakReference<Application> app;
@@ -50,7 +50,7 @@ public final class AppConfig implements Serializable {
     @SuppressWarnings("unchecked")
     public Application getApp() {
         if (app == null) {
-            synchronized (AppConfig.class) {
+            synchronized (CommonManager.class) {
                 if (app == null) {
                     app = new WeakReference(AppGlobals.getApplication());
                 }
@@ -67,7 +67,7 @@ public final class AppConfig implements Serializable {
     @SuppressWarnings("unchecked")
     public Context getContext() {
         if (context == null) {
-            synchronized (AppConfig.class) {
+            synchronized (CommonManager.class) {
                 if (context == null) {
                     context = new WeakReference(getApp().getApplicationContext());
                 }
