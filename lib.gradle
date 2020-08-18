@@ -16,9 +16,9 @@ android {
         targetSdkVersion build_version.targetSdkVersion
         versionCode build_version.versionCode
         versionName build_version.versionName
-        multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled build_version.multiDexEnabled
+        vectorDrawables.useSupportLibrary = build_version.vectorDrawables
+        testInstrumentationRunner build_version.testInstrumentationRunner
         consumerProguardFiles 'consumer-rules.pro'
     }
 

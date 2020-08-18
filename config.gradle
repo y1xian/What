@@ -70,8 +70,8 @@ ext {
     ]
     libs = [
             // kotlin
-            kotlin_stdlib          : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin],
-            kotlin_stdlib_common   : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-common', version: versions.kotlin],
+            kotlin_stdlib          : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin_gradle],
+            kotlin_stdlib_common   : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-common', version: versions.kotlin_gradle],
             // 协程    https://github.com/Kotlin/kotlinx.coroutines
             kotlin_coroutines      : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-android', version: versions.kotlin_coroutines],
             kotlin_coroutines_core : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: versions.kotlin_coroutines],
@@ -111,8 +111,8 @@ ext {
             room_test              : [group: 'androidx.room', name: 'room-testing', version: versions.room],
 
             //阿里路由框架    https://github.com/alibaba/ARouter
-            "arouter_api"          : "com.alibaba:arouter-api:1.5.0",
-            "arouter_compiler"     : "com.alibaba:arouter-compiler:1.2.2",
+            arouter_api            : "com.alibaba:arouter-api:1.5.0",
+            arouter_compiler       : "com.alibaba:arouter-compiler:1.2.2",
 
             //glide     https://github.com/bumptech/glide
             glide                  : [group: 'com.github.bumptech.glide', name: 'glide', version: versions.glide],
