@@ -27,6 +27,7 @@ object libs {
     const val lifecycle_java8 = "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}"
     const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle}"
     const val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel:${versions.lifecycle}"
+    const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
     const val lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata:${versions.lifecycle}"
     const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${versions.lifecycle}"
 
@@ -89,48 +90,52 @@ object libs {
     const val rxbinding2 = "com.jakewharton.rxbinding2:rxbinding:${versions.rxbinding2}"
     const val rxbinding2_v7 = "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:${versions.rxbinding2}"
 
-    //https://github.com/uber/AutoDispose
+    //  https://github.com/uber/AutoDispose
     const val autodispose = "com.uber.autodispose:autodispose-android:${versions.autodispose}"
     const val autodispose_ktx = "com.uber.autodispose:autodispose-ktx:${versions.autodispose}"
     const val autodispose_android_ktx = "com.uber.autodispose:autodispose-android-ktx:${versions.autodispose}"
     const val autodispose_archs = "com.uber.autodispose:autodispose-android-archcomponents:${versions.autodispose}"
     const val autodispose_archs_ktx = "com.uber.autodispose:autodispose-android-archcomponents-ktx:${versions.autodispose}"
 
-    //内存泄漏    https://github.com/square/leakcanary
+    //内存泄漏  https://github.com/square/leakcanary
     const val leak_canary_debug = "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}"
 
     //https://github.com/google/gson
     const val gson = "com.google.code.gson:gson:${versions.gson}"
 
+    //测试 https://developer.android.com/training/testing/junit-rules
     const val junit = "junit:junit:${versions.junit}"
     const val junitx = "androidx.test.ext:junit:1.1.1'}"
 
+    //测试 https://developer.android.com/training/testing/junit-runner
     const val test_runner = "androidx.test:runner:1.2.0'}"
+    const val orchestrator = "androidx.test:orchestrator:1.1.0'}"
 
+    //方法数超过64K https://developer.android.com/studio/build/multidex
     const val multidex = "androidx.multidex:multidex:2.0.1'}"
 
     //单元测试
     const val robolectric = "org.robolectric:robolectric:${versions.robolectric}"
     const val robolectric_v4 = "org.robolectric:shadows-support-v4:${versions.robolectric}"
 
-    //单元测试
+    //单元测试  https://developer.android.com/training/testing/espresso
     const val espresso_core = "androidx.test.espresso:espresso-core:${versions.espresso}"
 
-    //https://github.com/Tencent/MMKV
+    //微信 键值对储存 https://github.com/Tencent/MMKV
     const val mmkv = "com.tencent:mmkv:${versions.mmkv}"
     const val mmkv_static = "com.tencent:mmkv-static:${versions.mmkv}"
 
-    //https://github.com/ethanhua/Skeleton
+    //骨架 https://github.com/ethanhua/Skeleton
     const val skeleton = "com.ethanhua:skeleton:1.1.2"
     const val shimmerlayout = "io.supercharge:shimmerlayout:2.1.0"
 
-    //https://github.com/JeremyLiao/LiveEventBus
+    //事件总线 https://github.com/JeremyLiao/LiveEventBus
     const val live_event_bus = "com.jeremyliao:live-event-bus-x:1.7.2"
 
-    //https://github.com/anzewei/ParallaxBackLayout
+    //侧滑 https://github.com/anzewei/ParallaxBackLayout
     const val parallaxbacklayout = "com.github.anzewei:parallaxbacklayout:1.1.9"
 
-    //https://github.com/luckybilly/SmartSwipe
+    //侧滑 https://github.com/luckybilly/SmartSwipe
     const val swipe = "com.billy.android:smart-swipe:1.1.2"
     const val swipe_support = "com.billy.android:smart-swipe-support:1.1.0"
 

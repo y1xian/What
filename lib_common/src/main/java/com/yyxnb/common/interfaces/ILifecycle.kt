@@ -1,12 +1,13 @@
 package com.yyxnb.common.interfaces
 
 import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleObserver
 
 /**
  * 观察到对应的生命周期事件
  * 避免代码臃肿
- * 1.实现DefaultLifecycleObserver接口，然后重写里面生命周期方法；(Google官方推荐)
- * 2.直接实现LifecycleObserver接口，然后通过注解的方式来接收生命周期的变化；
+ * 1.实现 [DefaultLifecycleObserver]接口，然后重写里面生命周期方法；(Google官方推荐)
+ * 2.直接实现[LifecycleObserver]接口，然后通过注解的方式来接收生命周期的变化；
  *
  *
  * LifecycleObserver接口（ Lifecycle观察者）：实现该接口的类，通过注解的方式，可以通过被 [androidx.lifecycle.Lifecycle.addObserver] 方法注册,

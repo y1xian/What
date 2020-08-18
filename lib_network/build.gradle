@@ -2,7 +2,7 @@ ext.isLibrary = true
 apply from: rootProject.file('lib.gradle')
 
 dependencies {
-    implementation project(':lib_common'),project(':lib_ktx')
+    implementation project(':lib_common'), project(':lib_ktx')
     // paging
     api libs.paging
     // retrofit2    https://github.com/square/retrofit

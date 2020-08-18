@@ -10,7 +10,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-abstract class BaseViewModel : ViewModel(), LifecycleObserver {
+abstract class BaseViewModel : ViewModel() {
 
     val status = MutableLiveData<Status>()
 

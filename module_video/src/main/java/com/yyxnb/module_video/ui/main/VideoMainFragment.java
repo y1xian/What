@@ -68,12 +68,12 @@ public class VideoMainFragment extends BaseFragment {
     @Override
     public void initObservable() {
         Bus.observe(this,msgEvent -> {
-            switch (msgEvent.getCode()) {
+            switch (msgEvent.code) {
                 case KEY_VIDEO_BOTTOM_VP:
-                    mViewPager.setNoScroll((Boolean) msgEvent.getData());
+                    mViewPager.setNoScroll((Boolean) msgEvent.data);
                     break;
                 case KEY_VIDEO_BOTTOM_VP_SWITCH:
-                    mViewPager.setCurrentItem((Integer) msgEvent.getData(),true);
+                    mViewPager.setCurrentItem((Integer) msgEvent.data,true);
                     break;
             }
         });
