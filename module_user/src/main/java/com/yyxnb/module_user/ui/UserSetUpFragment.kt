@@ -1,43 +1,36 @@
-package com.yyxnb.module_user.ui;
+package com.yyxnb.module_user.ui
 
-import android.os.Bundle;
-
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_user.R;
-import com.yyxnb.module_user.databinding.FragmentUserSetUpBinding;
-import com.yyxnb.popup.PopupManager;
+import android.os.Bundle
+import android.view.View
+import com.yyxnb.common_base.arouter.service.impl.LoginImpl.Companion.instance
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.module_user.R
+import com.yyxnb.module_user.databinding.FragmentUserSetUpBinding
+import com.yyxnb.popup.PopupManager
 
 /**
  * 设置.
  */
-public class UserSetUpFragment extends BaseFragment {
+class UserSetUpFragment : BaseFragment() {
 
-    private FragmentUserSetUpBinding binding;
+    private var binding: FragmentUserSetUpBinding? = null
 
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_user_set_up;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_user_set_up
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        binding!!.iTitle.mTitle.centerTextView.setText(R.string.set_up)
+        binding!!.iTitle.mTitle.setBackListener { finish() }
+        binding!!.tvLoginOut.setOnClickListener {
+            PopupManager.Builder(context)
+                    .asConfirm(null, "是否确认退出登录", {
 
-        binding = getBinding();
-
-        binding.iTitle.mTitle.getCenterTextView().setText(R.string.set_up);
-        binding.iTitle.mTitle.setBackListener(v -> finish());
-
-        binding.tvLoginOut.setOnClickListener(v -> {
-            new PopupManager.Builder(getContext())
-                    .asConfirm(null, "是否确认退出登录", () -> {
                         // 确定
-                        LoginImpl.getInstance().loginOut();
-                        finish();
-                    }, () -> {
-
-                    }).show();
-
-        });
+                        instance!!.loginOut()
+                        finish()
+                    }) {}.show()
+        }
     }
 }

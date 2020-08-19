@@ -18,6 +18,7 @@ object ARouterConstant {
 
     //====== user
     //跳转到用户页面
+    const val USER_ACTIVITY = "/user/UserActivity"
     const val USER_FRAGMENT = "/user/UserFragment"
 
     //========== video

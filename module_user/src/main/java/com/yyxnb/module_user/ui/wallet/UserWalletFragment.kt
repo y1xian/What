@@ -1,31 +1,27 @@
-package com.yyxnb.module_user.ui.wallet;
+package com.yyxnb.module_user.ui.wallet
 
-import android.os.Bundle;
-
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_user.R;
-import com.yyxnb.module_user.databinding.FragmentUserWalletBinding;
+import android.os.Bundle
+import android.view.View
+import com.yyxnb.arch.annotations.BindRes
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.module_user.R
+import com.yyxnb.module_user.databinding.FragmentUserWalletBinding
 
 /**
  * 钱包.
  */
 @BindRes
-public class UserWalletFragment extends BaseFragment {
+class UserWalletFragment : BaseFragment() {
 
-    private FragmentUserWalletBinding binding;
+    private var binding: FragmentUserWalletBinding? = null
 
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_user_wallet;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_user_wallet
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
-        binding = getBinding();
-
-        binding.iTitle.mTitle.getCenterTextView().setText(R.string.wallet);
-        binding.iTitle.mTitle.setBackListener(v -> finish());
-
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        binding!!.iTitle.mTitle.centerTextView.setText(R.string.wallet)
+        binding!!.iTitle.mTitle.setBackListener { v: View? -> finish() }
     }
 }

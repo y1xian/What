@@ -1,47 +1,43 @@
-package com.yyxnb.module_user.ui;
+package com.yyxnb.module_user.ui
 
-import android.os.Bundle;
-
-import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_user.R;
-import com.yyxnb.module_user.databinding.FragmentUserPersonalDetailsBinding;
-import com.yyxnb.module_user.viewmodel.UserViewModel;
+import android.os.Bundle
+import android.view.View
+import com.yyxnb.arch.annotations.BindViewModel
+import com.yyxnb.common_base.arouter.service.impl.LoginImpl.Companion.instance
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.common_base.bean.UserBean
+import com.yyxnb.module_user.R
+import com.yyxnb.module_user.databinding.FragmentUserPersonalDetailsBinding
+import com.yyxnb.module_user.viewmodel.UserViewModel
 
 /**
  * 个人详情页.
  */
-public class UserPersonalDetailsFragment extends BaseFragment {
+class UserPersonalDetailsFragment : BaseFragment() {
 
-    private FragmentUserPersonalDetailsBinding binding;
+    private var binding: FragmentUserPersonalDetailsBinding? = null
 
     @BindViewModel
-    UserViewModel mViewModel;
+    lateinit var mViewModel: UserViewModel
 
-
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_user_personal_details;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_user_personal_details
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
-        binding = getBinding();
-        binding.iTitle.mTitle.getCenterTextView().setText(R.string.personal_details);
-        binding.iTitle.mTitle.setBackListener(v -> finish());
-
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        binding!!.iTitle.mTitle.centerTextView.setText(R.string.personal_details)
+        binding!!.iTitle.mTitle.setBackListener { finish() }
     }
 
-    @Override
-    public void initViewData() {
-        mViewModel.reqUserId.postValue(LoginImpl.getInstance().getUserInfo().userId);
-        mViewModel.getUser().observe(this, userBean -> {
+    override fun initViewData() {
+        mViewModel.reqUserId.postValue(instance!!.userInfo!!.userId)
+        mViewModel.user.observe(this, { userBean: UserBean? ->
             if (userBean != null) {
-                LoginImpl.getInstance().updateUserInfo(userBean);
-                binding.setData(userBean);
+                instance!!.updateUserInfo(userBean)
+                binding!!.data = userBean
             }
-            binding.setData(userBean);
-        });
+            binding!!.data = userBean
+        })
     }
 }

@@ -198,7 +198,7 @@
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 app:srcCompat="@mipmap/ic_user_wallet"
-                                android:tint="@color/colorPrimary" />
+                                app:tint="@color/colorPrimary" />
 
                         </LinearLayout>
 
@@ -338,7 +338,7 @@
                             android:layout_height="30dp"
                             android:layout_marginStart="16dp"
                             android:layout_marginEnd="10dp"
-                            android:checked="@{UserPresenter.isChecked()}"
+                            android:checked="@{UserPresenter.INSTANCE.isChecked}"
                             android:onCheckedChanged="@{(v,isChecked) -> UserPresenter.onCheckedChange(v,isChecked)}" />
 
                     </LinearLayout>

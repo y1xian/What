@@ -1,29 +1,22 @@
-package com.yyxnb.module_user.viewmodel;
+package com.yyxnb.module_user.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import com.yyxnb.common_base.bean.UserBean
+import com.yyxnb.common_base.db.AppDatabase.Companion.instance
+import com.yyxnb.network.BaseViewModel
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Transformations;
+class UserViewModel : BaseViewModel() {
 
-import com.yyxnb.common_base.bean.UserBean;
-import com.yyxnb.common_base.db.AppDatabase;
-import com.yyxnb.common_base.db.UserDao;
-import com.yyxnb.network.BaseViewModel;
+    private val userDao = instance!!.userDao()
+    @JvmField
+    var reqUserId = MutableLiveData<Int>()
 
-public class UserViewModel extends BaseViewModel {
+    val user: LiveData<UserBean>
+        get() = Transformations.switchMap(reqUserId) { input: Int? -> userDao!!.getUser(input!!) }
 
-    private UserDao userDao = AppDatabase.getInstance().userDao();
-
-    public MutableLiveData<Integer> reqUserId = new MutableLiveData<>();
-
-    public LiveData<UserBean> getUser() {
-        return Transformations.switchMap(reqUserId, input -> {
-            return userDao.getUser(input);
-        });
+    fun getUser(userId: Int): LiveData<UserBean> {
+        return userDao!!.getUser(userId)
     }
-
-    public LiveData<UserBean> getUser(int userId) {
-        return userDao.getUser(userId);
-    }
-
 }
