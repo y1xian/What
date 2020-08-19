@@ -1,8 +1,5 @@
-package com.yyxnb.common_base.base;
+package com.yyxnb.common_base.base
 
-import java.util.List;
-
-public class StateData<T> {
-
-    public List<T> list;
+class StateData<T> {
+    var list: List<T>? = null
 }

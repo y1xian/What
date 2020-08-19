@@ -113,10 +113,10 @@ public class VideoPlayFragment extends BaseFragment {
                 case 0:
                     break;
                 case 5:
-                    Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
+                    Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH,"", 1));
                     break;
             }
-            CommonManager.getInstance().toast(text);
+            CommonManager.INSTANCE.toast(text);
         });
     }
 
@@ -242,7 +242,7 @@ public class VideoPlayFragment extends BaseFragment {
     public void onVisible() {
         isCur = true;
         LogUtils.e("Play onVisible");
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
+        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP,"", false), 100);
         if (mVideoView != null) {
             mVideoView.resume();
         }
@@ -252,7 +252,7 @@ public class VideoPlayFragment extends BaseFragment {
     public void onInVisible() {
         isCur = false;
         LogUtils.e("Play onInVisible");
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
+        Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP,"", true));
         if (mVideoView != null) {
             mVideoView.pause();
         }

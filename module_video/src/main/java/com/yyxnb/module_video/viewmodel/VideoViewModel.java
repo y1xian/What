@@ -11,12 +11,13 @@ import com.yyxnb.module_video.config.DataConfig;
 import com.yyxnb.module_video.config.VideoService;
 import com.yyxnb.module_video.db.VideoDao;
 import com.yyxnb.module_video.db.VideoDatabase;
+import com.yyxnb.network.BaseViewModel;
 
 import java.util.List;
 
 public class VideoViewModel extends BaseViewModel {
 
-    private VideoService mApi = Http.getInstance().create(VideoService.class);
+    private VideoService mApi = Http.INSTANCE.create(VideoService.class);
     private VideoDao mVideoDao = VideoDatabase.getInstance().videoDao();
 
     public MutableLiveData<StateData<TikTokBean>> result = new MutableLiveData();

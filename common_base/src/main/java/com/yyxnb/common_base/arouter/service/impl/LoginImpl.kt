@@ -1,74 +1,73 @@
-package com.yyxnb.common_base.arouter.service.impl;
+package com.yyxnb.common_base.arouter.service.impl
 
-import android.content.Context;
-
-import com.alibaba.android.arouter.facade.annotation.Autowired;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.yyxnb.common_base.arouter.service.LoginService;
-import com.yyxnb.common_base.bean.UserBean;
-
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_SERVICE;
+import android.content.Context
+import com.alibaba.android.arouter.facade.annotation.Autowired
+import com.alibaba.android.arouter.launcher.ARouter
+import com.yyxnb.common_base.arouter.ARouterConstant
+import com.yyxnb.common_base.arouter.service.LoginService
+import com.yyxnb.common_base.bean.UserBean
 
 /**
  * 对LoginService包装，业务方直接调用，无需再自己初始化service类
  */
-public class LoginImpl {
+class LoginImpl public constructor() {
 
-    @Autowired(name = LOGIN_SERVICE)
-    protected LoginService mLoginService;
-
-    private static LoginImpl mLoginImpl = null;
-
-    public static LoginImpl getInstance() {
-        if (mLoginImpl == null) {
-            synchronized (LoginImpl.class) {
-                if (mLoginImpl == null) {
-                    mLoginImpl = new LoginImpl();
-                }
-                return mLoginImpl;
-            }
-        }
-        return mLoginImpl;
-    }
-
-    private LoginImpl() {
+    init {
         //初始化
-        ARouter.getInstance().inject(this);
+        ARouter.getInstance().inject(this)
     }
+
+    @Autowired(name = ARouterConstant.LOGIN_SERVICE)
+    lateinit var mLoginService: LoginService
 
     /**
      * 跳转登录 ，建议直接路由跳转
      */
-    public void login(Context context) {
-        mLoginService.login(context);
+    fun login(context: Context?) {
+        mLoginService!!.login(context)
     }
 
     /**
      * 是否登录
      */
-    public boolean isLogin() {
-        return mLoginService.isLogin();
-    }
+    val isLogin: Boolean
+        get() = mLoginService!!.isLogin
 
     /**
      * 退出
      */
-    public void loginOut() {
-        mLoginService.loginOut();
+    fun loginOut() {
+        mLoginService!!.loginOut()
     }
 
     /**
      * 获取用户信息
      */
-    public UserBean getUserInfo() {
-        return mLoginService.getUserInfo();
-    }
+    val userInfo: UserBean?
+        get() = mLoginService!!.userInfo
 
     /**
      * 更新用户信息
      */
-    public void updateUserInfo(UserBean userBean) {
-        mLoginService.updateUserInfo(userBean);
+    fun updateUserInfo(userBean: UserBean?) {
+        mLoginService!!.updateUserInfo(userBean)
+    }
+
+    companion object {
+        var mLoginImpl: LoginImpl? = null
+        @JvmStatic
+        val instance: LoginImpl?
+            get() {
+                if (mLoginImpl == null) {
+                    synchronized(LoginImpl::class.java) {
+                        if (mLoginImpl == null) {
+                            mLoginImpl = LoginImpl()
+                        }
+                        return mLoginImpl
+                    }
+                }
+                return mLoginImpl
+            }
     }
 
 }

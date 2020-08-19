@@ -2,6 +2,7 @@ package com.yyxnb.module_video.config;
 
 import com.yyxnb.common.CommonManager;
 import com.yyxnb.module_video.bean.TikTokBean;
+import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.utils.FileUtils;
 
 import java.math.BigDecimal;
@@ -19,8 +20,8 @@ public class DataConfig {
      */
     public static List<TikTokBean> getTikTokBeans() {
         if (tikTokBeans == null) {
-            String content = FileUtils.parseFile(CommonManager.getInstance().getContext(), "tiktok_data.json");
-            tikTokBeans = GsonUtils.jsonToList(content, TikTokBean.class);
+            String content = FileUtils.parseFile(CommonManager.INSTANCE.getContext(), "tiktok_data.json");
+            tikTokBeans = GsonUtils.INSTANCE.jsonToList(content, TikTokBean.class);
         }
         Collections.shuffle(tikTokBeans);
         return tikTokBeans;

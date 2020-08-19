@@ -98,7 +98,7 @@ public class VideoUserFragment extends BaseFragment {
         }
 
         binding.btnBack.setOnClickListener(v -> {
-            Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 0));
+            Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH,"", 0));
         });
 
         initIndicator();
@@ -149,7 +149,7 @@ public class VideoUserFragment extends BaseFragment {
     public void onVisible() {
 //        isUser = getArguments().getBoolean("isUser", false);
 //        binding.btnBack.setVisibility(isUser ? View.GONE : View.VISIBLE);
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false));
+        Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP,"", false));
         LogUtils.w("user v");
 //        if (!isUser && binding.btnBack.getVisibility() == View.VISIBLE){
 //            monitor(true);
@@ -161,7 +161,7 @@ public class VideoUserFragment extends BaseFragment {
 
     @Override
     public void onInVisible() {
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
+        Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP,"", true));
         LogUtils.w("user iv");
     }
 
@@ -179,7 +179,7 @@ public class VideoUserFragment extends BaseFragment {
             getView().setOnKeyListener((v, keyCode, event) -> {
                 if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
                     // 监听到返回按钮点击事件
-                    Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 0));
+                    Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH,"", 0));
                     return true;
                 }
                 return false;

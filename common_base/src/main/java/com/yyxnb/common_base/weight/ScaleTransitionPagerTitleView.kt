@@ -1,28 +1,24 @@
-package com.yyxnb.common_base.weight;
+package com.yyxnb.common_base.weight
 
-import android.content.Context;
+import android.content.Context
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
+/**
+ * 扩展 标题缩放
+ */
+class ScaleTransitionPagerTitleView(context: Context?) : ColorTransitionPagerTitleView(context) {
 
-public class ScaleTransitionPagerTitleView extends ColorTransitionPagerTitleView {
+    private val minScale = 0.8f
 
-    private float minScale = 0.8f;
-
-    public ScaleTransitionPagerTitleView(Context context) {
-        super(context);
+    override fun onEnter(index: Int, totalCount: Int, enterPercent: Float, leftToRight: Boolean) {
+        super.onEnter(index, totalCount, enterPercent, leftToRight)
+        scaleX = minScale + (1.0f - minScale) * enterPercent
+        scaleY = minScale + (1.0f - minScale) * enterPercent
     }
 
-    @Override
-    public void onEnter(int index, int totalCount, float enterPercent, boolean leftToRight) {
-        super.onEnter(index, totalCount, enterPercent, leftToRight);
-        setScaleX(minScale + (1.0f - minScale) * enterPercent);
-        setScaleY(minScale + (1.0f - minScale) * enterPercent);
-    }
-
-    @Override
-    public void onLeave(int index, int totalCount, float leavePercent, boolean leftToRight) {
-        super.onLeave(index, totalCount, leavePercent, leftToRight);
-        setScaleX(1.0f + (minScale - 1.0f) * leavePercent);
-        setScaleY(1.0f + (minScale - 1.0f) * leavePercent);
+    override fun onLeave(index: Int, totalCount: Int, leavePercent: Float, leftToRight: Boolean) {
+        super.onLeave(index, totalCount, leavePercent, leftToRight)
+        scaleX = 1.0f + (minScale - 1.0f) * leavePercent
+        scaleY = 1.0f + (minScale - 1.0f) * leavePercent
     }
 }

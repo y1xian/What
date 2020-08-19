@@ -1,32 +1,24 @@
-package com.yyxnb.common_base.weight.skin;
+package com.yyxnb.common_base.weight.skin
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
+import android.view.View
+import com.noober.background.drawable.DrawableCreator
+import com.yyxnb.skinloader.bean.SkinAttr
+import com.yyxnb.skinloader.bean.SkinConfig
+import com.yyxnb.skinloader.skinInterface.ISkinResDeployer
+import com.yyxnb.skinloader.skinInterface.ISkinResourceManager
 
-import com.noober.background.drawable.DrawableCreator;
-import com.yyxnb.skinloader.bean.SkinAttr;
-import com.yyxnb.skinloader.bean.SkinConfig;
-import com.yyxnb.skinloader.skinInterface.ISkinResDeployer;
-import com.yyxnb.skinloader.skinInterface.ISkinResourceManager;
-
-
-public class BLBackgroundColorResDeployer implements ISkinResDeployer {
-
-    private float radius = 8f;
-
-    @Override
-    public void deploy(View view, SkinAttr skinAttr, ISkinResourceManager resource) {
+class BLBackgroundColorResDeployer : ISkinResDeployer {
+    private val radius = 8f
+    override fun deploy(view: View, skinAttr: SkinAttr, resource: ISkinResourceManager) {
 //        if (!(view instanceof CustomTitleView)) {
 //            return;
 //        }
-        if (SkinConfig.RES_TYPE_NAME_COLOR.equals(skinAttr.attrValueTypeName)) {
-            Drawable drawable = new DrawableCreator.Builder()
+        if (SkinConfig.RES_TYPE_NAME_COLOR == skinAttr.attrValueTypeName) {
+            val drawable = DrawableCreator.Builder()
                     .setCornersRadius(radius)
                     .setSolidColor(resource.getColor(skinAttr.attrValueRefId))
-                    .build();
-            view.setBackground(drawable);
+                    .build()
+            view.background = drawable
         }
-
-
     }
 }

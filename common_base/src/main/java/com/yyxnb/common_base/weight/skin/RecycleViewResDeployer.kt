@@ -1,47 +1,36 @@
-package com.yyxnb.common_base.weight.skin;
+package com.yyxnb.common_base.weight.skin
 
-import android.view.View;
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+import com.yyxnb.adapter.ItemDecoration
+import com.yyxnb.skinloader.bean.SkinAttr
+import com.yyxnb.skinloader.bean.SkinConfig
+import com.yyxnb.skinloader.skinInterface.ISkinResDeployer
+import com.yyxnb.skinloader.skinInterface.ISkinResourceManager
 
-import androidx.recyclerview.widget.RecyclerView;
+class RecycleViewResDeployer : ISkinResDeployer {
+    private var divHeight = 0
 
-import com.yyxnb.adapter.ItemDecoration;
-import com.yyxnb.skinloader.bean.SkinAttr;
-import com.yyxnb.skinloader.bean.SkinConfig;
-import com.yyxnb.skinloader.skinInterface.ISkinResDeployer;
-import com.yyxnb.skinloader.skinInterface.ISkinResourceManager;
-
-
-public class RecycleViewResDeployer implements ISkinResDeployer {
-
-    private int divHeight;
-
-    public RecycleViewResDeployer() {
+    constructor() {}
+    constructor(divHeight: Int) {
+        this.divHeight = divHeight
     }
 
-    public RecycleViewResDeployer(int divHeight) {
-        this.divHeight = divHeight;
-    }
-
-    @Override
-    public void deploy(View view, SkinAttr skinAttr, ISkinResourceManager resource) {
-        if (!(view instanceof RecyclerView)) {
-            return;
+    override fun deploy(view: View, skinAttr: SkinAttr, resource: ISkinResourceManager) {
+        if (view !is RecyclerView) {
+            return
         }
-
-        RecyclerView recyclerView = (RecyclerView) view;
-        if (SkinConfig.RES_TYPE_NAME_COLOR.equals(skinAttr.attrValueTypeName)) {
-            ItemDecoration decoration = new ItemDecoration(recyclerView.getContext());
+        val recyclerView = view
+        if (SkinConfig.RES_TYPE_NAME_COLOR == skinAttr.attrValueTypeName) {
+            val decoration = ItemDecoration(recyclerView.context)
             if (divHeight > 0) {
-                decoration.setDividerHeight(divHeight);
+                decoration.setDividerHeight(divHeight)
             }
-            decoration.setDividerColor(resource.getColor(skinAttr.attrValueRefId));
-
-            recyclerView.removeItemDecorationAt(0);
-            recyclerView.addItemDecoration(decoration);
+            decoration.setDividerColor(resource.getColor(skinAttr.attrValueRefId))
+            recyclerView.removeItemDecorationAt(0)
+            recyclerView.addItemDecoration(decoration)
 
 //            LogUtils.e("-----" + skinAttr.attrValueTypeName + " , " + skinAttr.attrValueRefId);
         }
-
-
     }
 }

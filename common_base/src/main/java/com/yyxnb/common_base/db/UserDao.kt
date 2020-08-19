@@ -1,22 +1,19 @@
-package com.yyxnb.common_base.db;
+package com.yyxnb.common_base.db
 
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Query;
-
-import com.yyxnb.common_base.bean.UserBean;
-
-import java.util.List;
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Query
+import com.yyxnb.common_base.bean.UserBean
 
 @Dao
-public interface UserDao extends BaseDao<UserBean> {
+interface UserDao : BaseDao<UserBean> {
 
     @Query("SELECT * FROM user WHERE userId=:userId")
-    LiveData<UserBean> getUser(int userId);
+    fun getUser(userId: Int): LiveData<UserBean>
 
     @Query("SELECT * FROM user WHERE userId=:userId")
-    UserBean getUserMainThread(int userId);
+    fun getUserMainThread(userId: Int): UserBean
 
     @Query("SELECT * FROM user")
-    LiveData<List<UserBean>> getUserAll();
+    fun getUserAll(): LiveData<List<UserBean>>
 }

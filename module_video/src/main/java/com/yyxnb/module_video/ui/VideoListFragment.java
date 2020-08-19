@@ -59,7 +59,7 @@ public class VideoListFragment extends BaseFragment {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);
-                CommonManager.getInstance().toast(" p " + position);
+                CommonManager.INSTANCE.toast(" p " + position);
 //                startFragment(VideoPlayFragment.newInstance(position, mAdapter.getData()));
             }
         });

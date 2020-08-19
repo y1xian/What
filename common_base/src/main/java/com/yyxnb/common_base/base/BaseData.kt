@@ -1,35 +1,23 @@
-package com.yyxnb.common_base.base;
+package com.yyxnb.common_base.base
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.common.interfaces.IData
 
-public class BaseData<T> implements IData<T> {
+data class BaseData<T>(
+        var status: String = "",
+        var message: String = "",
+        var data: T? = null
+) : IData<T> {
 
-    public String status;
-    public String message;
-    public T data;
+    override var code: String? = status
 
-    @Override
-    public String getCode() {
-        return status;
-    }
+    override var msg: String? = message
 
-    @Override
-    public String getMsg() {
-        return message;
-    }
+    override var result: T? = data
 
-    @Override
-    public T getResult() {
-        return data;
-    }
+    override val isSuccess: Boolean
+        get() = "200" == code
 
-    @Override
-    public boolean isSuccess() {
-        return "200".equals(status);
-    }
-
-    @Override
-    public int id() {
-        return hashCode();
+    override fun id(): Int {
+        return hashCode()
     }
 }

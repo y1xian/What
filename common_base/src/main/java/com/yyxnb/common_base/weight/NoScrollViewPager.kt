@@ -1,65 +1,51 @@
-package com.yyxnb.common_base.weight;
+package com.yyxnb.common_base.weight
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
+import android.content.Context
+import android.util.AttributeSet
+import android.view.MotionEvent
+import androidx.viewpager.widget.ViewPager
 
-import androidx.viewpager.widget.ViewPager;
+class NoScrollViewPager : ViewPager {
 
-public class NoScrollViewPager extends ViewPager {
+    private var noScroll = false
+    private var animation = false
 
-    private boolean noScroll = false;
-    private boolean animation = false;
-
-
-    public void setNoScroll(boolean noScroll) {
-        this.noScroll = noScroll;
+    fun setNoScroll(noScroll: Boolean) {
+        this.noScroll = noScroll
     }
 
-    public void setAnimation(boolean animation) {
-        this.animation = animation;
+    fun setAnimation(animation: Boolean) {
+        this.animation = animation
     }
 
-    public NoScrollViewPager(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {}
+    constructor(context: Context?) : super(context!!) {}
+
+    override fun scrollTo(x: Int, y: Int) {
+        super.scrollTo(x, y)
     }
 
-    public NoScrollViewPager(Context context) {
-        super(context);
-    }
-
-
-    @Override
-    public void scrollTo(int x, int y) {
-        super.scrollTo(x, y);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent arg0) {
-        if (noScroll) {
-            return false;
+    override fun onTouchEvent(arg0: MotionEvent): Boolean {
+        return if (noScroll) {
+            false
         } else {
-            return super.onTouchEvent(arg0);
+            super.onTouchEvent(arg0)
         }
     }
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent arg0) {
-        if (noScroll) {
-            return false;
+    override fun onInterceptTouchEvent(arg0: MotionEvent): Boolean {
+        return if (noScroll) {
+            false
         } else {
-            return super.onInterceptTouchEvent(arg0);
+            super.onInterceptTouchEvent(arg0)
         }
     }
 
-    @Override
-    public void setCurrentItem(int item, boolean smoothScroll) {
-        super.setCurrentItem(item, smoothScroll);
+    override fun setCurrentItem(item: Int, smoothScroll: Boolean) {
+        super.setCurrentItem(item, smoothScroll)
     }
 
-    @Override
-    public void setCurrentItem(int item) {
-        super.setCurrentItem(item, animation);
+    override fun setCurrentItem(item: Int) {
+        super.setCurrentItem(item, animation)
     }
-
 }

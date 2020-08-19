@@ -29,7 +29,7 @@ public abstract class VideoDatabase extends RoomDatabase {
             synchronized (VideoDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE =
-                            Room.databaseBuilder(CommonManager.getInstance().getContext(), VideoDatabase.class, "what_video.db")
+                            Room.databaseBuilder(CommonManager.INSTANCE.getContext(), VideoDatabase.class, "what_video.db")
                                     .allowMainThreadQueries() //room默认数据库的查询是不能在主线程中执行的，除非这样设置
                                     .fallbackToDestructiveMigration() //不想提供migration，而且希望更新版本之后清空数据库
                                     .build();

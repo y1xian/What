@@ -1,11 +1,9 @@
-package com.yyxnb.common_base.bean;
+package com.yyxnb.common_base.bean
 
-
-import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.Index;
-
-import java.io.Serializable;
+import androidx.annotation.NonNull
+import androidx.room.Entity
+import androidx.room.Index
+import java.io.Serializable
 
 /*
 
@@ -22,33 +20,27 @@ public @interface Entity {
     ForeignKey[] foreignKeys() default {};
 
  */
-
-@Entity(tableName = "user",
-        // 复合主键 ps: @PrimaryKey 和 primaryKeys 不能并存，多主键只能primaryKeys
-        primaryKeys = {"userId", "phone"},
-        // 约束 唯一
-        indices = {@Index(value = {"userId", "phone", "token"}, unique = true)}
-)
-public class UserBean implements Serializable {
-
-    // 自增
-//    @PrimaryKey(autoGenerate = true)
-//    public int id;
-
-    public int userId;
-    @NonNull
-    public String phone;
-    public String token;
-    public String nickname;
-    public String avatar;
-    public String signature;
-    public boolean isLogin;
-    public int sex;
-    public int age;
-
-
-    @Override
-    public String toString() {
+@Entity(tableName = "user", primaryKeys = ["userId", "phone"], indices = [Index(value = ["userId", "phone", "token"], unique = true)])
+data class UserBean(
+        @JvmField
+        var userId: Int = 0,
+        @JvmField
+        @NonNull
+        var phone: String = "",
+        @JvmField
+        var token: String? = null,
+        @JvmField
+        var nickname: String? = null,
+        @JvmField
+        var avatar: String? = null,
+        @JvmField
+        var signature: String? = null,
+        @JvmField
+        var isLogin: Boolean = false,
+        var sex: Int = 0,
+        var age: Int = 0
+) : Serializable {
+    override fun toString(): String {
         return "UserBean{" +
                 "userId=" + userId +
                 ", phone='" + phone + '\'' +
@@ -59,6 +51,6 @@ public class UserBean implements Serializable {
                 ", isLogin=" + isLogin +
                 ", sex=" + sex +
                 ", age=" + age +
-                '}';
+                '}'
     }
 }

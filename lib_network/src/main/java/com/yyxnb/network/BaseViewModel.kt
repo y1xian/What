@@ -98,7 +98,7 @@ abstract class BaseViewModel : ViewModel() {
             //接口成功返回后判断是否是增删改查成功，不满足的话，返回异常
             if (response.isSuccess) {
                 status.postValue(Status.SUCCESS)
-                success(response.result)
+                success(response.result!!)
             } else {
                 status.postValue(Status.ERROR)
                 //状态码错误

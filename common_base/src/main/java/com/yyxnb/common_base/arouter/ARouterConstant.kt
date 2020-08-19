@@ -1,67 +1,60 @@
-package com.yyxnb.common_base.arouter;
+package com.yyxnb.common_base.arouter
 
-
-public class ARouterConstant {
+/**
+ * 路由路径
+ */
+object ARouterConstant {
 
     // == 服务
-    public static final String LOGIN_SERVICE = "/login/login_service";
+    const val LOGIN_SERVICE = "/login/login_service"
 
-    
     //====== login
     //跳转到登陆页面
-    public static final String LOGIN_ACTIVITY = "/login/LoginActivity";
-    public static final String LOGIN_FRAGMENT = "/login/LoginFragment";
+    const val LOGIN_ACTIVITY = "/login/LoginActivity"
+    const val LOGIN_FRAGMENT = "/login/LoginFragment"
+
     //跳转到注册页面
-    public static final String REGISTER_ACTIVITY = "/login/RegisterActivity";
+    const val REGISTER_ACTIVITY = "/login/RegisterActivity"
 
     //====== user
     //跳转到用户页面
-    public static final String USER_FRAGMENT = "/user/UserFragment";
-
+    const val USER_FRAGMENT = "/user/UserFragment"
 
     //========== video
-
     //跳转到视频页面
-    public static final String VIDEO_VIDEO = "/video/VideoActivity";
-    public static final String VIDEO_MAIN_FRAGMENT = "/video/VideoMainFragment";
-
+    const val VIDEO_VIDEO = "/video/VideoActivity"
+    const val VIDEO_MAIN_FRAGMENT = "/video/VideoMainFragment"
 
     //======= message
     //消息列表
-    public static final String MESSAGE_MAIN = "/message/MessageActivity";
-    public static final String MESSAGE_LIST_FRAGMENT = "/message/MessageListFragment";
-
-
+    const val MESSAGE_MAIN = "/message/MessageActivity"
+    const val MESSAGE_LIST_FRAGMENT = "/message/MessageListFragment"
 
     //======== joke
-    public static final String JOKE_MAIN = "/joke/JokeActivity";
-    public static final String JOKE_MAIN_FRAGMENT = "/joke/JokeMainFragment";
-    public static final String JOKE_HOME_FRAGMENT = "/joke/JokeHomeFragment";
-
+    const val JOKE_MAIN = "/joke/JokeActivity"
+    const val JOKE_MAIN_FRAGMENT = "/joke/JokeMainFragment"
+    const val JOKE_HOME_FRAGMENT = "/joke/JokeHomeFragment"
 
     // ====== wanandroid
-    public static final String WAN_MAIN = "/wan/WanActivity";
-    public static final String WAN_MAIN_FRAGMENT = "/wan/WanMainFragment";
-
+    const val WAN_MAIN = "/wan/WanActivity"
+    const val WAN_MAIN_FRAGMENT = "/wan/WanMainFragment"
 
     // ====== 音乐
-    public static final String MUSIC_MAIN = "/music/MusicActivity";
-    public static final String MUSIC_HOME_FRAGMENT = "/music/MusicHomeFragment";
-
-
+    const val MUSIC_MAIN = "/music/MusicActivity"
+    const val MUSIC_HOME_FRAGMENT = "/music/MusicHomeFragment"
 
     // ====== 小说
-    public static final String NOVEL_MAIN = "/novel/NovelActivity";
-
+    const val NOVEL_MAIN = "/novel/NovelActivity"
 
     //==========其他
-    public static final String WIDGET_MAIN = "/widget/WidgetMainActivity";
+    const val WIDGET_MAIN = "/widget/WidgetMainActivity"
 
     //跳转到关于项目更多页面
-    public static final String OTHER_ABOUT_ME = "/other/AboutMeActivity";
-    //跳转到webView详情页面
-    public static final String LIBRARY_WEB_VIEW = "/library/WebViewActivity";
-    //跳转到意见反馈页面
-    public static final String OTHER_FEEDBACK = "/other/MeFeedBackActivity";
+    const val OTHER_ABOUT_ME = "/other/AboutMeActivity"
 
+    //跳转到webView详情页面
+    const val LIBRARY_WEB_VIEW = "/library/WebViewActivity"
+
+    //跳转到意见反馈页面
+    const val OTHER_FEEDBACK = "/other/MeFeedBackActivity"
 }

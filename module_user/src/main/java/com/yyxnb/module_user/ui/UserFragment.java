@@ -91,6 +91,6 @@ public class UserFragment extends BaseFragment {
         super.onVisible();
         getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
         LogUtils.d("---onVisible---" + MMKV.defaultMMKV().decodeInt(USER_ID,0));
-        mViewModel.reqUserId.postValue(BaseConfig.getInstance().kv.decodeInt(USER_ID,0));
+        mViewModel.reqUserId.postValue(BaseConfig.kv.decodeInt(USER_ID,0));
     }
 }

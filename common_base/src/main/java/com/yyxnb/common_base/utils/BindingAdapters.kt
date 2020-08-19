@@ -1,28 +1,26 @@
-package com.yyxnb.common_base.utils;
+package com.yyxnb.common_base.utils
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.graphics.Bitmap
+import android.graphics.Color
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import androidx.databinding.adapters.ListenerUtil
+import com.yyxnb.common_base.R
+import com.yyxnb.image_loader.ImageManager
 
-import androidx.databinding.BindingAdapter;
-import androidx.databinding.adapters.ListenerUtil;
-
-import com.yyxnb.common_base.R;
-import com.yyxnb.image_loader.ImageManager;
-
-public class BindingAdapters {
+object BindingAdapters {
 
     @BindingAdapter("android:src")
-    public static void setSrc(ImageView view, Bitmap bitmap) {
-        view.setImageBitmap(bitmap);
+    fun setSrc(view: ImageView, bitmap: Bitmap?) {
+        view.setImageBitmap(bitmap)
     }
 
     @BindingAdapter("android:src")
-    public static void setSrc(ImageView view, int resId) {
-        view.setImageResource(resId);
+    fun setSrc(view: ImageView, resId: Int) {
+        view.setImageResource(resId)
     }
 
     /**
@@ -33,55 +31,50 @@ public class BindingAdapters {
      * @param placeholder 占位
      * @param error       错误
      */
-    @BindingAdapter(value = {"url", "placeholder", "error"}, requireAll = false)
-    public static void loadImage(ImageView imageView, String url, int placeholder, int error) {
+    @JvmStatic
+    @BindingAdapter(value = ["url", "placeholder", "error"], requireAll = false)
+    fun loadImage(imageView: ImageView?, url: String?, placeholder: Int, error: Int) {
+        var placeholder = placeholder
+        var error = error
         if (placeholder == 0) {
-            placeholder = Color.BLACK;
+            placeholder = Color.BLACK
         }
         if (error == 0) {
-            error = Color.BLACK;
+            error = Color.BLACK
         }
-        ImageManager.getInstance().displayImage(url, imageView, placeholder, error);
+        ImageManager.getInstance().displayImage(url, imageView, placeholder, error)
     }
 
     /**
      * 防止多次点击的OnClick实现
-     * <p>
-     * <EditText
-     * android:onTextChanged="@{(str)-> xxx.onTextChanged(str)}" />
+     *
+     *
+     * <EditText android:onTextChanged="@{(str)-> xxx.onTextChanged(str)}"></EditText>
      *
      * @param editText
      * @param listener
      */
     @BindingAdapter("android:onTextChanged")
-    public static void setTextChangedListener(EditText editText, final OnTextChangedListener listener) {
+    fun setTextChangedListener(editText: EditText, listener: OnTextChangedListener?) {
         if (listener != null) {
-            TextWatcher textWatcher = new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+            val textWatcher: TextWatcher = object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    listener.onTextChanged(s.toString())
                 }
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    listener.onTextChanged(s.toString());
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            };
-            TextWatcher oldWatcher = ListenerUtil.trackListener(editText, textWatcher, R.id.textWatcher);
+                override fun afterTextChanged(s: Editable) {}
+            }
+            val oldWatcher = ListenerUtil.trackListener(editText, textWatcher, R.id.textWatcher)
             if (oldWatcher != null) {
-                editText.removeTextChangedListener(oldWatcher);
+                editText.removeTextChangedListener(oldWatcher)
             } else {
-                editText.addTextChangedListener(textWatcher);
+                editText.addTextChangedListener(textWatcher)
             }
         }
     }
 
-    public interface OnTextChangedListener {
-        void onTextChanged(String text);
+    interface OnTextChangedListener {
+        fun onTextChanged(text: String?)
     }
 }

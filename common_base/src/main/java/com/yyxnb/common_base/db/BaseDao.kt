@@ -1,17 +1,9 @@
-package com.yyxnb.common_base.db;
+package com.yyxnb.common_base.db
 
-import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Update;
-
-import java.util.Collection;
-import java.util.List;
+import androidx.room.*
 
 @Dao
-public interface BaseDao<T> {
-
+interface BaseDao<T> {
     /*
      * 查询
      * 注意，冒号后面必须紧跟参数名，中间不能有空格。大于小于号和冒号中间是有空格的。
@@ -30,7 +22,6 @@ public interface BaseDao<T> {
      *
      * INNER JOIN 【表名】ON
      */
-
     /*
     //策略冲突就替换旧数据
     int REPLACE = 1;
@@ -43,43 +34,41 @@ public interface BaseDao<T> {
     //忽略冲突
     int IGNORE = 5;
      */
-
     /**
      * 插入单条数据
      * 指定为REPLACE替换原有数据
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insertItem(T item);
+    fun insertItem(item: T): Long
 
     /**
      * 插入list数据
      * 指定为REPLACE替换原有数据
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    List<Long> insertItems(Collection<T> items);
+    fun insertItems(items: Collection<T>): List<Long>
 
     /**
      * 删除item
      */
     @Delete
-    int deleteItem(T item);
+    fun deleteItem(item: T): Int
 
     /**
      * 删除items
      */
     @Delete
-    int deleteItem(Collection<T> items);
+    fun deleteItem(items: Collection<T>): Int
 
     /**
      * 更新item
      */
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    int updateItem(T item);
+    fun updateItem(item: T): Int
 
     /**
      * 更新items
      */
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    int updateItem(Collection<T> items);
-
+    fun updateItem(items: Collection<T>): Int
 }

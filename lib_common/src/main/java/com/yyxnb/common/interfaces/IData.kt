@@ -13,6 +13,6 @@ interface IData<T> {
 
     val code: String?
     val msg: String?
-    val result: T
+    val result: T?
     val isSuccess: Boolean
 }
