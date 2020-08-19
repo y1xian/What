@@ -35,8 +35,8 @@ abstract class BaseFragment : Fragment(), IFragment {
     private val mFragmentDelegate by lazy { getBaseDelegate() }
     private val java8Observer: Java8Observer
 
-    override fun getContext(): Context? {
-        return mContext!!.get()
+    override fun getContext(): Context {
+        return mContext!!.get()!!
     }
 
     init {

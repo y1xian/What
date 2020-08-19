@@ -4,7 +4,9 @@ apply from: rootProject.file('lib.gradle')
 dependencies {
     api project(':lib_common')
     //  v7 v4 约束
-    api([libs.fragment, libs.annotations, libs.constraint])
+    api([libs.fragment, libs.constraint])
     //bus
     api libs.live_event_bus
+
+    implementation libs.startup
 }

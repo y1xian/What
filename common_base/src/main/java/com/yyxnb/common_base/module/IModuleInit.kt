@@ -14,5 +14,5 @@ interface IModuleInit {
      *
      * @param application
      */
-    fun onCreate(application: Application?)
+    fun onCreate(application: Application)
 }

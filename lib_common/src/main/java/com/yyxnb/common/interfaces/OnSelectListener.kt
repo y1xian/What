@@ -15,5 +15,5 @@ interface OnSelectListener {
      * @param position 当前位置
      * @param text     内容
      */
-    fun onClick(v: View?, position: Int, text: String?)
+    fun onClick(v: View, position: Int, text: String?)
 }

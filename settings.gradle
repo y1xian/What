@@ -22,7 +22,8 @@ include ':lib_network',
         ':lib_adapter',
         ':lib_popup',
         ':lib_localservice',
-        ':lib_ktx'
+        ':lib_ktx',
+        ':lib_view'
 
 include ':skin_night'
 rootProject.name = 'What'

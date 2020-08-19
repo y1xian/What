@@ -2,6 +2,9 @@
 apply plugin: 'com.alibaba.arouter'
 buildscript {
     apply from: 'config.gradle'
+    ext {
+        kotlin_version = '1.4.0'
+    }
 
     repositories {
         google()

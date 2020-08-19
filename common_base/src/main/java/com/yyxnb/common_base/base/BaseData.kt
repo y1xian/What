@@ -5,14 +5,14 @@ import com.yyxnb.common.interfaces.IData
 data class BaseData<T>(
         var status: String = "",
         var message: String = "",
-        var data: T? = null
+        var data: T
 ) : IData<T> {
 
     override var code: String? = status
 
     override var msg: String? = message
 
-    override var result: T? = data
+    override var result: T = data
 
     override val isSuccess: Boolean
         get() = "200" == code

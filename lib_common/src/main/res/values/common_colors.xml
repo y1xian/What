@@ -55,7 +55,7 @@
     <color name="yellow">#FFFF00</color><!--黄色 -->
     <color name="orange">#FFA500</color><!--橙色 -->
     <color name="red">#FF0000</color><!--红色 -->
-    <color name="gray">#808080</color><!--灰色 -->
+    <color name="gray">#e9e9e9</color><!--灰色 -->
     <color name="pale_grey">#F2F2F2</color><!--淡灰色-->
     <color name="purple">#800080</color><!--紫色 -->
     <color name="cyan">#00FFFF</color><!--青色 -->

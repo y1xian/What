@@ -5,7 +5,6 @@ import com.yyxnb.common.utils.log.LogUtils
 import com.yyxnb.common_base.config.Http
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean
-import com.yyxnb.module_wanandroid.bean.WanData
 import com.yyxnb.module_wanandroid.bean.WanStatus
 import com.yyxnb.module_wanandroid.config.WanService
 import com.yyxnb.network.BaseViewModel

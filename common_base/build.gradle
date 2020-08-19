@@ -15,6 +15,7 @@ dependencies {
     api project(':lib_popup')
     // 适配器
     api project(':lib_adapter')
+    api project(':lib_view')
 
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"

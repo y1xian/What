@@ -10,6 +10,7 @@ import com.yyxnb.module_wanandroid.config.WanService
 import com.yyxnb.network.BaseViewModel
 
 class WanPublicViewModel : BaseViewModel() {
+
     private val mApi = Http.create(WanService::class.java)
 
     @JvmField

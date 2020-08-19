@@ -13,7 +13,7 @@ class ModuleLifecycleConfig private constructor() {
     }
 
     //初始化组件-靠前
-    fun initModule(application: Application?) {
+    fun initModule(application: Application) {
         for (moduleInitName in ModuleLifecycleReflexs.initModuleNames) {
             try {
                 val clazz = Class.forName(moduleInitName)
