@@ -1,22 +1,17 @@
-package com.yyxnb.module_wanandroid.adapter;
+package com.yyxnb.module_wanandroid.adapter
 
-import com.yyxnb.adapter.BaseAdapter;
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.module_wanandroid.R;
-import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
-import com.yyxnb.module_wanandroid.databinding.ItemWanHomeLayoutBinding;
+import com.yyxnb.adapter.BaseAdapter
+import com.yyxnb.adapter.BaseViewHolder
+import com.yyxnb.module_wanandroid.R
+import com.yyxnb.module_wanandroid.bean.WanAriticleBean
+import com.yyxnb.module_wanandroid.databinding.ItemWanHomeLayoutBinding
 
-public class WanHomeAdapter extends BaseAdapter<WanAriticleBean> {
+class WanHomeAdapter : BaseAdapter<WanAriticleBean>(R.layout.item_wan_home_layout) {
 
-    public WanHomeAdapter() {
-        super(R.layout.item_wan_home_layout);
-    }
+    private var binding: ItemWanHomeLayoutBinding? = null
 
-    private ItemWanHomeLayoutBinding binding;
-
-    @Override
-    protected void bind(BaseViewHolder holder, WanAriticleBean bean, int position) {
-        binding = holder.getBinding();
-        binding.setData(bean);
+    protected override fun bind(holder: BaseViewHolder, bean: WanAriticleBean, position: Int) {
+        binding = holder.getBinding()
+        binding?.data = bean
     }
 }

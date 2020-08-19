@@ -10,7 +10,14 @@ class LoggingInterceptor : HttpLoggingInterceptor.Logger {
     private val mMessage = StringBuilder()
     override fun log(text: String) {
         try {
-            var message = URLDecoder.decode(text, "utf-8").replace("\\", "")
+            var message = text
+                    .replace("\\+".toRegex(), "")
+                    .replace("%".toRegex(), "%%")
+            message = message.replace("%(?![0-9a-fA-F]{2})".toRegex(), "%%")
+            message = message.replace("%%".toRegex(), "")
+            message = message.replace("\\+".toRegex(), "")
+            message = URLDecoder.decode(message, "utf-8")
+
             if (message.startsWith("--> POST")) {
                 mMessage.setLength(0)
                 mMessage.append(" ")

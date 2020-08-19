@@ -35,30 +35,30 @@ data class WanAriticleBean(
          * visible : 1
          * zan : 0
          */
-        var apkLink: String? = null,
+        var apkLink: String? = "",
         var audit: Int = 0,
         @JvmField
-        var author: String? = null,
+        var author: String? = "",
         var canEdit: Boolean = false,
         var chapterId: Int = 0,
         @JvmField
-        var chapterName: String? = null,
+        var chapterName: String? = "",
         var collect: Boolean = false,
         var courseId: Int = 0,
-        var desc: String? = null,
-        var descMd: String? = null,
+        var desc: String? = "",
+        var descMd: String? = "",
         @JvmField
-        var envelopePic: String? = null,
+        var envelopePic: String? = "",
         @JvmField
         var fresh: Boolean = false,
         var id: Int = 0,
-        var link: String? = null,
+        var link: String? = "",
         @JvmField
-        var niceDate: String? = null,
-        var niceShareDate: String? = null,
-        var origin: String? = null,
-        var prefix: String? = null,
-        var projectLink: String? = null,
+        var niceDate: String? = "",
+        var niceShareDate: String? = "",
+        var origin: String? = "",
+        var prefix: String? = "",
+        var projectLink: String? = "",
         var publishTime: Long = 0,
         var realSuperChapterId: Int = 0,
         var selfVisible: Int = 0,
@@ -67,19 +67,19 @@ data class WanAriticleBean(
         var shareUser: String? = null,
         var superChapterId: Int = 0,
         @JvmField
-        var superChapterName: String? = null,
+        var superChapterName: String? = "",
         @JvmField
-        var title: String? = null,
+        var title: String? = "",
         @JvmField
         var type: Int = 0,
         var userId: Int = 0,
         var visible: Int = 0,
         var zan: Int = 0,
-        var tags: List<DataBeans>? = null,
+        var tags: List<DataBeans> = listOf(),
 
         // 轮播的
-        var imagePath: String? = null,
-        var url: String? = null,
+        var imagePath: String? = "",
+        var url: String? = "",
 //    var isVisible: Int = 0
         var order: Int = 0
 
