@@ -11,8 +11,11 @@ interface IData<T> {
         return hashCode()
     }
 
-    val code: String?
-    val msg: String?
-    val result: T?
-    val isSuccess: Boolean
+    fun getCode(): String
+
+    fun getMsg(): String?
+
+    fun getResult(): T?
+
+    fun isSuccess(): Boolean
 }

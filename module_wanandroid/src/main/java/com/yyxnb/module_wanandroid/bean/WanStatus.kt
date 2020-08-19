@@ -1,13 +1,11 @@
-package com.yyxnb.module_wanandroid.bean;
+package com.yyxnb.module_wanandroid.bean
 
-import java.util.List;
-
-public class WanStatus<T> {
-    public int curPage;
-    public int offset;
-    public boolean over;
-    public int pageCount;
-    public int size;
-    public int total;
-    public List<T> datas;
-}
+data class WanStatus<T>(
+        var curPage: Int = 0,
+        var offset: Int = 0,
+        var over: Boolean = false,
+        var pageCount: Int = 0,
+        var size: Int = 0,
+        var total: Int = 0,
+        var datas: List<T> = listOf()
+)

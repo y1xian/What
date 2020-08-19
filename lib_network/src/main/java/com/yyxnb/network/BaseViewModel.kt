@@ -97,15 +97,15 @@ abstract class BaseViewModel : ViewModel() {
     ) {
         coroutineScope {
             //接口成功返回后判断是否是增删改查成功，不满足的话，返回异常
-            if (response.isSuccess) {
+            if (response.isSuccess()) {
                 status.postValue(Status.SUCCESS)
-                success(response.result!!)
+                success(response.getResult()!!)
             } else {
                 status.postValue(Status.ERROR)
                 //状态码错误
                 throw ResponseThrowable(
-                        response.code!!,
-                        response.msg!!
+                        response.getCode(),
+                        response.getMsg()!!
                 )
             }
         }

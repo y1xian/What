@@ -8,14 +8,13 @@ data class BaseData<T>(
         var data: T
 ) : IData<T> {
 
-    override var code: String? = status
+    override fun getCode(): String = status
 
-    override var msg: String? = message
+    override fun getMsg(): String = message
 
-    override var result: T = data
+    override fun getResult(): T? = data
 
-    override val isSuccess: Boolean
-        get() = "200" == code
+    override fun isSuccess(): Boolean = "200" == status
 
     override fun id(): Int {
         return hashCode()
