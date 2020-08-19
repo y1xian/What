@@ -1,12 +1,8 @@
-package com.yyxnb.module_main;
+package com.yyxnb.module_main
 
-import android.app.Application;
+import android.app.Application
+import com.yyxnb.common_base.module.IModuleInit
 
-import com.yyxnb.common_base.module.IModuleInit;
-
-public class ModuleInit implements IModuleInit {
-    @Override
-    public void onCreate(Application application) {
-
-    }
+class ModuleInit : IModuleInit {
+    override fun onCreate(application: Application) {}
 }

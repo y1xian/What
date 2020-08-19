@@ -1,35 +1,26 @@
-package com.yyxnb.module_main.viewmodel;
+package com.yyxnb.module_main.viewmodel
 
+import androidx.paging.DataSource
+import androidx.paging.PageKeyedDataSource
+import com.yyxnb.module_main.bean.MainHomeBean
+import com.yyxnb.module_main.config.DataConfig.mainBeans
+import com.yyxnb.network.BasePagedViewModel
 
-import androidx.annotation.NonNull;
-import androidx.paging.DataSource;
-import androidx.paging.PageKeyedDataSource;
+class MainViewModel : BasePagedViewModel<MainHomeBean>() {
 
-import com.yyxnb.module_main.bean.MainHomeBean;
-import com.yyxnb.module_main.config.DataConfig;
-import com.yyxnb.network.BasePagedViewModel;
-
-import java.util.Collections;
-
-public class MainViewModel extends BasePagedViewModel<MainHomeBean> {
-    @Override
-    public DataSource createDataSource() {
-        return new PageKeyedDataSource<Integer, MainHomeBean>() {
-
-            @Override
-            public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, MainHomeBean> callback) {
-                callback.onResult(DataConfig.getMainBeans(), null, null);
+    override fun createDataSource(): DataSource<*, *> {
+        return object : PageKeyedDataSource<Int?, MainHomeBean?>() {
+            override fun loadInitial(params: LoadInitialParams<Int?>, callback: LoadInitialCallback<Int?, MainHomeBean?>) {
+                callback.onResult(mainBeans!!, null, null)
             }
 
-            @Override
-            public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MainHomeBean> callback) {
-                callback.onResult(Collections.emptyList(), null);
+            override fun loadBefore(params: LoadParams<Int?>, callback: LoadCallback<Int?, MainHomeBean?>) {
+                callback.onResult(emptyList(), null)
             }
 
-            @Override
-            public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MainHomeBean> callback) {
-                callback.onResult(Collections.emptyList(), null);
+            override fun loadAfter(params: LoadParams<Int?>, callback: LoadCallback<Int?, MainHomeBean?>) {
+                callback.onResult(emptyList(), null)
             }
-        };
+        }
     }
 }

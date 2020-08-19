@@ -1,38 +1,36 @@
-package com.yyxnb.module_main.bean;
+package com.yyxnb.module_main.bean
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.common.interfaces.IData
 
-public class MainHomeBean implements IData<Long> {
-    public int id;
-    public int type;
-    public String title;
-    public String des;
-    public String url;
-    public String color;
-    public int span;
+data class MainHomeBean(
+        @JvmField
+        var id: Int = 0,
+        var type: Int = 0,
+        var title: String? = null,
+        var des: String? = null,
+        var url: String? = null,
+        var color: String? = null,
+        @JvmField
+        var span: Int = 0
+) : IData<Long> {
 
-    @Override
-    public int id() {
-        return id;
+    override fun id(): Int {
+        return id
     }
 
-    @Override
-    public String getCode() {
-        return null;
+    override fun getCode(): String {
+        return id.toString()
     }
 
-    @Override
-    public String getMsg() {
-        return null;
+    override fun getMsg(): String? {
+        return null
     }
 
-    @Override
-    public Long getResult() {
-        return null;
+    override fun getResult(): Long? {
+        return null
     }
 
-    @Override
-    public boolean isSuccess() {
-        return false;
+    override fun isSuccess(): Boolean {
+        return false
     }
 }

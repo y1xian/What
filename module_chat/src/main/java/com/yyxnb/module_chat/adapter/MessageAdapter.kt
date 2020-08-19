@@ -1,31 +1,27 @@
-package com.yyxnb.module_chat.adapter;
+package com.yyxnb.module_chat.adapter
 
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.ItemDelegate;
-import com.yyxnb.adapter.MultiItemTypeAdapter;
-import com.yyxnb.module_chat.R;
-import com.yyxnb.module_chat.bean.MessageBean;
+import com.yyxnb.adapter.BaseViewHolder
+import com.yyxnb.adapter.ItemDelegate
+import com.yyxnb.adapter.MultiItemTypeAdapter
+import com.yyxnb.module_chat.R
+import com.yyxnb.module_chat.bean.MessageBean
 
-public class MessageAdapter extends MultiItemTypeAdapter<MessageBean> {
+class MessageAdapter : MultiItemTypeAdapter<MessageBean>() {
 
-    public MessageAdapter() {
-        super();
-        addItemDelegate(new ItemDelegate<MessageBean>() {
-            @Override
-            public int layoutId() {
-                return R.layout.item_message_layout;
+    init {
+        addItemDelegate(object : ItemDelegate<MessageBean> {
+            override fun layoutId(): Int {
+                return R.layout.item_message_layout
             }
 
-            @Override
-            public boolean isThisType(MessageBean item, int position) {
-                return true;
+            override fun isThisType(item: MessageBean, position: Int): Boolean {
+                return true
             }
 
-            @Override
-            public void convert(BaseViewHolder holder, MessageBean messageBean, int position) {
+            override fun convert(holder: BaseViewHolder, messageBean: MessageBean, position: Int) {
                 holder.setText(R.id.tvText, messageBean.text)
-                        .setText(R.id.tvName, messageBean.name);
+                        .setText(R.id.tvName, messageBean.name)
             }
-        });
+        })
     }
 }

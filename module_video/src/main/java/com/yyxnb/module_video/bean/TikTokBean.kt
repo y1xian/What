@@ -1,15 +1,42 @@
-package com.yyxnb.module_video.bean;
+package com.yyxnb.module_video.bean
 
+import androidx.annotation.NonNull
+import androidx.room.Entity
+import java.io.Serializable
 
-import androidx.annotation.NonNull;
-import androidx.room.Entity;
-
-import java.io.Serializable;
-
-@Entity(tableName = "video", primaryKeys = {"id", "title"})
-public class TikTokBean implements Serializable {
-
-
+@Entity(tableName = "video", primaryKeys = ["id", "title"])
+data class TikTokBean(
+        @JvmField
+        @NonNull
+        var id: Int = 0,
+        @JvmField
+        var videoId: Int = 0,
+        @JvmField
+        var userId: Int = 0,
+        @JvmField
+        var itemId: Int = 0,
+        @JvmField
+        var commentCount: Int = 0,
+        @JvmField
+        var coverUrl: String? = "",
+        @JvmField
+        var videoUrl: String? = "",
+        @JvmField
+        @NonNull
+        var title: String = "",
+        @JvmField
+        var state: Int = 0,
+        @JvmField
+        var type: Int = 0,
+        @JvmField
+        var description: String? = null,
+        @JvmField
+        var likeCount: Int = 0,
+        @JvmField
+        var playCount: Int = 0,
+        @JvmField
+        var createTime: String? = null
+) : Serializable {
     /**
      * id : 2
      * videoId : 2
@@ -26,29 +53,11 @@ public class TikTokBean implements Serializable {
      * playCount : 23
      * createTime : 1575445406000
      */
+    //    @PrimaryKey(autoGenerate = true)
+    //    public int _id;
+    //    @ColumnInfo(name ="vid")
 
-//    @PrimaryKey(autoGenerate = true)
-//    public int _id;
-
-//    @ColumnInfo(name ="vid")
-    public int id;
-    public int videoId;
-    public int userId;
-    public int itemId;
-    public int commentCount;
-    public String coverUrl;
-    public String videoUrl;
-    @NonNull
-    public String title;
-    public int state;
-    public int type;
-    public String description;
-    public int likeCount;
-    public int playCount;
-    public String createTime;
-
-    @Override
-    public String toString() {
+    override fun toString(): String {
         return "TikTokBean{" +
                 "id=" + id +
                 ", videoId=" + videoId +
@@ -64,6 +73,6 @@ public class TikTokBean implements Serializable {
                 ", likeCount=" + likeCount +
                 ", playCount=" + playCount +
                 ", createTime='" + createTime + '\'' +
-                '}';
+                '}'
     }
 }

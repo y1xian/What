@@ -1,24 +1,23 @@
-package com.yyxnb.module_chat.config;
+package com.yyxnb.module_chat.config
 
-import com.yyxnb.common.CommonManager;
-import com.yyxnb.module_chat.bean.MessageBean;
-import com.yyxnb.network.utils.GsonUtils;
-import com.yyxnb.utils.FileUtils;
+import com.yyxnb.common.CommonManager.getContext
+import com.yyxnb.module_chat.bean.MessageBean
+import com.yyxnb.network.utils.GsonUtils.jsonToList
+import com.yyxnb.utils.FileUtils
 
-import java.util.List;
-
-public class DataConfig {
-
-    private volatile static List<MessageBean> messageBeans;
-
+object DataConfig {
     /**
      * 列表数据
      */
-    public static List<MessageBean> getMessageBeans() {
-        if (messageBeans == null) {
-            String content = FileUtils.parseFile(CommonManager.INSTANCE.getContext(), "msg_data.json");
-            messageBeans = GsonUtils.INSTANCE.jsonToList(content, MessageBean.class);
+    @JvmStatic
+    @Volatile
+    var messageBeans: List<MessageBean>? = null
+        get() {
+            if (field == null) {
+                val content = FileUtils.parseFile(getContext(), "msg_data.json")
+                field = jsonToList(content, MessageBean::class.java)
+            }
+            return field
         }
-        return messageBeans;
-    }
+        private set
 }

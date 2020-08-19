@@ -1,36 +1,36 @@
-package com.yyxnb.module_chat.bean;
+package com.yyxnb.module_chat.bean
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.common.interfaces.IData
 
-public class MessageBean implements IData<Long> {
-    public int id;
-    public int type;
-    public String text;
-    public String avatar;
-    public String name;
+data class MessageBean(
+        var id: Int = 0,
+        var type: Int = 0,
+        @JvmField
+        var text: String? = null,
+        var avatar: String? = null,
+        @JvmField
+        var name: String? = null
 
-    @Override
-    public int id() {
-        return id;
+) : IData<Long> {
+
+
+    override fun id(): Int {
+        return id
     }
 
-    @Override
-    public String getCode() {
-        return null;
+    override fun getCode(): String {
+        return id.toString()
     }
 
-    @Override
-    public String getMsg() {
-        return null;
+    override fun getMsg(): String? {
+        return null
     }
 
-    @Override
-    public Long getResult() {
-        return null;
+    override fun getResult(): Long? {
+        return null
     }
 
-    @Override
-    public boolean isSuccess() {
-        return false;
+    override fun isSuccess(): Boolean {
+        return false
     }
 }

@@ -1,85 +1,69 @@
-package com.yyxnb.module_login.ui;
+package com.yyxnb.module_login.ui
 
-import android.os.Bundle;
-import android.widget.EditText;
-
-import androidx.annotation.Nullable;
-
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.common.CommonManager;
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_login.R;
-import com.yyxnb.module_login.config.UserManager;
-import com.yyxnb.module_login.databinding.FragmentLoginBinding;
-import com.yyxnb.module_login.viewmodel.LoginViewModel;
-
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
-
+import android.os.Bundle
+import android.view.View
+import android.widget.EditText
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.yyxnb.arch.annotations.BindRes
+import com.yyxnb.arch.annotations.BindViewModel
+import com.yyxnb.common.CommonManager.toast
+import com.yyxnb.common.utils.log.LogUtils.d
+import com.yyxnb.common.utils.log.LogUtils.e
+import com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.common_base.bean.UserBean
+import com.yyxnb.module_login.R
+import com.yyxnb.module_login.config.UserManager
+import com.yyxnb.module_login.databinding.FragmentLoginBinding
+import com.yyxnb.module_login.viewmodel.LoginViewModel
 
 /**
  * 登录
  */
 @Route(path = LOGIN_FRAGMENT)
 @BindRes
-public class LoginFragment extends BaseFragment {
+class LoginFragment : BaseFragment() {
 
-    private FragmentLoginBinding binding;
-
-    private EditText etPhone;
+    private var binding: FragmentLoginBinding? = null
+    private var etPhone: EditText? = null
 
     @BindViewModel
-    LoginViewModel mViewModel;
+    lateinit var mViewModel: LoginViewModel
 
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_login;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_login
     }
 
-    @Override
-    public void initView(@Nullable Bundle savedInstanceState) {
-        binding = getBinding();
-        etPhone = binding.etPhone;
-
-        etPhone.setText(UserManager.getInstance().getUserBean().phone);
-
-        binding.ivBack.setOnClickListener(v -> {
-            finish();
-        });
-        binding.tvLogin.setOnClickListener(v -> {
-            String phone = etPhone.getText().toString();
-
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        etPhone = binding!!.etPhone
+        etPhone?.setText(UserManager.getUserBean().phone)
+        binding!!.ivBack.setOnClickListener { v: View? -> finish() }
+        binding!!.tvLogin.setOnClickListener { v: View? ->
+            val phone = etPhone!!.text.toString()
             if (phone.isEmpty()) {
-                CommonManager.INSTANCE.toast("手机号不能为空！");
-                return;
+                toast("手机号不能为空！")
+                return@setOnClickListener
             }
-            mViewModel.reqLogin(phone);
-        });
-
+            mViewModel.reqLogin(phone)
+        }
     }
 
-    @Override
-    public void initViewData() {
-        super.initViewData();
-
+    override fun initViewData() {
+        super.initViewData()
     }
 
-    @Override
-    public void initObservable() {
-        super.initObservable();
-
-        LogUtils.d("---initObservable--");
-
-        mViewModel.getUser().observe(this, userBean -> {
+    override fun initObservable() {
+        super.initObservable()
+        d("---initObservable--")
+        mViewModel.user.observe(this, { userBean: UserBean? ->
             if (userBean != null) {
-                LogUtils.e("userBean : " + userBean.toString());
-                UserManager.getInstance().setUserBean(userBean);
-                finish();
+                e("userBean : $userBean")
+                UserManager.setUserBean(userBean)
+                finish()
             }
-        });
-//        mViewModel.getUserAll().observe(this, userBean -> {
+        })
+        //        mViewModel.getUserAll().observe(this, userBean -> {
 //            if (userBean != null) {
 //                LogUtils.list(userBean);
 //            }
@@ -130,12 +114,13 @@ public class LoginFragment extends BaseFragment {
 //        });
     }
 
-    public static LoginFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        LoginFragment fragment = new LoginFragment();
-        fragment.setArguments(args);
-        return fragment;
+    companion object {
+        @JvmStatic
+        fun newInstance(): LoginFragment {
+            val args = Bundle()
+            val fragment = LoginFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

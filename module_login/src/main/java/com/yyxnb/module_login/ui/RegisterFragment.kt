@@ -1,49 +1,39 @@
-package com.yyxnb.module_login.ui;
+package com.yyxnb.module_login.ui
 
-
-import android.os.Bundle;
-import android.widget.TextView;
-
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_login.R;
-
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import com.yyxnb.common.utils.log.LogUtils.d
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.module_login.R
 
 /**
  * 注册
  */
-public class RegisterFragment extends BaseFragment {
+class RegisterFragment : BaseFragment() {
 
-    private TextView tvShow;
+    private var tvShow: TextView? = null
 
-    public static RegisterFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        RegisterFragment fragment = new RegisterFragment();
-        fragment.setArguments(args);
-        return fragment;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_register
     }
 
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_register;
+    override fun initView(savedInstanceState: Bundle?) {
+        tvShow = findViewById<TextView>(R.id.tvShow)
+        tvShow!!.setOnClickListener { v: View? -> startFragment(LoginFragment.newInstance()) }
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
-
-        tvShow = findViewById(R.id.tvShow);
-        tvShow.setOnClickListener(v -> {
-            startFragment(LoginFragment.newInstance());
-        });
+    override fun initViewData() {
+        super.initViewData()
+        d("-RegisterFragment--initViewData--")
     }
 
-
-    @Override
-    public void initViewData() {
-        super.initViewData();
-        LogUtils.d("-RegisterFragment--initViewData--");
-
+    companion object {
+        fun newInstance(): RegisterFragment {
+            val args = Bundle()
+            val fragment = RegisterFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

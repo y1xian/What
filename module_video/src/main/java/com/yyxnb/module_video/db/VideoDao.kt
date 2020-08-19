@@ -1,23 +1,18 @@
-package com.yyxnb.module_video.db;
+package com.yyxnb.module_video.db
 
-
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Query;
-
-import com.yyxnb.common_base.db.BaseDao;
-import com.yyxnb.module_video.bean.TikTokBean;
-
-import java.util.List;
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Query
+import com.yyxnb.common_base.db.BaseDao
+import com.yyxnb.module_video.bean.TikTokBean
 
 @Dao
-public interface VideoDao extends BaseDao<TikTokBean> {
+interface VideoDao : BaseDao<TikTokBean> {
 
-    @Query("SELECT * FROM video limit 0,20")
-    LiveData<List<TikTokBean>> getVideos();
+    @get:Query("SELECT * FROM video limit 0,20")
+    val videos: LiveData<List<TikTokBean>>
 
     //删全部
     @Query("DELETE FROM video")
-    void deleteAll();
-
+    fun deleteAll()
 }

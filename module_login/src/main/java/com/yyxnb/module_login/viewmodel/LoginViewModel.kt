@@ -1,67 +1,38 @@
-package com.yyxnb.module_login.viewmodel;
+package com.yyxnb.module_login.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import com.yyxnb.common.utils.log.LogUtils.w
+import com.yyxnb.common_base.bean.UserBean
+import com.yyxnb.common_base.config.Http
+import com.yyxnb.common_base.db.AppDatabase.Companion.instance
+import com.yyxnb.module_login.config.LoginApi
+import com.yyxnb.network.BaseViewModel
+import com.yyxnb.utils.encrypt.MD5Utils
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Transformations;
+class LoginViewModel : BaseViewModel() {
 
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.common_base.bean.UserBean;
-import com.yyxnb.common_base.config.Http;
-import com.yyxnb.common_base.db.AppDatabase;
-import com.yyxnb.common_base.db.UserDao;
-import com.yyxnb.module_login.config.LoginApi;
-import com.yyxnb.network.BaseViewModel;
-import com.yyxnb.utils.encrypt.MD5Utils;
+    private val mApi = Http.create(LoginApi::class.java)
+    private val userDao = instance!!.userDao()
+    private val reqUser: MutableLiveData<UserBean> = MutableLiveData<UserBean>()
 
-import java.util.List;
+    val user: LiveData<UserBean>
+        get() = Transformations.switchMap(reqUser) { input: UserBean? -> userDao!!.getUser(input!!.userId) }
+    val userAll: LiveData<List<UserBean>>
+        get() = userDao!!.getUserAll()
 
-public class LoginViewModel extends BaseViewModel {
-
-    private LoginApi mApi = Http.INSTANCE.create(LoginApi.class);
-    private UserDao userDao = AppDatabase.getInstance().userDao();
-
-    private MutableLiveData<UserBean> reqUser = new MutableLiveData();
-
-    public LiveData<UserBean> getUser() {
-        return Transformations.switchMap(reqUser, input -> {
-            return userDao.getUser(input.userId);
-        });
+    fun reqLogin(phone: String) {
+        val userBean = UserBean()
+        userBean.userId = Math.abs("uid_$phone".hashCode())
+        userBean.phone = phone
+        userBean.signature = "暂无签名"
+        userBean.token = MD5Utils.parseStrToMd5L32(userBean.userId.toString() + "-token-" + userBean.phone)
+        userBean.nickname = "游客" + phone.substring(7)
+        userBean.isLogin = true
+        userDao!!.insertItem(userBean)
+        reqUser.value = userBean
+        w("user : $userBean")
     }
-
-    public LiveData<List<UserBean>> getUserAll() {
-        return userDao.getUserAll();
-    }
-
-    public void reqLogin(String phone) {
-        UserBean userBean = new UserBean();
-        userBean.userId = Math.abs(("uid_" + phone).hashCode());
-        userBean.phone = phone;
-        userBean.signature = "暂无签名";
-        userBean.token = MD5Utils.parseStrToMd5L32(userBean.userId + "-token-" + userBean.phone);
-        userBean.nickname = "游客" + phone.substring(7);
-        userBean.isLogin = true;
-        userDao.insertItem(userBean);
-
-        reqUser.setValue(userBean);
-
-        LogUtils.w("user : " + userBean.toString());
-    }
-//
-//    private MutableLiveData<Map<String, String>> reqTeam = new MutableLiveData();
-//
-//    public LiveData<BaseDatas<List<TestData>>> getTest() {
-//        return Transformations.switchMap(reqTeam, input -> mApi.getTest());
-//    }
-//
-//    public LiveData<Resource<BaseDatas<List<TestData>>>> getTest2() {
-//        return Transformations.switchMap(reqTeam, input -> mRepository.getTest2());
-//    }
-//
-//    public void reqTest() {
-//        Map<String, String> map = new LinkedHashMap<>();
-//        map.put("name", "李白");
-//        reqTeam.postValue(map);
-//    }
 
 }

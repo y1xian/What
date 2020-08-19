@@ -1,27 +1,26 @@
-package com.yyxnb.module_main.config;
+package com.yyxnb.module_main.config
 
-import com.yyxnb.common.CommonManager;
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.module_main.bean.MainHomeBean;
-import com.yyxnb.network.utils.GsonUtils;
-import com.yyxnb.utils.FileUtils;
+import com.yyxnb.common.CommonManager
+import com.yyxnb.common.utils.log.LogUtils.list
+import com.yyxnb.module_main.bean.MainHomeBean
+import com.yyxnb.network.utils.GsonUtils.jsonToList
+import com.yyxnb.utils.FileUtils
 
-import java.util.List;
-
-public class DataConfig {
-
-    private volatile static List<MainHomeBean> mainBeans;
-
+object DataConfig {
     /**
      * 首页数据
      * @return
      */
-    public static List<MainHomeBean> getMainBeans() {
-        if (mainBeans == null) {
-            String content = FileUtils.parseFile(CommonManager.getInstance().getContext(), "main_data.json");
-            mainBeans = GsonUtils.INSTANCE.jsonToList(content, MainHomeBean.class);
+    @JvmStatic
+    @Volatile
+    var mainBeans: List<MainHomeBean>? = null
+        get() {
+            if (field == null) {
+                val content = FileUtils.parseFile(CommonManager.getContext(), "main_data.json")
+                field = jsonToList(content, MainHomeBean::class.java)
+            }
+            list(field)
+            return field
         }
-        LogUtils.list(mainBeans);
-        return mainBeans;
-    }
+        private set
 }

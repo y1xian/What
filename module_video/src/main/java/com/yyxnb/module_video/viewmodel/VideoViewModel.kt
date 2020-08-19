@@ -1,31 +1,25 @@
-package com.yyxnb.module_video.viewmodel;
+package com.yyxnb.module_video.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.yyxnb.common_base.base.StateData
+import com.yyxnb.common_base.config.Http
+import com.yyxnb.module_video.bean.TikTokBean
+import com.yyxnb.module_video.config.DataConfig
+import com.yyxnb.module_video.config.VideoService
+import com.yyxnb.module_video.db.VideoDatabase
+import com.yyxnb.network.BaseViewModel
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+class VideoViewModel : BaseViewModel() {
 
-import com.yyxnb.common_base.base.StateData;
-import com.yyxnb.common_base.config.Http;
-import com.yyxnb.module_video.bean.TikTokBean;
-import com.yyxnb.module_video.config.DataConfig;
-import com.yyxnb.module_video.config.VideoService;
-import com.yyxnb.module_video.db.VideoDao;
-import com.yyxnb.module_video.db.VideoDatabase;
-import com.yyxnb.network.BaseViewModel;
+    private val mApi = Http.create(VideoService::class.java)
+    private val mVideoDao = VideoDatabase.instance.videoDao()
+    var result: MutableLiveData<StateData<TikTokBean>> = MutableLiveData()
+    fun result1(): LiveData<List<TikTokBean>> {
+        return mVideoDao.videos
+    }
 
-import java.util.List;
-
-public class VideoViewModel extends BaseViewModel {
-
-    private VideoService mApi = Http.INSTANCE.create(VideoService.class);
-    private VideoDao mVideoDao = VideoDatabase.getInstance().videoDao();
-
-    public MutableLiveData<StateData<TikTokBean>> result = new MutableLiveData();
-    public LiveData<List<TikTokBean>> result1(){
-        return mVideoDao.getVideos();
-    };
-
-    public void reqVideoList(){
+    fun reqVideoList() {
 //        Map<String,String> map = new HashMap<>();
 //
 //        launchOnlyResult(mApi.getVideoList4(map), new OnHandleException<BaseData<StateData<TikTokBean>>>() {
@@ -39,9 +33,6 @@ public class VideoViewModel extends BaseViewModel {
 //                AppConfig.getInstance().log(msg);
 //            }
 //        });
-
-        mVideoDao.insertItems(DataConfig.getTikTokBeans());
-
+        mVideoDao.insertItems(DataConfig.tikTokBeans!!)
     }
-
 }
