@@ -75,7 +75,7 @@ class VideoUserFragment : BaseFragment() {
             fragments?.add(VideoListFragment())
             fragments?.add(VideoListFragment())
         }
-        binding!!.btnBack.setOnClickListener { v: View? -> post(MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, "", 0)) }
+        binding!!.btnBack.setOnClickListener { v: View? -> post(MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, data = 0)) }
         initIndicator()
     }
 
@@ -111,7 +111,7 @@ class VideoUserFragment : BaseFragment() {
     override fun onVisible() {
 //        isUser = getArguments().getBoolean("isUser", false);
 //        binding.btnBack.setVisibility(isUser ? View.GONE : View.VISIBLE);
-        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, "", false))
+        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, data = false))
         w("user v")
         //        if (!isUser && binding.btnBack.getVisibility() == View.VISIBLE){
 //            monitor(true);
@@ -122,7 +122,7 @@ class VideoUserFragment : BaseFragment() {
     }
 
     override fun onInVisible() {
-        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, "", true))
+        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, data = true))
         w("user iv")
     }
 
@@ -137,7 +137,7 @@ class VideoUserFragment : BaseFragment() {
             requireView().setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent ->
                 if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
                     // 监听到返回按钮点击事件
-                    post(MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, "", 0))
+                    post(MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, data = 0))
                     return@setOnKeyListener true
                 }
                 false

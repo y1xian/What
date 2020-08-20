@@ -20,6 +20,7 @@ import com.yyxnb.arch.base.Java8Observer
 import com.yyxnb.arch.common.ArchConfig
 import com.yyxnb.arch.delegate.ActivityDelegate
 import com.yyxnb.common.utils.KeyboardUtils.hideSoftInput
+import com.yyxnb.common.utils.log.LogUtils
 import com.yyxnb.skinloader.SkinInflaterFactory
 import me.jessyan.autosize.AutoSizeCompat
 import java.lang.ref.WeakReference
@@ -103,7 +104,7 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
             //得到当前页面的焦点,ps:有输入框的页面焦点一般会被输入框占据
             val v = currentFocus
             //判断用户点击的是否是输入框以外的区域
-            if (mActivityDelegate.isShouldHideKeyboard(v!!, event)) {
+            if (mActivityDelegate.isShouldHideKeyboard(v, event)) {
                 //收起键盘
                 v?.let { hideSoftInput(it) }
             }

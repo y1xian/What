@@ -42,7 +42,7 @@ abstract class BaseFragment : Fragment(), IFragment {
     init {
         java8Observer = Java8Observer(TAG)
         lifecycle.addObserver(java8Observer)
-        lifecycle.addObserver(mFragmentDelegate!!)
+        lifecycle.addObserver(mFragmentDelegate)
     }
 
     fun <B : ViewDataBinding> getBinding(): B? {

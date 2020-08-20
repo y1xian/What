@@ -24,33 +24,33 @@ class LoginImpl public constructor() {
      * 跳转登录 ，建议直接路由跳转
      */
     fun login(context: Context?) {
-        mLoginService!!.login(context)
+        mLoginService.login(context)
     }
 
     /**
      * 是否登录
      */
     val isLogin: Boolean
-        get() = mLoginService!!.isLogin
+        get() = mLoginService.isLogin
 
     /**
      * 退出
      */
     fun loginOut() {
-        mLoginService!!.loginOut()
+        mLoginService.loginOut()
     }
 
     /**
      * 获取用户信息
      */
     val userInfo: UserBean?
-        get() = mLoginService!!.userInfo
+        get() = mLoginService.userInfo
 
     /**
      * 更新用户信息
      */
     fun updateUserInfo(userBean: UserBean?) {
-        mLoginService!!.updateUserInfo(userBean)
+        mLoginService.updateUserInfo(userBean)
     }
 
     companion object {

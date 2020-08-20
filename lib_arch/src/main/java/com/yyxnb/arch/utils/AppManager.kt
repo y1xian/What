@@ -39,7 +39,7 @@ object AppManager {
             return field
         }
 
-    fun getActivityDelegate(iActivity: IActivity?, hasCode: Int): ActivityDelegate {
+    fun getActivityDelegate(iActivity: IActivity, hasCode: Int): ActivityDelegate {
         var delegate = activityDelegates!![hasCode]
         if (delegate == null) {
             delegate = ActivityDelegate(iActivity)
@@ -48,7 +48,7 @@ object AppManager {
         return delegate
     }
 
-    fun getFragmentDelegate(iFragment: IFragment?, hasCode: Int): FragmentDelegate {
+    fun getFragmentDelegate(iFragment: IFragment, hasCode: Int): FragmentDelegate {
         var delegate = fragmentDelegates!![hasCode]
         if (delegate == null) {
             delegate = FragmentDelegate(iFragment)
@@ -71,9 +71,7 @@ object AppManager {
      * 移除指定的Activity
      */
     fun removeActivity(activity: Activity?) {
-        if (activity != null) {
-            activityStack!!.remove(activity)
-        }
+        activity?.let { activityStack!!.remove(it) }
     }
 
     /**
@@ -151,7 +149,7 @@ object AppManager {
     /**
      * 添加Fragment到堆栈
      */
-    fun addFragment(fragment: Fragment) {
+    fun addFragment(fragment: Fragment?) {
         if (fragmentStack == null) {
             fragmentStack = Stack()
         }

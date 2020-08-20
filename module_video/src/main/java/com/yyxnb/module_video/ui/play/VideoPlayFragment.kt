@@ -43,7 +43,7 @@ import java.util.*
 class VideoPlayFragment : BaseFragment() {
 
     @BindViewModel
-   lateinit var mViewModel: VideoViewModel
+    lateinit var mViewModel: VideoViewModel
 
     private var binding: FragmentVideoPlayBinding? = null
     private var mViewPager: VerticalViewPager? = null
@@ -86,7 +86,7 @@ class VideoPlayFragment : BaseFragment() {
 //        mViewPager.post(() -> startPlay(mCurPos));
 
         // 点赞、评论等交互
-        mAdapter!!.setOnSelectListener(object :OnSelectListener{
+        mAdapter!!.setOnSelectListener(object : OnSelectListener {
             override fun onClick(v: View, position: Int, text: String?) {
                 when (position) {
                     0 -> {
@@ -207,7 +207,7 @@ class VideoPlayFragment : BaseFragment() {
     override fun onVisible() {
         isCur = true
         e("Play onVisible")
-        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, "", false), 100)
+        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, data = false), 100)
         if (mVideoView != null) {
             mVideoView!!.resume()
         }
@@ -216,7 +216,7 @@ class VideoPlayFragment : BaseFragment() {
     override fun onInVisible() {
         isCur = false
         e("Play onInVisible")
-        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, "", true))
+        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, data = true))
         if (mVideoView != null) {
             mVideoView!!.pause()
         }

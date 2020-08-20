@@ -32,7 +32,7 @@ import java.util.*
  *
  * @author yyx
  */
-class ActivityDelegate(private var iActivity: IActivity?) : DefaultLifecycleObserver , CoroutineScope by MainScope() {
+class ActivityDelegate(private var iActivity: IActivity?) : DefaultLifecycleObserver, CoroutineScope by MainScope() {
 
     private var mActivity: FragmentActivity? = iActivity as FragmentActivity
     private var layoutRes = 0
@@ -95,7 +95,7 @@ class ActivityDelegate(private var iActivity: IActivity?) : DefaultLifecycleObse
     /**
      * 根据EditText所在坐标和用户点击的坐标相对比，来判断是否隐藏键盘，因为当用户点击EditText时则不能隐藏
      */
-    fun isShouldHideKeyboard(v: View, event: MotionEvent): Boolean {
+    fun isShouldHideKeyboard(v: View?, event: MotionEvent): Boolean {
         if (v is EditText) {
             val l = intArrayOf(0, 0)
             v.getLocationInWindow(l)
