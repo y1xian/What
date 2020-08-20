@@ -1,38 +1,24 @@
-package com.yyxnb.module_video.widget.tiktok;
+package com.yyxnb.module_video.widget.tiktok
 
-import android.content.Context;
-import android.util.AttributeSet;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.dueeeke.videoplayer.controller.BaseVideoController;
+import android.content.Context
+import android.util.AttributeSet
+import com.dueeeke.videoplayer.controller.BaseVideoController
 
 /**
  * 抖音
  */
-public class TikTokController extends BaseVideoController {
+class TikTokController : BaseVideoController {
 
-    public TikTokController(@NonNull Context context) {
-        super(context);
+    constructor(context: Context) : super(context) {}
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+
+    override fun getLayoutId(): Int {
+        return 0
     }
 
-    public TikTokController(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public TikTokController(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return 0;
-    }
-
-    @Override
-    public boolean showNetWarning() {
+    override fun showNetWarning(): Boolean {
         //不显示移动网络播放警告
-        return false;
+        return false
     }
 }

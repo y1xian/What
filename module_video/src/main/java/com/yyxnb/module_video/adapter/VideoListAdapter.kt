@@ -1,21 +1,16 @@
-package com.yyxnb.module_video.adapter;
+package com.yyxnb.module_video.adapter
 
-import com.yyxnb.adapter.BaseAdapter;
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.module_video.R;
-import com.yyxnb.module_video.bean.TikTokBean;
-import com.yyxnb.module_video.databinding.ItemVideoListLayoutBinding;
+import com.yyxnb.adapter.BaseAdapter
+import com.yyxnb.adapter.BaseViewHolder
+import com.yyxnb.module_video.R
+import com.yyxnb.module_video.bean.TikTokBean
+import com.yyxnb.module_video.databinding.ItemVideoListLayoutBinding
 
-public class VideoListAdapter extends BaseAdapter<TikTokBean> {
-    public VideoListAdapter() {
-        super(R.layout.item_video_list_layout);
-    }
+class VideoListAdapter : BaseAdapter<TikTokBean>(R.layout.item_video_list_layout) {
+    private var binding: ItemVideoListLayoutBinding? = null
 
-    private ItemVideoListLayoutBinding binding;
-
-    @Override
-    protected void bind(BaseViewHolder holder, TikTokBean item, int position) {
-        binding = holder.getBinding();
-        binding.setData(item);
+    protected override fun bind(holder: BaseViewHolder, item: TikTokBean, position: Int) {
+        binding = holder.getBinding()
+        binding?.data = item
     }
 }

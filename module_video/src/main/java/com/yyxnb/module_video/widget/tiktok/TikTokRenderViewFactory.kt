@@ -1,19 +1,19 @@
-package com.yyxnb.module_video.widget.tiktok;
+package com.yyxnb.module_video.widget.tiktok
 
-import android.content.Context;
+import android.content.Context
+import com.dueeeke.videoplayer.render.IRenderView
+import com.dueeeke.videoplayer.render.RenderViewFactory
+import com.dueeeke.videoplayer.render.TextureRenderView
 
-import com.dueeeke.videoplayer.render.IRenderView;
-import com.dueeeke.videoplayer.render.RenderViewFactory;
-import com.dueeeke.videoplayer.render.TextureRenderView;
+class TikTokRenderViewFactory : RenderViewFactory() {
 
-public class TikTokRenderViewFactory extends RenderViewFactory {
-
-    public static TikTokRenderViewFactory create() {
-        return new TikTokRenderViewFactory();
+    override fun createRenderView(context: Context): IRenderView {
+        return TikTokRenderView(TextureRenderView(context))
     }
 
-    @Override
-    public IRenderView createRenderView(Context context) {
-        return new TikTokRenderView(new TextureRenderView(context));
+    companion object {
+        fun create(): TikTokRenderViewFactory {
+            return TikTokRenderViewFactory()
+        }
     }
 }

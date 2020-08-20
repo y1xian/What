@@ -1,82 +1,65 @@
-package com.yyxnb.module_video.ui.main;
+package com.yyxnb.module_video.ui.main
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.common.Bus;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.weight.NoScrollViewPager;
-import com.yyxnb.module_video.R;
-import com.yyxnb.module_video.databinding.FragmentVideoMainBinding;
-import com.yyxnb.module_video.ui.user.VideoUserFragment;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_MAIN_FRAGMENT;
-import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.yyxnb.arch.annotations.BindRes
+import com.yyxnb.arch.common.Bus.observe
+import com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_MAIN_FRAGMENT
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP
+import com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH
+import com.yyxnb.common_base.weight.NoScrollViewPager
+import com.yyxnb.module_video.R
+import com.yyxnb.module_video.databinding.FragmentVideoMainBinding
+import com.yyxnb.module_video.ui.user.VideoUserFragment
+import java.util.*
 
 /**
  * 视频首页
  */
 @BindRes
 @Route(path = VIDEO_MAIN_FRAGMENT)
-public class VideoMainFragment extends BaseFragment {
+class VideoMainFragment : BaseFragment() {
 
-    private FragmentVideoMainBinding binding;
-    private NoScrollViewPager mViewPager;
+    private var binding: FragmentVideoMainBinding? = null
+    private var mViewPager: NoScrollViewPager? = null
+    private var fragments: MutableList<Fragment>? = null
 
-    private List<Fragment> fragments;
-
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_video_main;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_video_main
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
-        binding = getBinding();
-        mViewPager = binding.mViewPager;
-        mViewPager.setNoScroll(true);
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        mViewPager = binding!!.mViewPager
+        mViewPager!!.setNoScroll(true)
     }
 
-    @Override
-    public void initViewData() {
-        if (fragments == null){
-            fragments = new ArrayList<>();
-            fragments.add(new VideoMainBottomFragment());
-            fragments.add(VideoUserFragment.newInstance(false));
+    override fun initViewData() {
+        if (fragments == null) {
+            fragments = ArrayList()
+            fragments?.add(VideoMainBottomFragment())
+            fragments?.add(VideoUserFragment.newInstance(false))
         }
-        mViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
-            @Override
-            public Fragment getItem(int i) {
-                return fragments.get(i);
+        mViewPager!!.adapter = object : FragmentPagerAdapter(childFragmentManager) {
+            override fun getItem(i: Int): Fragment {
+                return fragments!![i]
             }
 
-            @Override
-            public int getCount() {
-                return fragments.size();
+            override fun getCount(): Int {
+                return fragments!!.size
             }
-        });
+        }
     }
 
-    @Override
-    public void initObservable() {
-        Bus.observe(this,msgEvent -> {
-            switch (msgEvent.code) {
-                case KEY_VIDEO_BOTTOM_VP:
-                    mViewPager.setNoScroll((Boolean) msgEvent.data);
-                    break;
-                case KEY_VIDEO_BOTTOM_VP_SWITCH:
-                    mViewPager.setCurrentItem((Integer) msgEvent.data,true);
-                    break;
+    override fun initObservable() {
+        observe(this, { (code, _, data) ->
+            when (code) {
+                KEY_VIDEO_BOTTOM_VP -> mViewPager!!.setNoScroll((data as Boolean?)!!)
+                KEY_VIDEO_BOTTOM_VP_SWITCH -> mViewPager!!.setCurrentItem((data as Int?)!!, true)
             }
-        });
+        })
     }
-
 }

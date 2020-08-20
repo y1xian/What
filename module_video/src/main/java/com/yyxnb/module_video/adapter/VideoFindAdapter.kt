@@ -1,23 +1,18 @@
-package com.yyxnb.module_video.adapter;
+package com.yyxnb.module_video.adapter
 
-import com.yyxnb.adapter.BaseAdapter;
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.module_video.R;
-import com.yyxnb.module_video.bean.TikTokBean;
-import com.yyxnb.module_video.databinding.ItemVideoFindLayoutBinding;
+import com.yyxnb.adapter.BaseAdapter
+import com.yyxnb.adapter.BaseViewHolder
+import com.yyxnb.module_video.R
+import com.yyxnb.module_video.bean.TikTokBean
+import com.yyxnb.module_video.databinding.ItemVideoFindLayoutBinding
 
-public class VideoFindAdapter extends BaseAdapter<TikTokBean> {
-    public VideoFindAdapter() {
-        super(R.layout.item_video_find_layout);
-    }
+class VideoFindAdapter : BaseAdapter<TikTokBean>(R.layout.item_video_find_layout) {
+    private var binding: ItemVideoFindLayoutBinding? = null
 
-    private ItemVideoFindLayoutBinding binding;
-
-    @Override
-    protected void bind(BaseViewHolder holder, TikTokBean item, int position) {
-        binding = holder.getBinding();
-        binding.setData(item);
-//        ImageView ivThumb = holder.getView(R.id.ivThumb);
+    protected override fun bind(holder: BaseViewHolder, item: TikTokBean, position: Int) {
+        binding = holder.getBinding()
+        binding?.data = item
+        //        ImageView ivThumb = holder.getView(R.id.ivThumb);
 //        Glide.with(ivThumb.getContext())
 //                .load(item.coverUrl)
 //                .into(ivThumb);

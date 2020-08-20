@@ -1,198 +1,179 @@
-package com.yyxnb.module_video.adapter;
+package com.yyxnb.module_video.adapter
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.graphics.drawable.Drawable
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.viewpager.widget.PagerAdapter
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
+import com.yyxnb.common.interfaces.OnSelectListener
+import com.yyxnb.common.utils.DpUtils.getScreenWidth
+import com.yyxnb.module_video.R
+import com.yyxnb.module_video.bean.TikTokBean
+import com.yyxnb.module_video.config.DataConfig.formatNum
+import com.yyxnb.module_video.widget.tiktok.TikTokView
+import com.yyxnb.video.cache.PreloadManager
+import java.util.*
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.viewpager.widget.PagerAdapter;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
-import com.yyxnb.common.interfaces.OnSelectListener;
-import com.yyxnb.common.utils.DpUtils;
-import com.yyxnb.module_video.R;
-import com.yyxnb.module_video.bean.TikTokBean;
-import com.yyxnb.module_video.config.DataConfig;
-import com.yyxnb.module_video.widget.tiktok.TikTokView;
-import com.yyxnb.video.cache.PreloadManager;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class TikTokAdapter extends PagerAdapter {
-
+class TikTokAdapter(
+        /**
+         * 数据源
+         */
+        private val mVideoBeans: List<TikTokBean>?) : PagerAdapter() {
     /**
      * View缓存池，从ViewPager中移除的item将会存到这里面，用来复用
      */
-    private List<View> mViewPool = new ArrayList<>();
-
-    private OnSelectListener onSelectListener;
-
-    public void setOnSelectListener(OnSelectListener onSelectListener) {
-        this.onSelectListener = onSelectListener;
+    private val mViewPool: MutableList<View> = ArrayList()
+    private var onSelectListener: OnSelectListener? = null
+    fun setOnSelectListener(onSelectListener: OnSelectListener?) {
+        this.onSelectListener = onSelectListener
     }
 
-    /**
-     * 数据源
-     */
-    private List<TikTokBean> mVideoBeans;
-
-    public TikTokAdapter(List<TikTokBean> videoBeans) {
-        this.mVideoBeans = videoBeans;
+    override fun getCount(): Int {
+        return mVideoBeans?.size ?: 0
     }
 
-    @Override
-    public int getCount() {
-        return mVideoBeans == null ? 0 : mVideoBeans.size();
+    override fun isViewFromObject(view: View, o: Any): Boolean {
+        return view === o
     }
 
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-        return view == o;
-    }
-
-    @NonNull
-    @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        Context context = container.getContext();
-        View view = null;
-        if (mViewPool.size() > 0) {
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val context = container.context
+        var view: View? = null
+        if (mViewPool.size > 0) {
             //取第一个进行复用
-            view = mViewPool.get(0);
-            mViewPool.remove(0);
+            view = mViewPool[0]
+            mViewPool.removeAt(0)
         }
-
-        ViewHolder viewHolder;
+        val viewHolder: ViewHolder
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.item_tik_tok, container, false);
-            viewHolder = new ViewHolder(view);
+            view = LayoutInflater.from(context).inflate(R.layout.item_tik_tok, container, false)
+            viewHolder = ViewHolder(view)
         } else {
-            viewHolder = (ViewHolder) view.getTag();
+            viewHolder = view.tag as ViewHolder
         }
-
-        TikTokBean item = mVideoBeans.get(position);
+        val (_, _, _, _, commentCount, coverUrl, videoUrl, title, _, _, _, likeCount) = mVideoBeans!![position]
         //开始预加载
-        PreloadManager.getInstance(context).addPreloadTask(item.videoUrl, position);
-
-        Glide.with(viewHolder.mThumb.getContext())
-                .load(item.coverUrl)
-                .into(new SimpleTarget<Drawable>() {
-                    @Override
-                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        ImageView imageView = viewHolder.mThumb;
-                        ViewGroup.LayoutParams params = imageView.getLayoutParams();
-
-                        int w = resource.getMinimumWidth();
-                        int h = resource.getMinimumHeight();
-                        float wh = 0f;
-
-                        if (w < h) {
-                            wh = (float) h / (float) w;
+        PreloadManager.getInstance(context).addPreloadTask(videoUrl, position)
+        Glide.with(viewHolder.mThumb.context)
+                .load(coverUrl)
+                .into(object : SimpleTarget<Drawable>() {
+                    override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
+                        val imageView = viewHolder.mThumb
+                        val params = imageView.layoutParams
+                        val w = resource.minimumWidth
+                        val h = resource.minimumHeight
+                        var wh = 0f
+                        wh = if (w < h) {
+                            h.toFloat() / w.toFloat()
                         } else {
-                            wh = (float) w / (float) h;
+                            w.toFloat() / h.toFloat()
                         }
-
-                        int pw = DpUtils.getScreenWidth(imageView.getContext());
-
-                        int hh = (int) (pw * wh);
-
-                        params.width = pw;
-                        params.height = hh;
-
-                        imageView.setLayoutParams(params);
-                        imageView.setImageDrawable(resource);
+                        val pw = getScreenWidth(imageView.context)
+                        val hh = (pw * wh).toInt()
+                        params.width = pw
+                        params.height = hh
+                        imageView.layoutParams = params
+                        imageView.setImageDrawable(resource)
                     }
-                });
-
-        viewHolder.mTitle.setText(item.title);
-        viewHolder.tvLikeCount.setText(DataConfig.formatNum(item.likeCount));
-        viewHolder.tvCommentCount.setText(DataConfig.formatNum(item.commentCount));
-
-        viewHolder.mTitle.setOnClickListener(v -> {
+                })
+        viewHolder.mTitle.text = title
+        viewHolder.tvLikeCount.text = formatNum(likeCount)
+        viewHolder.tvCommentCount.text = formatNum(commentCount)
+        viewHolder.mTitle.setOnClickListener { v: View? ->
             if (onSelectListener != null) {
-                onSelectListener.onClick(v, 0, "标题");
+                onSelectListener!!.onClick(v!!, 0, "标题")
             }
-        });
-        viewHolder.mFollow.setOnClickListener(v -> {
+        }
+        viewHolder.mFollow.setOnClickListener { v: View? ->
             if (onSelectListener != null) {
-                onSelectListener.onClick(v, 1, "关注");
+                onSelectListener!!.onClick(v!!, 1, "关注")
             }
-        });
-        viewHolder.mLike.setOnClickListener(v -> {
+        }
+        viewHolder.mLike.setOnClickListener { v: View? ->
             if (onSelectListener != null) {
-                onSelectListener.onClick(v, 2, "点赞");
+                onSelectListener!!.onClick(v!!, 2, "点赞")
             }
-        });
-        viewHolder.mComment.setOnClickListener(v -> {
+        }
+        viewHolder.mComment.setOnClickListener { v: View? ->
             if (onSelectListener != null) {
-                onSelectListener.onClick(v, 3, "评论");
+                onSelectListener!!.onClick(v!!, 3, "评论")
             }
-        });
-        viewHolder.mShare.setOnClickListener(v -> {
+        }
+        viewHolder.mShare.setOnClickListener { v: View? ->
             if (onSelectListener != null) {
-                onSelectListener.onClick(v, 4, "分享");
+                onSelectListener!!.onClick(v!!, 4, "分享")
             }
-        });
-        viewHolder.mAvatar.setOnClickListener(v -> {
+        }
+        viewHolder.mAvatar.setOnClickListener { v: View? ->
             if (onSelectListener != null) {
-                onSelectListener.onClick(v, 5, "头像");
+                onSelectListener!!.onClick(v!!, 5, "头像")
             }
-        });
-        viewHolder.mPosition = position;
-        container.addView(view);
-        return view;
+        }
+        viewHolder.mPosition = position
+        container.addView(view)
+        return view!!
     }
 
-    @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        View itemView = (View) object;
-        container.removeView(itemView);
-        TikTokBean item = mVideoBeans.get(position);
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        val itemView = `object` as View
+        container.removeView(itemView)
+        val (_, _, _, _, _, _, videoUrl) = mVideoBeans!![position]
         //取消预加载
-        PreloadManager.getInstance(container.getContext()).removePreloadTask(item.videoUrl);
+        PreloadManager.getInstance(container.context).removePreloadTask(videoUrl)
         //保存起来用来复用
-        mViewPool.add(itemView);
+        mViewPool.add(itemView)
     }
 
     /**
      * 借鉴ListView item复用方法
      */
-    public static class ViewHolder {
+    class ViewHolder internal constructor(itemView: View?) {
+        @JvmField
+        var mPosition = 0
+        var mTitle //标题
+                : TextView
+        var tvLikeCount //点赞数
+                : TextView
+        var tvCommentCount //评论数
+                : TextView
+        var mThumb //封面图
+                : ImageView
+        var mAvatar //头像
+                : ImageView
+        var mFollow //关注
+                : ImageView
+        var mLike //赞
+                : ImageView
+        var mComment //评论
+                : ImageView
+        var mShare //分享
+                : ImageView
 
-        public int mPosition;
-        public TextView mTitle;//标题
-        public TextView tvLikeCount;//点赞数
-        public TextView tvCommentCount;//评论数
-        public ImageView mThumb;//封面图
-        public ImageView mAvatar;//头像
-        public ImageView mFollow;//关注
-        public ImageView mLike;//赞
-        public ImageView mComment;//评论
-        public ImageView mShare;//分享
-        public TikTokView mTikTokView;
-        public FrameLayout mPlayerContainer;
+        @JvmField
+        var mTikTokView: TikTokView
 
-        ViewHolder(View itemView) {
-            mTikTokView = itemView.findViewById(R.id.tiktok_View);
-            mTitle = mTikTokView.findViewById(R.id.tv_title);
-            tvLikeCount = mTikTokView.findViewById(R.id.tvLikeCount);
-            tvCommentCount = mTikTokView.findViewById(R.id.tvCommentCount);
-            mThumb = mTikTokView.findViewById(R.id.iv_thumb);
-            mAvatar = mTikTokView.findViewById(R.id.ivAvatar);
-            mFollow = mTikTokView.findViewById(R.id.btn_follow);
-            mLike = mTikTokView.findViewById(R.id.btn_zan);
-            mComment = mTikTokView.findViewById(R.id.btn_comment);
-            mShare = mTikTokView.findViewById(R.id.btn_share);
-            mPlayerContainer = itemView.findViewById(R.id.container);
-            itemView.setTag(this);
+        @JvmField
+        var mPlayerContainer: FrameLayout
+
+        init {
+            mTikTokView = itemView!!.findViewById(R.id.tiktok_View)
+            mTitle = mTikTokView.findViewById(R.id.tv_title)
+            tvLikeCount = mTikTokView.findViewById(R.id.tvLikeCount)
+            tvCommentCount = mTikTokView.findViewById(R.id.tvCommentCount)
+            mThumb = mTikTokView.findViewById(R.id.iv_thumb)
+            mAvatar = mTikTokView.findViewById(R.id.ivAvatar)
+            mFollow = mTikTokView.findViewById(R.id.btn_follow)
+            mLike = mTikTokView.findViewById(R.id.btn_zan)
+            mComment = mTikTokView.findViewById(R.id.btn_comment)
+            mShare = mTikTokView.findViewById(R.id.btn_share)
+            mPlayerContainer = itemView.findViewById(R.id.container)
+            itemView.tag = this
         }
     }
 }

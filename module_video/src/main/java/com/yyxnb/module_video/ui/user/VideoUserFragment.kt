@@ -1,157 +1,119 @@
-package com.yyxnb.module_video.ui.user;
+package com.yyxnb.module_video.ui.user
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.appbar.AppBarLayout;
-import com.yyxnb.adapter.BaseFragmentPagerAdapter;
-import com.yyxnb.arch.annotations.BarStyle;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.common.Bus;
-import com.yyxnb.arch.common.MsgEvent;
-import com.yyxnb.common.utils.DpUtils;
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.image_loader.utils.DrawableTintUtil;
-import com.yyxnb.module_video.R;
-import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;
-import com.yyxnb.module_video.ui.VideoListFragment;
-import com.yyxnb.module_video.widget.AppBarStateListener;
-
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.os.Build
+import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
+import android.view.View
+import android.widget.RelativeLayout
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
+import com.yyxnb.adapter.BaseFragmentPagerAdapter
+import com.yyxnb.arch.annotations.BarStyle
+import com.yyxnb.arch.annotations.BindRes
+import com.yyxnb.arch.common.Bus.post
+import com.yyxnb.arch.common.MsgEvent
+import com.yyxnb.common.utils.DpUtils.dp2px
+import com.yyxnb.common.utils.log.LogUtils.w
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP
+import com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH
+import com.yyxnb.image_loader.utils.DrawableTintUtil
+import com.yyxnb.module_video.R
+import com.yyxnb.module_video.databinding.FragmentVideoUserBinding
+import com.yyxnb.module_video.ui.VideoListFragment
+import com.yyxnb.module_video.widget.AppBarStateListener
+import net.lucode.hackware.magicindicator.MagicIndicator
+import net.lucode.hackware.magicindicator.ViewPagerHelper
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
+import java.util.*
 
 /**
  * 视频 - 个人页面
  */
 @BindRes(statusBarStyle = BarStyle.LIGHT_CONTENT)
-public class VideoUserFragment extends BaseFragment {
+class VideoUserFragment : BaseFragment() {
 
-    private FragmentVideoUserBinding binding;
-    private MagicIndicator mIndicator;
-    private ViewPager mViewPager;
-    private AppBarLayout mAppBarLayout;
-    private RelativeLayout mTitleLayout;
-    private TextView mTitleName;
-
-    private String[] titles = {"作品", "动态", "喜欢"};
-    private List<Fragment> fragments;
-    private boolean isUser;
-    private boolean mAppBarExpand = true;//AppBarLayout是否展开
-
-    public static VideoUserFragment newInstance(boolean isUser) {
-
-        Bundle args = new Bundle();
-        args.putBoolean("isUser", isUser);
-        VideoUserFragment fragment = new VideoUserFragment();
-        fragment.setArguments(args);
-        return fragment;
+    private var binding: FragmentVideoUserBinding? = null
+    private var mIndicator: MagicIndicator? = null
+    private var mViewPager: ViewPager? = null
+    private var mAppBarLayout: AppBarLayout? = null
+    private var mTitleLayout: RelativeLayout? = null
+    private var mTitleName: TextView? = null
+    private val titles = arrayOf("作品", "动态", "喜欢")
+    private var fragments: MutableList<Fragment>? = null
+    private val isUser = false
+    private var mAppBarExpand = true //AppBarLayout是否展开
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_video_user
     }
 
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_video_user;
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        mIndicator = binding!!.mIndicator
+        mViewPager = binding!!.mViewPager
+        mAppBarLayout = binding!!.mAppBarLayout
+        mTitleLayout = binding!!.mTitleLayout
+        mTitleName = binding!!.mTitleName
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
-        binding = getBinding();
-        mIndicator = binding.mIndicator;
-        mViewPager = binding.mViewPager;
-        mAppBarLayout = binding.mAppBarLayout;
-        mTitleLayout = binding.mTitleLayout;
-        mTitleName = binding.mTitleName;
-
-    }
-
-    @Override
-    public void initViewData() {
-
+    override fun initViewData() {
         if (fragments == null) {
-            fragments = new ArrayList<>();
-            fragments.add(new VideoListFragment());
-            fragments.add(new VideoListFragment());
-            fragments.add(new VideoListFragment());
+            fragments = ArrayList()
+            fragments?.add(VideoListFragment())
+            fragments?.add(VideoListFragment())
+            fragments?.add(VideoListFragment())
         }
-
-        binding.btnBack.setOnClickListener(v -> {
-            Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH,"", 0));
-        });
-
-        initIndicator();
+        binding!!.btnBack.setOnClickListener { v: View? -> post(MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, "", 0)) }
+        initIndicator()
     }
 
-    @Override
-    public void initObservable() {
-
-
-        mAppBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
-            float totalScrollRange = appBarLayout.getTotalScrollRange();
-            float rate = -1 * verticalOffset / totalScrollRange;
-//                mTitle.setAlpha(rate);
-            mTitleName.setAlpha(rate);
-//            Drawable compat = DrawableCompat.wrap(binding.btnBack.getDrawable());
+    override fun initObservable() {
+        mAppBarLayout!!.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout: AppBarLayout, verticalOffset: Int ->
+            val totalScrollRange = appBarLayout.totalScrollRange.toFloat()
+            val rate = -1 * verticalOffset / totalScrollRange
+            //                mTitle.setAlpha(rate);
+            mTitleName!!.alpha = rate
+            //            Drawable compat = DrawableCompat.wrap(binding.btnBack.getDrawable());
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 //                DrawableCompat.setTintList(compat, ColorStateList.valueOf(Color.argb(rate,0,0,0)));
 //            }
-            Log.w("000000", "r : " + rate);
+            Log.w("000000", "r : $rate")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                if (rate <= 0.2f){
-                    binding.btnBack.setImageDrawable(DrawableTintUtil.tintDrawable(binding.btnBack.getDrawable(),Color.WHITE));
-                }else {
-                    binding.btnBack.setImageDrawable(DrawableTintUtil.tintListDrawable(binding.btnBack.getDrawable()
-                            , ColorStateList.valueOf(Color.argb(rate, 0, 0, 0))));
+                if (rate <= 0.2f) {
+                    binding!!.btnBack.setImageDrawable(DrawableTintUtil.tintDrawable(binding!!.btnBack.drawable, Color.WHITE))
+                } else {
+                    binding!!.btnBack.setImageDrawable(DrawableTintUtil.tintListDrawable(binding!!.btnBack.drawable, ColorStateList.valueOf(Color.argb(rate, 0f, 0f, 0f))))
                 }
             }
-        });
-
-        mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int state) {
-                switch (state) {
-                    case AppBarStateListener.EXPANDED:
-                        //L.e("#mAppBarLayout--------->展开");
-                        mAppBarExpand = true;
-                        break;
-                    case AppBarStateListener.COLLAPSED:
-                        //L.e("#mAppBarLayout--------->收起");
-                        mAppBarExpand = false;
-                        break;
-                }
+        })
+        mAppBarLayout!!.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, state ->
+            when (state) {
+                AppBarStateListener.EXPANDED ->                         //L.e("#mAppBarLayout--------->展开");
+                    mAppBarExpand = true
+                AppBarStateListener.COLLAPSED ->                         //L.e("#mAppBarLayout--------->收起");
+                    mAppBarExpand = false
             }
-        });
+        })
     }
 
-    @Override
-    public void onVisible() {
+    override fun onVisible() {
 //        isUser = getArguments().getBoolean("isUser", false);
 //        binding.btnBack.setVisibility(isUser ? View.GONE : View.VISIBLE);
-        Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP,"", false));
-        LogUtils.w("user v");
-//        if (!isUser && binding.btnBack.getVisibility() == View.VISIBLE){
+        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, "", false))
+        w("user v")
+        //        if (!isUser && binding.btnBack.getVisibility() == View.VISIBLE){
 //            monitor(true);
 //        }else {
 //            getView().setOnKeyListener(null);
@@ -159,89 +121,89 @@ public class VideoUserFragment extends BaseFragment {
 //        }
     }
 
-    @Override
-    public void onInVisible() {
-        Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP,"", true));
-        LogUtils.w("user iv");
+    override fun onInVisible() {
+        post(MsgEvent(KEY_VIDEO_BOTTOM_VP, "", true))
+        w("user iv")
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
+    override fun onResume() {
+        super.onResume()
     }
 
-    @SuppressWarnings("ConstantConditions")
-    private void monitor(boolean b) {
+    private fun monitor(b: Boolean) {
         if (b) {
-            getView().setFocusableInTouchMode(true);
-            getView().requestFocus();
-            getView().setOnKeyListener((v, keyCode, event) -> {
-                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
+            requireView().isFocusableInTouchMode = true
+            requireView().requestFocus()
+            requireView().setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent ->
+                if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
                     // 监听到返回按钮点击事件
-                    Bus.INSTANCE.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH,"", 0));
-                    return true;
+                    post(MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, "", 0))
+                    return@setOnKeyListener true
                 }
-                return false;
-            });
+                false
+            }
         } else {
-            getView().setFocusableInTouchMode(false);
-            getView().setOnKeyListener(null);
+            requireView().isFocusableInTouchMode = false
+            requireView().setOnKeyListener(null)
         }
     }
 
-    private void initIndicator() {
-        CommonNavigator commonNavigator = new CommonNavigator(getActivity());
+    private fun initIndicator() {
+        val commonNavigator = CommonNavigator(activity)
         //ture 即标题平分屏幕宽度的模式
-        commonNavigator.setAdjustMode(true);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-
-            @Override
-            public int getCount() {
-                return titles.length;
+        commonNavigator.isAdjustMode = true
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return titles.size
             }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.GRAY);
-                colorTransitionPagerTitleView.setSelectedColor(Color.BLACK);
-                colorTransitionPagerTitleView.setText(titles[index]);
-                colorTransitionPagerTitleView.setOnClickListener(view -> mViewPager.setCurrentItem(index));
-                return colorTransitionPagerTitleView;
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val colorTransitionPagerTitleView = ColorTransitionPagerTitleView(context)
+                colorTransitionPagerTitleView.normalColor = Color.GRAY
+                colorTransitionPagerTitleView.selectedColor = Color.BLACK
+                colorTransitionPagerTitleView.text = titles[index]
+                colorTransitionPagerTitleView.setOnClickListener { view: View? -> mViewPager!!.currentItem = index }
+                return colorTransitionPagerTitleView
             }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val indicator = LinePagerIndicator(context)
                 //设置宽度
-                indicator.setLineWidth(DpUtils.dp2px(getContext(), 20));
+                indicator.lineWidth = dp2px(getContext(), 20f).toFloat()
                 //设置高度
-                indicator.setLineHeight(DpUtils.dp2px(getContext(), 2));
+                indicator.lineHeight = dp2px(getContext(), 2f).toFloat()
                 //设置颜色
-                indicator.setColors(Color.BLACK);
+                indicator.setColors(Color.BLACK)
                 //设置圆角
-                indicator.setRoundRadius(5);
+                indicator.roundRadius = 5f
                 //设置模式
-                indicator.setMode(LinePagerIndicator.MODE_EXACTLY);
-                return indicator;
+                indicator.mode = LinePagerIndicator.MODE_EXACTLY
+                return indicator
             }
-        });
-        mIndicator.setNavigator(commonNavigator);
-
-        mViewPager.setOffscreenPageLimit(titles.length - 1);
-        mViewPager.setAdapter(new BaseFragmentPagerAdapter(getChildFragmentManager(), fragments, Arrays.asList(titles)));
+        }
+        mIndicator!!.navigator = commonNavigator
+        mViewPager!!.offscreenPageLimit = titles.size - 1
+        mViewPager!!.adapter = BaseFragmentPagerAdapter(childFragmentManager, fragments, Arrays.asList(*titles))
         //与ViewPagger联动
-        ViewPagerHelper.bind(mIndicator, mViewPager);
+        ViewPagerHelper.bind(mIndicator, mViewPager)
     }
 
-    public interface OnBackClickListener {
-        void onBackClick();
+    interface OnBackClickListener {
+        fun onBackClick()
     }
 
-    private OnBackClickListener mOnBackClickListener;
+    private var mOnBackClickListener: OnBackClickListener? = null
+    fun setOnBackClickListener(listener: OnBackClickListener?) {
+        mOnBackClickListener = listener
+    }
 
-    public void setOnBackClickListener(OnBackClickListener listener) {
-        mOnBackClickListener = listener;
+    companion object {
+        fun newInstance(isUser: Boolean): VideoUserFragment {
+            val args = Bundle()
+            args.putBoolean("isUser", isUser)
+            val fragment = VideoUserFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

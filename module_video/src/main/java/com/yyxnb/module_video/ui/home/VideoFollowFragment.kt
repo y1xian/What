@@ -1,189 +1,164 @@
-package com.yyxnb.module_video.ui.home;
+package com.yyxnb.module_video.ui.home
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
-
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.dueeeke.videoplayer.player.VideoView;
-import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.dueeeke.videoplayer.util.L;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_video.R;
-import com.yyxnb.module_video.adapter.TikTokRvAdapter;
-import com.yyxnb.module_video.bean.TikTokBean;
-import com.yyxnb.module_video.config.DataConfig;
-import com.yyxnb.module_video.databinding.FragmentVideoFollowBinding;
-import com.yyxnb.module_video.widget.OnViewPagerListener;
-import com.yyxnb.module_video.widget.ViewPagerLayoutManager;
-import com.yyxnb.module_video.widget.tiktok.TikTokController;
-import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory;
-import com.yyxnb.module_video.widget.tiktok.TikTokView;
-import com.yyxnb.video.Utils;
-import com.yyxnb.video.cache.PreloadManager;
-import com.yyxnb.video.cache.ProxyVideoCacheManager;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.os.Bundle
+import android.widget.FrameLayout
+import androidx.recyclerview.widget.RecyclerView
+import com.dueeeke.videoplayer.player.AbstractPlayer
+import com.dueeeke.videoplayer.player.VideoView
+import com.dueeeke.videoplayer.player.VideoView.SimpleOnStateChangeListener
+import com.dueeeke.videoplayer.player.VideoViewManager
+import com.dueeeke.videoplayer.util.L
+import com.yyxnb.arch.annotations.BindRes
+import com.yyxnb.common.utils.log.LogUtils.e
+import com.yyxnb.common.utils.log.LogUtils.w
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.module_video.R
+import com.yyxnb.module_video.adapter.TikTokRvAdapter
+import com.yyxnb.module_video.bean.TikTokBean
+import com.yyxnb.module_video.config.DataConfig.tikTokBeans
+import com.yyxnb.module_video.databinding.FragmentVideoFollowBinding
+import com.yyxnb.module_video.widget.OnViewPagerListener
+import com.yyxnb.module_video.widget.ViewPagerLayoutManager
+import com.yyxnb.module_video.widget.tiktok.TikTokController
+import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory
+import com.yyxnb.module_video.widget.tiktok.TikTokView
+import com.yyxnb.video.Utils
+import com.yyxnb.video.cache.PreloadManager
+import com.yyxnb.video.cache.ProxyVideoCacheManager
+import java.util.*
 
 /**
  * 关注
  */
 @BindRes(subPage = true)
-public class VideoFollowFragment extends BaseFragment {
+class VideoFollowFragment : BaseFragment() {
 
-    private FragmentVideoFollowBinding binding;
-    private RecyclerView mRecyclerView;
+    private var binding: FragmentVideoFollowBinding? = null
+    private var mRecyclerView: RecyclerView? = null
+    private var mVideoView: VideoView<AbstractPlayer>? = null
+    private var mController: TikTokController? = null
+    private var mPreloadManager: PreloadManager? = null
+    private var viewPagerLayoutManager: ViewPagerLayoutManager? = null
+    private var mAdapter: TikTokRvAdapter? = null
+    private val mVideoList: MutableList<TikTokBean> = ArrayList()
+    private var mCurPos = 0
+    private var isCur = false
 
-    private VideoView mVideoView;
-    private TikTokController mController;
-    private PreloadManager mPreloadManager;
-
-    private ViewPagerLayoutManager viewPagerLayoutManager;
-    private TikTokRvAdapter mAdapter;
-    private List<TikTokBean> mVideoList = new ArrayList<>();
-    private int mCurPos;
-    private boolean isCur;
-
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_video_follow;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_video_follow
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
-        binding = getBinding();
-        mRecyclerView = binding.mRecyclerView;
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        mRecyclerView = binding!!.mRecyclerView
     }
 
-    @Override
-    public void initViewData() {
-        initRecyclerView();
-        initVideoView();
-        mPreloadManager = PreloadManager.getInstance(getContext());
+    override fun initViewData() {
+        initRecyclerView()
+        initVideoView()
+        mPreloadManager = PreloadManager.getInstance(context)
     }
 
-
-    @Override
-    public void initObservable() {
-        mVideoList.addAll(DataConfig.getTikTokBeans());
-        mAdapter.setDataItems(mVideoList);
+    override fun initObservable() {
+        mVideoList.addAll(tikTokBeans!!)
+        mAdapter!!.setDataItems(mVideoList)
     }
 
-    private void initRecyclerView() {
-        mAdapter = new TikTokRvAdapter();
-
-        viewPagerLayoutManager = new ViewPagerLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(viewPagerLayoutManager);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setAdapter(mAdapter);
-
-        viewPagerLayoutManager.setOnViewPagerListener(new OnViewPagerListener() {
-            @Override
-            public void onInitComplete() {
+    private fun initRecyclerView() {
+        mAdapter = TikTokRvAdapter()
+        viewPagerLayoutManager = ViewPagerLayoutManager(context)
+        mRecyclerView!!.layoutManager = viewPagerLayoutManager
+        mRecyclerView!!.setHasFixedSize(true)
+        mRecyclerView!!.adapter = mAdapter
+        viewPagerLayoutManager!!.setOnViewPagerListener(object : OnViewPagerListener {
+            override fun onInitComplete() {
                 //自动播放第index条
-                startPlay(mCurPos);
+                startPlay(mCurPos)
             }
 
-            @Override
-            public void onPageRelease(boolean isNext, int position) {
+            override fun onPageRelease(isNext: Boolean, position: Int) {
                 if (mCurPos == position) {
-                    mVideoView.release();
+                    mVideoView!!.release()
                 }
             }
 
-            @Override
-            public void onPageSelected(int position, boolean isBottom) {
+            override fun onPageSelected(position: Int, isBottom: Boolean) {
                 if (mCurPos == position) {
-                    return;
+                    return
                 }
-                startPlay(position);
+                startPlay(position)
             }
-        });
+        })
     }
 
-    private void initVideoView() {
-        mVideoView = new VideoView(getActivity());
-        mVideoView.setLooping(true);
+    private fun initVideoView() {
+        mVideoView = VideoView<AbstractPlayer>(context)
+        mVideoView?.setLooping(true)
 
         //以下只能二选一，看你的需求
-        mVideoView.setRenderViewFactory(TikTokRenderViewFactory.create());
-
-        mController = new TikTokController(getActivity());
-        mVideoView.setVideoController(mController);
-
-        mVideoView.addOnStateChangeListener(new VideoView.SimpleOnStateChangeListener() {
-            @Override
-            public void onPlayStateChanged(int playState) {
+        mVideoView?.setRenderViewFactory(TikTokRenderViewFactory.create())
+        mController = TikTokController(context)
+        mVideoView?.setVideoController(mController)
+        mVideoView?.addOnStateChangeListener(object : SimpleOnStateChangeListener() {
+            override fun onPlayStateChanged(playState: Int) {
                 if (playState == VideoView.STATE_PLAYING) {
-                    LogUtils.e("Play STATE_PLAYING");
+                    e("Play STATE_PLAYING")
                     // 处理快速切换界面，缓存刚刚好就回继续播放的问题
                     if (!isCur) {
-                        mVideoView.pause();
+                        mVideoView?.pause()
                     }
                 }
             }
-        });
-
-        VideoViewManager.instance().add(mVideoView, "tiktok");
+        })
+        VideoViewManager.instance().add(mVideoView, "tiktok")
     }
 
-    private void startPlay(int position) {
-        View itemView = mRecyclerView.getChildAt(0);
-
-        final TikTokView mTikTokView = itemView.findViewById(R.id.tiktok_View);
-        final FrameLayout mPlayerContainer = itemView.findViewById(R.id.container);
-
-        mVideoView.release();
-        Utils.removeViewFormParent(mVideoView);
-        TikTokBean item = mVideoList.get(position);
-        String playUrl = mPreloadManager.getPlayUrl(item.videoUrl);
-        L.i("startPlay: " + "position: " + position + "  url: " + playUrl);
-        mVideoView.setUrl(playUrl);
-        mController.addControlComponent(mTikTokView, true);
-        mPlayerContainer.addView(mVideoView, 0);
-        mVideoView.start();
-        mCurPos = position;
+    private fun startPlay(position: Int) {
+        val itemView = mRecyclerView!!.getChildAt(0)
+        val mTikTokView: TikTokView = itemView.findViewById(R.id.tiktok_View)
+        val mPlayerContainer = itemView.findViewById<FrameLayout>(R.id.container)
+        mVideoView!!.release()
+        Utils.removeViewFormParent(mVideoView)
+        val (_, _, _, _, _, _, videoUrl) = mVideoList[position]
+        val playUrl = mPreloadManager!!.getPlayUrl(videoUrl)
+        L.i("startPlay: position: $position  url: $playUrl")
+        mVideoView!!.setUrl(playUrl)
+        mController!!.addControlComponent(mTikTokView, true)
+        mPlayerContainer.addView(mVideoView, 0)
+        mVideoView!!.start()
+        mCurPos = position
     }
 
-    @Override
-    public void onVisible() {
-        isCur = true;
-        LogUtils.w("follow v");
+    override fun onVisible() {
+        isCur = true
+        w("follow v")
         if (mVideoView != null) {
-            mVideoView.resume();
+            mVideoView!!.resume()
         }
     }
 
-    @Override
-    public void onInVisible() {
-        isCur = false;
-        LogUtils.w("follow iv");
+    override fun onInVisible() {
+        isCur = false
+        w("follow iv")
         if (mVideoView != null) {
-            mVideoView.pause();
+            mVideoView!!.pause()
         }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+    override fun onDestroy() {
+        super.onDestroy()
         if (mVideoView != null) {
-            VideoViewManager.instance().releaseByTag("tiktok");
-            mVideoView.release();
+            VideoViewManager.instance().releaseByTag("tiktok")
+            mVideoView!!.release()
         }
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    override fun onDestroyView() {
+        super.onDestroyView()
         if (mPreloadManager != null) {
-            mPreloadManager.removeAllPreloadTask();
+            mPreloadManager!!.removeAllPreloadTask()
         }
         //清除缓存，实际使用可以不需要清除，这里为了方便测试
-        ProxyVideoCacheManager.clearAllCache(getContext());
+        ProxyVideoCacheManager.clearAllCache(context)
     }
-
 }

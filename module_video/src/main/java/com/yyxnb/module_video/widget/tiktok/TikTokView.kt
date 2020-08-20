@@ -1,136 +1,98 @@
-package com.yyxnb.module_video.widget.tiktok;
+package com.yyxnb.module_video.widget.tiktok
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.animation.Animation;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.content.Context
+import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewConfiguration
+import android.view.animation.Animation
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.Toast
+import com.dueeeke.videoplayer.controller.ControlWrapper
+import com.dueeeke.videoplayer.controller.IControlComponent
+import com.dueeeke.videoplayer.player.VideoView
+import com.dueeeke.videoplayer.util.L
+import com.yyxnb.module_video.R
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+class TikTokView : FrameLayout, IControlComponent {
+    private var thumb: ImageView? = null
+    private var mPlayBtn: ImageView? = null
+    private var mControlWrapper: ControlWrapper? = null
+    private var mScaledTouchSlop = 0
+    private var mStartX = 0
+    private var mStartY = 0
 
-import com.dueeeke.videoplayer.controller.ControlWrapper;
-import com.dueeeke.videoplayer.controller.IControlComponent;
-import com.dueeeke.videoplayer.player.VideoView;
-import com.dueeeke.videoplayer.util.L;
-import com.yyxnb.module_video.R;
-
-public class TikTokView extends FrameLayout implements IControlComponent {
-
-    private ImageView thumb;
-    private ImageView mPlayBtn;
-
-    private ControlWrapper mControlWrapper;
-    private int mScaledTouchSlop;
-    private int mStartX, mStartY;
-
-    public TikTokView(@NonNull Context context) {
-        super(context);
-    }
-
-    public TikTokView(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public TikTokView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        LayoutInflater.from(getContext()).inflate(R.layout.layout_tiktok_controller, this, true);
-        thumb = findViewById(R.id.iv_thumb);
-        mPlayBtn = findViewById(R.id.play_btn);
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mControlWrapper.togglePlay();
-            }
-        });
-        mScaledTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-    }
+    constructor(context: Context) : super(context) {}
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
 
     /**
      * 解决点击和VerticalViewPager滑动冲突问题
      */
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        int action = event.getAction();
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                mStartX = (int) event.getX();
-                mStartY = (int) event.getY();
-                return true;
-            case MotionEvent.ACTION_UP:
-                int endX = (int) event.getX();
-                int endY = (int) event.getY();
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val action = event.action
+        when (action) {
+            MotionEvent.ACTION_DOWN -> {
+                mStartX = event.x.toInt()
+                mStartY = event.y.toInt()
+                return true
+            }
+            MotionEvent.ACTION_UP -> {
+                val endX = event.x.toInt()
+                val endY = event.y.toInt()
                 if (Math.abs(endX - mStartX) < mScaledTouchSlop
                         && Math.abs(endY - mStartY) < mScaledTouchSlop) {
-                    performClick();
+                    performClick()
                 }
-                break;
+            }
         }
-        return false;
+        return false
     }
 
-    @Override
-    public void attach(@NonNull ControlWrapper controlWrapper) {
-        mControlWrapper = controlWrapper;
+    override fun attach(controlWrapper: ControlWrapper) {
+        mControlWrapper = controlWrapper
     }
 
-    @Override
-    public View getView() {
-        return this;
+    override fun getView(): View {
+        return this
     }
 
-    @Override
-    public void onVisibilityChanged(boolean isVisible, Animation anim) {
-
-    }
-
-    @Override
-    public void onPlayStateChanged(int playState) {
-        switch (playState) {
-            case VideoView.STATE_IDLE:
-                L.e("STATE_IDLE " + hashCode());
-                thumb.setVisibility(VISIBLE);
-                break;
-            case VideoView.STATE_PLAYING:
-                L.e("STATE_PLAYING " + hashCode());
-                thumb.setVisibility(GONE);
-                mPlayBtn.setVisibility(GONE);
-                break;
-            case VideoView.STATE_PAUSED:
-                L.e("STATE_PAUSED " + hashCode());
-                thumb.setVisibility(GONE);
-                mPlayBtn.setVisibility(VISIBLE);
-                break;
-            case VideoView.STATE_PREPARED:
-                L.e("STATE_PREPARED " + hashCode());
-                break;
-            case VideoView.STATE_ERROR:
-                L.e("STATE_ERROR " + hashCode());
-                Toast.makeText(getContext(), R.string.dkplayer_error_message, Toast.LENGTH_SHORT).show();
-                break;
+    override fun onVisibilityChanged(isVisible: Boolean, anim: Animation) {}
+    override fun onPlayStateChanged(playState: Int) {
+        when (playState) {
+            VideoView.STATE_IDLE -> {
+                L.e("STATE_IDLE " + hashCode())
+                thumb!!.visibility = VISIBLE
+            }
+            VideoView.STATE_PLAYING -> {
+                L.e("STATE_PLAYING " + hashCode())
+                thumb!!.visibility = GONE
+                mPlayBtn!!.visibility = GONE
+            }
+            VideoView.STATE_PAUSED -> {
+                L.e("STATE_PAUSED " + hashCode())
+                thumb!!.visibility = GONE
+                mPlayBtn!!.visibility = VISIBLE
+            }
+            VideoView.STATE_PREPARED -> L.e("STATE_PREPARED " + hashCode())
+            VideoView.STATE_ERROR -> {
+                L.e("STATE_ERROR " + hashCode())
+                Toast.makeText(context, R.string.dkplayer_error_message, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    @Override
-    public void onPlayerStateChanged(int playerState) {
+    override fun onPlayerStateChanged(playerState: Int) {}
+    override fun setProgress(duration: Int, position: Int) {}
+    override fun onLockStateChanged(isLocked: Boolean) {}
 
-    }
-
-    @Override
-    public void setProgress(int duration, int position) {
-
-    }
-
-    @Override
-    public void onLockStateChanged(boolean isLocked) {
-
+    init {
+        LayoutInflater.from(context).inflate(R.layout.layout_tiktok_controller, this, true)
+        thumb = findViewById(R.id.iv_thumb)
+        mPlayBtn = findViewById(R.id.play_btn)
+        setOnClickListener { mControlWrapper!!.togglePlay() }
+        mScaledTouchSlop = ViewConfiguration.get(context).scaledTouchSlop
     }
 }

@@ -1,20 +1,18 @@
-package com.yyxnb.module_video.widget;
+package com.yyxnb.module_video.widget
 
-public interface OnViewPagerListener {
-
+interface OnViewPagerListener {
     /**
      * 初始化完成
      */
-    void onInitComplete();
+    fun onInitComplete()
 
     /**
      * 释放的监听
      */
-    void onPageRelease(boolean isNext, int position);
+    fun onPageRelease(isNext: Boolean, position: Int)
 
     /**
      * 选中的监听以及判断是否滑动到底部
      */
-    void onPageSelected(int position, boolean isBottom);
-
+    fun onPageSelected(position: Int, isBottom: Boolean)
 }

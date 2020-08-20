@@ -1,211 +1,193 @@
-package com.yyxnb.module_video.ui.main;
+package com.yyxnb.module_video.ui.main
 
-import android.os.Bundle;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.utils.DpUtils;
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.common_base.arouter.ARouterUtils;
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.module_video.R;
-import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
-import com.yyxnb.module_video.ui.find.VideoFindFragment;
-import com.yyxnb.module_video.ui.home.VideoHomeFragment;
-import com.yyxnb.view.text.DrawableRadioButton;
-
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
+import android.os.Bundle
+import android.util.SparseArray
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.TranslateAnimation
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.yyxnb.arch.annotations.BindRes
+import com.yyxnb.common.utils.DpUtils.dp2px
+import com.yyxnb.common.utils.log.LogUtils.e
+import com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT
+import com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT
+import com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT
+import com.yyxnb.common_base.arouter.ARouterUtils.navFragment
+import com.yyxnb.common_base.arouter.service.impl.LoginImpl.Companion.instance
+import com.yyxnb.common_base.base.BaseFragment
+import com.yyxnb.module_video.R
+import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding
+import com.yyxnb.module_video.ui.find.VideoFindFragment
+import com.yyxnb.module_video.ui.home.VideoHomeFragment
+import com.yyxnb.view.text.DrawableRadioButton
 
 /**
  * 主页
  */
 @BindRes(subPage = true)
-public class VideoMainBottomFragment extends BaseFragment implements View.OnClickListener {
+class VideoMainBottomFragment : BaseFragment(), View.OnClickListener {
 
-    private static final int HOME = 0;
-    private static final int FIND = 1;
-    private static final int MSG = 2;
-    private static final int ME = 3;
-
-    private DrawableRadioButton mBtnHome;
-    private DrawableRadioButton mBtnFind;
-    private DrawableRadioButton mBtnMsg;
-    private DrawableRadioButton mBtnMe;
-    private View mRecordTip;
-    private Animation mAnimation;
+    private var mBtnHome: DrawableRadioButton? = null
+    private var mBtnFind: DrawableRadioButton? = null
+    private var mBtnMsg: DrawableRadioButton? = null
+    private var mBtnMe: DrawableRadioButton? = null
+    private var mRecordTip: View? = null
+    private var mAnimation: Animation? = null
 
     //当前选中的fragment的key
-    private int mCurKey;
-    private SparseArray<Fragment> mSparseArray;
-    private FragmentManager mFragmentManager;
-    private VideoHomeFragment mHomeFragment;
-    private boolean mShowingRecordTip;
+    private var mCurKey = 0
+    private var mSparseArray: SparseArray<Fragment>? = null
+    private var mFragmentManager: FragmentManager? = null
+    private var mHomeFragment: VideoHomeFragment? = null
+    private var mShowingRecordTip = false
+    private var binding: FragmentVideoMainBottomBinding? = null
 
-    private FragmentVideoMainBottomBinding binding;
-
-    @Override
-    public int initLayoutResId() {
-        return R.layout.fragment_video_main_bottom;
+    override fun initLayoutResId(): Int {
+        return R.layout.fragment_video_main_bottom
     }
 
-    @Override
-    public void initView(Bundle savedInstanceState) {
-        binding = getBinding();
-        mBtnHome = binding.btnHome;
-        mBtnFind = binding.btnFind;
-        mBtnMsg = binding.btnMsg;
-        mBtnMe = binding.btnMe;
-        mRecordTip = binding.recordTip;
-        mBtnHome.setOnClickListener(this);
-        mBtnFind.setOnClickListener(this);
-        mBtnMsg.setOnClickListener(this);
-        mBtnMe.setOnClickListener(this);
-        mRecordTip.setOnClickListener(this);
+    override fun initView(savedInstanceState: Bundle?) {
+        binding = getBinding()
+        mBtnHome = binding!!.btnHome
+        mBtnFind = binding!!.btnFind
+        mBtnMsg = binding!!.btnMsg
+        mBtnMe = binding!!.btnMe
+        mRecordTip = binding!!.recordTip
+        mBtnHome!!.setOnClickListener(this)
+        mBtnFind!!.setOnClickListener(this)
+        mBtnMsg!!.setOnClickListener(this)
+        mBtnMe!!.setOnClickListener(this)
+        mRecordTip?.setOnClickListener(this)
     }
 
-    @Override
-    public void initViewData() {
-        LogUtils.e("main bottom initViewData ");
-
-        mFragmentManager = getChildFragmentManager();
+    override fun initViewData() {
+        e("main bottom initViewData ")
+        mFragmentManager = childFragmentManager
         if (mSparseArray == null) {
-            mSparseArray = new SparseArray<>();
-            mHomeFragment = new VideoHomeFragment();
-            mSparseArray.put(HOME, mHomeFragment);
-            mSparseArray.put(FIND, new VideoFindFragment());
-            mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
-//            mSparseArray.put(ME, VideoUserFragment.newInstance(true));
-            mSparseArray.put(ME, (Fragment) ARouterUtils.navFragment(USER_FRAGMENT));
+            mSparseArray = SparseArray()
+            mHomeFragment = VideoHomeFragment()
+            mSparseArray!!.put(HOME, mHomeFragment)
+            mSparseArray!!.put(FIND, VideoFindFragment())
+            mSparseArray!!.put(MSG, navFragment(MESSAGE_LIST_FRAGMENT) as Fragment)
+            //            mSparseArray.put(ME, VideoUserFragment.newInstance(true));
+            mSparseArray!!.put(ME, navFragment(USER_FRAGMENT) as Fragment)
         }
-
-        mCurKey = HOME;
-
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-        for (int i = 0, size = mSparseArray.size(); i < size; i++) {
-            Fragment fragment = mSparseArray.valueAt(i);
-            ft.add(R.id.replaced, fragment);
-            if (mSparseArray.keyAt(i) == mCurKey) {
-                ft.show(fragment);
+        mCurKey = HOME
+        val ft = mFragmentManager!!.beginTransaction()
+        var i = 0
+        val size = mSparseArray!!.size()
+        while (i < size) {
+            val fragment = mSparseArray!!.valueAt(i)
+            ft.add(R.id.replaced, fragment)
+            if (mSparseArray!!.keyAt(i) == mCurKey) {
+                ft.show(fragment)
             } else {
-                ft.hide(fragment);
+                ft.hide(fragment)
             }
+            i++
         }
-        ft.commit();
-
-
-        mAnimation = new TranslateAnimation(Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0,
-                Animation.ABSOLUTE, 0, Animation.ABSOLUTE, DpUtils.dp2px(getActivity(), 5));
-        mAnimation.setRepeatCount(-1);
-        mAnimation.setRepeatMode(Animation.REVERSE);
-        mAnimation.setDuration(400);
+        ft.commit()
+        mAnimation = TranslateAnimation(Animation.ABSOLUTE, 0f, Animation.ABSOLUTE, 0f,
+                Animation.ABSOLUTE, 0f, Animation.ABSOLUTE, dp2px(context, 5f).toFloat())
+        mAnimation?.setRepeatCount(-1)
+        mAnimation?.setRepeatMode(Animation.REVERSE)
+        mAnimation?.setDuration(400)
     }
 
-
-    @Override
-    public void onVisible() {
-        LogUtils.e("main ov");
+    override fun onVisible() {
+        e("main ov")
     }
 
-    public void showRecordTip(boolean show) {
+    fun showRecordTip(show: Boolean) {
         if (mCurKey == ME) {
-            toggleRecordTip(show);
+            toggleRecordTip(show)
         }
     }
 
-    @Override
-    public void onDestroy() {
+    override fun onDestroy() {
         if (mRecordTip != null) {
-            mRecordTip.clearAnimation();
+            mRecordTip!!.clearAnimation()
         }
-        super.onDestroy();
+        super.onDestroy()
     }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
+    override fun onClick(v: View) {
+        val id = v.id
         if (id == R.id.btn_home) {
-            toggleHome();
+            toggleHome()
         } else if (id == R.id.btn_find) {
-            toggleFind();
+            toggleFind()
         } else if (id == R.id.btn_msg) {
-            toggleMsg();
+            toggleMsg()
         } else if (id == R.id.btn_me) {
-            toggleMe();
+            toggleMe()
         } else if (id == R.id.record_tip) {
             // 跳录制
         }
     }
 
-    private void toggle(int key) {
+    private fun toggle(key: Int) {
         if (key == mCurKey) {
             if (key == 0) {
                 // 刷新首页
-
             }
-            return;
+            return
         }
-        mCurKey = key;
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-        for (int i = 0, size = mSparseArray.size(); i < size; i++) {
-            Fragment fragment = mSparseArray.valueAt(i);
-            if (mSparseArray.keyAt(i) == mCurKey) {
-                ft.show(fragment);
+        mCurKey = key
+        val ft = mFragmentManager!!.beginTransaction()
+        var i = 0
+        val size = mSparseArray!!.size()
+        while (i < size) {
+            val fragment = mSparseArray!!.valueAt(i)
+            if (mSparseArray!!.keyAt(i) == mCurKey) {
+                ft.show(fragment)
             } else {
-                ft.hide(fragment);
+                ft.hide(fragment)
             }
+            i++
         }
-        ft.commitAllowingStateLoss();
+        ft.commitAllowingStateLoss()
     }
 
     /**
      * 切换到Home
      */
-    private void toggleHome() {
-        toggle(HOME);
+    private fun toggleHome() {
+        toggle(HOME)
         if (mBtnHome != null) {
-            mBtnHome.doToggle();
+            mBtnHome!!.doToggle()
         }
-        if (mHomeFragment.isRecommend()) {
-            setCanScroll(true);
+        if (mHomeFragment!!.isRecommend) {
+            setCanScroll(true)
         }
-        toggleRecordTip(false);
+        toggleRecordTip(false)
     }
 
     /**
      * 切换到发现
      */
-    private void toggleFind() {
-        toggle(FIND);
+    private fun toggleFind() {
+        toggle(FIND)
         if (mBtnFind != null) {
-            mBtnFind.doToggle();
+            mBtnFind!!.doToggle()
         }
-        setCanScroll(false);
-        toggleRecordTip(false);
-
+        setCanScroll(false)
+        toggleRecordTip(false)
     }
 
     /**
      * 切换到消息
      */
-    private void toggleMsg() {
+    private fun toggleMsg() {
 //        if (BaseConfig.getInstance().isLogin()) {
-            toggle(MSG);
-            if (mBtnMsg != null) {
-                mBtnMsg.doToggle();
-            }
-            setCanScroll(false);
-            toggleRecordTip(false);
-//        } else {
+        toggle(MSG)
+        if (mBtnMsg != null) {
+            mBtnMsg!!.doToggle()
+        }
+        setCanScroll(false)
+        toggleRecordTip(false)
+        //        } else {
 //            forwardLogin();
 //        }
     }
@@ -213,48 +195,53 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
     /**
      * 切换到我的
      */
-    private void toggleMe() {
+    private fun toggleMe() {
 //        if (BaseConfig.getInstance().isLogin()) {
-            toggle(ME);
-            if (mBtnMe != null) {
-                mBtnMe.doToggle();
-            }
-            setCanScroll(false);
-            toggleRecordTip(true);
-//        } else {
+        toggle(ME)
+        if (mBtnMe != null) {
+            mBtnMe!!.doToggle()
+        }
+        setCanScroll(false)
+        toggleRecordTip(true)
+        //        } else {
 //            forwardLogin();
 //        }
     }
 
     // 显示动画
-    private void toggleRecordTip(boolean show) {
+    private fun toggleRecordTip(show: Boolean) {
         if (mShowingRecordTip == show) {
-            return;
+            return
         }
-        mShowingRecordTip = show;
+        mShowingRecordTip = show
         if (mRecordTip != null && mAnimation != null) {
             if (show) {
-                if (mRecordTip.getVisibility() != View.VISIBLE) {
-                    mRecordTip.setVisibility(View.VISIBLE);
+                if (mRecordTip!!.visibility != View.VISIBLE) {
+                    mRecordTip!!.visibility = View.VISIBLE
                 }
-                mRecordTip.startAnimation(mAnimation);
+                mRecordTip!!.startAnimation(mAnimation)
             } else {
-                mRecordTip.clearAnimation();
-                if (mRecordTip.getVisibility() == View.VISIBLE) {
-                    mRecordTip.setVisibility(View.INVISIBLE);
+                mRecordTip!!.clearAnimation()
+                if (mRecordTip!!.visibility == View.VISIBLE) {
+                    mRecordTip!!.visibility = View.INVISIBLE
                 }
             }
         }
     }
 
     // 跳转登录
-    private void forwardLogin() {
-        LogUtils.e("跳登录 " + LoginImpl.getInstance().getUserInfo().toString());
-        startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
+    private fun forwardLogin() {
+        e("跳登录 " + instance!!.userInfo.toString())
+        startFragment(navFragment(LOGIN_FRAGMENT))
     }
 
     // 最底层vp { @link VideoMainFragment } 是否能切换 （视频/个人）
-    private void setCanScroll(boolean b) {
+    private fun setCanScroll(b: Boolean) {}
 
+    companion object {
+        private const val HOME = 0
+        private const val FIND = 1
+        private const val MSG = 2
+        private const val ME = 3
     }
 }
