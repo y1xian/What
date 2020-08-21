@@ -11,7 +11,7 @@ import android.support.multidex.MultiDex;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.yyxnb.arch.delegate.ActivityLifecycle;
-import com.yyxnb.common.CommonManager;
+import com.yyxnb.widget.WidgetManager;
 
 /**
  * 使用ContentProvider初始化三方库
@@ -22,7 +22,7 @@ public class ArchInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
         // 初始化
-        Context context = CommonManager.getInstance().getContext();
+        Context context = WidgetManager.getInstance().getContext();
 
         if (context != null) {
 
@@ -30,11 +30,11 @@ public class ArchInitializer extends ContentProvider {
             MultiDex.install(context);
 
             // 系统会在每个 Activity 执行完对应的生命周期后都调用这个实现类中对应的方法
-            CommonManager.getInstance().getApp().registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
+            WidgetManager.getInstance().getApp().registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
 
             LiveEventBus
                     .config()
-                    .enableLogger(CommonManager.getInstance().isDebug());
+                    .enableLogger(WidgetManager.getInstance().isDebug());
 
         }
 

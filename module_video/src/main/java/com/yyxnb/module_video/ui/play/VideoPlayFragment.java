@@ -7,12 +7,10 @@ import android.view.View;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
-import com.yyxnb.common.CommonManager;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.video.Utils;

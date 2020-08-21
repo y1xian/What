@@ -1,6 +1,6 @@
 package com.yyxnb.network;
 
-import com.yyxnb.common.AppGlobals;
+import com.yyxnb.widget.AppGlobals;
 import com.yyxnb.network.interceptor.CacheInterceptor;
 import com.yyxnb.network.interceptor.HeaderInterceptor;
 import com.yyxnb.network.interceptor.LoggingInterceptor;

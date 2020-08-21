@@ -1,4 +1,4 @@
-package com.yyxnb.common;
+package com.yyxnb.widget;
 
 import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.content.ContentProvider;
@@ -10,18 +10,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
 
-import com.yyxnb.common.utils.log.LogUtils;
 
 /**
  * 使用ContentProvider初始化三方库
  *
  * @author yyx
  */
-public class CommonInitializer extends ContentProvider {
+public class WidgetInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
         // 初始化
-        Context context = CommonManager.getInstance().getContext();
+        Context context = WidgetManager.getInstance().getContext();
 
         if (context != null) {
 
@@ -31,12 +30,12 @@ public class CommonInitializer extends ContentProvider {
             // 应用监听
             ProcessLifecycleOwner.get().getLifecycle().addObserver(new AppLifeObserver());
 
-            LogUtils.init()
-                    //设置全局tag
-                    .setTag("---What---")
-                    //是否显示日志，默认true，发布时最好关闭
-                    .setShowThreadInfo(CommonManager.getInstance().isDebug())
-                    .setDebug(CommonManager.getInstance().isDebug());
+//            LogUtils.init()
+//                    //设置全局tag
+//                    .setTag("---What---")
+//                    //是否显示日志，默认true，发布时最好关闭
+//                    .setShowThreadInfo(WidgetManager.getInstance().isDebug())
+//                    .setDebug(WidgetManager.getInstance().isDebug());
 
         }
 

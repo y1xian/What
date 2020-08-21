@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.widget.interfaces.IData;
 
 public class ItemDiffCallback<T extends IData> extends DiffUtil.ItemCallback<T> {
     @Override

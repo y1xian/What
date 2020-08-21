@@ -3,7 +3,7 @@ package com.yyxnb.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.widget.interfaces.IData;
 
 public abstract class BasePagedAdapter<T extends IData> extends MultiItemTypePagedAdapter<T> {
 

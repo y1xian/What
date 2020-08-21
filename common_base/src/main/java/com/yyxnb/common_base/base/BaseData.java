@@ -1,6 +1,6 @@
 package com.yyxnb.common_base.base;
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.widget.interfaces.IData;
 
 public class BaseData<T> implements IData<T> {
 

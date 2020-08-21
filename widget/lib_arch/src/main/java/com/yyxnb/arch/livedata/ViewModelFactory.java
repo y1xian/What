@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
-import com.yyxnb.common.CommonManager;
+import com.yyxnb.widget.WidgetManager;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -16,7 +16,7 @@ public class ViewModelFactory implements Serializable {
      * 创建 对应的 ViewModel, 并且 添加 通用 (LiveData) 到 ViewModel中
      */
     public static ViewModel createViewModel(Fragment fragment, Field field) {
-        Class<ViewModel> viewModelClass = CommonManager.getInstance().getFiledClazz(field);
+        Class<ViewModel> viewModelClass = WidgetManager.getInstance().getFiledClazz(field);
         return ViewModelProviders.of(fragment).get(viewModelClass);
     }
 
@@ -24,7 +24,7 @@ public class ViewModelFactory implements Serializable {
      * 创建 对应的 ViewModel, 并且 添加 通用 (LiveData) 到 ViewModel中
      */
     public static ViewModel createViewModel(FragmentActivity activity, Field field) {
-        Class<ViewModel> viewModelClass = CommonManager.getInstance().getFiledClazz(field);
+        Class<ViewModel> viewModelClass = WidgetManager.getInstance().getFiledClazz(field);
         return ViewModelProviders.of(activity).get(viewModelClass);
     }
 }

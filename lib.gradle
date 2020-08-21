@@ -3,6 +3,7 @@
 //是否library
 def isLibrary = ext.has('isLibrary')
 ext.isLibrary = isLibrary
+//
 def isMainLibrary = ext.has('isMainLibrary')
 ext.isMainLibrary = isMainLibrary
 
@@ -107,7 +108,7 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    if (!isMainLibrary){
+    if (!isMainLibrary) {
         api project(':widget')
     }
 

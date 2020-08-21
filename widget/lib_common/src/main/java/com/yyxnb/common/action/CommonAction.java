@@ -1,37 +1,14 @@
 package com.yyxnb.common.action;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-
 import com.yyxnb.common.CommonManager;
+import com.yyxnb.widget.action.WidgetAction;
 
 /**
  * 通用意图
+ *
+ * @author yyx
  */
-public interface CommonAction {
-
-    /**
-     * 获取 Context
-     */
-    Context getContext();
-
-    /**
-     * 获取 Activity
-     */
-    default Activity getActivity() {
-        Context context = getContext();
-        do {
-            if (context instanceof Activity) {
-                return (Activity) context;
-            } else if (context instanceof ContextWrapper) {
-                context = ((ContextWrapper) context).getBaseContext();
-            } else {
-                return null;
-            }
-        } while (context != null);
-        return null;
-    }
+public interface CommonAction extends WidgetAction {
 
     /**
      * toast

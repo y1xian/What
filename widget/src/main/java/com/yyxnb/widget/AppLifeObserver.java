@@ -1,8 +1,9 @@
-package com.yyxnb.common;
+package com.yyxnb.widget;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
+import android.util.Log;
 
 /**
  * 监听整个应用应用状态，与Activity数量无关
@@ -14,7 +15,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreate() {
-        CommonManager.getInstance().log("应用首次创建");
+        Log.w("-AppLifeObserver-", "应用首次创建");
     }
 
     /**
@@ -22,7 +23,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     void onStart() {
-        CommonManager.getInstance().log("应用进入前台");
+        Log.w("-AppLifeObserver-", "应用进入前台");
     }
 
     /**
@@ -31,7 +32,7 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     void onStop() {
-        CommonManager.getInstance().log("应用进入后台");
+        Log.e("-AppLifeObserver-", "应用进入后台");
     }
 
     /**
@@ -39,6 +40,6 @@ public class AppLifeObserver implements LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     void onDestroy() {
-        CommonManager.getInstance().log("ON_DESTROY");
+        Log.e("-AppLifeObserver-", "ON_DESTROY");
     }
 }

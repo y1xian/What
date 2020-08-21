@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.util.DiffUtil;
 import android.text.TextUtils;
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.widget.interfaces.IData;
 
 import java.util.List;
 

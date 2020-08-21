@@ -4,7 +4,7 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.yyxnb.common.interfaces.ILifecycle;
+import com.yyxnb.widget.interfaces.ILifecycle;
 
 import java.io.Serializable;
 

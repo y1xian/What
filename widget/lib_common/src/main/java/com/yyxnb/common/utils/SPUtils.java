@@ -3,7 +3,7 @@ package com.yyxnb.common.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.yyxnb.common.CommonManager;
+import com.yyxnb.widget.WidgetManager;
 
 /**
  * 保存工具类
@@ -16,7 +16,7 @@ public class SPUtils {
      * 保存在手机里面的文件名
      */
     private static final String FILE_NAME = "share_date";
-    private static final Context CONTEXT = CommonManager.getInstance().getContext();
+    private static final Context CONTEXT = WidgetManager.getInstance().getContext();
 
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法

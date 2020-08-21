@@ -1,6 +1,6 @@
 package com.yyxnb.module_widget.config;
 
-import com.yyxnb.common.CommonManager;
+import com.yyxnb.widget.WidgetManager;
 import com.yyxnb.module_widget.bean.MainBean;
 import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.utils.FileUtils;
@@ -22,7 +22,7 @@ public class DataConfig {
      */
     public static List<MainBean> getMainBeans() {
         if (mainBeans == null) {
-            String content = FileUtils.parseFile(CommonManager.getInstance().getContext(), "main_data.json");
+            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "main_data.json");
             mainBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return mainBeans;
@@ -35,7 +35,7 @@ public class DataConfig {
      */
     public static List<MainBean> getPopupBeans() {
         if (popupBeans == null) {
-            String content = FileUtils.parseFile(CommonManager.getInstance().getContext(), "popup_data.json");
+            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "popup_data.json");
             popupBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return popupBeans;

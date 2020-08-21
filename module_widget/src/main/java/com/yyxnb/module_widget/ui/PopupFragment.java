@@ -9,7 +9,6 @@ import android.view.View;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.MultiItemTypePagedAdapter;
-import com.yyxnb.common.CommonManager;
 import com.yyxnb.common_base.base.AbsListFragment;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.bean.MainBean;

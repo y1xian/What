@@ -18,7 +18,7 @@ import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
-import com.yyxnb.common.action.HandlerAction;
+import com.yyxnb.widget.action.HandlerAction;
 import com.yyxnb.common.utils.StatusBarUtils;
 
 import java.util.Objects;

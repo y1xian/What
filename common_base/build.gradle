@@ -15,6 +15,7 @@ dependencies {
     api project(':widget:lib_popup')
     // 适配器
     api project(':widget:lib_adapter')
+    api project(':widget:lib_view')
 
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"
@@ -22,7 +23,7 @@ dependencies {
 //    api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
     // 常用控件
     api libs.widget_utils
-    api libs.widget_view
+//    api libs.widget_view
 //    api libs.widget_adapter
 //    api libs.widget_skin
     // 换肤

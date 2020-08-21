@@ -1,10 +1,16 @@
 package com.yyxnb.common.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
 import android.view.Display;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import java.lang.reflect.Method;
 
 /**
  * dp,sp 和 px 转换的辅助类
@@ -76,6 +82,61 @@ public class DpUtils {
                 .getSystemService(Context.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
         return display.getHeight();
+    }
+
+
+    /**
+     * 获取虚拟按键的高度
+     */
+    public static int getNavigationBarHeight(Context context) {
+        int result = 0;
+        if (hasNavBar(context)) {
+            Resources res = context.getResources();
+            int resourceId = res.getIdentifier("navigation_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                result = res.getDimensionPixelSize(resourceId);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 检查是否存在虚拟按键栏
+     */
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    public static boolean hasNavBar(Context context) {
+        Resources res = context.getResources();
+        int resourceId = res.getIdentifier("config_showNavigationBar", "bool", "android");
+        if (resourceId != 0) {
+            boolean hasNav = res.getBoolean(resourceId);
+            String sNavBarOverride = getNavBarOverride();
+            if ("1".equals(sNavBarOverride)) {
+                hasNav = false;
+            } else if ("0".equals(sNavBarOverride)) {
+                hasNav = true;
+            }
+            return hasNav;
+        } else {
+            return !ViewConfiguration.get(context).hasPermanentMenuKey();
+        }
+    }
+
+    /**
+     * 判断虚拟按键栏是否重写
+     */
+    private static String getNavBarOverride() {
+        String sNavBarOverride = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            try {
+                Class c = Class.forName("android.os.SystemProperties");
+                Method m = c.getDeclaredMethod("get", String.class);
+                m.setAccessible(true);
+                sNavBarOverride = (String) m.invoke(null, "qemu.hw.mainkeys");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return sNavBarOverride;
     }
 
     /**

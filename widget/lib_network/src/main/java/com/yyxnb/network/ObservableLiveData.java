@@ -3,7 +3,7 @@ package com.yyxnb.network;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.widget.interfaces.IData;
 
 import java.lang.ref.WeakReference;
 

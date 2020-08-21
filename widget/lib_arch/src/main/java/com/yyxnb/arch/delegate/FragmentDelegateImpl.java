@@ -11,7 +11,7 @@ import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.livedata.ViewModelFactory;
 import com.yyxnb.arch.utils.AppManager;
-import com.yyxnb.common.action.HandlerAction;
+import com.yyxnb.widget.action.HandlerAction;
 
 import java.lang.reflect.Field;
 

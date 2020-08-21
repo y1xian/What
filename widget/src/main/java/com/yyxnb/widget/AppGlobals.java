@@ -1,4 +1,4 @@
-package com.yyxnb.common;
+package com.yyxnb.widget;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

@@ -1,4 +1,4 @@
-package com.yyxnb.common.interfaces;
+package com.yyxnb.widget.interfaces;
 
 import android.view.View;
 

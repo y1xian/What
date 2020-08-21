@@ -5,7 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.widget.interfaces.IData;
 import com.yyxnb.network.rx.BaseHttpSubscriber;
 import com.yyxnb.network.rx.RetryWithDelay;
 import com.yyxnb.rxtool.DisposablePool;

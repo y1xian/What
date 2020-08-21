@@ -1,25 +1,15 @@
 package com.yyxnb.common;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
 
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.common.utils.ToastUtils;
-
-import java.io.Serializable;
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
+import com.yyxnb.widget.WidgetManager;
 
 /**
- * app 管理
+ * 常用管理
  *
  * @author yyx
  */
-@SuppressWarnings("rawtypes")
-public final class CommonManager implements Serializable {
+public class CommonManager {
 
     @SuppressLint("StaticFieldLeak")
     private volatile static CommonManager commonManager;
@@ -29,7 +19,7 @@ public final class CommonManager implements Serializable {
 
     public static CommonManager getInstance() {
         if (commonManager == null) {
-            synchronized (CommonManager.class) {
+            synchronized (WidgetManager.class) {
                 if (commonManager == null) {
                     commonManager = new CommonManager();
                 }
@@ -38,96 +28,22 @@ public final class CommonManager implements Serializable {
         return commonManager;
     }
 
-    /**
-     * 避免序列化破坏单例模式
-     */
-    private Object readResolve() {
-        return commonManager;
-    }
-
-    private WeakReference<Application> app;
-
-    @SuppressWarnings("unchecked")
-    public Application getApp() {
-        if (app == null) {
-            synchronized (CommonManager.class) {
-                if (app == null) {
-                    app = new WeakReference(AppGlobals.getApplication());
-                }
-            }
-        }
-        return app.get();
-    }
-
-    /**
-     * 获取ApplicationContext
-     */
-    private WeakReference<Context> context;
-
-    @SuppressWarnings("unchecked")
-    public Context getContext() {
-        if (context == null) {
-            synchronized (CommonManager.class) {
-                if (context == null) {
-                    context = new WeakReference(getApp().getApplicationContext());
-                }
-            }
-        }
-        return context.get();
-    }
 
     public void toast(String s) {
-        ToastUtils.normal(s);
+//        ToastUtils.normal(s);
     }
 
     public void log(String tag, String s) {
-        if (isDebug()) {
-            LogUtils.w(s, tag);
+        if (WidgetManager.getInstance().isDebug()) {
+//            LogUtils.w(s, tag);
         }
     }
 
     public void log(String s) {
-        if (isDebug()) {
+        if (WidgetManager.getInstance().isDebug()) {
             log("------AppConfig------", s);
         }
     }
 
-    /**
-     * 判断当前应用是否是debug状态
-     */
-    public boolean isDebug() {
-        try {
-            ApplicationInfo info = getContext().getApplicationInfo();
-            return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /**
-     * 返回实例的泛型类型
-     */
-    public <T> T getInstance(Object t, int i) {
-        if (t != null) {
-            try {
-                return (T) ((ParameterizedType) t.getClass().getGenericSuperclass())
-                        .getActualTypeArguments()[i];
-
-            } catch (ClassCastException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    public <T> Class<T> getClass(Object t) {
-        // 通过反射 获取当前类的父类的泛型 (T) 对应 Class类
-        return (Class<T>) ((ParameterizedType) t.getClass().getGenericSuperclass())
-                .getActualTypeArguments()[0];
-    }
-
-    public <T> Class<T> getFiledClazz(Field field) {
-        return (Class<T>) field.getGenericType();
-    }
 
 }

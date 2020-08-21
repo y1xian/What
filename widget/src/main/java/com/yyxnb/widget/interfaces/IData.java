@@ -1,4 +1,4 @@
-package com.yyxnb.common.interfaces;
+package com.yyxnb.widget.interfaces;
 
 /**
  * 接口返回封装类

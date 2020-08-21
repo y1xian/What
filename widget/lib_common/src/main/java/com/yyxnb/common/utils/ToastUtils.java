@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yyxnb.common.CommonManager;
+import com.yyxnb.widget.WidgetManager;
 import com.yyxnb.common.R;
 
 import java.io.Serializable;
@@ -31,7 +31,7 @@ public class ToastUtils implements Serializable {
 
     private static final String TOAST_TYPEFACE = "sans-serif-condensed";
 
-    private static Context context = CommonManager.getInstance().getContext();
+    private static Context context = WidgetManager.getInstance().getContext();
 
     /**
      * Toast对象

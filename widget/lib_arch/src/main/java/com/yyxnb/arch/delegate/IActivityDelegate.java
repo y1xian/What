@@ -5,7 +5,7 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
 
-import com.yyxnb.common.interfaces.ILifecycle;
+import com.yyxnb.widget.interfaces.ILifecycle;
 
 /**
  * @author yyx

@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
-import com.yyxnb.common.interfaces.ILifecycle;
+import com.yyxnb.widget.interfaces.ILifecycle;
 
 /**
  * @author yyx

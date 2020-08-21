@@ -5,5 +5,5 @@ dependencies {
     api libs.glide
     annotationProcessor libs.glide_compiler
     implementation project(':widget:lib_image_loader')
-    implementation libs.recyclerview, libs.support_v7
+    implementation libs.recyclerview
 }

@@ -2,7 +2,7 @@ package com.yyxnb.arch.base;
 
 import android.os.Bundle;
 
-import com.yyxnb.common.interfaces.ILifecycle;
+import com.yyxnb.widget.interfaces.ILifecycle;
 
 /**
  * Activity 、Fragment
