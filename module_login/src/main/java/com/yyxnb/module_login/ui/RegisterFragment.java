@@ -43,7 +43,7 @@ public class RegisterFragment extends BaseFragment {
     @Override
     public void initViewData() {
         super.initViewData();
-        LogUtils.d("-RegisterFragment--initViewData--");
+        log("-RegisterFragment--initViewData--");
 
     }
 }

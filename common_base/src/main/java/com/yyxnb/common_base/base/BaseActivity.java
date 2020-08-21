@@ -21,6 +21,7 @@ import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.ActivityDelegate;
+import com.yyxnb.common.action.CommonAction;
 import com.yyxnb.common.utils.KeyboardUtils;
 import com.yyxnb.skinloader.SkinInflaterFactory;
 
@@ -33,7 +34,7 @@ import me.jessyan.autosize.AutoSizeCompat;
  * 建议 {@link ContainerActivity#initBaseFragment()}  }
  */
 @ParallaxBack(edgeMode = ParallaxBack.EdgeMode.EDGE)
-public abstract class BaseActivity extends AppCompatActivity implements IActivity {
+public abstract class BaseActivity extends AppCompatActivity implements IActivity, CommonAction {
 
     protected final String TAG = getClass().getCanonicalName();
     protected WeakReference<Context> mContext;
@@ -41,6 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
     private Java8Observer java8Observer;
     protected ActivityDelegate mActivityDelegate = getBaseDelegate();
 
+    @Override
     public Context getContext() {
         return mContext.get();
     }

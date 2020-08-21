@@ -4,17 +4,17 @@ apply from: rootProject.file('module.gradle')
 dependencies {
 
     // 底层架构
-    api project(':lib_arch')
+    api project(':widget:lib_arch')
     // 网络框架
-    api project(':lib_network')
+    api project(':widget:lib_network')
     // 图片框架
-    api project(':lib_image_loader')
+    api project(':widget:lib_image_loader')
     annotationProcessor libs.glide_compiler
     // 对话框
-    api project(':lib_dialog')
-    api project(':lib_popup')
+    api project(':widget:lib_dialog')
+    api project(':widget:lib_popup')
     // 适配器
-    api project(':lib_adapter')
+    api project(':widget:lib_adapter')
 
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"

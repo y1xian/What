@@ -11,7 +11,7 @@ import com.yyxnb.adapter.MultiItemTypeAdapter;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.lib_music.MusicPlayerManager;
+import com.yyxnb.music.MusicPlayerManager;
 import com.yyxnb.localservice.LocalConfig;
 import com.yyxnb.localservice.manager.AudioLoaderManager;
 import com.yyxnb.localservice.manager.DataCallback;

@@ -22,5 +22,5 @@ dependencies {
         addComponent 'module_chat'
     }
 
-    implementation project(':lib_video')
+    implementation project(':widget:lib_video')
 }

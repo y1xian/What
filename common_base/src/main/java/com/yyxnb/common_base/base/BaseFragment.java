@@ -21,6 +21,7 @@ import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.FragmentDelegate;
+import com.yyxnb.common.action.CommonAction;
 
 import java.lang.ref.WeakReference;
 import java.util.UUID;
@@ -30,7 +31,7 @@ import java.util.UUID;
  *
  * @author yyx
  */
-public abstract class BaseFragment extends Fragment implements IFragment {
+public abstract class BaseFragment extends Fragment implements IFragment, CommonAction {
 
     protected final String TAG = getClass().getCanonicalName();
     private FragmentDelegate mFragmentDelegate = getBaseDelegate();
@@ -76,7 +77,7 @@ public abstract class BaseFragment extends Fragment implements IFragment {
             @Override
             public void onCreate(@NonNull LifecycleOwner owner) {
                 mContext = new WeakReference<>(context);
-                mActivity = new WeakReference<>((AppCompatActivity) mContext.get());
+                mActivity = new WeakReference<>((AppCompatActivity) getContext());
                 owner.getLifecycle().removeObserver(this);
             }
         });

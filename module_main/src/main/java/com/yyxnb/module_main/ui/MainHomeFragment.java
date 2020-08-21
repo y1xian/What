@@ -159,7 +159,7 @@ public class MainHomeFragment extends BaseFragment {
     public void onVisible() {
         super.onVisible();
         getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
-        LogUtils.d("---onVisible---");
+        log("---onVisible---");
     }
 
 }

@@ -1,9 +1,0 @@
-ext.isLibrary = true
-apply from: rootProject.file('lib.gradle')
-
-dependencies {
-    implementation project(':lib_common')
-    implementation libs.support_v7, libs.design, libs.annotations
-    api libs.recyclerview
-    api libs.arch_comp_paging
-}

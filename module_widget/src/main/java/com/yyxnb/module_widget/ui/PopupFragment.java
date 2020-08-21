@@ -81,7 +81,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnInputConfirmListener() {
                                     @Override
                                     public void onConfirm(String text) {
-                                        CommonManager.getInstance().toast("input text: " + text);
+                                        toast("input text: " + text);
 //                                new XPopup.Builder(getContext()).asLoading().show();
                                     }
                                 })
@@ -97,7 +97,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        CommonManager.getInstance().toast("click " + text);
+                                        toast("click " + text);
                                     }
                                 })
 //                        .bindLayout(R.layout.my_custom_attach_popup) //自定义布局
@@ -112,7 +112,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        CommonManager.getInstance().toast("click " + text);
+                                        toast("click " + text);
                                     }
                                 })
 //                        .bindLayout(R.layout.my_custom_attach_popup) //自定义布局
@@ -130,7 +130,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        CommonManager.getInstance().toast("click " + text);
+                                        toast("click " + text);
                                     }
                                 })
 //                        .bindLayout(R.layout.my_custom_attach_popup) //自定义布局
@@ -155,7 +155,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                 loadingPopup.delayDismissWith(3000, new Runnable() {
                     @Override
                     public void run() {
-                        CommonManager.getInstance().toast("我消失了！！！");
+                        toast("我消失了！！！");
                     }
                 });
                 break;
@@ -174,7 +174,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        CommonManager.getInstance().toast("click " + text);
+                                        toast("click " + text);
                                     }
                                 })
                         .show();
@@ -190,7 +190,7 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
                                 new OnSelectListener() {
                                     @Override
                                     public void onSelect(int position, String text) {
-                                        CommonManager.getInstance().toast("click " + text);
+                                        toast("click " + text);
                                     }
                                 })
                         .show();

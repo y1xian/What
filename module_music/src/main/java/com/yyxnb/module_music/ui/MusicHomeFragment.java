@@ -14,10 +14,10 @@ import com.yyxnb.common.utils.DpUtils;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
-import com.yyxnb.lib_music.MusicPlayerManager;
-import com.yyxnb.lib_music.interfaces.MusicInitializeCallBack;
-import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
-import com.yyxnb.lib_music.interfaces.MusicPlayerInfoListener;
+import com.yyxnb.music.MusicPlayerManager;
+import com.yyxnb.music.interfaces.MusicInitializeCallBack;
+import com.yyxnb.music.interfaces.MusicPlayerEventListener;
+import com.yyxnb.music.interfaces.MusicPlayerInfoListener;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;
@@ -119,7 +119,7 @@ public class MusicHomeFragment extends BaseFragment implements MusicPlayerEventL
         MusicPlayerManager.getInstance().initialize(getActivity(), new MusicInitializeCallBack() {
             @Override
             public void onSuccess() {
-                LogUtils.w("初始化");
+                log("初始化");
                 mBottomMusicView.showFirstView();
             }
         });
@@ -138,7 +138,7 @@ public class MusicHomeFragment extends BaseFragment implements MusicPlayerEventL
 //        });
 
         MusicPlayerManager.getInstance().setPlayInfoListener((MusicPlayerInfoListener<MusicBean>) (musicInfo, position) -> {
-            LogUtils.e(position + " , onPlayMusicOnInfo：" + musicInfo.toString());
+            log(position + " , onPlayMusicOnInfo：" + musicInfo.toString());
 
             MusicRecordBean recordBean = new MusicRecordBean();
             recordBean.musicBean = musicInfo;
@@ -173,12 +173,12 @@ public class MusicHomeFragment extends BaseFragment implements MusicPlayerEventL
 
     @Override
     public void onMusicPlayerState(int playerState, String message) {
-        LogUtils.e("playerState : " + playerState + " , message : " + message);
+        log("playerState : " + playerState + " , message : " + message);
     }
 
     @Override
     public void onPrepared(long totalDuration) {
-        LogUtils.e("totalDuration : " + totalDuration);
+        log("totalDuration : " + totalDuration);
     }
 
     @Override
