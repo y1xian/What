@@ -38,30 +38,57 @@
 
     <!--黑色透明度-->
     <color name="black_100">#FF000000</color>
+    <color name="black_95">#F2000000</color>
     <color name="black_90">#E6000000</color>
+    <color name="black_85">#D9000000</color>
     <color name="black_80">#CC000000</color>
+    <color name="black_75">#B000000F</color>
     <color name="black_70">#B3000000</color>
+    <color name="black_65">#A6000000</color>
     <color name="black_60">#99000000</color>
-    <color name="black_50">#80000000</color>
+    <color name="black_50">@color/translucent</color>
+    <color name="black_45">#73000000</color>
     <color name="black_40">#66000000</color>
+    <color name="black_35">#59000000</color>
     <color name="black_30">#4D000000</color>
+    <color name="black_25">#40000000</color>
     <color name="black_20">#33000000</color>
+    <color name="black_15">#26000000</color>
     <color name="black_10">#1A000000</color>
-    <color name="black_0">#00000000</color>
+    <color name="black_5">#0D000000</color>
+    <color name="black_0">@color/transparent</color>
 
     <!--常见颜色-->
-    <color name="white">#FFFFFF</color><!--白色 -->
-    <color name="black">#000000</color><!--黑色 -->
-    <color name="yellow">#FFFF00</color><!--黄色 -->
-    <color name="orange">#FFA500</color><!--橙色 -->
-    <color name="red">#FF0000</color><!--红色 -->
-    <color name="gray">#808080</color><!--灰色 -->
-    <color name="pale_grey">#F2F2F2</color><!--淡灰色-->
-    <color name="purple">#800080</color><!--紫色 -->
-    <color name="cyan">#00FFFF</color><!--青色 -->
-    <color name="green">#008000</color><!--绿色 -->
-    <color name="blue">#0000FF</color><!--蓝色 -->
-    <color name="transparent">#00000000</color><!--透明 -->
-    <color name="translucent">#80000000</color><!--半透明-->
+
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+    <!-- 黑色 -->
+    <color name="black">#000000</color>
+    <!-- 金色 -->
+    <color name="gold">#FFFFD700</color>
+    <!-- 黄色 -->
+    <color name="yellow">#FFFFFF00</color>
+    <!-- 橙色 -->
+    <color name="orange">#FFFFA500</color>
+    <!-- 红色 -->
+    <color name="red">#FFFF0000</color>
+    <!-- 灰色 -->
+    <color name="gray">#FF808080</color>
+    <!-- 淡灰色-->
+    <color name="pale_grey">#FFF2F2F2</color>
+    <!-- 紫色 -->
+    <color name="purple">#FF800080</color>
+    <!-- 青色 -->
+    <color name="cyan">#FF00FFFF</color>
+    <!-- 绿色 -->
+    <color name="green">#FF008000</color>
+    <!-- 蓝色 -->
+    <color name="blue">#FF0000FF</color>
+    <!-- 粉色 -->
+    <color name="pink">#FFFFC0CB</color>
+    <!--透明 -->
+    <color name="transparent">#00000000</color>
+    <!--半透明-->
+    <color name="translucent">#80000000</color>
 
 </resources>

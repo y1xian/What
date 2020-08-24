@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.LruCache;
 
 import com.yyxnb.arch.base.IActivity;
-import com.yyxnb.arch.utils.AppManager;
+import com.yyxnb.arch.common.AppManager;
 
 /**
  * Activity 注册监听生命周期

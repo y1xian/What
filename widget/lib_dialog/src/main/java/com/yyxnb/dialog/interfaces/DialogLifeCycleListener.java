@@ -1,14 +1,14 @@
 package com.yyxnb.dialog.interfaces;
 
 
-import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.dialog.core.BaseDialogFragment;
 
 public interface DialogLifeCycleListener {
 
-    void onCreate(BaseDialog dialog);
+    void onCreate(BaseDialogFragment dialog);
 
-    void onShow(BaseDialog dialog);
+    void onShow(BaseDialogFragment dialog);
 
-    void onDismiss(BaseDialog dialog);
+    void onDismiss(BaseDialogFragment dialog);
 
 }

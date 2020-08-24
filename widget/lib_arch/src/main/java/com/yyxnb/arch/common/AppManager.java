@@ -1,4 +1,4 @@
-package com.yyxnb.arch.utils;
+package com.yyxnb.arch.common;
 
 import android.app.Activity;
 import android.content.Intent;

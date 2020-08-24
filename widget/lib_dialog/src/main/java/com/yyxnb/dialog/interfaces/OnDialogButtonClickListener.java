@@ -2,13 +2,13 @@ package com.yyxnb.dialog.interfaces;
 
 import android.view.View;
 
-import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.dialog.core.BaseDialogFragment;
 
 
 /**
  */
 public interface OnDialogButtonClickListener {
     
-    boolean onClick(BaseDialog baseDialog, View v);
+    boolean onClick(BaseDialogFragment baseDialogFragment, View v);
     
 }

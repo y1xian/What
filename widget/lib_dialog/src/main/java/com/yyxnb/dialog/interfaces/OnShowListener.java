@@ -1,12 +1,12 @@
 package com.yyxnb.dialog.interfaces;
 
 
-import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.dialog.core.BaseDialogFragment;
 
 /**
  */
 public interface OnShowListener {
     
-    void onShow(BaseDialog dialog);
+    void onShow(BaseDialogFragment dialog);
     
 }

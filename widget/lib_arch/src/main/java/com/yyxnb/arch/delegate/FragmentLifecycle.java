@@ -10,7 +10,7 @@ import android.util.LruCache;
 import android.view.View;
 
 import com.yyxnb.arch.base.IFragment;
-import com.yyxnb.arch.utils.AppManager;
+import com.yyxnb.arch.common.AppManager;
 
 /**
  * Fragment 注册生命周期监听

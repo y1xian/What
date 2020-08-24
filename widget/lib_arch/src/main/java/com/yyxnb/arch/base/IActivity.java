@@ -5,7 +5,7 @@ import android.arch.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.arch.annotations.SwipeStyle;
 import com.yyxnb.arch.delegate.ActivityDelegate;
-import com.yyxnb.arch.utils.AppManager;
+import com.yyxnb.arch.common.AppManager;
 
 
 /**
@@ -37,6 +37,7 @@ public interface IActivity extends IView {
      * @param mSwipeBack 是否返回 {@link SwipeStyle}
      */
     default void setSwipeBack(@SwipeStyle int mSwipeBack) {
+
     }
 
 }

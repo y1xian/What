@@ -5,7 +5,7 @@ import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
 
 import com.yyxnb.arch.delegate.FragmentDelegate;
-import com.yyxnb.arch.utils.AppManager;
+import com.yyxnb.arch.common.AppManager;
 
 /**
  * Fragment 需实现

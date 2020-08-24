@@ -29,7 +29,7 @@ import java.util.Objects;
  * @author : yyx
  * @date ：2018/11/18
  */
-public abstract class BaseSheetDialog extends BaseDialog {
+public abstract class BaseSheetDialog extends BaseDialogFragment {
 
     private static final int DEFAULT_WH = ViewGroup.LayoutParams.MATCH_PARENT;
 

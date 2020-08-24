@@ -2,6 +2,8 @@ package com.yyxnb.common;
 
 import android.annotation.SuppressLint;
 
+import com.yyxnb.common.utils.ToastUtils;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.widget.WidgetManager;
 
 /**
@@ -30,12 +32,12 @@ public class CommonManager {
 
 
     public void toast(String s) {
-//        ToastUtils.normal(s);
+        ToastUtils.normal(s);
     }
 
     public void log(String tag, String s) {
         if (WidgetManager.getInstance().isDebug()) {
-//            LogUtils.w(s, tag);
+            LogUtils.w(s, tag);
         }
     }
 

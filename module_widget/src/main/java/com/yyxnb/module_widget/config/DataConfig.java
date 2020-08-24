@@ -14,6 +14,7 @@ public class DataConfig {
 
     private volatile static List<MainBean> mainBeans;
     private volatile static List<MainBean> popupBeans;
+    private volatile static List<MainBean> dialogBeans;
 
     /**
      * 首页数据
@@ -39,6 +40,19 @@ public class DataConfig {
             popupBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return popupBeans;
+    }
+
+    /**
+     * dialog数据
+     *
+     * @return
+     */
+    public static List<MainBean> getDialogBeans() {
+        if (dialogBeans == null) {
+            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "dialog_data.json");
+            dialogBeans = GsonUtils.jsonToList(content, MainBean.class);
+        }
+        return dialogBeans;
     }
 
     public static List<String> getDialogList() {

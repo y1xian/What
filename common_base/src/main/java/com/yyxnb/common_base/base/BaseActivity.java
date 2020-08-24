@@ -15,15 +15,17 @@ import android.view.View;
 import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.yyxnb.arch.action.ArchAction;
+import com.yyxnb.arch.action.BundleAction;
 import com.yyxnb.arch.annotations.SwipeStyle;
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.ActivityDelegate;
-import com.yyxnb.common.action.CommonAction;
 import com.yyxnb.common.utils.KeyboardUtils;
 import com.yyxnb.skinloader.SkinInflaterFactory;
+import com.yyxnb.widget.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -34,7 +36,8 @@ import me.jessyan.autosize.AutoSizeCompat;
  * 建议 {@link ContainerActivity#initBaseFragment()}  }
  */
 @ParallaxBack(edgeMode = ParallaxBack.EdgeMode.EDGE)
-public abstract class BaseActivity extends AppCompatActivity implements IActivity, CommonAction {
+public abstract class BaseActivity extends AppCompatActivity
+        implements IActivity, ArchAction, BundleAction, HandlerAction {
 
     protected final String TAG = getClass().getCanonicalName();
     protected WeakReference<Context> mContext;
@@ -90,6 +93,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
         mContext.clear();
         mContext = null;
         mActivityDelegate = null;
+    }
+
+    @Nullable
+    @Override
+    public Bundle getBundle() {
+        return getIntent().getExtras();
     }
 
     @Override

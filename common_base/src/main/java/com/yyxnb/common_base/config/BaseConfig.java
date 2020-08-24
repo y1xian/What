@@ -32,6 +32,9 @@ public class BaseConfig {
     //拍照时图片保存路径
     public static final String CAMERA_IMAGE_PATH = DCMI_PATH + "/cache/camera/";
 
+    // 极速api
+    public static final String JISU_APPKEY = "5fd2c586cd35cf4f";
+
     public final MMKV kv = MMKV.defaultMMKV();
 
 }

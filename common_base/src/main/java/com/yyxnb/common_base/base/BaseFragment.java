@@ -17,11 +17,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yyxnb.arch.action.ArchAction;
+import com.yyxnb.arch.action.BundleAction;
 import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.FragmentDelegate;
-import com.yyxnb.common.action.CommonAction;
+import com.yyxnb.widget.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
 import java.util.UUID;
@@ -31,7 +33,8 @@ import java.util.UUID;
  *
  * @author yyx
  */
-public abstract class BaseFragment extends Fragment implements IFragment, CommonAction {
+public abstract class BaseFragment extends Fragment
+        implements IFragment, ArchAction, BundleAction, HandlerAction {
 
     protected final String TAG = getClass().getCanonicalName();
     private FragmentDelegate mFragmentDelegate = getBaseDelegate();
@@ -124,6 +127,12 @@ public abstract class BaseFragment extends Fragment implements IFragment, Common
     public void onDestroyView() {
         super.onDestroyView();
         getLifecycle().removeObserver(java8Observer);
+    }
+
+    @Nullable
+    @Override
+    public Bundle getBundle() {
+        return getArguments();
     }
 
     @SuppressWarnings("unchecked")

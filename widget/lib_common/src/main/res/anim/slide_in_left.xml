@@ -4,12 +4,12 @@
 
     <translate
         android:duration="@integer/yyxarch_anim_duration"
-        android:fromYDelta="-100%p"
-        android:toYDelta="0%p" />
+        android:fromXDelta="-40%p"
+        android:toXDelta="0%p" />
 
     <alpha
         android:duration="@integer/yyxarch_anim_duration"
-        android:fromAlpha="0.85"
+        android:fromAlpha="0.9"
         android:toAlpha="1" />
  
 </set>
