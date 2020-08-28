@@ -3,7 +3,6 @@ package com.yyxnb.module_video.ui;
 import android.os.Bundle;
 
 import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 
@@ -30,11 +29,11 @@ public class VideoMessageFragment extends BaseFragment {
 
     @Override
     public void onVisible() {
-        LogUtils.w("msg v");
+        log("msg v");
     }
 
     @Override
     public void onInVisible() {
-        LogUtils.w("msg iv");
+        log("msg iv");
     }
 }

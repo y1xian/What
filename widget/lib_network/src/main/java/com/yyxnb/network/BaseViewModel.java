@@ -4,7 +4,10 @@ import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
 
+import com.yyxnb.common.action.CommonAction;
+import com.yyxnb.widget.WidgetManager;
 import com.yyxnb.widget.interfaces.IData;
 import com.yyxnb.network.rx.BaseHttpSubscriber;
 import com.yyxnb.network.rx.RetryWithDelay;
@@ -21,10 +24,15 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 @SuppressWarnings("rawtypes")
-public abstract class BaseViewModel extends ViewModel implements DefaultLifecycleObserver {
+public abstract class BaseViewModel extends ViewModel implements DefaultLifecycleObserver, CommonAction {
 
     public final MutableLiveData<Status> status = new MutableLiveData<>();
     private final List<Integer> mDisposable = new ArrayList<>();
+
+    @Override
+    public Context getContext() {
+        return WidgetManager.getInstance().getContext();
+    }
 
     public <T extends IData> BaseHttpSubscriber<T> request(Flowable<T> flowable) {
         final BaseHttpSubscriber<T> baseHttpSubscriber = new BaseHttpSubscriber<T>();

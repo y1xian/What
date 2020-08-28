@@ -13,7 +13,7 @@ public class RetryWithDelay implements
         Function<Observable<? extends Throwable>, Observable<?>> {
 
     private int maxRetries = 2;//最大出错重试次数
-    private int retryDelayMillis = 3000;//重试间隔时间
+    private int retryDelayMillis = 5000;//重试间隔时间
     private int retryCount = 0;//当前出错重试次数
 
     public RetryWithDelay() {

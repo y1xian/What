@@ -132,6 +132,8 @@ android {
 
     buildTypes {
         debug {
+            // port
+            resValue("string", "PORT_NUMBER", "18082")
             //混淆
             minifyEnabled false
 //            applicationIdSuffix ".debug"
@@ -251,6 +253,9 @@ dependencies {
         annotationProcessor libs.arouter_compiler
         annotationProcessor libs.arch_comp_room_compiler
     }
+
+    // Android调试数据库 https://github.com/amitshekhariitbhu/Android-Debug-Database
+//    debugApi 'com.amitshekhar.android:debug-db:1.0.6'
 
     //2018-06-03新增：这里是为了示例添加全局拦截器
     if (project.ext.has('runAsApp') && project.ext.runAsApp) {

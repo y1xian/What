@@ -1,11 +1,11 @@
 package com.yyxnb.network;
 
-import com.yyxnb.widget.AppGlobals;
 import com.yyxnb.network.interceptor.CacheInterceptor;
 import com.yyxnb.network.interceptor.HeaderInterceptor;
 import com.yyxnb.network.interceptor.LoggingInterceptor;
 import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.network.utils.SSLUtils;
+import com.yyxnb.widget.AppGlobals;
 
 import java.io.File;
 import java.io.InputStream;
@@ -167,13 +167,15 @@ public abstract class AbstractHttp {
         }
         final SSLUtils.SSLParams sslParams = SSLUtils.getSslSocketFactory(keyStore(), keyStorePassword(), certificates());
 
-        builder.addInterceptor(new HeaderInterceptor(header()))
+        builder
+                .addInterceptor(new HeaderInterceptor(header()))
                 .readTimeout(readTimeout(), TimeUnit.SECONDS)
                 .writeTimeout(writeTimeout(), TimeUnit.SECONDS)
                 .connectTimeout(connectTimeout(), TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-                .hostnameVerifier(SSLUtils.UnSafeHostnameVerifier);
+                .hostnameVerifier(SSLUtils.UnSafeHostnameVerifier)
+        ;
 
         return builder.build();
     }

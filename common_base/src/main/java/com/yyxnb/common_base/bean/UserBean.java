@@ -34,7 +34,7 @@ public class UserBean implements Serializable {
 //    @PrimaryKey(autoGenerate = true)
 //    public int id;
 
-    public int userId;
+    public int userId = 666;
     @NonNull
     public String phone;
     public String token;

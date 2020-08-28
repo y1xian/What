@@ -1,6 +1,6 @@
 package com.yyxnb.module_video.config;
 
-import com.yyxnb.common_base.base.BaseData;
+import com.yyxnb.common_base.bean.BaseData;
 import com.yyxnb.common_base.base.StateData;
 import com.yyxnb.module_video.bean.TikTokBean;
 

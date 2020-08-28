@@ -2,7 +2,7 @@ package com.yyxnb.module_music.db;
 
 import android.arch.persistence.room.Dao;
 
-import com.yyxnb.common_base.db.BaseDao;
+import com.yyxnb.network.db.BaseDao;
 import com.yyxnb.module_music.bean.MusicFavouriteBean;
 
 /**

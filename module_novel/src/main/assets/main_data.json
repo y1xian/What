@@ -1,0 +1,30 @@
+[
+  {
+    "bookId": 1,
+    "type": 1,
+    "title": "老子·道德经",
+    "des": "老子道德经全文收录，包含内容、注释、翻译、赏析、解读几部分",
+    "label": "laozi",
+    "picture": "https://www.jisuapi.com/static/images/iconv2/laozi.png",
+    "author": "老子"
+  }
+  /*,
+    {
+      "bookId": 2,
+      "type": 1,
+      "title": "论语",
+      "des": "《论语》全文收录，包含内容、注释、翻译、赏析、解读几部分",
+      "label": "lunyu",
+      "picture": "https://www.jisuapi.com/static/images/iconv2/lunyu.png",
+      "author": "孔子及其弟子"
+    },
+    {
+      "bookId": 3,
+      "type": 1,
+      "title": "庄子",
+      "des": "《庄子》全文查询API，可查询文章的内容、注释、翻译、赏析、解读",
+      "label": "zhuangzi",
+      "picture": "https://www.jisuapi.com/static/images/iconv2/zhuangzi.png",
+      "author": "庄子"
+    }*/
+]

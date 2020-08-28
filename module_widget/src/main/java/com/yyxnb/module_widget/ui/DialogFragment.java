@@ -1,8 +1,6 @@
 package com.yyxnb.module_widget.ui;
 
 import android.arch.paging.PagedListAdapter;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,13 +13,13 @@ import com.yyxnb.adapter.MultiItemTypePagedAdapter;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.common_base.base.AbsListFragment;
 import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.dialog.core.MessageDialog;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.bean.MainBean;
 import com.yyxnb.module_widget.view.dialog.HintDialog;
 import com.yyxnb.module_widget.view.dialog.InputDialog;
 import com.yyxnb.module_widget.view.dialog.MenuDialog;
-import com.yyxnb.module_widget.view.dialog.MessageDialog;
 import com.yyxnb.module_widget.view.dialog.SelectDialog;
 import com.yyxnb.module_widget.view.dialog.WaitDialog;
 import com.yyxnb.module_widget.viewmodel.DialogViewModel;
@@ -30,7 +28,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.yyxnb.dialog.DialogManager.DEBUGMODE;
 
 /**
  * 对话框 使用
@@ -249,11 +246,12 @@ public class DialogFragment extends AbsListFragment<MainBean, DialogViewModel> {
                 break;
             case 10:
                 // 等待对话框
-                final BaseDialog waitDialog = new WaitDialog.Builder(getContext())
-                        // 消息文本可以不用填写
-                        .setMessage(getString(R.string.widget_loading))
+                final WaitDialog.Builder waitDialog = new WaitDialog.Builder(getContext());
+                // 消息文本可以不用填写
+                waitDialog.setMessage(getString(R.string.widget_loading))
                         .show();
-                postDelayed(waitDialog::dismiss, 2000);
+                postDelayed(() -> waitDialog.setMessage("文字发生变化了"), 2000);
+                postDelayed(waitDialog::dismiss, 4000);
                 break;
             default:
                 break;
@@ -271,19 +269,19 @@ public class DialogFragment extends AbsListFragment<MainBean, DialogViewModel> {
     }
 
     //使用默认浏览器打开链接
-    public boolean openUrl(String url) {
-        try {
-            Uri uri = Uri.parse(url);
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
-            return true;
-        } catch (Exception e) {
-            if (DEBUGMODE) {
-                e.printStackTrace();
-            }
-            return false;
-        }
-    }
+//    public boolean openUrl(String url) {
+//        try {
+//            Uri uri = Uri.parse(url);
+//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//            startActivity(intent);
+//            return true;
+//        } catch (Exception e) {
+//            if (DEBUGMODE) {
+//                e.printStackTrace();
+//            }
+//            return false;
+//        }
+//    }
 
     @Override
     public void onLoadMore(@NonNull RefreshLayout refreshLayout) {

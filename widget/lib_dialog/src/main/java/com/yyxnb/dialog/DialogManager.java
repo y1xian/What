@@ -1,93 +1,76 @@
 package com.yyxnb.dialog;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.graphics.Color;
 
-import com.yyxnb.dialog.core.InputInfo;
-import com.yyxnb.dialog.core.TextInfo;
-import com.yyxnb.dialog.interfaces.DialogLifeCycleListener;
+import com.yyxnb.dialog.core.DialogInfo;
 
 
 /**
- *
+ * 全局弹窗的设置
  */
 public class DialogManager {
 
-    public enum THEME {
-        LIGHT, DARK
+    public DialogManager() {
     }
 
-    //是否开启模糊效果
-    public static boolean isUseBlur = false;
+    /**
+     * 全局弹窗的设置
+     **/
+    private static int primaryColor = Color.parseColor("#121212");
+    private static int animationDuration = 350;
+    public static int statusBarShadowColor = Color.parseColor("#55000000");
+    private static int shadowBgColor = Color.parseColor("#9F000000");
 
-    //开启模态化队列启动方式
-    public static boolean modalDialog = false;
+    public static void setShadowBgColor(int color) {
+        shadowBgColor = color;
+    }
 
-    //全局对话框明暗风格
-    public static THEME theme = THEME.LIGHT;
+    public static int getShadowBgColor() {
+        return shadowBgColor;
+    }
 
-    //全局提示框明暗风格
-    public static THEME tipTheme = THEME.DARK;
+    public static void setAnimationDuration(int duration) {
+        if (duration >= 0) {
+            animationDuration = duration;
+        }
+    }
 
-    //全局标题文字样式
-    public static TextInfo titleTextInfo;
+    public static int getAnimationDuration() {
+        return animationDuration;
+    }
 
-    //全局正文文字样式
-    public static TextInfo contentTextInfo;
+    public static class Builder {
 
-    //全局提示文字样式
-    public static TextInfo tipTextInfo;
+        private final DialogInfo dialogInfo = new DialogInfo();
+        private Context context;
 
-    //全局默认按钮文字样式
-    public static TextInfo buttonTextInfo;
+        public Builder(Context context) {
+            this.context = context;
+        }
 
-    //全局焦点按钮文字样式
-    public static TextInfo buttonPositiveTextInfo;
+        /**
+         * 设置当操作完毕后是否自动关闭弹窗，默认为true。比如：点击Confirm弹窗的确认按钮默认是关闭弹窗，如果为false，则不关闭
+         *
+         * @param autoDismiss
+         * @return
+         */
+        public Builder autoDismiss(Boolean autoDismiss) {
+            this.dialogInfo.autoDismiss = autoDismiss;
+            return this;
+        }
 
-    //全局输入框文本样式
-    public static InputInfo inputInfo;
-
-    //全局菜单标题样式
-    public static TextInfo menuTitleInfo;
-
-    //全局菜单文字样式
-    public static TextInfo menuTextInfo;
-
-    //全局对话框背景颜色，值0时不生效
-    public static int backgroundColor = 0;
-
-    //全局对话框默认是否可以点击外围遮罩区域或返回键关闭，此开关不影响提示框（TipDialog）以及等待框（TipDialog）
-    public static boolean cancelable = true;
-
-    //全局提示框及等待框（WaitDialog、TipDialog）默认是否可以关闭
-    public static boolean cancelableTipDialog = false;
-
-    //是否允许显示日志
-    public static boolean DEBUGMODE = false;
-
-    //模糊透明度(0~255)
-    public static int blurAlpha = 210;
-
-    //允许自定义系统对话框style，注意设置此功能会导致原对话框风格和动画失效
-    public static int systemDialogStyle;
-
-    //默认取消按钮文本文字，影响BottomDialog、ShareDialog
-    public static String defaultCancelButtonText;
-
-    //全局Dialog生命周期监听器
-    public static DialogLifeCycleListener dialogLifeCycleListener;
-
-    //全局提示框背景资源，值0时不生效
-    public static int tipBackgroundResId = 0;
-
-    //对话框，全局按钮资源
-    public static Drawable okButtonDrawable;
-    public static Drawable cancelButtonDrawable;
-    public static Drawable otherButtonDrawable;
-
-    //输入对话框，是否自动弹出输入键盘
-    public static boolean autoShowInputKeyboard = false;
-
-    public static void init() {
+        /**
+         * 弹窗是否有半透明背景遮罩，默认是true
+         *
+         * @param hasShadowBg
+         * @return
+         */
+        public Builder hasShadowBg(Boolean hasShadowBg) {
+            this.dialogInfo.hasShadowBg = hasShadowBg;
+            return this;
+        }
 
     }
+
 }

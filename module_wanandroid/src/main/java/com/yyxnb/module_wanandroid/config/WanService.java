@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.config;
 
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
-import com.yyxnb.module_wanandroid.bean.WanData;
+import com.yyxnb.common_base.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanNavigationBean;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.bean.WanSystemBean;

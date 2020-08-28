@@ -42,11 +42,11 @@ public class ItemDecoration extends RecyclerView.ItemDecoration {
     /**
      * 设置是否显示左右边界线
      */
-    private boolean drawBorderLeftAndRight = false;
+    private boolean drawBorderLeftAndRight = true;
     /**
      * 设置是否显示上下边界线
      */
-    private boolean drawBorderTopAndBottom = false;
+    private boolean drawBorderTopAndBottom = true;
 
     /**
      * 是否只留空白，不画分割线

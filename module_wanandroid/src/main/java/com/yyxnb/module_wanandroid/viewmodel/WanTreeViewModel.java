@@ -5,7 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import com.yyxnb.common_base.config.Http;
 import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
-import com.yyxnb.module_wanandroid.bean.WanData;
+import com.yyxnb.common_base.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanNavigationBean;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.bean.WanSystemBean;
@@ -31,7 +31,7 @@ public class WanTreeViewModel extends BaseViewModel {
 
             @Override
             public void error(String msg) {
-
+                loge(msg);
             }
         });
     }
@@ -46,7 +46,7 @@ public class WanTreeViewModel extends BaseViewModel {
 
             @Override
             public void error(String msg) {
-
+                loge(msg);
             }
         });
     }
@@ -61,7 +61,7 @@ public class WanTreeViewModel extends BaseViewModel {
 
             @Override
             public void error(String msg) {
-
+                loge(msg);
             }
         });
     }

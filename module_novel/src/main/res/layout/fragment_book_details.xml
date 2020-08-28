@@ -1,0 +1,279 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.yyxnb.module_novel.bean.BookInfoBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.yyxnb.module_novel.ui.BookDetailsFragment">
+
+        <include layout="@layout/include_title_layout" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivPic"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:url="@{data.picture}"
+                tools:src="@color/black_eaeaea" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{data.title}"
+                android:textColor="@color/black_222222"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/ivPic"
+                app:layout_constraintTop_toTopOf="@+id/ivPic"
+                tools:text="标题" />
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:text="@{data.author}"
+                android:textColor="@color/black_999999"
+                app:layout_constraintStart_toEndOf="@+id/ivPic"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="作者" />
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:text="@{data.label}"
+                android:textColor="@color/black_999999"
+                app:layout_constraintStart_toEndOf="@+id/ivPic"
+                app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
+                tools:text="类型" />
+
+            <TextView
+                android:id="@+id/tvNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:textColor="@color/black_999999"
+                app:layout_constraintBottom_toBottomOf="@+id/tvType"
+                app:layout_constraintStart_toEndOf="@+id/tvType"
+                app:layout_constraintTop_toTopOf="@+id/tvType"
+                tools:text="共0万字" />
+
+            <TextView
+                android:id="@+id/mRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPic"
+                app:layout_constraintStart_toEndOf="@+id/ivPic" />
+
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black_666666"
+                app:layout_constraintBottom_toBottomOf="@+id/mRatingBar"
+                app:layout_constraintStart_toEndOf="@+id/mRatingBar"
+                app:layout_constraintTop_toTopOf="@+id/mRatingBar"
+                tools:text="0分(0条书评)" />
+
+            <com.noober.background.view.BLConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:bl_corners_radius="4dp"
+                app:bl_solid_color="#f8f8f8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivPic">
+
+
+                <TextView
+                    android:id="@+id/tvRecommendedNum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black_222222"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvReadNum"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvReadNum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black_222222"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvCollectionNum"
+                    app:layout_constraintStart_toEndOf="@+id/tvRecommendedNum"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvCollectionNum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black_222222"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvPopularityNum"
+                    app:layout_constraintStart_toEndOf="@+id/tvReadNum"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPopularityNum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black_222222"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCollectionNum"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView289"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="推荐"
+                    android:textColor="@color/black_999999"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvReadNum"
+                    app:layout_constraintStart_toStartOf="@+id/tvRecommendedNum"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRecommendedNum" />
+
+                <TextView
+                    android:id="@+id/textView290"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="阅读量"
+                    android:textColor="@color/black_999999"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvCollectionNum"
+                    app:layout_constraintStart_toStartOf="@+id/tvReadNum"
+                    app:layout_constraintTop_toBottomOf="@+id/tvReadNum" />
+
+                <TextView
+                    android:id="@+id/textView291"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收藏"
+                    android:textColor="@color/black_999999"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvPopularityNum"
+                    app:layout_constraintStart_toStartOf="@+id/tvCollectionNum"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCollectionNum" />
+
+                <TextView
+                    android:id="@+id/textView292"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="人气"
+                    android:textColor="@color/black_999999"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvPopularityNum"
+                    app:layout_constraintStart_toStartOf="@+id/tvPopularityNum"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPopularityNum" />
+
+
+            </com.noober.background.view.BLConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="@{data.des}"
+            android:textColor="@color/black_999999"
+            android:textSize="13sp"
+            tools:text="内容介绍" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/black_eaeaea"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_add_bookshelf"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/novel_put_in_bookshelf"
+                android:textColor="@color/black_222222"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_read"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tv_read"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="开始阅读"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:bl_gradient_angle="180"
+                app:bl_gradient_endColor="#FF5151"
+                app:bl_gradient_startColor="#FF802C"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_add_bookshelf"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

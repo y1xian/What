@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,10 +22,11 @@ import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.FragmentDelegate;
+import com.yyxnb.common.action.AnimAction;
+import com.yyxnb.widget.action.ClickAction;
 import com.yyxnb.widget.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
-import java.util.UUID;
 
 /**
  * 懒加载
@@ -34,7 +34,7 @@ import java.util.UUID;
  * @author yyx
  */
 public abstract class BaseFragment extends Fragment
-        implements IFragment, ArchAction, BundleAction, HandlerAction {
+        implements IFragment, ArchAction, BundleAction, HandlerAction, ClickAction, AnimAction {
 
     protected final String TAG = getClass().getCanonicalName();
     private FragmentDelegate mFragmentDelegate = getBaseDelegate();
@@ -61,11 +61,6 @@ public abstract class BaseFragment extends Fragment
     public <B extends ViewDataBinding> B getBinding() {
         DataBindingUtil.bind(mRootView);
         return DataBindingUtil.getBinding(mRootView);
-    }
-
-    @Override
-    public String sceneId() {
-        return UUID.randomUUID().toString();
     }
 
     @Override
@@ -132,12 +127,12 @@ public abstract class BaseFragment extends Fragment
     @Nullable
     @Override
     public Bundle getBundle() {
-        return getArguments();
+        return initArguments();
     }
 
-    @SuppressWarnings("unchecked")
-    public <T> T findViewById(@IdRes int resId) {
-        return (T) mRootView.findViewById(resId);
+    @Override
+    public <V extends View> V findViewById(int id) {
+        return mRootView.findViewById(id);
     }
 
     /**

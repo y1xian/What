@@ -4,8 +4,10 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
 
-import com.yyxnb.arch.delegate.FragmentDelegate;
 import com.yyxnb.arch.common.AppManager;
+import com.yyxnb.arch.delegate.FragmentDelegate;
+
+import java.util.UUID;
 
 /**
  * Fragment 需实现
@@ -51,7 +53,7 @@ public interface IFragment extends IView {
      * @return id
      */
     default String sceneId() {
-        return null;
+        return UUID.randomUUID().toString();
     }
 
 }

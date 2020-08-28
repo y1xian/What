@@ -12,7 +12,6 @@ import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.ItemDecoration;
 import com.yyxnb.adapter.MultiItemTypeAdapter;
 import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_main.R;
@@ -22,13 +21,13 @@ import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.popup.PopupManager;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_HOME_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
+import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_MAIN;
+import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
-import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN;
 
 /**
  * 主页
@@ -124,22 +123,27 @@ public class MainHomeFragment extends BaseFragment {
                         break;
                     case 3:
                         // 娱乐
-                        startFragment(ARouterUtils.navFragment(JOKE_MAIN_FRAGMENT));
+//                        startFragment(ARouterUtils.navFragment(JOKE_MAIN_FRAGMENT));
+                        ARouterUtils.navActivity(JOKE_MAIN);
                         break;
                     case 4:
                         // 消息
-                        startFragment(ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
+//                        startFragment(ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
+                        ARouterUtils.navActivity(MESSAGE_MAIN);
                         break;
                     case 5:
                         // 玩安卓
-                        startFragment(ARouterUtils.navFragment(WAN_MAIN_FRAGMENT));
+//                        startFragment(ARouterUtils.navFragment(WAN_MAIN_FRAGMENT));
+                        ARouterUtils.navActivity(WAN_MAIN);
                         break;
                     case 6:
                         // 音乐
-                        startFragment(ARouterUtils.navFragment(MUSIC_HOME_FRAGMENT));
+//                        startFragment(ARouterUtils.navFragment(MUSIC_HOME_FRAGMENT));
+                        ARouterUtils.navActivity(MUSIC_MAIN);
                         break;
                     case 7:
                         // 小说
+//                        startFragment(ARouterUtils.navFragment(NOVEL_MAIN_FRAGMENT));
                         ARouterUtils.navActivity(NOVEL_MAIN);
                         break;
                     default:

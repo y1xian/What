@@ -23,9 +23,9 @@ final class LoggerPrinter implements IPrinter {
 
     /**
      * Android一个日志条目不能超过4076字节，
-     * 这里设置以4000字节来计算
+     * 这里设置以2000字节来计算
      */
-    private static final int CHUNK_SIZE = 4000;
+    private static final int CHUNK_SIZE = 2000;
     /**
      * log settings
      */

@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
+import com.yyxnb.network.db.DateConverter;
 import com.yyxnb.widget.WidgetManager;
 import com.yyxnb.common_base.bean.UserBean;
 

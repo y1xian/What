@@ -23,8 +23,10 @@ import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.ActivityDelegate;
+import com.yyxnb.common.action.AnimAction;
 import com.yyxnb.common.utils.KeyboardUtils;
 import com.yyxnb.skinloader.SkinInflaterFactory;
+import com.yyxnb.widget.action.ClickAction;
 import com.yyxnb.widget.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
@@ -37,7 +39,7 @@ import me.jessyan.autosize.AutoSizeCompat;
  */
 @ParallaxBack(edgeMode = ParallaxBack.EdgeMode.EDGE)
 public abstract class BaseActivity extends AppCompatActivity
-        implements IActivity, ArchAction, BundleAction, HandlerAction {
+        implements IActivity, ArchAction, BundleAction, HandlerAction, ClickAction, AnimAction {
 
     protected final String TAG = getClass().getCanonicalName();
     protected WeakReference<Context> mContext;

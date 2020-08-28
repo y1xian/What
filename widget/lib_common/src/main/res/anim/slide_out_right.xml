@@ -4,8 +4,8 @@
 
     <translate
         android:duration="@integer/yyxarch_anim_duration"
-        android:fromXDelta="0%p"
-        android:toXDelta="100%p"/>
+        android:fromXDelta="0"
+        android:toXDelta="100%" />
 
     <alpha
         android:duration="@integer/yyxarch_anim_duration"

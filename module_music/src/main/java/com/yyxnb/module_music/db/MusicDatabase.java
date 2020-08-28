@@ -6,7 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
 import com.yyxnb.widget.WidgetManager;
-import com.yyxnb.common_base.db.DateConverter;
+import com.yyxnb.network.db.DateConverter;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicFavouriteBean;
 import com.yyxnb.module_music.bean.MusicLocalBean;

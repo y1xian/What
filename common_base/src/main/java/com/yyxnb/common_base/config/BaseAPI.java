@@ -14,9 +14,9 @@ public class BaseAPI {
     //====\key
 
     //免费开放接口API
-    public final static String URL_APIOPEN = "https://www.apiopen.top/";
-    public final static String URL_MOCKY = "http://www.mocky.io/";
+    public final static String URL_APIOPEN = "https://api.apiopen.top/";
+    public final static String URL_MOCKY = "https://run.mocky.io/";
     public final static String URL_WAN_ANDROID = "https://www.wanandroid.com/";
-    public final static String URL_JISU = "https://www.jisuapi.com/";
+    public final static String URL_JISU = "https://api.jisuapi.com/";
 
 }

@@ -12,6 +12,7 @@ import com.yyxnb.adapter.BaseAdapter;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.MultiItemTypePagedAdapter;
 import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.dialog.core.UIDialog;
 import com.yyxnb.module_widget.R;
 
 import java.util.ArrayList;
@@ -103,26 +104,22 @@ public final class SelectDialog {
         @SuppressWarnings("all")
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.tv_ui_confirm:
-                    HashMap<Integer, Object> data = mAdapter.getSelectSet();
-                    if (data.size() >= mAdapter.getMinSelect()) {
-                        autoDismiss();
-                        if (mListener != null) {
-                            mListener.onSelected(getDialog(), data);
-                        }
-                    } else {
-//                        ToastUtils.show(String.format(getString(R.string.select_min_hint), mAdapter.getMinSelect()));
-                    }
-                    break;
-                case R.id.tv_ui_cancel:
+            int id = v.getId();
+            if (id == R.id.tv_ui_confirm) {
+                HashMap<Integer, Object> data = mAdapter.getSelectSet();
+                if (data.size() >= mAdapter.getMinSelect()) {
                     autoDismiss();
                     if (mListener != null) {
-                        mListener.onCancel(getDialog());
+                        mListener.onSelected(getDialog(), data);
                     }
-                    break;
-                default:
-                    break;
+                } else {
+//                        ToastUtils.show(String.format(getString(R.string.select_min_hint), mAdapter.getMinSelect()));
+                }
+            } else if (id == R.id.tv_ui_cancel) {
+                autoDismiss();
+                if (mListener != null) {
+                    mListener.onCancel(getDialog());
+                }
             }
         }
     }

@@ -28,7 +28,7 @@ import java.util.Objects;
  *
  * @author yyx
  */
-public class ActivityDelegate implements DefaultLifecycleObserver , HandlerAction {
+public class ActivityDelegate implements DefaultLifecycleObserver, HandlerAction {
 
     public ActivityDelegate(IActivity iActivity) {
         this.iActivity = iActivity;
@@ -78,6 +78,11 @@ public class ActivityDelegate implements DefaultLifecycleObserver , HandlerActio
         return mActivity.getWindow();
     }
 
+    /**
+     * 当前窗体得到或失去焦点的时候的时候调用
+     *
+     * @param hasFocus true 得到
+     */
     public void onWindowFocusChanged(boolean hasFocus) {
         if (mIsFirstVisible && hasFocus) {
             mIsFirstVisible = false;

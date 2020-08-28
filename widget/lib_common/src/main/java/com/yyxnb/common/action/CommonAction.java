@@ -1,7 +1,10 @@
 package com.yyxnb.common.action;
 
 import com.yyxnb.common.CommonManager;
+import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.widget.action.WidgetAction;
+
+import java.util.List;
 
 /**
  * 通用意图
@@ -36,5 +39,23 @@ public interface CommonAction extends WidgetAction {
      */
     default void log(CharSequence text) {
         CommonManager.getInstance().log(text.toString());
+    }
+
+    /**
+     * log e
+     *
+     * @param text
+     */
+    default void loge(CharSequence text) {
+        LogUtils.e(text.toString());
+    }
+
+    /**
+     * log list
+     *
+     * @param list 集合
+     */
+    default void list(List list) {
+        LogUtils.list(list);
     }
 }

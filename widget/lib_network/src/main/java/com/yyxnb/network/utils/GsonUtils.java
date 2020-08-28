@@ -38,6 +38,7 @@ public class GsonUtils {
     static {
         if (gson == null) {
             gson = new GsonBuilder()
+                    .setLenient()
                     .registerTypeAdapter(Long.class, new LongDefault0Adapter())
                     .registerTypeAdapter(long.class, new LongDefault0Adapter())
                     .registerTypeAdapter(Double.class, new DoubleDefault0Adapter())
@@ -46,7 +47,7 @@ public class GsonUtils {
                     .registerTypeAdapter(Integer.class, new IntegerDefault0Adapter())
                     .registerTypeAdapter(String.class, new StringNullAdapter())
 //                    .registerTypeAdapterFactory(new NullStringToEmptyAdapterFactory())
-                    .disableHtmlEscaping()
+//                    .disableHtmlEscaping()
                     .create();
         }
     }
@@ -288,7 +289,7 @@ public class GsonUtils {
      * @param gsonString
      * @return
      */
-    public static <T> List<Map<String, T>> GsonToListMaps(String gsonString) {
+    public static <T> List<Map<String, T>> gsonToListMaps(String gsonString) {
         List<Map<String, T>> list = null;
         if (gson != null) {
             list = gson.fromJson(gsonString,
