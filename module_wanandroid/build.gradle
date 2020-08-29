@@ -22,4 +22,5 @@ dependencies {
         addComponent 'module_chat'
     }
 
+    implementation project(":widget:lib_webview")
 }

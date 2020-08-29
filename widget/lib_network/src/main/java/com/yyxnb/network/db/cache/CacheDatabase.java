@@ -1,4 +1,4 @@
-package com.yyxnb.network.cache;
+package com.yyxnb.network.db.cache;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;

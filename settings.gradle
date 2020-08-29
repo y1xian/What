@@ -23,7 +23,8 @@ include ':widget:lib_network',
         ':widget:lib_adapter',
         ':widget:lib_popup',
         ':widget:lib_localservice',
-        ':widget:lib_view'
+        ':widget:lib_view',
+        ':widget:lib_webview'
 
 include ':skin_night'
 rootProject.name = 'What'

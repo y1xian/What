@@ -1,4 +1,4 @@
-package com.yyxnb.network.cache;
+package com.yyxnb.network.db.cache;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

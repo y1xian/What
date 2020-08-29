@@ -444,6 +444,10 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
         }
     }
 
+//    public void setFillStatusBar(boolean fillStatusBar) {
+//        this.fillStatusBar = fillStatusBar;
+//    }
+
     /**
      * 设置背景颜色
      */
