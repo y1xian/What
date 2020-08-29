@@ -14,7 +14,7 @@ Android Studio 4.0 、gradle 6.2 、kotlin 1.4.0
 
 最新Java + support版本的看 [dev-arch](https://github.com/y1xian/What/tree/dev-arch) 分支
 
-最新AndroidX + Kotlin版本的看 `[kt-x-arch](https://github.com/y1xian/What/tree/kt-x-arch)` 分支
+最新AndroidX + Kotlin版本的看 [kt-x-arch](https://github.com/y1xian/What/tree/kt-x-arch) 分支
 
 
 
