@@ -30,8 +30,8 @@ dependencies {
     api libs.widget_skinloader
 
     // room 数据库
-    api libs.arch_comp_room
-    annotationProcessor libs.arch_comp_room_compiler
+    api libs.room
+    annotationProcessor libs.room_compiler
 
     // 路由
     api libs.arouter_api

@@ -251,7 +251,7 @@ dependencies {
         implementation project(':common_base')
         //组件中依赖阿里路由编译框架
         annotationProcessor libs.arouter_compiler
-        annotationProcessor libs.arch_comp_room_compiler
+        annotationProcessor libs.room_compiler
     }
 
     // Android调试数据库 https://github.com/amitshekhariitbhu/Android-Debug-Database
