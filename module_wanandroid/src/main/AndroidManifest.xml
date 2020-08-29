@@ -3,6 +3,7 @@
     package="com.yyxnb.module_wanandroid">
 
     <application>
+        <activity android:name=".ui.WanWebActivity"></activity>
         <activity android:name=".ui.WanActivity"></activity>
     </application>
 

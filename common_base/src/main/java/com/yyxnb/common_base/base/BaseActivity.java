@@ -91,6 +91,7 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        removeCallbacks();
         getLifecycle().removeObserver(java8Observer);
         mContext.clear();
         mContext = null;

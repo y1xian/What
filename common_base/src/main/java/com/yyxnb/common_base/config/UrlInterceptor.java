@@ -131,25 +131,29 @@ public class UrlInterceptor implements Interceptor {
     private HttpUrl.Builder realCreateHttpBuilder(HttpUrl headerHttpUrl, HttpUrl oldHttpUrl) {
         HttpUrl.Builder builder = oldHttpUrl.newBuilder();
 
-        for (int i = 0; i < oldHttpUrl.pathSize(); i++) {
-            builder.removePathSegment(0);
-        }
+        try {
+            for (int i = 0; i < oldHttpUrl.pathSize(); i++) {
+                builder.removePathSegment(0);
+            }
 
-        List<String> newPathSegments = new ArrayList<>();
-        newPathSegments.addAll(headerHttpUrl.encodedPathSegments());
+            List<String> newPathSegments = new ArrayList<>();
+            newPathSegments.addAll(headerHttpUrl.encodedPathSegments());
 
-        if (oldHttpUrl.pathSize() < pathSize) {
-            throw new IllegalArgumentException(headerHttpUrl + " pathSize more than " + oldHttpUrl + " pathSize");
-        }
+            if (oldHttpUrl.pathSize() < pathSize) {
+                throw new IllegalArgumentException(headerHttpUrl + " pathSize more than " + oldHttpUrl + " pathSize");
+            }
 
-        List<String> encodedPathSegments = oldHttpUrl.encodedPathSegments();
+            List<String> encodedPathSegments = oldHttpUrl.encodedPathSegments();
 
-        for (int i = 0; i < encodedPathSegments.size(); i++) {
-            newPathSegments.add(encodedPathSegments.get(i));
-        }
+            for (int i = 0; i < encodedPathSegments.size(); i++) {
+                newPathSegments.add(encodedPathSegments.get(i));
+            }
 
-        for (String pathSegment : newPathSegments) {
-            builder.addEncodedPathSegment(pathSegment);
+            for (String pathSegment : newPathSegments) {
+                builder.addEncodedPathSegment(pathSegment);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return builder;

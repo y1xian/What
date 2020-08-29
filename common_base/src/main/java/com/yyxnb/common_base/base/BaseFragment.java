@@ -110,6 +110,7 @@ public abstract class BaseFragment extends Fragment
     @Override
     public void onDestroy() {
         super.onDestroy();
+        removeCallbacks();
         mFragmentDelegate = null;
         mContext.clear();
         mContext = null;
