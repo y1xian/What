@@ -8,6 +8,7 @@ import java.util.List;
 import okhttp3.Interceptor;
 
 import static com.yyxnb.common_base.config.BaseAPI.URL_APIOPEN;
+import static com.yyxnb.common_base.config.BaseAPI.URL_JISU;
 import static com.yyxnb.common_base.config.BaseAPI.URL_MOCKY;
 import static com.yyxnb.common_base.config.BaseAPI.URL_WAN_ANDROID;
 
@@ -38,6 +39,7 @@ public class Http extends AbstractHttp {
         final List<String> urlBucket = new ArrayList<>();
         urlBucket.add(URL_WAN_ANDROID);
         urlBucket.add(URL_APIOPEN);
+        urlBucket.add(URL_JISU);
 
         final List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new UrlInterceptor(urlBucket));

@@ -73,7 +73,7 @@ public class UserFragment extends BaseFragment {
             if (userBean != null) {
                 LoginImpl.getInstance().updateUserInfo(userBean);
                 binding.setData(userBean);
-                LogUtils.e("u : " + userBean.toString() + " \n "+ LoginImpl.getInstance().getUserInfo().toString());
+                log("u : " + userBean.toString() + " \n "+ LoginImpl.getInstance().getUserInfo().toString());
             }
             binding.setData(userBean);
         });
@@ -82,14 +82,14 @@ public class UserFragment extends BaseFragment {
     @Override
     public void onInVisible() {
         super.onInVisible();
-        LogUtils.d("---onInVisible---");
+        log("---onInVisible---");
     }
 
     @Override
     public void onVisible() {
         super.onVisible();
         getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
-        LogUtils.d("---onVisible---" + MMKV.defaultMMKV().decodeInt(USER_ID,0));
+        log("---onVisible---" + MMKV.defaultMMKV().decodeInt(USER_ID,0));
         mViewModel.reqUserId.postValue(BaseConfig.getInstance().kv.decodeInt(USER_ID,0));
     }
 }

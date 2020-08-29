@@ -1,5 +1,6 @@
 package com.yyxnb.module_wanandroid.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanHomeBinding;
+import com.yyxnb.module_wanandroid.ui.WanWebActivity;
 import com.yyxnb.module_wanandroid.viewmodel.WanHomeViewModel;
 
 import java.util.ArrayList;
@@ -82,6 +84,10 @@ public class WanHomeFragment extends BaseFragment {
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);
 
+                Intent intent = new Intent(getContext(), WanWebActivity.class);
+                intent.putExtra("title",mAdapter.getItem(position).title);
+                intent.putExtra("url",mAdapter.getItem(position).link);
+                startActivity(intent);
             }
         });
 

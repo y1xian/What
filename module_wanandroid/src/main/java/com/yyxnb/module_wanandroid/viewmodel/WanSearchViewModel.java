@@ -2,14 +2,13 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import android.arch.lifecycle.MutableLiveData;
 
-import com.yyxnb.common.utils.log.LogUtils;
+import com.yyxnb.common_base.bean.WanData;
 import com.yyxnb.common_base.config.Http;
-import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
-import com.yyxnb.module_wanandroid.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.config.WanService;
+import com.yyxnb.network.BaseViewModel;
 
 import java.util.List;
 
@@ -30,13 +29,12 @@ public class WanSearchViewModel extends BaseViewModel {
 
             @Override
             public void error(String msg) {
-
+                loge(msg);
             }
         });
     }
 
     public void getSearchDataByKey(int page, String key) {
-        LogUtils.e(key);
         launchOnlyResult(mApi.getSearchDataByKey(page, key), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
             public void success(WanData<WanStatus<WanAriticleBean>> data) {
@@ -45,7 +43,7 @@ public class WanSearchViewModel extends BaseViewModel {
 
             @Override
             public void error(String msg) {
-
+                loge(msg);
             }
         });
     }

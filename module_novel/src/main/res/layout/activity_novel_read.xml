@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+    </data>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/mDrawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.yyxnb.module_novel.ui.NovelReadActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E1C6AC">
+
+            <com.yyxnb.module_novel.view.page.PageView
+                android:id="@+id/mPageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true" />
+
+            <!--切换页面提示-->
+            <TextView
+                android:id="@+id/tvPageTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/llBottom"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:background="#88000000"
+                android:gravity="center"
+                android:paddingLeft="12dp"
+                android:paddingTop="8dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="8dp"
+                android:text="1/12"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+            <!--头部-->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clHead"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:background="#E6000000"
+                android:paddingTop="19dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="16dp"
+                    android:src="@mipmap/ic_titlebar_back"
+                    android:tint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/ivDownload"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="24dp"
+                    android:src="@mipmap/icon_xs_yd_xz"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivMore"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivMore"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="16dp"
+                    android:src="@mipmap/icon_xs_yd_more"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <!--底部页面-->
+            <LinearLayout
+                android:id="@+id/llBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!--页面进度栏-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="#E6000000"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvPreChapter"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="上一章"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <SeekBar
+                        android:id="@+id/sbChapterProgress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="100"
+                        android:maxHeight="3dp"
+                        android:minHeight="3dp"
+                        android:progressDrawable="@drawable/seekbar_bg"
+                        android:thumb="@mipmap/icon_xs_yd_jdt"
+                        android:thumbOffset="10dp" />
+
+                    <TextView
+                        android:id="@+id/tvNextChapter"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="下一章"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!--菜单栏-->
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#E6000000"
+                    android:orientation="horizontal"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <ImageView
+                        android:id="@+id/ivCategory"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/icon_xs_yd_ml"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/ivNight"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/icon_xs_yd_yjms"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/ivSetting"
+                        app:layout_constraintStart_toEndOf="@+id/ivCategory"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/ivSetting"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/icon_xs_yd_sz"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/ivMsg"
+                        app:layout_constraintStart_toEndOf="@+id/ivNight"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/ivMsg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/icon_xs_yd_pl"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
+
+
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tvJoin"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:text="加入书架"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:bl_corners_bottomLeftRadius="20dp"
+                app:bl_corners_topLeftRadius="20dp"
+                app:bl_solid_color="@color/black_80"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivPic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_novel_read_yd"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+
+        </RelativeLayout>
+
+
+        <!--侧滑栏-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginEnd="30dp"
+            android:background="#313131"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:id="@+id/textView131"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="目录"
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="已完结 共4章"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView131"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivMenuBack"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@mipmap/rc_ext_search_cancel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</layout>

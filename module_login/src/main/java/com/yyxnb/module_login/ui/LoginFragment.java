@@ -51,7 +51,7 @@ public class LoginFragment extends BaseFragment {
             String phone = etPhone.getText().toString();
 
             if (phone.isEmpty()) {
-                ToastUtils.normal("手机号不能为空！");
+                toast("手机号不能为空！");
                 return;
             }
             mViewModel.reqLogin(phone);
@@ -69,11 +69,11 @@ public class LoginFragment extends BaseFragment {
     public void initObservable() {
         super.initObservable();
 
-        LogUtils.d("---initObservable--");
+        log("---initObservable--");
 
         mViewModel.getUser().observe(this, userBean -> {
             if (userBean != null) {
-                LogUtils.e("userBean : " + userBean.toString());
+                log("userBean : " + userBean.toString());
                 UserManager.getInstance().setUserBean(userBean);
                 finish();
             }

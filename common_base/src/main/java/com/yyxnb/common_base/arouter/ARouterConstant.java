@@ -52,6 +52,7 @@ public class ARouterConstant {
 
     // ====== 小说
     public static final String NOVEL_MAIN = "/novel/NovelActivity";
+    public static final String NOVEL_MAIN_FRAGMENT = "/novel/NovelMainFragment";
 
 
     //==========其他

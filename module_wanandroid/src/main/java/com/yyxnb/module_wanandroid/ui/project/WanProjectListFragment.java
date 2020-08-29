@@ -1,5 +1,6 @@
 package com.yyxnb.module_wanandroid.ui.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanProjectAdapter;
 import com.yyxnb.module_wanandroid.config.DataConfig;
+import com.yyxnb.module_wanandroid.ui.WanWebActivity;
 import com.yyxnb.module_wanandroid.viewmodel.WanProjectViewModel;
 
 /**
@@ -77,7 +79,10 @@ public class WanProjectListFragment extends BaseFragment {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);
-
+                Intent intent = new Intent(getContext(), WanWebActivity.class);
+                intent.putExtra("title",mAdapter.getItem(position).title);
+                intent.putExtra("url",mAdapter.getItem(position).link);
+                startActivity(intent);
             }
         });
 

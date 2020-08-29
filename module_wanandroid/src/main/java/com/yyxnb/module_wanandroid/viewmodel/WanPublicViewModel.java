@@ -6,7 +6,7 @@ import com.yyxnb.common_base.config.Http;
 import com.yyxnb.network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
-import com.yyxnb.module_wanandroid.bean.WanData;
+import com.yyxnb.common_base.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.config.WanService;
 
@@ -29,7 +29,7 @@ public class WanPublicViewModel extends BaseViewModel {
 
             @Override
             public void error(String msg) {
-
+                loge(msg);
             }
         });
     }
@@ -44,7 +44,7 @@ public class WanPublicViewModel extends BaseViewModel {
 
             @Override
             public void error(String msg) {
-
+                loge(msg);
             }
         });
     }

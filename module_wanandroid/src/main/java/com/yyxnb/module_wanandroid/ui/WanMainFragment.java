@@ -35,7 +35,7 @@ public class WanMainFragment extends BaseFragment {
 
     private TabBarView mTabLayout;
     private int currentIndex;
-    private boolean isAdded;
+    private boolean isAddeds;
 
     @Override
     public int initLayoutResId() {
@@ -77,11 +77,11 @@ public class WanMainFragment extends BaseFragment {
     //设置Fragment页面
     private void changeView(int index) {
 
-        if (currentIndex == index && isAdded) {
+        if (currentIndex == index && isAddeds) {
             //重复点击
             return;
         }
-        isAdded = true;
+        isAddeds = true;
         //开启事务
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
         //隐藏当前Fragment

@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,20 +16,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yyxnb.arch.action.ArchAction;
+import com.yyxnb.arch.action.BundleAction;
 import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.FragmentDelegate;
+import com.yyxnb.common.action.AnimAction;
+import com.yyxnb.widget.action.ClickAction;
+import com.yyxnb.widget.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
-import java.util.UUID;
 
 /**
  * 懒加载
  *
  * @author yyx
  */
-public abstract class BaseFragment extends Fragment implements IFragment {
+public abstract class BaseFragment extends Fragment
+        implements IFragment, ArchAction, BundleAction, HandlerAction, ClickAction, AnimAction {
 
     protected final String TAG = getClass().getCanonicalName();
     private FragmentDelegate mFragmentDelegate = getBaseDelegate();
@@ -60,11 +64,6 @@ public abstract class BaseFragment extends Fragment implements IFragment {
     }
 
     @Override
-    public String sceneId() {
-        return UUID.randomUUID().toString();
-    }
-
-    @Override
     public Bundle initArguments() {
         return mFragmentDelegate.initArguments();
     }
@@ -76,7 +75,7 @@ public abstract class BaseFragment extends Fragment implements IFragment {
             @Override
             public void onCreate(@NonNull LifecycleOwner owner) {
                 mContext = new WeakReference<>(context);
-                mActivity = new WeakReference<>((AppCompatActivity) mContext.get());
+                mActivity = new WeakReference<>((AppCompatActivity) getContext());
                 owner.getLifecycle().removeObserver(this);
             }
         });
@@ -125,9 +124,15 @@ public abstract class BaseFragment extends Fragment implements IFragment {
         getLifecycle().removeObserver(java8Observer);
     }
 
-    @SuppressWarnings("unchecked")
-    public <T> T findViewById(@IdRes int resId) {
-        return (T) mRootView.findViewById(resId);
+    @Nullable
+    @Override
+    public Bundle getBundle() {
+        return initArguments();
+    }
+
+    @Override
+    public <V extends View> V findViewById(int id) {
+        return mRootView.findViewById(id);
     }
 
     /**

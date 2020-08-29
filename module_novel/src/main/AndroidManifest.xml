@@ -3,7 +3,14 @@
     package="com.yyxnb.module_novel">
 
     <application>
-        <activity android:name=".ui.NovelActivity"></activity>
+        <activity
+            android:name=".ui.NovelReadActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.NovelActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

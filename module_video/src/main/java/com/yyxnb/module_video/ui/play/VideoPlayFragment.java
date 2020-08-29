@@ -7,12 +7,10 @@ import android.view.View;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.arch.common.Bus;
 import com.yyxnb.arch.common.MsgEvent;
-import com.yyxnb.common.AppConfig;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.video.Utils;
@@ -115,7 +113,7 @@ public class VideoPlayFragment extends BaseFragment {
                     Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
                     break;
             }
-            AppConfig.getInstance().toast(text);
+            toast(text);
         });
     }
 
@@ -148,7 +146,7 @@ public class VideoPlayFragment extends BaseFragment {
             @Override
             public void onPlayStateChanged(int playState) {
                 if (playState == VideoView.STATE_PLAYING) {
-                    LogUtils.e("Play STATE_PLAYING");
+                    log("Play STATE_PLAYING");
                     // 处理快速切换界面，缓存刚刚好就回继续播放的问题
                     if (!isCur) {
                         mVideoView.pause();
@@ -219,7 +217,7 @@ public class VideoPlayFragment extends BaseFragment {
 
                 TikTokBean tiktokBean = mVideoList.get(position);
                 String playUrl = mPreloadManager.getPlayUrl(tiktokBean.videoUrl);
-                L.i("startPlay: " + "position: " + position + "  url: " + playUrl);
+                log("startPlay: " + "position: " + position + "  url: " + playUrl);
                 mVideoView.setUrl(playUrl);
                 mController.addControlComponent(viewHolder.mTikTokView, true);
                 viewHolder.mPlayerContainer.addView(mVideoView, 0);
@@ -240,7 +238,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onVisible() {
         isCur = true;
-        LogUtils.e("Play onVisible");
+        log("Play onVisible");
         Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
         if (mVideoView != null) {
             mVideoView.resume();
@@ -250,7 +248,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void onInVisible() {
         isCur = false;
-        LogUtils.e("Play onInVisible");
+        log("Play onInVisible");
         Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
         if (mVideoView != null) {
             mVideoView.pause();

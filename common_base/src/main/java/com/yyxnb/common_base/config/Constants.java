@@ -5,6 +5,12 @@ package com.yyxnb.common_base.config;
  */
 public class Constants {
 
+    // 游客
+    public static final String TOURIST = "Tourist";
+    // 游客id
+    public static final int TOURIST_ID = 666;
+
+
     public static final String SKIN_PATH = "SKIN_PATH";
     public static final String USER_ID = "USER_ID";
 

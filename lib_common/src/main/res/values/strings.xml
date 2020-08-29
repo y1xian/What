@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">common</string>
-
-    <string name="permissions_check_warn">警告！</string>
-    <string name="permissions_check_ok">确定</string>
-
-</resources>

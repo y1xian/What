@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black_transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="black_222222">#1f2336</color>
+    <color name="black_666666">#878b99</color>
+    <color name="black_999999">#b0b3bf</color>
+    <color name="black_eaeaea">#eaeaea</color>
+    <color name="black_90">#e6000000</color>
+    <color name="black_85">#d9000000</color>
+    <color name="black_10">#1a000000</color>
+    <color name="color_05000000">#05000000</color>
+    <color name="color_10000000">#10000000</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="bg_cc000000">#cc000000</color>
+
+    <color name="record_duraton">#4F5FFF</color>
+    <color name="reocrd_bg">#80ffffff</color>
+
+    <color name="alivic_record_effect_bg_color">#00C1DE</color>
+    <color name="alivc_svideo_tab_indicator_color">#00C1DE</color>
+    <color name="alivc_line_gray_light">#C3C5C6 </color>
+
+    <color name="shadow_color">#7F000000</color>
+    <color name="shimmer_color">#08000000</color>
+
+
+    <!--read-->
+    <color name="nb.read.bg_1">#DDDDDD</color>
+    <color name="nb.read.bg_2">#E9CEB3</color>
+    <color name="nb.read.bg_3">#CDE9D0</color>
+    <color name="nb.read.bg_4">#563F33</color>
+    <color name="nb.read.bg_5">#011628</color>
+
+
+    <color name="nb.read.font_1">#222222</color>
+    <color name="nb.read.font_2">#2F332D</color>
+    <color name="nb.read.font_3">#333335</color>
+    <color name="nb.read.font_4">#D4A790</color>
+    <color name="nb.read.font_5">#627079</color>
+
+    <color name="nb.read.bg.night">#27272A</color>
+    <color name="nb.read.font_night">#797C81</color>
+
+    <color name="nb.read.menu.bg">#191919</color>
+    <color name="nb.read.menu.text">#CBCBCB</color>
+    <color name="nb.read.bar.translucent">#88000000</color>
+
+    <color name="colorEmpty">#00000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGray">#e9e9e9</color>
+
+</resources>

@@ -1,8 +1,20 @@
 //设置到ext中，供module的build.gradle使用（例如用于设置sourceSets配置）
 
+//是否library
+def isLibrary = ext.has('isLibrary')
+ext.isLibrary = isLibrary
+//
+def isMainLibrary = ext.has('isMainLibrary')
+ext.isMainLibrary = isMainLibrary
+
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.y1xian'
+
+// 发布
+if (isLibrary) {
+    apply plugin: 'com.github.dcendents.android-maven'
+    group = 'com.github.y1xian'
+}
+
 
 android {
     //版本配置
@@ -95,6 +107,10 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
+
+    if (!isMainLibrary) {
+        api project(':widget')
+    }
 
     configurations.all {
         resolutionStrategy.eachDependency { DependencyResolveDetails details ->

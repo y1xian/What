@@ -1,6 +1,6 @@
 package com.yyxnb.module_chat.bean;
 
-import com.yyxnb.common.interfaces.IData;
+import com.yyxnb.widget.interfaces.IData;
 
 public class MessageBean implements IData<Long> {
     public int id;

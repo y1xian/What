@@ -118,7 +118,7 @@ public class VideoFollowFragment extends BaseFragment {
             @Override
             public void onPlayStateChanged(int playState) {
                 if (playState == VideoView.STATE_PLAYING) {
-                    LogUtils.e("Play STATE_PLAYING");
+                    log("Play STATE_PLAYING");
                     // 处理快速切换界面，缓存刚刚好就回继续播放的问题
                     if (!isCur) {
                         mVideoView.pause();
@@ -140,7 +140,7 @@ public class VideoFollowFragment extends BaseFragment {
         Utils.removeViewFormParent(mVideoView);
         TikTokBean item = mVideoList.get(position);
         String playUrl = mPreloadManager.getPlayUrl(item.videoUrl);
-        L.i("startPlay: " + "position: " + position + "  url: " + playUrl);
+        log("startPlay: " + "position: " + position + "  url: " + playUrl);
         mVideoView.setUrl(playUrl);
         mController.addControlComponent(mTikTokView, true);
         mPlayerContainer.addView(mVideoView, 0);
@@ -151,7 +151,7 @@ public class VideoFollowFragment extends BaseFragment {
     @Override
     public void onVisible() {
         isCur = true;
-        LogUtils.w("follow v");
+        log("follow v");
         if (mVideoView != null) {
             mVideoView.resume();
         }
@@ -160,7 +160,7 @@ public class VideoFollowFragment extends BaseFragment {
     @Override
     public void onInVisible() {
         isCur = false;
-        LogUtils.w("follow iv");
+        log("follow iv");
         if (mVideoView != null) {
             mVideoView.pause();
         }

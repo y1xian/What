@@ -74,7 +74,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     @Override
     public void initViewData() {
-        LogUtils.e("main bottom initViewData ");
+        log("main bottom initViewData ");
 
         mFragmentManager = getChildFragmentManager();
         if (mSparseArray == null) {
@@ -112,7 +112,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     @Override
     public void onVisible() {
-        LogUtils.e("main ov");
+        log("main ov");
     }
 
     public void showRecordTip(boolean show) {
@@ -248,7 +248,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     // 跳转登录
     private void forwardLogin() {
-        LogUtils.e("跳登录 " + LoginImpl.getInstance().getUserInfo().toString());
+        log("跳登录 " + LoginImpl.getInstance().getUserInfo().toString());
         startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
     }
 

@@ -1,0 +1,9 @@
+ext.isLibrary = true
+apply from: rootProject.file('lib.gradle')
+
+dependencies {
+    api libs.glide
+    annotationProcessor libs.glide_compiler
+    implementation project(':widget:lib_image_loader')
+    implementation libs.recyclerview
+}

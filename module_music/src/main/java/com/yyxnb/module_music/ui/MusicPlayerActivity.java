@@ -15,20 +15,19 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.base.BaseActivity;
-import com.yyxnb.lib_music.MusicPlayerManager;
-import com.yyxnb.lib_music.interfaces.MusicConstants;
-import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
-import com.yyxnb.lib_music.utils.MusicStatus;
-import com.yyxnb.lib_music.utils.MusicSubjectObservable;
-import com.yyxnb.lib_music.utils.MusicUtils;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;
 import com.yyxnb.module_music.config.MusicSetting;
 import com.yyxnb.module_music.databinding.ActivityMusicPlayerBinding;
 import com.yyxnb.module_music.db.MusicDatabase;
+import com.yyxnb.music.MusicPlayerManager;
+import com.yyxnb.music.interfaces.MusicConstants;
+import com.yyxnb.music.interfaces.MusicPlayerEventListener;
+import com.yyxnb.music.utils.MusicStatus;
+import com.yyxnb.music.utils.MusicSubjectObservable;
+import com.yyxnb.music.utils.MusicUtils;
 
 import java.util.List;
 import java.util.Observable;
@@ -88,7 +87,7 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
             mCurrentTime.setText(MusicUtils.getInstance().stringForAudioTime(mRecordBean.currenTime));
             mTotalTime.setText(MusicUtils.getInstance().stringForAudioTime(Integer.parseInt(mRecordBean.musicBean.totalTime)));
 
-            LogUtils.w("" + mRecordBean);
+            log("" + mRecordBean);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -179,7 +178,7 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
             MusicPlayerManager.getInstance().playLastMusic();
             //开始、暂停
         } else if (id == R.id.music_btn_play_pause) {
-            LogUtils.w("MusicSetting.IS_FIRST_PLAY : " + MusicSetting.IS_FIRST_PLAY);
+            log("MusicSetting.IS_FIRST_PLAY : " + MusicSetting.IS_FIRST_PLAY);
 
             if (MusicSetting.IS_FIRST_PLAY) {
                 MusicSetting.IS_FIRST_PLAY = false;
@@ -320,6 +319,7 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
         return smoothScroll;
     }
 
+    @Override
     public Handler getHandler() {
         if (null == mHandler) {
             mHandler = new Handler(Looper.getMainLooper());
@@ -350,7 +350,7 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
      */
     @Override
     public void onMusicPlayerState(int playerState, String message) {
-        LogUtils.w("pppppp playerState : " + playerState + " , message : " + message);
+        log("pppppp playerState : " + playerState + " , message : " + message);
         getHandler().post(() -> {
             switch (playerState) {
                 case MusicConstants.MUSIC_PLAYER_PREPARE:
@@ -504,8 +504,7 @@ public class MusicPlayerActivity extends BaseActivity implements View.OnClickLis
     public void update(Observable o, Object arg) {
         if (o instanceof MusicSubjectObservable && null != arg && arg instanceof MusicStatus) {
             //收藏状态,针对可能在锁屏界面收藏的同步
-//            ToastUtils.normal("收藏");
-            LogUtils.e("收藏");
+            log("收藏");
         }
     }
 

@@ -119,11 +119,11 @@ public class JokeHomeFragment extends BaseFragment {
             }
         });
 
-        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener(){
+        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);
-                if (mVideos.get(position).type == 0){
+                if (mVideos.get(position).type == 0) {
                     startPlay(position);
                 }
             }
@@ -175,7 +175,7 @@ public class JokeHomeFragment extends BaseFragment {
                     autoPlayVideo(recyclerView);
                     int lastVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
                     int lastVisibleItem1 = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                    LogUtils.w("lastVisibleItem " + lastVisibleItem + " ," + lastVisibleItem1);
+                    log("lastVisibleItem " + lastVisibleItem + " ," + lastVisibleItem1);
                 }
             }
 
@@ -202,7 +202,7 @@ public class JokeHomeFragment extends BaseFragment {
                     mPlayerContainer.getLocalVisibleRect(rect);
                     int height = mPlayerContainer.getHeight();
                     if (rect.top == 0 && rect.bottom == height && findFirst != -1) {
-                        LogUtils.e(" pos " + mAdapter.mPosition + " , findFirst " + findFirst);
+                        log(" pos " + mAdapter.mPosition + " , findFirst " + findFirst);
                         startPlay(findFirst);
                         break;
                     }
@@ -212,7 +212,7 @@ public class JokeHomeFragment extends BaseFragment {
 
         mRecyclerView.post(() -> {
             //自动播放第一个
-            if (mVideos.get(0).type == 0){
+            if (mVideos.get(0).type == 0) {
                 startPlay(0);
             }
         });
@@ -224,7 +224,7 @@ public class JokeHomeFragment extends BaseFragment {
      * @param position 列表位置
      */
     protected void startPlay(int position) {
-        LogUtils.e("mCurPos " + mCurPos + ", p " + position);
+        log("mCurPos " + mCurPos + ", p " + position);
         if (mCurPos == position) {
             return;
         }
@@ -234,7 +234,7 @@ public class JokeHomeFragment extends BaseFragment {
         TikTokBean videoBean = mVideos.get(position);
         //边播边存
         String playUrl = mPreloadManager.getPlayUrl(videoBean.videoUrl);
-        L.i("startPlay: " + "position: " + position + "  url: " + playUrl);
+        log("startPlay: " + "position: " + position + "  url: " + playUrl);
 
         mVideoView.setUrl(playUrl);
         mTitleView.setTitle(videoBean.title);
@@ -333,7 +333,7 @@ public class JokeHomeFragment extends BaseFragment {
 
     @Override
     public void onVisible() {
-        LogUtils.e("joke ov");
+        log("joke ov");
         if (mVideoView != null) {
             mVideoView.resume();
         }
@@ -341,7 +341,7 @@ public class JokeHomeFragment extends BaseFragment {
 
     @Override
     public void onInVisible() {
-        LogUtils.e("joke iv");
+        log("joke iv");
         if (mVideoView != null) {
             mVideoView.pause();
         }
@@ -350,7 +350,7 @@ public class JokeHomeFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtils.e("joke od");
+        log("joke od");
         if (mVideoView != null) {
             mVideoView.release();
         }
@@ -359,7 +359,7 @@ public class JokeHomeFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        LogUtils.e("joke odv");
+        log("joke odv");
         if (mPreloadManager != null) {
             mPreloadManager.removeAllPreloadTask();
         }
