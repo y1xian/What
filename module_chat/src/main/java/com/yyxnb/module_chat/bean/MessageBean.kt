@@ -1,6 +1,6 @@
 package com.yyxnb.module_chat.bean
 
-import com.yyxnb.common.interfaces.IData
+import com.yyxnb.widget.interfaces.IData
 
 data class MessageBean(
         var id: Int = 0,

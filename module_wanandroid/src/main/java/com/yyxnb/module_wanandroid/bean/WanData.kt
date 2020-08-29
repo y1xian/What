@@ -1,6 +1,6 @@
 package com.yyxnb.module_wanandroid.bean
 
-import com.yyxnb.common.interfaces.IData
+import com.yyxnb.widget.interfaces.IData
 import java.io.Serializable
 
 /**

@@ -1,0 +1,6 @@
+ext.isLibrary = true
+apply from: rootProject.file('lib.gradle')
+
+dependencies {
+    implementation project(':widget:lib_common')
+}

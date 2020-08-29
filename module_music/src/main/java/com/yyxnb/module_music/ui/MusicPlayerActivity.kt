@@ -294,13 +294,13 @@ class MusicPlayerActivity : BaseActivity(), View.OnClickListener, MusicPlayerEve
         return false
     }
 
-    val handler: Handler
-        get() {
-            if (null == mHandler) {
-                mHandler = Handler(Looper.getMainLooper())
-            }
-            return mHandler!!
-        }
+//    val handler: Handler
+//        get() {
+//            if (null == mHandler) {
+//                mHandler = Handler(Looper.getMainLooper())
+//            }
+//            return mHandler!!
+//        }
 
     override fun onDestroy() {
         super.onDestroy()

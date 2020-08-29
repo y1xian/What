@@ -1,15 +1,15 @@
 package com.yyxnb.module_main.bean
 
-import com.yyxnb.common.interfaces.IData
+import com.yyxnb.widget.interfaces.IData
 
 data class MainHomeBean(
         @JvmField
         var id: Int = 0,
         var type: Int = 0,
-        var title: String? = null,
-        var des: String? = null,
-        var url: String? = null,
-        var color: String? = null,
+        var title: String? = "",
+        var des: String? = "",
+        var url: String? = "",
+        var color: String? = "",
         @JvmField
         var span: Int = 0
 ) : IData<Long> {

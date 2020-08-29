@@ -12,7 +12,7 @@ object versions {
     const val appcompat = "1.2.0"
     const val core_ktx = "1.3.1"
     const val fragment = "1.2.5"
-    const val annotation = "1.1.0"
+    const val annotation_ = "1.1.0"
     const val recyclerview = "1.1.0"
     const val constraint = "1.1.3"
     const val cardview = "1.0.0"

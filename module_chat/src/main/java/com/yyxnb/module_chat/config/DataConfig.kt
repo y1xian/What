@@ -1,9 +1,9 @@
 package com.yyxnb.module_chat.config
 
-import com.yyxnb.common.CommonManager.getContext
 import com.yyxnb.module_chat.bean.MessageBean
 import com.yyxnb.network.utils.GsonUtils.jsonToList
 import com.yyxnb.utils.FileUtils
+import com.yyxnb.widget.WidgetManager.getContext
 
 object DataConfig {
     /**

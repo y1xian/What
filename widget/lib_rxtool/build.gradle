@@ -1,0 +1,8 @@
+ext.isLibrary = true
+apply from: rootProject.file('lib.gradle')
+
+dependencies {
+    implementation project(':widget:lib_common')
+    // rx全家桶
+    api([libs.rxjava2, libs.rxandroid2, libs.rxbinding2])
+}

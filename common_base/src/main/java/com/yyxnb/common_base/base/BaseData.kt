@@ -1,6 +1,6 @@
 package com.yyxnb.common_base.base
 
-import com.yyxnb.common.interfaces.IData
+import com.yyxnb.widget.interfaces.IData
 
 data class BaseData<T>(
         var status: String = "",

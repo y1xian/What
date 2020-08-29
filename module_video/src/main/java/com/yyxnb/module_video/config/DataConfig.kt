@@ -1,9 +1,9 @@
 package com.yyxnb.module_video.config
 
-import com.yyxnb.common.CommonManager.getContext
 import com.yyxnb.module_video.bean.TikTokBean
 import com.yyxnb.network.utils.GsonUtils.jsonToList
 import com.yyxnb.utils.FileUtils
+import com.yyxnb.widget.WidgetManager.getContext
 import java.math.BigDecimal
 import java.util.*
 

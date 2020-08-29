@@ -5,23 +5,25 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.MotionEvent
-import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
 import com.github.anzewei.parallaxbacklayout.ParallaxBack
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout
+import com.yyxnb.arch.action.ArchAction
+import com.yyxnb.arch.action.BundleAction
 import com.yyxnb.arch.annotations.SwipeStyle
 import com.yyxnb.arch.base.IActivity
 import com.yyxnb.arch.base.IFragment
 import com.yyxnb.arch.base.Java8Observer
 import com.yyxnb.arch.common.ArchConfig
-import com.yyxnb.arch.delegate.ActivityDelegate
+import com.yyxnb.common.action.AnimAction
 import com.yyxnb.common.utils.KeyboardUtils.hideSoftInput
-import com.yyxnb.common.utils.log.LogUtils
 import com.yyxnb.skinloader.SkinInflaterFactory
+import com.yyxnb.widget.action.ClickAction
+import com.yyxnb.widget.action.HandlerAction
 import me.jessyan.autosize.AutoSizeCompat
 import java.lang.ref.WeakReference
 
@@ -29,16 +31,17 @@ import java.lang.ref.WeakReference
  * 建议 [ContainerActivity.initBaseFragment]  }
  */
 @ParallaxBack(edgeMode = ParallaxBack.EdgeMode.EDGE)
-abstract class BaseActivity : AppCompatActivity(), IActivity {
+abstract class BaseActivity : AppCompatActivity(), IActivity,
+        ArchAction, BundleAction, HandlerAction, ClickAction, AnimAction {
 
     protected val TAG = javaClass.canonicalName
     protected var mContext: WeakReference<Context>? = null
     private val java8Observer: Java8Observer
     private val mActivityDelegate by lazy { getBaseDelegate() }
 
-    val context: Context
-        get() = mContext!!.get()!!
-
+    override fun getContext(): Context {
+        return mContext!!.get()!!
+    }
 
     init {
         java8Observer = Java8Observer(TAG)
@@ -78,6 +81,11 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
         lifecycle.removeObserver(java8Observer)
         mContext?.clear()
         mContext = null
+    }
+
+    @Nullable
+    override fun getBundle(): Bundle? {
+        return intent.extras
     }
 
     override fun getResources(): Resources {

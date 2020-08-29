@@ -1,5 +1,6 @@
 package com.yyxnb.module_wanandroid.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import com.yyxnb.module_wanandroid.bean.WanAriticleBean
 import com.yyxnb.module_wanandroid.bean.WanStatus
 import com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE
 import com.yyxnb.module_wanandroid.databinding.FragmentWanHomeBinding
+import com.yyxnb.module_wanandroid.ui.WanWebActivity
 import com.yyxnb.module_wanandroid.viewmodel.WanHomeViewModel
 import java.util.*
 
@@ -66,6 +68,10 @@ class WanHomeFragment : BaseFragment() {
         mAdapter!!.setOnItemClickListener(object : MultiItemTypeAdapter.SimpleOnItemClickListener() {
             override fun onItemClick(view: View, holder: BaseViewHolder, position: Int) {
                 super.onItemClick(view, holder, position)
+                val intent = Intent(getActivity, WanWebActivity::class.java)
+                intent.putExtra("title",mAdapter!!.getItem(position)!!.title)
+                intent.putExtra("url",mAdapter!!.getItem(position)!!.link)
+                startActivity(intent)
             }
         })
         mRefreshLayout!!.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {

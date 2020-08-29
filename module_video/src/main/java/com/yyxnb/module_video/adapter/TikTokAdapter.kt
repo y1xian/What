@@ -11,7 +11,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import com.yyxnb.common.interfaces.OnSelectListener
+import com.yyxnb.widget.interfaces.OnSelectListener
 import com.yyxnb.common.utils.DpUtils.getScreenWidth
 import com.yyxnb.module_video.R
 import com.yyxnb.module_video.bean.TikTokBean

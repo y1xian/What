@@ -5,10 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.yyxnb.arch.annotations.BindRes
-import com.yyxnb.common.interfaces.OnSelectListener
+import com.yyxnb.widget.interfaces.OnSelectListener
 import com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN_FRAGMENT
 import com.yyxnb.common_base.base.BaseFragment
-import com.yyxnb.lib_view.tabbar.*
+import com.yyxnb.view.tabbar.*
 import com.yyxnb.module_wanandroid.R
 import com.yyxnb.module_wanandroid.databinding.FragmentWanMainBinding
 import com.yyxnb.module_wanandroid.ui.home.WanHomeFragment

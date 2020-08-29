@@ -15,7 +15,7 @@ object libs {
     const val fragment = "androidx.fragment:fragment:${versions.fragment}"
     const val recyclerview = "androidx.recyclerview:recyclerview:${versions.recyclerview}"
     const val cardview = "androidx.cardview:cardview:${versions.cardview}"
-    const val annotations = "androidx.annotation:annotation:${versions.annotation}"
+    const val annotation_ = "androidx.annotation:annotation:${versions.annotation_}"
     const val constraint = "androidx.constraintlayout:constraintlayout:${versions.constraint}"
     const val viewpager2 = "androidx.viewpager2:viewpager2:${versions.viewpager2}"
 

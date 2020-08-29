@@ -81,7 +81,7 @@ ext {
             fragment               : [group: 'androidx.fragment', name: 'fragment', version: versions.fragment],
             recyclerview           : [group: 'androidx.recyclerview', name: 'recyclerview', version: versions.recyclerview],
             cardview               : [group: 'androidx.cardview', name: 'cardview', version: versions.cardview],
-            annotations            : [group: 'androidx.annotation', name: 'annotation', version: versions.annotation],
+            annotation_            : [group: 'androidx.annotation', name: 'annotation', version: versions.annotation_],
             constraint             : [group: 'androidx.constraintlayout', name: 'constraintlayout', version: versions.constraint],
             viewpager2             : [group: 'androidx.viewpager2', name: 'viewpager2', version: versions.viewpager2],
 

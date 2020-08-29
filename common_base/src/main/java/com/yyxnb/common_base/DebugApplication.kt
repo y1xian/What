@@ -9,13 +9,12 @@ import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.tencent.mmkv.MMKV
-import com.yyxnb.common.CommonManager.getApp
-import com.yyxnb.common.CommonManager.isDebug
 import com.yyxnb.common_base.config.Constants
 import com.yyxnb.common_base.module.ModuleLifecycleConfig.Companion.instance
 import com.yyxnb.common_base.weight.skin.ExtraAttrRegister
 import com.yyxnb.image_loader.ImageManager
 import com.yyxnb.skinloader.SkinManager
+import com.yyxnb.widget.WidgetManager
 import me.jessyan.autosize.AutoSizeConfig
 
 /**
@@ -34,13 +33,14 @@ open class DebugApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         //初始化阿里路由框架
-        if (isDebug) {
+        if (WidgetManager.isDebug) {
             ARouter.openLog() // 打印日志
             ARouter.openDebug() // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
         // 尽可能早，推荐在Application中初始化
         ARouter.init(this)
         MMKV.initialize(this)
+
         ImageManager.getInstance().init(this.applicationContext)
 
         // 换肤
@@ -53,7 +53,7 @@ open class DebugApplication : Application() {
         AutoSizeConfig.getInstance() //按照宽度适配 默认true
                 .setBaseOnWidth(true).isCustomFragment = true
         // 侧滑监听
-        getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance())
+        WidgetManager.getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance())
 
         //初始化组件
         instance.initModule(this)

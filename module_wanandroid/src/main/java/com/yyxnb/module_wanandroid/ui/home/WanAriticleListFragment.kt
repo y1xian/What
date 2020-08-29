@@ -1,5 +1,6 @@
 package com.yyxnb.module_wanandroid.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
+import com.yyxnb.adapter.BaseViewHolder
+import com.yyxnb.adapter.MultiItemTypeAdapter
 import com.yyxnb.arch.annotations.BindRes
 import com.yyxnb.arch.annotations.BindViewModel
 import com.yyxnb.common.utils.log.LogUtils.w
@@ -17,6 +20,7 @@ import com.yyxnb.module_wanandroid.bean.WanAriticleBean
 import com.yyxnb.module_wanandroid.bean.WanStatus
 import com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE
 import com.yyxnb.module_wanandroid.databinding.FragmentWanAriticleListBinding
+import com.yyxnb.module_wanandroid.ui.WanWebActivity
 import com.yyxnb.module_wanandroid.viewmodel.WanSearchViewModel
 
 /**
@@ -49,7 +53,6 @@ class WanAriticleListFragment : BaseFragment() {
     }
 
     override fun initViewData() {
-        w("has " + hashCode() + " , " + mViewModel.hashCode())
         mAdapter = WanHomeAdapter()
         mRecyclerView!!.layoutManager = LinearLayoutManager(context)
         mRecyclerView!!.setHasFixedSize(true)
@@ -63,6 +66,16 @@ class WanAriticleListFragment : BaseFragment() {
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mPage = 0
                 mViewModel.getSearchDataByKey(mPage, mKey)
+            }
+        })
+
+        mAdapter?.setOnItemClickListener(object :MultiItemTypeAdapter.SimpleOnItemClickListener(){
+            override fun onItemClick(view: View?, holder: BaseViewHolder?, position: Int) {
+                super.onItemClick(view, holder, position)
+                val intent = Intent(getActivity,WanWebActivity::class.java)
+                intent.putExtra("title",mAdapter!!.getItem(position)!!.title)
+                intent.putExtra("url",mAdapter!!.getItem(position)!!.link)
+                startActivity(intent)
             }
         })
     }

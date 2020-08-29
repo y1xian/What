@@ -14,7 +14,7 @@ import com.yyxnb.arch.annotations.BindViewModel
 import com.yyxnb.arch.common.Bus.post
 import com.yyxnb.arch.common.MsgEvent
 import com.yyxnb.common.CommonManager.toast
-import com.yyxnb.common.interfaces.OnSelectListener
+import com.yyxnb.widget.interfaces.OnSelectListener
 import com.yyxnb.common.utils.log.LogUtils.e
 import com.yyxnb.common_base.base.BaseFragment
 import com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP

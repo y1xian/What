@@ -1,9 +1,0 @@
-ext.isLibrary = true
-apply from: rootProject.file('lib.gradle')
-
-dependencies {
-    api libs.glide
-    kapt libs.glide_compiler
-    implementation project(':lib_image_loader')
-    implementation libs.recyclerview, libs.appcompat
-}

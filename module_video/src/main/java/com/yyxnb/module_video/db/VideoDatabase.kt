@@ -4,9 +4,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.yyxnb.common.CommonManager.getContext
 import com.yyxnb.common_base.db.DateConverter
 import com.yyxnb.module_video.bean.TikTokBean
+import com.yyxnb.widget.WidgetManager.getContext
 
 /**
  * Database这个对象我们需要指定三个参数entities 代表数据库需要操作的实体类集合，第二个参数代表数据库的版本第三个参数代表在编译时，

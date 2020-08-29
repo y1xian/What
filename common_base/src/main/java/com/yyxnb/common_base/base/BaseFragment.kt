@@ -8,16 +8,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import com.yyxnb.arch.action.ArchAction
+import com.yyxnb.arch.action.BundleAction
 import com.yyxnb.arch.base.IFragment
 import com.yyxnb.arch.base.Java8Observer
 import com.yyxnb.arch.common.ArchConfig
-import com.yyxnb.arch.delegate.FragmentDelegate
+import com.yyxnb.common.action.AnimAction
+import com.yyxnb.widget.action.ClickAction
+import com.yyxnb.widget.action.HandlerAction
 import java.lang.ref.WeakReference
 import java.util.*
 
@@ -26,7 +31,8 @@ import java.util.*
  *
  * @author yyx
  */
-abstract class BaseFragment : Fragment(), IFragment {
+abstract class BaseFragment : Fragment(), IFragment,
+        ArchAction, BundleAction, HandlerAction, ClickAction, AnimAction {
 
     protected val TAG = javaClass.canonicalName
     protected var mContext: WeakReference<Context>? = null
@@ -105,9 +111,13 @@ abstract class BaseFragment : Fragment(), IFragment {
         lifecycle.removeObserver(java8Observer)
     }
 
-    @Suppress("UNCHECKED_CAST")
-    fun <T> findViewById(@IdRes resId: Int): T {
-        return mRootView!!.findViewById<View>(resId) as T
+    @Nullable
+    override fun getBundle(): Bundle? {
+        return initArguments()
+    }
+
+    override fun <V : View> findViewById(id: Int): V {
+        return mRootView!!.findViewById(id) as V
     }
 
     /**

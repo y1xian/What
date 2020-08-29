@@ -1,4 +1,5 @@
 apply from: rootProject.file('module.gradle')
+apply plugin: 'kotlin-android'
 
 android {
 
@@ -22,4 +23,5 @@ dependencies {
         addComponent 'module_chat'
     }
 
+    implementation project(':widget:lib_webview')
 }

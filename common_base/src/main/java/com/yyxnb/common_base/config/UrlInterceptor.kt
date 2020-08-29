@@ -112,24 +112,28 @@ class UrlInterceptor : Interceptor {
     private fun realCreateHttpBuilder(headerHttpUrl: HttpUrl, oldHttpUrl: HttpUrl): HttpUrl.Builder {
         val builder = oldHttpUrl.newBuilder()
 
-        for (i in 0 until oldHttpUrl.pathSize) {
-            builder.removePathSegment(0)
-        }
+        try {
+            for (i in 0 until oldHttpUrl.pathSize) {
+                builder.removePathSegment(0)
+            }
 
-        val newPathSegments = arrayListOf<String>()
-        newPathSegments.addAll(headerHttpUrl.encodedPathSegments)
+            val newPathSegments = arrayListOf<String>()
+            newPathSegments.addAll(headerHttpUrl.encodedPathSegments)
 
-        if (oldHttpUrl.pathSize < pathSize) {
-            throw IllegalArgumentException("$headerHttpUrl pathSize more than $oldHttpUrl pathSize")
-        }
+            if (oldHttpUrl.pathSize < pathSize) {
+                throw IllegalArgumentException("$headerHttpUrl pathSize more than $oldHttpUrl pathSize")
+            }
 
-        val encodedPathSegments = oldHttpUrl.encodedPathSegments
-        for (i in pathSize until encodedPathSegments.size) {
-            newPathSegments.add(encodedPathSegments[i])
-        }
+            val encodedPathSegments = oldHttpUrl.encodedPathSegments
+            for (i in pathSize until encodedPathSegments.size) {
+                newPathSegments.add(encodedPathSegments[i])
+            }
 
-        for (PathSegment in newPathSegments) {
-            builder.addEncodedPathSegment(PathSegment)
+            for (PathSegment in newPathSegments) {
+                builder.addEncodedPathSegment(PathSegment)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
 
         return builder

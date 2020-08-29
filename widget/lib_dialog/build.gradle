@@ -1,0 +1,8 @@
+ext.isLibrary = true
+apply from: rootProject.file('lib.gradle')
+
+dependencies {
+    implementation project(':widget:lib_adapter'), project(':widget:lib_common')
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+    api 'com.google.android.material:material:1.2.0'
+}

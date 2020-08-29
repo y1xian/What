@@ -14,7 +14,7 @@ import com.yyxnb.module_main.bean.MainHomeBean
 class MainHomeAdapter : MultiItemTypeAdapter<MainHomeBean>() {
     // 统一设置
     private fun setView(mLayout: ConstraintLayout, tvTitle: TextView, bean: MainHomeBean) {
-        if (!bean.color.isEmpty()) {
+        if (!bean.color!!.isEmpty()) {
             val drawable = DrawableCreator.Builder()
                     .setSolidColor(Color.parseColor(bean.color))
                     .setCornersRadius(dp2px(mLayout.context, 10f).toFloat())
