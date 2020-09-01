@@ -3,6 +3,7 @@ package com.yyxnb.network;
 import com.yyxnb.network.interceptor.CacheInterceptor;
 import com.yyxnb.network.interceptor.HeaderInterceptor;
 import com.yyxnb.network.interceptor.LoggingInterceptor;
+import com.yyxnb.network.interceptor.weaknetwork.WeakNetworkInterceptor;
 import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.network.utils.SSLUtils;
 import com.yyxnb.widget.AppGlobals;
@@ -168,11 +169,17 @@ public abstract class AbstractHttp {
         final SSLUtils.SSLParams sslParams = SSLUtils.getSslSocketFactory(keyStore(), keyStorePassword(), certificates());
 
         builder
+                // 请求头
                 .addInterceptor(new HeaderInterceptor(header()))
+                // 弱网
+                .addInterceptor(new WeakNetworkInterceptor())
+                // 超时
                 .readTimeout(readTimeout(), TimeUnit.SECONDS)
                 .writeTimeout(writeTimeout(), TimeUnit.SECONDS)
                 .connectTimeout(connectTimeout(), TimeUnit.SECONDS)
+                // 重连
                 .retryOnConnectionFailure(true)
+                // 证书
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .hostnameVerifier(SSLUtils.UnSafeHostnameVerifier)
         ;
