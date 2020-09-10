@@ -1,11 +1,11 @@
-package com.yyxnb.network.db.cache;
+package com.yyxnb.room.cache;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
-import com.yyxnb.network.db.DateConverter;
+import com.yyxnb.room.DateConverter;
 import com.yyxnb.widget.WidgetManager;
 
 /**

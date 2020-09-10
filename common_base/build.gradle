@@ -7,6 +7,8 @@ dependencies {
     api project(':widget:lib_arch')
     // 网络框架
     api project(':widget:lib_network')
+    // 数据库
+    api project(':widget:lib_room')
     // 图片框架
     api project(':widget:lib_image_loader')
     annotationProcessor libs.glide_compiler

@@ -1,4 +1,4 @@
-package com.yyxnb.network.db;
+package com.yyxnb.room;
 
 import android.arch.persistence.room.TypeConverter;
 

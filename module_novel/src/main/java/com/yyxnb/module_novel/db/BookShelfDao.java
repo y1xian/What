@@ -5,7 +5,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
 
 import com.yyxnb.module_novel.bean.BookShelfBean;
-import com.yyxnb.network.db.BaseDao;
+import com.yyxnb.room.BaseDao;
 
 import java.util.List;
 

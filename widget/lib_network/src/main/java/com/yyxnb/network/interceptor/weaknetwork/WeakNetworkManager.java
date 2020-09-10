@@ -56,6 +56,13 @@ public class WeakNetworkManager {
     }
 
 
+    /**
+     * 参数设置
+     *
+     * @param timeOutMillis 超时
+     * @param requestSpeed  请求
+     * @param responseSpeed 响应
+     */
     public void setParameter(long timeOutMillis, long requestSpeed, long responseSpeed) {
         if (timeOutMillis > 0) {
             mTimeOutMillis = timeOutMillis;

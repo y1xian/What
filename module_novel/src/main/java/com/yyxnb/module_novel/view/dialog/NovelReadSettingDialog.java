@@ -101,25 +101,18 @@ public class NovelReadSettingDialog {
             mRgPageMode.setOnCheckedChangeListener(
                     (group, checkedId) -> {
                         PageMode pageMode;
-                        switch (checkedId) {
-                            case R.id.read_setting_rb_simulation:
-                                pageMode = PageMode.SIMULATION;
-                                break;
-                            case R.id.read_setting_rb_cover:
-                                pageMode = PageMode.COVER;
-                                break;
-                            case R.id.read_setting_rb_slide:
-                                pageMode = PageMode.SLIDE;
-                                break;
-                            case R.id.read_setting_rb_scroll:
-                                pageMode = PageMode.SCROLL;
-                                break;
-                            case R.id.read_setting_rb_none:
-                                pageMode = PageMode.NONE;
-                                break;
-                            default:
-                                pageMode = PageMode.SIMULATION;
-                                break;
+                        if (checkedId == R.id.read_setting_rb_simulation) {
+                            pageMode = PageMode.SIMULATION;
+                        } else if (checkedId == R.id.read_setting_rb_cover) {
+                            pageMode = PageMode.COVER;
+                        } else if (checkedId == R.id.read_setting_rb_slide) {
+                            pageMode = PageMode.SLIDE;
+                        } else if (checkedId == R.id.read_setting_rb_scroll) {
+                            pageMode = PageMode.SCROLL;
+                        } else if (checkedId == R.id.read_setting_rb_none) {
+                            pageMode = PageMode.NONE;
+                        } else {
+                            pageMode = PageMode.SIMULATION;
                         }
                         mPageLoader.setPageMode(pageMode);
                     }

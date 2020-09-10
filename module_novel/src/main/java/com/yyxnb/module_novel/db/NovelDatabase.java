@@ -5,11 +5,11 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
-import com.yyxnb.module_novel.bean.BookRecordBean;
-import com.yyxnb.module_novel.bean.BookShelfBean;
-import com.yyxnb.network.db.DateConverter;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
+import com.yyxnb.module_novel.bean.BookRecordBean;
+import com.yyxnb.module_novel.bean.BookShelfBean;
+import com.yyxnb.room.DateConverter;
 import com.yyxnb.widget.WidgetManager;
 
 /**

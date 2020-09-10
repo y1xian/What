@@ -4,8 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
 
-import com.yyxnb.network.db.BaseDao;
 import com.yyxnb.module_novel.bean.BookInfoBean;
+import com.yyxnb.room.BaseDao;
 
 @Dao
 public interface BookInfoDao extends BaseDao<BookInfoBean> {

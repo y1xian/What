@@ -24,7 +24,9 @@ include ':widget:lib_network',
         ':widget:lib_popup',
         ':widget:lib_localservice',
         ':widget:lib_view',
-        ':widget:lib_webview'
+        ':widget:lib_webview',
+        ':widget:lib_system',
+        ':widget:lib_room'
 
 include ':skin_night'
 rootProject.name = 'What'

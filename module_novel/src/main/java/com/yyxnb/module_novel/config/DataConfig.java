@@ -19,7 +19,7 @@ public class DataConfig {
      */
     public static List<BookInfoBean> getMainBeans() {
         if (mainBeans == null) {
-            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "main_data.json");
+            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "novel_data.json");
             mainBeans = GsonUtils.jsonToList(content, BookInfoBean.class);
         }
         return mainBeans;
