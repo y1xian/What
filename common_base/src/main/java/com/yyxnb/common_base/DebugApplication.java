@@ -3,6 +3,8 @@ package com.yyxnb.common_base;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.view.animation.AccelerateInterpolator;
+import android.widget.ImageView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
@@ -16,11 +18,15 @@ import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.common_base.base.BaseActivity;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
 import com.yyxnb.common_base.weight.skin.ExtraAttrRegister;
+import com.yyxnb.floatwindow.FloatWindow;
+import com.yyxnb.floatwindow.MoveType;
+import com.yyxnb.floatwindow.Screen;
 import com.yyxnb.image_loader.ImageManager;
 import com.yyxnb.skinloader.SkinManager;
+import com.yyxnb.widget.WidgetManager;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -74,6 +80,25 @@ public class DebugApplication extends Application {
 
         //初始化组件
         ModuleLifecycleConfig.getInstance().initModule(this);
+
+        ImageView imageView = new ImageView(getApplicationContext());
+        imageView.setImageResource(R.drawable.ic_launcher_background);
+
+        // 悬浮窗
+        FloatWindow
+                .with(getApplicationContext())
+                .setView(imageView)
+                .setWidth(200)                               //设置控件宽高
+                .setHeight(200)
+                .setX(20)                                   //设置控件初始位置
+                .setY(Screen.HEIGHT, 0.3f)
+                .setDesktopShow(false)                        //桌面显示
+                .setFilter(true, BaseActivity.class)         // 指定界面显示
+                .setMoveType(MoveType.SLIDE, 20, 20)
+                .setMoveStyle(500, new AccelerateInterpolator())  //贴边动画时长为500ms，加速插值器
+//                .setViewStateListener(mViewStateListener)    //监听悬浮控件状态改变
+//                .setPermissionListener(mPermissionListener)  //监听权限申请结果
+                .build();
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.

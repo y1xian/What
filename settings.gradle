@@ -1,3 +1,4 @@
+include ':widget:lib_floatwindow'
 include ':app',
         ':common_base',
         ':module_main',
