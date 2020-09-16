@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.MultiItemTypeAdapter;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_novel.R;
@@ -40,7 +40,7 @@ public class BookHomeFragment extends BaseFragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);

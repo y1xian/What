@@ -53,7 +53,10 @@ public class WanAriticleListFragment extends BaseFragment {
         mKey = initArguments().getString("key", "");
 
         binding.iTitle.mTitle.getCenterTextView().setText(mKey);
-        binding.iTitle.mTitle.setBackListener(v -> finish());
+        binding.iTitle.mTitle.setBackListener(v -> {
+            setResultCode(888);
+            finish();
+        });
 
     }
 

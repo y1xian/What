@@ -9,8 +9,8 @@ public class ModuleInit implements IModuleInit {
 
     @Override
     public void onCreate(Application application) {
-        WeakNetworkManager.get().setActive(true);
-        WeakNetworkManager.get().setParameter(5000, 5, 5);
+        WeakNetworkManager.get().setActive(false);
+        WeakNetworkManager.get().setParameter(5000, 1, 1);
         WeakNetworkManager.get().setType(WeakNetworkManager.TYPE_SPEED_LIMIT);
     }
 }

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.yyxnb.adapter.BaseAdapter;
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.MultiItemTypeAdapter;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.popup.PopupManager;
 import com.yyxnb.popup.R;
 import com.yyxnb.popup.code.CenterPopupView;
@@ -99,7 +99,7 @@ public class CenterListPopupView extends CenterPopupView {
                 }
             }
         };
-        adapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        adapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 if (selectListener != null) {

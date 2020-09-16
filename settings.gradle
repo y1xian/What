@@ -1,4 +1,3 @@
-include ':widget:lib_floatwindow'
 include ':app',
         ':common_base',
         ':module_main',
@@ -27,7 +26,8 @@ include ':widget:lib_network',
         ':widget:lib_view',
         ':widget:lib_webview',
         ':widget:lib_system',
-        ':widget:lib_room'
+        ':widget:lib_room',
+        ':widget:lib_floatwindow'
 
 include ':skin_night'
 rootProject.name = 'What'

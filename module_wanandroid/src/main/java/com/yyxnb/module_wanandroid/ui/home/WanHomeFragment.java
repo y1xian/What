@@ -13,7 +13,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.youth.banner.Banner;
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.MultiItemTypeAdapter;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
@@ -79,7 +79,7 @@ public class WanHomeFragment extends BaseFragment {
         mBanner.setImageLoader(new GlideImageLoader());
         mAdapter.addHeaderView(mHeader);
 
-        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);

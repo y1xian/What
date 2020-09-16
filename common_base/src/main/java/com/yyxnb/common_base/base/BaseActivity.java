@@ -21,6 +21,7 @@ import com.yyxnb.arch.annotations.SwipeStyle;
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.base.Java8Observer;
+import com.yyxnb.arch.common.AppManager;
 import com.yyxnb.arch.common.ArchConfig;
 import com.yyxnb.arch.delegate.ActivityDelegate;
 import com.yyxnb.common.action.AnimAction;
@@ -117,6 +118,17 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        AppManager instance = AppManager.getInstance();
+        if (instance.fragmentCount() > 1 && !fragments.isEmpty()) {
+            if (fragments.get(fragments.size() - 1) instanceof IFragment) {
+                BaseFragment current = (BaseFragment) instance.currentFragment();
+                Fragment before = instance.beforeFragment();
+                //将回调的传入到fragment中去
+                if (current != null && before != null) {
+                    before.onActivityResult(0, current.getResultCode(), current.getResult());
+                }
+            }
+        }
         if (fragments.isEmpty()) {
             super.onBackPressed();
         } else {
@@ -141,19 +153,15 @@ public abstract class BaseActivity extends AppCompatActivity
         return super.onTouchEvent(event);
     }
 
-    public <T extends IFragment> void startFragment(T targetFragment) {
-        startFragment(targetFragment, 0);
-    }
 
-    public <T extends IFragment> void startFragment(T targetFragment, int requestCode) {
+    public <T extends IFragment> void startFragment(T targetFragment) {
         try {
             Intent intent = new Intent(this, ContainerActivity.class);
             Bundle bundle = targetFragment.initArguments();
-            bundle.putInt(ArchConfig.REQUEST_CODE, requestCode);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(ArchConfig.FRAGMENT, targetFragment.getClass().getCanonicalName());
             intent.putExtra(ArchConfig.BUNDLE, bundle);
-            startActivityForResult(intent, requestCode);
+            startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }

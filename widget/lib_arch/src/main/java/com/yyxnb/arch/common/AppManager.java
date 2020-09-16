@@ -9,7 +9,9 @@ import com.yyxnb.arch.base.IFragment;
 import com.yyxnb.arch.delegate.ActivityDelegate;
 import com.yyxnb.arch.delegate.FragmentDelegate;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -102,6 +104,10 @@ public class AppManager {
             return !activityStack.isEmpty();
         }
         return false;
+    }
+
+    public int activityCount() {
+        return activityStack.size();
     }
 
     /**
@@ -208,6 +214,25 @@ public class AppManager {
             return fragmentStack.lastElement();
         }
         return null;
+    }
+
+    public int fragmentCount() {
+        return fragmentStack.size();
+    }
+
+    public List<Fragment> getFragmentList() {
+        List<Fragment> list = new ArrayList<>();
+        if (!fragmentStack.isEmpty()) {
+            list.addAll(fragmentStack);
+        }
+        return list;
+    }
+
+    public Fragment beforeFragment() {
+        if (fragmentCount() < 2) {
+            return null;
+        }
+        return fragmentStack.get(fragmentCount() - 2);
     }
 
 

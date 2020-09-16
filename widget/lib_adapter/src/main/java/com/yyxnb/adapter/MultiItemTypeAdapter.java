@@ -18,7 +18,7 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
 
     protected List<T> mData = new ArrayList<>();
     private ItemDelegateManager<T> mItemDelegateManager = new ItemDelegateManager<>();
-    private MultiItemTypePagedAdapter.OnItemClickListener mOnItemClickListener;
+    private OnItemClickListener mOnItemClickListener;
 
     private SparseArray<View> mHeaders = new SparseArray<>();
     private SparseArray<View> mFooters = new SparseArray<>();
@@ -26,7 +26,7 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
     private int BASE_ITEM_TYPE_HEADER = 100000;
     private int BASE_ITEM_TYPE_FOOTER = 200000;
 
-    public void setOnItemClickListener(MultiItemTypePagedAdapter.OnItemClickListener mOnItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
 
@@ -340,40 +340,6 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
             mObserver.onItemRangeMoved(fromPosition + mHeaders.size(), toPosition + mHeaders.size(), itemCount);
         }
 
-    }
-
-    public interface OnItemClickListener {
-
-        void onItemClick(View view, BaseViewHolder holder, int position);
-
-        boolean onItemLongClick(View view, BaseViewHolder holder, int position);
-
-        void onItemChildClick(View view, BaseViewHolder holder, int position);
-
-        boolean onItemChildLongClick(View view, BaseViewHolder holder, int position);
-    }
-
-    public static class SimpleOnItemClickListener implements MultiItemTypePagedAdapter.OnItemClickListener {
-
-        @Override
-        public void onItemClick(View view, BaseViewHolder holder, int position) {
-
-        }
-
-        @Override
-        public boolean onItemLongClick(View view, BaseViewHolder holder, int position) {
-            return false;
-        }
-
-        @Override
-        public void onItemChildClick(View view, BaseViewHolder holder, int position) {
-
-        }
-
-        @Override
-        public boolean onItemChildLongClick(View view, BaseViewHolder holder, int position) {
-            return false;
-        }
     }
 
     /**

@@ -24,17 +24,16 @@ import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.adapter.BaseViewHolder;
 import com.yyxnb.adapter.ItemDecoration;
-import com.yyxnb.adapter.MultiItemTypeAdapter;
-import com.yyxnb.common.utils.log.LogUtils;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.video.Utils;
-import com.yyxnb.video.cache.PreloadManager;
-import com.yyxnb.video.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_joke.R;
 import com.yyxnb.module_joke.adapter.JokeHomeAdapter;
 import com.yyxnb.module_joke.bean.TikTokBean;
 import com.yyxnb.module_joke.config.DataConfig;
 import com.yyxnb.module_joke.databinding.FragmentJokeHomeBinding;
+import com.yyxnb.video.Utils;
+import com.yyxnb.video.cache.PreloadManager;
+import com.yyxnb.video.cache.ProxyVideoCacheManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +118,7 @@ public class JokeHomeFragment extends BaseFragment {
             }
         });
 
-        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);

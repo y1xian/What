@@ -143,22 +143,37 @@ public abstract class BaseFragment extends Fragment
         mFragmentDelegate.finish();
     }
 
-    public <T extends IFragment> void startFragment(T targetFragment) {
-        startFragment(targetFragment, 0);
-    }
 
-    public <T extends IFragment> void startFragment(T targetFragment, int requestCode) {
+    public <T extends IFragment> void startFragment(T targetFragment) {
         try {
             Bundle bundle = initArguments();
             Intent intent = new Intent(mActivity.get(), ContainerActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(ArchConfig.FRAGMENT, targetFragment.getClass().getCanonicalName());
-            bundle.putInt(ArchConfig.REQUEST_CODE, requestCode);
             intent.putExtra(ArchConfig.BUNDLE, bundle);
-            mActivity.get().startActivityForResult(intent, requestCode);
+            mActivity.get().startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private int resultCode;
+    private Intent result;
+
+    public void setResultCode(int resultCode) {
+        setResultCode(resultCode, null);
+    }
+
+    public void setResultCode(int resultCode, Intent result) {
+        this.resultCode = resultCode;
+        this.result = result;
+    }
+
+    public int getResultCode() {
+        return resultCode;
+    }
+
+    public Intent getResult() {
+        return result;
+    }
 }

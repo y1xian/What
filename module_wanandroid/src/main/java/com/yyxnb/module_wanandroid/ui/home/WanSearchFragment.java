@@ -1,5 +1,6 @@
 package com.yyxnb.module_wanandroid.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -48,6 +49,8 @@ public class WanSearchFragment extends BaseFragment {
         mHotTags = binding.mHotTags;
         mHistoryTags = binding.mHistoryTags;
 
+        binding.iTitle.mTitle.setBackListener(v -> finish());
+
     }
 
     @Override
@@ -92,6 +95,15 @@ public class WanSearchFragment extends BaseFragment {
             startFragment(new WanAriticleListFragment());
             setHistoryTags(tag);
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 888) {
+//            toast("------------");
+        }
+        log("requestCode: " + requestCode + " , resultCode: " + resultCode);
     }
 
     @Override

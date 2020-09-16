@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.MultiItemTypePagedAdapter;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.common_base.base.AbsListFragment;
 import com.yyxnb.dialog.core.BaseDialog;
@@ -42,7 +42,7 @@ public class DialogFragment extends AbsListFragment<MainBean, DialogViewModel> {
         super.initView(savedInstanceState);
         mRefreshLayout.setEnableRefresh(false).setEnableLoadMore(false).setEnableOverScrollDrag(true);
 
-        mAdapter.setOnItemClickListener(new MultiItemTypePagedAdapter.SimpleOnItemClickListener() {
+        mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);

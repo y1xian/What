@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <declare-styleable name="StatusView">
+        <attr name="sv_loading_view" format="reference" />
+        <attr name="sv_empty_view" format="reference" />
+        <attr name="sv_error_view" format="reference" />
+    </declare-styleable>
+
     <!--标题栏-->
     <declare-styleable name="TitleBar">
         <!-- 状态栏背景 颜色 -->

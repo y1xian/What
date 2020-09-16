@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.yyxnb.adapter.BaseAdapter;
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.MultiItemTypePagedAdapter;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.dialog.core.BaseDialog;
 import com.yyxnb.dialog.core.UIDialog;
 import com.yyxnb.module_widget.R;
@@ -137,7 +137,7 @@ public final class SelectDialog {
 
         private SelectAdapter() {
             super(R.layout.item_select_layout);
-            setOnItemClickListener(new MultiItemTypePagedAdapter.SimpleOnItemClickListener(){
+            setOnItemClickListener(new SimpleOnItemClickListener(){
                 @Override
                 public void onItemClick(View view, BaseViewHolder holder, int position) {
                     super.onItemClick(view, holder, position);

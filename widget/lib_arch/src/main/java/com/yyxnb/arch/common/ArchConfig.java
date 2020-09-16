@@ -13,7 +13,6 @@ public class ArchConfig implements Serializable {
 
     public static final String FRAGMENT = "FRAGMENT";
     public static final String BUNDLE = "BUNDLE";
-    public static final String REQUEST_CODE = "REQUEST_CODE";
     public static final String MSG_EVENT = "MSG_EVENT";
 
 
