@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.multidex.MultiDex
 import androidx.startup.Initializer
 import com.yyxnb.common.utils.log.LogUtils
+import com.yyxnb.widget.AppUtils
 import com.yyxnb.widget.WidgetInitializer
 import com.yyxnb.widget.WidgetManager
 import java.util.*
@@ -18,7 +19,7 @@ class CommonInitializer : Initializer<CommonManager> {
 
         LogUtils.init()
                 //是否显示日志，默认true，发布时最好关闭
-                .setShowThreadInfo(WidgetManager.isDebug).isDebug = WidgetManager.isDebug
+                .setShowThreadInfo(AppUtils.isDebug).isDebug = AppUtils.isDebug
 
         return CommonManager
     }

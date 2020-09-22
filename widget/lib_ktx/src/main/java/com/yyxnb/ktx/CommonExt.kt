@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.text.TextUtils
 import android.view.View
 import com.yyxnb.common.CommonManager
+import com.yyxnb.widget.AppUtils
 import com.yyxnb.widget.WidgetManager
 import java.text.SimpleDateFormat
 import java.util.*
@@ -93,11 +94,11 @@ fun sleep(millis: Long) {
  * @return 字符串资源id对应的字符串内容。
  */
 fun getString(resId: Int): String {
-    return WidgetManager.getContext().resources.getString(resId)
+    return AppUtils.app.resources.getString(resId)
 }
 
 fun getColor(resId: Int): Int {
-    return WidgetManager.getContext().resources.getColor(resId)
+    return AppUtils.app.resources.getColor(resId)
 }
 
 /**
@@ -201,7 +202,7 @@ fun getConvertedNumber(number: Int) = when {
  */
 fun isInstalled(packageName: String): Boolean {
     val packageInfo: PackageInfo? = try {
-        WidgetManager.getContext().packageManager.getPackageInfo(packageName, 0)
+        AppUtils.app.packageManager.getPackageInfo(packageName, 0)
     } catch (e: PackageManager.NameNotFoundException) {
         null
     }

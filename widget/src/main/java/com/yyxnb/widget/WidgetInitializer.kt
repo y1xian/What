@@ -1,5 +1,6 @@
 package com.yyxnb.widget
 
+import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDex
@@ -14,17 +15,15 @@ import java.util.*
 class WidgetInitializer : Initializer<WidgetManager> {
 
     override fun create(context: Context): WidgetManager {
-        // 初始化
-        val context: Context = WidgetManager.getContext()
-        if (context != null) {
 
-            // 突破65535的限制
-            MultiDex.install(context)
+        AppUtils.init(context as? Application)
 
-            // 应用监听
-            ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifeObserver)
+        // 突破65535的限制
+        MultiDex.install(context)
 
-        }
+        // 应用监听
+        ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifeObserver)
+
         return WidgetManager
     }
 

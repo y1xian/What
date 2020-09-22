@@ -4,12 +4,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.yyxnb.common.CommonManager
-import com.yyxnb.common_base.db.DateConverter
+import com.yyxnb.room.DateConverter
 import com.yyxnb.module_music.bean.MusicBean
 import com.yyxnb.module_music.bean.MusicFavouriteBean
 import com.yyxnb.module_music.bean.MusicLocalBean
 import com.yyxnb.module_music.bean.MusicRecordBean
+import com.yyxnb.widget.AppUtils
 import com.yyxnb.widget.WidgetManager
 
 /**
@@ -39,7 +39,7 @@ abstract class MusicDatabase : RoomDatabase() {
                 if (INSTANCE == null) {
                     synchronized(MusicDatabase::class.java) {
                         if (INSTANCE == null) {
-                            INSTANCE = Room.databaseBuilder(WidgetManager.getContext(), MusicDatabase::class.java, "what_music.db")
+                            INSTANCE = Room.databaseBuilder(AppUtils.app, MusicDatabase::class.java, "what_music.db")
                                     .allowMainThreadQueries() //room默认数据库的查询是不能在主线程中执行的，除非这样设置
                                     .fallbackToDestructiveMigration() //不想提供migration，而且希望更新版本之后清空数据库
                                     .build()

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.yyxnb.adapter.BaseAdapter;
 import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.MultiItemTypeAdapter;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.popup.R;
 import com.yyxnb.popup.code.AttachPopupView;
 import com.yyxnb.popup.interfaces.OnSelectListener;
@@ -74,7 +74,7 @@ public class AttachListPopupView extends AttachPopupView {
                 }
             }
         };
-        adapter.setOnItemClickListener(new MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        adapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 if (selectListener != null) {

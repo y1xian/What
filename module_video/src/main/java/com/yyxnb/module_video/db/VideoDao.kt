@@ -3,7 +3,7 @@ package com.yyxnb.module_video.db
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
-import com.yyxnb.common_base.db.BaseDao
+import com.yyxnb.room.BaseDao
 import com.yyxnb.module_video.bean.TikTokBean
 
 @Dao

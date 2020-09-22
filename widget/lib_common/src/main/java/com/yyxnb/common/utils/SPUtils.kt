@@ -1,7 +1,7 @@
 package com.yyxnb.common.utils
 
 import android.content.Context
-import com.yyxnb.widget.WidgetManager.getContext
+import com.yyxnb.widget.AppUtils
 
 /**
  * 保存工具类
@@ -13,7 +13,7 @@ object SPUtils {
      * 保存在手机里面的文件名
      */
     private const val FILE_NAME = "share_date"
-    private val CONTEXT = getContext()
+    private val CONTEXT = AppUtils.app
 
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法

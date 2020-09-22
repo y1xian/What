@@ -8,7 +8,7 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.provider.Settings
 import android.telephony.TelephonyManager
-import com.yyxnb.widget.WidgetManager.getContext
+import com.yyxnb.widget.AppUtils
 import java.net.InetAddress
 import java.net.NetworkInterface
 import java.net.SocketException
@@ -25,7 +25,7 @@ object NetworkUtils {
         NETWORK_WIFI, NETWORK_4G, NETWORK_3G, NETWORK_2G, NETWORK_UNKNOWN, NETWORK_NO
     }
 
-    private val context = getContext()
+    private val context = AppUtils.app
 
     /**
      * 打开网络设置界面

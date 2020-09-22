@@ -3,7 +3,7 @@ package com.yyxnb.module_video.config
 import com.yyxnb.module_video.bean.TikTokBean
 import com.yyxnb.network.utils.GsonUtils.jsonToList
 import com.yyxnb.utils.FileUtils
-import com.yyxnb.widget.WidgetManager.getContext
+import com.yyxnb.widget.AppUtils
 import java.math.BigDecimal
 import java.util.*
 
@@ -18,7 +18,7 @@ object DataConfig {
     var tikTokBeans: List<TikTokBean>? = null
         get() {
             if (field == null) {
-                val content = FileUtils.parseFile(getContext(), "tiktok_data.json")
+                val content = FileUtils.parseFile(AppUtils.app, "tiktok_data.json")
                 field = jsonToList(content, TikTokBean::class.java)
             }
             Collections.shuffle(field)

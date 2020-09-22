@@ -14,7 +14,7 @@ import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import com.yyxnb.common.R
-import com.yyxnb.widget.WidgetManager.getContext
+import com.yyxnb.widget.AppUtils
 import java.io.Serializable
 
 /**
@@ -27,7 +27,7 @@ object ToastUtils : Serializable {
     @ColorInt
     private val DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF")
     private const val TOAST_TYPEFACE = "sans-serif-condensed"
-    private val context = getContext()
+    private val context = AppUtils.app
 
     /**
      * Toast对象

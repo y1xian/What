@@ -6,6 +6,8 @@ import com.yyxnb.network.utils.SSLUtils
 import com.yyxnb.network.utils.SSLUtils.getSslSocketFactory
 import com.yyxnb.network.interceptor.HeaderInterceptor
 import com.yyxnb.network.interceptor.LoggingInterceptor
+import com.yyxnb.network.interceptor.weaknetwork.WeakNetworkInterceptor
+import com.yyxnb.widget.AppUtils
 import com.yyxnb.widget.WidgetManager
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -122,7 +124,7 @@ abstract class AbstractHttp {
             builder.addInterceptor(logInterceptor)
         }
         if (saveCache()) {
-            val externalCacheDir = WidgetManager.getContext().externalCacheDir
+            val externalCacheDir = AppUtils.app.externalCacheDir
             if (null != externalCacheDir) {
                 builder.cache(Cache(File(externalCacheDir.path + "/HttpCacheData"), 20 * 1024 * 1024))
                 builder.addInterceptor(CacheInterceptor())
@@ -130,13 +132,21 @@ abstract class AbstractHttp {
         }
         val sslParams = getSslSocketFactory(keyStore(), keyStorePassword(), *certificates()!!)
         @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-        builder.addInterceptor(HeaderInterceptor(header()))
+        builder
+                // 请求头
+                .addInterceptor(HeaderInterceptor(header()))
+                // 弱网
+                .addInterceptor(WeakNetworkInterceptor())
+                // 超时
                 .readTimeout(readTimeout(), TimeUnit.SECONDS)
                 .writeTimeout(writeTimeout(), TimeUnit.SECONDS)
                 .connectTimeout(connectTimeout(), TimeUnit.SECONDS)
+                // 重连
                 .retryOnConnectionFailure(true)
+                // 证书
                 .sslSocketFactory(sslParams.sSLSocketFactory!!, sslParams.trustManager!!)
                 .hostnameVerifier(SSLUtils.UnSafeHostnameVerifier)
+
         return builder.build()
     }
 

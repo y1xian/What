@@ -1,10 +1,9 @@
 package com.yyxnb.module_music.config
 
-import com.yyxnb.common.CommonManager
 import com.yyxnb.module_music.bean.MusicBean
 import com.yyxnb.network.utils.GsonUtils
 import com.yyxnb.utils.FileUtils
-import com.yyxnb.widget.WidgetManager
+import com.yyxnb.widget.AppUtils
 import java.math.BigDecimal
 import java.util.*
 
@@ -19,7 +18,7 @@ object DataConfig {
     var musicBeans: List<MusicBean>? = null
         get() {
             if (field == null) {
-                val content = FileUtils.parseFile(WidgetManager.getContext(), "music.json")
+                val content = FileUtils.parseFile(AppUtils.app, "music.json")
                 field = GsonUtils.jsonToList(content, MusicBean::class.java)
             }
             Collections.shuffle(field)

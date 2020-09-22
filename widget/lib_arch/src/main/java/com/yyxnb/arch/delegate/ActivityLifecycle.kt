@@ -8,17 +8,18 @@ import androidx.fragment.app.FragmentActivity
 import com.yyxnb.arch.base.IActivity
 import com.yyxnb.arch.utils.AppManager.addActivity
 import com.yyxnb.arch.utils.AppManager.removeActivity
+import com.yyxnb.widget.AppUtils
 
 /**
  * Activity 注册监听生命周期
  *
  * @author yyx
  */
-object ActivityLifecycle : ActivityLifecycleCallbacks {
+object ActivityLifecycle : AppUtils.ActivityLifecycleCallbacks() {
 
     private val cache = LruCache<String, IActivityDelegate?>(100)
 
-    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+    override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
         activity?.let { addActivity(it) }
         if (activity is IActivity) {
             var activityDelegate: IActivityDelegate? = null
@@ -33,50 +34,38 @@ object ActivityLifecycle : ActivityLifecycleCallbacks {
         }
     }
 
-    private fun registerFragmentCallback(activity: Activity) {
+    private fun registerFragmentCallback(activity: Activity?) {
         if (activity is FragmentActivity) {
             activity.supportFragmentManager.registerFragmentLifecycleCallbacks(FragmentLifecycle, true)
         }
     }
 
-    override fun onActivityStarted(activity: Activity) {
-        if (fetchActivityDelegate(activity) != null) {
-            fetchActivityDelegate(activity)!!.onStart()
-        }
+    override fun onActivityStarted(activity: Activity?) {
+        fetchActivityDelegate(activity)?.apply { onStart() }
     }
 
-    override fun onActivityResumed(activity: Activity) {
-        if (fetchActivityDelegate(activity) != null) {
-            fetchActivityDelegate(activity)!!.onResume()
-        }
+    override fun onActivityResumed(activity: Activity?) {
+        fetchActivityDelegate(activity)?.apply { onResume() }
     }
 
-    override fun onActivityPaused(activity: Activity) {
-        if (fetchActivityDelegate(activity) != null) {
-            fetchActivityDelegate(activity)!!.onPause()
-        }
+    override fun onActivityPaused(activity: Activity?) {
+        fetchActivityDelegate(activity)?.apply { onPause() }
     }
 
-    override fun onActivityStopped(activity: Activity) {
-        if (fetchActivityDelegate(activity) != null) {
-            fetchActivityDelegate(activity)!!.onStop()
-        }
+    override fun onActivityStopped(activity: Activity?) {
+        fetchActivityDelegate(activity)?.apply { onStop() }
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-        if (fetchActivityDelegate(activity) != null) {
-            fetchActivityDelegate(activity)!!.onSaveInstanceState(activity, outState)
-        }
+    override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
+        fetchActivityDelegate(activity)?.apply { onSaveInstanceState(activity, outState) }
     }
 
-    override fun onActivityDestroyed(activity: Activity) {
+    override fun onActivityDestroyed(activity: Activity?) {
         activity?.let { removeActivity(it) }
-        if (fetchActivityDelegate(activity) != null) {
-            fetchActivityDelegate(activity)!!.onDestroy()
-        }
+        fetchActivityDelegate(activity)?.apply { onDestroy() }
     }
 
-    private fun fetchActivityDelegate(activity: Activity): IActivityDelegate? {
+    private fun fetchActivityDelegate(activity: Activity?): IActivityDelegate? {
         return if (activity is IActivity) {
             cache[getKey(activity)]
         } else null

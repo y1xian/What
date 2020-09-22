@@ -2,7 +2,7 @@ package com.yyxnb.common
 
 import com.yyxnb.common.utils.ToastUtils
 import com.yyxnb.common.utils.log.LogUtils
-import com.yyxnb.widget.WidgetManager.isDebug
+import com.yyxnb.widget.AppUtils
 
 /**
  * app 管理
@@ -17,13 +17,13 @@ object CommonManager {
     }
 
     fun log(tag: String, s: String) {
-        if (isDebug) {
+        if (AppUtils.isDebug) {
             LogUtils.w(s, tag)
         }
     }
 
     fun log(s: String) {
-        if (isDebug) {
+        if (AppUtils.isDebug) {
             log("----CommonManager----", s)
         }
     }

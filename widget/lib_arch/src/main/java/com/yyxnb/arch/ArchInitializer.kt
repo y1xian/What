@@ -6,9 +6,9 @@ import com.jeremyliao.liveeventbus.LiveEventBus
 import com.yyxnb.arch.common.ArchConfig
 import com.yyxnb.arch.delegate.ActivityLifecycle
 import com.yyxnb.common.CommonInitializer
+import com.yyxnb.widget.AppUtils
 import com.yyxnb.widget.WidgetInitializer
-import com.yyxnb.widget.WidgetManager.getApp
-import com.yyxnb.widget.WidgetManager.isDebug
+import com.yyxnb.widget.WidgetManager
 
 /**
  * 使用ContentProvider初始化三方库
@@ -19,10 +19,12 @@ class ArchInitializer : Initializer<ArchConfig> {
     override fun create(context: Context): ArchConfig {
 
         // 系统会在每个 Activity 执行完对应的生命周期后都调用这个实现类中对应的方法
-        getApp().registerActivityLifecycleCallbacks(ActivityLifecycle)
+//        AppUtils.app.registerActivityLifecycleCallbacks(ActivityLifecycle)
+        WidgetManager.setLifecycleCallbacks(ActivityLifecycle)
+
         LiveEventBus
                 .config()
-                .enableLogger(isDebug)
+                .enableLogger(AppUtils.isDebug)
         return ArchConfig
     }
 

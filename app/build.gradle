@@ -34,8 +34,9 @@ dependencies {
     addComponent 'module_music'
     addComponent 'module_novel'
     addComponent 'module_wanandroid'
+    addComponent 'module_widget'
 
-    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.5'
     implementation 'com.tencent.tinker:tinker-android-lib:1.9.9'
-    implementation 'com.tencent.bugly:nativecrashreport:3.7.3'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.471'
 }

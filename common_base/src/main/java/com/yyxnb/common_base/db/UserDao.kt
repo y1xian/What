@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.yyxnb.common_base.bean.UserBean
+import com.yyxnb.room.BaseDao
 
 @Dao
 interface UserDao : BaseDao<UserBean> {

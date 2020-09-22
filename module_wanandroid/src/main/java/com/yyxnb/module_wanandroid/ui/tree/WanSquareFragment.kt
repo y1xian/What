@@ -9,6 +9,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.yyxnb.adapter.BaseViewHolder
 import com.yyxnb.adapter.MultiItemTypeAdapter
+import com.yyxnb.adapter.SimpleOnItemClickListener
 import com.yyxnb.arch.annotations.BindRes
 import com.yyxnb.arch.annotations.BindViewModel
 import com.yyxnb.common_base.base.BaseFragment
@@ -49,7 +50,7 @@ class WanSquareFragment : BaseFragment() {
         mRecyclerView!!.layoutManager = LinearLayoutManager(context)
         mRecyclerView!!.setHasFixedSize(true)
         mRecyclerView!!.adapter = mAdapter
-        mAdapter!!.setOnItemClickListener(object : MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        mAdapter!!.setOnItemClickListener(object : SimpleOnItemClickListener() {
             override fun onItemClick(view: View, holder: BaseViewHolder, position: Int) {
                 super.onItemClick(view, holder, position)
             }

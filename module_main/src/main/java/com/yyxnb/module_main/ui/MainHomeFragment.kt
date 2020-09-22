@@ -9,15 +9,21 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.yyxnb.adapter.BaseViewHolder
 import com.yyxnb.adapter.ItemDecoration
 import com.yyxnb.adapter.MultiItemTypeAdapter
+import com.yyxnb.adapter.SimpleOnItemClickListener
 import com.yyxnb.arch.annotations.BindViewModel
 import com.yyxnb.common.utils.log.LogUtils.d
+import com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN
 import com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN_FRAGMENT
 import com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT
+import com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_MAIN
 import com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_HOME_FRAGMENT
+import com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN
 import com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN
 import com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT
 import com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO
+import com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN
 import com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN_FRAGMENT
+import com.yyxnb.common_base.arouter.ARouterConstant.WIDGET_MAIN
 import com.yyxnb.common_base.arouter.ARouterUtils.navActivity
 import com.yyxnb.common_base.arouter.ARouterUtils.navFragment
 import com.yyxnb.common_base.base.BaseFragment
@@ -80,7 +86,7 @@ class MainHomeFragment : BaseFragment() {
             PopupManager.Builder(context)
                     .asConfirm("警告", "有内鬼，终止学术交流", {}) {}.show()
         }
-        mAdapter.setOnItemClickListener(object : MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        mAdapter.setOnItemClickListener(object : SimpleOnItemClickListener() {
             override fun onItemClick(view: View, holder: BaseViewHolder, position: Int) {
                 super.onItemClick(view, holder, position)
                 when (mAdapter.data[position].id) {
@@ -94,15 +100,21 @@ class MainHomeFragment : BaseFragment() {
 //                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
                         navActivity(VIDEO_VIDEO)
                     3 ->                         // 娱乐
-                        startFragment(navFragment(JOKE_MAIN_FRAGMENT))
+//                        startFragment(navFragment(JOKE_MAIN_FRAGMENT))
+                        navActivity(JOKE_MAIN)
                     4 ->                         // 消息
-                        startFragment(navFragment(MESSAGE_LIST_FRAGMENT))
+//                        startFragment(navFragment(MESSAGE_LIST_FRAGMENT))
+                        navActivity(MESSAGE_MAIN)
                     5 ->                         // 玩安卓
-                        startFragment(navFragment(WAN_MAIN_FRAGMENT))
+//                        startFragment(navFragment(WAN_MAIN_FRAGMENT))
+                        navActivity(WAN_MAIN)
                     6 ->                         // 音乐
-                        startFragment(navFragment(MUSIC_HOME_FRAGMENT))
+//                        startFragment(navFragment(MUSIC_HOME_FRAGMENT))
+                        navActivity(MUSIC_MAIN)
                     7 ->                         // 小说
                         navActivity(NOVEL_MAIN)
+                    8 ->
+                        navActivity(WIDGET_MAIN)
                     else -> {
                     }
                 }

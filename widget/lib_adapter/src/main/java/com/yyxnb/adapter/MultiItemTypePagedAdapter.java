@@ -347,40 +347,6 @@ public class MultiItemTypePagedAdapter<T> extends PagedListAdapter<T, BaseViewHo
 
     }
 
-    public interface OnItemClickListener {
-
-        void onItemClick(View view, BaseViewHolder holder, int position);
-
-        boolean onItemLongClick(View view, BaseViewHolder holder, int position);
-
-        void onItemChildClick(View view, BaseViewHolder holder, int position);
-
-        boolean onItemChildLongClick(View view, BaseViewHolder holder, int position);
-    }
-
-    public static class SimpleOnItemClickListener implements OnItemClickListener {
-
-        @Override
-        public void onItemClick(View view, BaseViewHolder holder, int position) {
-
-        }
-
-        @Override
-        public boolean onItemLongClick(View view, BaseViewHolder holder, int position) {
-            return false;
-        }
-
-        @Override
-        public void onItemChildClick(View view, BaseViewHolder holder, int position) {
-
-        }
-
-        @Override
-        public boolean onItemChildLongClick(View view, BaseViewHolder holder, int position) {
-            return false;
-        }
-    }
-
     /**
      * 新数据
      */

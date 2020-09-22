@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yyxnb.adapter.BaseViewHolder
 import com.yyxnb.adapter.ItemDecoration
 import com.yyxnb.adapter.MultiItemTypeAdapter
+import com.yyxnb.adapter.SimpleOnItemClickListener
 import com.yyxnb.arch.annotations.BindRes
 import com.yyxnb.common.utils.log.LogUtils.w
 import com.yyxnb.common_base.base.BaseFragment
@@ -47,7 +48,7 @@ class VideoFindFragment : BaseFragment() {
 
     override fun initViewData() {
         mAdapter!!.setDataItems(tikTokBeans)
-        mAdapter!!.setOnItemClickListener(object : MultiItemTypeAdapter.SimpleOnItemClickListener() {
+        mAdapter!!.setOnItemClickListener(object : SimpleOnItemClickListener() {
             override fun onItemClick(view: View, holder: BaseViewHolder, position: Int) {
                 super.onItemClick(view, holder, position)
                 //                startFragment(VideoPlayFragment.newInstance(position, mAdapter.getData()));

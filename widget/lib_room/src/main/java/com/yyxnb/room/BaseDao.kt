@@ -1,4 +1,4 @@
-package com.yyxnb.common_base.db
+package com.yyxnb.room
 
 import androidx.room.*
 

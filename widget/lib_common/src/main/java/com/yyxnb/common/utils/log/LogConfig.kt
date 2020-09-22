@@ -1,13 +1,14 @@
 package com.yyxnb.common.utils.log
 
 import android.text.TextUtils
+import com.yyxnb.widget.AppUtils
 import com.yyxnb.widget.WidgetManager
 
 object LogConfig {
 
     var isShowThreadInfo = true
 
-    var isDebug = WidgetManager.isDebug
+    var isDebug = AppUtils.isDebug
 
     var tag = "----what----"
 

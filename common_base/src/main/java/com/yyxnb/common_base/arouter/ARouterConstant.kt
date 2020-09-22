@@ -46,6 +46,7 @@ object ARouterConstant {
 
     // ====== 小说
     const val NOVEL_MAIN = "/novel/NovelActivity"
+    const val NOVEL_MAIN_FRAGMENT = "/novel/NovelMainFragment"
 
     //==========其他
     const val WIDGET_MAIN = "/widget/WidgetMainActivity"
