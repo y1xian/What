@@ -7,11 +7,11 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 
 import com.yyxnb.common.action.CommonAction;
-import com.yyxnb.widget.WidgetManager;
-import com.yyxnb.widget.interfaces.IData;
 import com.yyxnb.network.rx.BaseHttpSubscriber;
 import com.yyxnb.network.rx.RetryWithDelay;
 import com.yyxnb.rxtool.DisposablePool;
+import com.yyxnb.widget.AppUtils;
+import com.yyxnb.widget.interfaces.IData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public abstract class BaseViewModel extends ViewModel implements DefaultLifecycl
 
     @Override
     public Context getContext() {
-        return WidgetManager.getInstance().getContext();
+        return AppUtils.getApp();
     }
 
     public <T extends IData> BaseHttpSubscriber<T> request(Flowable<T> flowable) {

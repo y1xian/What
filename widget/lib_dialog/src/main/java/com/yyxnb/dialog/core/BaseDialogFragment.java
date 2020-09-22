@@ -1,6 +1,12 @@
 package com.yyxnb.dialog.core;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Dialog;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.LifecycleRegistry;
+import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -19,7 +25,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.yyxnb.common.action.ResourcesAction;
 import com.yyxnb.dialog.R;
+import com.yyxnb.widget.action.ClickAction;
+import com.yyxnb.widget.action.HandlerAction;
+import com.yyxnb.widget.action.WidgetAction;
 
 import java.util.Objects;
 
@@ -29,7 +39,9 @@ import java.util.Objects;
  * @author : yyx
  * @date ：2018/11/18
  */
-public abstract class BaseDialogFragment extends AppCompatDialogFragment {
+public class BaseDialogFragment extends AppCompatDialogFragment implements LifecycleOwner , HandlerAction {
+
+    private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
 
     private static final float DEFAULT_DIM_AMOUNT = 0.5f;
     private static final int DEFAULT_WH = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -85,6 +97,13 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
         }
     }
 
+    public Window getWindow() {
+        if (mActivity == null) {
+            return null;
+        }
+        return mActivity.getWindow();
+    }
+
     @Override
     public void onDestroy() {
         mActivity = null;
@@ -107,7 +126,7 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
             mGravity = savedInstanceState.getInt(KEY_GRAVITY, Gravity.CENTER);
         }
         initArguments(getArguments());
-        setLayoutRes(initLayoutId());
+//        setLayoutRes(initLayoutId());
     }
 
     /**
@@ -149,7 +168,7 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initViews(view);
+//        initViews(view);
     }
 
     @Override
@@ -216,14 +235,14 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
      *
      * @return
      */
-    public abstract int initLayoutId();
-
-    /**
-     * 初始化 Views
-     *
-     * @param view
-     */
-    public abstract void initViews(View view);
+//    public abstract int initLayoutId();
+//
+//    /**
+//     * 初始化 Views
+//     *
+//     * @param view
+//     */
+//    public abstract void initViews(View view);
 
     /**
      * 设置布局id
@@ -292,27 +311,27 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
         return this;
     }
 
-    /**
-     * 设置 Dialog 高度
-     *
-     * @param height
-     * @return
-     */
-    public BaseDialogFragment setHeight(int height) {
-        this.mHeight = height;
-        return this;
-    }
-
-    /**
-     * 设置 Dialog 宽度
-     *
-     * @param width
-     * @return
-     */
-    public BaseDialogFragment setWidth(int width) {
-        this.mWidth = width;
-        return this;
-    }
+//    /**
+//     * 设置 Dialog 高度
+//     *
+//     * @param height
+//     * @return
+//     */
+//    public BaseDialogFragment setHeight(int height) {
+//        this.mHeight = height;
+//        return this;
+//    }
+//
+//    /**
+//     * 设置 Dialog 宽度
+//     *
+//     * @param width
+//     * @return
+//     */
+//    public BaseDialogFragment setWidth(int width) {
+//        this.mWidth = width;
+//        return this;
+//    }
 
     /**
      * 设置 Dialog 显示动画
@@ -353,10 +372,10 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
      * @param gravity
      * @return
      */
-    public BaseDialogFragment setGravity(int gravity) {
-        this.mGravity = gravity;
-        return this;
-    }
+//    public BaseDialogFragment setGravity(int gravity) {
+//        this.mGravity = gravity;
+//        return this;
+//    }
 
     /**
      * 设置OnCancelListener
@@ -400,5 +419,368 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
         setOnDismissListener(null);
         //清除 onCancelListener 引用
         setOnCancelListener(null);
+    }
+
+    //////////////////////
+
+
+    @Override
+    public Dialog getDialog() {
+        return new BaseDialog(mActivity);
+    }
+
+    /**
+     * 获取 Dialog 的根布局
+     */
+    public View getContentView() {
+        return mActivity.findViewById(Window.ID_ANDROID_CONTENT);
+    }
+
+    /**
+     * 获取当前设置重心
+     */
+    public int getGravity() {
+        Window window = getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            return params.gravity;
+        }
+        return Gravity.NO_GRAVITY;
+    }
+
+    /**
+     * 设置宽度
+     */
+    public void setWidth(int width) {
+        Window window = getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.width = width;
+            window.setAttributes(params);
+        }
+    }
+
+    /**
+     * 设置高度
+     */
+    public void setHeight(int height) {
+        Window window = getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.height = height;
+            window.setAttributes(params);
+        }
+    }
+
+    /**
+     * 设置 Dialog 重心
+     */
+    public void setGravity(int gravity) {
+        Window window = getWindow();
+        if (window != null) {
+            window.setGravity(gravity);
+        }
+    }
+
+    /**
+     * 设置 Dialog 的动画
+     */
+    public void setWindowAnimations(@StyleRes int id) {
+        Window window = getWindow();
+        if (window != null) {
+            window.setWindowAnimations(id);
+        }
+    }
+
+    /**
+     * 获取 Dialog 的动画
+     */
+    public int getWindowAnimations() {
+        Window window = getWindow();
+        if (window != null) {
+            return window.getAttributes().windowAnimations;
+        }
+        return BaseDialog.ANIM_DEFAULT;
+    }
+
+    /**
+     * 设置背景遮盖层开关
+     */
+    public void setBackgroundDimEnabled(boolean enabled) {
+        Window window = getWindow();
+        if (window != null) {
+            if (enabled) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+            } else {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+            }
+        }
+    }
+
+    /**
+     * 设置背景遮盖层的透明度（前提条件是背景遮盖层开关必须是为开启状态）
+     */
+    public void setBackgroundDimAmount(@FloatRange(from = 0.0, to = 1.0) float dimAmount) {
+        Window window = getWindow();
+        if (window != null) {
+            window.setDimAmount(dimAmount);
+        }
+    }
+
+    @OnLifecycleEvent(value = Lifecycle.Event.ON_DESTROY)
+    @Override
+    public void dismiss() {
+        removeCallbacks();
+//        View focusView = getCurrentFocus();
+//        if (focusView != null) {
+//            getSystemService(InputMethodManager.class).hideSoftInputFromWindow(focusView.getWindowToken(), 0);
+//        }
+        super.dismiss();
+    }
+
+    @NonNull
+    @Override
+    public Lifecycle getLifecycle() {
+        return mLifecycle;
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static class Builder<B extends Builder> implements LifecycleOwner, WidgetAction, ResourcesAction, ClickAction {
+
+        /**
+         * 上下文对象
+         */
+        private final Context mContext;
+        /**
+         * Dialog 对象
+         */
+        private BaseDialogFragment mDialog;
+        /**
+         * Dialog 布局
+         */
+        private View mContentView;
+
+        /**
+         * 主题样式
+         */
+        private int mThemeId = R.style.BaseDialogStyle;
+        /**
+         * 动画样式
+         */
+        private int mAnimStyle = BaseDialog.ANIM_DEFAULT;
+        /**
+         * 重心位置
+         */
+        private int mGravity = Gravity.NO_GRAVITY;
+
+        /**
+         * 水平偏移
+         */
+        private int mXOffset;
+        /**
+         * 垂直偏移
+         */
+        private int mYOffset;
+
+        /**
+         * 宽度和高度
+         */
+        private int mWidth = ViewGroup.LayoutParams.WRAP_CONTENT;
+        private int mHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
+
+        /**
+         * 背景遮盖层开关
+         */
+        private boolean mBackgroundDimEnabled = true;
+        /**
+         * 背景遮盖层透明度
+         */
+        private float mBackgroundDimAmount = 0.5f;
+
+        /**
+         * 是否能够被取消
+         */
+        private boolean mCancelable = true;
+        /**
+         * 点击空白是否能够取消  前提是这个对话框可以被取消
+         */
+        private boolean mCanceledOnTouchOutside = true;
+
+        public Builder(Activity activity) {
+            this((Context) activity);
+        }
+
+        public Builder(Context mContext) {
+            this.mContext = mContext;
+        }
+
+        /**
+         * 设置主题 id
+         */
+        public B setThemeStyle(@StyleRes int id) {
+            if (isCreated()) {
+                // Dialog 创建之后不能再设置主题 id
+                throw new IllegalStateException("are you ok?");
+            }
+            mThemeId = id;
+            return (B) this;
+        }
+
+        /**
+         * 设置重心位置
+         */
+        public B setGravity(int gravity) {
+            // 适配 Android 4.2 新特性，布局反方向（开发者选项 - 强制使用从右到左的布局方向）
+            mGravity = gravity;
+            if (isCreated()) {
+                mDialog.setGravity(gravity);
+            }
+            return (B) this;
+        }
+
+        /**
+         * 设置水平偏移
+         */
+        public B setXOffset(int offset) {
+            mXOffset = offset;
+            return (B) this;
+        }
+
+        /**
+         * 设置垂直偏移
+         */
+        public B setYOffset(int offset) {
+            mYOffset = offset;
+            return (B) this;
+        }
+
+        /**
+         * 设置宽度
+         */
+        public B setWidth(int width) {
+            mWidth = width;
+            if (isCreated()) {
+                mDialog.setWidth(width);
+            } else {
+                ViewGroup.LayoutParams params = mContentView != null ? mContentView.getLayoutParams() : null;
+                if (params != null) {
+                    params.width = width;
+                    mContentView.setLayoutParams(params);
+                }
+            }
+            return (B) this;
+        }
+
+        /**
+         * 设置高度
+         */
+        public B setHeight(int height) {
+            mHeight = height;
+            if (isCreated()) {
+                mDialog.setHeight(height);
+            } else {
+                // 这里解释一下为什么要重新设置 LayoutParams
+                // 因为如果不这样设置的话，第一次显示的时候会按照 Dialog 宽高显示
+                // 但是 Layout 内容变更之后就不会按照之前的设置宽高来显示
+                // 所以这里我们需要对 View 的 LayoutParams 也进行设置
+                ViewGroup.LayoutParams params = mContentView != null ? mContentView.getLayoutParams() : null;
+                if (params != null) {
+                    params.height = height;
+                    mContentView.setLayoutParams(params);
+                }
+            }
+            return (B) this;
+        }
+
+        /**
+         * 是否可以取消
+         */
+        public B setCancelable(boolean cancelable) {
+            mCancelable = cancelable;
+            if (isCreated()) {
+                mDialog.setCancelable(cancelable);
+            }
+            return (B) this;
+        }
+
+        /**
+         * 是否可以通过点击空白区域取消
+         */
+        public B setCanceledOnTouchOutside(boolean cancel) {
+            mCanceledOnTouchOutside = cancel;
+            if (isCreated() && mCancelable) {
+//                mDialog.setCanceledOnTouchOutside(cancel);
+                mDialog.setCancelOnTouchOutside(cancel);
+            }
+            return (B) this;
+        }
+
+        /**
+         * 设置动画，已经封装好几种样式，具体可见{@link com.yyxnb.common.action.AnimAction}类
+         */
+        public B setAnimStyle(@StyleRes int id) {
+            mAnimStyle = id;
+            if (isCreated()) {
+                mDialog.setWindowAnimations(id);
+            }
+            return (B) this;
+        }
+
+        /**
+         * 设置背景遮盖层开关
+         */
+        public B setBackgroundDimEnabled(boolean enabled) {
+            mBackgroundDimEnabled = enabled;
+            if (isCreated()) {
+                mDialog.setBackgroundDimEnabled(enabled);
+            }
+            return (B) this;
+        }
+
+        /**
+         * 设置背景遮盖层的透明度（前提条件是背景遮盖层开关必须是为开启状态）
+         */
+        public B setBackgroundDimAmount(@FloatRange(from = 0.0, to = 1.0) float dimAmount) {
+            mBackgroundDimAmount = dimAmount;
+            if (isCreated()) {
+                mDialog.setBackgroundDimAmount(dimAmount);
+            }
+            return (B) this;
+        }
+
+        @NonNull
+        @Override
+        public Lifecycle getLifecycle() {
+            return null;
+        }
+
+        @Override
+        public <V extends View> V findViewById(int id) {
+            if (mContentView == null) {
+                // 没有 setContentView 就想 findViewById ?
+                throw new IllegalStateException("are you ok?");
+            }
+            return mContentView.findViewById(id);
+        }
+
+        @Override
+        public Context getContext() {
+            return mContext;
+        }
+
+        /**
+         * 当前 Dialog 是否创建了
+         */
+        public boolean isCreated() {
+            return mDialog != null;
+        }
+
+        /**
+         * 当前 Dialog 是否显示了
+         */
+        public boolean isShowing() {
+            return mDialog != null && mDialog.isShowing();
+        }
+
     }
 } 

@@ -1,5 +1,6 @@
 package com.yyxnb.module_main.config;
 
+import com.yyxnb.widget.AppUtils;
 import com.yyxnb.widget.WidgetManager;
 import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.network.utils.GsonUtils;
@@ -18,7 +19,7 @@ public class DataConfig {
      */
     public static List<MainHomeBean> getMainBeans() {
         if (mainBeans == null) {
-            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "main_data.json");
+            String content = FileUtils.parseFile(AppUtils.getApp(), "main_data.json");
             mainBeans = GsonUtils.jsonToList(content, MainHomeBean.class);
         }
         LogUtils.list(mainBeans);

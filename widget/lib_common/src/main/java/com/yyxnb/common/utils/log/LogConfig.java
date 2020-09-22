@@ -2,13 +2,13 @@ package com.yyxnb.common.utils.log;
 
 import android.text.TextUtils;
 
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.widget.AppUtils;
 
 
 public class LogConfig {
 
     private boolean showThreadInfo = true;
-    private boolean debug = WidgetManager.getInstance().isDebug();
+    private boolean debug = AppUtils.isDebug();
     private String tag = "----arch----";
 
 

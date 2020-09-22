@@ -1,9 +1,9 @@
 package com.yyxnb.module_widget.config;
 
-import com.yyxnb.widget.WidgetManager;
 import com.yyxnb.module_widget.bean.MainBean;
 import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.utils.FileUtils;
+import com.yyxnb.widget.AppUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class DataConfig {
      */
     public static List<MainBean> getMainBeans() {
         if (mainBeans == null) {
-            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "main_data.json");
+            String content = FileUtils.parseFile(AppUtils.getApp(), "main_data.json");
             mainBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return mainBeans;
@@ -36,7 +36,7 @@ public class DataConfig {
      */
     public static List<MainBean> getPopupBeans() {
         if (popupBeans == null) {
-            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "popup_data.json");
+            String content = FileUtils.parseFile(AppUtils.getApp(), "popup_data.json");
             popupBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return popupBeans;
@@ -49,7 +49,7 @@ public class DataConfig {
      */
     public static List<MainBean> getDialogBeans() {
         if (dialogBeans == null) {
-            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "dialog_data.json");
+            String content = FileUtils.parseFile(AppUtils.getApp(), "dialog_data.json");
             dialogBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return dialogBeans;

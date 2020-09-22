@@ -20,6 +20,8 @@ dependencies {
     api project(':widget:lib_view')
     // 悬浮窗
     api project(':widget:lib_floatwindow')
+    // 系统信息
+    api project(":widget:lib_system")
 
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"

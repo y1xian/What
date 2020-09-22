@@ -5,7 +5,7 @@ import android.graphics.Color;
 import com.yyxnb.arch.R;
 import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.SwipeStyle;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.widget.AppUtils;
 
 import java.io.Serializable;
 
@@ -39,7 +39,7 @@ public class ArchConfig implements Serializable {
     /**
      * 状态栏颜色
      */
-    public static int statusBarColor = WidgetManager.getInstance().getContext().getResources().getColor(R.color.statusBar);
+    public static int statusBarColor = AppUtils.getApp().getResources().getColor(R.color.statusBar);
     /**
      * 如果状态栏处于白色且状态栏文字也处于白色，避免看不见
      */

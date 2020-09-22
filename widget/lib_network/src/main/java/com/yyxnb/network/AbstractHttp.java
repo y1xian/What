@@ -6,7 +6,7 @@ import com.yyxnb.network.interceptor.LoggingInterceptor;
 import com.yyxnb.network.interceptor.weaknetwork.WeakNetworkInterceptor;
 import com.yyxnb.network.utils.GsonUtils;
 import com.yyxnb.network.utils.SSLUtils;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.widget.AppUtils;
 
 import java.io.File;
 import java.io.InputStream;
@@ -160,7 +160,7 @@ public abstract class AbstractHttp {
             builder.addInterceptor(logInterceptor);
         }
         if (saveCache()) {
-            final File externalCacheDir = WidgetManager.getInstance().getContext().getExternalCacheDir();
+            final File externalCacheDir = AppUtils.getApp().getExternalCacheDir();
             if (null != externalCacheDir) {
                 builder.cache(new Cache(new File(externalCacheDir.getPath() + "/HttpCacheData"), 20 * 1024 * 1024));
                 builder.addInterceptor(new CacheInterceptor());

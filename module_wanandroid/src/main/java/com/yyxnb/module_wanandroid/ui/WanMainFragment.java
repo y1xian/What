@@ -72,6 +72,7 @@ public class WanMainFragment extends BaseFragment {
         mTabLayout.setOnSelectListener((v, position, text) -> changeView(position));
 
         changeView(0);
+
     }
 
     //设置Fragment页面

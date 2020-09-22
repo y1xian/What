@@ -10,7 +10,7 @@ import com.yyxnb.module_music.bean.MusicFavouriteBean;
 import com.yyxnb.module_music.bean.MusicLocalBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;
 import com.yyxnb.room.DateConverter;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.widget.AppUtils;
 
 /**
  * Database这个对象我们需要指定三个参数entities 代表数据库需要操作的实体类集合，第二个参数代表数据库的版本第三个参数代表在编译时，
@@ -38,7 +38,7 @@ public abstract class MusicDatabase extends RoomDatabase {
             synchronized (MusicDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE =
-                            Room.databaseBuilder(WidgetManager.getInstance().getContext(), MusicDatabase.class, "what_music.db")
+                            Room.databaseBuilder(AppUtils.getApp(), MusicDatabase.class, "what_music.db")
                                     .allowMainThreadQueries() //room默认数据库的查询是不能在主线程中执行的，除非这样设置
                                     .fallbackToDestructiveMigration() //不想提供migration，而且希望更新版本之后清空数据库
                                     .build();

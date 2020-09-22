@@ -69,7 +69,7 @@ public abstract class BaseSheetDialog extends BaseDialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLayoutRes(initLayoutId());
+//        setLayoutRes(initLayoutId());
     }
 
     @Nullable
@@ -81,7 +81,7 @@ public abstract class BaseSheetDialog extends BaseDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initViews(view);
+//        initViews(view);
         //这样设置高度才会正确展示
         view.setLayoutParams(new ViewGroup.LayoutParams(DEFAULT_WH, mHeight));
     }

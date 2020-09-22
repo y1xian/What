@@ -1,14 +1,16 @@
 package com.yyxnb.widget;
 
+import android.app.Application;
 import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.content.ContentProvider;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
+
+import java.util.Objects;
 
 
 /**
@@ -19,19 +21,14 @@ import android.support.multidex.MultiDex;
 public class WidgetInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
-        // 初始化
-        Context context = WidgetManager.getInstance().getContext();
 
-        if (context != null) {
+        AppUtils.init((Application) Objects.requireNonNull(getContext()).getApplicationContext());
 
-            // 突破65535的限制
-            MultiDex.install(context);
+        // 突破65535的限制
+        MultiDex.install(AppUtils.getApp());
 
-            // 应用监听
-            ProcessLifecycleOwner.get().getLifecycle().addObserver(new AppLifeObserver());
-
-        }
-
+        // 应用监听
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(new AppLifeObserver());
 
         return true;
     }

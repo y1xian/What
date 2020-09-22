@@ -1,5 +1,6 @@
 package com.yyxnb.module_music.config;
 
+import com.yyxnb.widget.AppUtils;
 import com.yyxnb.widget.WidgetManager;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.network.utils.GsonUtils;
@@ -20,7 +21,7 @@ public class DataConfig {
      */
     public static List<MusicBean> getMusicBeans() {
         if (musicBeans == null) {
-            String content = FileUtils.parseFile(WidgetManager.getInstance().getContext(), "music.json");
+            String content = FileUtils.parseFile(AppUtils.getApp(), "music.json");
             musicBeans = GsonUtils.jsonToList(content, MusicBean.class);
         }
         Collections.shuffle(musicBeans);

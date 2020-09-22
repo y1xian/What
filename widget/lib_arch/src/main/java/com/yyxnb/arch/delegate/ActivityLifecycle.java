@@ -1,20 +1,20 @@
 package com.yyxnb.arch.delegate;
 
 import android.app.Activity;
-import android.app.Application;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.LruCache;
 
 import com.yyxnb.arch.base.IActivity;
 import com.yyxnb.arch.common.AppManager;
+import com.yyxnb.widget.AppUtils;
 
 /**
  * Activity 注册监听生命周期
  *
  * @author yyx
  */
-public class ActivityLifecycle implements Application.ActivityLifecycleCallbacks {
+public class ActivityLifecycle extends AppUtils.ActivityLifecycleCallbacks {
 
     private volatile static ActivityLifecycle lifecycle = null;
 

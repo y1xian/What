@@ -2,15 +2,14 @@ package com.yyxnb.arch;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.multidex.MultiDex;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.yyxnb.arch.delegate.ActivityLifecycle;
+import com.yyxnb.widget.AppUtils;
 import com.yyxnb.widget.WidgetManager;
 
 /**
@@ -21,22 +20,13 @@ import com.yyxnb.widget.WidgetManager;
 public class ArchInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
-        // 初始化
-        Context context = WidgetManager.getInstance().getContext();
 
-        if (context != null) {
+        // 系统会在每个 Activity 执行完对应的生命周期后都调用这个实现类中对应的方法
+        WidgetManager.getInstance().setLifecycleCallbacks(ActivityLifecycle.getInstance());
 
-            // 突破65535的限制
-            MultiDex.install(context);
-
-            // 系统会在每个 Activity 执行完对应的生命周期后都调用这个实现类中对应的方法
-            WidgetManager.getInstance().getApp().registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
-
-            LiveEventBus
-                    .config()
-                    .enableLogger(WidgetManager.getInstance().isDebug());
-
-        }
+        LiveEventBus
+                .config()
+                .enableLogger(AppUtils.isDebug());
 
 
         return true;

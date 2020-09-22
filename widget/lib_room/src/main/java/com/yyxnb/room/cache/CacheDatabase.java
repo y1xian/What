@@ -6,7 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
 import com.yyxnb.room.DateConverter;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.widget.AppUtils;
 
 /**
  * Database这个对象我们需要指定三个参数entities 代表数据库需要操作的实体类集合，第二个参数代表数据库的版本第三个参数代表在编译时，
@@ -31,7 +31,7 @@ public abstract class CacheDatabase extends RoomDatabase {
                             //创建一个内存数据库
                             //但是这种数据库的数据只存在于内存中，也就是进程被杀之后，数据随之丢失
                             //Room.inMemoryDatabaseBuilder()
-                            Room.databaseBuilder(WidgetManager.getInstance().getContext(), CacheDatabase.class, "net_cache.db")
+                            Room.databaseBuilder(AppUtils.getApp(), CacheDatabase.class, "net_cache.db")
                                     //是否允许在主线程进行查询
                                     .allowMainThreadQueries()
                                     //数据库创建和打开后的回调

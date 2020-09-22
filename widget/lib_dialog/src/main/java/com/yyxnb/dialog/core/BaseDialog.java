@@ -400,7 +400,7 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
         mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static class Builder<B extends Builder> implements LifecycleOwner, WidgetAction, ResourcesAction, ClickAction {
 
         /**

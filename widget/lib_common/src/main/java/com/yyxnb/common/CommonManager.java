@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import com.yyxnb.common.utils.ToastUtils;
 import com.yyxnb.common.utils.log.LogUtils;
+import com.yyxnb.widget.AppUtils;
 import com.yyxnb.widget.WidgetManager;
 
 /**
@@ -36,13 +37,13 @@ public class CommonManager {
     }
 
     public void log(String tag, String s) {
-        if (WidgetManager.getInstance().isDebug()) {
+        if (AppUtils.isDebug()) {
             LogUtils.w(s, tag);
         }
     }
 
     public void log(String s) {
-        if (WidgetManager.getInstance().isDebug()) {
+        if (AppUtils.isDebug()) {
             log("------AppConfig------", s);
         }
     }

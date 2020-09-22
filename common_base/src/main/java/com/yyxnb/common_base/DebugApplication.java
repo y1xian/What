@@ -26,7 +26,7 @@ import com.yyxnb.floatwindow.MoveType;
 import com.yyxnb.floatwindow.Screen;
 import com.yyxnb.image_loader.ImageManager;
 import com.yyxnb.skinloader.SkinManager;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.widget.AppUtils;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -51,7 +51,7 @@ public class DebugApplication extends Application {
     public void onCreate() {
         super.onCreate();
         //初始化阿里路由框架
-        if (WidgetManager.getInstance().isDebug()) {
+        if (AppUtils.isDebug()) {
             ARouter.openLog();     // 打印日志
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
@@ -76,7 +76,7 @@ public class DebugApplication extends Application {
                 //如果没有这个需求建议不开启
                 .setCustomFragment(true);
         // 侧滑监听
-        WidgetManager.getInstance().getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
+        AppUtils.getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
 
         //初始化组件
         ModuleLifecycleConfig.getInstance().initModule(this);

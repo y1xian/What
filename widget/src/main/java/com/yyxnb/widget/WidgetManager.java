@@ -1,15 +1,16 @@
 package com.yyxnb.widget;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-
+import android.os.Bundle;
+import android.util.Log;
 
 import java.io.Serializable;
-import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * app 管理
@@ -17,10 +18,12 @@ import java.lang.reflect.ParameterizedType;
  * @author yyx
  */
 @SuppressWarnings("rawtypes")
-public final class WidgetManager implements Serializable {
+public final class WidgetManager implements Application.ActivityLifecycleCallbacks, Serializable {
 
     @SuppressLint("StaticFieldLeak")
     private volatile static WidgetManager widgetManager;
+
+    public boolean mIsBackground = false;
 
     private WidgetManager() {
     }
@@ -43,74 +46,186 @@ public final class WidgetManager implements Serializable {
         return widgetManager;
     }
 
-    private WeakReference<Application> app;
-
-    @SuppressWarnings("unchecked")
-    public Application getApp() {
-        if (app == null) {
-            synchronized (WidgetManager.class) {
-                if (app == null) {
-                    app = new WeakReference(AppGlobals.getApplication());
-                }
-            }
-        }
-        return app.get();
+    public void init(Application app) {
+        app.registerActivityLifecycleCallbacks(this);
     }
 
-    /**
-     * 获取ApplicationContext
-     */
-    private WeakReference<Context> context;
-
-    @SuppressWarnings("unchecked")
-    public Context getContext() {
-        if (context == null) {
-            synchronized (WidgetManager.class) {
-                if (context == null) {
-                    context = new WeakReference(getApp().getApplicationContext());
-                }
-            }
-        }
-        return context.get();
+    public void unInit(Application app) {
+        mActivityList.clear();
+        app.unregisterActivityLifecycleCallbacks(this);
     }
 
-
-    /**
-     * 判断当前应用是否是debug状态
-     */
-    public boolean isDebug() {
-        try {
-            ApplicationInfo info = getContext().getApplicationInfo();
-            return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /**
-     * 返回实例的泛型类型
-     */
-    public <T> T getInstance(Object t, int i) {
-        if (t != null) {
-            try {
-                return (T) ((ParameterizedType) t.getClass().getGenericSuperclass())
-                        .getActualTypeArguments()[i];
-
-            } catch (ClassCastException e) {
-                e.printStackTrace();
+    public Activity getTopActivity() {
+        List<Activity> activityList = getActivityList();
+        for (Activity activity : activityList) {
+            if (!AppUtils.isActivityAlive(activity)) {
+                continue;
             }
+            return activity;
         }
         return null;
     }
 
-    public <T> Class<T> getClass(Object t) {
-        // 通过反射 获取当前类的父类的泛型 (T) 对应 Class类
-        return (Class<T>) ((ParameterizedType) t.getClass().getGenericSuperclass())
-                .getActualTypeArguments()[0];
+    public List<Activity> getActivityList() {
+        if (!mActivityList.isEmpty()) {
+            return mActivityList;
+        }
+        List<Activity> reflectActivities = getActivitiesByReflect();
+        mActivityList.addAll(reflectActivities);
+        return mActivityList;
     }
 
-    public <T> Class<T> getFiledClazz(Field field) {
-        return (Class<T>) field.getGenericType();
+    private void setTopActivity(final Activity activity) {
+        if (mActivityList.contains(activity)) {
+            if (!mActivityList.getFirst().equals(activity)) {
+                mActivityList.remove(activity);
+                mActivityList.addFirst(activity);
+            }
+        } else {
+            mActivityList.addFirst(activity);
+        }
     }
 
+    // === 生命周期
+
+    private final LinkedList<Activity> mActivityList = new LinkedList<>();
+    private AppUtils.ActivityLifecycleCallbacks lifecycleCallbacks = new AppUtils.ActivityLifecycleCallbacks();
+
+    public void setLifecycleCallbacks(AppUtils.ActivityLifecycleCallbacks lifecycleCallbacks) {
+        this.lifecycleCallbacks = lifecycleCallbacks;
+    }
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+        setTopActivity(activity);
+        lifecycleCallbacks.onActivityCreated(activity, savedInstanceState);
+    }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+        if (!mIsBackground) {
+            setTopActivity(activity);
+        }
+        lifecycleCallbacks.onActivityStarted(activity);
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+        setTopActivity(activity);
+        if (mIsBackground) {
+            mIsBackground = false;
+        }
+        lifecycleCallbacks.onActivityResumed(activity);
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+        lifecycleCallbacks.onActivityPaused(activity);
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+        lifecycleCallbacks.onActivityStopped(activity);
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+        lifecycleCallbacks.onActivitySaveInstanceState(activity, outState);
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+        mActivityList.remove(activity);
+        lifecycleCallbacks.onActivityDestroyed(activity);
+    }
+
+    /**
+     * @return the activities which topActivity is first position
+     */
+    private List<Activity> getActivitiesByReflect() {
+        LinkedList<Activity> list = new LinkedList<>();
+        Activity topActivity = null;
+        try {
+            Object activityThread = getActivityThread();
+            Field mActivitiesField = activityThread.getClass().getDeclaredField("mActivities");
+            mActivitiesField.setAccessible(true);
+            Object mActivities = mActivitiesField.get(activityThread);
+            if (!(mActivities instanceof Map)) {
+                return list;
+            }
+            Map<Object, Object> binder_activityClientRecord_map = (Map<Object, Object>) mActivities;
+            for (Object activityRecord : binder_activityClientRecord_map.values()) {
+                Class activityClientRecordClass = activityRecord.getClass();
+                Field activityField = activityClientRecordClass.getDeclaredField("activity");
+                activityField.setAccessible(true);
+                Activity activity = (Activity) activityField.get(activityRecord);
+                if (topActivity == null) {
+                    Field pausedField = activityClientRecordClass.getDeclaredField("paused");
+                    pausedField.setAccessible(true);
+                    if (!pausedField.getBoolean(activityRecord)) {
+                        topActivity = activity;
+                    } else {
+                        list.add(activity);
+                    }
+                } else {
+                    list.add(activity);
+                }
+            }
+        } catch (Exception e) {
+            Log.e("UtilsActivityLifecycle", "getActivitiesByReflect: " + e.getMessage());
+        }
+        if (topActivity != null) {
+            list.addFirst(topActivity);
+        }
+        return list;
+    }
+
+
+    private Object getActivityThread() {
+        Object activityThread = getActivityThreadInActivityThreadStaticField();
+        if (activityThread != null) {
+            return activityThread;
+        }
+        activityThread = getActivityThreadInActivityThreadStaticMethod();
+        if (activityThread != null) {
+            return activityThread;
+        }
+        return getActivityThreadInLoadedApkField();
+    }
+
+    private Object getActivityThreadInActivityThreadStaticField() {
+        try {
+            Class activityThreadClass = Class.forName("android.app.ActivityThread");
+            Field sCurrentActivityThreadField = activityThreadClass.getDeclaredField("sCurrentActivityThread");
+            sCurrentActivityThreadField.setAccessible(true);
+            return sCurrentActivityThreadField.get(null);
+        } catch (Exception e) {
+            Log.e("UtilsActivityLifecycle", "getActivityThreadInActivityThreadStaticField: " + e.getMessage());
+            return null;
+        }
+    }
+
+    private Object getActivityThreadInActivityThreadStaticMethod() {
+        try {
+            Class activityThreadClass = Class.forName("android.app.ActivityThread");
+            return activityThreadClass.getMethod("currentActivityThread").invoke(null);
+        } catch (Exception e) {
+            Log.e("UtilsActivityLifecycle", "getActivityThreadInActivityThreadStaticMethod: " + e.getMessage());
+            return null;
+        }
+    }
+
+    private Object getActivityThreadInLoadedApkField() {
+        try {
+            Field mLoadedApkField = Application.class.getDeclaredField("mLoadedApk");
+            mLoadedApkField.setAccessible(true);
+            Object mLoadedApk = mLoadedApkField.get(AppUtils.getApp());
+            Field mActivityThreadField = mLoadedApk.getClass().getDeclaredField("mActivityThread");
+            mActivityThreadField.setAccessible(true);
+            return mActivityThreadField.get(mLoadedApk);
+        } catch (Exception e) {
+            Log.e("UtilsActivityLifecycle", "getActivityThreadInLoadedApkField: " + e.getMessage());
+            return null;
+        }
+    }
 }

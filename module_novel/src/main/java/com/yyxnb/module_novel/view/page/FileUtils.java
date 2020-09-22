@@ -2,8 +2,7 @@ package com.yyxnb.module_novel.view.page;
 
 import android.os.Environment;
 
-
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.widget.AppUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -16,6 +15,7 @@ import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -61,12 +61,12 @@ public class FileUtils {
     //获取Cache文件夹
     public static String getCachePath(){
         if (isSdCardExist()){
-            return WidgetManager.getInstance().getApp()
-                    .getExternalCacheDir()
+            return Objects.requireNonNull(AppUtils.getApp()
+                    .getExternalCacheDir())
                     .getAbsolutePath();
         }
         else{
-            return WidgetManager.getInstance().getApp()
+            return AppUtils.getApp()
                     .getCacheDir()
                     .getAbsolutePath();
         }

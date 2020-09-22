@@ -10,6 +10,7 @@ import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;
 import com.yyxnb.module_novel.bean.BookShelfBean;
 import com.yyxnb.room.DateConverter;
+import com.yyxnb.widget.AppUtils;
 import com.yyxnb.widget.WidgetManager;
 
 /**
@@ -39,7 +40,7 @@ public abstract class NovelDatabase extends RoomDatabase {
             synchronized (NovelDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE =
-                            Room.databaseBuilder(WidgetManager.getInstance().getContext(), NovelDatabase.class, "what_novel.db")
+                            Room.databaseBuilder(AppUtils.getApp(), NovelDatabase.class, "what_novel.db")
                                     .allowMainThreadQueries() //room默认数据库的查询是不能在主线程中执行的，除非这样设置
                                     .fallbackToDestructiveMigration() //不想提供migration，而且希望更新版本之后清空数据库
                                     .build();
