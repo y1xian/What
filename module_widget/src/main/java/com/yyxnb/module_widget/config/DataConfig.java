@@ -23,7 +23,7 @@ public class DataConfig {
      */
     public static List<MainBean> getMainBeans() {
         if (mainBeans == null) {
-            String content = FileUtils.parseFile(AppUtils.getApp(), "main_data.json");
+            String content = FileUtils.parseFile(AppUtils.getApp(), "widget_main_data.json");
             mainBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return mainBeans;
