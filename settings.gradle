@@ -27,7 +27,8 @@ include ':widget:lib_network',
         ':widget:lib_webview',
         ':widget:lib_system',
         ':widget:lib_room',
-        ':widget:lib_floatwindow'
+        ':widget:lib_floatwindow',
+        ':widget:lib_task'
 
 include ':skin_night'
 rootProject.name = 'What'
