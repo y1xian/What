@@ -3,7 +3,7 @@
  */
 object versions {
 
-    const val android_plugin = "4.0.0"
+    const val android_plugin = "4.1.0"
     const val kotlin_gradle = "1.4.0"
 
     // 协程
