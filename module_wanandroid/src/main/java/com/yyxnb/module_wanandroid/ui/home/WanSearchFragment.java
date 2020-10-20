@@ -49,7 +49,7 @@ public class WanSearchFragment extends BaseFragment {
         mHotTags = binding.mHotTags;
         mHistoryTags = binding.mHistoryTags;
 
-        binding.iTitle.mTitle.setBackListener(v -> finish());
+        binding.iTitle.vTitle.setBackListener(v -> finish());
 
     }
 

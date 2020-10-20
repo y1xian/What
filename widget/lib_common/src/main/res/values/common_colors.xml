@@ -12,7 +12,7 @@
     <!--默认按钮的背景颜色-->
     <color name="colorButtonNormal">@color/pale_grey</color>
     <!--窗口背景颜色-->
-    <color name="windowBackground">@color/colorPrimary</color>
+    <color name="windowBackground">#F2F3F5</color>
     <!--底部栏颜色-->
     <color name="navigationBarColor">@color/colorPrimary</color>
 

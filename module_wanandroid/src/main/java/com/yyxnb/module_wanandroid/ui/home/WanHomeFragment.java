@@ -134,6 +134,7 @@ public class WanHomeFragment extends BaseFragment {
         });
 
         mViewModel.homeListData.observe(this, data -> {
+            log("加载完成");
             mRefreshLayout.finishRefresh().finishLoadMore();
             if (data != null) {
 //                if (mPage == 0) {

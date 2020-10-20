@@ -44,6 +44,7 @@ public class LoadingView extends View {
     }
 
     float startX, endX;
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -86,7 +87,7 @@ public class LoadingView extends View {
         @Override
         public void run() {
             time++;
-            postInvalidate(0,0,getMeasuredWidth(), getMeasuredHeight());
+            postInvalidate(0, 0, getMeasuredWidth(), getMeasuredHeight());
         }
     };
 

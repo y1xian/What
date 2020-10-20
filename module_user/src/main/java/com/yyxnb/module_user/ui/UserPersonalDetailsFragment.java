@@ -28,8 +28,8 @@ public class UserPersonalDetailsFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        binding.iTitle.mTitle.getCenterTextView().setText(R.string.personal_details);
-        binding.iTitle.mTitle.setBackListener(v -> finish());
+        binding.iTitle.vTitle.getCenterTextView().setText(R.string.personal_details);
+        binding.iTitle.vTitle.setBackListener(v -> finish());
 
     }
 

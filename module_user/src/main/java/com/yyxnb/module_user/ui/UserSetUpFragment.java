@@ -25,8 +25,8 @@ public class UserSetUpFragment extends BaseFragment {
 
         binding = getBinding();
 
-        binding.iTitle.mTitle.getCenterTextView().setText(R.string.set_up);
-        binding.iTitle.mTitle.setBackListener(v -> finish());
+        binding.iTitle.vTitle.getCenterTextView().setText(R.string.set_up);
+        binding.iTitle.vTitle.setBackListener(v -> finish());
 
         binding.tvLoginOut.setOnClickListener(v -> {
             new PopupManager.Builder(getContext())

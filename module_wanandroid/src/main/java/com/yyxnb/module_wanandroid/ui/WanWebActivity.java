@@ -25,7 +25,7 @@ public class WanWebActivity extends WebActivity implements IActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mTitle = binding.iTitle.mTitle;
+        mTitle = binding.iTitle.vTitle;
 
         title = getIntent().getStringExtra("title");
         url = getIntent().getStringExtra("url");
