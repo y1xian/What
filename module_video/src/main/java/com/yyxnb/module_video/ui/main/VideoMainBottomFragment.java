@@ -11,7 +11,6 @@ import android.view.animation.TranslateAnimation;
 
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.common.utils.DpUtils;
-import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
@@ -23,7 +22,7 @@ import com.yyxnb.view.text.DrawableRadioButton;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
 
 /**
  * 主页
@@ -84,7 +83,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
             mSparseArray.put(FIND, new VideoFindFragment());
             mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
 //            mSparseArray.put(ME, VideoUserFragment.newInstance(true));
-            mSparseArray.put(ME, (Fragment) ARouterUtils.navFragment(USER_FRAGMENT));
+            mSparseArray.put(ME, (Fragment) ARouterUtils.navFragment(USER_MAIN_FRAGMENT));
         }
 
         mCurKey = HOME;

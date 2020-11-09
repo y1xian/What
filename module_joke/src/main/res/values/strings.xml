@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name" tools:ignore="ResourceName">module_joke</string>
+    <string name="app_name">what_joke</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" tools:ignore="ResourceName">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

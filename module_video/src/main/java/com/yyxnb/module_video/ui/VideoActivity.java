@@ -18,11 +18,11 @@ import com.yyxnb.module_video.ui.user.VideoUserFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
+import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_MAIN;
 import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
 import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
-@Route(path = VIDEO_VIDEO)
+@Route(path = VIDEO_MAIN)
 public class VideoActivity extends BaseActivity {
 
 //    @Override

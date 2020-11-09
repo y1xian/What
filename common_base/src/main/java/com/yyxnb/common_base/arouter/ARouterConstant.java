@@ -16,13 +16,14 @@ public class ARouterConstant {
 
     //====== user
     //跳转到用户页面
-    public static final String USER_FRAGMENT = "/user/UserFragment";
+    public static final String USER_MAIN = "/user/UserActivity";
+    public static final String USER_MAIN_FRAGMENT = "/user/UserFragment";
 
 
     //========== video
 
     //跳转到视频页面
-    public static final String VIDEO_VIDEO = "/video/VideoActivity";
+    public static final String VIDEO_MAIN = "/video/VideoActivity";
     public static final String VIDEO_MAIN_FRAGMENT = "/video/VideoMainFragment";
 
 

@@ -9,7 +9,6 @@ import com.tencent.mmkv.MMKV;
 import com.yyxnb.arch.annotations.BarStyle;
 import com.yyxnb.arch.annotations.BindRes;
 import com.yyxnb.arch.annotations.BindViewModel;
-import com.yyxnb.common.utils.log.LogUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
@@ -20,14 +19,14 @@ import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
 import com.yyxnb.module_user.viewmodel.UserViewModel;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
 import static com.yyxnb.common_base.config.Constants.USER_ID;
 
 /**
  * 我的 - 界面.
  */
 @BindRes(statusBarStyle = BarStyle.LIGHT_CONTENT)
-@Route(path = USER_FRAGMENT)
+@Route(path = USER_MAIN_FRAGMENT)
 public class UserFragment extends BaseFragment {
 
     private FragmentUserBinding binding;

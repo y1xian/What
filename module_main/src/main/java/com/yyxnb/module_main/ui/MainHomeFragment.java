@@ -25,9 +25,10 @@ import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.USER_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_VIDEO;
+import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN;
+import static com.yyxnb.common_base.arouter.ARouterConstant.WIDGET_MAIN;
 
 /**
  * 主页
@@ -92,7 +93,7 @@ public class MainHomeFragment extends BaseFragment {
         mAdapter.setDataItems(DataConfig.getMainBeans());
 
         binding.ivHead.setOnClickListener(v -> {
-            startFragment(ARouterUtils.navFragment(USER_FRAGMENT));
+            startFragment(ARouterUtils.navFragment(USER_MAIN_FRAGMENT));
         });
 
         binding.tvTitle.setOnClickListener(v -> {
@@ -119,7 +120,7 @@ public class MainHomeFragment extends BaseFragment {
                     case 2:
                         // 短视频
 //                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
-                        ARouterUtils.navActivity(VIDEO_VIDEO);
+                        ARouterUtils.navActivity(VIDEO_MAIN);
                         break;
                     case 3:
                         // 娱乐
@@ -145,6 +146,9 @@ public class MainHomeFragment extends BaseFragment {
                         // 小说
 //                        startFragment(ARouterUtils.navFragment(NOVEL_MAIN_FRAGMENT));
                         ARouterUtils.navActivity(NOVEL_MAIN);
+                        break;
+                    case 8:
+                        ARouterUtils.navActivity(WIDGET_MAIN);
                         break;
                     default:
                         break;
