@@ -8,7 +8,7 @@ import com.yyxnb.common_base.arouter.service.LoginService;
 import com.yyxnb.common_base.bean.UserBean;
 import com.yyxnb.module_login.config.UserManager;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_ACTIVITY;
+import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_SERVICE;
 
 /**
@@ -39,7 +39,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public void login(Context context) {
-        ARouterUtils.navActivity(LOGIN_ACTIVITY);
+        ARouterUtils.navActivity(LOGIN_MAIN);
     }
 
     @Override

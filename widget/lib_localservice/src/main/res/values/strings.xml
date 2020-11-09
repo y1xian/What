@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">localservice</string>
+    <string name="app_name">lib_localservice</string>
 
     <string name="library_name">媒体选择器</string>
     <string name="all_dir_name">所有图片和视频</string>

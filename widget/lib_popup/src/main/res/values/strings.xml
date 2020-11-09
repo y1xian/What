@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Popup</string>
+    <string name="app_name">lib_popup</string>
 
     <string name="xpopup_cancel">取消</string>
     <string name="xpopup_ok">确定</string>
