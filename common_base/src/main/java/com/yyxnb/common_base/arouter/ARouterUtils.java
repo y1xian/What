@@ -2,7 +2,7 @@ package com.yyxnb.common_base.arouter;
 
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.yyxnb.arch.base.IFragment;
+import com.yyxnb.lib_arch.base.IFragment;
 
 /**
  * ARouter路由跳转工具类

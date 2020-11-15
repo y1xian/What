@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.yyxnb.widget">
+    package="com.yyxnb.lib_widget">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,7 +18,7 @@
     <application>
         <!-- 使用ContentProvider初始化三方库 -->
         <provider
-            android:name=".WidgetInitializer"
+            android:name="com.yyxnb.lib_widget.WidgetInitializer"
             android:authorities="${applicationId}.WidgetInitializer"
             android:exported="false"
             android:multiprocess="true" />

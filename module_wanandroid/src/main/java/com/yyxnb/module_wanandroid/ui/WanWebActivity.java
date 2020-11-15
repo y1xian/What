@@ -3,12 +3,12 @@ package com.yyxnb.module_wanandroid.ui;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.base.IActivity;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.databinding.ActivityWanWebBinding;
-import com.yyxnb.view.titlebar.TitleBar;
-import com.yyxnb.webview.WebActivity;
+import com.yyxnb.lib_view.titlebar.TitleBar;
+import com.yyxnb.lib_webview.WebActivity;
 
 @BindRes
 public class WanWebActivity extends WebActivity implements IActivity {

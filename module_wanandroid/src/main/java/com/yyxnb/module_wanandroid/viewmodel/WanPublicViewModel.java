@@ -3,7 +3,7 @@ package com.yyxnb.module_wanandroid.viewmodel;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.yyxnb.common_base.config.Http;
-import com.yyxnb.network.BaseViewModel;
+import com.yyxnb.lib_network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
 import com.yyxnb.common_base.bean.WanData;

@@ -8,8 +8,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.databinding.FragmentNovelMainBinding;
-import com.yyxnb.view.tabbar.Tab;
-import com.yyxnb.view.tabbar.TabBarView;
+import com.yyxnb.lib_view.tabbar.Tab;
+import com.yyxnb.lib_view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;

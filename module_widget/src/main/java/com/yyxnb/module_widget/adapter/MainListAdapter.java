@@ -1,9 +1,9 @@
 package com.yyxnb.module_widget.adapter;
 
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.ItemDelegate;
-import com.yyxnb.adapter.ItemDiffCallback;
-import com.yyxnb.adapter.MultiItemTypePagedAdapter;
+import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.ItemDelegate;
+import com.yyxnb.lib_adapter.ItemDiffCallback;
+import com.yyxnb.lib_adapter.MultiItemTypePagedAdapter;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.bean.MainBean;
 

@@ -7,7 +7,7 @@ import com.yyxnb.common_base.config.Http;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.config.WanService;
-import com.yyxnb.network.BaseViewModel;
+import com.yyxnb.lib_network.BaseViewModel;
 
 import java.util.List;
 

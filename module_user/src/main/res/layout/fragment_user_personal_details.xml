@@ -59,7 +59,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginEnd="40dp"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@mipmap/ic_logo"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

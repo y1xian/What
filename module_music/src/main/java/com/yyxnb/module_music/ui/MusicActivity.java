@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.arch.common.AppManager;
+import com.yyxnb.lib_arch.common.AppManager;
 import com.yyxnb.common_base.base.ContainerActivity;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN;

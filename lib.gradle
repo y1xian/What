@@ -19,7 +19,7 @@ if (isLibrary) {
 android {
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
-//    buildToolsVersion build_version.buildToolsVersion
+    buildToolsVersion build_version.buildToolsVersion
     defaultConfig {
         minSdkVersion build_version.minSdkVersion
         targetSdkVersion build_version.targetSdkVersion
@@ -43,7 +43,7 @@ android {
             shrinkResources false
             //是否启用zipAlign压缩
             zipAlignEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
@@ -53,7 +53,7 @@ android {
             shrinkResources false
             //是否启用zipAlign压缩
             zipAlignEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -100,7 +100,7 @@ android {
     // 4.0
     buildFeatures {
         dataBinding true
-        viewBinding true
+//        viewBinding true
     }
 
 }

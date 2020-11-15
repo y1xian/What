@@ -6,8 +6,8 @@ import android.content.Context;
 import android.widget.CompoundButton;
 
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.common.utils.ToastUtils;
-import com.yyxnb.common.utils.log.LogUtils;
+import com.yyxnb.lib_common.utils.ToastUtils;
+import com.yyxnb.lib_common.utils.log.LogUtils;
 import com.yyxnb.skinloader.SkinManager;
 import com.yyxnb.skinloader.util.AssetFileUtils;
 import com.yyxnb.utils.permission.PermissionListener;

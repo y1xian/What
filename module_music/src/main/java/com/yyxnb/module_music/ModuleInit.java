@@ -2,12 +2,12 @@ package com.yyxnb.module_music;
 
 import android.app.Application;
 
-import com.yyxnb.common.utils.log.LogUtils;
+import com.yyxnb.lib_common.utils.log.LogUtils;
 import com.yyxnb.common_base.module.IModuleInit;
-import com.yyxnb.music.MusicPlayerManager;
-import com.yyxnb.music.interfaces.MusicConstants;
-import com.yyxnb.music.interfaces.MusicPlayerEventListener;
-import com.yyxnb.music.utils.MusicPlayerConfig;
+import com.yyxnb.lib_music.MusicPlayerManager;
+import com.yyxnb.lib_music.interfaces.MusicConstants;
+import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
+import com.yyxnb.lib_music.utils.MusicPlayerConfig;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.ui.MusicPlayerActivity;
 

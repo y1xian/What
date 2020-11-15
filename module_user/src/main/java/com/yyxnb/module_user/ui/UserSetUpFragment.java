@@ -6,7 +6,7 @@ import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserSetUpBinding;
-import com.yyxnb.popup.PopupManager;
+import com.yyxnb.lib_popup.PopupManager;
 
 /**
  * 设置.

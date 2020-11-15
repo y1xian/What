@@ -5,17 +5,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.adapter.MusicNetWorkListAdapter;
 import com.yyxnb.module_music.databinding.FragmentMusicNetworkBinding;
 import com.yyxnb.module_music.db.MusicDatabase;
 import com.yyxnb.module_music.viewmodel.MusicViewModel;
-import com.yyxnb.music.MusicPlayerManager;
+import com.yyxnb.lib_music.MusicPlayerManager;
 
 /**
  * 网络音乐.

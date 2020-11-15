@@ -1,6 +1,6 @@
 package com.yyxnb.module_main.bean;
 
-import com.yyxnb.widget.interfaces.IData;
+import com.yyxnb.lib_widget.interfaces.IData;
 
 public class MainHomeBean implements IData<Long> {
     public int id;

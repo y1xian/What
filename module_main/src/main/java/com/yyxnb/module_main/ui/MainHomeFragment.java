@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.GridLayoutManager;
+import android.text.Html;
 import android.view.View;
 
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.ItemDecoration;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.ItemDecoration;
+import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_main.R;
@@ -19,7 +20,7 @@ import com.yyxnb.module_main.adapter.MainHomeAdapter;
 import com.yyxnb.module_main.config.DataConfig;
 import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
-import com.yyxnb.popup.PopupManager;
+import com.yyxnb.lib_popup.PopupManager;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_MAIN;
@@ -90,6 +91,17 @@ public class MainHomeFragment extends BaseFragment {
     @Override
     public void initViewData() {
         super.initViewData();
+
+        // 隐私权限申请
+        new PopupManager.Builder(getContext())
+                .dismissOnTouchOutside(false)
+                .dismissOnBackPressed(false)
+                .asConfirm("温馨提示",
+                        Html.fromHtml(getString(R.string.main_privacy_notice)), "我就不给", "给给给", () -> {
+                            // 确定
+                            toast("感想您的信任");
+                        }, this::finish).show();
+
         mAdapter.setDataItems(DataConfig.getMainBeans());
 
         binding.ivHead.setOnClickListener(v -> {

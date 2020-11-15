@@ -6,7 +6,7 @@ import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
 import com.dueeeke.videoplayer.player.VideoViewConfig;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.yyxnb.common_base.module.IModuleInit;
-import com.yyxnb.widget.AppUtils;
+import com.yyxnb.lib_widget.AppUtils;
 
 public class ModuleInit implements IModuleInit {
 

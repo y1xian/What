@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.yyxnb.music">
+    package="com.yyxnb.lib_music">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +16,7 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <service
-            android:name="com.yyxnb.music.service.MusicPlayerService"
+            android:name="com.yyxnb.lib_music.service.MusicPlayerService"
             android:exported="true" />
     </application>
 </manifest>

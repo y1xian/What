@@ -7,15 +7,15 @@ import android.text.TextWatcher;
 import android.view.View;
 
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
 import com.yyxnb.module_wanandroid.config.DataConfig;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanSearchBinding;
 import com.yyxnb.module_wanandroid.viewmodel.WanSearchViewModel;
-import com.yyxnb.view.text.FlowlayoutTags;
+import com.yyxnb.lib_view.text.FlowlayoutTags;
 
 import java.util.ArrayList;
 import java.util.List;

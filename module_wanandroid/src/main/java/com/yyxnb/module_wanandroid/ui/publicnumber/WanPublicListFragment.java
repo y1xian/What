@@ -10,17 +10,17 @@ import android.view.View;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
 import com.yyxnb.module_wanandroid.ui.WanWebActivity;
 import com.yyxnb.module_wanandroid.viewmodel.WanPublicViewModel;
-import com.yyxnb.view.status.StatusView;
+import com.yyxnb.lib_view.status.StatusView;
 
 import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
 

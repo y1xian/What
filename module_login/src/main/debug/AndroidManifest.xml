@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yyxnb.module_login">
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name="com.yyxnb.common_base.DebugApplication"
         android:allowBackup="true"

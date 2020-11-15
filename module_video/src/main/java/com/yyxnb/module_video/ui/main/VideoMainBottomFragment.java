@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.common.utils.DpUtils;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_common.utils.DpUtils;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
@@ -18,7 +18,7 @@ import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
 import com.yyxnb.module_video.ui.home.VideoHomeFragment;
-import com.yyxnb.view.text.DrawableRadioButton;
+import com.yyxnb.lib_view.text.DrawableRadioButton;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;

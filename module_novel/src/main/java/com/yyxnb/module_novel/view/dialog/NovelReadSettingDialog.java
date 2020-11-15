@@ -11,9 +11,9 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
-import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.NovelPageStyleAdapter;
 import com.yyxnb.module_novel.view.page.BrightnessUtils;

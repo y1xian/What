@@ -8,9 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.base.IFragment;
-import com.yyxnb.arch.common.ArchConfig;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.lib_arch.common.ArchConfig;
 
 import java.lang.ref.WeakReference;
 

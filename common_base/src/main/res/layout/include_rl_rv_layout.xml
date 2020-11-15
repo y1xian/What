@@ -17,7 +17,7 @@
         app:srlEnableOverScrollBounce="true"
         skin:enable="true">
 
-        <com.yyxnb.view.status.StatusView
+        <com.yyxnb.lib_view.status.StatusView
             android:id="@+id/mStatusView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-        </com.yyxnb.view.status.StatusView>
+        </com.yyxnb.lib_view.status.StatusView>
 
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </layout>

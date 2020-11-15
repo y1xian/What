@@ -5,7 +5,7 @@ import android.support.annotation.StringRes;
 import android.view.View;
 import android.widget.TextView;
 
-import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.module_widget.R;
 
 

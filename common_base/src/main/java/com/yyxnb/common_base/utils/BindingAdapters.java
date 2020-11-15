@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.yyxnb.common_base.R;
-import com.yyxnb.image_loader.ImageManager;
+import com.yyxnb.lib_image_loader.ImageManager;
 
 public class BindingAdapters {
 

@@ -1,9 +1,8 @@
 package com.yyxnb.module_music.config;
 
-import com.yyxnb.widget.AppUtils;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.lib_widget.AppUtils;
 import com.yyxnb.module_music.bean.MusicBean;
-import com.yyxnb.network.utils.GsonUtils;
+import com.yyxnb.lib_network.utils.GsonUtils;
 import com.yyxnb.utils.FileUtils;
 
 import java.math.BigDecimal;

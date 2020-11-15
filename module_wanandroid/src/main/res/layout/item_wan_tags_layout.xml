@@ -41,7 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="标题" />
 
-            <com.yyxnb.view.text.FlowlayoutTags
+            <com.yyxnb.lib_view.text.FlowlayoutTags
                 android:id="@+id/mFlowlayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

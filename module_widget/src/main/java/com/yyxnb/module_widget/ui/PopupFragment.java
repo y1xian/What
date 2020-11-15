@@ -7,17 +7,17 @@ import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
-import com.yyxnb.arch.annotations.BindRes;
+import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.common_base.base.AbsListFragment;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.bean.MainBean;
 import com.yyxnb.module_widget.viewmodel.PopupViewModel;
-import com.yyxnb.popup.PopupManager;
-import com.yyxnb.popup.impl.LoadingPopupView;
-import com.yyxnb.popup.interfaces.OnInputConfirmListener;
-import com.yyxnb.popup.interfaces.OnSelectListener;
+import com.yyxnb.lib_popup.PopupManager;
+import com.yyxnb.lib_popup.impl.LoadingPopupView;
+import com.yyxnb.lib_popup.interfaces.OnInputConfirmListener;
+import com.yyxnb.lib_popup.interfaces.OnSelectListener;
 
 /**
  * Popup.

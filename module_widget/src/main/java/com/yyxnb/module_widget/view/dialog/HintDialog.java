@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yyxnb.dialog.core.BaseDialog;
+import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.module_widget.R;
 
 

@@ -16,7 +16,7 @@ android {
 
         // 更新至Android Studio 3.3 gradle 4.10.1
         variant.outputs.all {
-            outputFileName = "app_${variant.versionName}.${variant.versionCode}.apk"
+            outputFileName = "what_${variant.versionName}.${variant.versionCode}.apk"
         }
 
     }
@@ -38,5 +38,5 @@ dependencies {
 
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.5'
     implementation 'com.tencent.tinker:tinker-android-lib:1.9.9'
-    implementation 'com.tencent.bugly:nativecrashreport:3.7.471'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.500'
 }

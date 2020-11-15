@@ -1,7 +1,7 @@
 package com.yyxnb.module_widget.bean;
 
 
-import com.yyxnb.widget.interfaces.IData;
+import com.yyxnb.lib_widget.interfaces.IData;
 
 import java.io.Serializable;
 import java.util.Objects;

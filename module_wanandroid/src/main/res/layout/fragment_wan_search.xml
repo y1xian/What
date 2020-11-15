@@ -65,7 +65,7 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <com.yyxnb.view.text.FlowlayoutTags
+        <com.yyxnb.lib_view.text.FlowlayoutTags
             android:id="@+id/mHotTags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <com.yyxnb.view.text.FlowlayoutTags
+        <com.yyxnb.lib_view.text.FlowlayoutTags
             android:id="@+id/mHistoryTags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

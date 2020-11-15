@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
 
     <data>
 
@@ -10,11 +11,12 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical"
         tools:context=".ui.LoginFragment">
 
         <ImageView
-            android:id="@+id/ivBack"
+            android:id="@+id/iv_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
@@ -26,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -36,21 +38,21 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_back" />
 
         <TextView
-            android:id="@+id/tvTip"
+            android:id="@+id/tv_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/login_tips"
             android:textColor="@color/colorHint"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tvTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/clInput"
+            android:id="@+id/cl_input"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginStart="32dp"
@@ -58,32 +60,32 @@
             android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTip">
+            app:layout_constraintTop_toBottomOf="@+id/tv_tip">
 
 
             <ImageView
-                android:id="@+id/ivPhone"
+                android:id="@+id/iv_phone"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:src="@mipmap/ic_phone"
+                android:src="@mipmap/ic_login_phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvAreaCode"
+                android:id="@+id/tv_area_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="+86"
                 android:textColor="@color/colorTitle"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPhone"
-                app:layout_constraintStart_toEndOf="@+id/ivPhone"
-                app:layout_constraintTop_toTopOf="@+id/ivPhone" />
+                app:layout_constraintBottom_toBottomOf="@+id/iv_phone"
+                app:layout_constraintStart_toEndOf="@+id/iv_phone"
+                app:layout_constraintTop_toTopOf="@+id/iv_phone" />
 
             <EditText
-                android:id="@+id/etPhone"
+                android:id="@+id/et_phone"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="16dp"
@@ -94,30 +96,30 @@
                 android:maxLength="11"
                 android:singleLine="true"
                 android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPhone"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_phone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tvAreaCode"
-                app:layout_constraintTop_toTopOf="@+id/ivPhone" />
+                app:layout_constraintStart_toEndOf="@+id/tv_area_code"
+                app:layout_constraintTop_toTopOf="@+id/iv_phone" />
 
             <View
-                android:id="@+id/vLine1"
+                android:id="@+id/v_line1"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorLine"
-                app:layout_constraintTop_toBottomOf="@+id/ivPhone" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
 
             <ImageView
-                android:id="@+id/ivPassword"
+                android:id="@+id/iv_password"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="30dp"
-                android:src="@mipmap/ic_password"
-                app:layout_constraintStart_toStartOf="@+id/ivPhone"
-                app:layout_constraintTop_toBottomOf="@+id/ivPhone" />
+                android:src="@mipmap/ic_login_password"
+                app:layout_constraintStart_toStartOf="@+id/iv_phone"
+                app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
 
             <EditText
-                android:id="@+id/etCode"
+                android:id="@+id/et_code"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="16dp"
@@ -125,69 +127,123 @@
                 android:background="@null"
                 android:hint="@string/login_code_tips"
                 android:inputType="number"
-                android:maxLength="6"
+                android:maxLength="4"
                 android:singleLine="true"
                 android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPassword"
-                app:layout_constraintEnd_toStartOf="@+id/tvVerificationCode"
-                app:layout_constraintStart_toEndOf="@+id/ivPassword"
-                app:layout_constraintTop_toTopOf="@+id/ivPassword" />
+                app:layout_constraintBottom_toBottomOf="@+id/iv_password"
+                app:layout_constraintEnd_toStartOf="@+id/tv_verification_code"
+                app:layout_constraintStart_toEndOf="@+id/iv_password"
+                app:layout_constraintTop_toTopOf="@+id/iv_password" />
 
             <TextView
-                android:id="@+id/tvVerificationCode"
+                android:id="@+id/tv_verification_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
+                android:padding="5dp"
                 android:text="@string/login_verification_code"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPassword"
+                android:textColor="@color/colorTheme"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_password"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/ivPassword" />
+                app:layout_constraintTop_toTopOf="@+id/iv_password" />
 
             <View
-                android:id="@+id/vLine2"
+                android:id="@+id/v_line2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorLine"
-                app:layout_constraintTop_toBottomOf="@+id/ivPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_password" />
 
         </android.support.constraint.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tvLogin"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
-            android:background="@drawable/shape_r15_bg_00c6ff"
-            android:gravity="center"
-            android:text="登 录"
-            android:textColor="@color/white"
-            android:textSize="15sp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clInput" />
+            app:layout_constraintTop_toBottomOf="@+id/cl_input">
 
-        <TextView
-            android:id="@+id/tvChoseLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="密码登录"
-            android:textColor="@color/colorUserHead"
-            app:layout_constraintEnd_toEndOf="@+id/tvLogin"
-            app:layout_constraintStart_toStartOf="@+id/tvLogin"
-            app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tv_login"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="注册 / 登录"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:bl_corners_radius="15dp"
+                app:bl_solid_color="@color/color_btn_theme" />
 
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tv_visitor_login"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="游客登录"
+                android:textColor="@color/color_btn_theme"
+                android:textSize="15sp"
+                app:bl_corners_radius="15dp"
+                app:bl_solid_color="@color/white"
+                app:bl_stroke_color="@color/color_btn_theme"
+                app:bl_stroke_width="1dp" />
+
+            <TextView
+                android:id="@+id/tv_chose_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="密码登录"
+                android:textColor="@color/colorUserHead"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- 隐私 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/cl_third_login">
+
+            <com.noober.background.view.BLImageView
+                android:id="@+id/iv_user_agree_check"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="2dp"
+                app:bl_selected_drawable="@mipmap/ic_login_check_foucs"
+                app:bl_unSelected_drawable="@mipmap/ic_login_check_default" />
+
+            <TextView
+                android:id="@+id/tv_user_agreement_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="我已认真阅读、理解并同意《用户协议》和《隐私政策》"
+                android:textColor="@color/colorText"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 第三方 -->
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_third_login"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -202,7 +258,7 @@
             <com.makeramen.roundedimageview.RoundedImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/live_ic_wechat_squre"
+                android:src="@mipmap/ic_login_wechat_squre"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.2"
@@ -215,7 +271,7 @@
             <com.makeramen.roundedimageview.RoundedImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/live_ic_qq_squre"
+                android:src="@mipmap/ic_login_qq_squre"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -227,7 +283,7 @@
             <com.makeramen.roundedimageview.RoundedImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/live_ic_sina_squre"
+                android:src="@mipmap/ic_login_sina_squre"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"

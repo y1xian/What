@@ -2,7 +2,7 @@ package com.yyxnb.module_user.ui.wallet;
 
 import android.os.Bundle;
 
-import com.yyxnb.arch.annotations.BindRes;
+import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserWalletBinding;

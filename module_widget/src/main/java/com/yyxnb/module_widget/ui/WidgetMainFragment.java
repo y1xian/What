@@ -8,9 +8,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.yyxnb.adapter.BaseViewHolder;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
-import com.yyxnb.arch.annotations.BindRes;
+import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.common_base.base.AbsListFragment;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.bean.MainBean;

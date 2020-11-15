@@ -17,7 +17,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.yyxnb.common.utils.DpUtils;
+import com.yyxnb.lib_common.utils.DpUtils;
 
 public class PPImageView extends AppCompatImageView {
     public PPImageView(Context context) {

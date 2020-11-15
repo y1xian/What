@@ -28,6 +28,15 @@ public @interface Entity {
         // 约束 唯一
         indices = {@Index(value = {"userId", "phone", "token"}, unique = true)}
 )
+/**
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/10
+ * 历    史：
+ * 描    述：用户基本信息
+ * ================================================
+ */
 public class UserBean implements Serializable {
 
     // 自增
@@ -44,6 +53,8 @@ public class UserBean implements Serializable {
     public boolean isLogin;
     public int sex;
     public int age;
+    // 登录状态 0未登录 -1游客 1手机号登录 2微信登录 3qq登录 4微博登录 ，10黑名单用户
+    public int loginStatus;
 
 
     @Override
@@ -58,6 +69,7 @@ public class UserBean implements Serializable {
                 ", isLogin=" + isLogin +
                 ", sex=" + sex +
                 ", age=" + age +
+                ", loginStatus=" + loginStatus +
                 '}';
     }
 }

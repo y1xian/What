@@ -11,7 +11,7 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 
-import com.yyxnb.common.utils.DpUtils;
+import com.yyxnb.lib_common.utils.DpUtils;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.bean.UserBean;
 import com.yyxnb.module_novel.bean.BookChapterBean;

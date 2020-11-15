@@ -5,8 +5,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;

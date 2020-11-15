@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yyxnb.webview">
+    package="com.yyxnb.lib_webview">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -15,7 +15,7 @@
 
     <application>
         <activity
-            android:name=".WebActivity"
+            android:name="com.yyxnb.lib_webview.WebActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"/>
     </application>

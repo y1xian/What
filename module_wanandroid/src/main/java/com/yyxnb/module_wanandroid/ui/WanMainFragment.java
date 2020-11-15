@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.arch.annotations.BindRes;
+import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanMainBinding;
@@ -13,8 +13,8 @@ import com.yyxnb.module_wanandroid.ui.home.WanHomeFragment;
 import com.yyxnb.module_wanandroid.ui.project.WanProjectFragment;
 import com.yyxnb.module_wanandroid.ui.publicnumber.WanPublicFragment;
 import com.yyxnb.module_wanandroid.ui.tree.WanTreeFragment;
-import com.yyxnb.view.tabbar.Tab;
-import com.yyxnb.view.tabbar.TabBarView;
+import com.yyxnb.lib_view.tabbar.Tab;
+import com.yyxnb.lib_view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;

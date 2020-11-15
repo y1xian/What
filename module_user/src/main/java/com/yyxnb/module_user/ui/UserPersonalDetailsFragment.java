@@ -2,7 +2,7 @@ package com.yyxnb.module_user.ui;
 
 import android.os.Bundle;
 
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_user.R;

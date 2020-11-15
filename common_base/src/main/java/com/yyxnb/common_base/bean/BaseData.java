@@ -1,6 +1,6 @@
 package com.yyxnb.common_base.bean;
 
-import com.yyxnb.widget.interfaces.IData;
+import com.yyxnb.lib_widget.interfaces.IData;
 
 /**
  * 常用的数据结构

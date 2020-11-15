@@ -1,37 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorEmpty">#00000000</color>
+    <!-- 如需 - 重写配置颜色 start -->
+
+    <!-- 系统应用的主题色 -->
+    <!-- 应用的主要色调,actionBar默认使用该颜色,Toolbar导航栏的底色 -->
+    <color name="colorPrimary">@color/white</color>
+    <!-- 状态栏颜色,应用的主要暗色调,statusBarColor默认使用该颜色 -->
+    <color name="colorPrimaryDark">@color/white</color>
+    <!-- CheckBox,RadioButton,SwitchCompat等一般控件的选中效果默认采用该颜色 -->
+    <color name="colorAccent">@color/colorTheme</color>
+    <!-- 控件按压时的色调 -->
+    <color name="colorControlHighlight">@color/pale_grey</color>
+    <!-- 默认按钮的背景颜色 -->
+    <color name="colorButtonNormal">@color/pale_grey</color>
+    <!-- 窗口背景颜色 - 所以页面背景色 -->
+    <color name="windowBackground">#F2F3F5</color>
+    <!--底部栏颜色 -->
+    <color name="navigationBarColor">@color/colorPrimary</color>
+
+    <!-- 界面颜色 -->
+    <!-- 非非非！非系统应用 - 主题颜色 -->
+    <color name="colorTheme">#00C6FF</color>
+    <!-- 所有界面的状态栏的背景颜色 -->
+    <color name="statusBar">@color/colorPrimary</color>
+    <!-- 所有界面的标题栏的背景颜色 -->
+    <color name="titleBar">@color/colorPrimary</color>
+    <!-- 所有界面的分割线颜色 -->
+    <color name="colorLine">#EAEAEA</color>
+
+    <!-- 文字颜色 -->
+    <!-- 一级标题、正文字体颜色，二级页面导航栏返回键/其他图标颜色 -->
+    <color name="colorTitle">#FF1C2124</color>
+    <!-- 二级标题 副标题 -->
+    <color name="colorSubTitle">#1F2336</color>
+    <!-- 正文字体颜色 -->
+    <color name="colorText">#878B99</color>
+    <!-- 辅助字体（注释、时间等）颜色 -->
+    <color name="colorHint">#FF9E9FA3</color>
+    <!-- 提示性文字 -->
+    <color name="colorTips">#A9A9A9</color>
+
+
+    <!-- 如需 - 重写配置颜色 end -->
+
+
+    <color name="colorEmpty">#00C6FF</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorGray">#e9e9e9</color>
-
-    <color name="colorPrimary">@color/white</color>
-    <color name="colorPrimaryDark">@color/white</color>
-    <color name="colorAccent">#74b9ff</color>
-    <color name="colorBackground">#f5f6fa</color>
-    <color name="colorBackgroundItem">#f5f6fa</color>
-    <color name="colorTitle">#000000</color>
-    <color name="colorText">#57606f</color>
-    <color name="colorHint">#bdc3c7</color>
-    <color name="colorLine">#eeeeee</color>
-
-    <color name="statusBar">@color/colorPrimary</color>
-    <color name="titleBar">@color/colorPrimary</color>
 
     <color name="colorUserHead">#00C6FF</color>
 
 
+    <!-- 按钮色 -->
+    <!-- 主题色 通用色-->
+    <color name="color_btn_theme">@color/colorTheme</color>
+    <!-- 黑色 -->
+    <color name="color_btn_black">@color/black</color>
 
-<!--    <color name="colorPrimaryNight">#3C3F41</color>-->
-<!--    <color name="colorPrimaryDarkNight">#323232</color>-->
-<!--    <color name="colorAccentNight">#fab1a0</color>-->
-<!--    <color name="colorBackgroundNight">#2f3640</color>-->
-<!--    <color name="colorBackgroundItemNight">#353b48</color>-->
-<!--    <color name="colorTitleNight">#95a5a6</color>-->
-<!--    <color name="colorTextNight">#707070</color>-->
-<!--    <color name="colorHintNight">#3D3D3D</color>-->
-<!--    <color name="colorLineNight">#2f3640</color>-->
-
-<!--    <color name="colorUserHeadNight">#3c6382</color>-->
+    <color name="colorBackground">#f5f6fa</color>
+    <color name="colorBackgroundItem">#f5f6fa</color>
 
 </resources>

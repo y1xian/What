@@ -1,9 +1,8 @@
 package com.yyxnb.module_main.config;
 
-import com.yyxnb.widget.AppUtils;
-import com.yyxnb.widget.WidgetManager;
-import com.yyxnb.common.utils.log.LogUtils;
-import com.yyxnb.network.utils.GsonUtils;
+import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.lib_common.utils.log.LogUtils;
+import com.yyxnb.lib_network.utils.GsonUtils;
 import com.yyxnb.module_main.bean.MainHomeBean;
 import com.yyxnb.utils.FileUtils;
 

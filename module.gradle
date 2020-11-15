@@ -102,7 +102,7 @@ ext.addComponent = { dependencyName, realDependency = null ->
 android {
     //版本配置
     compileSdkVersion build_version.compileSdkVersion
-//    buildToolsVersion build_version.buildToolsVersion
+    buildToolsVersion build_version.buildToolsVersion
     defaultConfig {
         minSdkVersion build_version.minSdkVersion
         targetSdkVersion build_version.targetSdkVersion
@@ -145,7 +145,7 @@ android {
             //是否启用zipAlign压缩
             zipAlignEnabled false
             signingConfig signingConfigs.what
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
@@ -156,7 +156,7 @@ android {
             //是否启用zipAlign压缩
             zipAlignEnabled false
             signingConfig signingConfigs.what
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

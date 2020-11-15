@@ -3,7 +3,7 @@ package com.yyxnb.module_music.db;
 import android.arch.persistence.room.Dao;
 
 import com.yyxnb.module_music.bean.MusicFavouriteBean;
-import com.yyxnb.room.BaseDao;
+import com.yyxnb.lib_room.BaseDao;
 
 /**
  * 喜欢/收藏

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.yyxnb.arch">
+    package="com.yyxnb.lib_arch">
     <!-- 基本模块（必须）START -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -19,7 +19,7 @@
 
         <!-- 使用ContentProvider初始化三方库 -->
         <provider
-            android:name=".ArchInitializer"
+            android:name="com.yyxnb.lib_arch.ArchInitializer"
             android:authorities="${applicationId}.ArchInitializer"
             android:exported="false"
             android:multiprocess="true" />

@@ -6,9 +6,9 @@ import android.support.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.arch.annotations.BarStyle;
-import com.yyxnb.arch.annotations.BindRes;
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_arch.annotations.BarStyle;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;

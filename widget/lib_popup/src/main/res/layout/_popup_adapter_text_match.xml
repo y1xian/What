@@ -29,7 +29,7 @@
             android:textColor="@color/_popup_title_color"
             android:textSize="15sp" />
 
-        <com.yyxnb.popup.widget.CheckView
+        <com.yyxnb.lib_popup.widget.CheckView
             android:layout_gravity="center_vertical"
             android:id="@+id/check_view"
             android:layout_width="30dp"

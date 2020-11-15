@@ -1,6 +1,6 @@
 package com.yyxnb.common_base.config;
 
-import com.yyxnb.network.AbstractHttp;
+import com.yyxnb.lib_network.AbstractHttp;
 
 import java.util.ArrayList;
 import java.util.List;

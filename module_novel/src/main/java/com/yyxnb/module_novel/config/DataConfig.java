@@ -1,10 +1,9 @@
 package com.yyxnb.module_novel.config;
 
 import com.yyxnb.module_novel.bean.BookInfoBean;
-import com.yyxnb.network.utils.GsonUtils;
+import com.yyxnb.lib_network.utils.GsonUtils;
 import com.yyxnb.utils.FileUtils;
-import com.yyxnb.widget.AppUtils;
-import com.yyxnb.widget.WidgetManager;
+import com.yyxnb.lib_widget.AppUtils;
 
 import java.util.List;
 

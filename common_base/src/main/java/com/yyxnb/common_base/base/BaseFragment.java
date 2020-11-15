@@ -16,15 +16,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yyxnb.arch.action.ArchAction;
-import com.yyxnb.arch.action.BundleAction;
-import com.yyxnb.arch.base.IFragment;
-import com.yyxnb.arch.base.Java8Observer;
-import com.yyxnb.arch.common.ArchConfig;
-import com.yyxnb.arch.delegate.FragmentDelegate;
-import com.yyxnb.common.action.AnimAction;
-import com.yyxnb.widget.action.ClickAction;
-import com.yyxnb.widget.action.HandlerAction;
+import com.yyxnb.lib_arch.action.ArchAction;
+import com.yyxnb.lib_arch.action.BundleAction;
+import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.lib_arch.base.Java8Observer;
+import com.yyxnb.lib_arch.common.ArchConfig;
+import com.yyxnb.lib_arch.delegate.FragmentDelegate;
+import com.yyxnb.lib_common.action.AnimAction;
+import com.yyxnb.lib_widget.action.ClickAction;
+import com.yyxnb.lib_widget.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
 

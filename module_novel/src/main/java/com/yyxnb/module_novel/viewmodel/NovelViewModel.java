@@ -12,7 +12,7 @@ import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.config.NovelService;
 import com.yyxnb.module_novel.db.BookInfoDao;
 import com.yyxnb.module_novel.db.NovelDatabase;
-import com.yyxnb.network.BaseViewModel;
+import com.yyxnb.lib_network.BaseViewModel;
 
 import java.util.List;
 

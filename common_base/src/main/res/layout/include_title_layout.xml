@@ -9,7 +9,7 @@
 
     </data>
 
-    <com.yyxnb.view.titlebar.TitleBar
+    <com.yyxnb.lib_view.titlebar.TitleBar
         android:id="@+id/v_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

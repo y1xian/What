@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.yyxnb.arch.annotations.BindViewModel;
+import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.dialog.core.BaseDialog;
-import com.yyxnb.dialog.core.MessageDialog;
+import com.yyxnb.lib_dialog.core.BaseDialog;
+import com.yyxnb.lib_dialog.core.MessageDialog;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookShelfBean;

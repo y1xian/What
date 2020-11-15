@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.yyxnb.arch.base.IActivity;
+import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.module_main.R;
 
 /**

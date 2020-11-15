@@ -2,12 +2,12 @@ package com.yyxnb.common_base.weight.skin;
 
 import android.view.View;
 
-import com.yyxnb.common.utils.StatusBarUtils;
+import com.yyxnb.lib_common.utils.StatusBarUtils;
 import com.yyxnb.skinloader.bean.SkinAttr;
 import com.yyxnb.skinloader.bean.SkinConfig;
 import com.yyxnb.skinloader.skinInterface.ISkinResDeployer;
 import com.yyxnb.skinloader.skinInterface.ISkinResourceManager;
-import com.yyxnb.view.titlebar.TitleBar;
+import com.yyxnb.lib_view.titlebar.TitleBar;
 
 
 public class TitleColorResDeployer implements ISkinResDeployer {

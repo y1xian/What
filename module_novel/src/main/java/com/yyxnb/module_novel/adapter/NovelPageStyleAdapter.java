@@ -4,8 +4,8 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.yyxnb.adapter.BaseAdapter;
-import com.yyxnb.adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.BaseAdapter;
+import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.view.page.PageStyle;
 
