@@ -24,6 +24,8 @@ dependencies {
         addComponent 'module_joke'
         addComponent 'module_music'
         addComponent 'module_novel'
+        addComponent 'module_wanandroid'
+        addComponent 'module_widget'
     }
 
 }

@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.yyxnb.module_main">
 
     <application>
         <activity
-            android:name="com.yyxnb.module_main.ui.SplashActivity"
-            android:theme="@style/SplashTheme" />
-        <activity android:name="com.yyxnb.module_main.ui.MainActivity" />
-        <activity
             android:name=".ui.MainSearchActivity"
-            android:label="搜索"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

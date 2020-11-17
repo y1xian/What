@@ -10,6 +10,15 @@ import android.util.Log;
  */
 public class AppLifeObserver implements LifecycleObserver {
 
+    private static volatile AppLifeObserver appLifeObserver;
+
+    public static AppLifeObserver getInstance() {
+        if (null == appLifeObserver) {
+            appLifeObserver = new AppLifeObserver();
+        }
+        return appLifeObserver;
+    }
+
     /**
      * ON_CREATE 在应用程序的整个生命周期中只会被调用一次
      */

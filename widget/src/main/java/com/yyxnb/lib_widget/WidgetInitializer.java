@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import java.util.Objects;
 
@@ -22,13 +23,16 @@ public class WidgetInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
 
+        Log.e("WidgetInitializer", "第一个初始化的存在");
+
         AppUtils.init((Application) Objects.requireNonNull(getContext()).getApplicationContext());
+
+        // 应用监听
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(AppLifeObserver.getInstance());
 
         // 突破65535的限制
         MultiDex.install(AppUtils.getApp());
 
-        // 应用监听
-        ProcessLifecycleOwner.get().getLifecycle().addObserver(new AppLifeObserver());
 
         return true;
     }

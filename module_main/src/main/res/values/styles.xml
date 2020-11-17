@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    //启动页
-    <style name="SplashTheme" parent="BaseAppTheme">
-        <item name="android:windowBackground">@mipmap/icon_splash</item>
+    <!-- 启动页 -->
+    <style name="SplashTheme" parent="BaseAppTheme" tools:ignore="ResourceName">
+        <item name="android:windowBackground">@mipmap/ic_main_splash</item>
         <item name="android:statusBarColor" tools:ignore="NewApi">@color/transparent</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowTranslucentNavigation">true</item>

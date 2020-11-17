@@ -29,7 +29,7 @@
                 android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:src="@mipmap/ic_smiling_face"
+                android:src="@mipmap/ic_main_smiling_face"
                 app:layout_constraintBottom_toTopOf="@+id/tvTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:riv_oval="true" />

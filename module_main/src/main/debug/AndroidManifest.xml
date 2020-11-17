@@ -13,9 +13,14 @@
         android:theme="@style/BaseAppTheme">
         <activity
             android:name=".ui.MainSearchActivity"
-            android:label="搜索"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

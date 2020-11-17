@@ -12,6 +12,7 @@ import android.view.View;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.arouter.ARouterUtils;
 import com.yyxnb.common_base.base.BaseFragment;
@@ -34,6 +35,7 @@ import static com.yyxnb.common_base.arouter.ARouterConstant.WIDGET_MAIN;
 /**
  * 主页
  */
+@BindRes
 public class MainHomeFragment extends BaseFragment {
 
     @BindViewModel

@@ -6,7 +6,8 @@
 
 ### [组件化流程图 - 大概](https://www.processon.com/view/link/5ee9d5bdf346fb1ae569847d)
 
-
+#### [下载地址，Java版](https://www.pgyer.com/What)，或扫码下载
+![image](https://www.pgyer.com/app/qrcode/What)
 
 #### 项目
 -  主要使用了 JitPack 、 ARouter 、RxJava2 、Retrofit2 等主流框架，MVVM模式
@@ -111,6 +112,11 @@ dependencies {
 }
 ```
 
+### 其它说明
+#### 换肤
+  - 新建模块，只需`res`包且对应资源名即可，可更换颜色，图片，shape。
+  - 本项目中已实现`skin_night`夜间模式的皮肤，只需编译该模块，把生成的 `night.apk` 放进 `module_user` 用户模块即可，路径为 `assets/skins/night.apk`
+
 ### 易错点
 - aar包的引用，整个项目运行会报错？
 - 包名申请第三方sdk，单模块下不成功？
@@ -120,4 +126,3 @@ dependencies {
 ---
 ## 总结
 个人经验的积累，项目也会不断的完善
-
