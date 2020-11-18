@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="2dp"
+    tools:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/em_notification_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:padding="4dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/em_notification_date"
+        style="@android:style/TextAppearance.StatusBar.EventContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:textSize="10dp" />
+
+    <LinearLayout
+        android:id="@+id/em_notification_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="1dp"
+        android:layout_toLeftOf="@id/em_notification_date"
+        android:layout_toRightOf="@id/em_notification_icon"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/em_notification_title"
+            style="@android:style/TextAppearance.StatusBar.EventContent.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="16dp"
+            tools:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/em_notification_content"
+            style="@android:style/TextAppearance.StatusBar.EventContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="13dp"
+            tools:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/em_bigview_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/em_bigview_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:ellipsize="end"
+            android:maxHeight="192dp"
+            android:textSize="13dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+</RelativeLayout>

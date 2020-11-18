@@ -29,8 +29,9 @@ public class ARouterConstant {
 
     //======= message
     //消息列表
-    public static final String MESSAGE_MAIN = "/message/MessageActivity";
-    public static final String MESSAGE_LIST_FRAGMENT = "/message/MessageListFragment";
+    public static final String CHAT_MAIN = "/chat/ChatActivity";
+    public static final String CHAT_MAIN_FRAGMENT = "/chat/ChatMainFragment";
+    public static final String CHAT_LIST_FRAGMENT = "/chat/MessageListFragment";
 
 
 

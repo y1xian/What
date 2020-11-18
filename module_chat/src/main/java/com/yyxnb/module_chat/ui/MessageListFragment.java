@@ -13,12 +13,12 @@ import com.yyxnb.module_chat.config.DataConfig;
 import com.yyxnb.module_chat.databinding.FragmentMessageListBinding;
 import com.yyxnb.skinloader.SkinManager;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
 
 /**
  * 消息列表.
  */
-@Route(path = MESSAGE_LIST_FRAGMENT)
+@Route(path = CHAT_LIST_FRAGMENT)
 public class MessageListFragment extends BaseFragment {
 
     private FragmentMessageListBinding binding;

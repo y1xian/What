@@ -21,7 +21,7 @@ import com.yyxnb.module_video.ui.home.VideoHomeFragment;
 import com.yyxnb.lib_view.text.DrawableRadioButton;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_LIST_FRAGMENT;
+import static com.yyxnb.common_base.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
 
 /**
@@ -81,7 +81,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
             mHomeFragment = new VideoHomeFragment();
             mSparseArray.put(HOME, mHomeFragment);
             mSparseArray.put(FIND, new VideoFindFragment());
-            mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
+            mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(CHAT_LIST_FRAGMENT));
 //            mSparseArray.put(ME, VideoUserFragment.newInstance(true));
             mSparseArray.put(ME, (Fragment) ARouterUtils.navFragment(USER_MAIN_FRAGMENT));
         }

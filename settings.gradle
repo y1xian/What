@@ -30,5 +30,8 @@ include ':widget:lib_network',
         ':widget:lib_floatwindow',
         ':widget:lib_task'
 
+include ':opensource',
+        ':opensource:easeui'
+
 include ':skin_night'
 rootProject.name = 'What'

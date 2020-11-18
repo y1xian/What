@@ -24,7 +24,7 @@ import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.lib_popup.PopupManager;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MESSAGE_MAIN;
+import static com.yyxnb.common_base.arouter.ARouterConstant.CHAT_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
@@ -144,7 +144,7 @@ public class MainHomeFragment extends BaseFragment {
                     case 4:
                         // 消息
 //                        startFragment(ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
-                        ARouterUtils.navActivity(MESSAGE_MAIN);
+                        ARouterUtils.navActivity(CHAT_MAIN);
                         break;
                     case 5:
                         // 玩安卓
