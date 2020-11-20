@@ -24,6 +24,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 @SuppressWarnings("rawtypes")
+@Deprecated
 public abstract class BaseViewModel extends ViewModel implements DefaultLifecycleObserver, CommonAction {
 
     public final MutableLiveData<Status> status = new MutableLiveData<>();

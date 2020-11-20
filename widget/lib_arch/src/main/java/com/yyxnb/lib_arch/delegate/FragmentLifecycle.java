@@ -13,9 +13,13 @@ import com.yyxnb.lib_arch.base.IFragment;
 import com.yyxnb.lib_arch.common.AppManager;
 
 /**
- * Fragment 注册生命周期监听
- *
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：Fragment 注册生命周期监听
+ * ================================================
  */
 public class FragmentLifecycle extends FragmentManager.FragmentLifecycleCallbacks {
 
@@ -32,7 +36,7 @@ public class FragmentLifecycle extends FragmentManager.FragmentLifecycleCallback
         return lifecycle;
     }
 
-    private LruCache<String, IFragmentDelegate> cache = new LruCache<>(100);
+    private final LruCache<String, IFragmentDelegate> cache = new LruCache<>(100);
 
     @Override
     public void onFragmentAttached(@NonNull FragmentManager fm, @NonNull Fragment f, @NonNull Context context) {
@@ -124,6 +128,7 @@ public class FragmentLifecycle extends FragmentManager.FragmentLifecycleCallback
         if (fetchFragmentDelegateFromCache(f) != null) {
             fetchFragmentDelegateFromCache(f).onDetached();
         }
+        cache.remove(getKey(f));
     }
 
     private IFragmentDelegate fetchFragmentDelegate(Fragment fragment, FragmentManager manager) {

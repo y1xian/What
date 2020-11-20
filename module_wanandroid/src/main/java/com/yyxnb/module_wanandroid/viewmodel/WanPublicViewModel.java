@@ -2,17 +2,17 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import android.arch.lifecycle.MutableLiveData;
 
+import com.yyxnb.common_base.base.CommonViewModel;
+import com.yyxnb.common_base.bean.WanData;
 import com.yyxnb.common_base.config.Http;
-import com.yyxnb.lib_network.BaseViewModel;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
-import com.yyxnb.common_base.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.config.WanService;
 
 import java.util.List;
 
-public class WanPublicViewModel extends BaseViewModel {
+public class WanPublicViewModel extends CommonViewModel {
 
     private final WanService mApi = Http.getInstance().create(WanService.class);
 

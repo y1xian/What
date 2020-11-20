@@ -1,7 +1,6 @@
 package com.yyxnb.lib_arch.delegate;
 
 import android.annotation.SuppressLint;
-import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
@@ -20,23 +19,28 @@ import android.view.Window;
 
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.SwipeStyle;
 import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.lib_arch.base.IFragment;
 import com.yyxnb.lib_arch.common.ArchConfig;
+import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.lib_widget.action.HandlerAction;
 import com.yyxnb.lib_common.utils.StatusBarUtils;
+import com.yyxnb.lib_widget.action.HandlerAction;
+import com.yyxnb.lib_widget.interfaces.ILifecycle;
 
 import java.util.Objects;
 
 /**
- * Fragment 代理
- *
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：Fragment 代理
+ * ================================================
  */
-public class FragmentDelegate implements DefaultLifecycleObserver, HandlerAction {
+public class FragmentDelegate implements ILifecycle, HandlerAction {
 
     public FragmentDelegate(IFragment iFragment) {
         this.iFragment = iFragment;
@@ -54,14 +58,15 @@ public class FragmentDelegate implements DefaultLifecycleObserver, HandlerAction
 
     private FragmentLazyDelegate mLazyDelegate;
 
+    private static final ArchConfig config = ArchManager.getInstance().getConfig();
     private int layoutRes = 0;
-    private boolean statusBarTranslucent = ArchConfig.statusBarTranslucent;
-    private boolean fitsSystemWindows = ArchConfig.fitsSystemWindows;
-    private int statusBarColor = ArchConfig.statusBarColor;
-    private int statusBarDarkTheme = ArchConfig.statusBarStyle;
-    private int swipeBack = SwipeStyle.EDGE;
+    private boolean statusBarTranslucent = config.isStatusBarTranslucent();
+    private boolean fitsSystemWindows = config.isFitsSystemWindows();
+    private int statusBarColor = config.getStatusBarColor();
+    private int statusBarDarkTheme = config.getStatusBarStyle();
+    private int swipeBack = config.getSwipeBack();
     private boolean subPage;
-    private boolean needLogin;
+    private boolean needLogin = config.isNeedLogin();
 
     public FragmentActivity getActivity() {
         return mActivity;
@@ -174,7 +179,7 @@ public class FragmentDelegate implements DefaultLifecycleObserver, HandlerAction
                 }
                 needLogin = bindRes.needLogin();
                 // 如果需要登录，并且处于未登录状态下，发送通知
-                if (needLogin && !ArchConfig.needLogin) {
+                if (needLogin) {
                     Bus.post(new MsgEvent(ArchConfig.NEED_LOGIN_CODE));
                 }
             }
@@ -211,7 +216,7 @@ public class FragmentDelegate implements DefaultLifecycleObserver, HandlerAction
             }
             // 如果状态栏处于白色且状态栏文字也处于白色，避免看不见
             if (shouldAdjustForWhiteStatusBar) {
-                statusBarColor = ArchConfig.shouldAdjustForWhiteStatusBar;
+                statusBarColor = config.getShouldAdjustForWhiteStatusBar();
             }
 
             StatusBarUtils.setStatusBarColor(getWindow(), statusBarColor);

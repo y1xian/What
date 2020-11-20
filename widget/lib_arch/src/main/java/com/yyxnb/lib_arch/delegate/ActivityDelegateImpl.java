@@ -9,19 +9,23 @@ import android.view.ViewGroup;
 import com.yyxnb.lib_arch.annotations.BindDataBinding;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_arch.base.IActivity;
-import com.yyxnb.lib_arch.livedata.ViewModelFactory;
+import com.yyxnb.lib_arch.viewmodel.ViewModelFactory;
 import com.yyxnb.lib_arch.common.AppManager;
 import com.yyxnb.lib_widget.action.HandlerAction;
 
 import java.lang.reflect.Field;
 
 /**
- * ActivityLifecycleCallbacks 监听 Activity 生命周期
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：ActivityLifecycleCallbacks 监听 Activity 生命周期
  * PS ：先走 ActivityLifecycleCallbacks 再走 Activity
- *
- * @author yyx
+ * ================================================
  */
-public class ActivityDelegateImpl implements IActivityDelegate , HandlerAction {
+public class ActivityDelegateImpl implements IActivityDelegate, HandlerAction {
 
     private FragmentActivity mActivity = null;
     private IActivity iActivity = null;
@@ -84,6 +88,7 @@ public class ActivityDelegateImpl implements IActivityDelegate , HandlerAction {
         AppManager.getInstance().getActivityDelegates().remove(iActivity.hashCode());
         this.mActivity = null;
         this.iActivity = null;
+        this.delegate = null;
     }
 
     public void initDeclaredFields() {

@@ -9,9 +9,13 @@ import com.yyxnb.lib_widget.WidgetInitializer;
 import com.yyxnb.lib_widget.WidgetManager;
 
 /**
- * 使用ContentProvider初始化三方库
- *
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：使用ContentProvider初始化三方库
+ * ================================================
  */
 public class ArchInitializer extends WidgetInitializer {
     @Override

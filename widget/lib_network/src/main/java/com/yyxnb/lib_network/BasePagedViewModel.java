@@ -3,6 +3,7 @@ package com.yyxnb.lib_network;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.ViewModel;
 import android.arch.paging.DataSource;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
@@ -12,7 +13,7 @@ import android.support.annotation.NonNull;
  * Paging
  * @param <T>
  */
-public abstract class BasePagedViewModel<T> extends BaseViewModel {
+public abstract class BasePagedViewModel<T> extends ViewModel {
 
     protected PagedList.Config config;
     private DataSource dataSource;

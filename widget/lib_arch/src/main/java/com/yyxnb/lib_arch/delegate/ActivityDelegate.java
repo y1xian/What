@@ -1,6 +1,5 @@
 package com.yyxnb.lib_arch.delegate;
 
-import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.graphics.Color;
@@ -16,19 +15,25 @@ import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.lib_arch.common.ArchConfig;
+import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.lib_widget.action.HandlerAction;
 import com.yyxnb.lib_common.utils.StatusBarUtils;
+import com.yyxnb.lib_widget.action.HandlerAction;
+import com.yyxnb.lib_widget.interfaces.ILifecycle;
 
 import java.util.Objects;
 
 /**
- * Activity 代理
- *
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：Activity 代理
+ * ================================================
  */
-public class ActivityDelegate implements DefaultLifecycleObserver, HandlerAction {
+public class ActivityDelegate implements ILifecycle, HandlerAction {
 
     public ActivityDelegate(IActivity iActivity) {
         this.iActivity = iActivity;
@@ -38,12 +43,13 @@ public class ActivityDelegate implements DefaultLifecycleObserver, HandlerAction
     private IActivity iActivity;
     private FragmentActivity mActivity;
 
+    private static final ArchConfig config = ArchManager.getInstance().getConfig();
     private int layoutRes = 0;
-    private boolean statusBarTranslucent = ArchConfig.statusBarTranslucent;
-    private boolean fitsSystemWindows = ArchConfig.fitsSystemWindows;
-    private int statusBarColor = ArchConfig.statusBarColor;
-    private int statusBarDarkTheme = ArchConfig.statusBarStyle;
-    private boolean needLogin;
+    private boolean statusBarTranslucent = config.isStatusBarTranslucent();
+    private boolean fitsSystemWindows = config.isFitsSystemWindows();
+    private int statusBarColor = config.getStatusBarColor();
+    private int statusBarDarkTheme = config.getStatusBarStyle();
+    private boolean needLogin = config.isNeedLogin();
     private boolean isContainer;
 
     /**
@@ -135,7 +141,7 @@ public class ActivityDelegate implements DefaultLifecycleObserver, HandlerAction
                 needLogin = bindRes.needLogin();
                 isContainer = bindRes.isContainer();
                 // 如果需要登录，并且处于未登录状态下，发送通知
-                if (needLogin && !ArchConfig.needLogin) {
+                if (needLogin) {
                     Bus.post(new MsgEvent(ArchConfig.NEED_LOGIN_CODE));
                 }
             }

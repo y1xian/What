@@ -10,9 +10,13 @@ import com.yyxnb.lib_arch.common.AppManager;
 import com.yyxnb.lib_widget.AppUtils;
 
 /**
- * Activity 注册监听生命周期
- *
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：Activity 注册监听生命周期
+ * ================================================
  */
 public class ActivityLifecycle extends AppUtils.ActivityLifecycleCallbacks {
 
@@ -29,7 +33,7 @@ public class ActivityLifecycle extends AppUtils.ActivityLifecycleCallbacks {
         return lifecycle;
     }
 
-    private LruCache<String, IActivityDelegate> cache = new LruCache<>(100);
+    private final LruCache<String, IActivityDelegate> cache = new LruCache<>(100);
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
@@ -107,6 +111,7 @@ public class ActivityLifecycle extends AppUtils.ActivityLifecycleCallbacks {
         if (fetchActivityDelegate(activity) != null) {
             fetchActivityDelegate(activity).onDestroy();
         }
+        cache.remove(getKey(activity));
     }
 
     private IActivityDelegate fetchActivityDelegate(Activity activity) {

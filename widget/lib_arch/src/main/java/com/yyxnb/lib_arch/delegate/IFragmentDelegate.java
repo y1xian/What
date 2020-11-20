@@ -9,20 +9,23 @@ import android.view.View;
 import com.yyxnb.lib_widget.interfaces.ILifecycle;
 
 /**
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：IFragmentDelegate
+ * ================================================
  */
 public interface IFragmentDelegate extends ILifecycle {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onAttached(Context context);
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreated(Bundle savedInstanceState);
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onViewCreated(View view, Bundle savedInstanceState);
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onActivityCreated(Bundle savedInstanceState);
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)

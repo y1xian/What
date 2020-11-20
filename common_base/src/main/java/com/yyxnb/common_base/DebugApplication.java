@@ -16,11 +16,15 @@ import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
 import com.yyxnb.common_base.weight.skin.ExtraAttrRegister;
+import com.yyxnb.lib_arch.annotations.SwipeStyle;
+import com.yyxnb.lib_arch.common.ArchConfig;
+import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_image_loader.ImageManager;
-import com.yyxnb.skinloader.SkinManager;
 import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.skinloader.SkinManager;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -55,6 +59,13 @@ public class DebugApplication extends Application {
         MMKV.initialize(this);
 
         ImageManager.getInstance().init(this.getApplicationContext());
+
+        // 框架配置
+        ArchConfig archConfig = new ArchConfig.Builder()
+                .setSwipeBack(SwipeStyle.EDGE)
+                .setContainerActivityClassName(ContainerActivity.class.getCanonicalName())
+                .build();
+        ArchManager.getInstance().setConfig(archConfig);
 
         // 换肤
         ExtraAttrRegister.init();

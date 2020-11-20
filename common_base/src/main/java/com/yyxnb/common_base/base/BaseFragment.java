@@ -143,8 +143,6 @@ public abstract class BaseFragment extends Fragment
         mFragmentDelegate.finish();
     }
 
-
-    @Override
     public <T extends IFragment> void startFragment(T targetFragment) {
         try {
             Bundle bundle = initArguments();

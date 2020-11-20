@@ -9,19 +9,23 @@ import android.view.View;
 
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_arch.base.IFragment;
-import com.yyxnb.lib_arch.livedata.ViewModelFactory;
+import com.yyxnb.lib_arch.viewmodel.ViewModelFactory;
 import com.yyxnb.lib_arch.common.AppManager;
 import com.yyxnb.lib_widget.action.HandlerAction;
 
 import java.lang.reflect.Field;
 
 /**
- * FragmentLifecycleCallbacks 监听 Fragment 生命周期
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：FragmentLifecycleCallbacks 监听 Fragment 生命周期
  * PS ：先走 Fragment 再走 FragmentLifecycleCallbacks
- *
- * @author yyx
+ * ================================================
  */
-public class FragmentDelegateImpl implements IFragmentDelegate , HandlerAction {
+public class FragmentDelegateImpl implements IFragmentDelegate, HandlerAction {
 
     private Fragment mFragment = null;
     private FragmentManager mFragmentManager = null;
@@ -102,13 +106,13 @@ public class FragmentDelegateImpl implements IFragmentDelegate , HandlerAction {
     public void onDestroyed() {
         if (delegate != null) {
             delegate.onDestroy();
-            delegate = null;
         }
         removeCallbacks();
         AppManager.getInstance().getFragmentDelegates().remove(iFragment.hashCode());
         this.mFragmentManager = null;
         this.mFragment = null;
         this.iFragment = null;
+        this.delegate = null;
     }
 
     @Override

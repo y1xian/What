@@ -8,7 +8,13 @@ import android.os.Bundle;
 import com.yyxnb.lib_widget.interfaces.ILifecycle;
 
 /**
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：IActivityDelegate
+ * ================================================
  */
 public interface IActivityDelegate extends ILifecycle {
 

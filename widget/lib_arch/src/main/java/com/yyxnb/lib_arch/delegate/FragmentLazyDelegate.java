@@ -10,9 +10,13 @@ import com.yyxnb.lib_arch.base.IFragment;
 import java.util.List;
 
 /**
- * Fragment快速实现懒加载的代理类
- *
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/21
+ * 历    史：
+ * 描    述：Fragment快速实现懒加载的代理类
+ * ================================================
  */
 public class FragmentLazyDelegate {
 

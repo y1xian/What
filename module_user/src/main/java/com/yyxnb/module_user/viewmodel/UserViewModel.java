@@ -4,12 +4,12 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Transformations;
 
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_base.bean.UserBean;
 import com.yyxnb.common_base.db.AppDatabase;
 import com.yyxnb.common_base.db.UserDao;
-import com.yyxnb.lib_network.BaseViewModel;
 
-public class UserViewModel extends BaseViewModel {
+public class UserViewModel extends CommonViewModel {
 
     private UserDao userDao = AppDatabase.getInstance().userDao();
 
