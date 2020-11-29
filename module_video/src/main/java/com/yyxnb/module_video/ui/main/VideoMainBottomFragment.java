@@ -63,7 +63,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
         mBtnFind = binding.btnFind;
         mBtnMsg = binding.btnMsg;
         mBtnMe = binding.btnMe;
-        mRecordTip = binding.recordTip;
+        mRecordTip = binding.ivRecordTip;
         mBtnHome.setOnClickListener(this);
         mBtnFind.setOnClickListener(this);
         mBtnMsg.setOnClickListener(this);
@@ -91,7 +91,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
         FragmentTransaction ft = mFragmentManager.beginTransaction();
         for (int i = 0, size = mSparseArray.size(); i < size; i++) {
             Fragment fragment = mSparseArray.valueAt(i);
-            ft.add(R.id.replaced, fragment);
+            ft.add(R.id.fl_content, fragment);
             if (mSparseArray.keyAt(i) == mCurKey) {
                 ft.show(fragment);
             } else {
@@ -139,7 +139,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
             toggleMsg();
         } else if (id == R.id.btn_me) {
             toggleMe();
-        } else if (id == R.id.record_tip) {
+        } else if (id == R.id.iv_record_tip) {
             // 跳录制
         }
     }

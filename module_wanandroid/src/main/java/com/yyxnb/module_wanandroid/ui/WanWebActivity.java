@@ -33,7 +33,7 @@ public class WanWebActivity extends WebActivity implements IActivity {
         mTitle.getCenterTextView().setText(title);
         mTitle.setBackListener(v -> finish());
 
-        mLinearLayout = findViewById(R.id.mLinearLayout);
+        mLinearLayout = findViewById(R.id.ll_content);
 
 
         initAgent(url, mLinearLayout);

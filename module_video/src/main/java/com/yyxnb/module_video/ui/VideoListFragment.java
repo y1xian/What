@@ -35,7 +35,7 @@ public class VideoListFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRecyclerView = binding.mRecyclerView;
+        mRecyclerView = binding.rvContent;
         mAdapter = new VideoListAdapter();
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         ItemDecoration decoration = new ItemDecoration(getContext());

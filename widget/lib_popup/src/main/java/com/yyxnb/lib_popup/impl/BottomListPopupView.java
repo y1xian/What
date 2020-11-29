@@ -49,7 +49,7 @@ public class BottomListPopupView extends BottomPopupView {
     @Override
     protected void initPopupContent() {
         super.initPopupContent();
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.rv_content);
         recyclerView.setupDivider(popupInfo.isDarkTheme);
         tv_title = findViewById(R.id.tv_title);
 

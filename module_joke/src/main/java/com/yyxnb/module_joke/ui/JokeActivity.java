@@ -7,6 +7,13 @@ import com.yyxnb.common_base.base.ContainerActivity;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
 
+/**
+ * ================================================
+ * 作    者：yyx
+ * 日    期：2020/11/30
+ * 描    述：娱乐 主界面
+ * ================================================
+ */
 @Route(path = JOKE_MAIN)
 public class JokeActivity extends ContainerActivity {
 

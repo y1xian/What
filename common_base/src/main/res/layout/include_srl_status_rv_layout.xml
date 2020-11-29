@@ -10,7 +10,7 @@
     </data>
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
-        android:id="@+id/mRefreshLayout"
+        android:id="@+id/srl_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBackground"
@@ -18,12 +18,12 @@
         skin:enable="true">
 
         <com.yyxnb.lib_view.status.StatusView
-            android:id="@+id/mStatusView"
+            android:id="@+id/v_status"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/mRecyclerView"
+                android:id="@+id/rv_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

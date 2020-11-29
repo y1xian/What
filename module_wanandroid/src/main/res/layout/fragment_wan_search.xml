@@ -14,7 +14,7 @@
         tools:context="com.yyxnb.module_wanandroid.ui.home.WanSearchFragment">
 
         <include
-            android:id="@+id/iTitle"
+            android:id="@+id/i_title"
             layout="@layout/include_title_layout" />
 
         <com.noober.background.view.BLLinearLayout
@@ -28,7 +28,7 @@
             app:bl_stroke_width="1dp">
 
             <EditText
-                android:id="@+id/etInput"
+                android:id="@+id/et_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -39,7 +39,7 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@+id/ivClose"
+                android:id="@+id/iv_close"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -49,7 +49,7 @@
                 tools:visibility="visible" />
 
             <TextView
-                android:id="@+id/tvSearch"
+                android:id="@+id/tv_search"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -66,7 +66,7 @@
             android:textStyle="bold" />
 
         <com.yyxnb.lib_view.text.FlowlayoutTags
-            android:id="@+id/mHotTags"
+            android:id="@+id/v_hotTags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -83,7 +83,7 @@
             android:textStyle="bold" />
 
         <com.yyxnb.lib_view.text.FlowlayoutTags
-            android:id="@+id/mHistoryTags"
+            android:id="@+id/v_historyTags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

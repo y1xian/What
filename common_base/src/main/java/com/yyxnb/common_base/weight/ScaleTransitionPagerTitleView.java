@@ -12,6 +12,11 @@ public class ScaleTransitionPagerTitleView extends ColorTransitionPagerTitleView
         super(context);
     }
 
+    public ScaleTransitionPagerTitleView(Context context, float minScale) {
+        super(context);
+        this.minScale = minScale;
+    }
+
     @Override
     public void onEnter(int index, int totalCount, float enterPercent, boolean leftToRight) {
         super.onEnter(index, totalCount, enterPercent, leftToRight);

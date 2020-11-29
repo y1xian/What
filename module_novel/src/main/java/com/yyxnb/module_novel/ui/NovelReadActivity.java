@@ -213,7 +213,7 @@ public class NovelReadActivity extends BaseActivity {
         tvNum = binding.tvNum;
         sbChapterProgress = binding.sbChapterProgress;
         mPvPage = binding.mPageView;
-        mRecyclerView = binding.mRecyclerView;
+        mRecyclerView = binding.rvContent;
 
         bookId = getInt("bookId");
 

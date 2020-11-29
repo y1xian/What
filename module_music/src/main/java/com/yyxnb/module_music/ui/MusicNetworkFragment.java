@@ -38,7 +38,7 @@ public class MusicNetworkFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRecyclerView = binding.mRecyclerView;
+        mRecyclerView = binding.rvContent;
     }
 
     @Override

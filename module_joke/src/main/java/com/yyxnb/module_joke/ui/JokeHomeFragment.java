@@ -80,7 +80,7 @@ public class JokeHomeFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRecyclerView = binding.mRecyclerView;
+        mRecyclerView = binding.rvContent;
 
         mPreloadManager = PreloadManager.getInstance(getContext());
 
@@ -154,7 +154,7 @@ public class JokeHomeFragment extends BaseFragment {
         mController.addControlComponent(mTitleView);
         mController.addControlComponent(new VodControlView(getActivity()));
         mController.addControlComponent(new GestureView(getActivity()));
-        mController.setEnableOrientation(true);
+//        mController.setEnableOrientation(true);
         mVideoView.setVideoController(mController);
 
         VideoViewManager.instance().add(mVideoView, "SEAMLESS");

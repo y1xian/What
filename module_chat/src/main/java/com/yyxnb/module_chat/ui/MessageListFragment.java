@@ -33,7 +33,7 @@ public class MessageListFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRecyclerView = binding.mRecyclerView;
+        mRecyclerView = binding.rvContent;
         mAdapter = new MessageAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ItemDecoration decoration = new ItemDecoration(getContext());

@@ -9,6 +9,9 @@ include ':app',
         ':module_music',
         ':module_joke',
         ':module_wanandroid',
+        ':module_live',
+        ':module_mall',
+        ':module_news',
         ':module_widget'
 
 include ':widget'

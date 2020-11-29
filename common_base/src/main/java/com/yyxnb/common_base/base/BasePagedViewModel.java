@@ -1,19 +1,20 @@
-package com.yyxnb.lib_network;
+package com.yyxnb.common_base.base;
 
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.arch.paging.DataSource;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
 import android.support.annotation.NonNull;
 
+import com.yyxnb.lib_arch.viewmodel.BaseViewModel;
+
 /**
  * Paging
  * @param <T>
  */
-public abstract class BasePagedViewModel<T> extends ViewModel {
+public abstract class BasePagedViewModel<T> extends BaseViewModel {
 
     protected PagedList.Config config;
     private DataSource dataSource;
@@ -22,6 +23,10 @@ public abstract class BasePagedViewModel<T> extends ViewModel {
     private int initialSize = pageSize * 2;
 
     private MutableLiveData<Boolean> boundaryPageData = new MutableLiveData<>();
+
+    @Override
+    protected void onCreate() {
+    }
 
     public BasePagedViewModel() {
 

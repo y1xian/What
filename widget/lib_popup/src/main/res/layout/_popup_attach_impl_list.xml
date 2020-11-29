@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.yyxnb.lib_popup.widget.VerticalRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recyclerView"
+    android:id="@+id/rv_content"
     android:overScrollMode="never"
     android:scrollbars="vertical"
     android:background="@android:color/white"

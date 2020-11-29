@@ -37,7 +37,7 @@ import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
 public class WanHomeFragment extends BaseFragment {
 
     @BindViewModel
-    WanHomeViewModel mViewModel;
+    public WanHomeViewModel mViewModel;
 
     private FragmentWanHomeBinding binding;
 
@@ -56,8 +56,8 @@ public class WanHomeFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRefreshLayout = binding.iRvLayout.mRefreshLayout;
-        mRecyclerView = binding.iRvLayout.mRecyclerView;
+        mRefreshLayout = binding.iRv.srlContent;
+        mRecyclerView = binding.iRv.rvContent;
 
 //        mRefreshLayout.setEnablePureScrollMode(false)
 //                .setEnableRefresh(true).setEnableLoadMore(true);
@@ -75,7 +75,7 @@ public class WanHomeFragment extends BaseFragment {
         mRecyclerView.setAdapter(mAdapter);
 
         View mHeader = LayoutInflater.from(getContext()).inflate(R.layout.item_home_header_layout, mRecyclerView, false);
-        mBanner = mHeader.findViewById(R.id.mBanner);
+        mBanner = mHeader.findViewById(R.id.v_banner);
         mBanner.setImageLoader(new GlideImageLoader());
         mAdapter.addHeaderView(mHeader);
 

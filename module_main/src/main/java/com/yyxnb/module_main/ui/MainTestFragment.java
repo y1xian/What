@@ -6,25 +6,24 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.text.Html;
 import android.view.View;
 
+import com.yyxnb.common_base.arouter.ARouterUtils;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_base.arouter.ARouterUtils;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.lib_popup.PopupManager;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.adapter.MainHomeAdapter;
 import com.yyxnb.module_main.config.DataConfig;
-import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
-import com.yyxnb.module_main.viewmodel.MainViewModel;
-import com.yyxnb.lib_popup.PopupManager;
+import com.yyxnb.module_main.databinding.FragmentMainTestBinding;
+import com.yyxnb.module_main.viewmodel.MainTestViewModel;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.CHAT_MAIN;
+import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
@@ -33,25 +32,32 @@ import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN;
 import static com.yyxnb.common_base.arouter.ARouterConstant.WIDGET_MAIN;
 
 /**
- * 主页
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/23
+ * 历    史：
+ * 描    述：方便页面测试
+ * ================================================
  */
-@BindRes
-public class MainHomeFragment extends BaseFragment {
+@BindRes(subPage = true)
+public class MainTestFragment extends BaseFragment {
 
     @BindViewModel
-    MainViewModel mViewModel;
-    private MainHomeAdapter mAdapter = new MainHomeAdapter();
-    private FragmentMainHomeBinding binding;
+    MainTestViewModel mViewModel;
+    private MainHomeAdapter mAdapter;
+    private FragmentMainTestBinding binding;
 
     @Override
     public int initLayoutResId() {
-        return R.layout.fragment_main_home;
+        return R.layout.fragment_main_test;
     }
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
         binding = getBinding();
 
+        mAdapter = new MainHomeAdapter();
         GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
         mAdapter.setSpanSizeLookup((gridLayoutManager, position) -> {
             //noinspection ConstantConditions
@@ -65,16 +71,16 @@ public class MainHomeFragment extends BaseFragment {
             return mAdapter.getData().get(position).span;
         });
 
-        binding.mRecyclerView.setLayoutManager(manager);
-        binding.mRecyclerView.setHasFixedSize(true);
+        binding.rvContent.setLayoutManager(manager);
+        binding.rvContent.setHasFixedSize(true);
         ItemDecoration decoration = new ItemDecoration(getContext());
         decoration.setDividerWidth(12);
         decoration.setDividerHeight(12);
         decoration.setOnlySetItemOffsetsButNoDraw(true);
         decoration.setDrawBorderTopAndBottom(true);
         decoration.setDrawBorderLeftAndRight(true);
-        binding.mRecyclerView.addItemDecoration(decoration);
-        binding.mRecyclerView.setAdapter(mAdapter);
+        binding.rvContent.addItemDecoration(decoration);
+        binding.rvContent.setAdapter(mAdapter);
 
 
 //        SkinTheme theme = new SkinTheme.Builder(getActivity())
@@ -93,16 +99,6 @@ public class MainHomeFragment extends BaseFragment {
     @Override
     public void initViewData() {
         super.initViewData();
-
-        // 隐私权限申请
-        new PopupManager.Builder(getContext())
-                .dismissOnTouchOutside(false)
-                .dismissOnBackPressed(false)
-                .asConfirm("温馨提示",
-                        Html.fromHtml(getString(R.string.main_privacy_notice)), "我就不给", "给给给", () -> {
-                            // 确定
-                            toast("感想您的信任");
-                        }, this::finish).show();
 
         mAdapter.setDataItems(DataConfig.getMainBeans());
 
@@ -127,7 +123,7 @@ public class MainHomeFragment extends BaseFragment {
                 switch (mAdapter.getData().get(position).id) {
                     case 1:
                         // 搜索
-                        ConstraintLayout mLayout = holder.getView(R.id.mLayout);
+                        ConstraintLayout mLayout = holder.getView(R.id.cl_content);
                         Intent intent = new Intent(getContext(), MainSearchActivity.class);
                         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity(), mLayout, "transitionSearch").toBundle());
                         break;
@@ -143,7 +139,7 @@ public class MainHomeFragment extends BaseFragment {
                         break;
                     case 4:
                         // 消息
-//                        startFragment(ARouterUtils.navFragment(MESSAGE_LIST_FRAGMENT));
+//                        startFragment(ARouterUtils.navFragment(CHAT_MAIN_FRAGMENT));
                         ARouterUtils.navActivity(CHAT_MAIN);
                         break;
                     case 5:
@@ -181,7 +177,7 @@ public class MainHomeFragment extends BaseFragment {
     public void onVisible() {
         super.onVisible();
         getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
-        log("---onVisible---");
+        log("---onVisible---    MainTestFragment");
     }
 
 }

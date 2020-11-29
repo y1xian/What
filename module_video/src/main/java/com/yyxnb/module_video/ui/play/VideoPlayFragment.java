@@ -7,11 +7,12 @@ import android.view.View;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.lib_common.utils.log.LogUtils;
 import com.yyxnb.lib_video.Utils;
 import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;
@@ -37,11 +38,11 @@ import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 /**
  * 短视频播放的fragment 可以上下滑动
  */
-@BindRes
+@BindRes(subPage = true)
 public class VideoPlayFragment extends BaseFragment {
 
     @BindViewModel
-    VideoViewModel mViewModel;
+    public VideoViewModel mViewModel;
 
     private FragmentVideoPlayBinding binding;
     private VerticalViewPager mViewPager;
@@ -72,7 +73,7 @@ public class VideoPlayFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mViewPager = binding.mViewPager;
+        mViewPager = binding.vpContent;
 
         PermissionUtils.with(getActivity())
                 .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -118,15 +119,16 @@ public class VideoPlayFragment extends BaseFragment {
 
     @Override
     public void initObservable() {
+
         mViewModel.reqVideoList();
 
         mViewModel.result1().observe(this, data -> {
             if (data != null) {
                 mVideoList.addAll(data);
-//                LogUtils.list(mVideoList);
+                LogUtils.list(mVideoList);
+                mAdapter.notifyDataSetChanged();
+                mViewPager.post(() -> startPlay(mCurPos));
             }
-            mAdapter.notifyDataSetChanged();
-            mViewPager.post(() -> startPlay(mCurPos));
         });
     }
 
@@ -207,23 +209,27 @@ public class VideoPlayFragment extends BaseFragment {
 
     private void startPlay(int position) {
         int count = mViewPager.getChildCount();
-        for (int i = 0; i < count; i++) {
-            View itemView = mViewPager.getChildAt(i);
-            TikTokAdapter.ViewHolder viewHolder = (TikTokAdapter.ViewHolder) itemView.getTag();
-            if (viewHolder.mPosition == position) {
-                mVideoView.release();
-                Utils.removeViewFormParent(mVideoView);
+        try {
+            for (int i = 0; i < count; i++) {
+                View itemView = mViewPager.getChildAt(i);
+                TikTokAdapter.ViewHolder viewHolder = (TikTokAdapter.ViewHolder) itemView.getTag();
+                if (viewHolder.mPosition == position) {
+                    mVideoView.release();
+                    Utils.removeViewFormParent(mVideoView);
 
-                TikTokBean tiktokBean = mVideoList.get(position);
-                String playUrl = mPreloadManager.getPlayUrl(tiktokBean.videoUrl);
-                log("startPlay: " + "position: " + position + "  url: " + playUrl);
-                mVideoView.setUrl(playUrl);
-                mController.addControlComponent(viewHolder.mTikTokView, true);
-                viewHolder.mPlayerContainer.addView(mVideoView, 0);
-                mVideoView.start();
-                mCurPos = position;
-                break;
+                    TikTokBean tiktokBean = mVideoList.get(position);
+                    String playUrl = mPreloadManager.getPlayUrl(tiktokBean.videoUrl);
+                    log("startPlay: " + "position: " + position + "  url: " + playUrl);
+                    mVideoView.setUrl(playUrl);
+                    mController.addControlComponent(viewHolder.mTikTokView, true);
+                    viewHolder.mPlayerContainer.addView(mVideoView, 0);
+                    mVideoView.start();
+                    mCurPos = position;
+                    break;
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

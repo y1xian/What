@@ -40,7 +40,7 @@ public class VideoMainFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mViewPager = binding.mViewPager;
+        mViewPager = binding.vpContent;
         mViewPager.setNoScroll(true);
     }
 

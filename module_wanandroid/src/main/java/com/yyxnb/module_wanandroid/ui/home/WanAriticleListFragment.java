@@ -47,8 +47,8 @@ public class WanAriticleListFragment extends BaseFragment {
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
 
-        mRefreshLayout = binding.iRvLayout.mRefreshLayout;
-        mRecyclerView = binding.iRvLayout.mRecyclerView;
+        mRefreshLayout = binding.iRv.srlContent;
+        mRecyclerView = binding.iRv.rvContent;
 
         mKey = initArguments().getString("key", "");
 

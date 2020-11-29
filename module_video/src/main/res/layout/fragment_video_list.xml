@@ -1,6 +1,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
 
     <data>
 
@@ -12,7 +13,7 @@
         tools:context="com.yyxnb.module_video.ui.VideoListFragment">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
+            android:id="@+id/rv_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

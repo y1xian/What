@@ -15,7 +15,7 @@ import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
+import com.yyxnb.common_base.databinding.IncludeSrlStatusRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanProjectAdapter;
 import com.yyxnb.module_wanandroid.config.DataConfig;
@@ -28,7 +28,7 @@ import com.yyxnb.module_wanandroid.viewmodel.WanProjectViewModel;
 @BindRes(subPage = true)
 public class WanProjectListFragment extends BaseFragment {
 
-    private IncludeRlRvLayoutBinding binding;
+    private IncludeSrlStatusRvLayoutBinding binding;
     private SmartRefreshLayout mRefreshLayout;
     private RecyclerView mRecyclerView;
 
@@ -52,14 +52,14 @@ public class WanProjectListFragment extends BaseFragment {
 
     @Override
     public int initLayoutResId() {
-        return R.layout.include_rl_rv_layout;
+        return R.layout.include_srl_rv_layout;
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRefreshLayout = binding.mRefreshLayout;
-        mRecyclerView = binding.mRecyclerView;
+        mRefreshLayout = binding.srlContent;
+        mRecyclerView = binding.rvContent;
 
         if (getArguments() != null) {
             mId = getArguments().getInt("id", mId);
@@ -80,8 +80,8 @@ public class WanProjectListFragment extends BaseFragment {
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);
                 Intent intent = new Intent(getContext(), WanWebActivity.class);
-                intent.putExtra("title",mAdapter.getItem(position).title);
-                intent.putExtra("url",mAdapter.getItem(position).link);
+                intent.putExtra("title", mAdapter.getItem(position).title);
+                intent.putExtra("url", mAdapter.getItem(position).link);
                 startActivity(intent);
             }
         });

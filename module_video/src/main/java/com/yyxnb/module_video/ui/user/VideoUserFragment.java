@@ -78,11 +78,11 @@ public class VideoUserFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mIndicator = binding.mIndicator;
-        mViewPager = binding.mViewPager;
-        mAppBarLayout = binding.mAppBarLayout;
-        mTitleLayout = binding.mTitleLayout;
-        mTitleName = binding.mTitleName;
+        mIndicator = binding.vIndicator;
+        mViewPager = binding.vpContent;
+        mAppBarLayout = binding.ablContent;
+        mTitleLayout = binding.rlTitleLayout;
+        mTitleName = binding.tvTitleName;
 
     }
 
@@ -96,7 +96,7 @@ public class VideoUserFragment extends BaseFragment {
             fragments.add(new VideoListFragment());
         }
 
-        binding.btnBack.setOnClickListener(v -> {
+        binding.ivBack.setOnClickListener(v -> {
             Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 0));
         });
 
@@ -119,9 +119,9 @@ public class VideoUserFragment extends BaseFragment {
             Log.w("000000", "r : " + rate);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (rate <= 0.2f){
-                    binding.btnBack.setImageDrawable(DrawableTintUtil.tintDrawable(binding.btnBack.getDrawable(),Color.WHITE));
+                    binding.ivBack.setImageDrawable(DrawableTintUtil.tintDrawable(binding.ivBack.getDrawable(),Color.WHITE));
                 }else {
-                    binding.btnBack.setImageDrawable(DrawableTintUtil.tintListDrawable(binding.btnBack.getDrawable()
+                    binding.ivBack.setImageDrawable(DrawableTintUtil.tintListDrawable(binding.ivBack.getDrawable()
                             , ColorStateList.valueOf(Color.argb(rate, 0, 0, 0))));
                 }
             }

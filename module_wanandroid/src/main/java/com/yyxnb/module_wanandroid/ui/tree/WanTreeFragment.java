@@ -45,8 +45,8 @@ public class WanTreeFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mIndicator = binding.mIndicator;
-        mViewPager = binding.mViewPager;
+        mIndicator = binding.vIndicator;
+        mViewPager = binding.vpContent;
     }
 
     @Override

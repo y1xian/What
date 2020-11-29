@@ -19,8 +19,8 @@ public class WanNavigationAdapter extends BaseAdapter<WanNavigationBean> {
 
     @Override
     protected void bind(BaseViewHolder holder, WanNavigationBean bean, int position) {
-        holder.setText(R.id.tvTitle, bean.name);
-        FlowlayoutTags mFlowlayout = holder.getView(R.id.mFlowlayout);
+        holder.setText(R.id.tv_title, bean.name);
+        FlowlayoutTags mFlowlayout = holder.getView(R.id.v_flow);
         List<String> tags = new ArrayList<>();
         for (WanAriticleBean ariticleBean : bean.articles) {
             tags.add(ariticleBean.title);

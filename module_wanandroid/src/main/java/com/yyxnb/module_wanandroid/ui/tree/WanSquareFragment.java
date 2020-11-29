@@ -14,7 +14,7 @@ import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
+import com.yyxnb.common_base.databinding.IncludeSrlStatusRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
 import com.yyxnb.module_wanandroid.viewmodel.WanTreeViewModel;
@@ -27,7 +27,7 @@ import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
 @BindRes(subPage = true)
 public class WanSquareFragment extends BaseFragment {
 
-    private IncludeRlRvLayoutBinding binding;
+    private IncludeSrlStatusRvLayoutBinding binding;
     private SmartRefreshLayout mRefreshLayout;
     private RecyclerView mRecyclerView;
 
@@ -38,14 +38,14 @@ public class WanSquareFragment extends BaseFragment {
 
     @Override
     public int initLayoutResId() {
-        return R.layout.include_rl_rv_layout;
+        return R.layout.include_srl_rv_layout;
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRefreshLayout = binding.mRefreshLayout;
-        mRecyclerView = binding.mRecyclerView;
+        mRefreshLayout = binding.srlContent;
+        mRecyclerView = binding.rvContent;
 
     }
 

@@ -2,85 +2,88 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="16dp"
     android:background="@drawable/_popup_round3_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="16dp">
 
     <TextView
         android:id="@+id/tv_title"
-        android:textSize="20sp"
-        android:textColor="@color/_popup_title_color"
-        android:lines="1"
-        android:ellipsize="end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal" />
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:textColor="@color/_popup_title_color"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_content"
-        android:paddingTop="15dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="5dp"
-        android:textColor="@color/_popup_content_color"
-        android:textSize="16sp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp"
+        android:text=""
+        android:textColor="@color/_popup_content_color"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_input"
-        android:visibility="gone"
-        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
         android:singleLine="true"
         android:textColor="@color/_popup_content_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textSize="16sp"
+        android:visibility="gone" />
 
     <View
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
         android:id="@+id/xpopup_divider"
-        android:background="@color/_popup_list_divider"
-        android:layout_height=".5dp"/>
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/_popup_list_divider" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="right"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/tv_cancel"
-            android:textSize="16sp"
-            android:text="@string/xpopup_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:text="@string/xpopup_cancel"
+            android:textSize="16sp" />
 
         <View
-            android:layout_width=".5dp"
             android:id="@+id/xpopup_divider_h"
-            android:background="@color/_popup_list_divider"
-            android:layout_height="match_parent"/>
+            android:layout_width=".5dp"
+            android:layout_height="match_parent"
+            android:background="@color/_popup_list_divider" />
 
         <TextView
-            android:textSize="16sp"
             android:id="@+id/tv_confirm"
-            android:text="@string/xpopup_ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:text="@string/xpopup_ok"
+            android:textSize="16sp" />
     </LinearLayout>
+
 </LinearLayout>

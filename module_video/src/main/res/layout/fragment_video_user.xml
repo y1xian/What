@@ -13,26 +13,26 @@
         tools:context="com.yyxnb.module_video.ui.user.VideoUserFragment">
 
         <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/mCoordinatorLayout"
+            android:id="@+id/cl_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <android.support.design.widget.AppBarLayout
-                android:id="@+id/mAppBarLayout"
+                android:id="@+id/abl_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
                 app:layout_behavior="com.yyxnb.module_video.widget.FixAppBarLayoutBehavior">
 
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/top_group"
+                    android:id="@+id/cl_top_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="60dp"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
                     <ImageView
-                        android:id="@+id/ivHeadBg"
+                        android:id="@+id/iv_headBg"
                         android:layout_width="match_parent"
                         android:layout_height="115dp"
                         android:scaleType="centerCrop"
@@ -42,7 +42,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/avatar"
+                        android:id="@+id/iv_avatar"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:layout_marginStart="16dp"
@@ -65,39 +65,39 @@
                         android:textSize="15sp"
                         app:bl_corners_radius="3dp"
                         app:bl_solid_color="@color/red"
-                        app:layout_constraintBottom_toBottomOf="@+id/avatar"
-                        app:layout_constraintStart_toEndOf="@+id/avatar"
-                        app:layout_constraintTop_toTopOf="@+id/avatar" />
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+                        app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+                        app:layout_constraintTop_toTopOf="@+id/iv_avatar" />
 
                     <TextView
-                        android:id="@+id/tvName"
+                        android:id="@+id/tv_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/avatar"
-                        android:layout_alignStart="@+id/avatar"
+                        android:layout_below="@+id/iv_avatar"
+                        android:layout_alignStart="@+id/iv_avatar"
                         android:layout_marginTop="8dp"
                         android:text="名称"
                         android:textColor="@color/colorTitle"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="@+id/avatar"
-                        app:layout_constraintTop_toBottomOf="@+id/avatar" />
+                        app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
 
                     <TextView
                         android:id="@+id/tvId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvName"
-                        android:layout_toEndOf="@+id/avatar"
+                        android:layout_below="@+id/tv_name"
+                        android:layout_toEndOf="@+id/iv_avatar"
                         android:text="id:12345"
                         android:textColor="@color/colorText"
                         android:textSize="13sp"
                         android:visibility="visible"
-                        app:layout_constraintStart_toStartOf="@+id/avatar"
-                        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                        app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
                     <TextView
-                        android:id="@+id/tvDes"
+                        android:id="@+id/tv_des"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -111,7 +111,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/tvId" />
 
                     <TextView
-                        android:id="@+id/tvLiked"
+                        android:id="@+id/tv_liked"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginStart="16dp"
@@ -121,10 +121,10 @@
                         android:textColor="@color/colorText"
                         android:textSize="15sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvDes" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_des" />
 
                     <TextView
-                        android:id="@+id/tvFollow"
+                        android:id="@+id/tv_follow"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginStart="32dp"
@@ -133,11 +133,11 @@
                         android:text="200w关注"
                         android:textColor="@color/colorText"
                         android:textSize="15sp"
-                        app:layout_constraintStart_toEndOf="@+id/tvLiked"
-                        app:layout_constraintTop_toBottomOf="@+id/tvDes" />
+                        app:layout_constraintStart_toEndOf="@+id/tv_liked"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_des" />
 
                     <TextView
-                        android:id="@+id/tvFans"
+                        android:id="@+id/tv_fans"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginStart="32dp"
@@ -146,8 +146,8 @@
                         android:text="200w粉丝"
                         android:textColor="@color/colorText"
                         android:textSize="15sp"
-                        app:layout_constraintStart_toEndOf="@+id/tvFollow"
-                        app:layout_constraintTop_toBottomOf="@+id/tvDes" />
+                        app:layout_constraintStart_toEndOf="@+id/tv_follow"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_des" />
 
                 </android.support.constraint.ConstraintLayout>
 
@@ -156,7 +156,7 @@
                     android:layout_height="50dp">
 
                     <net.lucode.hackware.magicindicator.MagicIndicator
-                        android:id="@+id/mIndicator"
+                        android:id="@+id/v_indicator"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
@@ -168,7 +168,7 @@
             </android.support.design.widget.AppBarLayout>
 
             <android.support.v4.view.ViewPager
-                android:id="@+id/mViewPager"
+                android:id="@+id/vp_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
@@ -176,13 +176,13 @@
         </android.support.design.widget.CoordinatorLayout>
 
         <RelativeLayout
-            android:id="@+id/mTitleLayout"
+            android:id="@+id/rl_titleLayout"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:visibility="visible">
 
             <TextView
-                android:id="@+id/mTitleName"
+                android:id="@+id/tv_titleName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
@@ -197,7 +197,7 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/btn_back"
+                android:id="@+id/iv_back"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentBottom="true"
@@ -207,7 +207,7 @@
                 android:visibility="visible" />
 
             <ImageView
-                android:id="@+id/btn_more"
+                android:id="@+id/iv_more"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"

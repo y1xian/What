@@ -9,6 +9,13 @@ import com.yyxnb.common_base.base.ContainerActivity;
 
 import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN;
 
+/**
+ * ================================================
+ * 作    者：yyx
+ * 日    期：2020/11/30
+ * 描    述：音乐 主界面
+ * ================================================
+ */
 @Route(path = MUSIC_MAIN)
 public class MusicActivity extends ContainerActivity {
 
@@ -19,7 +26,7 @@ public class MusicActivity extends ContainerActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             AppManager.getInstance().returnDesktop(this);
             return true;
         }

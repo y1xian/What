@@ -21,11 +21,11 @@
         tools:context="com.yyxnb.module_user.ui.UserSetUpFragment">
 
         <include
-            android:id="@+id/iTitle"
+            android:id="@+id/i_title"
             layout="@layout/include_title_layout" />
 
         <com.noober.background.view.BLTextView
-            android:id="@+id/tvLoginOut"
+            android:id="@+id/tv_loginOut"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="30dp"

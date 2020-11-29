@@ -10,10 +10,11 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"
         tools:context=".ui.play.VideoPlayFragment">
 
         <com.yyxnb.module_video.widget.VerticalViewPager
-            android:id="@+id/mViewPager"
+            android:id="@+id/vp_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

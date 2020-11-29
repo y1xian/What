@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.yyxnb.module_widget.bean.MainBean;
 import com.yyxnb.module_widget.config.DataConfig;
-import com.yyxnb.lib_network.BasePagedViewModel;
+import com.yyxnb.common_base.base.BasePagedViewModel;
 
 import java.util.Collections;
 

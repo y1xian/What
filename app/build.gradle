@@ -34,6 +34,9 @@ dependencies {
     addComponent 'module_music'
     addComponent 'module_novel'
     addComponent 'module_wanandroid'
+    addComponent 'module_news'
+    addComponent 'module_mall'
+    addComponent 'module_live'
     addComponent 'module_widget'
 
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.5'

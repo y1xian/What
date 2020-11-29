@@ -45,8 +45,8 @@ public class WanSearchFragment extends BaseFragment {
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
 
-        mHotTags = binding.mHotTags;
-        mHistoryTags = binding.mHistoryTags;
+        mHotTags = binding.vHotTags;
+        mHistoryTags = binding.vHistoryTags;
 
         binding.iTitle.vTitle.setBackListener(v -> finish());
 

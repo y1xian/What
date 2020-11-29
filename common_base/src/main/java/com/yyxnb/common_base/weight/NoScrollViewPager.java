@@ -5,9 +5,20 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+/**
+ * ================================================
+ * 作    者：yyx
+ * 版    本：1.0
+ * 日    期：2020/11/24
+ * 历    史：
+ * 描    述：处理viewpager 滑动 ，动画
+ * ================================================
+ */
 public class NoScrollViewPager extends ViewPager {
 
+    // 是否可以滑动，默认false 可以滑动
     private boolean noScroll = false;
+    // 夸多个切换是否有滑动，默认false 无动画
     private boolean animation = false;
 
 

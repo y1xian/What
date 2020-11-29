@@ -7,26 +7,26 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:textColor="@color/_popup_title_color"
-        android:paddingTop="14dp"
-        android:paddingStart="18dp"
-        android:gravity="center"
-        android:paddingBottom="14dp"
-        android:paddingEnd="18dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:textSize="17sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <include layout="@layout/_popup_divider"/>
-
-    <com.yyxnb.lib_popup.widget.VerticalRecyclerView
-        android:orientation="vertical"
-        android:id="@+id/recyclerView"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="18dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="14dp"
+        android:textColor="@color/_popup_title_color"
+        android:textSize="17sp" />
+
+    <include layout="@layout/_popup_divider" />
+
+    <com.yyxnb.lib_popup.widget.VerticalRecyclerView
+        android:id="@+id/rv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="vertical"
         android:overScrollMode="never" />
 </LinearLayout>

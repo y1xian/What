@@ -23,5 +23,6 @@ dependencies {
     }
 
     implementation project(":widget:lib_webview")
+    implementation 'com.android.support:support-v4:28.0.0'
 
 }

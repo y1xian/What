@@ -1,34 +1,11 @@
 package com.yyxnb.module_main.viewmodel;
 
-import android.arch.paging.DataSource;
-import android.arch.paging.PageKeyedDataSource;
-import android.support.annotation.NonNull;
+import android.arch.lifecycle.MutableLiveData;
 
-import com.yyxnb.lib_network.BasePagedViewModel;
-import com.yyxnb.module_main.bean.MainHomeBean;
-import com.yyxnb.module_main.config.DataConfig;
+import com.yyxnb.common_base.base.CommonViewModel;
 
-import java.util.Collections;
+public class MainViewModel extends CommonViewModel {
 
-public class MainViewModel extends BasePagedViewModel<MainHomeBean> {
-    @Override
-    public DataSource createDataSource() {
-        return new PageKeyedDataSource<Integer, MainHomeBean>() {
+    public MutableLiveData<Boolean> isHideBottomBar = new MutableLiveData<>();
 
-            @Override
-            public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, MainHomeBean> callback) {
-                callback.onResult(DataConfig.getMainBeans(), null, null);
-            }
-
-            @Override
-            public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MainHomeBean> callback) {
-                callback.onResult(Collections.emptyList(), null);
-            }
-
-            @Override
-            public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MainHomeBean> callback) {
-                callback.onResult(Collections.emptyList(), null);
-            }
-        };
-    }
 }

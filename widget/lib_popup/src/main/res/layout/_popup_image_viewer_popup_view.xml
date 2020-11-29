@@ -30,7 +30,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="20dp"
         android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_save"

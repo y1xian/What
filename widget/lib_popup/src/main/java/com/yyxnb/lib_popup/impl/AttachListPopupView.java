@@ -45,7 +45,7 @@ public class AttachListPopupView extends AttachPopupView {
     @Override
     protected void initPopupContent() {
         super.initPopupContent();
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.rv_content);
         if (recyclerView instanceof VerticalRecyclerView) {
             ((VerticalRecyclerView) recyclerView).setupDivider(popupInfo.isDarkTheme);
         } else {

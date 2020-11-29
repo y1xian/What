@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/iTitle"
+        android:id="@+id/i_title"
         layout="@layout/include_title_layout"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/i_title" />
 
     <ViewStub
         android:id="@+id/vs_loading"

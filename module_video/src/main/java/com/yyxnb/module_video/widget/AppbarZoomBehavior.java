@@ -49,7 +49,7 @@ public class AppbarZoomBehavior extends AppBarLayout.Behavior {
     private void init(AppBarLayout abl) {
         abl.setClipChildren(false);
         mAppbarHeight = abl.getHeight();
-        mImageView = (ImageView) abl.findViewById(R.id.ivHeadBg);
+        mImageView = (ImageView) abl.findViewById(R.id.iv_headBg);
         if (mImageView != null) {
             mImageViewHeight = mImageView.getHeight();
         }

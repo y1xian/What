@@ -10,10 +10,26 @@ import java.util.List;
 
 public class DataConfig {
 
+    private volatile static List<MainHomeBean> mainHomeBeans;
     private volatile static List<MainHomeBean> mainBeans;
 
     /**
-     * 首页数据
+     * 首页列表数据
+     *
+     * @return
+     */
+    public static List<MainHomeBean> getHomeListBeans() {
+        if (mainHomeBeans == null) {
+            String content = FileUtils.parseFile(AppUtils.getApp(), "main_home_data.json");
+            mainHomeBeans = GsonUtils.jsonToList(content, MainHomeBean.class);
+        }
+        LogUtils.list(mainHomeBeans);
+        return mainHomeBeans;
+    }
+
+    /**
+     * 首页数据 test
+     *
      * @return
      */
     public static List<MainHomeBean> getMainBeans() {

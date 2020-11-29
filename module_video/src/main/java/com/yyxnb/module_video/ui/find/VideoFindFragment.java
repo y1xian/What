@@ -35,7 +35,7 @@ public class VideoFindFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRecyclerView = binding.mRecyclerView;
+        mRecyclerView = binding.rvContent;
         mAdapter = new VideoFindAdapter();
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         ItemDecoration decoration = new ItemDecoration(getContext());

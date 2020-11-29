@@ -44,7 +44,7 @@ public class VideoActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mViewPager = binding.mViewPager;
+        mViewPager = binding.vpContent;
         mViewPager.setNoScroll(true);
     }
 

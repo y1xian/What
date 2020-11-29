@@ -23,7 +23,7 @@
         tools:context=".ui.UserPersonalDetailsFragment">
 
         <include
-            android:id="@+id/iTitle"
+            android:id="@+id/i_title"
             layout="@layout/include_title_layout" />
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -55,7 +55,7 @@
                         skin:enable="true" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/ivAvatar"
+                        android:id="@+id/iv_avatar"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginEnd="40dp"

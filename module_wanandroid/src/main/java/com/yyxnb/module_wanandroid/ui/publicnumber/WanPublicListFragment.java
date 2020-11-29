@@ -10,12 +10,12 @@ import android.view.View;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.yyxnb.common_base.databinding.IncludeSrlStatusRvLayoutBinding;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.databinding.IncludeRlRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
 import com.yyxnb.module_wanandroid.ui.WanWebActivity;
@@ -30,7 +30,7 @@ import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
 @BindRes(subPage = true)
 public class WanPublicListFragment extends BaseFragment {
 
-    private IncludeRlRvLayoutBinding binding;
+    private IncludeSrlStatusRvLayoutBinding binding;
     private SmartRefreshLayout mRefreshLayout;
     private RecyclerView mRecyclerView;
     private StatusView statusView;
@@ -53,19 +53,19 @@ public class WanPublicListFragment extends BaseFragment {
 
     @Override
     public int initLayoutResId() {
-        return R.layout.include_rl_rv_layout;
+        return R.layout.include_srl_rv_layout;
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRefreshLayout = binding.mRefreshLayout;
-        mRecyclerView = binding.mRecyclerView;
+        mRefreshLayout = binding.srlContent;
+        mRecyclerView = binding.rvContent;
 
         mId = getArguments().getInt("id", 0);
 
 //        statusView = StatusView.init(this,R.id.mRefreshLayout);
-        statusView = binding.mStatusView;
+        statusView = binding.vStatus;
 //        statusView.config(new StatusViewBuilder.Builder().build());
 //        statusView.setLoadingView(R.layout.item_wan_home_layout);
         statusView.showLoadingView();

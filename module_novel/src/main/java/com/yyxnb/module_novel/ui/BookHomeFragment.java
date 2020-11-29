@@ -33,7 +33,7 @@ public class BookHomeFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRecyclerView = binding.mRecyclerView;
+        mRecyclerView = binding.rvContent;
 
         mAdapter = new BookHomeAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

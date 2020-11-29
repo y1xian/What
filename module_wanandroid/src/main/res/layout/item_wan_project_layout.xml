@@ -32,7 +32,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvAuthor"
+                android:id="@+id/tv_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -45,7 +45,7 @@
                 tools:text="作者" />
 
             <com.noober.background.view.BLTextView
-                android:id="@+id/tvTop"
+                android:id="@+id/tv_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -57,13 +57,13 @@
                 android:visibility="@{data.type == 1 ? View.VISIBLE : View.GONE}"
                 app:bl_stroke_color="@color/red"
                 app:bl_stroke_width="1dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
-                app:layout_constraintStart_toEndOf="@+id/tvAuthor"
-                app:layout_constraintTop_toTopOf="@+id/tvAuthor"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_author"
+                app:layout_constraintStart_toEndOf="@+id/tv_author"
+                app:layout_constraintTop_toTopOf="@+id/tv_author"
                 tools:visibility="visible" />
 
             <com.noober.background.view.BLTextView
-                android:id="@+id/tvNew"
+                android:id="@+id/tv_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -75,38 +75,38 @@
                 android:visibility="@{data.fresh ? View.VISIBLE : View.GONE}"
                 app:bl_stroke_color="@color/red"
                 app:bl_stroke_width="1dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
-                app:layout_constraintStart_toEndOf="@+id/tvTop"
-                app:layout_constraintTop_toTopOf="@+id/tvAuthor" />
+                app:layout_constraintBottom_toBottomOf="@+id/tv_author"
+                app:layout_constraintStart_toEndOf="@+id/tv_top"
+                app:layout_constraintTop_toTopOf="@+id/tv_author" />
 
             <TextView
-                android:id="@+id/tvTime"
+                android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="@{data.niceDate}"
                 android:textColor="@color/colorHint"
                 android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_author"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvAuthor"
+                app:layout_constraintTop_toTopOf="@+id/tv_author"
                 tools:text="时间" />
 
             <ImageView
-                android:id="@+id/ivPic"
+                android:id="@+id/iv_pic"
                 android:layout_width="80dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/tvChapterName"
+                app:layout_constraintBottom_toTopOf="@+id/tv_chapterName"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
+                app:layout_constraintTop_toBottomOf="@+id/tv_author"
                 app:url="@{data.envelopePic}" />
 
             <TextView
-                android:id="@+id/tvTitle"
+                android:id="@+id/tv_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -115,14 +115,14 @@
                 android:maxLines="2"
                 android:text="@{data.title}"
                 android:textColor="@color/colorTitle"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPic"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_pic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivPic"
-                app:layout_constraintTop_toTopOf="@+id/ivPic"
+                app:layout_constraintStart_toEndOf="@+id/iv_pic"
+                app:layout_constraintTop_toTopOf="@+id/iv_pic"
                 tools:text="标题" />
 
             <TextView
-                android:id="@+id/tvChapterName"
+                android:id="@+id/tv_chapterName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "关注",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 2,
+    "title": "推荐",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 3,
+    "title": "视频",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 4,
+    "title": "玩安卓",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 5,
+    "title": "小说",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 6,
+    "title": "音乐",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 7,
+    "title": "头条",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 8,
+    "title": "商城",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  },
+  {
+    "id": 9,
+    "title": "直播",
+    "url": "",
+    "type": 1,
+    "des": "",
+    "color": ""
+  }
+]

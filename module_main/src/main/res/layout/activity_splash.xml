@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SplashActivity">
+    tools:context=".ui.SplashActivity"
+    tools:ignore="ResourceName">
 
     <ImageView
-        android:scaleType="fitXY"
-        app:srcCompat="@mipmap/ic_main_splash"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@mipmap/ic_main_splash" />
 
 </android.support.constraint.ConstraintLayout>

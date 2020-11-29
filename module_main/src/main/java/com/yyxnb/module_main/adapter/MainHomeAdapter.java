@@ -47,8 +47,8 @@ public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 
             @Override
             public void convert(BaseViewHolder holder, MainHomeBean mainHomeBean, int position) {
-                ConstraintLayout mLayout = holder.getView(R.id.mLayout);
-                TextView tvTitle = holder.getView(R.id.tvTitle);
+                ConstraintLayout mLayout = holder.getView(R.id.cl_content);
+                TextView tvTitle = holder.getView(R.id.tv_title);
                 setView(mLayout, tvTitle, mainHomeBean);
             }
         });
@@ -65,8 +65,8 @@ public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 
             @Override
             public void convert(BaseViewHolder holder, MainHomeBean mainHomeBean, int position) {
-                ConstraintLayout mLayout = holder.getView(R.id.mLayout);
-                TextView tvTitle = holder.getView(R.id.tvTitle);
+                ConstraintLayout mLayout = holder.getView(R.id.cl_content);
+                TextView tvTitle = holder.getView(R.id.tv_title);
                 setView(mLayout, tvTitle, mainHomeBean);
             }
         });
@@ -83,8 +83,8 @@ public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 
             @Override
             public void convert(BaseViewHolder holder, MainHomeBean mainHomeBean, int position) {
-                ConstraintLayout mLayout = holder.getView(R.id.mLayout);
-                TextView tvTitle = holder.getView(R.id.tvTitle);
+                ConstraintLayout mLayout = holder.getView(R.id.cl_content);
+                TextView tvTitle = holder.getView(R.id.tv_title);
                 setView(mLayout, tvTitle, mainHomeBean);
             }
         });
