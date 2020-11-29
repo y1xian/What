@@ -25,13 +25,90 @@
 -  自行查看`widget`目录
 
 
-开发环境：Android Studio 4.1 、gradle 6.6 、kotlin 1.4.10
+开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion java 28 - kotlin 30
 
 - 最新Java + support版本的看 [dev-arch](https://github.com/y1xian/What/tree/dev-arch) 分支
 
 - 最新AndroidX + Kotlin版本的看 [kt-x-arch](https://github.com/y1xian/What/tree/kt-x-arch) 分支，【kotlin版本会比java版本更新慢，重心还在java】
 
 
+#### 模块功能
+（PS：各模块还处于打磨中，一堆bug，辣眼勿怪. **功能点只列举个别，包含但不限于**）
+- `app`主模块
+    - 只用于打包、配置 `gradle` 个别信息
+
+- `module_main`模块
+    - 启动页、闪屏页、主界面布局
+
+- `module_login`模块
+    - 登录、注册界面及功能
+    - [x] 提供、存储用户信息
+
+- `module_user`模块
+    - 用户个人界面
+    - [x] 展示信息
+    - [ ] 编辑信息
+
+- `module_widget`模块
+    - 存放各种自定义的 `lib_` 包 ，方便发布 `JitPack` 导入使用
+    - [x] 封装了 基于JetPack的底层框架，网络框架，自定义控件等
+
+- `module_wanandroid`模块
+    - 使用 [wanandroid](https://www.wanandroid.com/) 提供的API，开发的一款简略版客户端
+    - [x] 部分功能点
+    - [x] 跳转web
+    - [x] 内容搜索
+
+- `module_video`模块
+    - 模仿抖音列表及部分基础功能
+    - [x] 播放列表
+    - [ ] 详情页
+    - [ ] 评论功能
+
+- `module_joke`模块
+    - 模块皮皮虾的视频、图文界面及部分基础功能
+    - [x] 多状态列表
+    - [ ] 详情页
+    - [ ] 评论功能
+
+- `module_music`模块
+    - 音乐播放基础功能
+    - [x] 本地音乐列表、
+    - [ ] 网络音乐列表，**无合适API
+    - [x] 通知栏控制
+
+- `module_novel`模块
+    - 小说基础功能
+    - [x] 列表页
+    - [x] 小说阅读页、翻页效果、缓存
+    - [x] 书架页
+
+- `module_caht`模块
+    - 接入`环信SDk` 在其基础上开发
+    - [ ] 聊天室
+    - [ ] 群聊
+
+- `module_news`模块
+    - 新闻资讯基础功能
+    - [ ] 列表
+    - [ ] 详情
+
+- `module_mall`模块
+    - 商城基础功能
+    - [ ] 商品列表
+    - [ ] 商品详情
+    - [ ] 购物车
+    - [ ] 支付流程
+    - [ ] 订单状态
+
+- `module_live`模块
+    - 直播基础功能
+    - [ ] 直播列表
+    - [ ] 直播室，推拉流
+    - [ ] 聊天室
+    - [ ] 礼物效果
+
+---
 
 ### 组件化单项目运行
 1. 在 `local.properties` 下添加
