@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.lib_dialog.core.MessageDialog;
 import com.yyxnb.module_novel.R;

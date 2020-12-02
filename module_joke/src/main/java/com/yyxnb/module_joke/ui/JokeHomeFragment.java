@@ -25,7 +25,7 @@ import com.dueeeke.videoplayer.util.L;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_joke.R;
 import com.yyxnb.module_joke.adapter.JokeHomeAdapter;
 import com.yyxnb.module_joke.bean.TikTokBean;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
-import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_HOME_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_HOME_FRAGMENT;
 
 /**
  * joke 首页.

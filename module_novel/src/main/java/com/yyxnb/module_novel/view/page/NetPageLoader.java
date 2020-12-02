@@ -2,7 +2,7 @@ package com.yyxnb.module_novel.view.page;
 
 
 import com.yyxnb.lib_common.utils.log.LogUtils;
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
+import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.config.Constant;
@@ -14,7 +14,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_base.config.Constants.TOURIST_ID;
+import static com.yyxnb.common_res.config.Constants.TOURIST_ID;
 
 
 /**

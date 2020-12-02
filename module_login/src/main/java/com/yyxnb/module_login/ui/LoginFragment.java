@@ -18,7 +18,7 @@ import android.widget.EditText;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_login.R;
 import com.yyxnb.module_login.config.UserManager;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
@@ -28,7 +28,7 @@ import com.yyxnb.lib_system.PhoneInfoUtils;
 import com.yyxnb.lib_system.permission.PermissionListener;
 import com.yyxnb.lib_system.permission.PermissionUtils;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
 
 
 /**

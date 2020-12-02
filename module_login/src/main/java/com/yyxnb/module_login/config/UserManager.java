@@ -1,10 +1,10 @@
 package com.yyxnb.module_login.config;
 
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.common_base.bean.UserBean;
-import com.yyxnb.common_base.db.AppDatabase;
+import com.yyxnb.common_res.bean.UserBean;
+import com.yyxnb.common_res.db.AppDatabase;
 
-import static com.yyxnb.common_base.config.Constants.USER_ID;
+import static com.yyxnb.common_res.config.Constants.USER_ID;
 
 public class UserManager {
 

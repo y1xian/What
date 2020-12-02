@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.view.View;
 
-import com.yyxnb.common_base.arouter.ARouterUtils;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_popup.PopupManager;
@@ -21,8 +21,8 @@ import com.yyxnb.module_main.viewmodel.MainViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.CHAT_MAIN_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
 
 /**
  * ================================================

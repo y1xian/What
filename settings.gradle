@@ -1,5 +1,6 @@
 include ':app',
         ':common_base',
+        ':common_res',
         ':module_main',
         ':module_user',
         ':module_video',
@@ -14,6 +15,7 @@ include ':app',
         ':module_news',
         ':module_widget'
 
+// 控件
 include ':widget'
 include ':widget:lib_network',
         ':widget:lib_rxtool',
@@ -33,8 +35,11 @@ include ':widget:lib_network',
         ':widget:lib_floatwindow',
         ':widget:lib_task'
 
+// 第三方资源
 include ':opensource',
         ':opensource:easeui'
 
+// 皮肤资源
 include ':skin_night'
+
 rootProject.name = 'What'

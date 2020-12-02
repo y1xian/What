@@ -1,7 +1,7 @@
 package com.yyxnb.module_novel.view.page;
 
 
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
+import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
 import com.yyxnb.module_novel.config.Constant;
 
 import java.io.File;
@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.yyxnb.common_base.config.Constants.TOURIST_ID;
+import static com.yyxnb.common_res.config.Constants.TOURIST_ID;
 
 
 /**

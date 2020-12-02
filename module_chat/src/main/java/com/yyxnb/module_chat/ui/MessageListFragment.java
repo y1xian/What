@@ -6,14 +6,14 @@ import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.adapter.MessageAdapter;
 import com.yyxnb.module_chat.config.DataConfig;
 import com.yyxnb.module_chat.databinding.FragmentMessageListBinding;
 import com.yyxnb.skinloader.SkinManager;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
 
 /**
  * 消息列表.

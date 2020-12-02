@@ -1,6 +1,6 @@
 package com.yyxnb.module_novel.config;
 
-import com.yyxnb.common_base.bean.JiSuData;
+import com.yyxnb.common_res.bean.JiSuData;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookDetailBean;
 
@@ -12,7 +12,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-import static com.yyxnb.common_base.config.BaseAPI.HEADER_JISU;
+import static com.yyxnb.common_res.config.BaseAPI.HEADER_JISU;
 
 public interface NovelService {
 

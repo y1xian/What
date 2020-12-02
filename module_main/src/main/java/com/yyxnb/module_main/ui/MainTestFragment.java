@@ -8,8 +8,8 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
-import com.yyxnb.common_base.arouter.ARouterUtils;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
@@ -22,14 +22,14 @@ import com.yyxnb.module_main.config.DataConfig;
 import com.yyxnb.module_main.databinding.FragmentMainTestBinding;
 import com.yyxnb.module_main.viewmodel.MainTestViewModel;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.CHAT_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.WIDGET_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.VIDEO_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.WAN_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.WIDGET_MAIN;
 
 /**
  * ================================================

@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_arch.common.Bus;
@@ -32,8 +32,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.common_base.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 短视频播放的fragment 可以上下滑动

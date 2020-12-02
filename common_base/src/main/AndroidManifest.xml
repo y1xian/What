@@ -32,7 +32,7 @@
         </provider>
 
         <activity
-            android:name="com.yyxnb.common_base.base.ContainerActivity"
+            android:name="com.yyxnb.common_base.core.ContainerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
             android:label="盛装Fragment的一个容器(代理)Activity"
             android:screenOrientation="portrait"

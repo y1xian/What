@@ -4,12 +4,12 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Transformations;
 
-import com.yyxnb.common_base.base.CommonViewModel;
+import com.yyxnb.common_base.core.CommonViewModel;
 import com.yyxnb.common_base.bean.MsgData;
-import com.yyxnb.common_base.bean.UserBean;
-import com.yyxnb.common_base.config.Http;
-import com.yyxnb.common_base.db.AppDatabase;
-import com.yyxnb.common_base.db.UserDao;
+import com.yyxnb.common_res.bean.UserBean;
+import com.yyxnb.common_res.config.Http;
+import com.yyxnb.common_res.db.AppDatabase;
+import com.yyxnb.common_res.db.UserDao;
 import com.yyxnb.module_login.config.LoginApi;
 import com.yyxnb.utils.encrypt.MD5Utils;
 

@@ -2,7 +2,7 @@ package com.yyxnb.module_music.viewmodel;
 
 import android.arch.lifecycle.LiveData;
 
-import com.yyxnb.common_base.base.CommonViewModel;
+import com.yyxnb.common_base.core.CommonViewModel;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicLocalBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;

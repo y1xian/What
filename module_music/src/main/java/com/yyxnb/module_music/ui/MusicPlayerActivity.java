@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.yyxnb.common_base.base.BaseActivity;
+import com.yyxnb.common_base.core.BaseActivity;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;

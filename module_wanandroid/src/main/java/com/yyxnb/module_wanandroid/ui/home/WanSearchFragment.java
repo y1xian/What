@@ -7,7 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 
 import com.tencent.mmkv.MMKV;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_view.text.FlowlayoutTags;
 import com.yyxnb.module_wanandroid.R;

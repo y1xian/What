@@ -9,7 +9,7 @@
 
         <variable
             name="data"
-            type="com.yyxnb.common_base.bean.UserBean" />
+            type="com.yyxnb.common_res.bean.UserBean" />
 
         <!--        <variable-->
         <!--            name="lifeCycleOwner"-->

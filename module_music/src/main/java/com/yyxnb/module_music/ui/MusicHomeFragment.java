@@ -11,8 +11,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_common.utils.DpUtils;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
+import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.lib_music.MusicPlayerManager;
 import com.yyxnb.lib_music.interfaces.MusicInitializeCallBack;
 import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_HOME_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_HOME_FRAGMENT;
 
 /**
  * 音乐首页.

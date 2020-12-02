@@ -10,7 +10,7 @@ import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_localservice.LocalConfig;
 import com.yyxnb.lib_localservice.bean.LocalFolder;
 import com.yyxnb.lib_localservice.bean.LocalMedia;

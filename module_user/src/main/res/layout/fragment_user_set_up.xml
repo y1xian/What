@@ -7,7 +7,7 @@
 
     <data>
 
-        <import type="com.yyxnb.common_base.arouter.service.impl.LoginImpl" />
+        <import type="com.yyxnb.common_res.arouter.service.impl.LoginImpl" />
 
         <import type="android.view.View" />
     </data>

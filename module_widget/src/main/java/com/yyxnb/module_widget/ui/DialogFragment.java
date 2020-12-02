@@ -11,7 +11,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_base.base.AbsListFragment;
+import com.yyxnb.common_res.core.AbsListFragment;
 import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.lib_dialog.core.MessageDialog;
 import com.yyxnb.module_widget.R;

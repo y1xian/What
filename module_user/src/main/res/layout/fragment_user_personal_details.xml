@@ -9,8 +9,8 @@
 
         <variable
             name="data"
-            type="com.yyxnb.common_base.bean.UserBean" />
-        <!--        <import type="com.yyxnb.common_base.arouter.service.impl.LoginImpl"/>-->
+            type="com.yyxnb.common_res.bean.UserBean" />
+        <!--        <import type="com.yyxnb.common_res.arouter.service.impl.LoginImpl"/>-->
 
     </data>
 

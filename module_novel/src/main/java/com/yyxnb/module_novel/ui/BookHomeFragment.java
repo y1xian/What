@@ -8,7 +8,7 @@ import android.view.View;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.BookHomeAdapter;
 import com.yyxnb.module_novel.config.DataConfig;

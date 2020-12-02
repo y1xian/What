@@ -145,8 +145,6 @@ android {
             //是否启用zipAlign压缩
             zipAlignEnabled false
             signingConfig signingConfigs.what
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             //混淆
@@ -156,7 +154,6 @@ android {
             //是否启用zipAlign压缩
             zipAlignEnabled false
             signingConfig signingConfigs.what
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -248,7 +245,7 @@ dependencies {
     }
 
     if (!isLibrary) {
-        implementation project(':common_base')
+        implementation project(':common_res')
         //组件中依赖阿里路由编译框架
         annotationProcessor libs.arouter_compiler
         annotationProcessor libs.room_compiler

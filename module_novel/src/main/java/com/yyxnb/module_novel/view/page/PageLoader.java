@@ -12,8 +12,8 @@ import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 
 import com.yyxnb.lib_common.utils.DpUtils;
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.bean.UserBean;
+import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
+import com.yyxnb.common_res.bean.UserBean;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;
@@ -32,7 +32,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
-import static com.yyxnb.common_base.config.Constants.TOURIST_ID;
+import static com.yyxnb.common_res.config.Constants.TOURIST_ID;
 
 
 /**

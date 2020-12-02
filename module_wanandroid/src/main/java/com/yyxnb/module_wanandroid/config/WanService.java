@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.config;
 
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
-import com.yyxnb.common_base.bean.WanData;
+import com.yyxnb.common_res.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanNavigationBean;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.bean.WanSystemBean;
@@ -16,7 +16,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-import static com.yyxnb.common_base.config.BaseAPI.HEADER_WAN;
+import static com.yyxnb.common_res.config.BaseAPI.HEADER_WAN;
 
 public interface WanService {
 

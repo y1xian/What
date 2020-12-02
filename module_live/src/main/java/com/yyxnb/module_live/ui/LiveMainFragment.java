@@ -3,10 +3,10 @@ package com.yyxnb.module_live.ui;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_live.R;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.LIVE_MAIN_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.LIVE_MAIN_FRAGMENT;
 
 /**
  * ================================================

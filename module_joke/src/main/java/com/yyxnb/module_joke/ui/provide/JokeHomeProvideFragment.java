@@ -3,12 +3,12 @@ package com.yyxnb.module_joke.ui.provide;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.module_joke.R;
 import com.yyxnb.module_joke.databinding.FragmentJokeHomeProvideBinding;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================

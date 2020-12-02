@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid;
 
 import android.app.Application;
 
-import com.yyxnb.common_base.module.IModuleInit;
+import com.yyxnb.common_res.module.IModuleInit;
 import com.yyxnb.lib_network.interceptor.weaknetwork.WeakNetworkManager;
 
 public class ModuleInit implements IModuleInit {

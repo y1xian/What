@@ -9,18 +9,18 @@ import com.tencent.mmkv.MMKV;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_base.arouter.ARouterUtils;
-import com.yyxnb.common_base.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.config.BaseConfig;
+import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
+import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.config.BaseConfig;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
 import com.yyxnb.module_user.viewmodel.UserViewModel;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
-import static com.yyxnb.common_base.config.Constants.USER_ID;
+import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
+import static com.yyxnb.common_res.config.Constants.USER_ID;
 
 /**
  * 我的 - 界面.

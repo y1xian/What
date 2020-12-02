@@ -3,13 +3,13 @@ package com.yyxnb.module_login.service;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.arouter.ARouterUtils;
-import com.yyxnb.common_base.arouter.service.LoginService;
-import com.yyxnb.common_base.bean.UserBean;
+import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_res.arouter.service.LoginService;
+import com.yyxnb.common_res.bean.UserBean;
 import com.yyxnb.module_login.config.UserManager;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_MAIN;
-import static com.yyxnb.common_base.arouter.ARouterConstant.LOGIN_SERVICE;
+import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_MAIN;
+import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_SERVICE;
 
 /**
  * 登陆模块对外接口功能实现

@@ -10,7 +10,7 @@ import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.VideoFindAdapter;
 import com.yyxnb.module_video.config.DataConfig;

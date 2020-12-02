@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.databinding.FragmentNovelMainBinding;
 import com.yyxnb.lib_view.tabbar.Tab;
@@ -14,7 +14,7 @@ import com.yyxnb.lib_view.tabbar.TabBarView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_MAIN_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_MAIN_FRAGMENT;
 
 /**
  * 小说主页.

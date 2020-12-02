@@ -8,10 +8,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
-import com.yyxnb.common_base.arouter.ARouterUtils;
-import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_base.weight.NoScrollViewPager;
-import com.yyxnb.common_base.weight.ScaleTransitionPagerTitleView;
+import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.weight.NoScrollViewPager;
+import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
@@ -34,14 +34,14 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.Li
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.JOKE_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.LIVE_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MALL_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.MUSIC_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.NEWS_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.NOVEL_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.LIVE_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.NEWS_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.VIDEO_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.WAN_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================

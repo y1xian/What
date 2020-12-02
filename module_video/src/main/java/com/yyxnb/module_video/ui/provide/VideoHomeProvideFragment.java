@@ -8,7 +8,7 @@ import com.yyxnb.lib_arch.viewmodel.ViewModelFactory;
 import com.yyxnb.module_video.ui.play.VideoPlayFragment;
 import com.yyxnb.module_video.viewmodel.VideoViewModel;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.VIDEO_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.VIDEO_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================

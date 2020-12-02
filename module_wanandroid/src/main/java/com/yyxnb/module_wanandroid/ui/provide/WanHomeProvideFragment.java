@@ -10,7 +10,7 @@ import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.ui.home.WanHomeFragment;
 import com.yyxnb.module_wanandroid.viewmodel.WanHomeViewModel;
 
-import static com.yyxnb.common_base.arouter.ARouterConstant.WAN_HOME_PROVIDE_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.WAN_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================
