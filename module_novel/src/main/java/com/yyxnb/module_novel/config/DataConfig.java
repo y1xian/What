@@ -2,7 +2,7 @@ package com.yyxnb.module_novel.config;
 
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.lib_network.utils.GsonUtils;
-import com.yyxnb.utils.FileUtils;
+import com.yyxnb.lib_utils.FileUtils;
 import com.yyxnb.lib_widget.AppUtils;
 
 import java.util.List;

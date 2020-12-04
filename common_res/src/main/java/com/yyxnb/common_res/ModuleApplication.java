@@ -16,7 +16,7 @@ import com.tencent.mmkv.MMKV;
 import com.yyxnb.common_base.BaseApplication;
 import com.yyxnb.common_res.weight.skin.ExtraAttrRegister;
 import com.yyxnb.lib_widget.AppUtils;
-import com.yyxnb.skinloader.SkinManager;
+import com.yyxnb.lib_skinloader.SkinManager;
 
 import static com.yyxnb.common_res.config.Constants.SKIN_PATH;
 

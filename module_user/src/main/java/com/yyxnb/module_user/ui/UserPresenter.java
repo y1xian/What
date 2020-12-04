@@ -8,10 +8,10 @@ import android.widget.CompoundButton;
 import com.tencent.mmkv.MMKV;
 import com.yyxnb.lib_common.utils.ToastUtils;
 import com.yyxnb.lib_common.utils.log.LogUtils;
-import com.yyxnb.skinloader.SkinManager;
-import com.yyxnb.skinloader.util.AssetFileUtils;
-import com.yyxnb.utils.permission.PermissionListener;
-import com.yyxnb.utils.permission.PermissionUtils;
+import com.yyxnb.lib_skinloader.SkinManager;
+import com.yyxnb.lib_skinloader.util.AssetFileUtils;
+import com.yyxnb.lib_system.permission.PermissionListener;
+import com.yyxnb.lib_system.permission.PermissionUtils;
 
 import java.io.File;
 

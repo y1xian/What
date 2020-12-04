@@ -8,15 +8,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_common.utils.DpUtils;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.lib_music.MusicPlayerManager;
 import com.yyxnb.lib_music.interfaces.MusicInitializeCallBack;
 import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
 import com.yyxnb.lib_music.interfaces.MusicPlayerInfoListener;
+import com.yyxnb.lib_system.permission.PermissionListener;
+import com.yyxnb.lib_system.permission.PermissionUtils;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;
@@ -24,8 +26,6 @@ import com.yyxnb.module_music.databinding.FragmentMusicHomeBinding;
 import com.yyxnb.module_music.db.MusicDatabase;
 import com.yyxnb.module_music.view.BottomMusicView;
 import com.yyxnb.module_music.viewmodel.MusicViewModel;
-import com.yyxnb.utils.permission.PermissionListener;
-import com.yyxnb.utils.permission.PermissionUtils;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;

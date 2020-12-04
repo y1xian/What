@@ -17,23 +17,28 @@ dependencies {
     api project(':widget:lib_popup')
     // 适配器
     api project(':widget:lib_adapter')
+    // 自定义view
     api project(':widget:lib_view')
     // 悬浮窗
     api project(':widget:lib_floatwindow')
     // 系统信息
     api project(":widget:lib_system")
+    // utils
+    api project(":widget:lib_utils")
+    // 换肤
+    api project(":widget:lib_skinloader")
 
     // jetpack https://github.com/y1xian/Amazing
     def b_v = "1.0.3.4"
 //    api 'com.github.y1xian.Amazing:lib_arch:' + b_v
 //    api 'com.github.y1xian.Amazing:lib_rxhttp:' + b_v
     // 常用控件
-    api libs.widget_utils
+//    api libs.widget_utils
 //    api libs.widget_view
 //    api libs.widget_adapter
 //    api libs.widget_skin
     // 换肤
-    api libs.widget_skinloader
+//    api libs.widget_skinloader
 
 
     // 屏幕适配 https://github.com/JessYanCoding/AndroidAutoSize

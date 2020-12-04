@@ -11,7 +11,7 @@ import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.adapter.MessageAdapter;
 import com.yyxnb.module_chat.config.DataConfig;
 import com.yyxnb.module_chat.databinding.FragmentMessageListBinding;
-import com.yyxnb.skinloader.SkinManager;
+import com.yyxnb.lib_skinloader.SkinManager;
 
 import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
 

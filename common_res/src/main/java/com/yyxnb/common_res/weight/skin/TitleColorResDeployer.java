@@ -3,10 +3,10 @@ package com.yyxnb.common_res.weight.skin;
 import android.view.View;
 
 import com.yyxnb.lib_common.utils.StatusBarUtils;
-import com.yyxnb.skinloader.bean.SkinAttr;
-import com.yyxnb.skinloader.bean.SkinConfig;
-import com.yyxnb.skinloader.skinInterface.ISkinResDeployer;
-import com.yyxnb.skinloader.skinInterface.ISkinResourceManager;
+import com.yyxnb.lib_skinloader.bean.SkinAttr;
+import com.yyxnb.lib_skinloader.bean.SkinConfig;
+import com.yyxnb.lib_skinloader.skinInterface.ISkinResDeployer;
+import com.yyxnb.lib_skinloader.skinInterface.ISkinResourceManager;
 import com.yyxnb.lib_view.titlebar.TitleBar;
 
 

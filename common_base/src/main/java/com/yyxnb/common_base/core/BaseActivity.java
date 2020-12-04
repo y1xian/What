@@ -26,7 +26,7 @@ import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.delegate.ActivityDelegate;
 import com.yyxnb.lib_common.action.AnimAction;
 import com.yyxnb.lib_common.utils.KeyboardUtils;
-import com.yyxnb.skinloader.SkinInflaterFactory;
+import com.yyxnb.lib_skinloader.SkinInflaterFactory;
 import com.yyxnb.lib_widget.action.ClickAction;
 import com.yyxnb.lib_widget.action.HandlerAction;
 

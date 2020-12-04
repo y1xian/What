@@ -2,7 +2,7 @@ package com.yyxnb.module_joke.config;
 
 import com.yyxnb.module_joke.bean.TikTokBean;
 import com.yyxnb.lib_network.utils.GsonUtils;
-import com.yyxnb.utils.FileUtils;
+import com.yyxnb.lib_utils.FileUtils;
 import com.yyxnb.lib_widget.AppUtils;
 
 import java.math.BigDecimal;

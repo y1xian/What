@@ -13,6 +13,8 @@ import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
 import com.yyxnb.lib_common.utils.log.LogUtils;
+import com.yyxnb.lib_system.permission.PermissionListener;
+import com.yyxnb.lib_system.permission.PermissionUtils;
 import com.yyxnb.lib_video.Utils;
 import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;
@@ -25,8 +27,6 @@ import com.yyxnb.module_video.viewmodel.VideoViewModel;
 import com.yyxnb.module_video.widget.VerticalViewPager;
 import com.yyxnb.module_video.widget.tiktok.TikTokController;
 import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory;
-import com.yyxnb.utils.permission.PermissionListener;
-import com.yyxnb.utils.permission.PermissionUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;

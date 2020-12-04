@@ -4,7 +4,7 @@ import com.yyxnb.lib_widget.AppUtils;
 import com.yyxnb.lib_common.utils.log.LogUtils;
 import com.yyxnb.lib_network.utils.GsonUtils;
 import com.yyxnb.module_main.bean.MainHomeBean;
-import com.yyxnb.utils.FileUtils;
+import com.yyxnb.lib_utils.FileUtils;
 
 import java.util.List;
 

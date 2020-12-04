@@ -7,12 +7,12 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_system.permission.PermissionListener;
+import com.yyxnb.lib_system.permission.PermissionUtils;
 import com.yyxnb.lib_view.tabbar.Tab;
 import com.yyxnb.lib_view.tabbar.TabBarView;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.databinding.FragmentWidgetMainBinding;
-import com.yyxnb.utils.permission.PermissionListener;
-import com.yyxnb.utils.permission.PermissionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

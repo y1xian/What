@@ -33,7 +33,9 @@ include ':widget:lib_network',
         ':widget:lib_system',
         ':widget:lib_room',
         ':widget:lib_floatwindow',
-        ':widget:lib_task'
+        ':widget:lib_task',
+        ':widget:lib_skinloader',
+        ':widget:lib_utils'
 
 // 第三方资源
 include ':opensource',
