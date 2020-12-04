@@ -16,7 +16,7 @@ public class MainViewModel extends BasePagedViewModel<MainBean> {
         return new PageKeyedDataSource<Integer, MainBean>() {
             @Override
             public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, MainBean> callback) {
-                callback.onResult(DataConfig.getMainBeans(), null, null);
+                callback.onResult(DataConfig.getToolsBeans(), null, null);
             }
 
             @Override

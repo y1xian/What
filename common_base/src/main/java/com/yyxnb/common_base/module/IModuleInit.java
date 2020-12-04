@@ -1,4 +1,4 @@
-package com.yyxnb.common_res.module;
+package com.yyxnb.common_base.module;
 
 import android.app.Application;
 

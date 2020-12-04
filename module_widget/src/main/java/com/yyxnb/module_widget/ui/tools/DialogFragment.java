@@ -1,28 +1,27 @@
-package com.yyxnb.module_widget.ui;
+package com.yyxnb.module_widget.ui.tools;
 
-import android.arch.paging.PagedListAdapter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
 
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_res.core.AbsListFragment;
 import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.lib_dialog.core.MessageDialog;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
-import com.yyxnb.module_widget.bean.MainBean;
+import com.yyxnb.module_widget.config.DataConfig;
+import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
 import com.yyxnb.module_widget.view.dialog.HintDialog;
 import com.yyxnb.module_widget.view.dialog.InputDialog;
 import com.yyxnb.module_widget.view.dialog.MenuDialog;
 import com.yyxnb.module_widget.view.dialog.SelectDialog;
 import com.yyxnb.module_widget.view.dialog.WaitDialog;
-import com.yyxnb.module_widget.viewmodel.DialogViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,15 +32,22 @@ import java.util.List;
  * 对话框 使用
  */
 @BindRes
-public class DialogFragment extends AbsListFragment<MainBean, DialogViewModel> {
+public class DialogFragment extends BaseFragment {
 
     private MainListAdapter mAdapter = new MainListAdapter();
 
+    private IncludeWidgetSrlRvLayoutBinding binding;
+    private RecyclerView mRecyclerView;
+
+    @Override
+    public int initLayoutResId() {
+        return R.layout.include_widget_srl_rv_layout;
+    }
+
     @Override
     public void initView(Bundle savedInstanceState) {
-        super.initView(savedInstanceState);
-        mRefreshLayout.setEnableRefresh(false).setEnableLoadMore(false).setEnableOverScrollDrag(true);
-
+        binding = getBinding();
+        mRecyclerView = binding.rvContent;
         mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
@@ -58,10 +64,12 @@ public class DialogFragment extends AbsListFragment<MainBean, DialogViewModel> {
             return 1;
         });
         mRecyclerView.setLayoutManager(manager);
+        ItemDecoration decoration = new ItemDecoration(getContext());
         decoration.setDividerWidth(5);
         decoration.setDividerHeight(5);
         decoration.setDrawBorderTopAndBottom(true);
         decoration.setDrawBorderLeftAndRight(true);
+        mRecyclerView.addItemDecoration(decoration);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -259,13 +267,8 @@ public class DialogFragment extends AbsListFragment<MainBean, DialogViewModel> {
     }
 
     @Override
-    public PagedListAdapter getAdapter() {
-        return mAdapter;
-    }
-
-    @Override
     public void initViewData() {
-
+        mAdapter.setDataItems(DataConfig.getDialogBeans());
     }
 
     //使用默认浏览器打开链接
@@ -283,13 +286,4 @@ public class DialogFragment extends AbsListFragment<MainBean, DialogViewModel> {
 //        }
 //    }
 
-    @Override
-    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-
-    }
-
-    @Override
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-
-    }
 }

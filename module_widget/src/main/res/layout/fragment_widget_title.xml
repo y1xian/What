@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.tools.WidgetTitleFragment">
+
+    <com.yyxnb.lib_view.titlebar.TitleBar
+        android:id="@+id/v_titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tb_centerSubText="带上加载"
+        app:tb_centerSubTextColor="@color/white"
+        app:tb_centerText="沉浸式标题" />
+
+    <com.yyxnb.lib_view.titlebar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:tb_centerText="只有标题"
+        app:tb_fillStatusBar="false"
+        app:tb_leftType="none"
+        app:tb_titleBarColor="@color/colorTheme" />
+
+    <com.yyxnb.lib_view.titlebar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:tb_centerSubText="副标题"
+        app:tb_centerSubTextColor="@color/white"
+        app:tb_centerText="两边文字"
+        app:tb_fillStatusBar="false"
+        app:tb_leftText="返回"
+        app:tb_leftType="textView"
+        app:tb_rightText="更多"
+        app:tb_rightType="textView"
+        app:tb_titleBarColor="@color/colorTheme" />
+
+    <com.yyxnb.lib_view.titlebar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:tb_centerSubText="副标题"
+        app:tb_centerSubTextColor="@color/white"
+        app:tb_centerText="左边边文字+图片+跑马灯"
+        app:tb_fillStatusBar="false"
+        app:tb_leftDrawable="@mipmap/ic_titlebar_back"
+        app:tb_leftText="返回"
+        app:tb_leftType="textView"
+        app:tb_rightText="更多"
+        app:tb_rightType="textView"
+        app:tb_titleBarColor="@color/colorTheme" />
+
+    <com.yyxnb.lib_view.titlebar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:tb_centerSubText="副标题"
+        app:tb_centerSubTextColor="@color/white"
+        app:tb_centerText="两边图标"
+        app:tb_fillStatusBar="false"
+        app:tb_leftImageResource="@mipmap/ic_launcher"
+        app:tb_leftType="imageButton"
+        app:tb_rightImageResource="@mipmap/ic_launcher"
+        app:tb_rightType="imageButton"
+        app:tb_titleBarColor="@color/colorTheme" />
+
+</LinearLayout>

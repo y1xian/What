@@ -1,36 +1,43 @@
-package com.yyxnb.module_widget.ui;
+package com.yyxnb.module_widget.ui.tools;
 
-import android.arch.paging.PagedListAdapter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_res.core.AbsListFragment;
-import com.yyxnb.module_widget.adapter.MainListAdapter;
-import com.yyxnb.module_widget.bean.MainBean;
-import com.yyxnb.module_widget.viewmodel.PopupViewModel;
 import com.yyxnb.lib_popup.PopupManager;
 import com.yyxnb.lib_popup.impl.LoadingPopupView;
 import com.yyxnb.lib_popup.interfaces.OnInputConfirmListener;
 import com.yyxnb.lib_popup.interfaces.OnSelectListener;
+import com.yyxnb.module_widget.R;
+import com.yyxnb.module_widget.adapter.MainListAdapter;
+import com.yyxnb.module_widget.config.DataConfig;
+import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
 
 /**
  * Popup.
  */
 @BindRes
-public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
+public class PopupFragment extends BaseFragment {
 
     private MainListAdapter mAdapter = new MainListAdapter();
+    private IncludeWidgetSrlRvLayoutBinding binding;
+    private RecyclerView mRecyclerView;
+
+    @Override
+    public int initLayoutResId() {
+        return R.layout.include_widget_srl_rv_layout;
+    }
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        super.initView(savedInstanceState);
-        mRefreshLayout.setEnableRefresh(false).setEnableLoadMore(false).setEnableOverScrollDrag(true);
+        binding = getBinding();
+        mRecyclerView = binding.rvContent;
         mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
@@ -47,11 +54,18 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
             return 1;
         });
         mRecyclerView.setLayoutManager(manager);
+        ItemDecoration decoration = new ItemDecoration(getContext());
         decoration.setDividerWidth(5);
         decoration.setDividerHeight(5);
         decoration.setDrawBorderTopAndBottom(true);
         decoration.setDrawBorderLeftAndRight(true);
+        mRecyclerView.addItemDecoration(decoration);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void initViewData() {
+        mAdapter.setDataItems(DataConfig.getPopupBeans());
     }
 
     private void setMenu(int position) {
@@ -201,18 +215,4 @@ public class PopupFragment extends AbsListFragment<MainBean, PopupViewModel> {
         }
     }
 
-    @Override
-    public PagedListAdapter getAdapter() {
-        return mAdapter;
-    }
-
-    @Override
-    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-
-    }
-
-    @Override
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-
-    }
 }

@@ -2,16 +2,14 @@ package com.yyxnb.module_widget.adapter;
 
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDelegate;
-import com.yyxnb.lib_adapter.ItemDiffCallback;
-import com.yyxnb.lib_adapter.MultiItemTypePagedAdapter;
+import com.yyxnb.lib_adapter.MultiItemTypeAdapter;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.bean.MainBean;
 
 
-public class MainListAdapter extends MultiItemTypePagedAdapter<MainBean> {
+public class MainListAdapter extends MultiItemTypeAdapter<MainBean> {
 
     public MainListAdapter() {
-        super(new ItemDiffCallback<>());
         addItemDelegate(new ItemDelegate<MainBean>() {
             @Override
             public int layoutId() {

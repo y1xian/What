@@ -5,7 +5,7 @@ import android.app.Application;
 import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
 import com.dueeeke.videoplayer.player.VideoViewConfig;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.yyxnb.common_res.module.IModuleInit;
+import com.yyxnb.common_base.module.IModuleInit;
 import com.yyxnb.lib_widget.AppUtils;
 
 public class ModuleInit implements IModuleInit {

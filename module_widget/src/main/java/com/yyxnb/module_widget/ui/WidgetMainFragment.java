@@ -1,61 +1,50 @@
 package com.yyxnb.module_widget.ui;
 
 import android.Manifest;
-import android.arch.paging.PagedListAdapter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.GridLayoutManager;
-import android.view.View;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_res.core.AbsListFragment;
-import com.yyxnb.module_widget.adapter.MainListAdapter;
-import com.yyxnb.module_widget.bean.MainBean;
-import com.yyxnb.module_widget.viewmodel.MainViewModel;
+import com.yyxnb.lib_view.tabbar.Tab;
+import com.yyxnb.lib_view.tabbar.TabBarView;
+import com.yyxnb.module_widget.R;
+import com.yyxnb.module_widget.databinding.FragmentWidgetMainBinding;
 import com.yyxnb.utils.permission.PermissionListener;
 import com.yyxnb.utils.permission.PermissionUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * 主页
+ * ================================================
+ * 作    者：yyx
+ * 日    期：2020/12/03
+ * 描    述：Widget 主页
+ * ================================================
  */
 @BindRes
-public class WidgetMainFragment extends AbsListFragment<MainBean, MainViewModel> {
+public class WidgetMainFragment extends BaseFragment {
 
-    private MainListAdapter mAdapter = new MainListAdapter();
+    private FragmentWidgetMainBinding binding;
 
-//    @Override
-//    public int initLayoutResId() {
-//        return R.layout.fragment_widget_main;
-//    }
+    private ArrayList<Fragment> fragments;
+    private List<Tab> tabs;
+
+    private TabBarView mTabLayout;
+    private int currentIndex;
+    private boolean isAddeds;
+
+    @Override
+    public int initLayoutResId() {
+        return R.layout.fragment_widget_main;
+    }
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        super.initView(savedInstanceState);
-        mRefreshLayout.setEnableRefresh(false).setEnableLoadMore(false).setEnableOverScrollDrag(true);
-        mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
-            @Override
-            public void onItemClick(View view, BaseViewHolder holder, int position) {
-                super.onItemClick(view, holder, position);
-                setMenu(mAdapter.getData().get(position).id);
-            }
-        });
-
-        GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
-        mAdapter.setSpanSizeLookup((gridLayoutManager, position) -> {
-            if (mAdapter.getData().get(position).type == 1) {
-                return 2;
-            }
-            return 1;
-        });
-        mRecyclerView.setLayoutManager(manager);
-        decoration.setDividerWidth(5);
-        decoration.setDividerHeight(5);
-        decoration.setDrawBorderTopAndBottom(true);
-        decoration.setDrawBorderLeftAndRight(true);
-        mRecyclerView.setAdapter(mAdapter);
+        binding = getBinding();
+        mTabLayout = binding.vTabLayout;
 
         PermissionUtils.with(getActivity())
                 .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -77,45 +66,44 @@ public class WidgetMainFragment extends AbsListFragment<MainBean, MainViewModel>
     @Override
     public void initViewData() {
 
-    }
+        if (fragments == null) {
+            fragments = new ArrayList<>();
+            fragments.add(new WidgetToolFragment());
+            fragments.add(new WidgetSystemFragment());
 
-    private void setMenu(int position) {
-        switch (position) {
-//            case 11:
-//                startFragment(new ToastFragment());
-//                break;
-//            case 12:
-//                startFragment(new SkinMainFragment());
-//                break;
-//            case 41:
-//                startFragment(new TitleFragment());
-//                break;
-            case 42:
-                startFragment(new DialogFragment());
-                break;
-//            case 43:
-//                startFragment(new TagFragment());
-//                break;
-            case 44:
-                startFragment(new PopupFragment());
-                break;
-            default:
-                break;
+            tabs = new ArrayList<>();
+            tabs.add(new Tab(getContext(), "控件", R.mipmap.ic_titlebar_progress));
+            tabs.add(new Tab(getContext(), "系统", R.mipmap.ic_titlebar_progress));
         }
+
+        mTabLayout.setTab(tabs);
+
+        mTabLayout.setOnSelectListener((v, position, text) -> changeView(position));
+
+        changeView(0);
     }
 
-    @Override
-    public PagedListAdapter getAdapter() {
-        return mAdapter;
+    //设置Fragment页面
+    private void changeView(int index) {
+
+        if (currentIndex == index && isAddeds) {
+            //重复点击
+            return;
+        }
+        isAddeds = true;
+        //开启事务
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+        //隐藏当前Fragment
+        ft.hide(fragments.get(currentIndex));
+        //判断Fragment是否已经添加
+        if (!fragments.get(index).isAdded()) {
+            ft.add(R.id.fl_content, fragments.get(index)).show(fragments.get(index));
+        } else {
+            //显示新的Fragment
+            ft.show(fragments.get(index));
+        }
+        ft.commitAllowingStateLoss();
+        currentIndex = index;
     }
 
-    @Override
-    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-
-    }
-
-    @Override
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-
-    }
 }

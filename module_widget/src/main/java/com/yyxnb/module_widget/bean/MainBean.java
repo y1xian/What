@@ -13,6 +13,7 @@ public class MainBean implements IData<Long>, Serializable {
     public String title;
     public String des;
     public String url;
+    public String key;
 
     @Override
     public int id() {
@@ -39,7 +40,6 @@ public class MainBean implements IData<Long>, Serializable {
         return false;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,11 +49,12 @@ public class MainBean implements IData<Long>, Serializable {
                 type == mainBean.type &&
                 Objects.equals(title, mainBean.title) &&
                 Objects.equals(des, mainBean.des) &&
-                Objects.equals(url, mainBean.url);
+                Objects.equals(url, mainBean.url) &&
+                Objects.equals(key, mainBean.key);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type, title, des, url);
+        return Objects.hash(id, type, title, des, url, key);
     }
 }

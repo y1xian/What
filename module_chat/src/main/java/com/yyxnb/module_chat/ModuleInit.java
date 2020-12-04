@@ -9,7 +9,7 @@ import com.hyphenate.push.EMPushHelper;
 import com.hyphenate.push.EMPushType;
 import com.hyphenate.push.PushListener;
 import com.hyphenate.util.EMLog;
-import com.yyxnb.common_res.module.IModuleInit;
+import com.yyxnb.common_base.module.IModuleInit;
 import com.yyxnb.lib_widget.AppUtils;
 
 public class ModuleInit implements IModuleInit {

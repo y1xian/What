@@ -14,7 +14,6 @@ import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
 import com.yyxnb.common_base.BaseApplication;
-import com.yyxnb.common_res.module.ModuleLifecycleConfig;
 import com.yyxnb.common_res.weight.skin.ExtraAttrRegister;
 import com.yyxnb.lib_widget.AppUtils;
 import com.yyxnb.skinloader.SkinManager;
@@ -49,9 +48,6 @@ public class ModuleApplication extends BaseApplication {
 //        SkinConfig.DEBUG = true;
         SkinManager.get().init(getApplicationContext());
         SkinManager.get().loadSkin(MMKV.defaultMMKV().decodeString(SKIN_PATH, ""));
-
-        //初始化组件
-        ModuleLifecycleConfig.getInstance().initModule(this);
 
 //        ImageView imageView = new ImageView(getApplicationContext());
 //        imageView.setImageResource(R.drawable.ic_launcher_background);

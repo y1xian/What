@@ -12,21 +12,35 @@ public class DataConfig {
 
     public static final String SKIN_PATH = "SKIN_PATH";
 
-    private volatile static List<MainBean> mainBeans;
+    private volatile static List<MainBean> toolsBeans;
+    private volatile static List<MainBean> systemBeans;
     private volatile static List<MainBean> popupBeans;
     private volatile static List<MainBean> dialogBeans;
 
     /**
-     * 首页数据
+     * 控件数据
      *
      * @return
      */
-    public static List<MainBean> getMainBeans() {
-        if (mainBeans == null) {
-            String content = FileUtils.parseFile(AppUtils.getApp(), "widget_main_data.json");
-            mainBeans = GsonUtils.jsonToList(content, MainBean.class);
+    public static List<MainBean> getToolsBeans() {
+        if (toolsBeans == null) {
+            String content = FileUtils.parseFile(AppUtils.getApp(), "widget_tool_data.json");
+            toolsBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
-        return mainBeans;
+        return toolsBeans;
+    }
+
+    /**
+     * 系统数据
+     *
+     * @return
+     */
+    public static List<MainBean> getSystemBeans() {
+        if (systemBeans == null) {
+            String content = FileUtils.parseFile(AppUtils.getApp(), "widget_system_data.json");
+            systemBeans = GsonUtils.jsonToList(content, MainBean.class);
+        }
+        return systemBeans;
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.yyxnb.common_res.module;
+package com.yyxnb.common_base.module;
 
 /**
  * 组件生命周期反射类名管理，在这里注册需要初始化的组件，通过反射动态调用各个组件的初始化方法

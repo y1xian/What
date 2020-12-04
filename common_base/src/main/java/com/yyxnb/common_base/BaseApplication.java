@@ -6,6 +6,7 @@ import android.support.multidex.MultiDex;
 
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.module.ModuleLifecycleConfig;
 import com.yyxnb.lib_arch.annotations.SwipeStyle;
 import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.common.ArchManager;
@@ -54,5 +55,7 @@ public class BaseApplication extends Application {
                 .build();
         ArchManager.getInstance().setConfig(archConfig);
 
+        //初始化组件
+        ModuleLifecycleConfig.getInstance().initModule(this);
     }
 }
