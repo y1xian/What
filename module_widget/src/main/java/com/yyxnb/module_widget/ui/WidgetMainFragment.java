@@ -69,10 +69,12 @@ public class WidgetMainFragment extends BaseFragment {
         if (fragments == null) {
             fragments = new ArrayList<>();
             fragments.add(new WidgetToolFragment());
+            fragments.add(new WidgetFunctionFragment());
             fragments.add(new WidgetSystemFragment());
 
             tabs = new ArrayList<>();
             tabs.add(new Tab(getContext(), "控件", R.mipmap.ic_titlebar_progress));
+            tabs.add(new Tab(getContext(), "功能", R.mipmap.ic_titlebar_progress));
             tabs.add(new Tab(getContext(), "系统", R.mipmap.ic_titlebar_progress));
         }
 

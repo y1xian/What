@@ -13,15 +13,16 @@ import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.config.DataConfig;
 import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
+import com.yyxnb.module_widget.ui.function.WidgetQueueFragment;
 
 /**
  * ================================================
  * 作    者：yyx
- * 日    期：2020/12/02
- * 描    述：系统类
+ * 日    期：2020/12/18
+ * 描    述：功能
  * ================================================
  */
-public class WidgetSystemFragment extends BaseFragment {
+public class WidgetFunctionFragment extends BaseFragment {
 
     private MainListAdapter mAdapter = new MainListAdapter();
     private IncludeWidgetSrlRvLayoutBinding binding;
@@ -34,7 +35,6 @@ public class WidgetSystemFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
         binding = getBinding();
         mRecyclerView = binding.rvContent;
 
@@ -66,10 +66,25 @@ public class WidgetSystemFragment extends BaseFragment {
 
     @Override
     public void initViewData() {
-        mAdapter.setDataItems(DataConfig.getSystemBeans());
+        mAdapter.setDataItems(DataConfig.getFunctionBeans());
     }
 
     private void setMenu(String key) {
-
+        switch (key) {
+            case "queue":
+                initArguments().putInt("type",2);
+                startFragment(new WidgetQueueFragment());
+                break;
+            case "idle_queue":
+                initArguments().putInt("type",0);
+                startFragment(new WidgetQueueFragment());
+                break;
+            case "priority_queue":
+                initArguments().putInt("type",1);
+                startFragment(new WidgetQueueFragment());
+                break;
+            default:
+                break;
+        }
     }
 }

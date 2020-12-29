@@ -13,6 +13,7 @@ public class DataConfig {
     public static final String SKIN_PATH = "SKIN_PATH";
 
     private volatile static List<MainBean> toolsBeans;
+    private volatile static List<MainBean> functionBeans;
     private volatile static List<MainBean> systemBeans;
     private volatile static List<MainBean> popupBeans;
     private volatile static List<MainBean> dialogBeans;
@@ -28,6 +29,19 @@ public class DataConfig {
             toolsBeans = GsonUtils.jsonToList(content, MainBean.class);
         }
         return toolsBeans;
+    }
+
+    /**
+     * 功能数据
+     *
+     * @return
+     */
+    public static List<MainBean> getFunctionBeans() {
+        if (functionBeans == null) {
+            String content = FileUtils.parseFile(AppUtils.getApp(), "widget_function_data.json");
+            functionBeans = GsonUtils.jsonToList(content, MainBean.class);
+        }
+        return functionBeans;
     }
 
     /**

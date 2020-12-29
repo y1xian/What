@@ -1,16 +1,16 @@
 [
   {
-    "id": 1,
     "type": 1,
     "title": "系统信息",
     "des": "",
-    "url": ""
+    "url": "",
+    "key": ""
   },
   {
-    "id": 2,
     "type": 0,
-    "title": "xxx",
+    "title": "设备",
     "des": "",
-    "url": ""
+    "url": "",
+    "key": "equipment"
   }
 ]

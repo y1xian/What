@@ -1,44 +1,81 @@
 include ':app',
+        // 纯基类
         ':common_base',
+        // 存放通用组件和资源
         ':common_res',
+        // 主界面
         ':module_main',
+        // 用户
         ':module_user',
+        // 视频
         ':module_video',
+        // 登录
         ':module_login',
+        // 聊天
         ':module_chat',
+        // 小说
         ':module_novel',
+        // 音乐
         ':module_music',
+        // 段子
         ':module_joke',
+        // 玩安卓
         ':module_wanandroid',
+        // 直播
         ':module_live',
+        // 商城
         ':module_mall',
+        // 资讯
         ':module_news',
+        // 组件演示
         ':module_widget'
 
 // 控件
 include ':widget'
-include ':widget:lib_network',
-        ':widget:lib_rxtool',
-        ':widget:lib_arch',
-        ':widget:lib_video',
-        ':widget:lib_music',
-        ':widget:lib_dialog',
-        ':widget:lib_image_loader',
+
+include ':widget:lib_arch',
+        // 通用控件
         ':widget:lib_common',
+        // 网络请求
+        ':widget:lib_network',
+        // rxjava封装
+        ':widget:lib_rxtool',
+        // 视频
+        ':widget:lib_video',
+        // 音乐
+        ':widget:lib_music',
+        // dialog
+        ':widget:lib_dialog',
+        // 图片框架
+        ':widget:lib_image_loader',
+        // 适配器
         ':widget:lib_adapter',
+        // popup
         ':widget:lib_popup',
+        // 本地服务
         ':widget:lib_localservice',
+        // 自定义控件
         ':widget:lib_view',
+        // web
         ':widget:lib_webview',
+        // 系统相关
         ':widget:lib_system',
+        // 数据库
         ':widget:lib_room',
+        // 悬浮框
         ':widget:lib_floatwindow',
+        // 任务队列
         ':widget:lib_task',
+        // 换肤
         ':widget:lib_skinloader',
-        ':widget:lib_utils'
+        // 常用工具
+        ':widget:lib_utils',
+        // 文件处理 下载、上传
+        ':widget:lib_file'
 
 // 第三方资源
 include ':opensource',
+        // 环信ui
         ':opensource:easeui'
 
 // 皮肤资源

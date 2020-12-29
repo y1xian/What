@@ -11,18 +11,24 @@
 
 #### 项目
 -  主要使用了 JitPack 、 ARouter 、RxJava2 、Retrofit2 等主流框架，MVVM模式
--  主工程运行、独立运行
--  各模块相互跳转
--  功能业务分离解耦
+-  主工程运行、业务模块独立运行
+-  各模块相互跳转、通信等
+-  功能、业务分离解耦
 
 
-#### 框架
--  底层框架：集成JetPack，解决单继承问题，只需实现`IActivity`、`IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
--  网络请求：
-    - java： `Retrofit` + `RxJava` + `Okhttp`
-    - kotlin：`Retrofit` + `Okhttp` + `Coroutine`
--  适配器：封装 `Paging` 头尾、增删查改
--  自行查看`widget`目录
+#### 框架&工具
+-  通用框架 `lib_common`：简单的集成了通用的 toast、log、状态栏等工具类，部分lib包下都会集成该框架
+-  底层框架 `lib_arch`：集成JetPack，解决单继承问题，只需实现`IActivity`、`IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
+-  网络请求 `lib_network`：
+    - java： `Retrofit2` + `RxJava2` + `Okhttp3`
+    - kotlin：`Retrofit2` + `Okhttp3` + `Coroutine`
+-  适配器 `lib_adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
+-  数据库 room `lib_room`：简单封装了个泛型BaseDao，少实现增删改
+-  文件管理 `lib_file`：使用 `Okhttp` 简单实现上传、下载
+-  皮肤切换 `lib_skinloader`：插件方式使用皮肤资源
+-  任务队列 `lib_task`：优先级任务队列、空闲队列
+-  ...
+-  自行查看`widget`目录，lib工具包都在其包下。具体实现方法可在 `module_widget` 模块下查看
 
 
 开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion java 28 - kotlin 30
@@ -37,6 +43,10 @@
 - `app`主模块
     - 只用于打包、配置 `gradle` 个别信息
 
+- `module_widget`模块（该模块只引用了`common_base`,区别于其他模块）
+    - 存放各种自定义的 `lib_` 包 （于`widget`包下），方便发布 `JitPack` 导入使用
+    - [x] 调试功能组件
+
 - `module_main`模块
     - 启动页、闪屏页、主界面布局
 
@@ -48,10 +58,6 @@
     - 用户个人界面
     - [x] 展示信息
     - [ ] 编辑信息
-
-- `module_widget`模块
-    - 存放各种自定义的 `lib_` 包 ，方便发布 `JitPack` 导入使用
-    - [x] 封装了 基于JetPack的底层框架，网络框架，自定义控件等
 
 - `module_wanandroid`模块
     - 使用 [wanandroid](https://www.wanandroid.com/) 提供的API，开发的一款简略版客户端
@@ -120,7 +126,7 @@ module_user=true
 ```
 之后build一下
 
-2. 如在单项目需要引用到其他项目，则
+2. 如在单项目需要引用到其他项目（如用户模块需要登录），则
 ```
 dependencies {
 
@@ -198,7 +204,7 @@ dependencies {
 - aar包的引用，整个项目运行会报错？
 - 包名申请第三方sdk，单模块下不成功？
 - 在哪混淆？
-- ？
+- 就这？
 
 ---
 ## 总结

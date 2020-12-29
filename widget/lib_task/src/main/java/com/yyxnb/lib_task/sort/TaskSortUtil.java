@@ -6,34 +6,32 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.util.ArraySet;
 
-import com.yyxnb.lib_task.core.Task;
-import com.yyxnb.lib_task.utils.DispatcherLog;
+import com.yyxnb.lib_task.task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-
 public class TaskSortUtil {
 
-    private static List<Task> sNewTasksHigh = new ArrayList<>();// 高优先级的Task
+    private static List<Task> taskArrayList = new ArrayList<>();
 
     /**
      * 任务的有向无环图的拓扑排序
+     *
+     * @return
      */
     @RequiresApi(api = Build.VERSION_CODES.M)
     public static synchronized List<Task> getSortResult(List<Task> originTasks,
                                                         List<Class<? extends Task>> clsLaunchTasks) {
-        long makeTime = System.currentTimeMillis();
-
         Set<Integer> dependSet = new ArraySet<>();
         Graph graph = new Graph(originTasks.size());
         for (int i = 0; i < originTasks.size(); i++) {
             Task task = originTasks.get(i);
-            if (task.isSend() || task.dependsOn() == null || task.dependsOn().size() == 0) {
+            if (task.dependentArr() == null || task.dependentArr().size() == 0) {
                 continue;
             }
-            for (Class cls : task.dependsOn()) {
+            for (Class cls : task.dependentArr()) {
                 int indexOfDepend = getIndexOfTask(originTasks, clsLaunchTasks, cls);
                 if (indexOfDepend < 0) {
                     throw new IllegalStateException(task.getClass().getSimpleName() +
@@ -45,9 +43,6 @@ public class TaskSortUtil {
         }
         List<Integer> indexList = graph.topologicalSort();
         List<Task> newTasksAll = getResultTasks(originTasks, dependSet, indexList);
-
-        DispatcherLog.i("task analyse cost makeTime " + (System.currentTimeMillis() - makeTime));
-        printAllTaskName(newTasksAll);
         return newTasksAll;
     }
 
@@ -71,28 +66,22 @@ public class TaskSortUtil {
             }
         }
         // 顺序：被别人依赖的————》需要提升自己优先级的————》需要被等待的————》没有依赖的
-        sNewTasksHigh.addAll(newTasksDepended);
-        sNewTasksHigh.addAll(newTasksRunAsSoon);
-        newTasksAll.addAll(sNewTasksHigh);
+        taskArrayList.addAll(newTasksDepended);
+        taskArrayList.addAll(newTasksRunAsSoon);
+        newTasksAll.addAll(taskArrayList);
         newTasksAll.addAll(newTasksWithOutDepend);
         return newTasksAll;
     }
 
-    private static void printAllTaskName(List<Task> newTasksAll) {
-        for (Task task : newTasksAll) {
-            DispatcherLog.i(task.getClass().getSimpleName());
-        }
-    }
-
     public static List<Task> getTasksHigh() {
-        return sNewTasksHigh;
+        return taskArrayList;
     }
 
     /**
      * 获取任务在任务列表中的index
      *
      * @param originTasks
-     * @param
+     * @return
      */
     private static int getIndexOfTask(List<Task> originTasks,
                                       List<Class<? extends Task>> clsLaunchTasks, Class cls) {

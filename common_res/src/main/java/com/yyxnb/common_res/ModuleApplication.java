@@ -33,21 +33,24 @@ public class ModuleApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        //初始化阿里路由框架
-        if (AppUtils.isDebug()) {
-            ARouter.openLog();     // 打印日志
-            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-        }
-        // 尽可能早，推荐在Application中初始化
-        ARouter.init(this);
+        SERVICE.submit(() -> {
+            //初始化阿里路由框架
+            if (AppUtils.isDebug()) {
+                ARouter.openLog();     // 打印日志
+                ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+            }
+            // 尽可能早，推荐在Application中初始化
+            ARouter.init(this);
 
-        MMKV.initialize(this);
-
-        // 换肤
-        ExtraAttrRegister.init();
+            MMKV.initialize(this);
+        });
+        SERVICE.submit(() -> {
+            // 换肤
+            ExtraAttrRegister.init();
 //        SkinConfig.DEBUG = true;
-        SkinManager.get().init(getApplicationContext());
-        SkinManager.get().loadSkin(MMKV.defaultMMKV().decodeString(SKIN_PATH, ""));
+            SkinManager.get().init(getApplicationContext());
+            SkinManager.get().loadSkin(MMKV.defaultMMKV().decodeString(SKIN_PATH, ""));
+        });
 
 //        ImageView imageView = new ImageView(getApplicationContext());
 //        imageView.setImageResource(R.drawable.ic_launcher_background);
@@ -82,7 +85,7 @@ public class ModuleApplication extends BaseApplication {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
             @Override
             public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
-                layout.setPrimaryColorsId(com.yyxnb.common_base.R.color.transparent, com.yyxnb.common_base.R.color.colorText);//全局设置主题颜色
+                layout.setPrimaryColorsId(R.color.transparent, R.color.colorText);//全局设置主题颜色
 //                layout.setEnablePureScrollMode(true);
                 layout.setEnableOverScrollBounce(true);
                 layout.setDragRate(0.4f);
@@ -93,7 +96,7 @@ public class ModuleApplication extends BaseApplication {
         SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {
             @Override
             public RefreshFooter createRefreshFooter(Context context, RefreshLayout layout) {
-                layout.setPrimaryColorsId(com.yyxnb.common_base.R.color.transparent);//全局设置主题颜色
+                layout.setPrimaryColorsId(R.color.transparent);//全局设置主题颜色
                 //指定为经典Footer，默认是 BallPulseFooter
                 return new ClassicsFooter(context).setDrawableSize(20);
             }

@@ -1,4 +1,4 @@
-package com.yyxnb.lib_task.core;
+package com.yyxnb.lib_task.task;
 
 import android.os.Process;
 import android.support.annotation.IntRange;
@@ -6,10 +6,10 @@ import android.support.annotation.IntRange;
 import java.util.List;
 import java.util.concurrent.Executor;
 
-public interface ITask {
+public interface ITask extends Comparable<ITask> {
 
     /**
-     * 优先级的范围，可根据Task重要程度及工作量指定；之后根据实际情况决定是否有必要放更大
+     * 优先级的范围
      */
     @IntRange(from = Process.THREAD_PRIORITY_FOREGROUND, to = Process.THREAD_PRIORITY_LOWEST)
     int priority();
@@ -17,14 +17,31 @@ public interface ITask {
     void run();
 
     /**
-     * Task执行所在的线程池，可指定，一般默认
+     * 标记加入队列的顺序
      */
-    Executor runOn();
+    void setSequence(int sequence);
+
+    int getSequence();
 
     /**
-     * 依赖关系
+     * Task执行所在的线程池，可指定，一般默认
      */
-    List<Class<? extends Task>> dependsOn();
+    Executor runOnExecutor();
+
+    /**
+     * 存放需要先执行的task任务集合(也就是添加需要先执行的依赖)
+     */
+    List<Class<? extends ITask>> dependentArr();
+
+    /**
+     * 开始锁
+     */
+    void startLock();
+
+    /**
+     * 解锁
+     */
+    void unlock();
 
     /**
      * 异步线程执行的Task是否需要在被调用await的时候等待，默认不需要
@@ -37,16 +54,7 @@ public interface ITask {
     boolean runOnMainThread();
 
     /**
-     * 只是在主进程执行
-     */
-    boolean onlyInMainProcess();
-
-    /**
      * Task主任务执行完成之后需要执行的任务
      */
     Runnable getTailRunnable();
-
-    void setTaskCallBack(TaskCallBack callBack);
-
-    boolean needCall();
 }

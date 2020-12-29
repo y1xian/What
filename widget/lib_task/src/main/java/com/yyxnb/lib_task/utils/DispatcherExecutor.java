@@ -1,6 +1,13 @@
 package com.yyxnb.lib_task.utils;
 
-import java.util.concurrent.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class DispatcherExecutor {
@@ -13,20 +20,18 @@ public class DispatcherExecutor {
     // preferring to have 1 less than the CPU count to avoid saturating
     // the CPU with background work
 
-    public static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 5));
+    public static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
     private static final int MAXIMUM_POOL_SIZE = CORE_POOL_SIZE;
-    private static final int KEEP_ALIVE_SECONDS = 5;
+    private static final int KEEP_ALIVE_SECONDS = 4;
     private static final BlockingQueue<Runnable> sPoolWorkQueue = new LinkedBlockingQueue<>();
     private static final DefaultThreadFactory sThreadFactory = new DefaultThreadFactory();
-    private static final RejectedExecutionHandler sHandler = new RejectedExecutionHandler() {// 一般不会到这里
-        @Override
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-            Executors.newCachedThreadPool().execute(r);
-        }
-    };
+    // 一般不会到这里
+    private static final RejectedExecutionHandler sHandler = (r, executor) -> Executors.newCachedThreadPool().execute(r);
 
     /**
      * 获取CPU线程池
+     *
+     * @return
      */
     public static ThreadPoolExecutor getCPUExecutor() {
         return sCPUThreadPoolExecutor;
@@ -34,6 +39,8 @@ public class DispatcherExecutor {
 
     /**
      * 获取IO线程池
+     *
+     * @return
      */
     public static ExecutorService getIOExecutor() {
         return sIOThreadPoolExecutor;

@@ -18,8 +18,11 @@ dependencies {
 
     implementation project(':common_base')
 
+    implementation project(":widget:lib_task")
+
     // 路由
     implementation libs.arouter_api
+    implementation 'com.android.support:support-v4:28.0.0'
     annotationProcessor libs.arouter_compiler
 
     if (runAsApp) {

@@ -1,0 +1,48 @@
+[
+  {
+    "type": 1,
+    "title": "任务相关",
+    "des": "",
+    "url": "",
+    "key": ""
+  },
+  {
+    "type": 0,
+    "title": "普通队列，无序",
+    "des": "",
+    "url": "",
+    "key": "queue"
+  } ,  {
+    "type": 0,
+    "title": "优先级队列，有序",
+    "des": "",
+    "url": "",
+    "key": "priority_queue"
+  } ,  {
+    "type": 0,
+    "title": "闲置队列",
+    "des": "",
+    "url": "",
+    "key": "idle_queue"
+  } , {
+    "type": 1,
+    "title": "文件相关",
+    "des": "",
+    "url": "",
+    "key": ""
+  },
+  {
+    "type": 0,
+    "title": "下载",
+    "des": "",
+    "url": "",
+    "key": "download"
+  },
+  {
+    "type": 0,
+    "title": "上传",
+    "des": "",
+    "url": "",
+    "key": "upload"
+  }
+]
