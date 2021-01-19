@@ -7,7 +7,7 @@ import android.util.LruCache;
 
 import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.lib_arch.common.AppManager;
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 /**
  * ================================================

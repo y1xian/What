@@ -1,10 +1,15 @@
+include ':utils:util_app'
+include ':utils:util_cache'
 include ':app',
         // 纯基类
         ':common_base',
         // 存放通用组件和资源
-        ':common_res',
-        // 主界面
-        ':module_main',
+        ':common_res'
+
+//============ 业务模块
+
+// 主界面
+include ':module_main',
         // 用户
         ':module_user',
         // 视频
@@ -29,6 +34,8 @@ include ':app',
         ':module_news',
         // 组件演示
         ':module_widget'
+
+//============ 控件
 
 // 控件
 include ':widget'
@@ -71,12 +78,21 @@ include ':widget:lib_arch',
         // 常用工具
         ':widget:lib_utils',
         // 文件处理 下载、上传
-        ':widget:lib_file'
+        ':widget:lib_file',
+        // 简单实现okhttp
+        ':widget:lib_okhttp'
 
-// 第三方资源
-include ':opensource',
-        // 环信ui
-        ':opensource:easeui'
+//============ 常用工具
+
+// 常用工具包
+include ':utils:util_core'
+
+
+//============ 第三方资源
+
+// 环信ui
+include ':opensource:easeui'
+
 
 // 皮肤资源
 include ':skin_night'

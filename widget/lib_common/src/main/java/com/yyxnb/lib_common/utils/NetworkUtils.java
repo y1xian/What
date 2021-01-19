@@ -7,7 +7,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;

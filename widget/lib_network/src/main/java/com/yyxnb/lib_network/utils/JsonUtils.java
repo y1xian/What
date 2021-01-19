@@ -5,6 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.yyxnb.lib_okhttp.utils.GsonUtils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

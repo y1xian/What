@@ -11,7 +11,7 @@ import com.yyxnb.lib_arch.annotations.SwipeStyle;
 import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_image_loader.ImageManager;
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.util.concurrent.ExecutorService;
 

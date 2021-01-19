@@ -11,10 +11,6 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-
     <application>
         <!-- 使用ContentProvider初始化三方库 -->
         <provider

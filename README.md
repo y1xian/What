@@ -6,7 +6,7 @@
 
 ### [组件化流程图 - 大概](https://www.processon.com/view/link/5ee9d5bdf346fb1ae569847d)
 
-#### [下载地址，Java版](https://www.pgyer.com/What)，或扫码下载
+#### [下载地址，Java版](https://www.pgyer.com/What)，或扫码下载 【不一定记得更新，还是得自己拉代码跑】
 ![image](https://www.pgyer.com/app/qrcode/What)
 
 #### 项目
@@ -17,25 +17,34 @@
 
 
 #### 框架&工具
+
+##### 工欲善其事，必先利其器 skr
+
+-  常用工具 `utils`：Android & Java 的工具库，通过静态方法封装，降低相关API的学习成本，提高工作效率
 -  通用框架 `lib_common`：简单的集成了通用的 toast、log、状态栏等工具类，部分lib包下都会集成该框架
--  底层框架 `lib_arch`：集成JetPack，解决单继承问题，只需实现`IActivity`、`IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
+-  底层框架 `lib_arch`：集成 `JetPack` ，解决单继承问题，只需实现 `IActivity` 、 `IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
+-  Okhttp3 `lib_okhttp`：集成 `Okhttp3`，简单的抽象封装，实现网络请求
 -  网络请求 `lib_network`：
     - java： `Retrofit2` + `RxJava2` + `Okhttp3`
     - kotlin：`Retrofit2` + `Okhttp3` + `Coroutine`
 -  适配器 `lib_adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
--  数据库 room `lib_room`：简单封装了个泛型BaseDao，少实现增删改
--  文件管理 `lib_file`：使用 `Okhttp` 简单实现上传、下载
+-  数据库 room `lib_room`：集成 `Room` 简单封装了个泛型BaseDao，少实现增删改
+-  文件管理 `lib_file`：使用 `Okhttp3` 简单实现上传、下载
 -  皮肤切换 `lib_skinloader`：插件方式使用皮肤资源
 -  任务队列 `lib_task`：优先级任务队列、空闲队列
 -  ...
 -  自行查看`widget`目录，lib工具包都在其包下。具体实现方法可在 `module_widget` 模块下查看
 
 
-开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion java 28 - kotlin 30
+开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion support 28 - AndroidX 30
 
-- 最新Java + support版本的看 [dev-arch](https://github.com/y1xian/What/tree/dev-arch) 分支
+- 最新Java + support版本的看 [java-support](https://github.com/y1xian/What/tree/java-support) 分支；
 
-- 最新AndroidX + Kotlin版本的看 [kt-x-arch](https://github.com/y1xian/What/tree/kt-x-arch) 分支，【kotlin版本会比java版本更新慢，重心还在java】
+- 最新Java + AndroidX版本的看 [java-androidx](https://github.com/y1xian/What/tree/java-androidx) 分支；
+
+- 最新AndroidX + Kotlin版本的看 [kt-x-arch](https://github.com/y1xian/What/tree/kt-androidx) 分支，**【 kotlin版本会比java版本更新慢，重心还在java版本上（kotlin也就图一乐，吃饭还是得靠java 】**；
+
+- 主干与其它分支：主干会同步 `java-support` 分支代码，也可能会同步不及时，所以还是看分支优先；其它久远分支可能废弃掉了或不更新了。
 
 
 #### 模块功能
@@ -191,7 +200,8 @@ dependencies {
     // 适配器，封装paging 头尾部、增删查改
     implementation 'com.github.y1xian.What:lib_adapter:+'
     ···
-    // 更多工具在widget下查看
+    // 更多组件在widget下查看
+    // 更多常用工具在utils下查看
 }
 ```
 

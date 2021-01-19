@@ -5,10 +5,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.yyxnb.common_res.databinding.IncludeSrlRvLayoutBinding;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.databinding.IncludeSrlStatusRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanSystemAdapter;
 import com.yyxnb.module_wanandroid.viewmodel.WanTreeViewModel;
@@ -19,7 +19,7 @@ import com.yyxnb.module_wanandroid.viewmodel.WanTreeViewModel;
 @BindRes(subPage = true)
 public class WanSystemFragment extends BaseFragment {
 
-    private IncludeSrlStatusRvLayoutBinding binding;
+    private IncludeSrlRvLayoutBinding binding;
     private SmartRefreshLayout mRefreshLayout;
     private RecyclerView mRecyclerView;
 

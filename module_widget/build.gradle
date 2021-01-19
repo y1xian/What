@@ -1,4 +1,4 @@
-ext.isLibrary = true
+ext.isPublish = true
 apply from: rootProject.file('module.gradle')
 
 android {

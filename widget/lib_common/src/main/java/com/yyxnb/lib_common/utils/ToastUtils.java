@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yyxnb.lib_common.R;
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.io.Serializable;
 

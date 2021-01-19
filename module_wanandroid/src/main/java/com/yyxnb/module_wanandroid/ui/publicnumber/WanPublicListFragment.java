@@ -10,6 +10,7 @@ import android.view.View;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.yyxnb.common_res.databinding.IncludeSrlRvLayoutBinding;
 import com.yyxnb.common_res.databinding.IncludeSrlStatusRvLayoutBinding;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
@@ -53,7 +54,7 @@ public class WanPublicListFragment extends BaseFragment {
 
     @Override
     public int initLayoutResId() {
-        return R.layout.include_srl_rv_layout;
+        return R.layout.include_srl_status_rv_layout;
     }
 
     @Override

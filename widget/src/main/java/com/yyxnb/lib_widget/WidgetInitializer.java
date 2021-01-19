@@ -11,6 +11,8 @@ import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
+import com.yyxnb.util_app.AppUtils;
+
 import java.util.Objects;
 
 
@@ -26,6 +28,9 @@ public class WidgetInitializer extends ContentProvider {
         Log.e("WidgetInitializer", "第一个初始化的存在");
 
         AppUtils.init((Application) Objects.requireNonNull(getContext()).getApplicationContext());
+
+        WidgetManager.getInstance().unInit(AppUtils.getApp());
+        WidgetManager.getInstance().init(AppUtils.getApp());
 
         // 应用监听
         ProcessLifecycleOwner.get().getLifecycle().addObserver(AppLifeObserver.getInstance());

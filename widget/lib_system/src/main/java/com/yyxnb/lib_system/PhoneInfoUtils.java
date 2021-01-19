@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 /**
  * ================================================

@@ -145,6 +145,7 @@ android {
             //是否启用zipAlign压缩
             zipAlignEnabled false
             signingConfig signingConfigs.what
+
         }
         release {
             //混淆

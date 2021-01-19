@@ -5,7 +5,7 @@ import android.graphics.Color;
 import com.yyxnb.lib_arch.R;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.SwipeStyle;
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.io.Serializable;
 

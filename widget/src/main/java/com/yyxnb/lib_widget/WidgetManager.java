@@ -6,6 +6,8 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.yyxnb.util_app.AppUtils;
+
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.LinkedList;

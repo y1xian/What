@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.yyxnb.lib_arch.delegate.ActivityLifecycle;
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.lib_widget.WidgetInitializer;
 import com.yyxnb.lib_widget.WidgetManager;
 

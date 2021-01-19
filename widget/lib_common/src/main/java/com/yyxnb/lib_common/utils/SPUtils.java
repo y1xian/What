@@ -3,7 +3,7 @@ package com.yyxnb.lib_common.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 /**
  * 保存工具类

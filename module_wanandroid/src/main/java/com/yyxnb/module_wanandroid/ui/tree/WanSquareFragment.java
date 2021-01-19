@@ -9,12 +9,12 @@ import android.view.View;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.yyxnb.common_res.databinding.IncludeSrlRvLayoutBinding;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.databinding.IncludeSrlStatusRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
 import com.yyxnb.module_wanandroid.viewmodel.WanTreeViewModel;
@@ -27,7 +27,7 @@ import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
 @BindRes(subPage = true)
 public class WanSquareFragment extends BaseFragment {
 
-    private IncludeSrlStatusRvLayoutBinding binding;
+    private IncludeSrlRvLayoutBinding binding;
     private SmartRefreshLayout mRefreshLayout;
     private RecyclerView mRecyclerView;
 

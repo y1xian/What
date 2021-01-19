@@ -10,7 +10,7 @@ import com.yyxnb.lib_common.action.CommonAction;
 import com.yyxnb.lib_network.rx.BaseHttpSubscriber;
 import com.yyxnb.lib_network.rx.RetryWithDelay;
 import com.yyxnb.lib_rxtool.DisposablePool;
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.lib_widget.interfaces.IData;
 
 import java.util.ArrayList;

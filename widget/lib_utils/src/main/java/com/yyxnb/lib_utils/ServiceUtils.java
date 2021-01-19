@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.support.annotation.NonNull;
 
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.util.HashSet;
 import java.util.List;

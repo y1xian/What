@@ -1,9 +1,9 @@
 package com.yyxnb.module_joke.config;
 
 import com.yyxnb.module_joke.bean.TikTokBean;
-import com.yyxnb.lib_network.utils.GsonUtils;
+import com.yyxnb.lib_okhttp.utils.GsonUtils;
 import com.yyxnb.lib_utils.FileUtils;
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.math.BigDecimal;
 import java.util.Collections;

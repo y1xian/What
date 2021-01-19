@@ -5,7 +5,7 @@ import android.support.annotation.MainThread;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;

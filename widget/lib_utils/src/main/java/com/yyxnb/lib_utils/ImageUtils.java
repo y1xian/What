@@ -23,7 +23,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

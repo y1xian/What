@@ -1,8 +1,6 @@
-ext.isLibrary = true
-apply from: rootProject.file('lib.gradle')
+ext.isPublish = true
+apply from: rootProject.file('lib_widget.gradle')
 
 dependencies {
-    implementation project(':widget:lib_common')
-
-    api libs.okhttp3
+    implementation project(':widget:lib_okhttp')
 }

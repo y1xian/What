@@ -1,6 +1,6 @@
 package com.yyxnb.common_res.config;
 
-import com.yyxnb.lib_network.AbstractHttp;
+import com.yyxnb.lib_network.AbsRetrofit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,19 +13,22 @@ import static com.yyxnb.common_res.config.BaseAPI.URL_MOCKY;
 import static com.yyxnb.common_res.config.BaseAPI.URL_WAN_ANDROID;
 
 
-public class Http extends AbstractHttp {
+public class Http extends AbsRetrofit {
 
-    private volatile static Http http;
+    private static volatile Http mInstance = null;
+
+    private Http() {
+    }
 
     public static Http getInstance() {
-        if (http == null) {
+        if (null == mInstance) {
             synchronized (Http.class) {
-                if (http == null) {
-                    http = new Http();
+                if (null == mInstance) {
+                    mInstance = new Http();
                 }
             }
         }
-        return http;
+        return mInstance;
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.yyxnb.lib_common.utils.log;
 
 import android.text.TextUtils;
 
-import com.yyxnb.lib_widget.AppUtils;
+import com.yyxnb.util_app.AppUtils;
 
 
 public class LogConfig {

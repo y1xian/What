@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable;
  */
 public class DisposablePool {
 
-    private static DisposablePool sInstance;
+    private static volatile DisposablePool sInstance;
 
     //===================================订阅管理=======================================//
     /**

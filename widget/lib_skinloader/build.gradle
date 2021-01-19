@@ -1,5 +1,5 @@
-ext.isLibrary = true
-apply from: rootProject.file('lib.gradle')
+ext.isPublish = true
+apply from: rootProject.file('lib_widget.gradle')
 
 dependencies {
 }
