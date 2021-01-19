@@ -1,5 +1,5 @@
 ext.isPublish = true
-apply from: rootProject.file('lib_util_java.gradle')
+apply from: rootProject.file('lib_util.gradle')
 
 dependencies {
 

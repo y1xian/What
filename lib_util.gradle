@@ -100,9 +100,8 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-//    if (!isMainLibrary) {
-//        api project(':utils')
-//    }
+    // 避免65K限制       https://developer.android.com/tools/building/multidex.html
+    api libs.multidex
 
     configurations.all {
         resolutionStrategy.eachDependency { DependencyResolveDetails details ->

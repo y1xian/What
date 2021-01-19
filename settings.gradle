@@ -1,5 +1,3 @@
-include ':utils:util_app'
-include ':utils:util_cache'
 include ':app',
         // 纯基类
         ':common_base',
@@ -85,7 +83,9 @@ include ':widget:lib_arch',
 //============ 常用工具
 
 // 常用工具包
-include ':utils:util_core'
+include ':utils:util_app',
+        ':utils:util_core',
+        ':utils:util_cache'
 
 
 //============ 第三方资源

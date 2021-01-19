@@ -45,7 +45,7 @@ public class FixedLinkedHashMap<K, V> extends LinkedHashMap<K, V> {
     }
 
     @Override
-    protected boolean removeEldestEntry(Entry<K, V> eldest) {
+    public boolean removeEldestEntry(Entry<K, V> eldest) {
         //当链表元素大于容量时，移除最老（最久未被使用）的元素
         return size() > this.capacity;
     }
