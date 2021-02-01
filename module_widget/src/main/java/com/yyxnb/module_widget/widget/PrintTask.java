@@ -2,7 +2,7 @@ package com.yyxnb.module_widget.widget;
 
 import android.util.Log;
 
-import com.yyxnb.lib_task.task.Task;
+import com.yyxnb.util_task.task.Task;
 
 public class PrintTask extends Task {
 

@@ -3,4 +3,6 @@ apply from: rootProject.file('lib_util.gradle')
 
 dependencies {
     implementation project(':utils:util_core')
+    // 微信 键值对储存
+    implementation libs.mmkv
 }

@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 
 import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.lib_common.utils.DpUtils;
+import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;

@@ -15,7 +15,7 @@ import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.lib_common.utils.DpUtils;
+import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.bean.MainHomeBean;
 import com.yyxnb.module_main.config.DataConfig;

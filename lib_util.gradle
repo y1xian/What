@@ -32,26 +32,24 @@ android {
     buildTypes {
         debug {
             //混淆
-            minifyEnabled false
+            minifyEnabled build_version.minifyEnabled
 //            applicationIdSuffix ".debug"
 //            versionNameSuffix "-DEV"
 //            //停用 Crashlytics（Fabric）
 //            ext.enableCrashlytics = false
             //是否清理无用资源
-            shrinkResources false
+            shrinkResources build_version.shrinkResources
             //是否启用zipAlign压缩
-            zipAlignEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled build_version.zipAlignEnabled
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             //混淆
-            minifyEnabled false
+            minifyEnabled build_version.minifyEnabled
             //是否清理无用资源
-            shrinkResources false
+            shrinkResources build_version.shrinkResources
             //是否启用zipAlign压缩
-            zipAlignEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled build_version.zipAlignEnabled
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

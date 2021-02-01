@@ -5,13 +5,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.CompoundButton;
 
-import com.tencent.mmkv.MMKV;
-import com.yyxnb.lib_common.utils.ToastUtils;
-import com.yyxnb.lib_common.utils.log.LogUtils;
+import com.yyxnb.util_core.log.LogUtils;
 import com.yyxnb.lib_skinloader.SkinManager;
 import com.yyxnb.lib_skinloader.util.AssetFileUtils;
-import com.yyxnb.lib_system.permission.PermissionListener;
-import com.yyxnb.lib_system.permission.PermissionUtils;
+import com.yyxnb.util_cache.CacheUtils;
+import com.yyxnb.util_core.ToastUtils;
+import com.yyxnb.util_permission.PermissionListener;
+import com.yyxnb.util_permission.PermissionUtils;
 
 import java.io.File;
 
@@ -46,7 +46,7 @@ public class UserPresenter {
                             AssetFileUtils.copyAssetFile(context, asset_dir, saveDir, savefileName);
                         }
                         LogUtils.w(" " + file.getAbsolutePath());
-                        MMKV.defaultMMKV().encode(SKIN_PATH, file.getAbsolutePath());
+                        CacheUtils.save(SKIN_PATH, file.getAbsolutePath());
                         SkinManager.get().loadSkin(file.getAbsolutePath());
                     }
 
@@ -69,7 +69,7 @@ public class UserPresenter {
         LogUtils.e("ooo " + isChecked);
         if (!isChecked) {
             SkinManager.get().restoreToDefaultSkin();
-            MMKV.defaultMMKV().removeValueForKey(SKIN_PATH);
+            CacheUtils.remove(SKIN_PATH);
         } else {
             toggleSkin(buttonView.getContext());
         }
@@ -78,7 +78,7 @@ public class UserPresenter {
             buttonView1.setChecked(isChecked1);
             if (!isChecked1) {
                 SkinManager.get().restoreToDefaultSkin();
-                MMKV.defaultMMKV().removeValueForKey(SKIN_PATH);
+                CacheUtils.remove(SKIN_PATH);
             } else {
                 toggleSkin(buttonView.getContext());
             }

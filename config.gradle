@@ -7,7 +7,10 @@ ext {
             applicationId    : "com.yyxnb.what",
             targetSdkVersion : 28,
             versionCode      : 1,
-            versionName      : '1.0.1'
+            versionName      : '1.0.1',
+            minifyEnabled    : false,
+            shrinkResources  : false,
+            zipAlignEnabled  : false
     ]
 
     versions = [

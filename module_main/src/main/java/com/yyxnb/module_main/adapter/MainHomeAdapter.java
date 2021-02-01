@@ -9,7 +9,7 @@ import com.noober.background.drawable.DrawableCreator;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDelegate;
 import com.yyxnb.lib_adapter.MultiItemTypeAdapter;
-import com.yyxnb.lib_common.utils.DpUtils;
+import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.bean.MainHomeBean;
 

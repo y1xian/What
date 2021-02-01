@@ -12,11 +12,11 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.squareup.leakcanary.LeakCanary;
-import com.tencent.mmkv.MMKV;
 import com.yyxnb.common_base.BaseApplication;
 import com.yyxnb.common_res.weight.skin.ExtraAttrRegister;
-import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.lib_skinloader.SkinManager;
+import com.yyxnb.util_app.AppUtils;
+import com.yyxnb.util_cache.CacheUtils;
 
 import static com.yyxnb.common_res.config.Constants.SKIN_PATH;
 
@@ -42,14 +42,14 @@ public class ModuleApplication extends BaseApplication {
             // 尽可能早，推荐在Application中初始化
             ARouter.init(this);
 
-            MMKV.initialize(this);
+            CacheUtils.initialize(this.getApplicationContext());
         });
         SERVICE.submit(() -> {
             // 换肤
             ExtraAttrRegister.init();
 //        SkinConfig.DEBUG = true;
             SkinManager.get().init(getApplicationContext());
-            SkinManager.get().loadSkin(MMKV.defaultMMKV().decodeString(SKIN_PATH, ""));
+            SkinManager.get().loadSkin(CacheUtils.get(SKIN_PATH, ""));
         });
 
 //        ImageView imageView = new ImageView(getApplicationContext());

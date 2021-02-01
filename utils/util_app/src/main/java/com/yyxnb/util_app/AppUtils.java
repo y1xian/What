@@ -11,7 +11,11 @@ import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 
 /**
- * @author yyx
+ * ================================================
+ * 作    者：yyx
+ * 日    期：2021/01/23
+ * 描    述：AppUtils
+ * ================================================
  */
 public final class AppUtils {
 

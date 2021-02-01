@@ -3,7 +3,7 @@ package com.yyxnb.module_wanandroid;
 import android.app.Application;
 
 import com.yyxnb.common_base.module.IModuleInit;
-import com.yyxnb.lib_okhttp.interceptor.weaknetwork.WeakNetworkManager;
+import com.yyxnb.util_okhttp.interceptor.weaknetwork.WeakNetworkManager;
 
 public class ModuleInit implements IModuleInit {
 

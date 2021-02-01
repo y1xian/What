@@ -2,7 +2,6 @@
 apply plugin: 'com.alibaba.arouter'
 buildscript {
     apply from: 'config.gradle'
-
     repositories {
         google()
         jcenter()

@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 
 import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_task.IdleTaskManager;
-import com.yyxnb.lib_task.TaskManager;
-import com.yyxnb.lib_task.OrderTaskManager;
+import com.yyxnb.util_task.IdleTaskManager;
+import com.yyxnb.util_task.TaskManager;
+import com.yyxnb.util_task.OrderTaskManager;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.databinding.FragmentWidgetQueueBinding;
 import com.yyxnb.module_widget.widget.PrintTask;

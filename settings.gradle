@@ -33,59 +33,72 @@ include ':module_main',
         // 组件演示
         ':module_widget'
 
-//============ 控件
+//============ 功能、控件
 
-// 控件
-include ':widget'
-
-include ':widget:lib_arch',
+// jetpack架构
+include ':widgets:lib_arch',
         // 通用控件
-        ':widget:lib_common',
+        ':widgets:lib_common',
         // 网络请求
-        ':widget:lib_network',
-        // rxjava封装
-        ':widget:lib_rxtool',
+        ':widgets:lib_network',
         // 视频
-        ':widget:lib_video',
+        ':widgets:lib_video',
         // 音乐
-        ':widget:lib_music',
+        ':widgets:lib_music',
         // dialog
-        ':widget:lib_dialog',
+        ':widgets:lib_dialog',
         // 图片框架
-        ':widget:lib_image_loader',
+        ':widgets:lib_image_loader',
         // 适配器
-        ':widget:lib_adapter',
+        ':widgets:lib_adapter',
         // popup
-        ':widget:lib_popup',
+        ':widgets:lib_popup',
         // 本地服务
-        ':widget:lib_localservice',
+        ':widgets:lib_localservice',
         // 自定义控件
-        ':widget:lib_view',
+        ':widgets:lib_view',
         // web
-        ':widget:lib_webview',
-        // 系统相关
-        ':widget:lib_system',
+        ':widgets:lib_webview',
         // 数据库
-        ':widget:lib_room',
+        ':widgets:lib_room',
         // 悬浮框
-        ':widget:lib_floatwindow',
-        // 任务队列
-        ':widget:lib_task',
+        ':widgets:lib_floatwindow',
         // 换肤
-        ':widget:lib_skinloader',
-        // 常用工具
-        ':widget:lib_utils',
+        ':widgets:lib_skinloader',
         // 文件处理 下载、上传
-        ':widget:lib_file',
-        // 简单实现okhttp
-        ':widget:lib_okhttp'
+        ':widgets:lib_file'
 
-//============ 常用工具
 
-// 常用工具包
+//============ 无业务逻辑的常用工具
+
+// app
 include ':utils:util_app',
+        // 核心
         ':utils:util_core',
-        ':utils:util_cache'
+        // 缓存
+        ':utils:util_cache',
+        // 简单实现okhttp
+        ':utils:util_okhttp',
+        // 集合
+        ':utils:util_collection',
+        // 媒体
+        ':utils:util_media',
+        // 加密
+        ':utils:util_encrypt',
+        // 文件
+        ':utils:util_file',
+        // rxjava封装
+        ':utils:util_rxtool',
+        // 系统相关
+        ':utils:util_system',
+        // 任务队列
+        ':utils:util_task',
+        // 不常用工具，堆放着，用时再说
+        ':utils:util_other',
+        // 多语言
+        ':utils:util_language',
+        // 权限
+        ':utils:util_permission'
 
 
 //============ 第三方资源
@@ -95,6 +108,6 @@ include ':opensource:easeui'
 
 
 // 皮肤资源
-include ':skin_night'
+include ':skins:skin_night'
 
 rootProject.name = 'What'

@@ -22,7 +22,7 @@ dependencies {
         addComponent 'module_chat'
     }
 
-    implementation project(":widget:lib_webview")
+    implementation project(":widgets:lib_webview")
     implementation 'com.android.support:support-v4:28.0.0'
 
 }

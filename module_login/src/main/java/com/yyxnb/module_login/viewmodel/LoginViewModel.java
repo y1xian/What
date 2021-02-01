@@ -11,7 +11,7 @@ import com.yyxnb.common_res.config.Http;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.common_res.db.UserDao;
 import com.yyxnb.module_login.config.LoginApi;
-import com.yyxnb.lib_utils.encrypt.MD5Utils;
+import com.yyxnb.util_encrypt.MD5Utils;
 
 import java.util.List;
 import java.util.Random;

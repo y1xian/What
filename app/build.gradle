@@ -4,12 +4,31 @@ apply from: rootProject.file('module.gradle')
 
 android {
 
+    //签名
+    signingConfigs {
+        what {
+            keyAlias 'what'
+            keyPassword '123123'
+            storeFile file('../what.jks')
+            storePassword '123123'
+        }
+    }
+
     defaultConfig {
         applicationId build_version.applicationId
 //        ndk {
 //            //设置支持的SO库架构
 //            abiFilters /*'armeabi', 'x86',*/ 'armeabi-v7a'/*, 'x86_64', 'arm64-v8a'*/
 //        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.what
+        }
+        release {
+            signingConfig signingConfigs.what
+        }
     }
 
     android.applicationVariants.all { variant ->

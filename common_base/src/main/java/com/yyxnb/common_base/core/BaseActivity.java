@@ -25,10 +25,10 @@ import com.yyxnb.lib_arch.common.AppManager;
 import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.delegate.ActivityDelegate;
 import com.yyxnb.lib_common.action.AnimAction;
-import com.yyxnb.lib_common.utils.KeyboardUtils;
+import com.yyxnb.util_core.KeyboardUtils;
 import com.yyxnb.lib_skinloader.SkinInflaterFactory;
-import com.yyxnb.lib_widget.action.ClickAction;
-import com.yyxnb.lib_widget.action.HandlerAction;
+import com.yyxnb.lib_common.action.ClickAction;
+import com.yyxnb.lib_common.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

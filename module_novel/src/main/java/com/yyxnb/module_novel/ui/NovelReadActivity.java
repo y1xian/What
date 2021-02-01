@@ -34,17 +34,14 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.tencent.mmkv.MMKV;
+import com.yyxnb.common_base.core.BaseActivity;
+import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.lib_common.utils.DpUtils;
-import com.yyxnb.lib_common.utils.StatusBarUtils;
-import com.yyxnb.lib_common.utils.log.LogUtils;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.core.BaseActivity;
+import com.yyxnb.util_core.log.LogUtils;
 import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.lib_dialog.core.MessageDialog;
 import com.yyxnb.module_novel.R;
@@ -64,6 +61,8 @@ import com.yyxnb.module_novel.view.page.PageView;
 import com.yyxnb.module_novel.view.page.ReadSettingManager;
 import com.yyxnb.module_novel.view.page.TxtChapter;
 import com.yyxnb.module_novel.viewmodel.NovelViewModel;
+import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.util_core.StatusBarUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -142,8 +141,6 @@ public class NovelReadActivity extends BaseActivity {
     private String cst = "laozi";
     private int selection = 0;
     private String identCode;
-
-    private MMKV mmkv;
 
     private Timer timer = new Timer();
     private int cnt = 0; //计算时长

@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_system.permission.PermissionListener;
-import com.yyxnb.lib_system.permission.PermissionUtils;
+import com.yyxnb.util_permission.PermissionListener;
+import com.yyxnb.util_permission.PermissionUtils;
 import com.yyxnb.lib_view.tabbar.Tab;
 import com.yyxnb.lib_view.tabbar.TabBarView;
 import com.yyxnb.module_widget.R;

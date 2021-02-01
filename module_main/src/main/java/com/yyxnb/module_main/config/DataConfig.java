@@ -1,10 +1,10 @@
 package com.yyxnb.module_main.config;
 
 import com.yyxnb.util_app.AppUtils;
-import com.yyxnb.lib_common.utils.log.LogUtils;
-import com.yyxnb.lib_okhttp.utils.GsonUtils;
+import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.util_okhttp.utils.GsonUtils;
 import com.yyxnb.module_main.bean.MainHomeBean;
-import com.yyxnb.lib_utils.FileUtils;
+import com.yyxnb.util_file.FileUtils;
 
 import java.util.List;
 

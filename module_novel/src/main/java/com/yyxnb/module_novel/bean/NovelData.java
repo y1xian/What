@@ -1,6 +1,6 @@
 package com.yyxnb.module_novel.bean;
 
-import com.yyxnb.lib_widget.interfaces.IData;
+import com.yyxnb.lib_common.interfaces.IData;
 
 public class NovelData<T> implements IData<T> {
 

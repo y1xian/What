@@ -111,22 +111,13 @@ android {
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // 将混淆文件解耦到每个模块中，并且不会影响编译效率
         consumerProguardFiles 'consumer-rules.pro'
-        //阿里路由框架配置
+        // 阿里路由框架配置
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
-        }
-    }
-
-    //签名
-    signingConfigs {
-        what {
-            keyAlias 'what'
-            keyPassword '123123'
-            storeFile file('../what.jks')
-            storePassword '123123'
         }
     }
 
@@ -135,26 +126,24 @@ android {
             // port
             resValue("string", "PORT_NUMBER", "18082")
             //混淆
-            minifyEnabled false
+            minifyEnabled build_version.minifyEnabled
 //            applicationIdSuffix ".debug"
 //            versionNameSuffix "-DEV"
 //            //停用 Crashlytics（Fabric）
 //            ext.enableCrashlytics = false
             //是否清理无用资源
-            shrinkResources false
+            shrinkResources build_version.shrinkResources
             //是否启用zipAlign压缩
-            zipAlignEnabled false
-            signingConfig signingConfigs.what
-
+            zipAlignEnabled build_version.zipAlignEnabled
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             //混淆
-            minifyEnabled false
+            minifyEnabled build_version.minifyEnabled
             //是否清理无用资源
-            shrinkResources false
+            shrinkResources build_version.shrinkResources
             //是否启用zipAlign压缩
-            zipAlignEnabled false
-            signingConfig signingConfigs.what
+            zipAlignEnabled build_version.zipAlignEnabled
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -250,16 +239,6 @@ dependencies {
         //组件中依赖阿里路由编译框架
         annotationProcessor libs.arouter_compiler
         annotationProcessor libs.room_compiler
-    }
-
-    // Android调试数据库 https://github.com/amitshekhariitbhu/Android-Debug-Database
-//    debugApi 'com.amitshekhar.android:debug-db:1.0.6'
-
-    //2018-06-03新增：这里是为了示例添加全局拦截器
-    if (project.ext.has('runAsApp') && project.ext.runAsApp) {
-        //说明：需要兼容的情况有3种(单独组件作为app运行、打包在主app内、组件在多个app上复用但全局拦截器不同)
-        //     为了兼容以上3种情况，建议将全局拦截器作为一个单独的module，在此处给不同app添加不同拦截器module
-//        implementation project(':demo_interceptors')
     }
 
     configurations.all {

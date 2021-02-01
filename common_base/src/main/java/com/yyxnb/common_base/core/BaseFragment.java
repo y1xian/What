@@ -23,8 +23,8 @@ import com.yyxnb.lib_arch.base.Java8Observer;
 import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.delegate.FragmentDelegate;
 import com.yyxnb.lib_common.action.AnimAction;
-import com.yyxnb.lib_widget.action.ClickAction;
-import com.yyxnb.lib_widget.action.HandlerAction;
+import com.yyxnb.lib_common.action.ClickAction;
+import com.yyxnb.lib_common.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
 

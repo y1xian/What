@@ -24,9 +24,9 @@ import com.yyxnb.module_login.config.UserManager;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.utils.DownTimer;
 import com.yyxnb.module_login.viewmodel.LoginViewModel;
-import com.yyxnb.lib_system.PhoneInfoUtils;
-import com.yyxnb.lib_system.permission.PermissionListener;
-import com.yyxnb.lib_system.permission.PermissionUtils;
+import com.yyxnb.util_system.PhoneInfoUtils;
+import com.yyxnb.util_permission.PermissionListener;
+import com.yyxnb.util_permission.PermissionUtils;
 
 import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
 

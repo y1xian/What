@@ -6,7 +6,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.tencent.mmkv.MMKV;
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_view.text.FlowlayoutTags;
@@ -15,6 +14,7 @@ import com.yyxnb.module_wanandroid.bean.WanClassifyBean;
 import com.yyxnb.module_wanandroid.config.DataConfig;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanSearchBinding;
 import com.yyxnb.module_wanandroid.viewmodel.WanSearchViewModel;
+import com.yyxnb.util_cache.CacheUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,6 @@ import java.util.TreeSet;
 //@BindRes
 public class WanSearchFragment extends BaseFragment {
 
-    private MMKV mmkv = MMKV.defaultMMKV();
     private FragmentWanSearchBinding binding;
 
     @BindViewModel
@@ -124,7 +123,7 @@ public class WanSearchFragment extends BaseFragment {
 
     private void setHistoryTags(String str) {
 
-        Set<String> key = mmkv.getStringSet(DataConfig.SEARCH_HISTORY_KEY, new TreeSet<>());
+        Set<String> key = CacheUtils.get(DataConfig.SEARCH_HISTORY_KEY, new TreeSet<>());
 //        Set<String> sortSet = new TreeSet<String>((o1, o2) -> {
 //            return o2.compareTo(o1);//降序排列
 //        });
@@ -141,7 +140,7 @@ public class WanSearchFragment extends BaseFragment {
 
         mHistoryTags.setTagsUncheckedColorAnimal(false);
         mHistoryTags.setTags(new ArrayList<>(key));
-        mmkv.encode(DataConfig.SEARCH_HISTORY_KEY, key);
+        CacheUtils.save(DataConfig.SEARCH_HISTORY_KEY, key);
     }
 
     @Override

@@ -5,18 +5,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.tencent.mmkv.MMKV;
+import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_res.arouter.ARouterUtils;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.config.BaseConfig;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
 import com.yyxnb.module_user.viewmodel.UserViewModel;
+import com.yyxnb.util_cache.CacheUtils;
 
 import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
@@ -88,7 +87,7 @@ public class UserFragment extends BaseFragment {
     public void onVisible() {
         super.onVisible();
         getBaseDelegate().setNeedsStatusBarAppearanceUpdate();
-        log("---onVisible---" + MMKV.defaultMMKV().decodeInt(USER_ID,0));
-        mViewModel.reqUserId.postValue(BaseConfig.getInstance().kv.decodeInt(USER_ID,0));
+        log("---onVisible---" + CacheUtils.get(USER_ID,0));
+        mViewModel.reqUserId.postValue(CacheUtils.get(USER_ID,0));
     }
 }

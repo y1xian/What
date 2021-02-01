@@ -10,9 +10,9 @@ import com.yyxnb.lib_network.SingleLiveEvent;
 import com.yyxnb.lib_network.Status;
 import com.yyxnb.lib_network.rx.BaseHttpSubscriber;
 import com.yyxnb.lib_network.rx.RetryWithDelay;
-import com.yyxnb.lib_rxtool.DisposablePool;
+import com.yyxnb.util_rxtool.DisposablePool;
 import com.yyxnb.util_app.AppUtils;
-import com.yyxnb.lib_widget.interfaces.IData;
+import com.yyxnb.lib_common.interfaces.IData;
 
 import java.util.ArrayList;
 import java.util.List;

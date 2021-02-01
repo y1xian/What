@@ -1,7 +1,7 @@
 package com.yyxnb.module_novel.view.page;
 
 
-import com.yyxnb.lib_common.utils.log.LogUtils;
+import com.yyxnb.util_core.log.LogUtils;
 import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;

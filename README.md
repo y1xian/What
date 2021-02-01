@@ -20,20 +20,22 @@
 
 ##### 工欲善其事，必先利其器 skr
 
--  常用工具 `utils`：Android & Java 的工具库，通过静态方法封装，降低相关API的学习成本，提高工作效率
--  通用框架 `lib_common`：简单的集成了通用的 toast、log、状态栏等工具类，部分lib包下都会集成该框架
--  底层框架 `lib_arch`：集成 `JetPack` ，解决单继承问题，只需实现 `IActivity` 、 `IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
--  Okhttp3 `lib_okhttp`：集成 `Okhttp3`，简单的抽象封装，实现网络请求
--  网络请求 `lib_network`：
-    - java： `Retrofit2` + `RxJava2` + `Okhttp3`
-    - kotlin：`Retrofit2` + `Okhttp3` + `Coroutine`
--  适配器 `lib_adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
--  数据库 room `lib_room`：集成 `Room` 简单封装了个泛型BaseDao，少实现增删改
--  文件管理 `lib_file`：使用 `Okhttp3` 简单实现上传、下载
--  皮肤切换 `lib_skinloader`：插件方式使用皮肤资源
--  任务队列 `lib_task`：优先级任务队列、空闲队列
--  ...
--  自行查看`widget`目录，lib工具包都在其包下。具体实现方法可在 `module_widget` 模块下查看
+-   `utils` 包下 **存放无业务逻辑相关的常用工具 轻量级的**
+    -   Android & Java 的工具库，通过静态方法封装，降低相关API的学习成本，提高工作效率
+    -   Okhttp3 `util_okhttp`：集成 `Okhttp3`，简单的抽象封装，实现网络请求
+	-	...
+
+-  `widget`包下 **存放与业务逻辑相关的组件工具**
+    -	通用框架 `lib_common`：简单的集成了通用的 toast、log、状态栏等工具类，部分lib包下都会集成该框架
+    -	底层框架 `lib_arch` ：集成 `JetPack` ，解决单继承问题，只需实现 `IActivity` 、 `IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
+    -	适配器 `lib_adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
+    -	数据库 room `lib_room`：集成 `Room` 简单封装了个泛型BaseDao，少实现增删改
+    -   网络请求 `lib_network`：
+        -	java： `Retrofit2` + `RxJava2` + `Okhttp3`
+        -	kotlin：`Retrofit2` + `Okhttp3` + `Coroutine`
+    -	...
+
+-  自行查看 `utils` `widget`目录，工具包都在其包下。具体实现方法可在 `module_widget` 模块下查看 (不完全)
 
 
 开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion support 28 - AndroidX 30
@@ -126,7 +128,7 @@
 ---
 
 ### 组件化单项目运行
-1. 在 `local.properties` 下添加
+1. 在 `local.properties` 下添加，`模块名=true`
 ```
 #module_login=true
 module_wanandroid=true
@@ -175,10 +177,11 @@ dependencies {
 }
 ```
 
-`module.gradle`详细请阅读代码即可，无需经常改动
+`module.gradle` 详细请阅读代码即可，无需经常改动
 
 
 ### 工具 [最新版本](https://github.com/y1xian/What/releases) [![](https://jitpack.io/v/y1xian/What.svg)](https://jitpack.io/#y1xian/What)
+
 ```
   allprojects {
     repositories {
@@ -206,15 +209,23 @@ dependencies {
 ```
 
 ### 其它说明
+
+#### Gradle配置
+
+ -	`module.gradle` 为业务模块配置的，每个业务模块都需配置
+ -	`lib_util.gradle` 为工具类配置
+ -	`lib_widget.gradle` 为组件类配置
+
 #### 换肤
-  - 新建模块，只需`res`包且对应资源名即可，可更换颜色，图片，shape。
-  - 本项目中已实现`skin_night`夜间模式的皮肤，只需编译该模块，把生成的 `night.apk` 放进 `module_user` 用户模块即可，路径为 `assets/skins/night.apk`
+ -	新建模块，只需`res`包且对应资源名即可，可更换颜色，图片，shape。
+ -	本项目中已实现`skin_night`夜间模式的皮肤，只需编译该模块，把生成的 `night.apk` 放进 `module_user` 用户模块即可，路径为 `assets/skins/night.apk`
 
 ### 易错点
-- aar包的引用，整个项目运行会报错？
-- 包名申请第三方sdk，单模块下不成功？
-- 在哪混淆？
-- 就这？
+ -	aar包的引用，整个项目运行会报错？
+ -	包名申请第三方sdk，单模块下不成功？
+ -	在哪混淆？
+ -	就这？
+
 
 ---
 ## 总结

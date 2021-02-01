@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yyxnb.lib_common">
+
+    <application>
+        <!-- 使用ContentProvider初始化三方库 -->
+        <provider
+            android:name=".WidgetInitializer"
+            android:authorities="${applicationId}.WidgetInitializer"
+            android:exported="false"
+            android:multiprocess="true" />
+
+    </application>
+
+</manifest>

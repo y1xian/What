@@ -2,8 +2,6 @@ package com.yyxnb.common_res.config;
 
 import android.os.Environment;
 
-import com.tencent.mmkv.MMKV;
-
 public class BaseConfig {
 
     private volatile static BaseConfig config;
@@ -34,7 +32,5 @@ public class BaseConfig {
 
     // 极速api
     public static final String JISU_APPKEY = "5fd2c586cd35cf4f";
-
-    public final MMKV kv = MMKV.defaultMMKV();
 
 }

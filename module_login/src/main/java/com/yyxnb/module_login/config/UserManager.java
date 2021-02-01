@@ -1,8 +1,8 @@
 package com.yyxnb.module_login.config;
 
-import com.tencent.mmkv.MMKV;
 import com.yyxnb.common_res.bean.UserBean;
 import com.yyxnb.common_res.db.AppDatabase;
+import com.yyxnb.util_cache.CacheUtils;
 
 import static com.yyxnb.common_res.config.Constants.USER_ID;
 
@@ -21,12 +21,11 @@ public class UserManager {
         return manager;
     }
 
-    public final MMKV kv = MMKV.defaultMMKV();
     private UserBean userBean = null;
 
     public UserBean getUserBean() {
         if (userBean == null) {
-            int uid = kv.decodeInt(USER_ID, 0);
+            int uid = CacheUtils.get(USER_ID, 0);
             if (uid != 0) {
                 userBean = AppDatabase.getInstance().userDao().getUserMainThread(uid);
                 if (userBean == null) {
@@ -40,7 +39,7 @@ public class UserManager {
     }
 
     public void setUserBean(UserBean userBean) {
-        kv.encode(USER_ID,userBean.userId);
+        CacheUtils.save(USER_ID,userBean.userId);
         this.userBean = userBean;
     }
 
@@ -57,7 +56,7 @@ public class UserManager {
     // 退出登录
     public void loginOut() {
         AppDatabase.getInstance().userDao().deleteItem(userBean);
-        MMKV.defaultMMKV().removeValueForKey(USER_ID);
+        CacheUtils.remove(USER_ID);
         userBean = null;
     }
 }

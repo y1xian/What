@@ -13,7 +13,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.yyxnb.lib_adapter.BaseAdapter;
 import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_common.utils.DpUtils;
+import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;

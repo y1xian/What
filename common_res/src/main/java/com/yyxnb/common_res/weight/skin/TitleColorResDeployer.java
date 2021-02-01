@@ -2,7 +2,7 @@ package com.yyxnb.common_res.weight.skin;
 
 import android.view.View;
 
-import com.yyxnb.lib_common.utils.StatusBarUtils;
+import com.yyxnb.util_core.StatusBarUtils;
 import com.yyxnb.lib_skinloader.bean.SkinAttr;
 import com.yyxnb.lib_skinloader.bean.SkinConfig;
 import com.yyxnb.lib_skinloader.skinInterface.ISkinResDeployer;
