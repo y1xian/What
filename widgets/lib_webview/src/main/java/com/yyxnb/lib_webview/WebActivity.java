@@ -1,12 +1,13 @@
 package com.yyxnb.lib_webview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.just.agentweb.AgentWeb;
 import com.just.agentweb.AgentWebConfig;

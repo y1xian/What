@@ -1,14 +1,15 @@
 package com.yyxnb.module_novel.ui;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.BookHomeAdapter;
 import com.yyxnb.module_novel.config.DataConfig;

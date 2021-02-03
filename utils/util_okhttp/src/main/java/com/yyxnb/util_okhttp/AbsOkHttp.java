@@ -2,8 +2,9 @@ package com.yyxnb.util_okhttp;
 
 import android.content.pm.PackageManager;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 
+import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.util_okhttp.annotation.CacheType;
 import com.yyxnb.util_okhttp.interceptor.CacheInterceptor;
 import com.yyxnb.util_okhttp.interceptor.GzipRequestInterceptor;
@@ -12,7 +13,6 @@ import com.yyxnb.util_okhttp.interceptor.LogInterceptor;
 import com.yyxnb.util_okhttp.interceptor.NetworkInterceptor;
 import com.yyxnb.util_okhttp.interceptor.weaknetwork.WeakNetworkInterceptor;
 import com.yyxnb.util_okhttp.utils.SSLUtils;
-import com.yyxnb.util_app.AppUtils;
 
 import java.io.File;
 import java.io.InputStream;

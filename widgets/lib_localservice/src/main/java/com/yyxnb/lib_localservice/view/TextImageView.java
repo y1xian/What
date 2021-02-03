@@ -6,14 +6,15 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-import com.yyxnb.lib_localservice.R;
+import androidx.appcompat.widget.AppCompatTextView;
 
+import com.yyxnb.lib_localservice.R;
 
 /**
  * 解决TextView 中drawableleft 图片大小不可控问题
  */
 
-public class TextImageView extends android.support.v7.widget.AppCompatTextView {
+public class TextImageView extends AppCompatTextView {
 
     private int mLeftWidth;
     private int mLeftHeight;

@@ -1,8 +1,9 @@
 package com.yyxnb.lib_view.status;
 
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
 import android.view.View;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 
 public class StatusViewBuilder {
     // loading 提示信息

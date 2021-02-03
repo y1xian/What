@@ -8,7 +8,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
     buildTypes {
@@ -40,6 +40,6 @@ dependencies {
     // 环信sdk http://docs-im.easemob.com/im/android/sdk/releasenote
     api 'com.hyphenate:hyphenate-sdk:3.7.2'
 
-    api libs.support_v7
+    api libs.appcompat
     testImplementation 'junit:junit:4.12'
 }

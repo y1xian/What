@@ -1,17 +1,18 @@
 package com.yyxnb.lib_network;
 
-import android.arch.lifecycle.DefaultLifecycleObserver;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 
+import androidx.lifecycle.DefaultLifecycleObserver;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+
 import com.yyxnb.lib_common.action.CommonAction;
+import com.yyxnb.lib_common.interfaces.IData;
 import com.yyxnb.lib_network.rx.BaseHttpSubscriber;
 import com.yyxnb.lib_network.rx.RetryWithDelay;
-import com.yyxnb.util_rxtool.DisposablePool;
 import com.yyxnb.util_app.AppUtils;
-import com.yyxnb.lib_common.interfaces.IData;
+import com.yyxnb.util_rxtool.DisposablePool;
 
 import java.util.ArrayList;
 import java.util.List;

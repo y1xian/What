@@ -2,12 +2,13 @@ package com.yyxnb.lib_arch.delegate;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.LruCache;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.yyxnb.lib_arch.base.IFragment;
 import com.yyxnb.lib_arch.common.AppManager;

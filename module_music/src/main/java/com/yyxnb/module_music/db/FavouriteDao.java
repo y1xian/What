@@ -1,9 +1,10 @@
 package com.yyxnb.module_music.db;
 
-import android.arch.persistence.room.Dao;
 
-import com.yyxnb.module_music.bean.MusicFavouriteBean;
+import androidx.room.Dao;
+
 import com.yyxnb.lib_room.BaseDao;
+import com.yyxnb.module_music.bean.MusicFavouriteBean;
 
 /**
  * 喜欢/收藏

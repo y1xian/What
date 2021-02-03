@@ -1,15 +1,16 @@
 package com.yyxnb.module_novel.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.module_novel.R;
-import com.yyxnb.module_novel.databinding.FragmentNovelMainBinding;
 import com.yyxnb.lib_view.tabbar.Tab;
 import com.yyxnb.lib_view.tabbar.TabBarView;
+import com.yyxnb.module_novel.R;
+import com.yyxnb.module_novel.databinding.FragmentNovelMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;

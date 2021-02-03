@@ -3,4 +3,5 @@ apply from: rootProject.file('lib_widget.gradle')
 
 dependencies {
     implementation project(':widgets:lib_adapter'), project(':widgets:lib_common')
+    implementation libs.cardview
 }

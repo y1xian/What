@@ -1,10 +1,11 @@
 package com.yyxnb.lib_arch.delegate;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.lib_common.interfaces.ILifecycle;
 

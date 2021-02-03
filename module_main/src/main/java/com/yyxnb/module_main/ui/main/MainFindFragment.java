@@ -1,7 +1,8 @@
 package com.yyxnb.module_main.ui.main;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.base.IFragment;

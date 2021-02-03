@@ -35,6 +35,5 @@ dependencies {
 
     // 环信ui sdk
     implementation project(':opensource:easeui')
-    implementation 'com.android.support:support-v4:28.0.0'
 
 }

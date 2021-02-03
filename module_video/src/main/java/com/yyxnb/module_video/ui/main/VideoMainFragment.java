@@ -1,14 +1,15 @@
 package com.yyxnb.module_video.ui.main;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.common_res.weight.NoScrollViewPager;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBinding;
 import com.yyxnb.module_video.ui.user.VideoUserFragment;

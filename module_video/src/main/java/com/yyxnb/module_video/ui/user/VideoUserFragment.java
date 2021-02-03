@@ -5,27 +5,28 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.util_core.log.LogUtils;
-import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_image_loader.utils.DrawableTintUtil;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;
 import com.yyxnb.module_video.ui.VideoListFragment;
 import com.yyxnb.module_video.widget.AppBarStateListener;
+import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.util_core.log.LogUtils;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;

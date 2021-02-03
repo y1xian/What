@@ -1,7 +1,8 @@
 package com.yyxnb.util_task.task;
 
 import android.os.Process;
-import android.support.v4.os.TraceCompat;
+
+import androidx.core.os.TraceCompat;
 
 import com.yyxnb.util_task.TaskManager;
 

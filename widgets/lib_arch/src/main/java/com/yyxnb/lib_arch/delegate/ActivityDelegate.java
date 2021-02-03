@@ -1,15 +1,16 @@
 package com.yyxnb.lib_arch.delegate;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
@@ -18,9 +19,9 @@ import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.util_core.StatusBarUtils;
 import com.yyxnb.lib_common.action.HandlerAction;
 import com.yyxnb.lib_common.interfaces.ILifecycle;
+import com.yyxnb.util_core.StatusBarUtils;
 
 import java.util.Objects;
 

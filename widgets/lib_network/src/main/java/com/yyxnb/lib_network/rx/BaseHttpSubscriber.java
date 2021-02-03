@@ -1,8 +1,9 @@
 package com.yyxnb.lib_network.rx;
 
-import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
+
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.yyxnb.lib_common.interfaces.IData;
 

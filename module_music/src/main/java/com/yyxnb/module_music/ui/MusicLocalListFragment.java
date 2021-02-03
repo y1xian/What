@@ -2,9 +2,10 @@ package com.yyxnb.module_music.ui;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseViewHolder;
@@ -17,8 +18,6 @@ import com.yyxnb.lib_localservice.bean.LocalMedia;
 import com.yyxnb.lib_localservice.manager.AudioLoaderManager;
 import com.yyxnb.lib_localservice.manager.DataCallback;
 import com.yyxnb.lib_music.MusicPlayerManager;
-import com.yyxnb.util_permission.PermissionListener;
-import com.yyxnb.util_permission.PermissionUtils;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.adapter.MusicLocalListAdapter;
 import com.yyxnb.module_music.bean.MusicBean;
@@ -26,6 +25,8 @@ import com.yyxnb.module_music.bean.MusicLocalBean;
 import com.yyxnb.module_music.databinding.FragmentMusicLocalListBinding;
 import com.yyxnb.module_music.db.MusicDatabase;
 import com.yyxnb.module_music.viewmodel.MusicViewModel;
+import com.yyxnb.util_permission.PermissionListener;
+import com.yyxnb.util_permission.PermissionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

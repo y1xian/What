@@ -2,20 +2,21 @@ package com.yyxnb.module_wanandroid.ui.project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.common_res.databinding.IncludeSrlRvLayoutBinding;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanProjectAdapter;
 import com.yyxnb.module_wanandroid.config.DataConfig;

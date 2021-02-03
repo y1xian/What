@@ -7,11 +7,12 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.lib_popup.R;
 
@@ -27,7 +28,9 @@ public class FullScreenDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getWindow() == null) return;
+        if (getWindow() == null) {
+            return;
+        }
         if (contentView != null && contentView.popupInfo.enableShowWhenAppBackground) {
             if (Build.VERSION.SDK_INT >= 26) {
                 getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);

@@ -2,12 +2,13 @@ package com.yyxnb.lib_popup.impl;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.lib_popup.animator.PopupAnimation;
 import com.yyxnb.lib_popup.animator.PopupAnimator;
@@ -82,8 +83,9 @@ public abstract class PartShadowPopupView extends AttachPopupView {
             View implView = ((ViewGroup) getPopupContentView()).getChildAt(0);
             FrameLayout.LayoutParams implParams = (FrameLayout.LayoutParams) implView.getLayoutParams();
             implParams.gravity = Gravity.BOTTOM;
-            if (getMaxHeight() != 0)
+            if (getMaxHeight() != 0) {
                 implParams.height = Math.min(implView.getMeasuredHeight(), getMaxHeight());
+            }
             implView.setLayoutParams(implParams);
         } else {
             // atView在上半部分，PartShadow应该显示在它下方，计算atView之下的高度

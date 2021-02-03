@@ -1,9 +1,10 @@
 package com.yyxnb.lib_dialog.core;
 
 import android.content.Context;
-import android.support.annotation.StringRes;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.StringRes;
 
 import com.yyxnb.lib_dialog.R;
 

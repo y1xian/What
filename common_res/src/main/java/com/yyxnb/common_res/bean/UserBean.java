@@ -1,8 +1,8 @@
 package com.yyxnb.common_res.bean;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Index;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Index;
 
 import java.io.Serializable;
 

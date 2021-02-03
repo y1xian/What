@@ -1,27 +1,28 @@
 package com.yyxnb.module_video.ui.main;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.util_core.DpUtils;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.common_res.arouter.ARouterUtils;
 import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_view.text.DrawableRadioButton;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
 import com.yyxnb.module_video.ui.home.VideoHomeFragment;
-import com.yyxnb.lib_view.text.DrawableRadioButton;
+import com.yyxnb.util_core.DpUtils;
 
-import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
+import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
 import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
 
 /**

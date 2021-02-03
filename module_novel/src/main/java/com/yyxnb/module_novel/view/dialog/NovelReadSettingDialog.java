@@ -2,14 +2,15 @@ package com.yyxnb.module_novel.view.dialog;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;

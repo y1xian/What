@@ -3,10 +3,11 @@ package com.yyxnb.lib_popup.impl;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.lib_popup.PopupManager;
 import com.yyxnb.lib_popup.R;
@@ -75,11 +76,17 @@ public class InputConfirmPopupView extends ConfirmPopupView implements View.OnCl
     @Override
     public void onClick(View v) {
         if(v==tv_cancel){
-            if(cancelListener!=null)cancelListener.onCancel();
+            if(cancelListener!=null) {
+                cancelListener.onCancel();
+            }
             dismiss();
         }else if(v==tv_confirm){
-            if(inputConfirmListener!=null)inputConfirmListener.onConfirm(et_input.getText().toString().trim());
-            if(popupInfo.autoDismiss)dismiss();
+            if(inputConfirmListener!=null) {
+                inputConfirmListener.onConfirm(et_input.getText().toString().trim());
+            }
+            if(popupInfo.autoDismiss) {
+                dismiss();
+            }
         }
     }
 }

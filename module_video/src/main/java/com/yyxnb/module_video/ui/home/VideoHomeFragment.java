@@ -3,16 +3,17 @@ package com.yyxnb.module_video.ui.home;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoHomeBinding;
 import com.yyxnb.module_video.ui.play.VideoPlayFragment;
+import com.yyxnb.util_core.DpUtils;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;

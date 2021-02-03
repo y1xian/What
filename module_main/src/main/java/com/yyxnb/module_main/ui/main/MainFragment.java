@@ -1,13 +1,14 @@
 package com.yyxnb.module_main.ui.main;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.view.View;
 
-import com.yyxnb.common_res.arouter.ARouterUtils;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.arouter.ARouterUtils;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_popup.PopupManager;

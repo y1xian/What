@@ -6,6 +6,8 @@ dependencies {
     // 基类
     api project(':common_base')
 
+    api libs.cardview
+
     // 内存泄漏检测
     debugImplementation libs.leak_canary_debug
     releaseImplementation libs.leak_canary_release

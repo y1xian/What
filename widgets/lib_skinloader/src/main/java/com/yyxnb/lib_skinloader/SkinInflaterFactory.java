@@ -2,17 +2,18 @@ package com.yyxnb.lib_skinloader;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.LayoutInflaterCompat;
-import android.support.v4.view.LayoutInflaterFactory;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.LayoutInflater.Factory;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.view.LayoutInflaterCompat;
+import androidx.core.view.LayoutInflaterFactory;
 
 import com.yyxnb.lib_skinloader.bean.SkinAttr;
 import com.yyxnb.lib_skinloader.bean.SkinConfig;

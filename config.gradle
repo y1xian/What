@@ -1,11 +1,11 @@
 ext {
 
     build_version = [
-            compileSdkVersion: 28,
-            buildToolsVersion: '28.0.3',
+            compileSdkVersion: 30,
+            buildToolsVersion: '30.0.3',
             minSdkVersion    : 21,
             applicationId    : "com.yyxnb.what",
-            targetSdkVersion : 28,
+            targetSdkVersion : 30,
             versionCode      : 1,
             versionName      : '1.0.1',
             minifyEnabled    : false,
@@ -16,16 +16,27 @@ ext {
     versions = [
             android_plugin: '4.1.1',
 
-            support       : '28.0.0',
-            lifecycle     : '1.1.1',
-            room          : '1.1.1',
-            navigation    : '1.0.0',
-            paging        : '1.0.1',
-            work          : '1.0.1',
+            appcompat     : "1.2.0",
+            core          : "1.3.1",
+            fragment      : "1.2.5",
+            annotation    : "1.1.0",
+            recyclerview  : "1.1.0",
+            constraint    : "2.0.4",
+            cardview      : "1.0.0",
+            viewpager2    : "1.0.0",
+            startup       : "1.0.0",
+
+            lifecycle     : '2.2.0',
+            room          : '2.2.6',
+            navigation    : '2.3.0',
+            paging        : '2.1.2',
+            work          : '2.4.0',
+
+            multidex      : '2.0.1',
 
             retrofit      : '2.5.0',
             okhttp        : '3.12.0',
-            glide         : '4.6.1',
+            glide         : '4.11.0',
 
             rxjava2       : '2.2.19',
             rxandroid2    : '2.1.1',
@@ -38,15 +49,13 @@ ext {
 
             gson          : '2.8.6',
 
-            mmkv          : '1.0.19',
+            mmkv          : '1.2.7',
 
             leakcanary    : '1.6.3',
 
             espresso      : '3.0.2',
             robolectric   : '3.3.2',
-            junit         : '4.12',
-
-            widget        : '1.0.7.1'
+            junit         : '4.12'
     ]
 
     build_plugins = [
@@ -55,37 +64,40 @@ ext {
             aspectjx_gradle: [group: 'com.hujiang.aspectjx', name: 'gradle-android-plugin-aspectjx', version: '2.0.8']
     ]
     libs = [
-            support_v4               : [group: 'com.android.support', name: 'support-v4', version: versions.support],
-            support_v7               : [group: 'com.android.support', name: 'appcompat-v7', version: versions.support],
-            design                   : [group: 'com.android.support', name: 'design', version: versions.support],
-            recyclerview             : [group: 'com.android.support', name: 'recyclerview-v7', version: versions.support],
-            cardview                 : [group: 'com.android.support', name: 'cardview-v7', version: versions.support],
-            annotation_              : [group: 'com.android.support', name: 'support-annotations', version: versions.support],
 
-            constraint               : [group: 'com.android.support.constraint', name: 'constraint-layout', version: '2.0.0-beta6'],
-            flexbox                  : [group: 'com.google.android', name: 'flexbox', version: '1.1.0'],
+            appcompat                : [group: 'androidx.appcompat', name: 'appcompat', version: versions.appcompat],
+            core                     : [group: 'androidx.core', name: 'core', version: versions.core],
+            fragment                 : [group: 'androidx.fragment', name: 'fragment', version: versions.fragment],
+            recyclerview             : [group: 'androidx.recyclerview', name: 'recyclerview', version: versions.recyclerview],
+            cardview                 : [group: 'androidx.cardview', name: 'cardview', version: versions.cardview],
+            annotation               : [group: 'androidx.annotation', name: 'annotation', version: versions.annotation_],
+            constraint               : [group: 'androidx.constraintlayout', name: 'constraintlayout', version: versions.constraint],
+            viewpager2               : [group: 'androidx.viewpager2', name: 'viewpager2', version: versions.viewpager2],
 
-            lifecycle_extensions     : [group: 'android.arch.lifecycle', name: 'extensions', version: versions.lifecycle],
-            lifecycle_java8          : [group: 'android.arch.lifecycle', name: 'common-java8', version: versions.lifecycle],
-            lifecycle_compiler       : [group: 'android.arch.lifecycle', name: 'compiler', version: versions.lifecycle],
-            lifecycle_viewmodel      : [group: 'android.arch.lifecycle', name: 'viewmodel', version: versions.lifecycle],
-            lifecycle_livedata       : [group: 'android.arch.lifecycle', name: 'livedata', version: versions.lifecycle],
-            lifecycle_livedata_rx    : [group: 'android.arch.lifecycle', name: 'reactivestreams', version: versions.lifecycle],
-            lifecycle_runtime        : [group: 'android.arch.lifecycle', name: 'runtime', version: versions.lifecycle],
+            startup                  : [group: 'androidx.startup', name: 'startup-runtime', version: versions.startup],
 
-            navigation_runtime       : [group: 'android.arch.navigation', name: 'navigation-runtime', version: versions.navigation],
-            navigation_common        : [group: 'android.arch.navigation', name: 'navigation-common', version: versions.navigation],
+            lifecycle_extensions     : [group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: versions.lifecycle],
+            lifecycle_java8          : [group: 'androidx.lifecycle', name: 'lifecycle-common-java8', version: versions.lifecycle],
+            lifecycle_compiler       : [group: 'androidx.lifecycle', name: 'lifecycle-compiler', version: versions.lifecycle],
+            lifecycle_viewmodel      : [group: 'androidx.lifecycle', name: 'lifecycle-viewmodel', version: versions.lifecycle],
+            lifecycle_livedata       : [group: 'androidx.lifecycle', name: 'lifecycle-livedata', version: versions.lifecycle],
+            lifecycle_runtime        : [group: 'androidx.lifecycle', name: 'lifecycle-runtime', version: versions.lifecycle],
 
-            work                     : [group: 'android.arch.work', name: 'work-runtime', version: versions.work],
+            navigation_runtime       : [group: 'androidx.navigation', name: 'navigation-runtime', version: versions.navigation],
+            navigation_common        : [group: 'androidx.navigation', name: 'navigation-common', version: versions.navigation],
+            navigation_common_ktx    : [group: 'androidx.navigation', name: 'navigation-common-ktx', version: versions.navigation],
+            navigation               : [group: 'androidx.navigation', name: 'navigation-fragment-ktx', version: versions.navigation],
+            navigation_ui            : [group: 'androidx.navigation', name: 'navigation-ui-ktx', version: versions.navigation],
 
-            paging                   : [group: 'android.arch.paging', name: 'runtime', version: versions.paging],
-            paging_rxjava            : [group: 'android.arch.paging', name: 'rxjava2', version: versions.paging],
+            work                     : [group: 'androidx.work', name: 'work-runtime', version: versions.work],
 
-            room                     : [group: 'android.arch.persistence.room', name: 'runtime', version: versions.room],
-            room_compiler            : [group: 'android.arch.persistence.room', name: 'compiler', version: versions.room],
-            room_rxjava              : [group: 'android.arch.persistence.room', name: 'rxjava2', version: versions.room],
-            room_test                : [group: 'android.arch.persistence.room', name: 'testing', version: versions.room],
+            paging                   : [group: 'androidx.paging', name: 'paging-runtime', version: versions.paging],
+            paging_rxjava            : [group: 'androidx.paging', name: 'paging-rxjava2', version: versions.paging],
 
+            room                     : [group: 'androidx.room', name: 'room-runtime', version: versions.room],
+            room_compiler            : [group: 'androidx.room', name: 'room-compiler', version: versions.room],
+            room_rxjava              : [group: 'androidx.room', name: 'room-rxjava2', version: versions.room],
+            room_test                : [group: 'androidx.room', name: 'room-testing', version: versions.room],
 
             //阿里路由框架    https://github.com/alibaba/ARouter
             "arouter_api"            : "com.alibaba:arouter-api:1.5.0",
@@ -115,11 +127,6 @@ ext {
             rxandroid3               : [group: 'io.reactivex.rxjava3', name: 'rxandroid', version: versions.rxandroid3],
             rxbinding3               : [group: 'com.jakewharton.rxbinding3', name: 'rxbinding', version: versions.rxbinding3],
 
-            //  https://github.com/tbruyelle/RxPermissions
-            rxpermissions            : [group: 'com.github.tbruyelle', name: 'rxpermissions', version: '0.10.2'],
-
-            rximagepicker            : [group: 'com.github.qingmei2', name: 'rximagepicker', version: '2.3.0-alpha03'],
-            rxweaver                 : [group: 'com.github.qingmei2.rxweaver', name: 'rxweaver', version: '0.3.0'],
             //  https://github.com/JakeWharton/RxBinding
             rxbinding2               : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding', version: versions.rxbinding2],
             rxbinding2_v7            : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding-appcompat-v7', version: versions.rxbinding2],
@@ -141,7 +148,7 @@ ext {
             test_runner              : [group: 'com.android.support.test', name: 'runner', version: '1.0.2'],
             test_espresso            : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: '3.0.2'],
 
-            multidex                 : [group: 'com.android.support', name: 'multidex', version: '1.0.3'],
+            multidex                 : [group: 'androidx.multidex', name: 'multidex', version: versions.multidex],
 
             //单元测试
             robolectric              : [group: 'org.robolectric', name: 'robolectric', version: versions.robolectric],
@@ -163,7 +170,7 @@ ext {
             shimmerlayout            : [group: 'io.supercharge', name: 'shimmerlayout', version: '2.1.0'],
 
             //https://github.com/JeremyLiao/LiveEventBus
-            live_event_bus           : [group: 'com.jeremyliao', name: 'live-event-bus', version: '1.7.2'],
+            live_event_bus           : [group: 'com.jeremyliao', name: 'live-event-bus-x', version: '1.7.3'],
 
             //https://github.com/anzewei/ParallaxBackLayout
             parallaxbacklayout       : [group: 'com.github.anzewei', name: 'parallaxbacklayout', version: '1.1.9'],
@@ -173,15 +180,7 @@ ext {
             swipe_support            : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0'],
 
             //https://github.com/JessYanCoding/AndroidAutoSize
-            autosize                 : [group: 'me.jessyan', name: 'autosize', version: '1.2.1'],
-
-            //https://github.com/y1xian/Widget
-            widget_common            : [group: 'com.github.y1xian.Widget', name: 'lib_common', version: versions.widget],
-            widget_adapter           : [group: 'com.github.y1xian.Widget', name: 'lib_adapter', version: versions.widget],
-            widget_view              : [group: 'com.github.y1xian.Widget', name: 'lib_view', version: versions.widget],
-            widget_utils             : [group: 'com.github.y1xian.Widget', name: 'lib_utils', version: versions.widget],
-            widget_skin              : [group: 'com.github.y1xian.Widget', name: 'lib_skin', version: versions.widget],
-            widget_skinloader        : [group: 'com.github.y1xian.Widget', name: 'lib_skinloader', version: versions.widget]
+            autosize                 : [group: 'me.jessyan', name: 'autosize', version: '1.2.1']
     ]
 
 }

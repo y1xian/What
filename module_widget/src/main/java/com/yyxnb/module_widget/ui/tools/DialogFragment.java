@@ -1,10 +1,11 @@
 package com.yyxnb.module_widget.ui.tools;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_adapter.BaseViewHolder;

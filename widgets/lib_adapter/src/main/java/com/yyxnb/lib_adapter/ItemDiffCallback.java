@@ -1,8 +1,9 @@
 package com.yyxnb.lib_adapter;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
-import android.support.v7.util.DiffUtil;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 
 import com.yyxnb.lib_common.interfaces.IData;
 

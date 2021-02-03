@@ -1,23 +1,24 @@
 package com.yyxnb.module_video.adapter;
 
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.yyxnb.lib_adapter.BaseAdapter;
 import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.widget.tiktok.TikTokView;
+import com.yyxnb.util_core.DpUtils;
 
 public class TikTokRvAdapter extends BaseAdapter<TikTokBean> {
 

@@ -1,11 +1,12 @@
 package com.yyxnb.module_music.ui;
 
-import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
+import androidx.fragment.app.Fragment;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.lib_arch.common.AppManager;
 import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.lib_arch.common.AppManager;
 
 import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_MAIN;
 

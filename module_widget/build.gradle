@@ -22,7 +22,6 @@ dependencies {
 
     // 路由
     implementation libs.arouter_api
-    implementation 'com.android.support:support-v4:28.0.0'
     annotationProcessor libs.arouter_compiler
 
     if (runAsApp) {

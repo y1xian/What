@@ -1,15 +1,15 @@
 package com.yyxnb.module_music.db;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.TypeConverters;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
+import com.yyxnb.lib_room.DateConverter;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicFavouriteBean;
 import com.yyxnb.module_music.bean.MusicLocalBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;
-import com.yyxnb.lib_room.DateConverter;
 import com.yyxnb.util_app.AppUtils;
 
 /**

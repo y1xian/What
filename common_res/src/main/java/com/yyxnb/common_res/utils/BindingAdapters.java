@@ -1,13 +1,14 @@
 package com.yyxnb.common_res.utils;
 
-import android.databinding.BindingAdapter;
-import android.databinding.adapters.ListenerUtil;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.adapters.ListenerUtil;
 
 import com.yyxnb.common_base.R;
 import com.yyxnb.lib_image_loader.ImageManager;

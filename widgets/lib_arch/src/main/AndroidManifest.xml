@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yyxnb.lib_arch">
     <!-- 基本模块（必须）START -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,10 +13,17 @@
 
         <!-- 使用ContentProvider初始化三方库 -->
         <provider
-            android:name="com.yyxnb.lib_arch.ArchInitializer"
-            android:authorities="${applicationId}.ArchInitializer"
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
-            android:multiprocess="true" />
+            android:multiprocess="true"
+            tools:node="merge">
+
+            <meta-data
+                android:name="com.yyxnb.lib_arch.ArchInitializer"
+                android:value="@string/androidx_startup" />
+
+        </provider>
     </application>
 
 </manifest>

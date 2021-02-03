@@ -1,6 +1,6 @@
 package com.yyxnb.module_wanandroid.viewmodel;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.yyxnb.common_base.core.CommonViewModel;
 import com.yyxnb.common_res.bean.WanData;

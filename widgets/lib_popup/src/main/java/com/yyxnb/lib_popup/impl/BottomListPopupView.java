@@ -1,12 +1,13 @@
 package com.yyxnb.lib_popup.impl;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.lib_adapter.BaseAdapter;
 import com.yyxnb.lib_adapter.BaseViewHolder;

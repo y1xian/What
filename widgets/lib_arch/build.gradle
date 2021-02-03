@@ -2,10 +2,11 @@ ext.isPublish = true
 apply from: rootProject.file('lib_widget.gradle')
 
 dependencies {
-//    api libs.widget_common
     api project(':widgets:lib_common')
-    //  v7 v4 约束
-    api([libs.support_v4, libs.constraint])
+    // 约束
+    api libs.constraint
     //bus
     api libs.live_event_bus
+
+    implementation libs.startup
 }

@@ -1,14 +1,15 @@
 package com.yyxnb.module_wanandroid.ui;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+
+import androidx.databinding.DataBindingUtil;
 
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.base.IActivity;
-import com.yyxnb.module_wanandroid.R;
-import com.yyxnb.module_wanandroid.databinding.ActivityWanWebBinding;
 import com.yyxnb.lib_view.titlebar.TitleBar;
 import com.yyxnb.lib_webview.WebActivity;
+import com.yyxnb.module_wanandroid.R;
+import com.yyxnb.module_wanandroid.databinding.ActivityWanWebBinding;
 
 @BindRes
 public class WanWebActivity extends WebActivity implements IActivity {

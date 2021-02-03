@@ -1,20 +1,21 @@
 package com.yyxnb.module_wanandroid.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_view.tabbar.Tab;
+import com.yyxnb.lib_view.tabbar.TabBarView;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanMainBinding;
 import com.yyxnb.module_wanandroid.ui.home.WanHomeFragment;
 import com.yyxnb.module_wanandroid.ui.project.WanProjectFragment;
 import com.yyxnb.module_wanandroid.ui.publicnumber.WanPublicFragment;
 import com.yyxnb.module_wanandroid.ui.tree.WanTreeFragment;
-import com.yyxnb.lib_view.tabbar.Tab;
-import com.yyxnb.lib_view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;

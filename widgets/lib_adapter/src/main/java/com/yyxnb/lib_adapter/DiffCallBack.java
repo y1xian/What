@@ -1,9 +1,10 @@
 package com.yyxnb.lib_adapter;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.util.DiffUtil;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DiffUtil;
 
 import com.yyxnb.lib_common.interfaces.IData;
 

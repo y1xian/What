@@ -1,7 +1,7 @@
 package com.yyxnb.lib_network;
 
-import android.arch.lifecycle.LiveData;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 
 import com.yyxnb.lib_common.interfaces.IData;
 

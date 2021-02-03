@@ -2,16 +2,17 @@ package com.yyxnb.module_main.adapter;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.constraint.ConstraintLayout;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.noober.background.drawable.DrawableCreator;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDelegate;
 import com.yyxnb.lib_adapter.MultiItemTypeAdapter;
-import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.bean.MainHomeBean;
+import com.yyxnb.util_core.DpUtils;
 
 public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 

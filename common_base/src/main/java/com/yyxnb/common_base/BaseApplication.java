@@ -2,7 +2,8 @@ package com.yyxnb.common_base;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
+
+import androidx.multidex.MultiDex;
 
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.yyxnb.common_base.core.ContainerActivity;

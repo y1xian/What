@@ -1,12 +1,14 @@
 package com.yyxnb.lib_arch.annotations;
 
+import androidx.lifecycle.ViewModel;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 绑定 {@link android.arch.lifecycle.ViewModel}
+ * 绑定 {@link ViewModel}
  *
  * @author yyx
  */

@@ -2,17 +2,18 @@ package com.yyxnb.module_widget.ui;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.util_permission.PermissionListener;
-import com.yyxnb.util_permission.PermissionUtils;
 import com.yyxnb.lib_view.tabbar.Tab;
 import com.yyxnb.lib_view.tabbar.TabBarView;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.databinding.FragmentWidgetMainBinding;
+import com.yyxnb.util_permission.PermissionListener;
+import com.yyxnb.util_permission.PermissionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

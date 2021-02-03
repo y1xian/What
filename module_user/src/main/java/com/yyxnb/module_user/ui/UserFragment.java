@@ -1,8 +1,8 @@
 package com.yyxnb.module_user.ui;
 
-
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;

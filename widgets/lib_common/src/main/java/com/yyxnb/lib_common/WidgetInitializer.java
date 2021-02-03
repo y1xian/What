@@ -1,19 +1,18 @@
 package com.yyxnb.lib_common;
 
 import android.app.Application;
-import android.arch.lifecycle.ProcessLifecycleOwner;
-import android.content.ContentProvider;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.multidex.MultiDex;
+import android.content.Context;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ProcessLifecycleOwner;
+import androidx.multidex.MultiDex;
+import androidx.startup.Initializer;
 
 import com.yyxnb.util_app.AppUtils;
 
-import java.util.Objects;
+import java.util.Collections;
+import java.util.List;
 
 
 /**
@@ -21,13 +20,16 @@ import java.util.Objects;
  *
  * @author yyx
  */
-public class WidgetInitializer extends ContentProvider {
+public class WidgetInitializer implements Initializer<Object> {
+
+    @NonNull
     @Override
-    public boolean onCreate() {
+    public Object create(@NonNull Context context) {
+
 
         Log.e("WidgetInitializer", "第一个初始化的存在");
 
-        AppUtils.init((Application) Objects.requireNonNull(getContext()).getApplicationContext());
+        AppUtils.init((Application) context);
 
         WidgetManager.getInstance().unInit(AppUtils.getApp());
         WidgetManager.getInstance().init(AppUtils.getApp());
@@ -38,35 +40,12 @@ public class WidgetInitializer extends ContentProvider {
         // 突破65535的限制
         MultiDex.install(AppUtils.getApp());
 
-
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         return null;
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public String getType(@NonNull Uri uri) {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        return null;
-    }
-
-    @Override
-    public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
-    }
-
-    @Override
-    public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+    public List<Class<? extends Initializer<?>>> dependencies() {
+        return Collections.emptyList();
     }
 }

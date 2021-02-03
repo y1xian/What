@@ -1,21 +1,22 @@
 package com.yyxnb.lib_arch.delegate;
 
 import android.annotation.SuppressLint;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
@@ -25,9 +26,9 @@ import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.util_core.StatusBarUtils;
 import com.yyxnb.lib_common.action.HandlerAction;
 import com.yyxnb.lib_common.interfaces.ILifecycle;
+import com.yyxnb.util_core.StatusBarUtils;
 
 import java.util.Objects;
 

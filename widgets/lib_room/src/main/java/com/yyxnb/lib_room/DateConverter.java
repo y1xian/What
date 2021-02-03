@@ -1,6 +1,6 @@
 package com.yyxnb.lib_room;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 
 import java.util.Date;
 

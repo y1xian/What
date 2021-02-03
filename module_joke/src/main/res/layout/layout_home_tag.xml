@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
 
     <data>
 
@@ -14,7 +15,7 @@
         <import type="android.view.View"></import>
     </data>
 
-    <android.support.design.button.MaterialButton
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginLeft="16dp"
@@ -37,5 +38,5 @@
         app:iconTintMode="multiply"
         tools:text="神秘的jetpack">
 
-    </android.support.design.button.MaterialButton>
+    </com.google.android.material.button.MaterialButton>
 </layout>

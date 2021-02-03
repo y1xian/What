@@ -1,15 +1,16 @@
 package com.yyxnb.module_video.ui;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.common_base.core.BaseActivity;
 import com.yyxnb.common_res.weight.NoScrollViewPager;
+import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.ActivityVideoMainBinding;
 import com.yyxnb.module_video.ui.main.VideoMainBottomFragment;

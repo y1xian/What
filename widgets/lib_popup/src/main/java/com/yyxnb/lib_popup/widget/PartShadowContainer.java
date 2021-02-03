@@ -2,13 +2,14 @@ package com.yyxnb.lib_popup.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.yyxnb.lib_popup.interfaces.OnClickOutsideListener;
 import com.yyxnb.lib_popup.util.PopupUtils;
@@ -32,6 +33,7 @@ public class PartShadowContainer extends FrameLayout {
     }
 
     private float x, y;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // 计算implView的Rect
@@ -52,11 +54,15 @@ public class PartShadowContainer extends FrameLayout {
                     float distance = (float) Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
                     if (distance < ViewConfiguration.get(getContext()).getScaledTouchSlop()) {
                         if (isDismissOnTouchOutside) {
-                            if (listener != null) listener.onClickOutside();
+                            if (listener != null) {
+                                listener.onClickOutside();
+                            }
                         }
                     }
                     x = 0;
                     y = 0;
+                    break;
+                default:
                     break;
             }
         }

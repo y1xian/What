@@ -1,7 +1,8 @@
 package com.yyxnb.lib_common.action;
 
-import android.support.annotation.IdRes;
 import android.view.View;
+
+import androidx.annotation.IdRes;
 
 /**
  * 点击事件意图

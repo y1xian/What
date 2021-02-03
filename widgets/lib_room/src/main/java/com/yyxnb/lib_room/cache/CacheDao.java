@@ -1,8 +1,7 @@
 package com.yyxnb.lib_room.cache;
 
-
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Query;
+import androidx.room.Dao;
+import androidx.room.Query;
 
 import com.yyxnb.lib_room.BaseDao;
 

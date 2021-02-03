@@ -1,14 +1,15 @@
 package com.yyxnb.module_video.ui.home;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_video.Utils;
 import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;

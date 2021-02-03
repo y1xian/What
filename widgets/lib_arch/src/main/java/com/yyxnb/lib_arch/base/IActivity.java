@@ -1,11 +1,11 @@
 package com.yyxnb.lib_arch.base;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.lib_arch.annotations.SwipeStyle;
-import com.yyxnb.lib_arch.delegate.ActivityDelegate;
 import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.lib_arch.delegate.ActivityDelegate;
 
 
 /**

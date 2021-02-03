@@ -6,9 +6,10 @@ import android.graphics.PixelFormat;
 import android.os.Binder;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.WindowManager;
+
+import androidx.annotation.RequiresApi;
 
 import java.lang.reflect.Method;
 
@@ -60,7 +61,9 @@ class PermissionUtil {
     private static boolean hasPermissionForO(Context context) {
         try {
             WindowManager mgr = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-            if (mgr == null) return false;
+            if (mgr == null) {
+                return false;
+            }
             View viewToAdd = new View(context);
             WindowManager.LayoutParams params = new WindowManager.LayoutParams(0, 0,
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ?

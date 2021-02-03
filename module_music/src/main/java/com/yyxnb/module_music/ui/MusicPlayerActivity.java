@@ -2,32 +2,33 @@ package com.yyxnb.module_music.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.databinding.DataBindingUtil;
+
 import com.yyxnb.common_base.core.BaseActivity;
-import com.yyxnb.module_music.R;
-import com.yyxnb.module_music.bean.MusicBean;
-import com.yyxnb.module_music.bean.MusicRecordBean;
-import com.yyxnb.module_music.config.MusicSetting;
-import com.yyxnb.module_music.databinding.ActivityMusicPlayerBinding;
-import com.yyxnb.module_music.db.MusicDatabase;
 import com.yyxnb.lib_music.MusicPlayerManager;
 import com.yyxnb.lib_music.interfaces.MusicConstants;
 import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
 import com.yyxnb.lib_music.utils.MusicStatus;
 import com.yyxnb.lib_music.utils.MusicSubjectObservable;
 import com.yyxnb.lib_music.utils.MusicUtils;
+import com.yyxnb.module_music.R;
+import com.yyxnb.module_music.bean.MusicBean;
+import com.yyxnb.module_music.bean.MusicRecordBean;
+import com.yyxnb.module_music.config.MusicSetting;
+import com.yyxnb.module_music.databinding.ActivityMusicPlayerBinding;
+import com.yyxnb.module_music.db.MusicDatabase;
 
 import java.util.List;
 import java.util.Observable;

@@ -1,18 +1,19 @@
 package com.yyxnb.common_base.core;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
+
+import androidx.lifecycle.MutableLiveData;
 
 import com.yyxnb.common_base.bean.MsgData;
 import com.yyxnb.lib_arch.viewmodel.BaseViewModel;
 import com.yyxnb.lib_common.action.CommonAction;
+import com.yyxnb.lib_common.interfaces.IData;
 import com.yyxnb.lib_network.SingleLiveEvent;
 import com.yyxnb.lib_network.Status;
 import com.yyxnb.lib_network.rx.BaseHttpSubscriber;
 import com.yyxnb.lib_network.rx.RetryWithDelay;
-import com.yyxnb.util_rxtool.DisposablePool;
 import com.yyxnb.util_app.AppUtils;
-import com.yyxnb.lib_common.interfaces.IData;
+import com.yyxnb.util_rxtool.DisposablePool;
 
 import java.util.ArrayList;
 import java.util.List;

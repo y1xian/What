@@ -44,7 +44,7 @@
 
 - 最新Java + AndroidX版本的看 [java-androidx](https://github.com/y1xian/What/tree/java-androidx) 分支；
 
-- 最新AndroidX + Kotlin版本的看 [kt-x-arch](https://github.com/y1xian/What/tree/kt-androidx) 分支，**【 kotlin版本会比java版本更新慢，重心还在java版本上（kotlin也就图一乐，吃饭还是得靠java 】**；
+- 最新AndroidX + Kotlin版本的看 [kt-androidx](https://github.com/y1xian/What/tree/kt-androidx) 分支，**【 kotlin版本会比java版本更新慢，重心还在java版本上（kotlin也就图一乐，吃饭还是得靠java 】**；
 
 - 主干与其它分支：主干会同步 `java-support` 分支代码，也可能会同步不及时，所以还是看分支优先；其它久远分支可能废弃掉了或不更新了。
 

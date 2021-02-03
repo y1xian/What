@@ -3,21 +3,9 @@ package com.yyxnb.lib_dialog.core;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.FloatRange;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatDialogFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +13,24 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.yyxnb.lib_common.action.ResourcesAction;
-import com.yyxnb.lib_dialog.R;
+import androidx.annotation.FloatRange;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.OnLifecycleEvent;
+
 import com.yyxnb.lib_common.action.ClickAction;
 import com.yyxnb.lib_common.action.HandlerAction;
+import com.yyxnb.lib_common.action.ResourcesAction;
 import com.yyxnb.lib_common.action.WidgetAction;
+import com.yyxnb.lib_dialog.R;
 
 import java.util.Objects;
 
@@ -39,7 +40,7 @@ import java.util.Objects;
  * @author : yyx
  * @date ：2018/11/18
  */
-public class BaseDialogFragment extends AppCompatDialogFragment implements LifecycleOwner , HandlerAction {
+public class BaseDialogFragment extends AppCompatDialogFragment implements LifecycleOwner, HandlerAction {
 
     private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
 
