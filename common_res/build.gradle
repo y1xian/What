@@ -10,9 +10,6 @@ dependencies {
 
     // 内存泄漏检测
     debugImplementation libs.leak_canary_debug
-    releaseImplementation libs.leak_canary_release
-    // Optional, if you use support library fragments:
-    debugImplementation libs.leak_canary_debug_support
 
     // room 数据库
     api libs.room

@@ -1,6 +1,8 @@
 package com.yyxnb.util_okhttp.interceptor.weaknetwork;
 
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
@@ -197,4 +199,15 @@ public class ByteCountBufferedSink implements BufferedSink {
         mDelegate.close();
     }
 
+    @NotNull
+    @Override
+    public Buffer getBuffer() {
+        return mDelegate.getBuffer();
+    }
+
+    @NotNull
+    @Override
+    public BufferedSink write(@NotNull ByteString byteString, int i, int i1) throws IOException {
+        return mDelegate.write(byteString, i, i1);
+    }
 }

@@ -3,6 +3,8 @@ apply from: rootProject.file('lib_widget.gradle')
 
 dependencies {
     api project(':widgets:lib_common')
+    api libs.kotlin_stdlib, libs.kotlin_coroutines, libs.kotlin_coroutines_core
+
     // 约束
     api libs.constraint
     //bus

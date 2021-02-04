@@ -11,12 +11,13 @@ import com.scwang.smart.refresh.layout.api.RefreshHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
-import com.squareup.leakcanary.LeakCanary;
 import com.yyxnb.common_base.BaseApplication;
 import com.yyxnb.common_res.weight.skin.ExtraAttrRegister;
 import com.yyxnb.lib_skinloader.SkinManager;
 import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.util_cache.CacheUtils;
+
+import leakcanary.LeakCanary;
 
 import static com.yyxnb.common_res.config.Constants.SKIN_PATH;
 
@@ -71,12 +72,6 @@ public class ModuleApplication extends BaseApplication {
 ////                .setPermissionListener(mPermissionListener)  //监听权限申请结果
 //                .build();
 
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
     }
 
     //static 代码段可以防止内存泄露
