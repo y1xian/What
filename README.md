@@ -130,7 +130,7 @@
 ### 组件化单项目运行
 1. 在 `local.properties` 下添加，`模块名=true`
 ```
-#module_login=true
+module_login=true
 module_wanandroid=true
 module_user=true
 ...
