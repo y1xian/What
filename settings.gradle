@@ -35,8 +35,9 @@ include ':module_main',
 
 //============ 功能、控件
 
-// jetpack架构
-include ':widgets:lib_arch',
+include ':widgets:lib_all',
+        // jetpack架构
+        ':widgets:lib_arch',
         // 通用控件
         ':widgets:lib_common',
         // 网络请求
@@ -71,8 +72,9 @@ include ':widgets:lib_arch',
 
 //============ 无业务逻辑的常用工具
 
-// app
-include ':utils:util_app',
+include ':utils:util_all',
+        // app相关
+        ':utils:util_app',
         // 核心
         ':utils:util_core',
         // 缓存
@@ -93,12 +95,12 @@ include ':utils:util_app',
         ':utils:util_system',
         // 任务队列
         ':utils:util_task',
-        // 不常用工具，堆放着，用时再说
-        ':utils:util_other',
         // 多语言
         ':utils:util_language',
         // 权限
-        ':utils:util_permission'
+        ':utils:util_permission',
+        // 不常用工具，堆放着，用时再说
+        ':utils:util_other'
 
 
 //============ 第三方资源

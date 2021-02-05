@@ -910,4 +910,114 @@ public class DeviceUtils {
         return 0;
     }
 
+    /**
+     * 重启应用
+     *
+     * @param context
+     */
+    public static void restartPackage(Context context) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        manager.restartPackage(context.getPackageName());
+    }
+
+    /**
+     * 判断某个APP是否安装,true为安装
+     *
+     * @param context
+     * @param packageName
+     * @return
+     */
+    public static boolean isAppInstalled(Context context, String packageName) {
+        PackageManager pm = context.getPackageManager();
+        boolean installed = false;
+        try {
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            installed = false;
+        }
+        return installed;
+    }
+
+    /**
+     * 获取某个APP的版本号，如果App没安装，则返回"0.0.0"
+     *
+     * @param context
+     * @param packageName
+     * @return
+     */
+    public static String getAppVersion(Context context, String packageName) {
+        String version = "0.0.0";
+        PackageManager pm = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            version = packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+        return version;
+    }
+
+    /**
+     * 比较版本号大小
+     * // 返回值 > 0 ， 表示 v1 > v2
+     *
+     * @param v1
+     * @param v2
+     * @return
+     */
+    public static int cmpVersion(String v1, String v2) {
+        // 返回值 > 0 表示 v1 > v2
+        final int V1_EQUAL_V2 = 0;
+        final int V1_BIGGER_THAN_V2 = 1;
+        final int V1_LESS_THAN_V2 = -1;
+
+        if (v1 == null && v2 == null) {
+            return V1_EQUAL_V2;
+        }
+        if (v1 != null && v2 == null) {
+            return V1_BIGGER_THAN_V2;
+        }
+        if (v1 == null && v2 != null) {
+            return V1_LESS_THAN_V2;
+        }
+
+        String[] vv1 = v1.split("\\.");
+        String[] vv2 = v2.split("\\.");
+        int len1 = vv1.length;
+        int len2 = vv2.length;
+
+        int minLen = len1 < len2 ? len1 : len2;
+        int cmp = V1_EQUAL_V2;
+        for (int i = 0; i < minLen; i++) {
+            try {
+                cmp = Integer.valueOf(vv1[i]) - Integer.valueOf(vv2[i]);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                // 3.a.2 vs 3.4.5
+                cmp = vv1[i].compareTo(vv2[i]);
+            }
+            if (cmp != 0) {
+                break;
+            }
+        }
+        if (vv1.length != vv2.length && cmp == V1_EQUAL_V2) {
+            // 3.4.3 vs 3.4.3.1
+            cmp = vv1.length < vv2.length ? V1_LESS_THAN_V2 : V1_BIGGER_THAN_V2;
+        }
+        return cmp;
+    }
+
+    /**
+     * 安装apk
+     *
+     * @param context
+     * @param mUri    apk路径，如："/mnt/SDCard/test.apk"
+     */
+    public static void install(Context context, String mUri) {
+        // 通过Intent安装APK文件
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setDataAndType(Uri.parse("file://" + mUri), "application/vnd.android.package-archive");
+        context.startActivity(i);
+    }
 }

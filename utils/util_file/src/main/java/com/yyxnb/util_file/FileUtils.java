@@ -7,7 +7,6 @@ import android.os.StatFs;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -716,24 +715,5 @@ public class FileUtils {
         return builder.toString();
     }
 
-    /**
-     * 关闭IO
-     *
-     * @param closeables closeable
-     */
-    public static void closeIO(Closeable... closeables) {
-        if (closeables == null) {
-            return;
-        }
-        try {
-            for (Closeable closeable : closeables) {
-                if (closeable != null) {
-                    closeable.close();
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 }
