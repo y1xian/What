@@ -22,6 +22,6 @@ dependencies {
         addComponent 'module_chat'
     }
 
-    implementation project(":widgets:lib_webview")
+    implementation libs.lib_webview
 
 }

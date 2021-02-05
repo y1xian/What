@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="music_text_now_play">正在播放</string>
-    <string name="music_text_notice_name">Music通知栏音乐播放</string>
-
-</resources>

@@ -4,44 +4,44 @@ apply from: rootProject.file('module.gradle')
 dependencies {
 
     // 底层架构
-    api project(':widgets:lib_arch')
+    api libs.lib_arch
     // 网络框架
-    api project(':widgets:lib_network')
+    api libs.lib_network
     // 数据库
-    api project(':widgets:lib_room')
+    api libs.lib_room
     // 图片框架
-    api project(':widgets:lib_image_loader')
+    api libs.lib_image_loader
     annotationProcessor libs.glide_compiler
     // 对话框
-    api project(':widgets:lib_dialog')
-    api project(':widgets:lib_popup')
+    api libs.lib_dialog
+    api libs.lib_popup
     // 适配器
-    api project(':widgets:lib_adapter')
+    api libs.lib_adapter
     // 自定义view
-    api project(':widgets:lib_view')
+    api libs.lib_view
     // 悬浮窗
-    api project(':widgets:lib_floatwindow')
+    api libs.lib_floatwindow
     // 换肤
-    api project(":widgets:lib_skinloader")
+    api libs.lib_skinloader
 
     // app相关
-    api project(":utils:util_app")
+    api libs.util_app
     // 主要的工具
-    api project(":utils:util_core")
+    api libs.util_core
     // 缓存
-    api project(":utils:util_cache")
+    api libs.util_cache
     // 加密
-    api project(":utils:util_encrypt")
+    api libs.util_encrypt
     // 集合相关
-    api project(":utils:util_collection")
+    api libs.util_collection
     // 文件
-    api project(":utils:util_file")
+    api libs.util_file
     // 权限
-    api project(":utils:util_permission")
+    api libs.util_permission
     // 系统信息
-    api project(":utils:util_system")
+    api libs.util_system
     // 不常用工具，大杂烩
-    api project(":utils:util_other")
+    api libs.util_other
 
     // 屏幕适配 https://github.com/JessYanCoding/AndroidAutoSize
     api libs.autosize
