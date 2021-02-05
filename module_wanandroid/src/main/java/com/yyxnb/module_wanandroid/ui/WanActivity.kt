@@ -1,18 +1,13 @@
-package com.yyxnb.module_wanandroid.ui;
+package com.yyxnb.module_wanandroid.ui
 
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.yyxnb.common_base.core.ContainerActivity
+import com.yyxnb.common_res.arouter.ARouterConstant
 
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.ContainerActivity;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.WAN_MAIN;
-
-@Route(path = WAN_MAIN)
-public class WanActivity extends ContainerActivity {
-
-    @Override
-    public Fragment initBaseFragment() {
-        return new WanMainFragment();
+@Route(path = ARouterConstant.WAN_MAIN)
+class WanActivity : ContainerActivity() {
+    override fun initBaseFragment(): Fragment {
+        return WanMainFragment()
     }
-
 }

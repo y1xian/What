@@ -57,7 +57,11 @@ ext {
 
             espresso         : '3.0.2',
             robolectric      : '3.3.2',
-            junit            : '4.12'
+            junit            : '4.12',
+
+            material      : '1.2.1',
+
+            what          : '1.0.3-s'
     ]
 
     build_plugins = [
@@ -187,7 +191,45 @@ ext {
             swipe_support           : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0'],
 
             //https://github.com/JessYanCoding/AndroidAutoSize
-            autosize                : [group: 'me.jessyan', name: 'autosize', version: '1.2.1']
+            autosize                : [group: 'me.jessyan', name: 'autosize', version: '1.2.1'],
+
+            material                 : [group: 'com.google.android.material', name: 'material', version: versions.material],
+
+            // https://github.com/y1xian/What
+            // widgets
+            lib_all                  : [group: 'com.github.y1xian.What', name: 'lib_all', version: versions.what],
+            lib_arch                 : [group: 'com.github.y1xian.What', name: 'lib_arch', version: versions.what],
+            lib_common               : [group: 'com.github.y1xian.What', name: 'lib_common', version: versions.what],
+            lib_adapter              : [group: 'com.github.y1xian.What', name: 'lib_adapter', version: versions.what],
+            lib_network              : [group: 'com.github.y1xian.What', name: 'lib_network', version: versions.what],
+            lib_image_loader         : [group: 'com.github.y1xian.What', name: 'lib_image_loader', version: versions.what],
+            lib_video                : [group: 'com.github.y1xian.What', name: 'lib_video', version: versions.what],
+            lib_music                : [group: 'com.github.y1xian.What', name: 'lib_music', version: versions.what],
+            lib_dialog               : [group: 'com.github.y1xian.What', name: 'lib_dialog', version: versions.what],
+            lib_popup                : [group: 'com.github.y1xian.What', name: 'lib_popup', version: versions.what],
+            lib_localservice         : [group: 'com.github.y1xian.What', name: 'lib_localservice', version: versions.what],
+            lib_view                 : [group: 'com.github.y1xian.What', name: 'lib_view', version: versions.what],
+            lib_webview              : [group: 'com.github.y1xian.What', name: 'lib_webview', version: versions.what],
+            lib_room                 : [group: 'com.github.y1xian.What', name: 'lib_room', version: versions.what],
+            lib_file                 : [group: 'com.github.y1xian.What', name: 'lib_file', version: versions.what],
+            lib_floatwindow          : [group: 'com.github.y1xian.What', name: 'lib_floatwindow', version: versions.what],
+            lib_skinloader           : [group: 'com.github.y1xian.What', name: 'lib_skinloader', version: versions.what],
+            // utils
+            util_all                 : [group: 'com.github.y1xian.What', name: 'util_all', version: versions.what],
+            util_app                 : [group: 'com.github.y1xian.What', name: 'util_app', version: versions.what],
+            util_core                : [group: 'com.github.y1xian.What', name: 'util_core', version: versions.what],
+            util_cache               : [group: 'com.github.y1xian.What', name: 'util_cache', version: versions.what],
+            util_okhttp              : [group: 'com.github.y1xian.What', name: 'util_okhttp', version: versions.what],
+            util_collection          : [group: 'com.github.y1xian.What', name: 'util_collection', version: versions.what],
+            util_media               : [group: 'com.github.y1xian.What', name: 'util_media', version: versions.what],
+            util_encrypt             : [group: 'com.github.y1xian.What', name: 'util_encrypt', version: versions.what],
+            util_file                : [group: 'com.github.y1xian.What', name: 'util_file', version: versions.what],
+            util_rxtool              : [group: 'com.github.y1xian.What', name: 'util_rxtool', version: versions.what],
+            util_system              : [group: 'com.github.y1xian.What', name: 'util_system', version: versions.what],
+            util_task                : [group: 'com.github.y1xian.What', name: 'util_task', version: versions.what],
+            util_language            : [group: 'com.github.y1xian.What', name: 'util_language', version: versions.what],
+            util_permission          : [group: 'com.github.y1xian.What', name: 'util_permission', version: versions.what],
+            util_other               : [group: 'com.github.y1xian.What', name: 'util_other', version: versions.what]
     ]
 
 }

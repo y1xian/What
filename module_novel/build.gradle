@@ -21,6 +21,6 @@ dependencies {
         addComponent 'module_login'
     }
 
-    implementation project(':widgets:lib_dialog')
+    implementation libs.lib_dialog
 
 }

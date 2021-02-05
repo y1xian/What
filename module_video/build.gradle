@@ -22,6 +22,6 @@ dependencies {
         addComponent 'module_chat'
     }
 
-    implementation project(':widgets:lib_video')
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation libs.lib_video
+    implementation libs.material
 }

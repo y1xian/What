@@ -36,6 +36,7 @@ if (runAsApp) {
 } else {
     apply plugin: 'com.android.library'
 }
+apply plugin: 'kotlin-android'
 
 //对组件库的依赖格式： addComponent dependencyName [, realDependency]
 // 使用示例见demo/build.gradle
