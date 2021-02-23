@@ -4,6 +4,7 @@ import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 
+import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.util_okhttp.annotation.CacheType;
 import com.yyxnb.util_okhttp.interceptor.CacheInterceptor;
 import com.yyxnb.util_okhttp.interceptor.GzipRequestInterceptor;
@@ -12,16 +13,17 @@ import com.yyxnb.util_okhttp.interceptor.LogInterceptor;
 import com.yyxnb.util_okhttp.interceptor.NetworkInterceptor;
 import com.yyxnb.util_okhttp.interceptor.weaknetwork.WeakNetworkInterceptor;
 import com.yyxnb.util_okhttp.utils.SSLUtils;
-import com.yyxnb.util_app.AppUtils;
 
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -75,6 +77,11 @@ public abstract class AbsOkHttp {
     protected Map<String, String> header() {
         return new HashMap<>(16);
     }
+
+    /**
+     * cookies存放
+     */
+    protected HashMap<String, List<Cookie>> cookieStore = new HashMap<>(16);
 
     /**
      * OkHttp的拦截器

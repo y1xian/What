@@ -1,20 +1,34 @@
 package com.yyxnb.util_okhttp;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.google.gson.Gson;
+import com.yyxnb.lib_common.action.HandlerAction;
+import com.yyxnb.util_core.log.LogUtils;
 import com.yyxnb.util_okhttp.utils.GsonUtils;
 import com.yyxnb.util_okhttp.utils.HttpCallBack;
-import com.yyxnb.lib_common.action.HandlerAction;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
 import okhttp3.FormBody;
+import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+
+import static java.lang.String.valueOf;
 
 /**
  * ================================================
@@ -30,6 +44,14 @@ public class OkHttpUtils extends AbsOkHttp implements HandlerAction {
     private final OkHttpClient mOkHttpClient;
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private final Gson mGson;
+
+    private List<Cookie> cookies = new ArrayList<>();
+    private Map<String, String> headers = new HashMap<>();
+
+    public OkHttpUtils setHeaders(Map<String, String> headers) {
+        this.headers = headers;
+        return this;
+    }
 
     private OkHttpUtils() {
         mOkHttpClient = okHttpClient();
@@ -52,13 +74,22 @@ public class OkHttpUtils extends AbsOkHttp implements HandlerAction {
         return "";
     }
 
+    @Override
+    protected Map<String, String> header() {
+        return headers;
+    }
+
+    public List<Cookie> getCookies() {
+        return cookies;
+    }
+
     /**
      * 对外提供的Get方法访问
      *
      * @param url
      * @param callBack
      */
-    public void get(String url, HttpCallBack callBack) {
+    public OkHttpUtils get(String url, HttpCallBack callBack) {
         /**
          * 通过url和GET方式构建Request
          */
@@ -67,13 +98,32 @@ public class OkHttpUtils extends AbsOkHttp implements HandlerAction {
          * 请求网络的逻辑
          */
         requestNetWork(request, callBack);
+        return this;
+    }
+
+    @Override
+    protected CookieJar cookieJar() {
+        return new CookieJar() {
+            @Override
+            public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+                cookieStore.put(url.host(), cookies);
+            }
+
+            @Override
+            public List<Cookie> loadForRequest(HttpUrl url) {
+                cookies = cookieStore.get(url.host());
+                LogUtils.w(url.url().getPath());
+                LogUtils.list(cookies);
+                return cookies != null ? cookies : new ArrayList<Cookie>();
+            }
+        };
     }
 
     /**
      * 对外提供的Post方法访问
      *
      * @param url
-     * @param params:   提交内容为表单数据
+     * @param params   提交内容为表单数据
      * @param callBack
      */
     public void post(String url, Map<String, String> params, HttpCallBack callBack) {
@@ -85,6 +135,39 @@ public class OkHttpUtils extends AbsOkHttp implements HandlerAction {
          * 请求网络的逻辑
          */
         requestNetWork(request, callBack);
+    }
+
+    /**
+     * 适用于需要传参数和json对象的接口
+     * Post 异步请求
+     *
+     * @param url        地址
+     * @param map        提交内容为表单数据
+     * @param jsonString json字符串
+     * @param callback   异步回调
+     */
+    public void asyPostJson(String url, Map<String, String> map, String jsonString, HttpCallBack callback) {
+        if (TextUtils.isEmpty(jsonString)) {
+            return;
+        }
+        RequestBody requestBody = RequestBody.create(JSON, jsonString);
+        Log.e("======>>", url + " 请求json：" + jsonString);
+        String urls = url + "?";
+        if (map != null) {
+            // map 里面是请求中所需要的 key 和 value
+            Set<Map.Entry<String, String>> entries = map.entrySet();
+            for (Map.Entry entry : entries) {
+                String key = valueOf(entry.getKey());
+                String value = valueOf(entry.getValue());
+                urls = urls + "&" + key + "=" + value;
+            }
+        }
+        Log.e("", "============URL============" + url + ":" + urls);
+        Request request = new Request.Builder()
+                .url(urls)
+                .post(requestBody)
+                .build();
+        requestNetWork(request, callback);
     }
 
     /**

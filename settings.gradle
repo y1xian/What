@@ -81,8 +81,8 @@ include ':utils:util_all',
         ':utils:util_cache',
         // 简单实现okhttp
         ':utils:util_okhttp',
-        // 集合
-        ':utils:util_collection',
+        // 常用
+        ':utils:util_common',
         // 媒体
         ':utils:util_media',
         // 加密
@@ -99,6 +99,10 @@ include ':utils:util_all',
         ':utils:util_language',
         // 权限
         ':utils:util_permission',
+        // 日期
+        ':utils:util_date',
+        // 通知栏
+        ':utils:util_notification',
         // 不常用工具，堆放着，用时再说
         ':utils:util_other'
 

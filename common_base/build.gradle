@@ -32,8 +32,8 @@ dependencies {
     api project(":utils:util_cache")
     // 加密
     api project(":utils:util_encrypt")
-    // 集合相关
-    api project(":utils:util_collection")
+    // 常用
+    api project(":utils:util_common")
     // 文件
     api project(":utils:util_file")
     // 权限

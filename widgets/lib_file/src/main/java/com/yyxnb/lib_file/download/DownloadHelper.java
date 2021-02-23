@@ -1,71 +1,80 @@
 package com.yyxnb.lib_file.download;
 
-import android.text.TextUtils;
-
 import com.yyxnb.util_okhttp.AbsOkHttp;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
+import java.io.IOException;
 
-import okhttp3.OkHttpClient;
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class DownloadHelper extends AbsOkHttp {
+
+    private static volatile DownloadHelper mInstance = null;
+
+    private DownloadHelper() {
+    }
+
+    public static DownloadHelper getInstance() {
+        if (null == mInstance) {
+            synchronized (DownloadHelper.class) {
+                if (null == mInstance) {
+                    mInstance = new DownloadHelper();
+                }
+            }
+        }
+        return mInstance;
+    }
 
     @Override
     protected String baseUrl() {
         return "";
     }
-    //
 
-    public void downloadingFile(String url, String saveFileDir, String saveFileName,long completedSize) {
+    /**
+     * @param url        下载链接
+     * @param startIndex 下载起始位置
+     * @param endIndex   结束为止
+     * @param callback   回调
+     * @throws IOException
+     */
+    public void downloadFileByRange(String url, long startIndex, long endIndex, Callback callback) throws IOException {
+        // 创建一个Request
+        // 设置分段下载的头信息。 Range:做分段数据请求,断点续传指示下载的区间。格式: Range bytes=0-1024或者bytes:0-1024
+        Request request = new Request.Builder().header("RANGE", "bytes=" + startIndex + "-" + endIndex)
+                .url(url)
+                .build();
+        doAsync(request, callback);
+    }
 
-        Request request = null;
-        Response response = null;
-        OkHttpClient httpClient = okHttpClient();
-        Request.Builder builder = new Request.Builder();
-        builder.url(url);
-        builder.addHeader("Connection", "close");
+    public void getContentLength(String url, Callback callback) throws IOException {
+        // 创建一个Request
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        doAsync(request, callback);
+    }
 
-        RandomAccessFile accessFile = null;
-        InputStream inputStream = null;
-        BufferedInputStream bis = null;
+    /**
+     * 异步请求
+     */
+    private void doAsync(Request request, Callback callback) throws IOException {
+        //创建请求会话
+        Call call = okHttpClient().newCall(request);
+        //异步执行会话请求
+        call.enqueue(callback);
+    }
 
-        try {
-            request = builder.build();
-            response = httpClient.newCall(request).execute();
+    /**
+     * 同步请求
+     */
+    private Response doSync(Request request) throws IOException {
 
-            ResponseBody responseBody = response.body();
-
-            int length;
-//            long completedSize = 0;
-
-            accessFile = new RandomAccessFile(saveFileDir + saveFileName, "rwd");
-
-            //服务器不支持断点下载时重新下载
-            if (TextUtils.isEmpty(response.header("Content-Range"))) {
-                completedSize = 0L;
-//                fileInfo.setCompletedSize(completedSize);
-            }
-            accessFile.seek(completedSize);
-            inputStream = responseBody.byteStream();
-            byte[] buffer = new byte[2048];
-            bis = new BufferedInputStream(inputStream);
-
-//            while ((length = bis.read(buffer)) > 0 &&
-//                    (DownloadStatus.DOWNLOADING.equals(fileInfo.getDownloadStatus()))) {
-//                accessFile.write(buffer, 0, length);
-//                completedSize += length;
-//            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-
-        }
+        //创建请求会话
+        Call call = okHttpClient().newCall(request);
+        //同步执行会话请求
+        return call.execute();
     }
 
 
