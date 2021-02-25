@@ -1,0 +1,33 @@
+ext.isPublish = true
+apply from: rootProject.file('module.gradle')
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_widget'
+        }
+    }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "widget_"
+
+}
+
+dependencies {
+
+    implementation project(':common-base')
+
+    implementation project(":utils:util-task")
+
+    // 路由
+    implementation libs.arouter_api
+    annotationProcessor libs.arouter_compiler
+
+    if (runAsApp) {
+        //模块化下需要引用到的模块
+
+    }
+
+
+}

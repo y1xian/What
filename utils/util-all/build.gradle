@@ -1,0 +1,29 @@
+ext.isPublish = true
+apply from: rootProject.file('lib_util.gradle')
+
+dependencies {
+    // app相关
+    api project(":utils:util-app")
+    // 主要的工具
+    api project(":utils:util-core")
+    // 缓存
+    api project(":utils:util-cache")
+    // 加密
+    api project(":utils:util-encrypt")
+    // 常用
+    api project(":utils:util-common")
+    // 文件
+    api project(":utils:util-file")
+    // 权限
+    api project(":utils:util-permission")
+    // 系统信息
+    api project(":utils:util-system")
+    // 多语言
+    api project(":utils:util-language")
+    // 媒体
+    api project(":utils:util-media")
+    // 简单实现okhttp
+    api project(":utils:util-okhttp")
+    // 不常用工具，大杂烩
+    api project(":utils:util-other")
+}

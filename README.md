@@ -22,20 +22,20 @@
 
 -   `utils` 包下 **存放无业务逻辑相关的常用工具 轻量级的**
     -   Android & Java 的工具库，通过静态方法封装，降低相关API的学习成本，提高工作效率
-    -   Okhttp3 `util_okhttp`：集成 `Okhttp3`，简单的抽象封装，实现网络请求
+    -   Okhttp3 `util-okhttp`：集成 `Okhttp3`，简单的抽象封装，实现网络请求
 	-	...
 
 -  `widget`包下 **存放与业务逻辑相关的组件工具**
-    -	通用框架 `lib_common`：简单的集成了通用的 toast、log、状态栏等工具类，部分lib包下都会集成该框架
-    -	底层框架 `lib_arch` ：集成 `JetPack` ，解决单继承问题，只需实现 `IActivity` 、 `IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
-    -	适配器 `lib_adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
-    -	数据库 room `lib_room`：集成 `Room` 简单封装了个泛型BaseDao，少实现增删改
-    -   网络请求 `lib_network`：
+    -	通用框架 `lib-common`：简单的集成了通用的 toast、log、状态栏等工具类，部分lib包下都会集成该框架
+    -	底层框架 `lib-arch` ：集成 `JetPack` ，解决单继承问题，只需实现 `IActivity` 、 `IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
+    -	适配器 `lib-adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
+    -	数据库 room `lib-room`：集成 `Room` 简单封装了个泛型BaseDao，少实现增删改
+    -   网络请求 `lib-network`：
         -	java： `Retrofit2` + `RxJava2` + `Okhttp3`
         -	kotlin：`Retrofit2` + `Okhttp3` + `Coroutine`
     -	...
 
--  自行查看 `utils` `widget`目录，工具包都在其包下。具体实现方法可在 `module_widget` 模块下查看 (不完全)
+-  自行查看 `utils` `widgets`目录，工具包都在其包下。具体实现方法可在 `module-widget` 模块下查看 (不完全)
 
 
 开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion support 28 - AndroidX 30
@@ -54,63 +54,63 @@
 - `app`主模块
     - 只用于打包、配置 `gradle` 个别信息
 
-- `module_widget`模块（该模块只引用了`common_base`,区别于其他模块）
-    - 存放各种自定义的 `lib_` 包 （于`widget`包下），方便发布 `JitPack` 导入使用
+- `module-widget`模块（该模块只引用了`common-base`,区别于其他模块）
+    - 存放各种自定义的 `lib-` 包 （于`widgets`包下），方便发布 `JitPack` 导入使用
     - [x] 调试功能组件
 
-- `module_main`模块
+- `module-main`模块
     - 启动页、闪屏页、主界面布局
 
-- `module_login`模块
+- `module-login`模块
     - 登录、注册界面及功能
     - [x] 提供、存储用户信息
 
-- `module_user`模块
+- `module-user`模块
     - 用户个人界面
     - [x] 展示信息
     - [ ] 编辑信息
 
-- `module_wanandroid`模块
+- `module-wanandroid`模块
     - 使用 [wanandroid](https://www.wanandroid.com/) 提供的API，开发的一款简略版客户端
     - [x] 部分功能点
     - [x] 跳转web
     - [x] 内容搜索
 
-- `module_video`模块
+- `module-video`模块
     - 模仿抖音列表及部分基础功能
     - [x] 播放列表
     - [ ] 详情页
     - [ ] 评论功能
 
-- `module_joke`模块
+- `module-joke`模块
     - 模块皮皮虾的视频、图文界面及部分基础功能
     - [x] 多状态列表
     - [ ] 详情页
     - [ ] 评论功能
 
-- `module_music`模块
+- `module-music`模块
     - 音乐播放基础功能
     - [x] 本地音乐列表、
     - [ ] 网络音乐列表，**无合适API
     - [x] 通知栏控制
 
-- `module_novel`模块
+- `module-novel`模块
     - 小说基础功能
     - [x] 列表页
     - [x] 小说阅读页、翻页效果、缓存
     - [x] 书架页
 
-- `module_caht`模块
+- `module-caht`模块
     - 接入`环信SDk` 在其基础上开发
     - [ ] 聊天室
     - [ ] 群聊
 
-- `module_news`模块
+- `module-news`模块
     - 新闻资讯基础功能
     - [ ] 列表
     - [ ] 详情
 
-- `module_mall`模块
+- `module-mall`模块
     - 商城基础功能
     - [ ] 商品列表
     - [ ] 商品详情
@@ -118,7 +118,7 @@
     - [ ] 支付流程
     - [ ] 订单状态
 
-- `module_live`模块
+- `module-live`模块
     - 直播基础功能
     - [ ] 直播列表
     - [ ] 直播室，推拉流
@@ -130,9 +130,19 @@
 ### 组件化单项目运行
 1. 在 `local.properties` 下添加，`模块名=true`
 ```
-#module_login=true
-module_wanandroid=true
-module_user=true
+module-main=true
+module-login=true
+module-user=true
+module-video=true
+module-music=true
+module-novel=true
+module-chat=true
+module-joke=true
+module-wanandroid=true
+module-news=true
+module-mall=true
+module-live=true
+module-widget=true
 ...
 ```
 之后build一下
@@ -143,7 +153,7 @@ dependencies {
 
     if (runAsApp) {
         //模块化下需要引用到的模块
-        addComponent 'module_login'
+        addComponent 'module-login'
         ...
     }
 
@@ -171,8 +181,8 @@ dependencies {
 
     if (runAsApp) {
         //模块化下需要引用到的模块
-        addComponent 'module_login'
-        addComponent 'module_chat'
+        addComponent 'module-login'
+        addComponent 'module-chat'
     }
 }
 ```
@@ -199,26 +209,28 @@ compileOptions {
 
 dependencies {
     // 基于jetpack框架，实现快速开发、协同开发、实现可复用等
-    implementation 'com.github.y1xian.What:lib_arch:+'
+    implementation 'com.github.y1xian.What:lib-arch:+'
     // 适配器，封装paging 头尾部、增删查改
-    implementation 'com.github.y1xian.What:lib_adapter:+'
+    implementation 'com.github.y1xian.What:lib-adapter:+'
     ···
     // 更多组件在widget下查看
     // 更多常用工具在utils下查看
 }
 ```
 
+---
+
 ### 其它说明
 
 #### Gradle配置
 
  -	`module.gradle` 为业务模块配置的，每个业务模块都需配置
- -	`lib_util.gradle` 为工具类配置
- -	`lib_widget.gradle` 为组件类配置
+ -	`lib-util.gradle` 为工具类配置
+ -	`lib-widget.gradle` 为组件类配置
 
 #### 换肤
  -	新建模块，只需`res`包且对应资源名即可，可更换颜色，图片，shape。
- -	本项目中已实现`skin_night`夜间模式的皮肤，只需编译该模块，把生成的 `night.apk` 放进 `module_user` 用户模块即可，路径为 `assets/skins/night.apk`
+ -	本项目中已实现`skin-night`夜间模式的皮肤，只需编译该模块，把生成的 `night.apk` 放进 `module-user` 用户模块即可，路径为 `assets/skins/night.apk`
 
 ### 易错点
  -	aar包的引用，整个项目运行会报错？
@@ -229,4 +241,4 @@ dependencies {
 
 ---
 ## 总结
-个人经验的积累，项目也会不断的完善
+个人经验的积累，项目也会不断的完善（在做了在做了
