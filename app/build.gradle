@@ -43,20 +43,20 @@ android {
 
 dependencies {
 
-    implementation project(':module_main')
+    implementation project(':module-main')
 
-    addComponent 'module_login'
-    addComponent 'module_user'
-    addComponent 'module_video'
-    addComponent 'module_chat'
-    addComponent 'module_joke'
-    addComponent 'module_music'
-    addComponent 'module_novel'
-    addComponent 'module_wanandroid'
-    addComponent 'module_news'
-    addComponent 'module_mall'
-    addComponent 'module_live'
-    addComponent 'module_widget'
+    addComponent 'module-login'
+    addComponent 'module-user'
+    addComponent 'module-video'
+    addComponent 'module-chat'
+    addComponent 'module-joke'
+    addComponent 'module-music'
+    addComponent 'module-novel'
+    addComponent 'module-wanandroid'
+    addComponent 'module-news'
+    addComponent 'module-mall'
+    addComponent 'module-live'
+    addComponent 'module-widget'
 
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.5'
     implementation 'com.tencent.tinker:tinker-android-lib:1.9.9'

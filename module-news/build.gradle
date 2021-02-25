@@ -1,0 +1,23 @@
+apply from: rootProject.file('module.gradle')
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_news'
+        }
+    }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "news_"
+
+}
+
+dependencies {
+
+    if (runAsApp) {
+        //模块化下需要引用到的模块
+        addComponent 'module-login'
+        addComponent 'module-chat'
+    }
+}

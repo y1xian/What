@@ -1,104 +1,108 @@
 include ':app',
         // 纯基类
-        ':common_base',
+        ':common-base',
         // 存放通用组件和资源
-        ':common_res'
+        ':common-res'
 
 //============ 业务模块
 
 // 主界面
-include ':module_main',
+include ':module-main',
         // 用户
-        ':module_user',
+        ':module-user',
         // 视频
-        ':module_video',
+        ':module-video',
         // 登录
-        ':module_login',
+        ':module-login',
         // 聊天
-        ':module_chat',
+        ':module-chat',
         // 小说
-        ':module_novel',
+        ':module-novel',
         // 音乐
-        ':module_music',
+        ':module-music',
         // 段子
-        ':module_joke',
+        ':module-joke',
         // 玩安卓
-        ':module_wanandroid',
+        ':module-wanandroid',
         // 直播
-        ':module_live',
+        ':module-live',
         // 商城
-        ':module_mall',
+        ':module-mall',
         // 资讯
-        ':module_news',
+        ':module-news',
         // 组件演示
-        ':module_widget'
+        ':module-widget'
 
 //============ 功能、控件
 
-// jetpack架构
-include ':widgets:lib_arch',
+include ':widgets:lib-all',
+        // jetpack架构
+        ':widgets:lib-arch',
         // 通用控件
-        ':widgets:lib_common',
+        ':widgets:lib-common',
         // 网络请求
-        ':widgets:lib_network',
+        ':widgets:lib-network',
         // 视频
-        ':widgets:lib_video',
+        ':widgets:lib-video',
         // 音乐
-        ':widgets:lib_music',
+        ':widgets:lib-music',
         // dialog
-        ':widgets:lib_dialog',
+        ':widgets:lib-dialog',
         // 图片框架
-        ':widgets:lib_image_loader',
+        ':widgets:lib-image',
         // 适配器
-        ':widgets:lib_adapter',
+        ':widgets:lib-adapter',
         // popup
-        ':widgets:lib_popup',
+        ':widgets:lib-popup',
         // 本地服务
-        ':widgets:lib_localservice',
+        ':widgets:lib-localservice',
         // 自定义控件
-        ':widgets:lib_view',
+        ':widgets:lib-view',
         // web
-        ':widgets:lib_webview',
+        ':widgets:lib-webview',
         // 数据库
-        ':widgets:lib_room',
+        ':widgets:lib-room',
         // 悬浮框
-        ':widgets:lib_floatwindow',
+        ':widgets:lib-floatwindow',
         // 换肤
-        ':widgets:lib_skinloader',
+        ':widgets:lib-skinloader',
         // 文件处理 下载、上传
-        ':widgets:lib_file'
+        ':widgets:lib-file'
 
 
 //============ 无业务逻辑的常用工具
 
-// app
-include ':utils:util_app',
+include ':utils:util-all',
+        // app相关
+        ':utils:util-app',
         // 核心
-        ':utils:util_core',
+        ':utils:util-core',
         // 缓存
-        ':utils:util_cache',
+        ':utils:util-cache',
         // 简单实现okhttp
-        ':utils:util_okhttp',
-        // 集合
-        ':utils:util_collection',
+        ':utils:util-okhttp',
+        // 常用
+        ':utils:util-common',
         // 媒体
-        ':utils:util_media',
+        ':utils:util-media',
         // 加密
-        ':utils:util_encrypt',
+        ':utils:util-encrypt',
         // 文件
-        ':utils:util_file',
+        ':utils:util-file',
         // rxjava封装
-        ':utils:util_rxtool',
+        ':utils:util-rxtool',
         // 系统相关
-        ':utils:util_system',
+        ':utils:util-system',
         // 任务队列
-        ':utils:util_task',
-        // 不常用工具，堆放着，用时再说
-        ':utils:util_other',
+        ':utils:util-task',
         // 多语言
-        ':utils:util_language',
+        ':utils:util-language',
         // 权限
-        ':utils:util_permission'
+        ':utils:util-permission',
+        // 通知栏
+        ':utils:util-notification',
+        // 不常用工具，堆放着，用时再说
+        ':utils:util-other'
 
 
 //============ 第三方资源
@@ -108,6 +112,6 @@ include ':opensource:easeui'
 
 
 // 皮肤资源
-include ':skins:skin_night'
+include ':skins:skin-night'
 
 rootProject.name = 'What'

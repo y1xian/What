@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--对应外部内存卡根目录：Environment.getExternalStorageDirectory()-->
+    <external-path
+        name="external"
+        path="/" />
+    <!--配置root-path。这样子可以读取到sd卡和一些应用分身的目录，否则微信分身保存的图片，就会导致 java.lang.IllegalArgumentException: Failed to find configured root that contains /storage/emulated/999/tencent/MicroMsg/WeiXin/export1544062754693.jpg，在小米6的手机上微信分身有这个crash，华为没有-->
+    <root-path
+        name="root_path"
+        path="" />
+    <!--表示 ContextCompat.getExternalFilesDirs() 获取到的目录 /storage/emulate/0/Android/data/<包名>/files-->
+    <external-files-path
+        name="external_file_path"
+        path="." />
+    <!--表示 ContextCompat.getExternalCacheDirs() 获取到的目录 /storage/emulate/0/Android/data/<包名>/cache-->
+    <external-cache-path
+        name="external_cache_path"
+        path="." />
+</paths>

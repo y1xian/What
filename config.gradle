@@ -45,6 +45,8 @@ ext {
             espresso      : '3.0.2',
             robolectric   : '3.3.2',
             junit         : '4.12',
+
+            hutool        : '5.5.8'
     ]
 
     build_plugins = [
@@ -171,7 +173,12 @@ ext {
             swipe_support            : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0'],
 
             //https://github.com/JessYanCoding/AndroidAutoSize
-            autosize                 : [group: 'me.jessyan', name: 'autosize', version: '1.2.1']
+            autosize                 : [group: 'me.jessyan', name: 'autosize', version: '1.2.1'],
+
+            // java工具类 https://hutool.cn/docs/#/
+            hutool_all               : [group: 'cn.hutool', name: 'hutool-all', version: versions.hutool],
+            hutool_core              : [group: 'cn.hutool', name: 'hutool-core', version: versions.hutool],
+            hutool_cache             : [group: 'cn.hutool', name: 'hutool-cache', version: versions.hutool]
     ]
 
 }
