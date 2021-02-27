@@ -128,6 +128,16 @@ public class ARouterConstant {
     // ======= end ============
 
     /**
+     * http api
+     */
+    public static final String SERVER_MAIN = "/server/ServerActivity";
+    public static final String SERVER_MAIN_FRAGMENT = "/server/ServerMainFragment";
+
+    // ======= end ============
+
+
+
+    /**
      * 其他
      */
     public static final String WIDGET_MAIN = "/widget/WidgetMainActivity";

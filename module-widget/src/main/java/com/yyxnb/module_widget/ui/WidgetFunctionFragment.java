@@ -14,6 +14,9 @@ import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.config.DataConfig;
 import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
 import com.yyxnb.module_widget.ui.function.WidgetQueueFragment;
+import com.yyxnb.module_widget.ui.function.download.WidgetDownloadFragment;
+import com.yyxnb.module_widget.ui.function.file.WidgetFileFragment;
+import com.yyxnb.module_widget.ui.function.upload.WidgetUploadFragment;
 
 /**
  * ================================================
@@ -72,17 +75,29 @@ public class WidgetFunctionFragment extends BaseFragment {
     private void setMenu(String key) {
         switch (key) {
             case "queue":
-                initArguments().putInt("type",2);
+                initArguments().putInt("type", 2);
                 startFragment(new WidgetQueueFragment());
                 break;
             case "idle_queue":
-                initArguments().putInt("type",0);
+                initArguments().putInt("type", 0);
                 startFragment(new WidgetQueueFragment());
                 break;
             case "priority_queue":
-                initArguments().putInt("type",1);
+                initArguments().putInt("type", 1);
                 startFragment(new WidgetQueueFragment());
                 break;
+            // -----------------------------------------------------------------------
+            case "download":
+                startFragment(new WidgetDownloadFragment());
+                break;
+            case "upload":
+                startFragment(new WidgetUploadFragment());
+                break;
+            case "file":
+                startFragment(new WidgetFileFragment());
+                break;
+            // -----------------------------------------------------------------------
+
             default:
                 break;
         }

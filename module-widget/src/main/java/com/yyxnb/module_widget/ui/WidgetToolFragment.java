@@ -21,7 +21,7 @@ import com.yyxnb.module_widget.ui.tools.WidgetTitleFragment;
  * ================================================
  * 作    者：yyx
  * 日    期：2020/12/02
- * 描    述：工具类
+ * 描    述：控件 自定义view之类的
  * ================================================
  */
 public class WidgetToolFragment extends BaseFragment {
@@ -80,9 +80,8 @@ public class WidgetToolFragment extends BaseFragment {
             case "dialog":
                 startFragment(new DialogFragment());
                 break;
-//            case "tag":
+            case "tag":
 //                startFragment(new TagFragment());
-//                break;
             case "popup":
                 startFragment(new PopupFragment());
                 break;

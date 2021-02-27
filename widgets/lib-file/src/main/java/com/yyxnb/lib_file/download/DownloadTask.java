@@ -2,6 +2,7 @@ package com.yyxnb.lib_file.download;
 
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.yyxnb.util_file.CloseUtils;
@@ -101,7 +102,7 @@ public class DownloadTask extends Handler {
                 //下载完毕后，重命名目标文件名
                 mTmpFile.renameTo(new File(mPoint.getFilePath(), mPoint.getFileName()));
                 resetStutus();
-                mListner.onFinished();
+                mListner.onFinished(mTmpFile.getAbsolutePath());
                 break;
             case MSG_CANCEL:
                 //取消
@@ -180,7 +181,7 @@ public class DownloadTask extends Handler {
             String startIndexStr = cacheAccessFile.readLine();
             try {
                 //重新设置下载起点
-                newStartIndex = Integer.parseInt(startIndexStr);
+                newStartIndex = Integer.parseInt(TextUtils.isEmpty(startIndexStr) ? "0" : startIndexStr);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }

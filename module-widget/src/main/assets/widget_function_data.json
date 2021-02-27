@@ -12,19 +12,22 @@
     "des": "",
     "url": "",
     "key": "queue"
-  } ,  {
+  },
+  {
     "type": 0,
     "title": "优先级队列，有序",
     "des": "",
     "url": "",
     "key": "priority_queue"
-  } ,  {
+  },
+  {
     "type": 0,
     "title": "闲置队列",
     "des": "",
     "url": "",
     "key": "idle_queue"
-  } , {
+  },
+  {
     "type": 1,
     "title": "文件相关",
     "des": "",
@@ -44,5 +47,12 @@
     "des": "",
     "url": "",
     "key": "upload"
+  },
+  {
+    "type": 0,
+    "title": "文件操作",
+    "des": "",
+    "url": "",
+    "key": "file"
   }
 ]

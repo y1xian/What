@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ import java.util.List;
  */
 public class PermissionUtils {
     //宿主Activity
-    private Activity mContext;
+    private WeakReference<Activity> mContext;
     //回调监听
     private PermissionListener listener;
     //存储所有的权限列表
@@ -58,7 +59,7 @@ public class PermissionUtils {
     private PermissionConfig checkConfig;
 
     private PermissionUtils(Activity mContext) {
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext);
     }
 
     public static PermissionUtils with(Activity context) {
@@ -99,7 +100,8 @@ public class PermissionUtils {
      * 开始申请权限
      */
     public void startCheckPermission() {
-        PermissionFragment.newInstance(permissions.toArray(new String[permissions.size()]), checkConfig).setPermissionCheckListener(listener).start(mContext);
+        PermissionFragment.newInstance(permissions.toArray(new String[permissions.size()]), checkConfig)
+                .setPermissionCheckListener(listener).start(mContext.get());
     }
 
     /**

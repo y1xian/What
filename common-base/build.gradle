@@ -23,6 +23,8 @@ dependencies {
     api project(':widgets:lib-floatwindow')
     // 换肤
     api project(":widgets:lib-skinloader")
+    // 文件操作
+    api project(":widgets:lib-file")
 
     // app相关
     api project(":utils:util-app")
@@ -40,6 +42,8 @@ dependencies {
     api project(":utils:util-permission")
     // 系统信息
     api project(":utils:util-system")
+    // 任务队列
+    api project(":utils:util-task")
     // 不常用工具，大杂烩
     api project(":utils:util-other")
 

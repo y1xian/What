@@ -24,6 +24,12 @@ dependencies {
     api project(":utils:util-media")
     // 简单实现okhttp
     api project(":utils:util-okhttp")
+    // 通知栏
+    api project(":utils:util-notification")
+    // rxjava封装
+    api project(":utils:util-rxtool")
+    // 任务队列
+    api project(":utils:util-task")
     // 不常用工具，大杂烩
     api project(":utils:util-other")
 }

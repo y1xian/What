@@ -47,6 +47,7 @@ public class WidgetMainFragment extends BaseFragment {
         mTabLayout = binding.vTabLayout;
 
         PermissionUtils.with(getActivity())
+                .addPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .setPermissionsCheckListener(new PermissionListener() {
                     @Override
@@ -61,7 +62,6 @@ public class WidgetMainFragment extends BaseFragment {
                 .setForceAllPermissionsGranted(true)
                 .buildConfig()
                 .startCheckPermission();
-
     }
 
     @Override
