@@ -11,7 +11,9 @@ import com.yanzhenjie.andserver.framework.mapping.Addition;
 import com.yanzhenjie.andserver.http.HttpRequest;
 import com.yanzhenjie.andserver.http.HttpResponse;
 import com.yanzhenjie.andserver.http.session.Session;
+import com.yyxnb.util_core.log.LogUtils;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ArrayUtil;
 
 /**
@@ -62,6 +64,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             Session session = request.getSession();
             if (session != null) {
                 Object o = session.getAttribute(LOGIN_ATTRIBUTE);
+                LogUtils.w(String.format("%s %s %s", DateUtil.date(session.getCreatedTime()),DateUtil.date(session.getLastAccessedTime()),session.getMaxInactiveInterval()));
                 return o instanceof Boolean && (boolean) o;
             }
             return false;

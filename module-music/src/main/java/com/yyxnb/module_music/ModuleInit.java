@@ -59,8 +59,6 @@ public class ModuleInit implements IModuleInit {
                     @Override
                     public void onMusicPlayerState(int playerState, String message) {
                         LogUtils.e("playerState : " + playerState + " , message : " + message);
-
-                        new Thread(() -> LogUtils.e("playerState222 : " + playerState + " , message : " + message)).start();
                     }
 
                     @Override

@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 
+import com.yyxnb.util_core.AppExecutors;
 import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
 import com.yyxnb.common_res.bean.UserBean;
@@ -589,7 +590,7 @@ public abstract class PageLoader {
 //        BookRepository.getInstance()
 //                .saveBookRecord(mBookRecord);
 
-        new Thread(() -> {
+        AppExecutors.getInstance().networkIO().submit(() -> {
 
 //            if (DBHelper.getInstance().getDb().bookRecordDao().getUserId(loginBean.getUserId(), mCollBook.getBookId()) == null) {
             NovelDatabase.getInstance().bookRecordDao().insertItem(mBookRecord);
@@ -598,7 +599,7 @@ public abstract class PageLoader {
 //            }
 
 //            LogUtils.INSTANCE.e(DBHelper.getInstance().getDb().bookRecordDao().getAllByIds(mCollBook.getBookId()).toString());
-        }).start();
+        });
 
 
     }

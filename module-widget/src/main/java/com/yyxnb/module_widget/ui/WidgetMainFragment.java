@@ -1,6 +1,5 @@
 package com.yyxnb.module_widget.ui;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -11,7 +10,6 @@ import com.yyxnb.lib_view.tabbar.Tab;
 import com.yyxnb.lib_view.tabbar.TabBarView;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.databinding.FragmentWidgetMainBinding;
-import com.yyxnb.util_permission.PermissionListener;
 import com.yyxnb.util_permission.PermissionUtils;
 
 import java.util.ArrayList;
@@ -46,22 +44,11 @@ public class WidgetMainFragment extends BaseFragment {
         binding = getBinding();
         mTabLayout = binding.vTabLayout;
 
-        PermissionUtils.with(getActivity())
-                .addPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
-                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .setPermissionsCheckListener(new PermissionListener() {
-                    @Override
-                    public void permissionRequestSuccess() {
-                    }
-
-                    @Override
-                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
-                    }
-                })
-                .createConfig()
-                .setForceAllPermissionsGranted(true)
-                .buildConfig()
-                .startCheckPermission();
+        if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
+            PermissionUtils.with(getActivity())
+                    .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
+                    .defaultConfig();
+        }
     }
 
     @Override

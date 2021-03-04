@@ -21,6 +21,9 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url "https://jitpack.io" }
         // 如果需要使用华为推送HMS，则需要加上此句
         maven { url 'http://developer.huawei.com/repo' }

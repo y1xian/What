@@ -1,4 +1,4 @@
-package com.yyxnb.util_other;
+package com.yyxnb.util_media;
 
 import android.content.Context;
 import android.graphics.Bitmap;

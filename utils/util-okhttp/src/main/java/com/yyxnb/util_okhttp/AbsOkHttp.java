@@ -1,7 +1,6 @@
 package com.yyxnb.util_okhttp;
 
 import android.content.pm.PackageManager;
-import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 
 import com.yyxnb.util_app.AppUtils;
@@ -54,7 +53,7 @@ public abstract class AbsOkHttp {
      * 缓存目录
      */
     protected File cachedDir() {
-        return new File(Environment.getExternalStorageDirectory().getPath() + "/okHttp_cache");
+        return new File(AppUtils.getApp().getExternalCacheDir().getAbsolutePath() + "/okHttp_cache");
     }
 
     /**

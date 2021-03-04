@@ -1,6 +1,5 @@
 package com.yyxnb.module_server;
 
-import android.Manifest;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -10,7 +9,6 @@ import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.module_server.databinding.FragmentServerBinding;
 import com.yyxnb.util_core.NetworkUtils;
 import com.yyxnb.util_core.log.LogUtils;
-import com.yyxnb.util_permission.PermissionListener;
 import com.yyxnb.util_permission.PermissionUtils;
 
 import java.net.InetAddress;
@@ -50,26 +48,16 @@ public class ServerFragment extends BaseFragment {
 
         });
 
-        PermissionUtils.with(getActivity())
-                .addPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
-                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .setPermissionsCheckListener(new PermissionListener() {
-                    @Override
-                    public void permissionRequestSuccess() {
-                    }
-
-                    @Override
-                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
-                    }
-                })
-                .createConfig()
-                .setForceAllPermissionsGranted(true)
-                .buildConfig()
-                .startCheckPermission();
+        if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
+            PermissionUtils.with(getActivity())
+                    .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
+                    .defaultConfig();
+        }
     }
 
     @Override
     public void initViewData() {
+
         mServer = AndServer.webServer(getContext())
                 .port(8080)
                 .timeout(10, TimeUnit.SECONDS)
@@ -78,7 +66,7 @@ public class ServerFragment extends BaseFragment {
                     public void onStarted() {
                         // TODO The server started successfully.
                         InetAddress address = NetworkUtils.getLocalIPAddress();
-                        LogUtils.w("onStarted : " + address);
+                        LogUtils.w(String.format("onStarted : http:/%s:8080", address));
                     }
 
                     @Override
@@ -102,4 +90,5 @@ public class ServerFragment extends BaseFragment {
         mServer.shutdown();
         super.onDestroy();
     }
+
 }
