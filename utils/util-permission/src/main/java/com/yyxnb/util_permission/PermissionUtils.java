@@ -1,11 +1,14 @@
 package com.yyxnb.util_permission;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,14 +45,28 @@ import java.util.List;
                 .buildConfig()
                 //开始授权
                 .startCheckPermission();
+
+                // 快速使用
+                PermissionUtils.with(getActivity())
+                .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
+                .defaultConfig();
  */
 
 /**
  * 权限检查主要帮助类
  */
 public class PermissionUtils {
+
+    public static final String[] VOICE_REQUIRE_PERMISSIONS = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+    public static final String[] CAMERA_REQUIRE_PERMISSIONS = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+    public static final String[] FILE_REQUIRE_PERMISSIONS = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    public static final String[] CALL_PERMISSIONS = {Manifest.permission.CALL_PHONE};
+    public static final String[] LOCATION_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+    public static final String[] READ_PHONE_STATE_PERMISSIONS = {Manifest.permission.READ_PHONE_STATE};
+    public static final String[] CAMERA_PERMISSIONS = {Manifest.permission.CAMERA};
+
     //宿主Activity
-    private Activity mContext;
+    private final WeakReference<Activity> mContext;
     //回调监听
     private PermissionListener listener;
     //存储所有的权限列表
@@ -58,7 +75,7 @@ public class PermissionUtils {
     private PermissionConfig checkConfig;
 
     private PermissionUtils(Activity mContext) {
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext);
     }
 
     public static PermissionUtils with(Activity context) {
@@ -74,15 +91,46 @@ public class PermissionUtils {
     }
 
     /**
+     * 默认配置
+     */
+    public PermissionUtils defaultConfig() {
+        checkConfig = new PermissionConfig(this);
+        checkConfig.setForceAllPermissionsGranted(true);
+        checkConfig.buildConfig();
+        startCheckPermission();
+        return this;
+    }
+
+    /**
      * 添加权限
      *
      * @param permission
      */
-    public PermissionUtils addPermissions(String permission) {
-        if (!permissions.contains(permission)) {
-            permissions.add(permission);
+    public PermissionUtils addPermissions(String... permission) {
+        for (String p : permission) {
+            if (!permissions.contains(p)) {
+                permissions.add(p);
+            }
         }
         return this;
+    }
+
+    /**
+     * 判断是否已开启权限
+     *
+     * @param context
+     * @param permission
+     */
+    public static boolean hasPermission(Context context, String permission) {
+        return ActivityCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        boolean hasPermissions = true;
+        for (String permission : permissions) {
+            hasPermissions = hasPermissions && hasPermission(context, permission);
+        }
+        return hasPermissions;
     }
 
     /**
@@ -99,7 +147,8 @@ public class PermissionUtils {
      * 开始申请权限
      */
     public void startCheckPermission() {
-        PermissionFragment.newInstance(permissions.toArray(new String[permissions.size()]), checkConfig).setPermissionCheckListener(listener).start(mContext);
+        PermissionFragment.newInstance(permissions.toArray(new String[permissions.size()]), checkConfig)
+                .setPermissionCheckListener(listener).start(mContext.get());
     }
 
     /**

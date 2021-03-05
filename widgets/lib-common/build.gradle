@@ -2,9 +2,6 @@ ext.isPublish = true
 apply from: rootProject.file('lib_widget.gradle')
 
 dependencies {
-    api libs.support_v7, libs.design
     // jetpack
     api libs.lifecycle_java8, libs.lifecycle_extensions
-    // 避免65K限制       https://developer.android.com/tools/building/multidex.html
-    api libs.multidex
 }

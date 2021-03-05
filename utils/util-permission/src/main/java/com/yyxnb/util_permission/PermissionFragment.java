@@ -17,6 +17,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class PermissionFragment extends Fragment {
     public static final int PERMISSION_REQUEST_CODE = 1001;
     public static final int REQUEST_PERMISSION_SETTING = 1002;
     private PermissionListener permissionCheckListener;
-    private Activity mContext;
+    private WeakReference<Activity> mContext;
 
     private PermissionConfig checkConfig;
 
@@ -54,7 +55,7 @@ public class PermissionFragment extends Fragment {
      */
     public void start(Activity activity) {
         if (activity != null) {
-            mContext = activity;
+            mContext = new WeakReference<>(activity);
             if (Looper.getMainLooper() != Looper.myLooper()) {
                 return;
             }
@@ -66,7 +67,7 @@ public class PermissionFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        forceDeniedPermissionTips = "请前往设置->应用->【" + PermissionUtils.getAppName(mContext) + "】->权限中打开相关权限，否则功能无法正常运行！";
+        forceDeniedPermissionTips = "请前往设置->应用->【" + PermissionUtils.getAppName(mContext.get()) + "】->权限中打开相关权限，否则功能无法正常运行！";
 
         //获取传输过来的权限
         permissions = this.getArguments().getStringArray("permissions");
@@ -100,7 +101,7 @@ public class PermissionFragment extends Fragment {
                     grantedPermissions.add(permission);
                 } else {
                     //授权拒绝
-                    if (!ActivityCompat.shouldShowRequestPermissionRationale(mContext, permission)) {
+                    if (!ActivityCompat.shouldShowRequestPermissionRationale(mContext.get(), permission)) {
                         forceDeniedPermissions.add(permission);
                     } else {
                         normalDeniedPermissions.add(permission);
@@ -123,7 +124,7 @@ public class PermissionFragment extends Fragment {
 //                            deniedString.append(forceDeniedPermission + ",");
 //                        }
 //                        String denied = deniedString.substring(0, deniedString.length() - 1);
-                        new AlertDialog.Builder(mContext)
+                        new AlertDialog.Builder(mContext.get())
                                 .setTitle("警告")
                                 .setMessage(checkConfig == null ? forceDeniedPermissionTips : checkConfig.getForceDeniedPermissionTips())
                                 .setCancelable(false)
@@ -155,7 +156,7 @@ public class PermissionFragment extends Fragment {
 
     private void openSettingPage() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        Uri uri = Uri.fromParts("package", mContext.getPackageName(), null);
+        Uri uri = Uri.fromParts("package", mContext.get().getPackageName(), null);
         intent.setData(uri);
         startActivityForResult(intent, REQUEST_PERMISSION_SETTING);
     }
@@ -164,14 +165,14 @@ public class PermissionFragment extends Fragment {
         if (permissionCheckListener != null) {
             permissionCheckListener.permissionRequestSuccess();
         }
-        mContext.getFragmentManager().beginTransaction().remove(this).commit();
+        mContext.get().getFragmentManager().beginTransaction().remove(this).commit();
     }
 
     private void requestPermissionsFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
         if (permissionCheckListener != null) {
             permissionCheckListener.permissionRequestFail(grantedPermissions, deniedPermissions, forceDeniedPermissions);
         }
-        mContext.getFragmentManager().beginTransaction().remove(this).commit();
+        mContext.get().getFragmentManager().beginTransaction().remove(this).commit();
     }
 
     /**

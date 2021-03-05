@@ -31,7 +31,9 @@ include ':module-main',
         // 资讯
         ':module-news',
         // 组件演示
-        ':module-widget'
+        ':module-widget',
+        // 本地Http Api
+        ':module-server'
 
 //============ 功能、控件
 

@@ -44,7 +44,7 @@ public class OkHttpUtils extends AbsOkHttp {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private final Gson mGson;
 
-    private List<Cookie> cookies = new ArrayList<>();
+    private List<Cookie> cookies;
     private Map<String, String> headers = new HashMap<>();
 
     public OkHttpUtils setHeaders(Map<String, String> headers) {
@@ -55,6 +55,7 @@ public class OkHttpUtils extends AbsOkHttp {
     private OkHttpUtils() {
         mOkHttpClient = okHttpClient();
         mGson = GsonUtils.getGson();
+        cookies = new ArrayList<>();
     }
 
     public static OkHttpUtils getInstance() {
@@ -80,6 +81,15 @@ public class OkHttpUtils extends AbsOkHttp {
 
     public List<Cookie> getCookies() {
         return cookies;
+    }
+
+    public void setCookies(List<Cookie> cookies) {
+        this.cookies = cookies;
+    }
+
+    public void clearCookies() {
+        this.cookies = new ArrayList<>();
+        this.cookieStore = new HashMap<>();
     }
 
     /**

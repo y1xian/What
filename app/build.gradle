@@ -57,6 +57,7 @@ dependencies {
     addComponent 'module-mall'
     addComponent 'module-live'
     addComponent 'module-widget'
+    addComponent 'module-server'
 
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.5'
     implementation 'com.tencent.tinker:tinker-android-lib:1.9.9'

@@ -1,7 +1,8 @@
 package com.yyxnb.lib_file.download;
 
-import android.os.Environment;
 import android.text.TextUtils;
+
+import com.yyxnb.util_app.AppUtils;
 
 import java.io.File;
 import java.util.HashMap;
@@ -13,7 +14,9 @@ import java.util.Map;
 public class DownloadManager {
 
     //默认下载目录
-    private final String DEFAULT_FILE_DIR = Environment.getExternalStorageDirectory().getAbsolutePath()
+//    private final String DEFAULT_FILE_DIR = Environment.getDownloadCacheDirectory().getAbsolutePath()
+    // /storage/emulated/0/Android/data/package/files/download/
+    private final String DEFAULT_FILE_DIR = AppUtils.getApp().getExternalFilesDir(null).getAbsolutePath()
             + File.separator + "download" + File.separator;
     //文件下载任务索引，String为url,用来唯一区别并操作下载的文件
     private Map<String, DownloadTask> mDownloadTasks;
@@ -107,6 +110,7 @@ public class DownloadManager {
             fileName = getFileName(url);
         }
         mDownloadTasks.put(url, new DownloadTask(new FilePoint(url, filePath, fileName), l));
+        mDownloadTasks.get(url).start();
     }
 
     /**

@@ -1,0 +1,28 @@
+ext.isLibrary = true
+apply from: rootProject.file('module.gradle')
+apply plugin: 'com.yanzhenjie.andserver'
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_server'
+        }
+    }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "server_"
+
+}
+
+dependencies {
+    implementation project(':common-base')
+    // 路由
+    implementation libs.arouter_api
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    annotationProcessor libs.arouter_compiler
+    // https://github.com/yanzhenjie/AndServer
+    implementation 'com.yanzhenjie.andserver:api:2.1.8'
+    annotationProcessor 'com.yanzhenjie.andserver:processor:2.1.8'
+}

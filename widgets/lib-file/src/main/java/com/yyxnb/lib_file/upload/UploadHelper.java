@@ -3,6 +3,7 @@ package com.yyxnb.lib_file.upload;
 import com.yyxnb.util_okhttp.AbsOkHttp;
 
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,6 +34,20 @@ public class UploadHelper extends AbsOkHttp {
         return null;
     }
 
+
+    public void upload(String url, List<String> fileNames, RequestBody requestBody, Callback callback) throws IOException {
+
+    }
+
+
+    /**
+     * 文件上传
+     *
+     * @param url
+     * @param requestBody
+     * @param callback
+     * @throws IOException
+     */
     public void upload(String url, RequestBody requestBody, Callback callback) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
