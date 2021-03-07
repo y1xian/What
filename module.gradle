@@ -235,7 +235,7 @@ dependencies {
     }
 
     if (!isLibrary) {
-        implementation project(':common_res')
+        implementation project(':common-res')
         //组件中依赖阿里路由编译框架
         annotationProcessor libs.arouter_compiler
         annotationProcessor libs.room_compiler
