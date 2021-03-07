@@ -1,0 +1,28 @@
+apply from: rootProject.file('module.gradle')
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_joke'
+        }
+    }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "joke_"
+
+}
+
+dependencies {
+
+    if (runAsApp) {
+        //模块化下需要引用到的模块
+        addComponent 'module-user'
+        addComponent 'module-login'
+        addComponent 'module-chat'
+    }
+
+    implementation libs.lib_video
+    implementation libs.material
+
+}

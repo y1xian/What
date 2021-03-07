@@ -1,0 +1,43 @@
+ext.isLibrary = true
+apply from: rootProject.file('module.gradle')
+
+dependencies {
+
+    // 基类
+    api project(':common-base')
+
+    api libs.cardview
+
+    // 内存泄漏检测
+    debugImplementation libs.leak_canary_debug
+
+    // room 数据库
+    api libs.room
+    annotationProcessor libs.room_compiler
+
+    // 路由
+    api libs.arouter_api
+    annotationProcessor libs.arouter_compiler
+
+    // 圆角图片 https://github.com/vinc3m1/RoundedImageView
+    api('com.makeramen:roundedimageview:2.3.0') {
+        exclude group: 'com.android.support'
+    }
+
+    // 网页 https://github.com/yangchong211/YCWebView
+//    implementation 'cn.yc:WebViewLib:1.2.7'
+
+    // 刷新框架  https://github.com/scwang90/SmartRefreshLayout
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    api 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    api 'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
+
+    // 通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
+    api 'com.noober.background:core:1.6.5'
+
+    //https://github.com/hackware1993/MagicIndicator
+    api 'com.github.hackware1993:MagicIndicator:1.6.0'
+
+    // 轮播  https://github.com/youth5201314/banner/tree/release-1.4.10
+    api 'com.youth.banner:banner:1.4.10'
+}

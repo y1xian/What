@@ -1,37 +1,38 @@
 include ':app',
         // 纯基类
-        ':common_base',
+        ':common-base',
         // 存放通用组件和资源
-        ':common_res'
+        ':common-res'
 
 //============ 业务模块
 
 // 主界面
-include ':module_main',
+include ':module-main',
         // 用户
-        ':module_user',
+        ':module-user',
         // 视频
-        ':module_video',
+        ':module-video',
         // 登录
-        ':module_login',
+        ':module-login',
         // 聊天
-        ':module_chat',
+        ':module-chat',
         // 小说
-        ':module_novel',
+        ':module-novel',
         // 音乐
-        ':module_music',
+        ':module-music',
         // 段子
-        ':module_joke',
+        ':module-joke',
         // 玩安卓
-        ':module_wanandroid',
+        ':module-wanandroid',
         // 直播
-        ':module_live',
+        ':module-live',
         // 商城
-        ':module_mall',
+        ':module-mall',
         // 资讯
-        ':module_news',
+        ':module-news',
         // 组件演示
-        ':module_widget'
+        ':module-widget'
+
 
 //============ 第三方资源
 
@@ -40,6 +41,6 @@ include ':opensource:easeui'
 
 
 // 皮肤资源
-include ':skins:skin_night'
+include ':skins:skin-night'
 
 rootProject.name = 'What'

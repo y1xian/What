@@ -1,0 +1,39 @@
+apply from: rootProject.file('module.gradle')
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_chat'
+        }
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "chat_"
+
+    // 项目中依赖的第三方库越来越多时，有可能会出现两个依赖库中存在同一个（名称）文件 如果这样，Gradle在打包时就会提示错误（警告）。
+    // 那么就可以根据提示，然后使用以下方法将重复的文件剔除
+    packagingOptions {
+        // pickFirsts:当出现重复文件，会使用第一个匹配的文件打包进入apk
+        pickFirst 'lib/armeabi-v7a/libhyphenate.so'
+        pickFirst 'lib/armeabi-v7a/libhyphenate_av.so'
+        pickFirst 'lib/armeabi-v7a/libsqlite.so'
+    }
+
+}
+
+dependencies {
+
+    if (runAsApp) {
+        //模块化下需要引用到的模块
+        addComponent 'module-user'
+        addComponent 'module-login'
+    }
+
+    // 环信ui sdk
+    implementation project(':opensource:easeui')
+
+}
