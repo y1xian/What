@@ -12,12 +12,9 @@ import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_image_loader.ImageManager;
 import com.yyxnb.util_app.AppUtils;
-
-import java.util.concurrent.ExecutorService;
+import com.yyxnb.util_core.UITask;
 
 import me.jessyan.autosize.AutoSizeConfig;
-
-import static java.util.concurrent.Executors.newFixedThreadPool;
 
 /**
  * ================================================
@@ -27,19 +24,6 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
  * ================================================
  */
 public class BaseApplication extends Application {
-
-    /**
-     * 返回可用处理器的Java虚拟机的数量
-     */
-    public static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    /**
-     * 线程池中至少有2个线程，最多4个线程
-     */
-    public static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
-    /**
-     * 创建容器大小为n的线程池，表示正在执行中的线程只有n个
-     */
-    public static final ExecutorService SERVICE = newFixedThreadPool(CORE_POOL_SIZE);
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -52,7 +36,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        SERVICE.submit(() -> {
+        UITask.run(() -> {
             // 布局
             AutoSizeConfig.getInstance()
                     //按照宽度适配 默认true
@@ -63,7 +47,7 @@ public class BaseApplication extends Application {
             // 侧滑监听
             AppUtils.getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
         });
-        SERVICE.submit(() -> {
+        UITask.run(() -> {
             // 图片框架 集成glide
             ImageManager.getInstance().init(this.getApplicationContext());
 

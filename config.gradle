@@ -46,7 +46,7 @@ ext {
             robolectric   : '3.3.2',
             junit         : '4.12',
 
-            hutool        : '5.5.8'
+            hutool        : '5.5.9'
     ]
 
     build_plugins = [

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.yyxnb.util_core.AppExecutors;
+import com.yyxnb.util_core.UITask;
 import com.yyxnb.util_okhttp.utils.GsonUtils;
 import com.yyxnb.util_okhttp.utils.HttpCallBack;
 
@@ -225,7 +225,7 @@ public class OkHttpUtils extends AbsOkHttp {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                AppExecutors.getInstance().networkIO().submit(() -> callBack.onFailure(request, e));
+                UITask.run(() -> callBack.onFailure(request, e));
             }
 
             @Override
@@ -234,20 +234,20 @@ public class OkHttpUtils extends AbsOkHttp {
                     String resultStr = response.body().string();
                     if (callBack.mType == String.class) {
                         // 如果想要返回字符串 直接返回就行
-                        AppExecutors.getInstance().networkIO().submit(() -> callBack.onSuccess(response, resultStr));
+                        UITask.run(() -> callBack.onSuccess(response, resultStr));
                     } else {
                         // 需要返回解析好的javaBean集合
                         try {
                             // 此处暂时写成object，使用时返回具体的带泛型的集合
                             Object obj = mGson.fromJson(resultStr, callBack.mType);
-                            AppExecutors.getInstance().networkIO().submit(() -> callBack.onSuccess(response, obj));
+                            UITask.run(() -> callBack.onSuccess(response, obj));
                         } catch (Exception e) {
                             // 解析错误时
-                            AppExecutors.getInstance().networkIO().submit(() -> callBack.onError(response, e));
+                            UITask.run(() -> callBack.onError(response, e));
                         }
                     }
                 } else {
-                    AppExecutors.getInstance().networkIO().submit(() -> callBack.onError(response, new Exception("false")));
+                    UITask.run(() -> callBack.onError(response, new Exception("false")));
                 }
             }
         });

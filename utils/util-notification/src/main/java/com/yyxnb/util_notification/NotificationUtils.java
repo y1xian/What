@@ -56,8 +56,8 @@ public class NotificationUtils extends ContextWrapper {
         notify(builder);
     }
 
-    public void notify(Intent intent) {
-        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+    public void notify(Intent intent, int requestCode) {
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         notify(builder.setContentIntent(pendingIntent));
     }
 
@@ -105,6 +105,7 @@ public class NotificationUtils extends ContextWrapper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(channelId, "channel_name", importance);
             notificationManager.createNotificationChannel(channel);
+            builder.setChannelId(channelId);
         }
     }
 

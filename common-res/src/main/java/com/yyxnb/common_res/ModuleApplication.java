@@ -17,6 +17,7 @@ import com.yyxnb.common_res.weight.skin.ExtraAttrRegister;
 import com.yyxnb.lib_skinloader.SkinManager;
 import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.util_cache.KvUtils;
+import com.yyxnb.util_core.UITask;
 
 import static com.yyxnb.common_res.config.Constants.SKIN_PATH;
 
@@ -33,7 +34,7 @@ public class ModuleApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        SERVICE.submit(() -> {
+        UITask.run(() -> {
             //初始化阿里路由框架
             if (AppUtils.isDebug()) {
                 ARouter.openLog();     // 打印日志
@@ -44,7 +45,7 @@ public class ModuleApplication extends BaseApplication {
 
             KvUtils.initialize(this.getApplicationContext());
         });
-        SERVICE.submit(() -> {
+        UITask.run(() -> {
             // 换肤
             ExtraAttrRegister.init();
 //        SkinConfig.DEBUG = true;
