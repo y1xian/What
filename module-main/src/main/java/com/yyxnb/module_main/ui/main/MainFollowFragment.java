@@ -33,6 +33,6 @@ public class MainFollowFragment extends BaseFragment {
     public void initViewData() {
         binding = getBinding();
 
-        binding.iRv.vStatus.showEmptyView();
+        binding.iRvContent.vStatus.showEmptyView();
     }
 }

@@ -34,17 +34,15 @@ public class ModuleApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        UITask.run(() -> {
-            //初始化阿里路由框架
-            if (AppUtils.isDebug()) {
-                ARouter.openLog();     // 打印日志
-                ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-            }
-            // 尽可能早，推荐在Application中初始化
-            ARouter.init(this);
+        //初始化阿里路由框架
+        if (AppUtils.isDebug()) {
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        // 尽可能早，推荐在Application中初始化
+        ARouter.init(this);
 
-            KvUtils.initialize(this.getApplicationContext());
-        });
+        KvUtils.initialize(this.getApplicationContext());
         UITask.run(() -> {
             // 换肤
             ExtraAttrRegister.init();

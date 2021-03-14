@@ -48,6 +48,7 @@ public class GsonUtils {
                     .registerTypeAdapter(String.class, new StringNullAdapter())
 //                    .registerTypeAdapterFactory(new NullStringToEmptyAdapterFactory())
 //                    .disableHtmlEscaping()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
                     .create();
         }
     }

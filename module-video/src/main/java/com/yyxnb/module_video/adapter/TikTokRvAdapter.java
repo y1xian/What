@@ -46,7 +46,7 @@ public class TikTokRvAdapter extends BaseAdapter<TikTokBean> {
 
         mThumb = mTikTokView.getView().findViewById(R.id.iv_thumb);
         mPlayerContainer = mTikTokView.findViewById(R.id.container);
-        mTitle = mTikTokView.findViewById(R.id.tv_title);
+        mTitle = mTikTokView.findViewById(R.id.tvTitle);
         tvLikeCount = mTikTokView.findViewById(R.id.tvLikeCount);
         tvCommentCount = mTikTokView.findViewById(R.id.tvCommentCount);
         mThumb = mTikTokView.findViewById(R.id.iv_thumb);

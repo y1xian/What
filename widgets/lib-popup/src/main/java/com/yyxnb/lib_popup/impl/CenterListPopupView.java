@@ -49,13 +49,13 @@ public class CenterListPopupView extends CenterPopupView {
     @Override
     protected void initPopupContent() {
         super.initPopupContent();
-        recyclerView = findViewById(R.id.rv_content);
+        recyclerView = findViewById(R.id.rvContent);
         if (recyclerView instanceof VerticalRecyclerView) {
             ((VerticalRecyclerView) recyclerView).setupDivider(popupInfo.isDarkTheme);
         } else {
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         }
-        tv_title = findViewById(R.id.tv_title);
+        tv_title = findViewById(R.id.tvTitle);
 
         if (tv_title != null) {
             if (TextUtils.isEmpty(title)) {

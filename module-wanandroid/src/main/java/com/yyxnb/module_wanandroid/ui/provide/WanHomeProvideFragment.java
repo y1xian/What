@@ -38,6 +38,6 @@ public class WanHomeProvideFragment extends WanHomeFragment {
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
         mViewModel = ViewModelFactory.createViewModel(this, WanHomeViewModel.class);
-        findViewById(R.id.cl_head).setVisibility(View.GONE);
+        findViewById(R.id.clHead).setVisibility(View.GONE);
     }
 }

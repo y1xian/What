@@ -26,6 +26,8 @@ dependencies {
     api project(":utils:util-okhttp")
     // 通知栏
     api project(":utils:util-notification")
+    // 服务
+    api project(":utils:util-service")
     // rxjava封装
     api project(":utils:util-rxtool")
     // 任务队列

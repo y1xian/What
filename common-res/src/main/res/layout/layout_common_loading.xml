@@ -16,7 +16,7 @@
         android:gravity="center">
 
         <android.support.v4.widget.ContentLoadingProgressBar
-            android:id="@+id/v_loading"
+            android:id="@+id/vLoading"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="25dp"
             android:layout_height="25dp"

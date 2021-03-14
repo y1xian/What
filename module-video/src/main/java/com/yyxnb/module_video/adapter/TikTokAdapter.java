@@ -181,7 +181,7 @@ public class TikTokAdapter extends PagerAdapter {
 
         ViewHolder(View itemView) {
             mTikTokView = itemView.findViewById(R.id.tiktok_View);
-            mTitle = mTikTokView.findViewById(R.id.tv_title);
+            mTitle = mTikTokView.findViewById(R.id.tvTitle);
             tvLikeCount = mTikTokView.findViewById(R.id.tvLikeCount);
             tvCommentCount = mTikTokView.findViewById(R.id.tvCommentCount);
             mThumb = mTikTokView.findViewById(R.id.iv_thumb);

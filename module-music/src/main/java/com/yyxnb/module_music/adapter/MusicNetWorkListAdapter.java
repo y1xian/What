@@ -14,7 +14,7 @@ public class MusicNetWorkListAdapter extends BaseAdapter<MusicBean> {
 
     @Override
     protected void bind(BaseViewHolder holder, MusicBean item, int position) {
-        holder.setText(R.id.tv_title, item.title)
+        holder.setText(R.id.tvTitle, item.title)
                 .setText(R.id.tv_anchor, item.author);
     }
 

@@ -91,7 +91,7 @@ public class NovelReadSettingDialog {
             mRbSlide = findViewById(R.id.read_setting_rb_slide);
             mRbScroll = findViewById(R.id.read_setting_rb_scroll);
             mRbNone = findViewById(R.id.read_setting_rb_none);
-            mRecyclerView = findViewById(R.id.rv_content);
+            mRecyclerView = findViewById(R.id.rvContent);
 
 
             initData();

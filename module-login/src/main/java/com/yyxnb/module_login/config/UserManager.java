@@ -4,16 +4,19 @@ import com.yyxnb.common_res.bean.UserBean;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.util_cache.KvUtils;
 
+import cn.hutool.core.util.StrUtil;
+
 import static com.yyxnb.common_res.config.Constants.USER_ID;
+import static com.yyxnb.common_res.config.Constants.USER_TOKEN;
 
 public class UserManager {
 
     private static volatile UserManager manager;
 
     public static UserManager getInstance() {
-        if (manager == null){
-            synchronized (UserManager.class){
-                if (manager == null){
+        if (manager == null) {
+            synchronized (UserManager.class) {
+                if (manager == null) {
                     manager = new UserManager();
                 }
             }
@@ -39,24 +42,29 @@ public class UserManager {
     }
 
     public void setUserBean(UserBean userBean) {
-        KvUtils.save(USER_ID,userBean.userId);
+        KvUtils.save(USER_ID, userBean.userId);
         this.userBean = userBean;
     }
 
     // 是否登录
     public boolean isLogin() {
-        return getUserBean().isLogin;
+        return StrUtil.isNotBlank(token());
     }
 
     // token
     public String token() {
-        return getUserBean().token;
+        return KvUtils.get(USER_TOKEN, "");
+    }
+
+    public void setToken(String token) {
+        KvUtils.save(USER_TOKEN, token);
     }
 
     // 退出登录
     public void loginOut() {
         AppDatabase.getInstance().userDao().deleteItem(userBean);
         KvUtils.remove(USER_ID);
+        KvUtils.remove(USER_TOKEN);
         userBean = null;
     }
 }

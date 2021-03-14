@@ -8,6 +8,7 @@ android {
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
+            // 把生成的apk放到 module-user 模块，assets/skins/night.apk
             outputFileName = "night.apk"
         }
     }

@@ -34,7 +34,7 @@ public class InputConfirmPopupView extends ConfirmPopupView implements View.OnCl
     @Override
     protected void initPopupContent() {
         super.initPopupContent();
-        et_input = findViewById(R.id.et_input);
+        et_input = findViewById(R.id.etInput);
         et_input.setVisibility(VISIBLE);
         if(!TextUtils.isEmpty(hint)){
             et_input.setHint(hint);

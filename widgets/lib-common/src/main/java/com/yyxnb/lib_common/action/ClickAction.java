@@ -3,6 +3,8 @@ package com.yyxnb.lib_common.action;
 import android.support.annotation.IdRes;
 import android.view.View;
 
+import com.yyxnb.util_common.ClickUtils;
+
 /**
  * 点击事件意图
  *
@@ -15,6 +17,15 @@ public interface ClickAction extends View.OnClickListener {
     @Override
     default void onClick(View v) {
         // 默认不实现，让子类实现
+        if (ClickUtils.isFastClick()) {
+            onClickEvent(v);
+        }
+    }
+
+    /**
+     * 防止过快点击
+     */
+    default void onClickEvent(View v) {
     }
 
     default void setOnClickListener(@IdRes int... ids) {

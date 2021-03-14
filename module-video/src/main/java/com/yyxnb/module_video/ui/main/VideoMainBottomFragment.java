@@ -91,7 +91,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
         FragmentTransaction ft = mFragmentManager.beginTransaction();
         for (int i = 0, size = mSparseArray.size(); i < size; i++) {
             Fragment fragment = mSparseArray.valueAt(i);
-            ft.add(R.id.fl_content, fragment);
+            ft.add(R.id.flContent, fragment);
             if (mSparseArray.keyAt(i) == mCurKey) {
                 ft.show(fragment);
             } else {
@@ -131,13 +131,13 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.btn_home) {
+        if (id == R.id.btnHome) {
             toggleHome();
-        } else if (id == R.id.btn_find) {
+        } else if (id == R.id.btnFind) {
             toggleFind();
-        } else if (id == R.id.btn_msg) {
+        } else if (id == R.id.btnMsg) {
             toggleMsg();
-        } else if (id == R.id.btn_me) {
+        } else if (id == R.id.btnMe) {
             toggleMe();
         } else if (id == R.id.iv_record_tip) {
             // 跳录制

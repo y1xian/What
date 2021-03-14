@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.module_main.R;
@@ -25,7 +24,6 @@ public class SplashActivity extends AppCompatActivity implements IActivity {
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
         // 白屏时间 + 2秒进入首页 ≈ 3~5秒
-        Log.e("SplashActivity", "22222222222222222222222222");
         handler.sendEmptyMessageDelayed(1, 2 * 1000);
     }
 
