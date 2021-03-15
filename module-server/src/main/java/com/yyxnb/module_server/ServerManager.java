@@ -1,4 +1,4 @@
-package com.yyxnb.module_server.service;
+package com.yyxnb.module_server;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import com.yyxnb.module_server.service.ServerService;
 import com.yyxnb.util_app.AppUtils;
 
 import java.io.File;
