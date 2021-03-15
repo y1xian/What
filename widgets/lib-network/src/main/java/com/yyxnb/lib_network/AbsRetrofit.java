@@ -9,7 +9,6 @@ import okhttp3.OkHttpClient;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -62,7 +61,7 @@ public abstract class AbsRetrofit extends AbsOkHttp {
         }
 
         builder.baseUrl(baseUrl())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(new LiveDataCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create(GsonUtils.getGson()))
                 .client(okHttpClient());
 

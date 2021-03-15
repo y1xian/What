@@ -10,9 +10,11 @@ public class Constants {
     // 游客id
     public static final int TOURIST_ID = 666;
 
-
+    // 皮肤路径
     public static final String SKIN_PATH = "SKIN_PATH";
+
     public static final String USER_ID = "USER_ID";
+    public static final String USER_TOKEN = "USER_TOKEN";
 
     //视频模块 底部vp
     public static final int KEY_VIDEO_BOTTOM_VP = 0x1;

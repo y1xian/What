@@ -27,7 +27,7 @@ public class ConfirmPopupView extends CenterPopupView implements View.OnClickLis
 
     /**
      * @param context
-     * @param bindLayoutId layoutId 要求布局中必须包含的TextView以及id有：tv_title，tv_content，tv_cancel，tv_confirm
+     * @param bindLayoutId layoutId 要求布局中必须包含的TextView以及id有：tvTitle，tv_content，tv_cancel，tv_confirm
      */
     public ConfirmPopupView(@NonNull Context context, int bindLayoutId) {
         super(context);
@@ -43,7 +43,7 @@ public class ConfirmPopupView extends CenterPopupView implements View.OnClickLis
     @Override
     protected void initPopupContent() {
         super.initPopupContent();
-        tv_title = findViewById(R.id.tv_title);
+        tv_title = findViewById(R.id.tvTitle);
         tv_content = findViewById(R.id.tv_content);
         tv_cancel = findViewById(R.id.tv_cancel);
         tv_confirm = findViewById(R.id.tv_confirm);
@@ -92,7 +92,7 @@ public class ConfirmPopupView extends CenterPopupView implements View.OnClickLis
     }
 
     public TextView getTitleTextView() {
-        return findViewById(R.id.tv_title);
+        return findViewById(R.id.tvTitle);
     }
 
     public TextView getContentTextView() {

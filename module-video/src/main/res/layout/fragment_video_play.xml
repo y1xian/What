@@ -14,7 +14,7 @@
         tools:context=".ui.play.VideoPlayFragment">
 
         <com.yyxnb.module_video.widget.VerticalViewPager
-            android:id="@+id/vp_content"
+            android:id="@+id/vpContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

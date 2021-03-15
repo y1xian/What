@@ -19,8 +19,8 @@ public class WanSystemAdapter extends BaseAdapter<WanSystemBean> {
 
     @Override
     protected void bind(BaseViewHolder holder, WanSystemBean bean, int position) {
-        holder.setText(R.id.tv_title, bean.name);
-        FlowlayoutTags mFlowlayout = holder.getView(R.id.v_flow);
+        holder.setText(R.id.tvTitle, bean.name);
+        FlowlayoutTags mFlowlayout = holder.getView(R.id.flowLayout);
         List<String> tags = new ArrayList<>();
         for (WanClassifyBean classifyBean : bean.children) {
             tags.add(classifyBean.name);

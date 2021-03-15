@@ -56,8 +56,8 @@ public class WanHomeFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRefreshLayout = binding.iRv.srlContent;
-        mRecyclerView = binding.iRv.rvContent;
+        mRefreshLayout = binding.iRvContent.srlContent;
+        mRecyclerView = binding.iRvContent.rvContent;
 
 //        mRefreshLayout.setEnablePureScrollMode(false)
 //                .setEnableRefresh(true).setEnableLoadMore(true);
@@ -75,7 +75,7 @@ public class WanHomeFragment extends BaseFragment {
         mRecyclerView.setAdapter(mAdapter);
 
         View mHeader = LayoutInflater.from(getContext()).inflate(R.layout.item_home_header_layout, mRecyclerView, false);
-        mBanner = mHeader.findViewById(R.id.v_banner);
+        mBanner = mHeader.findViewById(R.id.banner);
         mBanner.setImageLoader(new GlideImageLoader());
         mAdapter.addHeaderView(mHeader);
 

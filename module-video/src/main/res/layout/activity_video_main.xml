@@ -7,7 +7,7 @@
     </data>
 
     <com.yyxnb.common_res.weight.NoScrollViewPager
-        android:id="@+id/vp_content"
+        android:id="@+id/vpContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.VideoActivity">

@@ -13,11 +13,11 @@
         tools:context="com.yyxnb.module_wanandroid.ui.home.WanAriticleListFragment">
 
         <include
-            android:id="@+id/i_title"
+            android:id="@+id/iTitle"
             layout="@layout/include_title_layout" />
 
         <include
-            android:id="@+id/i_rv"
+            android:id="@+id/iRvContent"
             layout="@layout/include_srl_rv_layout" />
 
     </LinearLayout>

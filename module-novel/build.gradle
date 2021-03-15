@@ -22,5 +22,6 @@ dependencies {
     }
 
     implementation project(':widgets:lib-dialog')
+    implementation project(':utils:util-rxtool')
 
 }

@@ -38,7 +38,6 @@ public class VideoViewModel extends CommonViewModel {
 //                AppConfig.getInstance().log(msg);
 //            }
 //        });
-        list(DataConfig.getTikTokBeans());
         mVideoDao.insertItems(DataConfig.getTikTokBeans());
 
 

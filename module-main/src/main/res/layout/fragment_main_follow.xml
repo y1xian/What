@@ -14,11 +14,11 @@
         tools:context=".ui.main.MainFollowFragment">
 
         <include
-            android:id="@+id/i_title"
+            android:id="@+id/iTitle"
             layout="@layout/include_main_home_title_layout" />
 
         <include
-            android:id="@+id/i_rv"
+            android:id="@+id/iRvContent"
             layout="@layout/include_srl_status_rv_layout" />
 
     </LinearLayout>

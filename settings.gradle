@@ -103,6 +103,8 @@ include ':utils:util-all',
         ':utils:util-permission',
         // 通知栏
         ':utils:util-notification',
+        // 封装服务
+        ':utils:util-service',
         // 不常用工具，堆放着，用时再说
         ':utils:util-other'
 

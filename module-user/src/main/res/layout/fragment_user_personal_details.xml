@@ -23,7 +23,7 @@
         tools:context=".ui.UserPersonalDetailsFragment">
 
         <include
-            android:id="@+id/i_title"
+            android:id="@+id/iTitle"
             layout="@layout/include_title_layout" />
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout

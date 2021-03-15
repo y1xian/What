@@ -16,13 +16,12 @@ android {
 }
 
 dependencies {
-    implementation project(':common-base')
-    // 路由
-    implementation libs.arouter_api
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    annotationProcessor libs.arouter_compiler
+    implementation project(':common-base'), project(':utils:util-service')
+    implementation libs.hutool_core
+    annotationProcessor libs.room_compiler
+
     // https://github.com/yanzhenjie/AndServer
+    // https://yanzhenjie.com/AndServer/
     implementation 'com.yanzhenjie.andserver:api:2.1.8'
     annotationProcessor 'com.yanzhenjie.andserver:processor:2.1.8'
 }

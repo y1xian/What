@@ -123,7 +123,7 @@ public class MainTestFragment extends BaseFragment {
                 switch (mAdapter.getData().get(position).id) {
                     case 1:
                         // 搜索
-                        ConstraintLayout mLayout = holder.getView(R.id.cl_content);
+                        ConstraintLayout mLayout = holder.getView(R.id.clContent);
                         Intent intent = new Intent(getContext(), MainSearchActivity.class);
                         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity(), mLayout, "transitionSearch").toBundle());
                         break;

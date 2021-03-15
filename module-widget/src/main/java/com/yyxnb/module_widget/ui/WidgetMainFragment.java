@@ -42,7 +42,7 @@ public class WidgetMainFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mTabLayout = binding.vTabLayout;
+        mTabLayout = binding.tabLayout;
 
         if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
             PermissionUtils.with(getActivity())
@@ -87,7 +87,7 @@ public class WidgetMainFragment extends BaseFragment {
         ft.hide(fragments.get(currentIndex));
         //判断Fragment是否已经添加
         if (!fragments.get(index).isAdded()) {
-            ft.add(R.id.fl_content, fragments.get(index)).show(fragments.get(index));
+            ft.add(R.id.flContent, fragments.get(index)).show(fragments.get(index));
         } else {
             //显示新的Fragment
             ft.show(fragments.get(index));

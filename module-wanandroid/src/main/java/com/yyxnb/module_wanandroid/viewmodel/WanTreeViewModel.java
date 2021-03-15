@@ -23,7 +23,7 @@ public class WanTreeViewModel extends CommonViewModel {
 
     public void getSquareData(int page){
 
-        launchOnlyResult(mApi.getSquareData(page), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getSquareData(page), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
             public void success(WanData<WanStatus<WanAriticleBean>> data) {
                 squareData.postValue(data.getResult());
@@ -31,14 +31,13 @@ public class WanTreeViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }
 
     public void getSystemData(){
 
-        launchOnlyResult(mApi.getSystemData(), new OnHandleException<WanData<List<WanSystemBean>>>() {
+        launchOnlyResult(mApi.getSystemData(), new HttpResponseCallback<WanData<List<WanSystemBean>>>() {
             @Override
             public void success(WanData<List<WanSystemBean>> data) {
                 systemData.postValue(data.getResult());
@@ -46,14 +45,13 @@ public class WanTreeViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }
 
     public void getNavigationData(){
 
-        launchOnlyResult(mApi.getNavigationData(), new OnHandleException<WanData<List<WanNavigationBean>>>() {
+        launchOnlyResult(mApi.getNavigationData(), new HttpResponseCallback<WanData<List<WanNavigationBean>>>() {
             @Override
             public void success(WanData<List<WanNavigationBean>> data) {
                 navigationData.postValue(data.getResult());
@@ -61,7 +59,6 @@ public class WanTreeViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }

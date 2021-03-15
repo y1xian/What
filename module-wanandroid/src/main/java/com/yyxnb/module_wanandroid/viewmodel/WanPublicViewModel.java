@@ -21,7 +21,7 @@ public class WanPublicViewModel extends CommonViewModel {
 
     public void getPublicTypes() {
 
-        launchOnlyResult(mApi.getPublicTypes(), new OnHandleException<WanData<List<WanClassifyBean>>>() {
+        launchOnlyResult(mApi.getPublicTypes(), new HttpResponseCallback<WanData<List<WanClassifyBean>>>() {
             @Override
             public void success(WanData<List<WanClassifyBean>> data) {
                 publicTypes.postValue(data.getResult());
@@ -29,14 +29,13 @@ public class WanPublicViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }
 
     public void getPublicData(int page, int id) {
 
-        launchOnlyResult(mApi.getPublicData(page, id), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getPublicData(page, id), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
             public void success(WanData<WanStatus<WanAriticleBean>> data) {
                 publicData.postValue(data.getResult());
@@ -44,7 +43,6 @@ public class WanPublicViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }

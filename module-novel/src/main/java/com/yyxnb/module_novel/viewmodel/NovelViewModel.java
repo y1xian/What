@@ -29,7 +29,7 @@ public class NovelViewModel extends CommonViewModel {
     }
 
     public void reqChapterList(String cst) {
-        launchOnlyResult(mApi.getChapterList(cst, BaseConfig.JISU_APPKEY), new OnHandleException<JiSuData<List<BookChapterBean>>>() {
+        launchOnlyResult(mApi.getChapterList(cst, BaseConfig.JISU_APPKEY), new HttpResponseCallback<JiSuData<List<BookChapterBean>>>() {
             @Override
             public void success(JiSuData<List<BookChapterBean>> data) {
                 chapterList.postValue(data.getResult());
@@ -37,14 +37,13 @@ public class NovelViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }
 
     public void reqChapterDetail(String cst, String detailid) {
         launchOnlyResult(mApi.getChapterDetail(cst, BaseConfig.JISU_APPKEY, detailid, "1"),
-                new OnHandleException<JiSuData<BookDetailBean>>() {
+                new HttpResponseCallback<JiSuData<BookDetailBean>>() {
             @Override
             public void success(JiSuData<BookDetailBean> data) {
                 chapterDetail.postValue(data.getResult());
@@ -52,7 +51,6 @@ public class NovelViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }

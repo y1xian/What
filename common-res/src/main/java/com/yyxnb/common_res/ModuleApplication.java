@@ -17,6 +17,7 @@ import com.yyxnb.common_res.weight.skin.ExtraAttrRegister;
 import com.yyxnb.lib_skinloader.SkinManager;
 import com.yyxnb.util_app.AppUtils;
 import com.yyxnb.util_cache.KvUtils;
+import com.yyxnb.util_core.UITask;
 
 import static com.yyxnb.common_res.config.Constants.SKIN_PATH;
 
@@ -33,18 +34,16 @@ public class ModuleApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        SERVICE.submit(() -> {
-            //初始化阿里路由框架
-            if (AppUtils.isDebug()) {
-                ARouter.openLog();     // 打印日志
-                ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-            }
-            // 尽可能早，推荐在Application中初始化
-            ARouter.init(this);
+        //初始化阿里路由框架
+        if (AppUtils.isDebug()) {
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        // 尽可能早，推荐在Application中初始化
+        ARouter.init(this);
 
-            KvUtils.initialize(this.getApplicationContext());
-        });
-        SERVICE.submit(() -> {
+        KvUtils.initialize(this.getApplicationContext());
+        UITask.run(() -> {
             // 换肤
             ExtraAttrRegister.init();
 //        SkinConfig.DEBUG = true;

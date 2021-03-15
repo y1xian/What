@@ -438,7 +438,7 @@ public class PopupManager {
          * @param confirmListener 点击确认的监听器
          * @param cancelListener  点击取消的监听器
          * @param isHideCancel    是否隐藏取消按钮
-         * @param bindLayoutId    自定义的布局Id，没有则传0；要求自定义布局中必须包含的TextView以及id有：tv_title，tv_content，tv_cancel，tv_confirm
+         * @param bindLayoutId    自定义的布局Id，没有则传0；要求自定义布局中必须包含的TextView以及id有：tvTitle，tv_content，tv_cancel，tv_confirm
          * @return
          */
         public ConfirmPopupView asConfirm(CharSequence title, CharSequence content, CharSequence cancelBtnText, CharSequence confirmBtnText, OnConfirmListener confirmListener, OnCancelListener cancelListener, boolean isHideCancel,
@@ -479,7 +479,7 @@ public class PopupManager {
          * @param hint            输入框默认文字
          * @param confirmListener 点击确认的监听器
          * @param cancelListener  点击取消的监听器
-         * @param bindLayoutId    自定义布局的id，没有传0。 要求布局中必须包含的TextView以及id有：tv_title，tv_content，tv_cancel，tv_confirm
+         * @param bindLayoutId    自定义布局的id，没有传0。 要求布局中必须包含的TextView以及id有：tvTitle，tv_content，tv_cancel，tv_confirm
          * @return
          */
         public InputConfirmPopupView asInputConfirm(CharSequence title, CharSequence content, CharSequence inputContent, CharSequence hint, OnInputConfirmListener confirmListener, OnCancelListener cancelListener, int bindLayoutId) {

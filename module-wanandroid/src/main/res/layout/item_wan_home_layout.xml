@@ -32,7 +32,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_author"
+                android:id="@+id/tvAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -45,7 +45,7 @@
                 tools:text="作者" />
 
             <com.noober.background.view.BLTextView
-                android:id="@+id/tv_top"
+                android:id="@+id/tvTop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -57,13 +57,13 @@
                 android:visibility="@{data.type == 1 ? View.VISIBLE : View.GONE}"
                 app:bl_stroke_color="@color/red"
                 app:bl_stroke_width="1dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_author"
-                app:layout_constraintStart_toEndOf="@+id/tv_author"
-                app:layout_constraintTop_toTopOf="@+id/tv_author"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
+                app:layout_constraintStart_toEndOf="@+id/tvAuthor"
+                app:layout_constraintTop_toTopOf="@+id/tvAuthor"
                 tools:visibility="visible" />
 
             <com.noober.background.view.BLTextView
-                android:id="@+id/tv_new"
+                android:id="@+id/tvNew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -75,25 +75,25 @@
                 android:visibility="@{data.fresh ? View.VISIBLE : View.GONE}"
                 app:bl_stroke_color="@color/red"
                 app:bl_stroke_width="1dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_author"
-                app:layout_constraintStart_toEndOf="@+id/tv_top"
-                app:layout_constraintTop_toTopOf="@+id/tv_author" />
+                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
+                app:layout_constraintStart_toEndOf="@+id/tvTop"
+                app:layout_constraintTop_toTopOf="@+id/tvAuthor" />
 
             <TextView
-                android:id="@+id/tv_time"
+                android:id="@+id/tvTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="@{data.niceDate}"
                 android:textColor="@color/colorHint"
                 android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_author"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_author"
+                app:layout_constraintTop_toTopOf="@+id/tvAuthor"
                 tools:text="时间" />
 
             <TextView
-                android:id="@+id/tv_title"
+                android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -104,14 +104,14 @@
                 android:maxLines="2"
                 android:text="@{data.title}"
                 android:textColor="@color/colorTitle"
-                app:layout_constraintBottom_toTopOf="@+id/tv_chapterName"
+                app:layout_constraintBottom_toTopOf="@+id/tvChapterName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_author"
+                app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
                 tools:text="标题" />
 
             <TextView
-                android:id="@+id/tv_chapterName"
+                android:id="@+id/tvChapterName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

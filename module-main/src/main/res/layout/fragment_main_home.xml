@@ -17,12 +17,12 @@
         tools:context=".ui.main.MainHomeFragment">
 
         <com.yyxnb.common_res.weight.NoScrollViewPager
-            android:id="@+id/vp_content"
+            android:id="@+id/vpContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <net.lucode.hackware.magicindicator.MagicIndicator
-            android:id="@+id/v_indicator"
+            android:id="@+id/vIndicator"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:paddingTop="30dp"

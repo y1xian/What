@@ -29,9 +29,11 @@ public interface BaseDao<T> {
      * limit x, y 分句表示: 跳过 x 条数据，读取 y 条数据
      * limit y offset x 分句表示: 跳过 x 条数据，读取 y 条数据
      *
-     * INNER JOIN 【表名】ON
+     * INNER JOIN【表名】ON
      *
-     * UPDATE 【表名】SET xxx WHERE
+     * UPDATE【表名】SET xxx WHERE
+     *
+     * DELETE FROM【表名 WHERE =:【参数名】
      */
 
     /*

@@ -21,7 +21,7 @@ public class WanSearchViewModel extends CommonViewModel {
 
     public void getSearchData() {
 
-        launchOnlyResult(mApi.getSearchData(), new OnHandleException<WanData<List<WanClassifyBean>>>() {
+        launchOnlyResult(mApi.getSearchData(), new HttpResponseCallback<WanData<List<WanClassifyBean>>>() {
             @Override
             public void success(WanData<List<WanClassifyBean>> data) {
                 searchData.postValue(data.getResult());
@@ -29,13 +29,12 @@ public class WanSearchViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }
 
     public void getSearchDataByKey(int page, String key) {
-        launchOnlyResult(mApi.getSearchDataByKey(page, key), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getSearchDataByKey(page, key), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
             public void success(WanData<WanStatus<WanAriticleBean>> data) {
                 searchDataByKey.postValue(data.getResult());
@@ -43,7 +42,6 @@ public class WanSearchViewModel extends CommonViewModel {
 
             @Override
             public void error(String msg) {
-                loge(msg);
             }
         });
     }
