@@ -8,9 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import com.yyxnb.common_base.constants.ArgumentKeys;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.base.IFragment;
-import com.yyxnb.lib_arch.common.ArchConfig;
 
 import java.lang.ref.WeakReference;
 
@@ -53,14 +53,14 @@ public class ContainerActivity extends BaseActivity {
             mFragment = new WeakReference<>(initBaseFragment());
 
             if (mFragment.get() != null) {
-                if (intent.getBundleExtra(ArchConfig.BUNDLE) != null) {
-                    mFragment.get().setArguments(intent.getBundleExtra(ArchConfig.BUNDLE));
+                if (intent.getBundleExtra(ArgumentKeys.BUNDLE) != null) {
+                    mFragment.get().setArguments(intent.getBundleExtra(ArgumentKeys.BUNDLE));
                 }
                 setRootFragment((IFragment) mFragment.get(), android.R.id.content);
                 return;
             }
 
-            String fragmentName = intent.getStringExtra(ArchConfig.FRAGMENT);
+            String fragmentName = intent.getStringExtra(ArgumentKeys.FRAGMENT);
             if (fragmentName.isEmpty()) {
                 throw new IllegalArgumentException("can not find page fragmentName");
             }
@@ -69,8 +69,8 @@ public class ContainerActivity extends BaseActivity {
 
             Fragment fragment = (Fragment) fragmentClass.newInstance();
 
-            if (intent.getBundleExtra(ArchConfig.BUNDLE) != null) {
-                fragment.setArguments(intent.getBundleExtra(ArchConfig.BUNDLE));
+            if (intent.getBundleExtra(ArgumentKeys.BUNDLE) != null) {
+                fragment.setArguments(intent.getBundleExtra(ArgumentKeys.BUNDLE));
             }
 
             setRootFragment((IFragment) fragment, android.R.id.content);

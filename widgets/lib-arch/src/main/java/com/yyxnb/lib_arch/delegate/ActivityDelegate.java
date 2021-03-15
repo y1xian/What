@@ -18,6 +18,7 @@ import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.common.ArchManager;
 import com.yyxnb.lib_arch.common.Bus;
 import com.yyxnb.lib_arch.common.MsgEvent;
+import com.yyxnb.lib_arch.constants.ArgumentKeys;
 import com.yyxnb.util_core.StatusBarUtils;
 import com.yyxnb.lib_common.action.HandlerAction;
 import com.yyxnb.lib_common.interfaces.ILifecycle;
@@ -142,7 +143,7 @@ public class ActivityDelegate implements ILifecycle, HandlerAction {
                 isContainer = bindRes.isContainer();
                 // 如果需要登录，并且处于未登录状态下，发送通知
                 if (needLogin) {
-                    Bus.post(new MsgEvent(ArchConfig.NEED_LOGIN_CODE));
+                    Bus.post(new MsgEvent(ArgumentKeys.NEED_LOGIN_CODE));
                 }
             }
         });

@@ -20,15 +20,6 @@ import java.io.Serializable;
  */
 public class ArchConfig implements Serializable {
 
-    public static final String FRAGMENT = "FRAGMENT";
-    public static final String BUNDLE = "BUNDLE";
-    public static final String MSG_EVENT = "MSG_EVENT";
-
-    /**
-     * 登录code
-     */
-    public static final int NEED_LOGIN_CODE = -100;
-
     /**
      * 侧滑
      */

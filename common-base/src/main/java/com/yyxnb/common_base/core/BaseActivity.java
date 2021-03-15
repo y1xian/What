@@ -15,6 +15,7 @@ import android.view.View;
 import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.yyxnb.common_base.constants.ArgumentKeys;
 import com.yyxnb.lib_arch.action.ArchAction;
 import com.yyxnb.lib_arch.action.BundleAction;
 import com.yyxnb.lib_arch.annotations.SwipeStyle;
@@ -22,13 +23,12 @@ import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.lib_arch.base.IFragment;
 import com.yyxnb.lib_arch.base.Java8Observer;
 import com.yyxnb.lib_arch.common.AppManager;
-import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.delegate.ActivityDelegate;
 import com.yyxnb.lib_common.action.AnimAction;
-import com.yyxnb.util_core.KeyboardUtils;
-import com.yyxnb.lib_skinloader.SkinInflaterFactory;
 import com.yyxnb.lib_common.action.ClickAction;
 import com.yyxnb.lib_common.action.HandlerAction;
+import com.yyxnb.lib_skinloader.SkinInflaterFactory;
+import com.yyxnb.util_core.KeyboardUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -159,8 +159,8 @@ public abstract class BaseActivity extends AppCompatActivity
             Intent intent = new Intent(this, ContainerActivity.class);
             Bundle bundle = targetFragment.initArguments();
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(ArchConfig.FRAGMENT, targetFragment.getClass().getCanonicalName());
-            intent.putExtra(ArchConfig.BUNDLE, bundle);
+            intent.putExtra(ArgumentKeys.FRAGMENT, targetFragment.getClass().getCanonicalName());
+            intent.putExtra(ArgumentKeys.BUNDLE, bundle);
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();

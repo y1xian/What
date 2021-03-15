@@ -1,6 +1,6 @@
 # What  
 
-该框架基于 Jetpack + Arouter + Retrofit + MVVM等实现的一款开源学习项目，该框架存在的意义一方面是为了能实现快速开发、协同开发、实现可复用等，另一方面是想把自己会的、有趣的、可复用的东西写出来，分Java、Kotlin版本
+该框架基于 Jetpack + Arouter + Retrofit + MVVM 等实现的一款开源学习项目，该框架存在的意义一方面是为了能实现快速开发、协同开发、实现可复用等，另一方面是想把自己会的、有趣的、可复用的东西写出来，分Java、Kotlin版本
 
 ## [流程图 - 项目业务开发方向](https://www.processon.com/view/link/5ee9e48407912929cb49f28d)
 
@@ -126,7 +126,11 @@
     - [ ] 礼物效果
 
 - `module-server`模块
-    - RESTFUL风格的Api
+    - 使用 [AndServer](https://github.com/yanzhenjie/AndServer) 提供 `SpringMVC` 方式输出RESTFUL风格的Api
+    - 使用`Room`数据库将数据存储本地，文件存储到外部存储上的缓存目录下
+    - [x] 登录模块（手机登录、游客登录、获取验证码）
+    - [x] 用户模块（查询用户信息、退出登录）
+    - [x] 文件模块（上传单文件、查询文件目录下的文件、查询文件地址）
 
 
 ---
@@ -236,13 +240,9 @@ dependencies {
  -	新建模块，只需`res`包且对应资源名即可，可更换颜色，图片，shape。
  -	本项目中已实现`skin-night`夜间模式的皮肤，只需编译该模块，把生成的 `night.apk` 放进 `module-user` 用户模块即可，路径为 `assets/skins/night.apk`
 
-### 易错点
- -	aar包的引用，整个项目运行会报错？
- -	包名申请第三方sdk，单模块下不成功？
- -	在哪混淆？
- -	就这？
-
 
 ---
 ## 总结
 个人经验的积累，项目也会不断的完善（在做了在做了
+
+#### 看了、学了不一定变强，但不看可以帮你省下不少时间

@@ -7,7 +7,7 @@ import com.yanzhenjie.andserver.annotation.RequestParam;
 import com.yanzhenjie.andserver.annotation.RestController;
 import com.yanzhenjie.andserver.http.multipart.MultipartFile;
 import com.yyxnb.module_server.bean.JsonResultVo;
-import com.yyxnb.module_server.service.ServerManager;
+import com.yyxnb.module_server.ServerManager;
 import com.yyxnb.util_core.log.LogUtils;
 
 import java.io.File;

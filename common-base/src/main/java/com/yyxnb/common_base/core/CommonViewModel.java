@@ -1,13 +1,12 @@
 package com.yyxnb.common_base.core;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 
 import com.yyxnb.common_base.bean.LiveEvent;
 import com.yyxnb.lib_arch.viewmodel.BaseViewModel;
 import com.yyxnb.lib_common.interfaces.IData;
-import com.yyxnb.lib_network.SingleLiveEvent;
 import com.yyxnb.lib_network.NetStatus;
+import com.yyxnb.lib_network.SingleLiveEvent;
 
 import cn.hutool.core.util.ObjectUtil;
 
@@ -22,7 +21,7 @@ public class CommonViewModel extends BaseViewModel {
 
     public final SingleLiveEvent<LiveEvent> defaultMsgEvent = new SingleLiveEvent<>();
 
-    public final MutableLiveData<NetStatus> status = new MutableLiveData<>();
+    public final SingleLiveEvent<NetStatus> status = new SingleLiveEvent<>();
 
     @Override
     protected void onCreate() {
@@ -32,27 +31,30 @@ public class CommonViewModel extends BaseViewModel {
             LiveData<T> call,
             HttpResponseCallback<T> callback
     ) {
-        status.postValue(NetStatus.LOADING);
+        status.setValue(NetStatus.LOADING);
         call.observe(this, t -> {
             if (ObjectUtil.isNotNull(t)) {
                 if (t.isSuccess()) {
-                    status.postValue(NetStatus.SUCCESS);
-                    callback.success(t);
+                    status.setValue(NetStatus.SUCCESS);
+                    callback.onSuccess(t);
                 } else {
-                    status.postValue(NetStatus.ERROR);
-                    callback.error(t.getCode());
+                    status.setValue(NetStatus.ERROR);
+                    callback.onError(t.getMsg());
                 }
+            } else {
+                status.setValue(NetStatus.ERROR);
+                callback.onError("500");
             }
-            status.postValue(NetStatus.COMPLETE);
+            status.setValue(NetStatus.COMPLETE);
         });
     }
 
 
     public interface HttpResponseCallback<T> {
 
-        void success(T data);
+        void onSuccess(T data);
 
-        void error(String msg);
+        void onError(String msg);
 
     }
 

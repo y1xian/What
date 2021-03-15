@@ -46,13 +46,13 @@ public class LoginViewModel extends CommonViewModel {
             dto.setCode(code);
             launchOnlyResult(mApi.phoneLogin(dto), new HttpResponseCallback<BaseData<LoginVo>>() {
                 @Override
-                public void success(BaseData<LoginVo> data) {
+                public void onSuccess(BaseData<LoginVo> data) {
                     LogUtils.w(data.data.getToken());
                     liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data.getToken(), "login"));
                 }
 
                 @Override
-                public void error(String msg) {
+                public void onError(String msg) {
                 }
             });
 
@@ -67,13 +67,13 @@ public class LoginViewModel extends CommonViewModel {
     public void reqVisitorLogin() {
         launchOnlyResult(mApi.visitorLogin(), new HttpResponseCallback<BaseData<LoginVo>>() {
             @Override
-            public void success(BaseData<LoginVo> data) {
+            public void onSuccess(BaseData<LoginVo> data) {
                 LogUtils.w(data.data.getToken());
                 liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data.getToken(), "login"));
             }
 
             @Override
-            public void error(String msg) {
+            public void onError(String msg) {
             }
         });
     }
@@ -88,12 +88,13 @@ public class LoginViewModel extends CommonViewModel {
 
             launchOnlyResult(mApi.verificationCode(phone), new HttpResponseCallback<BaseData<String>>() {
                 @Override
-                public void success(BaseData<String> data) {
+                public void onSuccess(BaseData<String> data) {
                     liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data, "code"));
                 }
 
                 @Override
-                public void error(String msg) {
+                public void onError(String msg) {
+                    LogUtils.e(msg);
                 }
             });
         } else {

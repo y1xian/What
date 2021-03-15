@@ -6,7 +6,7 @@ import com.yanzhenjie.andserver.annotation.Config;
 import com.yanzhenjie.andserver.framework.config.Multipart;
 import com.yanzhenjie.andserver.framework.config.WebConfig;
 import com.yanzhenjie.andserver.framework.website.AssetsWebsite;
-import com.yyxnb.module_server.service.ServerManager;
+import com.yyxnb.module_server.ServerManager;
 
 @Config
 public class AppConfig implements WebConfig {

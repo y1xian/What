@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yyxnb.common_base">
 
-    <application android:networkSecurityConfig="@xml/network_security_config"
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="N">
 
         <!-- 适配华为（huawei）刘海屏 -->
@@ -36,7 +37,12 @@
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
             android:label="盛装Fragment的一个容器(代理)Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme">
+            <intent-filter>
+                <action android:name="com.yyxnb.common_base.core.ContainerActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
     </application>
 

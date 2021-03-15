@@ -46,7 +46,7 @@ ext {
             robolectric   : '3.3.2',
             junit         : '4.12',
 
-            hutool        : '5.5.9'
+            hutool        : '5.6.0'
     ]
 
     build_plugins = [
@@ -178,7 +178,9 @@ ext {
             // java工具类 https://hutool.cn/docs/#/
             hutool_all               : [group: 'cn.hutool', name: 'hutool-all', version: versions.hutool],
             hutool_core              : [group: 'cn.hutool', name: 'hutool-core', version: versions.hutool],
-            hutool_cache             : [group: 'cn.hutool', name: 'hutool-cache', version: versions.hutool]
+            hutool_cache             : [group: 'cn.hutool', name: 'hutool-cache', version: versions.hutool],
+            hutool_crypto            : [group: 'cn.hutool', name: 'hutool-crypto', version: versions.hutool],
+            hutool_http              : [group: 'cn.hutool', name: 'hutool-http', version: versions.hutool]
     ]
 
 }
