@@ -24,12 +24,12 @@ public class WanProjectViewModel extends CommonViewModel {
 
         launchOnlyResult(mApi.getProjecTypes(), new HttpResponseCallback<WanData<List<WanClassifyBean>>>() {
             @Override
-            public void success(WanData<List<WanClassifyBean>> data) {
+            public void onSuccess(WanData<List<WanClassifyBean>> data) {
                 projecTypes.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
+            public void onError(String msg) {
             }
         });
     }
@@ -38,12 +38,12 @@ public class WanProjectViewModel extends CommonViewModel {
 
         launchOnlyResult(mApi.getProjecDataByType(page, cid), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<WanStatus<WanAriticleBean>> data) {
+            public void onSuccess(WanData<WanStatus<WanAriticleBean>> data) {
                 projecDataByType.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
+            public void onError(String msg) {
             }
         });
     }
@@ -52,12 +52,12 @@ public class WanProjectViewModel extends CommonViewModel {
 
         launchOnlyResult(mApi.getProjecNewData(page), new HttpResponseCallback<WanData<List<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<List<WanAriticleBean>> data) {
+            public void onSuccess(WanData<List<WanAriticleBean>> data) {
                 projecNewData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
+            public void onError(String msg) {
             }
         });
     }

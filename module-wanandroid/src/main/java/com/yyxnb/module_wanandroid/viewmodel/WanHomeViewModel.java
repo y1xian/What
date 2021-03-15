@@ -29,12 +29,12 @@ public class WanHomeViewModel extends CommonViewModel {
 
         launchOnlyResult(mApi.getAritrilList(page), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<WanStatus<WanAriticleBean>> data) {
+            public void onSuccess(WanData<WanStatus<WanAriticleBean>> data) {
                 homeListData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
+            public void onError(String msg) {
             }
         });
     }
@@ -43,12 +43,12 @@ public class WanHomeViewModel extends CommonViewModel {
 
         launchOnlyResult(mApi.getTopAritrilList(), new HttpResponseCallback<WanData<List<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<List<WanAriticleBean>> data) {
+            public void onSuccess(WanData<List<WanAriticleBean>> data) {
                 topArticleData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
+            public void onError(String msg) {
             }
         });
     }

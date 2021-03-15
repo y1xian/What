@@ -16,11 +16,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yyxnb.common_base.constants.ArgumentKeys;
 import com.yyxnb.lib_arch.action.ArchAction;
 import com.yyxnb.lib_arch.action.BundleAction;
 import com.yyxnb.lib_arch.base.IFragment;
 import com.yyxnb.lib_arch.base.Java8Observer;
-import com.yyxnb.lib_arch.common.ArchConfig;
 import com.yyxnb.lib_arch.delegate.FragmentDelegate;
 import com.yyxnb.lib_common.action.AnimAction;
 import com.yyxnb.lib_common.action.ClickAction;
@@ -148,8 +148,8 @@ public abstract class BaseFragment extends Fragment
             Bundle bundle = initArguments();
             Intent intent = new Intent(mActivity.get(), ContainerActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(ArchConfig.FRAGMENT, targetFragment.getClass().getCanonicalName());
-            intent.putExtra(ArchConfig.BUNDLE, bundle);
+            intent.putExtra(ArgumentKeys.FRAGMENT, targetFragment.getClass().getCanonicalName());
+            intent.putExtra(ArgumentKeys.BUNDLE, bundle);
             mActivity.get().startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();

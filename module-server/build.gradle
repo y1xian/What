@@ -17,7 +17,7 @@ android {
 
 dependencies {
     implementation project(':common-base'), project(':utils:util-service')
-    implementation libs.hutool_core
+    implementation libs.hutool_core, libs.hutool_crypto
     annotationProcessor libs.room_compiler
 
     // https://github.com/yanzhenjie/AndServer

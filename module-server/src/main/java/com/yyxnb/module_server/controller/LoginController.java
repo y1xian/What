@@ -5,19 +5,19 @@ import com.yanzhenjie.andserver.annotation.RequestBody;
 import com.yanzhenjie.andserver.annotation.RequestMapping;
 import com.yanzhenjie.andserver.annotation.RequestParam;
 import com.yanzhenjie.andserver.annotation.RestController;
-import com.yyxnb.module_server.constants.UserLevel;
-import com.yyxnb.module_server.db.CodeDao;
-import com.yyxnb.module_server.db.ServerUserDatabase;
 import com.yyxnb.module_server.bean.JsonResultVo;
 import com.yyxnb.module_server.bean.request.LoginDto;
 import com.yyxnb.module_server.bean.response.CodeVo;
 import com.yyxnb.module_server.bean.response.LoginVo;
 import com.yyxnb.module_server.bean.response.UserVo;
-import com.yyxnb.util_encrypt.MD5Utils;
+import com.yyxnb.module_server.constants.UserLevel;
+import com.yyxnb.module_server.db.CodeDao;
+import com.yyxnb.module_server.db.ServerUserDatabase;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;
+import cn.hutool.crypto.SecureUtil;
 
 /**
  * ================================================
@@ -94,7 +94,7 @@ public class LoginController extends BaseController {
             userVo.setSignature("笑死，签名压根没个性");
         }
         // 每次登陆都刷新token
-        userVo.setToken(MD5Utils.parseStrToMd5L32(DateUtil.current() + "-token-" + phone));
+        userVo.setToken(SecureUtil.md5(DateUtil.current() + "-token-" + phone));
 
         if (isVisitorLogin) {
             userVo.setUserLevel(UserLevel.VISITOR.getLevel());
