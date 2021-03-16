@@ -8,7 +8,7 @@ public class Constants {
     // 游客
     public static final String TOURIST = "Tourist";
     // 游客id
-    public static final int TOURIST_ID = 666;
+    public static final String TOURIST_ID = "uid_666";
 
     // 皮肤路径
     public static final String SKIN_PATH = "SKIN_PATH";

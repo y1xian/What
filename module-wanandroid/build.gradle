@@ -20,6 +20,7 @@ dependencies {
         addComponent 'module-login'
         addComponent 'module-user'
         addComponent 'module-chat'
+        addComponent 'module-server'
     }
 
     implementation project(":widgets:lib-webview")

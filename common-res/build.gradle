@@ -5,6 +5,15 @@ dependencies {
 
     // 基类
     api project(':common-base')
+    // 悬浮窗
+    api project(':widgets:lib-floatwindow')
+
+    // 系统信息
+    api project(":utils:util-system")
+    // 任务队列
+    api project(":utils:util-task")
+    // 不常用工具，大杂烩
+    api project(":utils:util-other")
 
     // 内存泄漏检测
     debugImplementation libs.leak_canary_debug

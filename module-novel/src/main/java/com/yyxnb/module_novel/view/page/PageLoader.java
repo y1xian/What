@@ -11,8 +11,8 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_res.bean.UserBean;
+import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;
@@ -570,13 +570,13 @@ public abstract class PageLoader {
             return;
         }
 
-        UserBean loginBean = LoginImpl.getInstance().getUserInfo();
+        UserVo loginBean = UserImpl.getInstance().getUserInfo();
         if (loginBean == null) {
-            loginBean = new UserBean();
-            loginBean.userId = (TOURIST_ID);
+            loginBean = new UserVo();
+//            loginBean.setUserId(TOURIST_ID);
         }
 
-        mBookRecord.userId = loginBean.userId + "";
+        mBookRecord.userId = loginBean.getUserId();
         mBookRecord.bookInfoBean = bookInfoBean;
         mBookRecord.chapter = (mCurChapterPos);
 
@@ -609,18 +609,18 @@ public abstract class PageLoader {
      */
     private void prepareBook() {
 
-        UserBean loginBean = LoginImpl.getInstance().getUserInfo();
+        UserVo loginBean = UserImpl.getInstance().getUserInfo();
         if (loginBean == null) {
-            loginBean = new UserBean();
-            loginBean.userId = (TOURIST_ID);
+            loginBean = new UserVo();
+            loginBean.setUserId(TOURIST_ID);
         }
 
-        mBookRecord = NovelDatabase.getInstance().bookRecordDao().getUserId(loginBean.userId + "", bookInfoBean.bookId + "");
+        mBookRecord = NovelDatabase.getInstance().bookRecordDao().getUserId(loginBean.getUserId(), bookInfoBean.bookId + "");
 
         if (mBookRecord == null) {
             mBookRecord = new BookRecordBean();
         }
-        mBookRecord.userId = loginBean.userId + "";
+        mBookRecord.userId = loginBean.getUserId();
         mBookRecord.bookInfoBean = bookInfoBean;
         mBookRecord.addTime = System.currentTimeMillis();
         NovelDatabase.getInstance().bookRecordDao().insertItem(mBookRecord);

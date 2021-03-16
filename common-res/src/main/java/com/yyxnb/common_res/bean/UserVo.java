@@ -1,13 +1,15 @@
 package com.yyxnb.common_res.bean;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.support.annotation.NonNull;
 
-//@Entity(tableName = "user",
-//        // 复合主键 ps: @PrimaryKey 和 primaryKeys 不能并存，多主键只能primaryKeys
-//        primaryKeys = {"userId", "phone"},
-//        // 约束 唯一
-//        indices = {@Index(value = {"userId", "phone"}, unique = true)}
-//)
+@Entity(tableName = "user",
+        // 复合主键 ps: @PrimaryKey 和 primaryKeys 不能并存，多主键只能primaryKeys
+        primaryKeys = {"userId", "phone"},
+        // 约束 唯一
+        indices = {@Index(value = {"userId", "phone"}, unique = true)}
+)
 public class UserVo {
 
     @NonNull
@@ -26,7 +28,16 @@ public class UserVo {
 
     private int sex;
     private int age;
+    private String createTime;
     private String lastTime;
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
     public int getSex() {
         return sex;

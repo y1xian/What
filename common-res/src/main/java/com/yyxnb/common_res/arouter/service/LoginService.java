@@ -1,24 +1,22 @@
 package com.yyxnb.common_res.arouter.service;
 
-import android.content.Context;
-
-import com.alibaba.android.arouter.facade.template.IProvider;
-import com.yyxnb.common_res.bean.UserBean;
-
 /**
- * Login模块对外提供的所有功能
+ * ================================================
+ * 作    者：yyx
+ * 日    期：2021/03/16
+ * 描    述：登录模块对外提供的所有功能
+ * ================================================
  */
-public interface LoginService extends IProvider {
+public interface LoginService extends IARouterService {
 
-    UserBean getUserInfo();
-
-    void updateUserInfo(UserBean userBean);
-
+    /**
+     * 退出登录
+     */
     void loginOut();
 
+    /**
+     * 是否登录
+     */
     boolean isLogin();
-
-    @Deprecated
-    void login(Context context);
 
 }

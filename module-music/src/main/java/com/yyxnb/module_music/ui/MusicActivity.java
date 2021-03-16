@@ -4,10 +4,9 @@ import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.lib_arch.common.AppManager;
 import com.yyxnb.common_base.core.ContainerActivity;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_MAIN;
+import com.yyxnb.common_res.constants.MusicRouterPath;
+import com.yyxnb.lib_arch.common.AppManager;
 
 /**
  * ================================================
@@ -16,7 +15,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_MAIN;
  * 描    述：音乐 主界面
  * ================================================
  */
-@Route(path = MUSIC_MAIN)
+@Route(path = MusicRouterPath.MAIN_ACTIVITY)
 public class MusicActivity extends ContainerActivity {
 
     @Override

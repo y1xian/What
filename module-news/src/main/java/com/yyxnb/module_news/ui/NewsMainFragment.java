@@ -4,9 +4,8 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.constants.NewsRouterPath;
 import com.yyxnb.module_news.R;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.NEWS_MAIN_FRAGMENT;
 
 /**
  * ================================================
@@ -15,7 +14,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.NEWS_MAIN_FRAGMENT;
  * 描    述：新闻资讯 主界面
  * ================================================
  */
-@Route(path = NEWS_MAIN_FRAGMENT)
+@Route(path = NewsRouterPath.MAIN_FRAGMENT)
 public class NewsMainFragment extends BaseFragment {
 
     @Override

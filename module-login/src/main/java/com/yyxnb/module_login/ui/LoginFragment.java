@@ -16,15 +16,14 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.constants.LoginRouterPath;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.module_login.R;
-import com.yyxnb.module_login.config.UserManager;
+import com.yyxnb.module_login.config.LoginManager;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.utils.DownTimer;
 import com.yyxnb.module_login.viewmodel.LoginViewModel;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
 
 
 /**
@@ -36,14 +35,14 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
  * 描    述：登录界面
  * ================================================
  */
-@Route(path = LOGIN_FRAGMENT)
+@Route(path = LoginRouterPath.MAIN_FRAGMENT)
 @BindRes
 public class LoginFragment extends BaseFragment {
 
     private FragmentLoginBinding binding;
 
     private EditText etPhone;
-    private DownTimer timer = new DownTimer(this);
+    private final DownTimer timer = new DownTimer(this);
 
     private final String[] words = new String[]{"《用户协议》", "《隐私政策》"};
 
@@ -61,7 +60,6 @@ public class LoginFragment extends BaseFragment {
         etPhone = binding.etPhone;
 
         timer.setTotalTime(10 * 1000);
-        etPhone.setText(UserManager.getInstance().getUserBean().phone);
 
         timer.setTimerListener(new DownTimer.TimeListener() {
             @Override
@@ -141,7 +139,8 @@ public class LoginFragment extends BaseFragment {
                     break;
                 case VALUE:
                     if ("login".equals(liveEvent.key)) {
-                        UserManager.getInstance().setToken(liveEvent.value.toString());
+                        LoginManager.getInstance().setToken(liveEvent.value.toString());
+                        mViewModel.userLiveData.reqUser();
                         finish();
                     } else if ("code".equals(liveEvent.key)) {
                         binding.etCode.setText(liveEvent.value.toString());

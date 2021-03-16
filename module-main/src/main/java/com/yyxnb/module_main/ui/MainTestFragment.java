@@ -2,14 +2,24 @@ package com.yyxnb.module_main.ui;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
-import com.yyxnb.common_res.arouter.ARouterUtils;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.constants.ChatRouterPath;
+import com.yyxnb.common_res.constants.JokeRouterPath;
+import com.yyxnb.common_res.constants.MusicRouterPath;
+import com.yyxnb.common_res.constants.NovelRouterPath;
+import com.yyxnb.common_res.constants.VideoRouterPath;
+import com.yyxnb.common_res.constants.WanRouterPath;
+import com.yyxnb.common_res.constants.WidgetRouterPath;
 import com.yyxnb.lib_adapter.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
@@ -21,15 +31,6 @@ import com.yyxnb.module_main.adapter.MainHomeAdapter;
 import com.yyxnb.module_main.config.DataConfig;
 import com.yyxnb.module_main.databinding.FragmentMainTestBinding;
 import com.yyxnb.module_main.viewmodel.MainTestViewModel;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN;
-import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_MAIN;
-import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_MAIN;
-import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_MAIN;
-import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.VIDEO_MAIN;
-import static com.yyxnb.common_res.arouter.ARouterConstant.WAN_MAIN;
-import static com.yyxnb.common_res.arouter.ARouterConstant.WIDGET_MAIN;
 
 /**
  * ================================================
@@ -103,7 +104,7 @@ public class MainTestFragment extends BaseFragment {
         mAdapter.setDataItems(DataConfig.getMainBeans());
 
         binding.ivHead.setOnClickListener(v -> {
-            startFragment(ARouterUtils.navFragment(USER_MAIN_FRAGMENT));
+            startFragment(UserImpl.getInstance().mainPage(getContext()));
         });
 
         binding.tvTitle.setOnClickListener(v -> {
@@ -116,6 +117,7 @@ public class MainTestFragment extends BaseFragment {
         });
 
         mAdapter.setOnItemClickListener(new SimpleOnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onItemClick(View view, BaseViewHolder holder, int position) {
                 super.onItemClick(view, holder, position);
@@ -130,35 +132,35 @@ public class MainTestFragment extends BaseFragment {
                     case 2:
                         // 短视频
 //                        startFragment(ARouterUtils.navFragment(VIDEO_MAIN_FRAGMENT));
-                        ARouterUtils.navActivity(VIDEO_MAIN);
+                        ARouterUtils.navActivity(VideoRouterPath.MAIN_ACTIVITY);
                         break;
                     case 3:
                         // 娱乐
 //                        startFragment(ARouterUtils.navFragment(JOKE_MAIN_FRAGMENT));
-                        ARouterUtils.navActivity(JOKE_MAIN);
+                        ARouterUtils.navActivity(JokeRouterPath.MAIN_ACTIVITY);
                         break;
                     case 4:
                         // 消息
 //                        startFragment(ARouterUtils.navFragment(CHAT_MAIN_FRAGMENT));
-                        ARouterUtils.navActivity(CHAT_MAIN);
+                        ARouterUtils.navActivity(ChatRouterPath.MAIN_ACTIVITY);
                         break;
                     case 5:
                         // 玩安卓
 //                        startFragment(ARouterUtils.navFragment(WAN_MAIN_FRAGMENT));
-                        ARouterUtils.navActivity(WAN_MAIN);
+                        ARouterUtils.navActivity(WanRouterPath.MAIN_ACTIVITY);
                         break;
                     case 6:
                         // 音乐
 //                        startFragment(ARouterUtils.navFragment(MUSIC_HOME_FRAGMENT));
-                        ARouterUtils.navActivity(MUSIC_MAIN);
+                        ARouterUtils.navActivity(MusicRouterPath.MAIN_ACTIVITY);
                         break;
                     case 7:
                         // 小说
 //                        startFragment(ARouterUtils.navFragment(NOVEL_MAIN_FRAGMENT));
-                        ARouterUtils.navActivity(NOVEL_MAIN);
+                        ARouterUtils.navActivity(NovelRouterPath.MAIN_ACTIVITY);
                         break;
                     case 8:
-                        ARouterUtils.navActivity(WIDGET_MAIN);
+                        ARouterUtils.navActivity(WidgetRouterPath.MAIN_ACTIVITY);
                         break;
                     default:
                         break;

@@ -2,23 +2,24 @@
 
 该框架基于 Jetpack + Arouter + Retrofit + MVVM 等实现的一款开源学习项目，该框架存在的意义一方面是为了能实现快速开发、协同开发、实现可复用等，另一方面是想把自己会的、有趣的、可复用的东西写出来，分Java、Kotlin版本
 
-## [流程图 - 项目业务开发方向](https://www.processon.com/view/link/5ee9e48407912929cb49f28d)
+### [流程图 - 项目业务开发方向](https://www.processon.com/view/link/5ee9e48407912929cb49f28d)
 
 ### [组件化流程图 - 大概](https://www.processon.com/view/link/5ee9d5bdf346fb1ae569847d)
 
 #### [下载地址，Java版](https://www.pgyer.com/What)，或扫码下载 【不一定记得更新，还是得自己拉代码跑】
 ![image](https://www.pgyer.com/app/qrcode/What)
 
-#### 项目
--  主要使用了 JitPack 、 ARouter 、RxJava2 、Retrofit2 等主流框架，MVVM模式
--  主工程运行、业务模块独立运行
--  各模块相互跳转、通信等
--  功能、业务分离解耦
+#### 项目说明
+-   主要使用了 JitPack 、 ARouter 、RxJava2 、Retrofit2 等主流框架，MVVM模式
+-   主工程运行、业务模块独立运行
+-   各模块相互跳转、通信等
+-   功能、业务分离解耦
+-   SpringMVC模式开发接口
 
 
-#### 框架&工具
+### 框架&工具
 
-##### 工欲善其事，必先利其器 skr
+#### 工欲善其事，必先利其器 skr
 
 -   `utils` 包下 **存放无业务逻辑相关的常用工具 轻量级的**
     -   Android & Java 的工具库，通过静态方法封装，降低相关API的学习成本，提高工作效率
@@ -49,7 +50,7 @@
 - 主干与其它分支：主干会同步 `java-support` 分支代码，也可能会同步不及时，所以还是看分支优先；其它久远分支可能废弃掉了或不更新了。
 
 
-#### 模块功能
+### 模块功能
 （PS：各模块还处于打磨中，一堆bug，辣眼勿怪. **功能点只列举个别，包含但不限于**）
 - `app`主模块
     - 只用于打包、配置 `gradle` 个别信息

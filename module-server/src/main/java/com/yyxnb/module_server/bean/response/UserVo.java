@@ -30,7 +30,16 @@ public class UserVo {
 
     private int sex;
     private int age;
+    private String createTime;
     private String lastTime;
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
     public int getSex() {
         return sex;

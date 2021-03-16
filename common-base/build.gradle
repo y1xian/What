@@ -15,14 +15,12 @@ dependencies {
     // 对话框
     api project(':widgets:lib-dialog')
     api project(':widgets:lib-popup')
+    // 换肤
+    api project(":widgets:lib-skinloader")
     // 适配器
     api project(':widgets:lib-adapter')
     // 自定义view
     api project(':widgets:lib-view')
-    // 悬浮窗
-    api project(':widgets:lib-floatwindow')
-    // 换肤
-    api project(":widgets:lib-skinloader")
     // 文件操作
     api project(":widgets:lib-file")
 
@@ -32,20 +30,13 @@ dependencies {
     api project(":utils:util-core")
     // 缓存
     api project(":utils:util-cache")
-    // 加密
-    api project(":utils:util-encrypt")
     // 常用
     api project(":utils:util-common")
     // 文件
     api project(":utils:util-file")
     // 权限
     api project(":utils:util-permission")
-    // 系统信息
-    api project(":utils:util-system")
-    // 任务队列
-    api project(":utils:util-task")
-    // 不常用工具，大杂烩
-    api project(":utils:util-other")
+
 
     // 屏幕适配 https://github.com/JessYanCoding/AndroidAutoSize
     api libs.autosize

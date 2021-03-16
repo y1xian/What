@@ -5,26 +5,25 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.constants.WanRouterPath;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_view.tabbar.Tab;
+import com.yyxnb.lib_view.tabbar.TabBarView;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanMainBinding;
 import com.yyxnb.module_wanandroid.ui.home.WanHomeFragment;
 import com.yyxnb.module_wanandroid.ui.project.WanProjectFragment;
 import com.yyxnb.module_wanandroid.ui.publicnumber.WanPublicFragment;
 import com.yyxnb.module_wanandroid.ui.tree.WanTreeFragment;
-import com.yyxnb.lib_view.tabbar.Tab;
-import com.yyxnb.lib_view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_res.arouter.ARouterConstant.WAN_MAIN_FRAGMENT;
-
 /**
  * 玩安卓 主页.
  */
-@Route(path = WAN_MAIN_FRAGMENT)
+@Route(path = WanRouterPath.MAIN_FRAGMENT)
 @BindRes
 public class WanMainFragment extends BaseFragment {
 

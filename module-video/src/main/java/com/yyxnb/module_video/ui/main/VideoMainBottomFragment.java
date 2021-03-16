@@ -9,20 +9,18 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.common_res.arouter.ARouterUtils;
 import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.constants.ChatRouterPath;
+import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.lib_view.text.DrawableRadioButton;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
 import com.yyxnb.module_video.ui.home.VideoHomeFragment;
-import com.yyxnb.lib_view.text.DrawableRadioButton;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
+import com.yyxnb.util_core.DpUtils;
 
 /**
  * 主页
@@ -81,9 +79,8 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
             mHomeFragment = new VideoHomeFragment();
             mSparseArray.put(HOME, mHomeFragment);
             mSparseArray.put(FIND, new VideoFindFragment());
-            mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(CHAT_LIST_FRAGMENT));
-//            mSparseArray.put(ME, VideoUserFragment.newInstance(true));
-            mSparseArray.put(ME, (Fragment) ARouterUtils.navFragment(USER_MAIN_FRAGMENT));
+            mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(ChatRouterPath.LIST_FRAGMENT));
+            mSparseArray.put(ME, (Fragment) UserImpl.getInstance().mainPage(getContext()));
         }
 
         mCurKey = HOME;
@@ -197,12 +194,12 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
      */
     private void toggleMsg() {
 //        if (BaseConfig.getInstance().isLogin()) {
-            toggle(MSG);
-            if (mBtnMsg != null) {
-                mBtnMsg.doToggle();
-            }
-            setCanScroll(false);
-            toggleRecordTip(false);
+        toggle(MSG);
+        if (mBtnMsg != null) {
+            mBtnMsg.doToggle();
+        }
+        setCanScroll(false);
+        toggleRecordTip(false);
 //        } else {
 //            forwardLogin();
 //        }
@@ -213,12 +210,12 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
      */
     private void toggleMe() {
 //        if (BaseConfig.getInstance().isLogin()) {
-            toggle(ME);
-            if (mBtnMe != null) {
-                mBtnMe.doToggle();
-            }
-            setCanScroll(false);
-            toggleRecordTip(true);
+        toggle(ME);
+        if (mBtnMe != null) {
+            mBtnMe.doToggle();
+        }
+        setCanScroll(false);
+        toggleRecordTip(true);
 //        } else {
 //            forwardLogin();
 //        }
@@ -247,8 +244,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     // 跳转登录
     private void forwardLogin() {
-        log("跳登录 " + LoginImpl.getInstance().getUserInfo().toString());
-        startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
+        LoginImpl.getInstance().start(getContext());
     }
 
     // 最底层vp { @link VideoMainFragment } 是否能切换 （视频/个人）

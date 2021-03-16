@@ -9,7 +9,7 @@
 
         <variable
             name="data"
-            type="com.yyxnb.common_res.bean.UserBean" />
+            type="com.yyxnb.common_res.bean.UserVo" />
         <!--        <import type="com.yyxnb.common_res.arouter.service.impl.LoginImpl"/>-->
 
     </data>
@@ -55,7 +55,7 @@
                         skin:enable="true" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/iv_avatar"
+                        android:id="@+id/ivAvatar"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginEnd="40dp"
@@ -149,7 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="40dp"
-                        android:text="@{data.nickname}"
+                        android:text="@{data.nickName}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

@@ -3,9 +3,12 @@ package com.yyxnb.module_login.viewmodel;
 import com.yyxnb.common_base.bean.LiveEvent;
 import com.yyxnb.common_base.core.CommonViewModel;
 import com.yyxnb.common_res.bean.BaseData;
+import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.common_res.config.Http;
+import com.yyxnb.common_res.config.UserLiveData;
+import com.yyxnb.common_res.db.AppDatabase;
+import com.yyxnb.common_res.db.UserDao;
 import com.yyxnb.lib_network.SingleLiveEvent;
-import com.yyxnb.module_login.bean.LoginVo;
 import com.yyxnb.module_login.bean.request.LoginDto;
 import com.yyxnb.module_login.config.LoginApi;
 import com.yyxnb.util_core.log.LogUtils;
@@ -24,8 +27,9 @@ import cn.hutool.core.util.PhoneUtil;
 public class LoginViewModel extends CommonViewModel {
 
     private final LoginApi mApi = Http.getInstance().create(LoginApi.class);
-
+    private final UserDao userDao = AppDatabase.getInstance().userDao();
     public SingleLiveEvent<LiveEvent> liveEvent = new SingleLiveEvent<>();
+    public UserLiveData userLiveData = UserLiveData.getInstance();
 
     /**
      * 手机验证码登录
@@ -44,10 +48,10 @@ public class LoginViewModel extends CommonViewModel {
             LoginDto dto = new LoginDto();
             dto.setPhone(phone);
             dto.setCode(code);
-            launchOnlyResult(mApi.phoneLogin(dto), new HttpResponseCallback<BaseData<LoginVo>>() {
+            launchOnlyResult(mApi.phoneLogin(dto), new HttpResponseCallback<BaseData<UserVo>>() {
                 @Override
-                public void onSuccess(BaseData<LoginVo> data) {
-                    LogUtils.w(data.data.getToken());
+                public void onSuccess(BaseData<UserVo> data) {
+                    userDao.insertItem(data.data);
                     liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data.getToken(), "login"));
                 }
 
@@ -65,10 +69,10 @@ public class LoginViewModel extends CommonViewModel {
      * 游客登录
      */
     public void reqVisitorLogin() {
-        launchOnlyResult(mApi.visitorLogin(), new HttpResponseCallback<BaseData<LoginVo>>() {
+        launchOnlyResult(mApi.visitorLogin(), new HttpResponseCallback<BaseData<UserVo>>() {
             @Override
-            public void onSuccess(BaseData<LoginVo> data) {
-                LogUtils.w(data.data.getToken());
+            public void onSuccess(BaseData<UserVo> data) {
+                userDao.insertItem(data.data);
                 liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data.getToken(), "login"));
             }
 
