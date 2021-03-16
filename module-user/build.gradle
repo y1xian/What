@@ -19,5 +19,6 @@ dependencies {
         //模块化下需要引用到的模块
         addComponent 'module-login'
         addComponent 'module-chat'
+        addComponent 'module-server'
     }
 }

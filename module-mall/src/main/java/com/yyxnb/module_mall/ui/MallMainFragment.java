@@ -4,9 +4,8 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.constants.MallRouterPath;
 import com.yyxnb.module_mall.R;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_MAIN_FRAGMENT;
 
 /**
  * ================================================
@@ -15,7 +14,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_MAIN_FRAGMENT;
  * 描    述：商城 主界面
  * ================================================
  */
-@Route(path = MALL_MAIN_FRAGMENT)
+@Route(path = MallRouterPath.MAIN_FRAGMENT)
 public class MallMainFragment extends BaseFragment {
 
     @Override

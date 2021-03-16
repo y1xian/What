@@ -1,11 +1,12 @@
 package com.yyxnb.module_novel.view.page;
 
 
-import com.yyxnb.util_core.log.LogUtils;
 import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
+import com.yyxnb.common_res.arouter.service.impl.UserImpl;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.config.Constant;
+import com.yyxnb.util_core.log.LogUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -69,9 +70,9 @@ public class NetPageLoader extends PageLoader {
     protected BufferedReader getChapterReader(TxtChapter chapter) throws Exception {
 
 
-        int userId = TOURIST_ID;
+        String userId = TOURIST_ID;
         if (LoginImpl.getInstance().isLogin()) {
-            userId = LoginImpl.getInstance().getUserInfo().userId;
+            userId = UserImpl.getInstance().getUserInfo().getUserId();
         }
 
         File file = new File(Constant.BOOK_CACHE_PATH + userId + File.separator

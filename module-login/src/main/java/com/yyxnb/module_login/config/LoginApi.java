@@ -3,7 +3,7 @@ package com.yyxnb.module_login.config;
 import android.arch.lifecycle.LiveData;
 
 import com.yyxnb.common_res.bean.BaseData;
-import com.yyxnb.module_login.bean.LoginVo;
+import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.module_login.bean.request.LoginDto;
 
 import retrofit2.http.Body;
@@ -28,7 +28,7 @@ public interface LoginApi {
      * @return
      */
     @POST("login/phoneLogin")
-    LiveData<BaseData<LoginVo>> phoneLogin(@Body LoginDto dto);
+    LiveData<BaseData<UserVo>> phoneLogin(@Body LoginDto dto);
 
     /**
      * 游客登录
@@ -36,5 +36,5 @@ public interface LoginApi {
      * @return
      */
     @POST("login/visitorLogin")
-    LiveData<BaseData<LoginVo>> visitorLogin();
+    LiveData<BaseData<UserVo>> visitorLogin();
 }

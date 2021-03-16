@@ -4,8 +4,7 @@ import android.support.v4.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.ContainerActivity;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_MAIN;
+import com.yyxnb.common_res.constants.MallRouterPath;
 
 /**
  * ================================================
@@ -14,7 +13,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_MAIN;
  * 描    述：商城 主界面
  * ================================================
  */
-@Route(path = MALL_MAIN)
+@Route(path = MallRouterPath.MAIN_ACTIVITY)
 public class MallActivity extends ContainerActivity {
 
     @Override

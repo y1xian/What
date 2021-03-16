@@ -4,11 +4,10 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.constants.JokeRouterPath;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.module_joke.R;
 import com.yyxnb.module_joke.databinding.FragmentJokeHomeProvideBinding;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================
@@ -18,7 +17,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_HOME_PROVIDE_FRA
  * ================================================
  */
 @BindRes(subPage = true)
-@Route(path = JOKE_HOME_PROVIDE_FRAGMENT)
+@Route(path = JokeRouterPath.SHOW_FRAGMENT)
 public class JokeHomeProvideFragment extends BaseFragment {
 
     private static final String TAG = "JokeHomeProvideFragment";

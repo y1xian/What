@@ -5,70 +5,63 @@ import android.content.Context;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.common_res.arouter.service.LoginService;
-import com.yyxnb.common_res.bean.UserBean;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_SERVICE;
+import com.yyxnb.common_res.constants.LoginRouterPath;
+import com.yyxnb.lib_arch.base.IFragment;
 
 /**
- * 对LoginService包装，业务方直接调用，无需再自己初始化service类
+ * ================================================
+ * 作    者：yyx
+ * 日    期：2021/03/16
+ * 描    述：对LoginService包装，业务方直接调用，无需再自己初始化service类
+ * ================================================
  */
 public class LoginImpl {
 
-    @Autowired(name = LOGIN_SERVICE)
-    protected LoginService mLoginService;
+    @Autowired(name = LoginRouterPath.SERVICE)
+    protected LoginService service;
 
-    private static LoginImpl mLoginImpl = null;
-
-    public static LoginImpl getInstance() {
-        if (mLoginImpl == null) {
-            synchronized (LoginImpl.class) {
-                if (mLoginImpl == null) {
-                    mLoginImpl = new LoginImpl();
-                }
-                return mLoginImpl;
-            }
-        }
-        return mLoginImpl;
-    }
+    private static volatile LoginImpl mInstance = null;
 
     private LoginImpl() {
         //初始化
         ARouter.getInstance().inject(this);
     }
 
-    /**
-     * 跳转登录 ，建议直接路由跳转
-     */
-    public void login(Context context) {
-        mLoginService.login(context);
+    public static LoginImpl getInstance() {
+        if (null == mInstance) {
+            synchronized (LoginImpl.class) {
+                if (null == mInstance) {
+                    mInstance = new LoginImpl();
+                }
+            }
+        }
+        return mInstance;
+    }
+
+    public void start(Context context) {
+        service.start(context);
+    }
+
+    public IFragment mainPage(Context context) {
+        return service.mainPage(context);
+    }
+
+    public IFragment showPage(Context context) {
+        return service.showPage(context);
     }
 
     /**
      * 是否登录
      */
     public boolean isLogin() {
-        return mLoginService.isLogin();
+        return service.isLogin();
     }
 
     /**
      * 退出
      */
     public void loginOut() {
-        mLoginService.loginOut();
-    }
-
-    /**
-     * 获取用户信息
-     */
-    public UserBean getUserInfo() {
-        return mLoginService.getUserInfo();
-    }
-
-    /**
-     * 更新用户信息
-     */
-    public void updateUserInfo(UserBean userBean) {
-        mLoginService.updateUserInfo(userBean);
+        service.loginOut();
     }
 
 }

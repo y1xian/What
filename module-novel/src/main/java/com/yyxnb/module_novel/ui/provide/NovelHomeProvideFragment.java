@@ -4,11 +4,10 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.constants.NovelRouterPath;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.databinding.FragmentNovelHomeProvideBinding;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================
@@ -18,7 +17,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_HOME_PROVIDE_FR
  * ================================================
  */
 @BindRes(subPage = true)
-@Route(path = NOVEL_HOME_PROVIDE_FRAGMENT)
+@Route(path = NovelRouterPath.SHOW_FRAGMENT)
 public class NovelHomeProvideFragment extends BaseFragment {
 
     private FragmentNovelHomeProvideBinding binding;

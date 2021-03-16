@@ -39,7 +39,7 @@ public class LoginController extends BaseController {
      * @return
      */
     @PostMapping("/phoneLogin")
-    public JsonResultVo<LoginVo> login(@RequestBody LoginDto dto) {
+    public JsonResultVo<UserVo> login(@RequestBody LoginDto dto) {
 
         LoginVo loginVo = new LoginVo();
         if (codeDao.findCode(dto.getPhone(), dto.getCode())) {
@@ -49,8 +49,8 @@ public class LoginController extends BaseController {
         } else {
             return JsonResultVo.failure("验证码不存在或已失效");
         }
-
-        return JsonResultVo.success(loginVo);
+        UserVo userVo = userDao.getUser(loginVo.getToken());
+        return JsonResultVo.success(userVo);
     }
 
     /**
@@ -59,11 +59,13 @@ public class LoginController extends BaseController {
      * @return
      */
     @PostMapping("/visitorLogin")
-    public JsonResultVo<LoginVo> visitorLogin() {
+    public JsonResultVo<UserVo> visitorLogin() {
         LoginVo loginVo = new LoginVo();
         userDao.deleteAllVisitor();
         loginInfo(loginVo, "199" + RandomUtil.randomNumbers(8), true);
-        return JsonResultVo.success(loginVo);
+
+        UserVo userVo = userDao.getUser(loginVo.getToken());
+        return JsonResultVo.success(userVo);
     }
 
     /**
@@ -92,6 +94,7 @@ public class LoginController extends BaseController {
             userVo.setUserId("uid_" + Math.abs(phone.hashCode()));
             userVo.setNickName("用户-" + RandomUtil.randomString(6));
             userVo.setSignature("笑死，签名压根没个性");
+            userVo.setCreateTime(DateUtil.now());
         }
         // 每次登陆都刷新token
         userVo.setToken(SecureUtil.md5(DateUtil.current() + "-token-" + phone));

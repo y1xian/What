@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
-import com.yyxnb.common_res.bean.UserBean;
+import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.lib_room.DateConverter;
 import com.yyxnb.util_app.AppUtils;
 
@@ -15,7 +15,7 @@ import com.yyxnb.util_app.AppUtils;
  * <p>
  * TypeConverters 自定义类型(通常情况下，数据库存储的是基本类型float，int，String等)
  */
-@Database(entities = {UserBean.class}, version = 2, exportSchema = false)
+@Database(entities = {UserVo.class}, version = 2, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 

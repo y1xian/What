@@ -22,5 +22,6 @@ dependencies {
     }
 
     implementation project(':widgets:lib-music'), project(':widgets:lib-localservice')
+    implementation 'com.android.support:support-v4:28.0.0'
 
 }

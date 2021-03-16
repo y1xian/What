@@ -2,6 +2,7 @@ package com.yyxnb.module_novel.view.page;
 
 
 import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
+import com.yyxnb.common_res.arouter.service.impl.UserImpl;
 import com.yyxnb.module_novel.config.Constant;
 
 import java.io.File;
@@ -184,9 +185,9 @@ public class BookManager {
      */
     public static File getBookFile(String bookId, String fileName) {
 
-        int userId = TOURIST_ID;
+        String userId = TOURIST_ID;
         if (LoginImpl.getInstance().isLogin()) {
-            userId = LoginImpl.getInstance().getUserInfo().userId;
+            userId = UserImpl.getInstance().getUserInfo().getUserId();
         }
         return FileUtils.getFile(Constant.BOOK_CACHE_PATH + userId + File.separator
                 + bookId + File.separator + fileName + FileUtils.SUFFIX_NB);
@@ -208,9 +209,9 @@ public class BookManager {
      */
     public static boolean isChapterCached(String bookId, String fileName) {
 
-        int userId = TOURIST_ID;
+        String userId = TOURIST_ID;
         if (LoginImpl.getInstance().isLogin()) {
-            userId = LoginImpl.getInstance().getUserInfo().userId;
+            userId = UserImpl.getInstance().getUserInfo().getUserId();
         }
         File file = new File(Constant.BOOK_CACHE_PATH + userId + File.separator
                 + bookId + File.separator + fileName + FileUtils.SUFFIX_NB);
