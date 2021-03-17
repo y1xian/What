@@ -1,4 +1,4 @@
-package com.yyxnb.lib_adapter;
+package com.yyxnb.lib_adapter.base;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

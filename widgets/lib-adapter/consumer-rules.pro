@@ -2,9 +2,9 @@
 -dontwarn com.yyxnb.lib_adapter.**
 -keep class com.yyxnb.lib_adapter.** {*;}
 -keep interface com.yyxnb.lib_adapter.** {*;}
--keep public class * extends com.yyxnb.lib_adapter.MultiItemTypeAdapter
--keep public class * extends com.yyxnb.lib_adapter.MultiItemTypePagedAdapter
--keepclassmembers class **$** extends com.yyxnb.lib_adapter.BaseViewHolder{*;}
+-keep public class * extends com.yyxnb.lib_adapter.base.MultiItemTypeAdapter
+-keep public class * extends com.yyxnb.lib_adapter.base.MultiItemTypePagedAdapter
+-keepclassmembers class **$** extends com.yyxnb.lib_adapter.base.BaseViewHolder{*;}
 
 -keep class java.util.** {*;}
 -keep interface java.util.** {*;}

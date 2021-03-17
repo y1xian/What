@@ -2,6 +2,8 @@ package com.yyxnb.lib_adapter;
 
 import android.support.v4.util.SparseArrayCompat;
 
+import com.yyxnb.lib_adapter.base.BaseViewHolder;
+
 public class ItemDelegateManager<T> {
 
     private SparseArrayCompat<ItemDelegate<T>> delegates = new SparseArrayCompat<>();

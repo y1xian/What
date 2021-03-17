@@ -7,8 +7,8 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.constants.UserRouterPath;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;

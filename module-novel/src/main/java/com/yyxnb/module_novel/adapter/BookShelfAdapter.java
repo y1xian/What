@@ -5,8 +5,8 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.yyxnb.lib_adapter.BaseAdapter;
-import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.base.BaseAdapter;
+import com.yyxnb.lib_adapter.base.BaseViewHolder;
 import com.yyxnb.lib_image_loader.ImageManager;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.bean.BookShelfBean;

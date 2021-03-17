@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.LruCache;
 
 import com.yyxnb.lib_arch.base.IActivity;
-import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.lib_arch.config.AppManager;
 import com.yyxnb.util_app.AppUtils;
 
 /**

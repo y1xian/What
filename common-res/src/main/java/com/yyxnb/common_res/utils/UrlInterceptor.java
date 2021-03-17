@@ -1,4 +1,4 @@
-package com.yyxnb.common_res.config;
+package com.yyxnb.common_res.utils;
 
 import android.util.Log;
 import android.util.LruCache;

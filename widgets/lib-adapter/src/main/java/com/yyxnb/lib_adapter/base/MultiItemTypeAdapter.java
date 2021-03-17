@@ -1,4 +1,4 @@
-package com.yyxnb.lib_adapter;
+package com.yyxnb.lib_adapter.base;
 
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -8,6 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.yyxnb.lib_adapter.ItemDelegate;
+import com.yyxnb.lib_adapter.ItemDelegateManager;
+import com.yyxnb.lib_adapter.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.Collection;

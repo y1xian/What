@@ -35,9 +35,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.yyxnb.common_base.core.BaseActivity;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_res.arouter.service.impl.UserImpl;
-import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.lib_adapter.base.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;

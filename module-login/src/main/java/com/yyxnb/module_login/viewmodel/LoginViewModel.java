@@ -5,7 +5,7 @@ import com.yyxnb.common_base.core.CommonViewModel;
 import com.yyxnb.common_res.bean.BaseData;
 import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.common_res.config.Http;
-import com.yyxnb.common_res.config.UserLiveData;
+import com.yyxnb.common_res.utils.UserLiveData;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.common_res.db.UserDao;
 import com.yyxnb.lib_network.SingleLiveEvent;

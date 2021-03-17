@@ -1,4 +1,6 @@
-package com.yyxnb.lib_adapter;
+package com.yyxnb.lib_adapter.base;
+
+import com.yyxnb.lib_adapter.ItemDelegate;
 
 public abstract class BaseAdapter<T> extends MultiItemTypeAdapter<T> {
 

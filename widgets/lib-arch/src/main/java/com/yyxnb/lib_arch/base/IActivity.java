@@ -5,7 +5,7 @@ import android.arch.lifecycle.OnLifecycleEvent;
 
 import com.yyxnb.lib_arch.annotations.SwipeStyle;
 import com.yyxnb.lib_arch.delegate.ActivityDelegate;
-import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.lib_arch.config.AppManager;
 
 
 /**

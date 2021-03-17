@@ -1,9 +1,10 @@
-package com.yyxnb.common_res.config;
+package com.yyxnb.common_res.utils;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Transformations;
 
 import com.yyxnb.common_res.bean.UserVo;
+import com.yyxnb.common_res.constants.Constants;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.common_res.db.UserDao;
 import com.yyxnb.lib_network.SingleLiveEvent;

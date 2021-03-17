@@ -3,7 +3,7 @@ package com.yyxnb.module_user.ui;
 import android.os.Bundle;
 
 import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserPersonalDetailsBinding;

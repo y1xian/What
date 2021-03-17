@@ -10,7 +10,7 @@ import android.util.LruCache;
 import android.view.View;
 
 import com.yyxnb.lib_arch.base.IFragment;
-import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.lib_arch.config.AppManager;
 
 /**
  * ================================================

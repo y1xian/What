@@ -10,7 +10,7 @@ import com.yyxnb.lib_arch.annotations.BindDataBinding;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.lib_arch.viewmodel.ViewModelFactory;
-import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.lib_arch.config.AppManager;
 import com.yyxnb.lib_common.action.HandlerAction;
 
 import java.lang.reflect.Field;

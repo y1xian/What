@@ -22,7 +22,7 @@ import com.yyxnb.lib_arch.annotations.SwipeStyle;
 import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.lib_arch.base.IFragment;
 import com.yyxnb.lib_arch.base.Java8Observer;
-import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.lib_arch.config.AppManager;
 import com.yyxnb.lib_arch.delegate.ActivityDelegate;
 import com.yyxnb.lib_common.action.AnimAction;
 import com.yyxnb.lib_common.action.ClickAction;

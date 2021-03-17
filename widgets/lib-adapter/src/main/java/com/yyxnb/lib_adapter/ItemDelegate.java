@@ -1,5 +1,7 @@
 package com.yyxnb.lib_adapter;
 
+import com.yyxnb.lib_adapter.base.BaseViewHolder;
+
 public interface ItemDelegate<T> {
     /**
      * 布局文件

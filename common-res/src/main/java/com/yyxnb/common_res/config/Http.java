@@ -1,5 +1,6 @@
 package com.yyxnb.common_res.config;
 
+import com.yyxnb.common_res.utils.UrlInterceptor;
 import com.yyxnb.lib_network.AbsRetrofit;
 
 import java.util.List;

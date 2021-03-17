@@ -10,8 +10,8 @@ import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.yyxnb.common_base.core.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.lib_arch.common.Bus;
-import com.yyxnb.lib_arch.common.MsgEvent;
+import com.yyxnb.lib_arch.helper.BusHelper;
+import com.yyxnb.lib_arch.bean.MsgEvent;
 import com.yyxnb.util_core.log.LogUtils;
 import com.yyxnb.util_permission.PermissionListener;
 import com.yyxnb.util_permission.PermissionUtils;
@@ -32,8 +32,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 短视频播放的fragment 可以上下滑动
@@ -110,7 +110,7 @@ public class VideoPlayFragment extends BaseFragment {
                 case 0:
                     break;
                 case 5:
-                    Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
+                    BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
                     break;
             }
             toast(text);
@@ -244,7 +244,7 @@ public class VideoPlayFragment extends BaseFragment {
     public void onVisible() {
         isCur = true;
         log("Play onVisible");
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
+        BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
         if (mVideoView != null) {
             mVideoView.resume();
         }
@@ -254,7 +254,7 @@ public class VideoPlayFragment extends BaseFragment {
     public void onInVisible() {
         isCur = false;
         log("Play onInVisible");
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
+        BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
         if (mVideoView != null) {
             mVideoView.pause();
         }

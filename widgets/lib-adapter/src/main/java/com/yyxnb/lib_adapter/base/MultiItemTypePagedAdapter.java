@@ -1,4 +1,4 @@
-package com.yyxnb.lib_adapter;
+package com.yyxnb.lib_adapter.base;
 
 import android.arch.paging.PagedList;
 import android.arch.paging.PagedListAdapter;
@@ -11,6 +11,11 @@ import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.yyxnb.lib_adapter.ItemDelegate;
+import com.yyxnb.lib_adapter.ItemDelegateManager;
+import com.yyxnb.lib_adapter.MutablePageKeyedDataSource;
+import com.yyxnb.lib_adapter.OnItemClickListener;
 
 import java.util.Collection;
 import java.util.List;

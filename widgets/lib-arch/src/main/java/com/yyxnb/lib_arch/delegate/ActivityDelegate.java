@@ -14,10 +14,10 @@ import android.widget.EditText;
 import com.yyxnb.lib_arch.annotations.BarStyle;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.base.IActivity;
-import com.yyxnb.lib_arch.common.ArchConfig;
-import com.yyxnb.lib_arch.common.ArchManager;
-import com.yyxnb.lib_arch.common.Bus;
-import com.yyxnb.lib_arch.common.MsgEvent;
+import com.yyxnb.lib_arch.config.ArchConfig;
+import com.yyxnb.lib_arch.config.ArchManager;
+import com.yyxnb.lib_arch.helper.BusHelper;
+import com.yyxnb.lib_arch.bean.MsgEvent;
 import com.yyxnb.lib_arch.constants.ArgumentKeys;
 import com.yyxnb.util_core.StatusBarUtils;
 import com.yyxnb.lib_common.action.HandlerAction;
@@ -143,7 +143,7 @@ public class ActivityDelegate implements ILifecycle, HandlerAction {
                 isContainer = bindRes.isContainer();
                 // 如果需要登录，并且处于未登录状态下，发送通知
                 if (needLogin) {
-                    Bus.post(new MsgEvent(ArgumentKeys.NEED_LOGIN_CODE));
+                    BusHelper.post(new MsgEvent(ArgumentKeys.NEED_LOGIN_CODE));
                 }
             }
         });

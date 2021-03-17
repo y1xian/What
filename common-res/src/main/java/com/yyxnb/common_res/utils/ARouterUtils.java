@@ -1,4 +1,4 @@
-package com.yyxnb.common_res.arouter;
+package com.yyxnb.common_res.utils;
 
 
 import android.app.Activity;

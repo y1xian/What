@@ -1,8 +1,10 @@
-package com.yyxnb.lib_adapter;
+package com.yyxnb.lib_adapter.base;
 
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 
+import com.yyxnb.lib_adapter.ItemDelegate;
+import com.yyxnb.lib_adapter.ItemDiffCallback;
 import com.yyxnb.lib_common.interfaces.IData;
 
 public abstract class BasePagedAdapter<T extends IData> extends MultiItemTypePagedAdapter<T> {

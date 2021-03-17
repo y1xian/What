@@ -1,16 +1,17 @@
-package com.yyxnb.lib_arch.common;
+package com.yyxnb.lib_arch.helper;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.support.annotation.NonNull;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
+import com.yyxnb.lib_arch.bean.MsgEvent;
 import com.yyxnb.lib_arch.constants.ArgumentKeys;
 
 /**
  * 方便MsgEvent的使用
  */
-public class Bus {
+public class BusHelper {
 
     public static void post(@NonNull MsgEvent msgEvent) {
         LiveEventBus.get(ArgumentKeys.MSG_EVENT, MsgEvent.class).post(msgEvent);

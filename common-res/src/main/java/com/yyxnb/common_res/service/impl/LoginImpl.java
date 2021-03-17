@@ -1,38 +1,37 @@
-package com.yyxnb.common_res.arouter.service.impl;
+package com.yyxnb.common_res.service.impl;
 
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.yyxnb.common_res.arouter.service.UserService;
-import com.yyxnb.common_res.bean.UserVo;
-import com.yyxnb.common_res.constants.UserRouterPath;
+import com.yyxnb.common_res.service.LoginService;
+import com.yyxnb.common_res.constants.LoginRouterPath;
 import com.yyxnb.lib_arch.base.IFragment;
 
 /**
  * ================================================
  * 作    者：yyx
  * 日    期：2021/03/16
- * 描    述：对UserService包装，业务方直接调用，无需再自己初始化service类
+ * 描    述：对LoginService包装，业务方直接调用，无需再自己初始化service类
  * ================================================
  */
-public class UserImpl {
+public class LoginImpl {
 
-    @Autowired(name = UserRouterPath.SERVICE)
-    protected UserService service;
+    @Autowired(name = LoginRouterPath.SERVICE)
+    protected LoginService service;
 
-    private static volatile UserImpl mInstance = null;
+    private static volatile LoginImpl mInstance = null;
 
-    private UserImpl() {
+    private LoginImpl() {
         //初始化
         ARouter.getInstance().inject(this);
     }
 
-    public static UserImpl getInstance() {
+    public static LoginImpl getInstance() {
         if (null == mInstance) {
-            synchronized (UserImpl.class) {
+            synchronized (LoginImpl.class) {
                 if (null == mInstance) {
-                    mInstance = new UserImpl();
+                    mInstance = new LoginImpl();
                 }
             }
         }
@@ -52,17 +51,17 @@ public class UserImpl {
     }
 
     /**
-     * 获取用户信息
+     * 是否登录
      */
-    public UserVo getUserInfo() {
-        return service.getUserInfo();
+    public boolean isLogin() {
+        return service.isLogin();
     }
 
     /**
-     * 更新用户信息
+     * 退出
      */
-    public void updateUserInfo(UserVo vo) {
-        service.updateUserInfo(vo);
+    public void loginOut() {
+        service.loginOut();
     }
 
 }

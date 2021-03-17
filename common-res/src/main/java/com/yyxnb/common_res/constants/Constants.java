@@ -1,4 +1,4 @@
-package com.yyxnb.common_res.config;
+package com.yyxnb.common_res.constants;
 
 /**
  * 全局常量

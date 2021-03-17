@@ -1,4 +1,4 @@
-package com.yyxnb.lib_arch.common;
+package com.yyxnb.lib_arch.config;
 
 import android.app.Activity;
 import android.content.Intent;

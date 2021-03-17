@@ -15,7 +15,7 @@ import com.yyxnb.util_permission.PermissionUtils;
 
 import java.io.File;
 
-import static com.yyxnb.common_res.config.Constants.SKIN_PATH;
+import static com.yyxnb.common_res.constants.Constants.SKIN_PATH;
 
 public class UserPresenter {
 

@@ -1,4 +1,4 @@
-package com.yyxnb.common_res.arouter.service;
+package com.yyxnb.common_res.service;
 
 import android.content.Context;
 

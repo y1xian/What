@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.yyxnb.lib_adapter.BaseAdapter;
-import com.yyxnb.lib_adapter.BaseViewHolder;
+import com.yyxnb.lib_adapter.base.BaseAdapter;
+import com.yyxnb.lib_adapter.base.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.lib_dialog.core.UIDialog;

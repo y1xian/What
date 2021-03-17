@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.core.BaseActivity;
 import com.yyxnb.common_res.constants.VideoRouterPath;
 import com.yyxnb.common_res.weight.NoScrollViewPager;
-import com.yyxnb.lib_arch.common.Bus;
+import com.yyxnb.lib_arch.helper.BusHelper;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.ActivityVideoMainBinding;
 import com.yyxnb.module_video.ui.main.VideoMainBottomFragment;
@@ -19,8 +19,8 @@ import com.yyxnb.module_video.ui.user.VideoUserFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 @Route(path = VideoRouterPath.MAIN_ACTIVITY)
 public class VideoActivity extends BaseActivity {
@@ -70,7 +70,7 @@ public class VideoActivity extends BaseActivity {
 
     @Override
     public void initObservable() {
-        Bus.observe(this, msgEvent -> {
+        BusHelper.observe(this, msgEvent -> {
             switch (msgEvent.getCode()) {
                 case KEY_VIDEO_BOTTOM_VP:
                     mViewPager.setNoScroll((Boolean) msgEvent.getData());

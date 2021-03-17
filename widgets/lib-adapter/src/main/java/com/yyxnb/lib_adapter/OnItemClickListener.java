@@ -2,6 +2,8 @@ package com.yyxnb.lib_adapter;
 
 import android.view.View;
 
+import com.yyxnb.lib_adapter.base.BaseViewHolder;
+
 public interface OnItemClickListener {
 
     /**

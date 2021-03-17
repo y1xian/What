@@ -10,9 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
 import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.arouter.ARouterUtils;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.utils.ARouterUtils;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.constants.ChatRouterPath;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_view.text.DrawableRadioButton;

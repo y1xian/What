@@ -4,7 +4,7 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
 
-import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.lib_arch.config.AppManager;
 import com.yyxnb.lib_arch.delegate.FragmentDelegate;
 
 import java.util.UUID;
