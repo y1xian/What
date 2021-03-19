@@ -2,7 +2,7 @@ package com.yyxnb.module_widget.ui.tools;
 
 import android.os.Bundle;
 
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.module_widget.R;
 

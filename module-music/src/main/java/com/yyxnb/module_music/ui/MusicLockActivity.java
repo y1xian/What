@@ -2,7 +2,7 @@ package com.yyxnb.module_music.ui;
 
 import android.os.Bundle;
 
-import com.yyxnb.common_base.core.BaseActivity;
+import com.yyxnb.common_base.base.BaseActivity;
 import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.bean.MusicBean;

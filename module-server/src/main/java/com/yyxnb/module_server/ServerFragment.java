@@ -2,7 +2,7 @@ package com.yyxnb.module_server;
 
 import android.os.Bundle;
 
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_server.databinding.FragmentServerBinding;
 import com.yyxnb.util_common.ClickUtils;
 import com.yyxnb.util_core.ToastUtils;

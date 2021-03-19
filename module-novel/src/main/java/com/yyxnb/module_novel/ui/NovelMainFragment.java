@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.NovelRouterPath;
 import com.yyxnb.lib_view.tabbar.Tab;
 import com.yyxnb.lib_view.tabbar.TabBarView;

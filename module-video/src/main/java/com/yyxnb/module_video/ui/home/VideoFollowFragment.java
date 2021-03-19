@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.lib_video.Utils;
 import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;

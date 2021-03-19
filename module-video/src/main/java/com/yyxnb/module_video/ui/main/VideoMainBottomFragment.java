@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.common_res.service.impl.LoginImpl;
 import com.yyxnb.common_res.service.impl.UserImpl;

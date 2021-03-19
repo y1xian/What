@@ -5,7 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.lib_adapter.base.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;

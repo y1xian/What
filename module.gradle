@@ -123,8 +123,6 @@ android {
 
     buildTypes {
         debug {
-            // port
-            resValue("string", "PORT_NUMBER", "18082")
             //混淆
             minifyEnabled build_version.minifyEnabled
 //            applicationIdSuffix ".debug"

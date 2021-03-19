@@ -1,4 +1,4 @@
-package com.yyxnb.common_base.core;
+package com.yyxnb.common_base.base;
 
 import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;

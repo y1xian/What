@@ -3,6 +3,9 @@
 -dontwarn com.yyxnb.util_cache.**
 -keep class com.yyxnb.util_cache.** { *;}
 
+-keep class cn.hutool.core.** { *; }
+-keep class cn.hutool.cache.** { *; }
+
 #MMKV
 -keepclasseswithmembers,includedescriptorclasses class com.tencent.mmkv.** {
     native <methods>;

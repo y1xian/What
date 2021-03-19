@@ -1,4 +1,4 @@
-package com.yyxnb.lib_network;
+package com.yyxnb.common_base.event;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.MutableLiveData;
@@ -9,6 +9,13 @@ import android.util.Log;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * ================================================
+ * 作    者：yyx
+ * 日    期：2021/03/19
+ * 描    述：提供观察单个对象{@link T}事件
+ * ================================================
+ */
 public class SingleLiveEvent<T> extends MutableLiveData<T> {
 
     private static final String TAG = "SingleLiveEvent";

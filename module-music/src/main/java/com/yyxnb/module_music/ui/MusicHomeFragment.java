@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.MusicRouterPath;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.lib_adapter.base.BaseFragmentPagerAdapter;

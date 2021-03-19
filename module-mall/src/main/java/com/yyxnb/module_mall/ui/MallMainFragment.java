@@ -3,7 +3,7 @@ package com.yyxnb.module_mall.ui;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.MallRouterPath;
 import com.yyxnb.module_mall.R;
 

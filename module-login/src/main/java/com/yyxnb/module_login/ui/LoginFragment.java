@@ -15,12 +15,16 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.event.MessageEvent;
+import com.yyxnb.common_base.event.StatusEvent;
+import com.yyxnb.common_base.event.TypeEvent;
 import com.yyxnb.common_res.constants.LoginRouterPath;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.module_login.R;
 import com.yyxnb.module_login.config.LoginManager;
+import com.yyxnb.module_login.constants.ExtraKeys;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.utils.DownTimer;
 import com.yyxnb.module_login.viewmodel.LoginViewModel;
@@ -87,43 +91,6 @@ public class LoginFragment extends BaseFragment {
 
         binding.etPhone.setText("19999999999");
 
-//        PermissionUtils.with(getActivity())
-//                //添加所有你需要申请的权限
-//                .addPermissions(Manifest.permission.READ_PHONE_STATE)
-//                //添加权限申请回调监听 如果申请失败 会返回已申请成功的权限列表，用户拒绝的权限列表和用户点击了不再提醒的永久拒绝的权限列表
-//                .setPermissionsCheckListener(new PermissionListener() {
-//                    @Override
-//                    public void permissionRequestSuccess() {
-//                        //所有权限授权成功才会回调这里
-//                        try {
-//                            log("" + PhoneInfoUtils.getPhoneInfo());
-////                            log("" + PhoneInfoUtils.getNativePhoneNumber());
-//                            // 去掉+86 ，默认是+86手机号
-//                            binding.etPhone.setText(PhoneInfoUtils.getNativePhoneNumber().replace("+86", ""));
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
-//                        //当有权限没有被授权就会回调这里
-//                        //会返回已申请成功的权限列表（grantedPermissions）
-//                        //用户拒绝的权限列表（deniedPermissions）
-//                        //用户点击了不再提醒的永久拒绝的权限列表（forceDeniedPermissions）
-//                    }
-//                })
-//                //生成配置
-//                .createConfig()
-//                //配置是否强制用户授权才可以使用，当设置为true的时候，如果用户拒绝授权，会一直弹出授权框让用户授权
-//                .setForceAllPermissionsGranted(true)
-//                //配置当用户点击了不再提示的时候，会弹窗指引用户去设置页面授权，这个参数是弹窗里面的提示内容
-//                .setForceDeniedPermissionTips("请前往设置->应用->【" + PermissionUtils.getAppName(getContext()) + "】->权限中打开相关权限，否则功能无法正常运行！")
-//                //构建配置并生效
-//                .buildConfig()
-//                //开始授权
-//                .startCheckPermission();
-
         initWords();
     }
 
@@ -132,29 +99,24 @@ public class LoginFragment extends BaseFragment {
     public void initObservable() {
         super.initObservable();
 
-        mViewModel.liveEvent.observe(this, liveEvent -> {
-            switch (liveEvent.type) {
-                case TOAST:
-                    toast(liveEvent.value.toString());
-                    break;
-                case VALUE:
-                    if ("login".equals(liveEvent.key)) {
-                        LoginManager.getInstance().setToken(liveEvent.value.toString());
-                        mViewModel.userLiveData.reqUser();
-                        finish();
-                    } else if ("code".equals(liveEvent.key)) {
-                        binding.etCode.setText(liveEvent.value.toString());
-                        binding.tvVerificationCode.setEnabled(false);
-                        timer.start();
-                    }
-                    break;
-                case LOADING:
-                    break;
-                case HIDE_LOADING:
-                    break;
-                default:
-                    break;
+        mViewModel.getMessageEvent().observe(this, (MessageEvent.MessageObserver) this::toast);
+
+        mViewModel.getTypeEvent().observe(this, (TypeEvent.TypeObserver) t -> {
+            if (ExtraKeys.LOGIN.equals(t.type)) {
+                LoginManager.getInstance().setToken(t.value.toString());
+                mViewModel.userLiveData.reqUser();
+                finish();
+            } else if (ExtraKeys.CODE.equals(t.type)) {
+                binding.etCode.setText(t.value.toString());
+                binding.tvVerificationCode.setEnabled(false);
+                timer.start();
             }
+        });
+
+        mViewModel.getStatusEvent().observe(this, (StatusEvent.StatusObserver) status -> {
+
+            log("login " + status.name());
+
         });
 
     }

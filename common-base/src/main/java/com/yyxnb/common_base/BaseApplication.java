@@ -5,7 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
 import com.yyxnb.lib_arch.annotations.SwipeStyle;
 import com.yyxnb.lib_arch.config.ArchConfig;

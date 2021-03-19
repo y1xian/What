@@ -40,6 +40,7 @@ public class PhoneInfoUtils {
 
     //获取电话号码
     @SuppressLint({"MissingPermission", "HardwareIds"})
+    @Deprecated
     public static String getNativePhoneNumber() {
         TelephonyManager tm = (TelephonyManager) AppUtils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
         String nativePhoneNumber = "N/A";

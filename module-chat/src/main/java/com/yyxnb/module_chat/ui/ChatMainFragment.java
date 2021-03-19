@@ -8,7 +8,7 @@ import android.util.Log;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_view.tabbar.Tab;

@@ -7,7 +7,7 @@ import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.common_res.constants.Constants;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.common_res.db.UserDao;
-import com.yyxnb.lib_network.SingleLiveEvent;
+import com.yyxnb.common_base.event.SingleLiveEvent;
 import com.yyxnb.util_cache.KvUtils;
 import com.yyxnb.util_core.log.LogUtils;
 

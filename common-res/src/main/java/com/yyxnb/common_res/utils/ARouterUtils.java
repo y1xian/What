@@ -6,7 +6,7 @@ import android.content.Intent;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.common_base.constants.ArgumentKeys;
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.lib_arch.base.IFragment;
 
 /**

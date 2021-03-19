@@ -10,7 +10,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.constants.ChatRouterPath;

@@ -16,7 +16,7 @@ import com.yyxnb.lib_adapter.base.BaseViewHolder;
 import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.weight.GlideImageLoader;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;

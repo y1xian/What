@@ -115,6 +115,7 @@ public class DeviceUtils {
      * @param context 上下文
      * @return IMEI
      */
+    @Deprecated
     public static String getIMEI(Context context) {
         String deviceId;
         if (isPhone(context)) {
@@ -131,6 +132,7 @@ public class DeviceUtils {
      * @param context
      * @return
      */
+    @Deprecated
     public static String getIMSI(Context context) {
         return getSubscriberId(context);
     }
@@ -141,6 +143,7 @@ public class DeviceUtils {
      * @param context
      * @return
      */
+    @Deprecated
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getDeviceIdIMEI(Context context) {
         String id;

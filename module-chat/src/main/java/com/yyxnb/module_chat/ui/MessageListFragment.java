@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
 import com.yyxnb.lib_adapter.ItemDecoration;
 import com.yyxnb.lib_skinloader.SkinManager;

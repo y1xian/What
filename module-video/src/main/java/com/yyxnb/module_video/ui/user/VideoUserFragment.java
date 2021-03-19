@@ -20,7 +20,7 @@ import com.yyxnb.lib_arch.helper.BusHelper;
 import com.yyxnb.lib_arch.bean.MsgEvent;
 import com.yyxnb.util_core.DpUtils;
 import com.yyxnb.util_core.log.LogUtils;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.lib_image_loader.utils.DrawableTintUtil;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;

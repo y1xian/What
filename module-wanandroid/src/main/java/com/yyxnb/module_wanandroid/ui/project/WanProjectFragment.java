@@ -10,7 +10,7 @@ import com.yyxnb.lib_adapter.base.BaseFragmentPagerAdapter;
 import com.yyxnb.lib_arch.annotations.BindRes;
 import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;

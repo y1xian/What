@@ -22,7 +22,7 @@ import com.dueeeke.videocontroller.component.VodControlView;
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.dueeeke.videoplayer.util.L;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.JokeRouterPath;
 import com.yyxnb.lib_adapter.base.BaseViewHolder;
 import com.yyxnb.lib_adapter.ItemDecoration;

@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.view.View;
 
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.constants.ChatRouterPath;
