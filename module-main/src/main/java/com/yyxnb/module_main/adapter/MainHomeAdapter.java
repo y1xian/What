@@ -6,10 +6,10 @@ import android.support.constraint.ConstraintLayout;
 import android.widget.TextView;
 
 import com.noober.background.drawable.DrawableCreator;
-import com.yyxnb.lib_adapter.base.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDelegate;
-import com.yyxnb.lib_adapter.base.MultiItemTypeAdapter;
-import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.adapter.ItemDelegate;
+import com.yyxnb.adapter.base.MultiItemTypeAdapter;
+import com.yyxnb.what.core.DpUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.bean.MainHomeBean;
 

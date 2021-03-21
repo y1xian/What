@@ -18,8 +18,8 @@ import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;
 import com.yyxnb.module_novel.config.Constant;
 import com.yyxnb.module_novel.db.NovelDatabase;
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.util_core.UITask;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.core.UITask;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

@@ -9,11 +9,11 @@ dependencies {
     api project(':widgets:lib-floatwindow')
 
     // 系统信息
-    api project(":utils:util-system")
+    api project(":utils:lib-system")
     // 任务队列
-    api project(":utils:util-task")
-    // 不常用工具，大杂烩
-    api project(":utils:util-other")
+    api project(":utils:lib-task")
+    // 不常用工具
+    api project(":utils:lib-utils")
 
     // 内存泄漏检测
     debugImplementation libs.leak_canary_debug

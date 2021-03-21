@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.common_res.service.UserService;
 import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.common_res.constants.UserRouterPath;
-import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.what.arch.base.IFragment;
 
 /**
  * ================================================

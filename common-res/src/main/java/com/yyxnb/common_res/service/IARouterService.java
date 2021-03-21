@@ -3,7 +3,7 @@ package com.yyxnb.common_res.service;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.template.IProvider;
-import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.what.arch.base.IFragment;
 
 /**
  * ================================================

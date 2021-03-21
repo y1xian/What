@@ -4,23 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.yyxnb.lib_popup.widget.BlankView
+    <com.yyxnb.what.popup.widget.BlankView
         android:id="@+id/placeholderView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible" />
 
-    <com.yyxnb.lib_popup.widget.PhotoViewContainer
+    <com.yyxnb.what.popup.widget.PhotoViewContainer
         android:id="@+id/photoViewContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.yyxnb.lib_popup.widget.HackyViewPager
+        <com.yyxnb.what.popup.widget.HackyViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </com.yyxnb.lib_popup.widget.PhotoViewContainer>
+    </com.yyxnb.what.popup.widget.PhotoViewContainer>
 
     <TextView
         android:id="@+id/tv_pager_indicator"

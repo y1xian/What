@@ -16,7 +16,7 @@ android {
 }
 
 dependencies {
-    implementation project(':common-base'), project(':utils:util-service')
+    implementation project(':common-base'), project(':utils:lib-service')
     implementation libs.hutool_core, libs.hutool_crypto
     annotationProcessor libs.room_compiler
 

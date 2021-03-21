@@ -5,8 +5,8 @@ import android.arch.lifecycle.LiveData;
 import com.yyxnb.common_base.event.MessageEvent;
 import com.yyxnb.common_base.event.StatusEvent;
 import com.yyxnb.common_base.event.TypeEvent;
-import com.yyxnb.lib_arch.viewmodel.BaseViewModel;
-import com.yyxnb.lib_common.interfaces.IData;
+import com.yyxnb.what.arch.viewmodel.BaseViewModel;
+import com.yyxnb.what.core.interfaces.IData;
 
 import cn.hutool.core.util.ObjectUtil;
 

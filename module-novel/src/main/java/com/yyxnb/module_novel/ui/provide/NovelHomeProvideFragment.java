@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.NovelRouterPath;
-import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.databinding.FragmentNovelHomeProvideBinding;
 

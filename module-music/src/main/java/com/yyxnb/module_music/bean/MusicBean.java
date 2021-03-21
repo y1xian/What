@@ -6,7 +6,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import com.yyxnb.lib_music.interfaces.IMusic;
+import com.yyxnb.what.music.interfaces.IMusic;
 
 import java.io.Serializable;
 

@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:visibility="visible" />
 
-        <com.yyxnb.lib_view.tabbar.TabBarView
+        <com.yyxnb.what.view.tabbar.TabBarView
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"

@@ -1,7 +1,7 @@
 package com.yyxnb.common_res.weight.skin;
 
 
-import com.yyxnb.lib_skinloader.SkinResDeployerFactory;
+import com.yyxnb.what.skinloader.SkinResDeployerFactory;
 
 /**
  * 扩展换肤属性和style中的换肤属性

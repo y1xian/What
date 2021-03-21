@@ -1,12 +1,12 @@
 package com.yyxnb.module_wanandroid.adapter;
 
-import com.yyxnb.lib_adapter.base.BaseAdapter;
-import com.yyxnb.lib_adapter.base.BaseViewHolder;
-import com.yyxnb.util_core.ToastUtils;
+import com.yyxnb.adapter.base.BaseAdapter;
+import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.what.core.ToastUtils;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanNavigationBean;
-import com.yyxnb.lib_view.text.FlowlayoutTags;
+import com.yyxnb.what.view.text.FlowlayoutTags;
 
 import java.util.ArrayList;
 import java.util.List;

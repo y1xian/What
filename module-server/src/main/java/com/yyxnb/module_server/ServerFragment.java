@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_server.databinding.FragmentServerBinding;
-import com.yyxnb.util_common.ClickUtils;
-import com.yyxnb.util_core.ToastUtils;
-import com.yyxnb.util_permission.PermissionUtils;
+import com.yyxnb.what.core.ClickUtils;
+import com.yyxnb.what.core.ToastUtils;
+import com.yyxnb.what.permission.PermissionUtils;
 
 /**
  * ================================================

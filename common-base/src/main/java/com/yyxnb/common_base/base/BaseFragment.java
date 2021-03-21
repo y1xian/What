@@ -17,14 +17,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.yyxnb.common_base.constants.ArgumentKeys;
-import com.yyxnb.lib_arch.action.ArchAction;
-import com.yyxnb.lib_arch.action.BundleAction;
-import com.yyxnb.lib_arch.base.IFragment;
-import com.yyxnb.lib_arch.base.Java8Observer;
-import com.yyxnb.lib_arch.delegate.FragmentDelegate;
-import com.yyxnb.lib_common.action.AnimAction;
-import com.yyxnb.lib_common.action.ClickAction;
-import com.yyxnb.lib_common.action.HandlerAction;
+import com.yyxnb.what.arch.action.ArchAction;
+import com.yyxnb.what.arch.action.BundleAction;
+import com.yyxnb.what.arch.base.IFragment;
+import com.yyxnb.what.arch.base.Java8Observer;
+import com.yyxnb.what.arch.delegate.FragmentDelegate;
+import com.yyxnb.what.core.action.AnimAction;
+import com.yyxnb.what.core.action.ClickAction;
+import com.yyxnb.what.core.action.HandlerAction;
 
 import java.lang.ref.WeakReference;
 

@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.yyxnb.lib_adapter.base.BaseAdapter;
-import com.yyxnb.lib_adapter.base.BaseViewHolder;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_dialog.core.BaseDialog;
+import com.yyxnb.adapter.base.BaseAdapter;
+import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.dialog.core.BaseDialog;
 import com.yyxnb.module_widget.R;
 
 import java.util.ArrayList;

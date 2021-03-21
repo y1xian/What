@@ -8,7 +8,7 @@ import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
 import android.support.annotation.NonNull;
 
-import com.yyxnb.lib_arch.viewmodel.BaseViewModel;
+import com.yyxnb.what.arch.viewmodel.BaseViewModel;
 
 /**
  * Paging

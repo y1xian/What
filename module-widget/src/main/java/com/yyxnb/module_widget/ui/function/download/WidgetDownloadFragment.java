@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.lib_file.download.DownloadListner;
-import com.yyxnb.lib_file.download.DownloadManager;
+import com.yyxnb.what.download.download.DownloadListner;
+import com.yyxnb.what.download.download.DownloadManager;
 import com.yyxnb.module_widget.R;
 
 import java.util.List;

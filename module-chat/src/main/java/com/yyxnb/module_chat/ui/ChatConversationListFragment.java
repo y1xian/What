@@ -8,8 +8,8 @@ import android.widget.Toast;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.easeui.ui.EaseConversationListFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.base.IFragment;
 import com.yyxnb.module_chat.R;
 
 /**

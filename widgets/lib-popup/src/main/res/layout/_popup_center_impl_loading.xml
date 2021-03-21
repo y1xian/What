@@ -8,7 +8,7 @@
     android:orientation="horizontal"
     android:padding="20dp">
 
-    <com.yyxnb.lib_popup.widget.LoadingView
+    <com.yyxnb.what.popup.widget.LoadingView
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="3dp"

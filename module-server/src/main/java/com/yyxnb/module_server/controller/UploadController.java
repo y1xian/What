@@ -8,7 +8,7 @@ import com.yanzhenjie.andserver.annotation.RestController;
 import com.yanzhenjie.andserver.http.multipart.MultipartFile;
 import com.yyxnb.module_server.bean.JsonResultVo;
 import com.yyxnb.module_server.ServerManager;
-import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.what.core.log.LogUtils;
 
 import java.io.File;
 import java.io.IOException;

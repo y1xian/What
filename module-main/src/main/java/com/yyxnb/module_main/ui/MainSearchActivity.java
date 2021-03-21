@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-import com.yyxnb.lib_arch.base.IActivity;
-import com.yyxnb.util_core.KeyboardUtils;
+import com.yyxnb.what.arch.base.IActivity;
+import com.yyxnb.what.core.KeyboardUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.databinding.ActivityMainSearchBinding;
 

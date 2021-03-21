@@ -14,13 +14,13 @@ import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.common_res.service.impl.LoginImpl;
 import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.constants.ChatRouterPath;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_view.text.DrawableRadioButton;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.view.text.DrawableRadioButton;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
 import com.yyxnb.module_video.ui.home.VideoHomeFragment;
-import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.what.core.DpUtils;
 
 /**
  * 主页

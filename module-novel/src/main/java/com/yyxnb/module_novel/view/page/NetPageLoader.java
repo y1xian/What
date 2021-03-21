@@ -6,7 +6,7 @@ import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.config.Constant;
-import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.what.core.log.LogUtils;
 
 import java.io.BufferedReader;
 import java.io.File;

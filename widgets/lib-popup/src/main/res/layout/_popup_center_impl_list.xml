@@ -21,7 +21,7 @@
 
     <include layout="@layout/_popup_divider" />
 
-    <com.yyxnb.lib_popup.widget.VerticalRecyclerView
+    <com.yyxnb.what.popup.widget.VerticalRecyclerView
         android:id="@+id/rvContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -4,38 +4,36 @@ apply from: rootProject.file('module.gradle')
 dependencies {
 
     // 底层架构
-    api project(':widgets:lib-arch')
+    api project(':utils:lib-arch')
     // 网络框架
-    api project(':widgets:lib-network')
+    api project(':utils:lib-network')
     // 数据库
-    api project(':widgets:lib-room')
+    api project(':utils:lib-room')
     // 图片框架
-    api project(':widgets:lib-image')
+    api project(':utils:lib-image')
     annotationProcessor libs.glide_compiler
     // 对话框
     api project(':widgets:lib-dialog')
     api project(':widgets:lib-popup')
     // 换肤
-    api project(":widgets:lib-skinloader")
+    api project(':widgets:lib-skinloader')
     // 适配器
-    api project(':widgets:lib-adapter')
+    api project(':utils:lib-adapter')
     // 自定义view
     api project(':widgets:lib-view')
-    // 文件操作
-    api project(":widgets:lib-file")
+    // 文件下载
+    api project(':widgets:lib-download')
 
     // app相关
-    api project(":utils:util-app")
+    api project(':utils:lib-app')
     // 主要的工具
-    api project(":utils:util-core")
+    api project(':utils:lib-core')
     // 缓存
-    api project(":utils:util-cache")
-    // 常用
-    api project(":utils:util-common")
+    api project(':utils:lib-cache')
     // 文件
-    api project(":utils:util-file")
+    api project(':utils:lib-file')
     // 权限
-    api project(":utils:util-permission")
+    api project(':utils:lib-permission')
 
 
     // 屏幕适配 https://github.com/JessYanCoding/AndroidAutoSize

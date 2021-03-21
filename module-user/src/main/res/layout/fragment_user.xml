@@ -227,7 +227,7 @@
                             android:background="@drawable/shape_r8_bg_ffffff"
                             skin:enable="true">
 
-                            <com.yyxnb.lib_view.text.TextImageView
+                            <com.yyxnb.what.view.text.TextImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableTop="@color/colorLine"
@@ -244,7 +244,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 skin:enable="true" />
 
-                            <com.yyxnb.lib_view.text.TextImageView
+                            <com.yyxnb.what.view.text.TextImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableTop="@color/colorLine"
@@ -260,7 +260,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 skin:enable="true" />
 
-                            <com.yyxnb.lib_view.text.TextImageView
+                            <com.yyxnb.what.view.text.TextImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableTop="@color/colorLine"
@@ -315,7 +315,7 @@
                         android:layout_height="50dp"
                         android:orientation="horizontal">
 
-                        <com.yyxnb.lib_view.text.DrawableRadioButton
+                        <com.yyxnb.what.view.text.DrawableRadioButton
                             android:id="@+id/rbNightMode"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
@@ -350,7 +350,7 @@
                         android:background="@color/colorLine"
                         skin:enable="true" />
 
-                    <com.yyxnb.lib_view.text.DrawableRadioButton
+                    <com.yyxnb.what.view.text.DrawableRadioButton
                         android:id="@+id/rb_feedback"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -375,7 +375,7 @@
                         android:background="@color/colorLine"
                         skin:enable="true" />
 
-                    <com.yyxnb.lib_view.text.DrawableRadioButton
+                    <com.yyxnb.what.view.text.DrawableRadioButton
                         android:id="@+id/rbSetUp"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"

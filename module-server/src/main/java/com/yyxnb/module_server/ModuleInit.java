@@ -1,14 +1,19 @@
 package com.yyxnb.module_server;
 
-import android.app.Application;
+import com.yyxnb.common_base.module.ModuleInitImpl;
 
-import com.yyxnb.common_base.module.IModuleInit;
-
-public class ModuleInit implements IModuleInit {
+public class ModuleInit extends ModuleInitImpl {
 
     @Override
-    public void onCreate(Application application) {
+    public void onCreate() {
         ServerManager.getInstance().register();
         ServerManager.getInstance().startServer();
     }
+
+    @Override
+    public void onDestroy() {
+        ServerManager.getInstance().unRegister();
+        ServerManager.getInstance().stopServer();
+    }
+
 }

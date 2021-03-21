@@ -1,7 +1,7 @@
 package com.yyxnb.module_wanandroid.adapter;
 
-import com.yyxnb.lib_adapter.base.BaseAdapter;
-import com.yyxnb.lib_adapter.base.BaseViewHolder;
+import com.yyxnb.adapter.base.BaseAdapter;
+import com.yyxnb.adapter.base.BaseViewHolder;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.databinding.ItemWanHomeLayoutBinding;

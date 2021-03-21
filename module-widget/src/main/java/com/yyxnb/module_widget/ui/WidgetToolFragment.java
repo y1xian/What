@@ -6,9 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.lib_adapter.base.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.adapter.ItemDecoration;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.config.DataConfig;

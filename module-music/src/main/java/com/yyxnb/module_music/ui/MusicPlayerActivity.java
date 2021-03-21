@@ -22,12 +22,12 @@ import com.yyxnb.module_music.bean.MusicRecordBean;
 import com.yyxnb.module_music.config.MusicSetting;
 import com.yyxnb.module_music.databinding.ActivityMusicPlayerBinding;
 import com.yyxnb.module_music.db.MusicDatabase;
-import com.yyxnb.lib_music.MusicPlayerManager;
-import com.yyxnb.lib_music.interfaces.MusicConstants;
-import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
-import com.yyxnb.lib_music.utils.MusicStatus;
-import com.yyxnb.lib_music.utils.MusicSubjectObservable;
-import com.yyxnb.lib_music.utils.MusicUtils;
+import com.yyxnb.what.music.MusicPlayerManager;
+import com.yyxnb.what.music.interfaces.MusicConstants;
+import com.yyxnb.what.music.interfaces.MusicPlayerEventListener;
+import com.yyxnb.what.music.utils.MusicStatus;
+import com.yyxnb.what.music.utils.MusicSubjectObservable;
+import com.yyxnb.what.music.utils.MusicUtils;
 
 import java.util.List;
 import java.util.Observable;

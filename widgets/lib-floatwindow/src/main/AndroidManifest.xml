@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yyxnb.lib_floatwindow">
+    package="com.yyxnb.what.floatwindow">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application>
         <activity
-            android:name="com.yyxnb.lib_floatwindow.FloatActivity"
+            android:name="com.yyxnb.what.floatwindow.FloatActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

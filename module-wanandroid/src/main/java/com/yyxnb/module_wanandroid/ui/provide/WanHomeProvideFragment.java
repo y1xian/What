@@ -5,8 +5,8 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_res.constants.WanRouterPath;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.viewmodel.ViewModelFactory;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.viewmodel.ViewModelFactory;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.ui.home.WanHomeFragment;
 import com.yyxnb.module_wanandroid.viewmodel.WanHomeViewModel;

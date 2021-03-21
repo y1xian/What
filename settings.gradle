@@ -37,23 +37,13 @@ include ':module-main',
 
 //============ 功能、控件
 
-include ':widgets:lib-all',
-        // jetpack架构
-        ':widgets:lib-arch',
-        // 通用控件
-        ':widgets:lib-common',
-        // 网络请求
-        ':widgets:lib-network',
-        // 视频
-        ':widgets:lib-video',
+// 通用控件
+// 视频
+include ':widgets:lib-video',
         // 音乐
         ':widgets:lib-music',
         // dialog
         ':widgets:lib-dialog',
-        // 图片框架
-        ':widgets:lib-image',
-        // 适配器
-        ':widgets:lib-adapter',
         // popup
         ':widgets:lib-popup',
         // 本地服务
@@ -62,51 +52,57 @@ include ':widgets:lib-all',
         ':widgets:lib-view',
         // web
         ':widgets:lib-webview',
-        // 数据库
-        ':widgets:lib-room',
         // 悬浮框
         ':widgets:lib-floatwindow',
         // 换肤
         ':widgets:lib-skinloader',
-        // 文件处理 下载、上传
-        ':widgets:lib-file'
+        // 文件下载
+        ':widgets:lib-download'
 
 
 //============ 无业务逻辑的常用工具
 
-include ':utils:util-all',
-        // app相关
-        ':utils:util-app',
+
+// app相关
+include ':utils:lib-app',
         // 核心
-        ':utils:util-core',
+        ':utils:lib-core',
+        // jetpack架构
+        ':utils:lib-arch',
         // 缓存
-        ':utils:util-cache',
+        ':utils:lib-cache',
         // 简单实现okhttp
-        ':utils:util-okhttp',
-        // 常用
-        ':utils:util-common',
+        ':utils:lib-okhttp',
+        // 网络请求
+        ':utils:lib-network',
+        // 适配器
+        ':utils:lib-adapter',
+        // 图片框架
+        ':utils:lib-image',
+        // 数据库
+        ':utils:lib-room',
         // 媒体
-        ':utils:util-media',
+        ':utils:lib-media',
         // 加密
-        ':utils:util-encrypt',
+        ':utils:lib-encrypt',
         // 文件
-        ':utils:util-file',
+        ':utils:lib-file',
         // rxjava封装
-        ':utils:util-rxtool',
+        ':utils:lib-rxtool',
         // 系统相关
-        ':utils:util-system',
+        ':utils:lib-system',
         // 任务队列
-        ':utils:util-task',
+        ':utils:lib-task',
         // 多语言
-        ':utils:util-language',
+        ':utils:lib-language',
         // 权限
-        ':utils:util-permission',
+        ':utils:lib-permission',
         // 通知栏
-        ':utils:util-notification',
+        ':utils:lib-notification',
         // 封装服务
-        ':utils:util-service',
-        // 不常用工具，堆放着，用时再说
-        ':utils:util-other'
+        ':utils:lib-service',
+        // 不常用工具，未分类的
+        ':utils:lib-utils'
 
 
 //============ 第三方资源

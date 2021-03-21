@@ -7,7 +7,7 @@ import android.content.Intent;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yyxnb.common_base.constants.ArgumentKeys;
 import com.yyxnb.common_base.base.ContainerActivity;
-import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.what.arch.base.IFragment;
 
 /**
  * ARouter路由跳转工具类

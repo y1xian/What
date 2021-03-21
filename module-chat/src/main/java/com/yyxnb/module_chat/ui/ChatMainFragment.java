@@ -10,9 +10,9 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_view.tabbar.Tab;
-import com.yyxnb.lib_view.tabbar.TabBarView;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.view.tabbar.Tab;
+import com.yyxnb.what.view.tabbar.TabBarView;
 import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.databinding.FragmentChatMainBinding;
 

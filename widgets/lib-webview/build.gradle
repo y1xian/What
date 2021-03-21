@@ -2,7 +2,7 @@ ext.isPublish = true
 apply from: rootProject.file('lib_widget.gradle')
 
 dependencies {
-    implementation project(':widgets:lib-common')
+    implementation project(':utils:lib-core')
     // https://github.com/Justson/AgentWeb
     api 'com.just.agentweb:agentweb:4.1.4' // (必选)
     api 'com.just.agentweb:filechooser:4.1.4'// (可选)

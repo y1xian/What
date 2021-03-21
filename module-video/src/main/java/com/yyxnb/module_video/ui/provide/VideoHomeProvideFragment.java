@@ -4,8 +4,8 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_res.constants.VideoRouterPath;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.viewmodel.ViewModelFactory;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.viewmodel.ViewModelFactory;
 import com.yyxnb.module_video.ui.play.VideoPlayFragment;
 import com.yyxnb.module_video.viewmodel.VideoViewModel;
 

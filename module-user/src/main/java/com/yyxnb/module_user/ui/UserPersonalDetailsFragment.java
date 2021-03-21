@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.service.impl.UserImpl;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserPersonalDetailsBinding;
 import com.yyxnb.module_user.viewmodel.UserViewModel;

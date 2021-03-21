@@ -1,14 +1,12 @@
 package com.yyxnb.module_wanandroid;
 
-import android.app.Application;
+import com.yyxnb.common_base.module.ModuleInitImpl;
+import com.yyxnb.what.okhttp.interceptor.weaknetwork.WeakNetworkManager;
 
-import com.yyxnb.common_base.module.IModuleInit;
-import com.yyxnb.util_okhttp.interceptor.weaknetwork.WeakNetworkManager;
-
-public class ModuleInit implements IModuleInit {
+public class ModuleInit extends ModuleInitImpl {
 
     @Override
-    public void onCreate(Application application) {
+    public void onCreate() {
         WeakNetworkManager.getInstance()
                 .setActive(false)
                 .setParameter(5000, 5, 5)

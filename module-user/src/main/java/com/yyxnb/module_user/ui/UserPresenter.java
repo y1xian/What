@@ -5,13 +5,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.CompoundButton;
 
-import com.yyxnb.util_core.log.LogUtils;
-import com.yyxnb.lib_skinloader.SkinManager;
-import com.yyxnb.lib_skinloader.util.AssetFileUtils;
-import com.yyxnb.util_cache.KvUtils;
-import com.yyxnb.util_core.ToastUtils;
-import com.yyxnb.util_permission.PermissionListener;
-import com.yyxnb.util_permission.PermissionUtils;
+import com.yyxnb.what.core.log.LogUtils;
+import com.yyxnb.what.skinloader.SkinManager;
+import com.yyxnb.what.skinloader.util.AssetFileUtils;
+import com.yyxnb.what.cache.KvUtils;
+import com.yyxnb.what.core.ToastUtils;
+import com.yyxnb.what.permission.PermissionListener;
+import com.yyxnb.what.permission.PermissionUtils;
 
 import java.io.File;
 

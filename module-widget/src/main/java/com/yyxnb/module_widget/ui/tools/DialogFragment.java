@@ -7,12 +7,12 @@ import android.view.Gravity;
 import android.view.View;
 
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.lib_adapter.base.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_dialog.core.BaseDialog;
-import com.yyxnb.lib_dialog.core.MessageDialog;
+import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.adapter.ItemDecoration;
+import com.yyxnb.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.dialog.core.BaseDialog;
+import com.yyxnb.what.dialog.core.MessageDialog;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.config.DataConfig;

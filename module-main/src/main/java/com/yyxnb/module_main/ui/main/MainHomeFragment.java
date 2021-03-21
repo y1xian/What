@@ -20,16 +20,16 @@ import com.yyxnb.common_res.constants.VideoRouterPath;
 import com.yyxnb.common_res.constants.WanRouterPath;
 import com.yyxnb.common_res.weight.NoScrollViewPager;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
-import com.yyxnb.lib_adapter.base.BaseFragmentPagerAdapter;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
+import com.yyxnb.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.bean.MainHomeBean;
 import com.yyxnb.module_main.config.DataConfig;
 import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
 import com.yyxnb.module_main.ui.MainTestFragment;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
-import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.what.core.DpUtils;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -129,6 +129,17 @@ public class MainHomeFragment extends BaseFragment {
     @Override
     public void initObservable() {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mViewPager = null;
+        mIndicator = null;
+        fragments.clear();
+        fragments = null;
+        titles.clear();
+        titles = null;
     }
 
     @Override

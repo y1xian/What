@@ -10,7 +10,7 @@ import com.yanzhenjie.andserver.http.HttpRequest;
 import com.yanzhenjie.andserver.http.HttpResponse;
 import com.yanzhenjie.andserver.http.StatusCode;
 import com.yyxnb.module_server.bean.JsonResultVo;
-import com.yyxnb.util_okhttp.utils.GsonUtils;
+import com.yyxnb.what.okhttp.utils.GsonUtils;
 
 /**
  * ================================================

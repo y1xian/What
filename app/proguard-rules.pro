@@ -26,3 +26,5 @@
 -dontwarn com.tencent.bugly.**
 -keep class com.tencent.bugly.** {*;}
 
+-keep class com.yyxnb.what.** { *; }
+

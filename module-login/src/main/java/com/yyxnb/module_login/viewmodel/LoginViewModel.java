@@ -11,7 +11,7 @@ import com.yyxnb.common_res.utils.UserLiveData;
 import com.yyxnb.module_login.bean.request.LoginDto;
 import com.yyxnb.module_login.config.LoginApi;
 import com.yyxnb.module_login.constants.ExtraKeys;
-import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.what.core.log.LogUtils;
 
 import cn.hutool.core.util.PhoneUtil;
 

@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseActivity;
 import com.yyxnb.common_res.constants.VideoRouterPath;
 import com.yyxnb.common_res.weight.NoScrollViewPager;
-import com.yyxnb.lib_arch.helper.BusHelper;
+import com.yyxnb.what.arch.helper.BusHelper;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.ActivityVideoMainBinding;
 import com.yyxnb.module_video.ui.main.VideoMainBottomFragment;

@@ -1,20 +1,19 @@
 package com.yyxnb.module_music;
 
-import android.app.Application;
-
-import com.yyxnb.util_core.log.LogUtils;
-import com.yyxnb.common_base.module.IModuleInit;
-import com.yyxnb.lib_music.MusicPlayerManager;
-import com.yyxnb.lib_music.interfaces.MusicConstants;
-import com.yyxnb.lib_music.interfaces.MusicPlayerEventListener;
-import com.yyxnb.lib_music.utils.MusicPlayerConfig;
+import com.yyxnb.common_base.module.ModuleInitImpl;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.ui.MusicPlayerActivity;
+import com.yyxnb.what.app.AppUtils;
+import com.yyxnb.what.core.log.LogUtils;
+import com.yyxnb.what.music.MusicPlayerManager;
+import com.yyxnb.what.music.interfaces.MusicConstants;
+import com.yyxnb.what.music.interfaces.MusicPlayerEventListener;
+import com.yyxnb.what.music.utils.MusicPlayerConfig;
 
-public class ModuleInit implements IModuleInit {
+public class ModuleInit extends ModuleInitImpl {
 
     @Override
-    public void onCreate(Application application) {
+    public void onCreate() {
 
         //音乐播放器配置
         MusicPlayerConfig config = MusicPlayerConfig.Build()
@@ -26,7 +25,7 @@ public class ModuleInit implements IModuleInit {
         //此处自行存储播放记录
         MusicPlayerManager.getInstance()
                 //内部存储初始化
-                .init(application.getApplicationContext())
+                .init(AppUtils.getApp())
                 //应用播放器配置
                 .setMusicPlayerConfig(config)
                 //通知栏交互，默认开启
