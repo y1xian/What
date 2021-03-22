@@ -1,4 +1,4 @@
 
 #
--dontwarn com.yyxnb.lib_localservice.**
+-dontwarn com.yyxnb.what.localservice.**
 -keep class com.yyxnb.what.localservice.** { *;}

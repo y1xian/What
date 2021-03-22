@@ -1,3 +1,4 @@
 
--dontwarn com.yyxnb.util_app.**
+-dontwarn com.yyxnb.what.app.**
 -keep class com.yyxnb.what.app.** {*;}
+-keep class com.google.android.material.internal.** {*;}

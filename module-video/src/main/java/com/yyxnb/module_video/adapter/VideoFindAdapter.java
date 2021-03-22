@@ -1,7 +1,7 @@
 package com.yyxnb.module_video.adapter;
 
-import com.yyxnb.adapter.base.BaseAdapter;
-import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.databinding.ItemVideoFindLayoutBinding;

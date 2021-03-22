@@ -1,4 +1,4 @@
-package com.yyxnb.adapter.base;
+package com.yyxnb.what.adapter.base;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

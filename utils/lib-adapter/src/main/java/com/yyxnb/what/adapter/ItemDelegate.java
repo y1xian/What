@@ -1,6 +1,6 @@
-package com.yyxnb.adapter;
+package com.yyxnb.what.adapter;
 
-import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 
 public interface ItemDelegate<T> {
     /**

@@ -1,5 +1,5 @@
 #
--dontwarn com.yyxnb.lib_room.**
+-dontwarn com.yyxnb.what.room.**
 -keep class com.yyxnb.what.room.** {*;}
 
 # room

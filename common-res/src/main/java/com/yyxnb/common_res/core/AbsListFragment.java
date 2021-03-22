@@ -13,7 +13,7 @@ import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.base.BasePagedViewModel;
-import com.yyxnb.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.ItemDecoration;
 import com.yyxnb.common_res.R;
 import com.yyxnb.common_res.databinding.LayoutRefreshViewBinding;
 

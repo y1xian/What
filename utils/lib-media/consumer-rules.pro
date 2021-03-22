@@ -1,4 +1,4 @@
 
 #
--dontwarn com.yyxnb.util_media.**
+-dontwarn com.yyxnb.what.media.**
 -keep class com.yyxnb.what.media.** { *;}

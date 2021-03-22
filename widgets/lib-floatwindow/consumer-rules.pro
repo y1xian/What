@@ -1,4 +1,4 @@
 
 #
--dontwarn com.yyxnb.lib_floatwindow.**
+-dontwarn com.yyxnb.what.floatwindow.**
 -keep class com.yyxnb.what.floatwindow.** { *;}

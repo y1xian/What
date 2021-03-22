@@ -1,4 +1,7 @@
 
+-dontwarn com.yyxnb.what.video.**
+-keep class com.yyxnb.what.video.** {*;}
+
 # dueeeke
 -dontwarn com.danikula.videocache.**
 -dontwarn com.dueeeke.**

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
-import com.yyxnb.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
 import com.yyxnb.what.core.DpUtils;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;

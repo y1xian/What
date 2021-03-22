@@ -2,9 +2,9 @@ package com.yyxnb.module_joke.adapter;
 
 import android.widget.FrameLayout;
 
-import com.yyxnb.adapter.base.BaseViewHolder;
-import com.yyxnb.adapter.ItemDelegate;
-import com.yyxnb.adapter.base.MultiItemTypeAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.ItemDelegate;
+import com.yyxnb.what.adapter.base.MultiItemTypeAdapter;
 import com.yyxnb.module_joke.R;
 import com.yyxnb.module_joke.bean.TikTokBean;
 import com.yyxnb.module_joke.databinding.LayoutHomeTypeImageBinding;

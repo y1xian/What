@@ -3,8 +3,8 @@ package com.yyxnb.module_novel.adapter;
 import android.graphics.Color;
 import android.widget.TextView;
 
-import com.yyxnb.adapter.base.BaseAdapter;
-import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.view.page.BookManager;

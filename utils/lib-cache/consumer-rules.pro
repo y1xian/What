@@ -1,6 +1,6 @@
 
 #
--dontwarn com.yyxnb.util_cache.**
+-dontwarn com.yyxnb.what.cache.**
 -keep class com.yyxnb.what.cache.** { *;}
 
 -keep class cn.hutool.core.** { *; }

@@ -1,8 +1,8 @@
 package com.yyxnb.module_music.adapter;
 
 
-import com.yyxnb.adapter.base.BaseAdapter;
-import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.bean.MusicBean;
 

@@ -1,3 +1,4 @@
 
--dontwarn com.yyxnb.util_other.**
+-dontwarn com.yyxnb.what.utils.**
 -keep class com.yyxnb.what.utils.** {*;}
+-keep class com.yyxnb.what.app.** {*;}

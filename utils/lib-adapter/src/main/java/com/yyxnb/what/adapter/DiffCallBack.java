@@ -1,4 +1,4 @@
-package com.yyxnb.adapter;
+package com.yyxnb.what.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

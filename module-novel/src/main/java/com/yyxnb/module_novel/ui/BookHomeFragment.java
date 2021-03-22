@@ -5,8 +5,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.yyxnb.adapter.base.BaseViewHolder;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_novel.R;

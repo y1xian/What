@@ -7,9 +7,9 @@ import android.view.Gravity;
 import android.view.View;
 
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.adapter.base.BaseViewHolder;
-import com.yyxnb.adapter.ItemDecoration;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.dialog.core.BaseDialog;
 import com.yyxnb.what.dialog.core.MessageDialog;

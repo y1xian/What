@@ -1,4 +1,4 @@
 
 #
--dontwarn com.yyxnb.util_task.**
+-dontwarn com.yyxnb.what.task.**
 -keep class com.yyxnb.what.task.** { *;}

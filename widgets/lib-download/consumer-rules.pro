@@ -1,4 +1,4 @@
 
 #
--dontwarn com.yyxnb.lib_file.**
+-dontwarn com.yyxnb.what.download.**
 -keep class com.yyxnb.what.download.** { *;}

@@ -1,3 +1,7 @@
+
+-dontwarn com.yyxnb.what.webview.**
+-keep class com.yyxnb.what.webview.** {*;}
+
 # AgentWeb
 -keep class com.just.agentweb.** {*;}
 -dontwarn com.just.agentweb.**

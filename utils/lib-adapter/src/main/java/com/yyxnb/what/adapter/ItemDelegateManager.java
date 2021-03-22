@@ -1,8 +1,8 @@
-package com.yyxnb.adapter;
+package com.yyxnb.what.adapter;
 
 import android.support.v4.util.SparseArrayCompat;
 
-import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 
 public class ItemDelegateManager<T> {
 

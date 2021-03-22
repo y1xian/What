@@ -1,7 +1,7 @@
 package com.yyxnb.module_wanandroid.adapter;
 
-import com.yyxnb.adapter.base.BaseAdapter;
-import com.yyxnb.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.what.core.ToastUtils;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.bean.WanClassifyBean;

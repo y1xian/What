@@ -7,9 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.yyxnb.adapter.base.BaseAdapter;
-import com.yyxnb.adapter.base.BaseViewHolder;
-import com.yyxnb.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.popup.R;
 import com.yyxnb.what.popup.code.AttachPopupView;
 import com.yyxnb.what.popup.interfaces.OnSelectListener;

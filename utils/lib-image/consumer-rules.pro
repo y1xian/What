@@ -1,6 +1,6 @@
 
 #
--dontwarn com.yyxnb.lib_image_loader.**
+-dontwarn com.yyxnb.what.image.**
 -keep class com.yyxnb.what.image.** { *;}
 
 # glide

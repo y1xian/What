@@ -11,7 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.MusicRouterPath;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
-import com.yyxnb.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
 import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.what.music.MusicPlayerManager;
 import com.yyxnb.what.music.interfaces.MusicInitializeCallBack;

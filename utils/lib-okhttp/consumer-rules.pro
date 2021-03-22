@@ -30,5 +30,5 @@
 -keep class com.google.gson.** { *;}
 
 #
--dontwarn com.yyxnb.util_okhttp.**
+-dontwarn com.yyxnb.what.okhttp.**
 -keep class com.yyxnb.what.okhttp.** { *;}

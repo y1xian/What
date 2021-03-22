@@ -1,31 +1,26 @@
-package com.yyxnb.adapter.base;
+package com.yyxnb.what.adapter.base;
 
-import android.arch.paging.PagedList;
-import android.arch.paging.PagedListAdapter;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yyxnb.adapter.ItemDelegate;
-import com.yyxnb.adapter.ItemDelegateManager;
-import com.yyxnb.adapter.MutablePageKeyedDataSource;
-import com.yyxnb.adapter.OnItemClickListener;
+import com.yyxnb.what.adapter.ItemDelegate;
+import com.yyxnb.what.adapter.ItemDelegateManager;
+import com.yyxnb.what.adapter.OnItemClickListener;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class MultiItemTypePagedAdapter<T> extends PagedListAdapter<T, BaseViewHolder> {
+public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
 
-    protected MultiItemTypePagedAdapter(@NonNull DiffUtil.ItemCallback<T> diffCallback) {
-        super(diffCallback);
-    }
 
+    protected List<T> mData = new ArrayList<>();
     private ItemDelegateManager<T> mItemDelegateManager = new ItemDelegateManager<>();
     private OnItemClickListener mOnItemClickListener;
 
@@ -83,12 +78,12 @@ public class MultiItemTypePagedAdapter<T> extends PagedListAdapter<T, BaseViewHo
         return mFooters.size();
     }
 
-    public MultiItemTypePagedAdapter<T> addItemDelegate(ItemDelegate<T> itemViewDelegate) {
+    public MultiItemTypeAdapter<T> addItemDelegate(ItemDelegate<T> itemViewDelegate) {
         mItemDelegateManager.addDelegate(itemViewDelegate);
         return this;
     }
 
-    public MultiItemTypePagedAdapter<T> addItemDelegate(int viewType, ItemDelegate<T> itemViewDelegate) {
+    public MultiItemTypeAdapter<T> addItemDelegate(int viewType, ItemDelegate<T> itemViewDelegate) {
         mItemDelegateManager.addDelegate(viewType, itemViewDelegate);
         return this;
     }
@@ -99,7 +94,7 @@ public class MultiItemTypePagedAdapter<T> extends PagedListAdapter<T, BaseViewHo
 
     @Override
     public int getItemCount() {
-        int itemCount = super.getItemCount();
+        int itemCount = getData().size();
         return itemCount + mHeaders.size() + mFooters.size();
     }
 
@@ -120,7 +115,7 @@ public class MultiItemTypePagedAdapter<T> extends PagedListAdapter<T, BaseViewHo
             return mFooters.keyAt(position);
         }
         position = position - mHeaders.size();
-        return !useItemDelegateManager() ? super.getItemViewType(position) : (getItem(position) != null ? mItemDelegateManager.getItemViewType(getItem(position), position) : -1);
+        return !useItemDelegateManager() ? super.getItemViewType(position) : mItemDelegateManager.getItemViewType(getItem(position), position);
     }
 
     private boolean isFooterPosition(int position) {
@@ -354,139 +349,114 @@ public class MultiItemTypePagedAdapter<T> extends PagedListAdapter<T, BaseViewHo
     /**
      * 新数据
      */
-    @SuppressWarnings("unchecked")
     public void setDataItems(@Nullable List<T> data) {
-        PagedList<T> oldData = getData();
-        MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<T>();
-        dataSource.data.addAll(data);
-        PagedList pagedList = dataSource.buildNewPagedList(oldData.getConfig());
-        submitList(pagedList);
+//        this.mData = data == null ? new ArrayList<T>() : data;
+        if (data != null) {
+            mData.clear();
+            mData.addAll(data);
+        }
+        notifyDataSetChanged();
     }
 
     /**
      * 添加单条数据
      */
-    @SuppressWarnings("unchecked")
     public void addDataItem(@IntRange(from = 0) int position, @NonNull T data) {
-        PagedList<T> oldData = getData();
-        MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<T>();
-        if (position == oldData.size()) {
-            dataSource.data.addAll(oldData);
-            dataSource.data.add(data);
-        } else {
-            for (int i = 0; i < oldData.size(); i++) {
-                dataSource.data.add(oldData.get(i));
-                if (i == position) {
-                    dataSource.data.add(i, data);
-                }
-            }
-        }
-        PagedList pagedList = dataSource.buildNewPagedList(oldData.getConfig());
-        submitList(pagedList);
+        mData.add(position, data);
+        notifyItemInserted(position + getHeaderCount());
+        compatibilityDataSizeChanged(1);
     }
 
     /**
      * 添加单条数据
      */
     public void addDataItem(@NonNull T data) {
-        addDataItem(getData().size(), data);
+        mData.add(data);
+        notifyItemInserted(mData.size() + getHeaderCount());
+        compatibilityDataSizeChanged(1);
     }
 
     /**
      * 删除单条数据
      */
     public void removeDataItem(@IntRange(from = 0) int position) {
-        if (position == -1) {
-            return;
-        }
-        removeDataItem(getItem(position));
+        mData.remove(position);
+        int internalPosition = position + getHeaderCount();
+        notifyItemRemoved(internalPosition);
+        compatibilityDataSizeChanged(0);
+        notifyItemRangeChanged(internalPosition, mData.size() - internalPosition);
     }
 
-    @SuppressWarnings("unchecked")
     public void removeDataItem(T t) {
-
-        PagedList<T> oldData = getData();
-        MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<T>();
-        for (T it : oldData) {
-            if (it != t) {
-                dataSource.data.add(it);
-            }
+        int index = mData.indexOf(t);
+        if (index == -1) {
+            return;
         }
-        PagedList pagedList = dataSource.buildNewPagedList(oldData.getConfig());
-        submitList(pagedList);
+        removeDataItem(index);
     }
 
     /**
      * 更新单条数据
      */
-    @SuppressWarnings("unchecked")
     public void updateDataItem(@IntRange(from = 0) int index, @NonNull T data) {
-        PagedList<T> oldData = getData();
-        MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<T>();
-        for (int i = 0; i < oldData.size(); i++) {
-            if (i != index) {
-                dataSource.data.add(oldData.get(i));
-            }
-            if (i == index) {
-                dataSource.data.add(i, data);
-            }
-        }
-        PagedList pagedList = dataSource.buildNewPagedList(oldData.getConfig());
-        submitList(pagedList);
+        mData.set(index, data);
+        notifyItemChanged(index + getHeaderCount());
     }
 
     /**
      * 添加数据集
      */
-    @SuppressWarnings("unchecked")
     public void addDataItem(@IntRange(from = 0) int position, @NonNull Collection<? extends T> newData) {
-        PagedList<T> oldData = getData();
-        MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<T>();
-        if (position == oldData.size()) {
-            dataSource.data.addAll(oldData);
-            dataSource.data.addAll(newData);
-        } else {
-            for (int i = 0; i < oldData.size(); i++) {
-                dataSource.data.add(oldData.get(i));
-                if (i == position) {
-                    dataSource.data.addAll(i, newData);
-                }
-            }
-        }
-        PagedList pagedList = dataSource.buildNewPagedList(oldData.getConfig());
-        submitList(pagedList);
+        mData.addAll(position, newData);
+        notifyItemRangeInserted(position + getHeaderCount(), newData.size());
+        compatibilityDataSizeChanged(newData.size());
     }
 
     /**
      * 添加数据集
      */
     public void addDataItem(@NonNull Collection<? extends T> newData) {
-        addDataItem(getData().size(), newData);
+        mData.addAll(newData);
+        notifyItemRangeInserted(mData.size() - newData.size() + getHeaderCount(), newData.size());
+        compatibilityDataSizeChanged(newData.size());
     }
 
     /**
      * 调换位置
      */
-    @SuppressWarnings("unchecked")
-    public void changeDataItem(int index, T t) {
-        PagedList<T> oldData = getData();
-        MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<T>();
-        for (int i = 0; i < oldData.size(); i++) {
-            if (i == index) {
-                dataSource.data.add(i, t);
-            }
-            if (i != index) {
-                dataSource.data.add(oldData.get(i));
-            }
-        }
-        PagedList pagedList = dataSource.buildNewPagedList(oldData.getConfig());
-        submitList(pagedList);
+    public void changeDataItem(int position, T t) {
+        removeDataItem(t);
+        addDataItem(position, t);
     }
 
-    @SuppressWarnings("ConstantConditions")
+    public void replaceData(@NonNull Collection<? extends T> data) {
+        // 不是同一个引用才清空列表
+        if (data != mData) {
+            mData.clear();
+            mData.addAll(data);
+        }
+        notifyDataSetChanged();
+    }
+
+    private void compatibilityDataSizeChanged(int size) {
+        final int dataSize = mData == null ? 0 : mData.size();
+        if (dataSize == size) {
+            notifyDataSetChanged();
+        }
+    }
+
     @NonNull
-    public PagedList<T> getData() {
-        return getCurrentList();
+    public List<T> getData() {
+        return mData;
+    }
+
+    @Nullable
+    public T getItem(@IntRange(from = 0) int position) {
+        if (position >= 0 && position < mData.size()) {
+            return mData.get(position);
+        } else {
+            return null;
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 
 #
--dontwarn com.yyxnb.lib_network.**
+-dontwarn com.yyxnb.what.network.**
 -keep class com.yyxnb.what.network.** {*;}
 
 # Retrofit

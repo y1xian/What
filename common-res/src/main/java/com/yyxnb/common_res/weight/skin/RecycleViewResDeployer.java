@@ -3,7 +3,7 @@ package com.yyxnb.common_res.weight.skin;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.yyxnb.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.ItemDecoration;
 import com.yyxnb.what.skinloader.bean.SkinAttr;
 import com.yyxnb.what.skinloader.bean.SkinConfig;
 import com.yyxnb.what.skinloader.skinInterface.ISkinResDeployer;

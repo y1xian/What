@@ -1,3 +1,3 @@
 
--dontwarn com.yyxnb.util_language.**
+-dontwarn com.yyxnb.what.language.**
 -keep class com.yyxnb.what.language.** {*;}

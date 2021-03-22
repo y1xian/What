@@ -20,7 +20,7 @@ import com.yyxnb.common_res.constants.VideoRouterPath;
 import com.yyxnb.common_res.constants.WanRouterPath;
 import com.yyxnb.common_res.weight.NoScrollViewPager;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
-import com.yyxnb.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_main.R;

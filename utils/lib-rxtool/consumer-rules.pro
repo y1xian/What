@@ -12,5 +12,5 @@
 }
 -dontnote rx.internal.util.PlatformDependent
 #
--dontwarn com.yyxnb.util_rxtool.**
+-dontwarn com.yyxnb.what.rxtool.**
 -keep class com.yyxnb.what.rxtool.** {*;}

@@ -13,7 +13,7 @@ import android.view.KeyEvent;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.yyxnb.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
 import com.yyxnb.what.arch.annotations.BarStyle;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.arch.helper.BusHelper;
