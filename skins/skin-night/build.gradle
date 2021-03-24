@@ -1,4 +1,5 @@
-apply from: rootProject.file('skin.gradle')
+ext.mainApp = true
+apply from: rootProject.file('simple.gradle')
 
 android {
     defaultConfig {

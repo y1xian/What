@@ -1,4 +1,11 @@
-apply plugin: 'com.android.application'
+
+def mainApp = ext.has("mainApp")
+
+if (mainApp){
+    apply plugin: 'com.android.application'
+}else {
+    apply plugin: 'com.android.library'
+}
 
 
 //默认配置了AndroidManifest.xml在library模式和application模式下的文件路径
