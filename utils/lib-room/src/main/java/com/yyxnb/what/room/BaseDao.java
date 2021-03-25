@@ -33,7 +33,7 @@ public interface BaseDao<T> {
      *
      * UPDATE【表名】SET xxx WHERE
      *
-     * DELETE FROM【表名 WHERE =:【参数名】
+     * DELETE FROM【表名】WHERE =:【参数名】
      */
 
     /*
