@@ -1,7 +1,7 @@
 ext.isPublish = true
-apply from: rootProject.file('lib_widget.gradle')
+apply from: rootProject.file('lib-util.gradle')
 
 dependencies {
-    api libs.room
+    api libs.lib_app, libs.room
     annotationProcessor libs.room_compiler
 }
