@@ -18,7 +18,7 @@ dependencies {
 
     implementation project(':common-base')
 
-    implementation project(":utils:lib-task")
+    implementation libs.lib_task
 
     // 路由
     implementation libs.arouter_api

@@ -39,71 +39,72 @@ include ':module-main',
 
 // 通用控件
 // 视频
-include ':widgets:lib-video',
+include ':libs:widgets:lib-video',
         // 音乐
-        ':widgets:lib-music',
+        ':libs:widgets:lib-music',
         // dialog
-        ':widgets:lib-dialog',
+        ':libs:widgets:lib-dialog',
         // popup
-        ':widgets:lib-popup',
+        ':libs:widgets:lib-popup',
         // 本地服务
-        ':widgets:lib-localservice',
+        ':libs:widgets:lib-localservice',
         // 自定义控件
-        ':widgets:lib-view',
+        ':libs:widgets:lib-view',
         // web
-        ':widgets:lib-webview',
+        ':libs:widgets:lib-webview',
         // 悬浮框
-        ':widgets:lib-floatwindow',
+        ':libs:widgets:lib-floatwindow',
         // 换肤
-        ':widgets:lib-skinloader',
+        ':libs:widgets:lib-skinloader',
         // 文件下载
-        ':widgets:lib-download'
+        ':libs:widgets:lib-download'
 
 
 //============ 无业务逻辑的常用工具
 
-
 // app相关
-include ':utils:lib-app',
+include ':libs:utils:lib-app',
         // 核心
-        ':utils:lib-core',
-        // jetpack架构
-        ':utils:lib-arch',
+        ':libs:utils:lib-core',
         // 缓存
-        ':utils:lib-cache',
+        ':libs:utils:lib-cache',
         // 简单实现okhttp
-        ':utils:lib-okhttp',
+        ':libs:utils:lib-okhttp',
         // 网络请求
-        ':utils:lib-network',
+        ':libs:utils:lib-network',
         // 适配器
-        ':utils:lib-adapter',
+        ':libs:utils:lib-adapter',
         // 图片框架
-        ':utils:lib-image',
-        // 数据库
-        ':utils:lib-room',
+        ':libs:utils:lib-image',
         // 媒体
-        ':utils:lib-media',
+        ':libs:utils:lib-media',
         // 加密
-        ':utils:lib-encrypt',
+        ':libs:utils:lib-encrypt',
         // 文件
-        ':utils:lib-file',
+        ':libs:utils:lib-file',
         // rxjava封装
-        ':utils:lib-rxtool',
+        ':libs:utils:lib-rxtool',
         // 系统相关
-        ':utils:lib-system',
+        ':libs:utils:lib-system',
         // 任务队列
-        ':utils:lib-task',
+        ':libs:utils:lib-task',
         // 多语言
-        ':utils:lib-language',
+        ':libs:utils:lib-language',
         // 权限
-        ':utils:lib-permission',
+        ':libs:utils:lib-permission',
         // 通知栏
-        ':utils:lib-notification',
+        ':libs:utils:lib-notification',
         // 封装服务
-        ':utils:lib-service',
+        ':libs:utils:lib-service',
         // 不常用工具，未分类的
-        ':utils:lib-utils'
+        ':libs:utils:lib-utils'
 
+//============ JetPack
+
+// jetpack架构
+include ':libs:jetpack:lib-arch',
+        // 数据库
+        ':libs:jetpack:lib-room'
 
 //============ 第三方资源
 

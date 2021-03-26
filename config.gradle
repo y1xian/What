@@ -180,7 +180,71 @@ ext {
             hutool_core              : [group: 'cn.hutool', name: 'hutool-core', version: versions.hutool],
             hutool_cache             : [group: 'cn.hutool', name: 'hutool-cache', version: versions.hutool],
             hutool_crypto            : [group: 'cn.hutool', name: 'hutool-crypto', version: versions.hutool],
-            hutool_http              : [group: 'cn.hutool', name: 'hutool-http', version: versions.hutool]
+            hutool_http              : [group: 'cn.hutool', name: 'hutool-http', version: versions.hutool],
+
+
+            // 底层框架
+            lib_arch                 : project(':libs:jetpack:lib-arch'),
+            // 数据库
+            lib_room                 : project(':libs:jetpack:lib-room'),
+            // app相关
+            lib_app                  : project(':libs:utils:lib-app'),
+            // 核心
+            lib_core                 : project(':libs:utils:lib-core'),
+            // 缓存
+            lib_cache                : project(':libs:utils:lib-cache'),
+            // 简单实现okhttp
+            lib_okhttp               : project(':libs:utils:lib-okhttp'),
+            // 网络请求
+            lib_network              : project(':libs:utils:lib-network'),
+            // 适配器
+            lib_adapter              : project(':libs:utils:lib-adapter'),
+            // 图片框架
+            lib_image                : project(':libs:utils:lib-image'),
+            // 媒体
+            lib_media                : project(':libs:utils:lib-media'),
+            // 加密
+            lib_encrypt              : project(':libs:utils:lib-encrypt'),
+            // 文件
+            lib_file                 : project(':libs:utils:lib-file'),
+            // rxjava封装
+            lib_rxtool               : project(':libs:utils:lib-rxtool'),
+            // 系统相关
+            lib_system               : project(':libs:utils:lib-system'),
+            // 任务队列
+            lib_task                 : project(':libs:utils:lib-task'),
+            // 多语言
+            lib_language             : project(':libs:utils:lib-language'),
+            // 权限
+            lib_permission           : project(':libs:utils:lib-permission'),
+            // 通知栏
+            lib_notification         : project(':libs:utils:lib-notification'),
+            // 封装服务
+            lib_service              : project(':libs:utils:lib-service'),
+            // 不常用工具，未分类的
+            lib_utils                : project(':libs:utils:lib-utils'),
+            // 视频
+            lib_video                : project(':libs:widgets:lib-video'),
+            // 音乐
+            lib_music                : project(':libs:widgets:lib-music'),
+            // dialog
+            lib_dialog               : project(':libs:widgets:lib-dialog'),
+            // popup
+            lib_popup                : project(':libs:widgets:lib-popup'),
+            // 本地服务
+            lib_localservice         : project(':libs:widgets:lib-localservice'),
+            // 自定义控件
+            lib_view                 : project(':libs:widgets:lib-view'),
+            // web
+            lib_webview              : project(':libs:widgets:lib-webview'),
+            // 悬浮框
+            lib_floatwindow          : project(':libs:widgets:lib-floatwindow'),
+            // 换肤
+            lib_skinloader           : project(':libs:widgets:lib-skinloader'),
+            // 文件下载
+            lib_download             : project(':libs:widgets:lib-download')
+
+
     ]
 
 }

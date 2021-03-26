@@ -23,6 +23,6 @@ dependencies {
         addComponent 'module-server'
     }
 
-    implementation project(":widgets:lib-webview")
+    implementation libs.lib_webview
 
 }

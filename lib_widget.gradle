@@ -105,7 +105,7 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation(project(':utils:lib-app'), project(':utils:lib-core'))
+    implementation(libs.lib_app, libs.lib_core)
 
     configurations.all {
         resolutionStrategy.eachDependency { DependencyResolveDetails details ->

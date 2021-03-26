@@ -21,7 +21,7 @@ dependencies {
         addComponent 'module-login'
     }
 
-    implementation project(':widgets:lib-dialog')
-    implementation project(':utils:lib-rxtool')
+    implementation libs.lib_dialog
+    implementation libs.lib_rxtool
 
 }

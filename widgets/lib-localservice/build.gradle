@@ -1,9 +1,0 @@
-ext.isPublish = true
-apply from: rootProject.file('lib_widget.gradle')
-
-dependencies {
-    api libs.glide
-    annotationProcessor libs.glide_compiler
-    implementation project(':utils:lib-image')
-    implementation libs.recyclerview
-}
