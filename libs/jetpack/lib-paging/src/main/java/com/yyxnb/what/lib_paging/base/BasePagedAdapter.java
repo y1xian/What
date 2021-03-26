@@ -6,6 +6,7 @@ import android.support.v7.util.DiffUtil;
 import com.yyxnb.what.adapter.ItemDelegate;
 import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.what.core.interfaces.IData;
+import com.yyxnb.what.lib_paging.ItemDiffCallback;
 
 public abstract class BasePagedAdapter<T extends IData> extends MultiItemTypePagedAdapter<T> {
 
