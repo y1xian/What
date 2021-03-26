@@ -1,5 +1,4 @@
-package com.yyxnb.what.adapter;
-
+package com.yyxnb.what.lib_paging;
 
 import android.annotation.SuppressLint;
 import android.arch.core.executor.ArchTaskExecutor;

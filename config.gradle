@@ -185,8 +185,10 @@ ext {
 
             // 底层框架
             lib_arch                 : project(':libs:jetpack:lib-arch'),
-            // 数据库
+            // Room数据库
             lib_room                 : project(':libs:jetpack:lib-room'),
+            // Paging分页库
+            lib_paging               : project(':libs:jetpack:lib-paging'),
             // app相关
             lib_app                  : project(':libs:utils:lib-app'),
             // 核心

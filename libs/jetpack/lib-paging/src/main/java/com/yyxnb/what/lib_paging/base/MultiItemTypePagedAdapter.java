@@ -1,4 +1,4 @@
-package com.yyxnb.what.adapter.base;
+package com.yyxnb.what.lib_paging.base;
 
 import android.arch.paging.PagedList;
 import android.arch.paging.PagedListAdapter;
@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 
 import com.yyxnb.what.adapter.ItemDelegate;
 import com.yyxnb.what.adapter.ItemDelegateManager;
-import com.yyxnb.what.adapter.MutablePageKeyedDataSource;
 import com.yyxnb.what.adapter.OnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 
 import java.util.Collection;
 import java.util.List;

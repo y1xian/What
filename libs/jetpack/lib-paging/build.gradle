@@ -1,13 +1,8 @@
 ext.isPublish = true
 apply from: rootProject.file('lib_util.gradle')
 
-android {
-    buildFeatures {
-        dataBinding true
-    }
-}
-
 dependencies {
     implementation libs.lib_core
-    api libs.recyclerview
+    api libs.lib_adapter
+    api libs.paging
 }

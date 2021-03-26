@@ -20,6 +20,7 @@ dependencies {
     api libs.lib_skinloader
     // 适配器
     api libs.lib_adapter
+    api libs.lib_paging
     // 自定义view
     api libs.lib_view
     // 文件下载

@@ -103,8 +103,10 @@ include ':libs:utils:lib-app',
 
 // jetpack架构
 include ':libs:jetpack:lib-arch',
-        // 数据库
-        ':libs:jetpack:lib-room'
+        // Room数据库
+        ':libs:jetpack:lib-room',
+        // Paging分页库
+        ':libs:jetpack:lib-paging'
 
 //============ 第三方资源
 
