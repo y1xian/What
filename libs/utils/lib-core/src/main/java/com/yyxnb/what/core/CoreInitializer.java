@@ -24,11 +24,11 @@ public class CoreInitializer extends ContentProvider {
     public boolean onCreate() {
 
         if (AppUtils.isFirstRun()) {
-            Log.e("WidgetInitializer", "第一个初始化的存在");
+            Log.e("CoreInitializer", "第一个初始化的存在");
             AppUtils.init((Application) Objects.requireNonNull(getContext()).getApplicationContext());
 
-            WidgetManager.getInstance().unInit(AppUtils.getApp());
-            WidgetManager.getInstance().init(AppUtils.getApp());
+            CoreManager.getInstance().unInit(AppUtils.getApp());
+            CoreManager.getInstance().init(AppUtils.getApp());
 
             // 突破65535的限制
             MultiDex.install(AppUtils.getApp());

@@ -20,32 +20,32 @@ import java.util.Map;
  * @author yyx
  */
 @SuppressWarnings("rawtypes")
-public final class WidgetManager implements Application.ActivityLifecycleCallbacks, Serializable {
+public final class CoreManager implements Application.ActivityLifecycleCallbacks, Serializable {
 
     @SuppressLint("StaticFieldLeak")
-    private volatile static WidgetManager widgetManager;
+    private volatile static CoreManager coreManager;
 
     public boolean mIsBackground = false;
 
-    private WidgetManager() {
+    private CoreManager() {
     }
 
-    public static WidgetManager getInstance() {
-        if (widgetManager == null) {
-            synchronized (WidgetManager.class) {
-                if (widgetManager == null) {
-                    widgetManager = new WidgetManager();
+    public static CoreManager getInstance() {
+        if (coreManager == null) {
+            synchronized (CoreManager.class) {
+                if (coreManager == null) {
+                    coreManager = new CoreManager();
                 }
             }
         }
-        return widgetManager;
+        return coreManager;
     }
 
     /**
      * 避免序列化破坏单例模式
      */
     private Object readResolve() {
-        return widgetManager;
+        return coreManager;
     }
 
     public void init(Application app) {

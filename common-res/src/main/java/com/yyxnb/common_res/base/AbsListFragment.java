@@ -1,4 +1,4 @@
-package com.yyxnb.common_res.core;
+package com.yyxnb.common_res.base;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.arch.paging.PagedList;
