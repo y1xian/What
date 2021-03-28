@@ -106,7 +106,13 @@ include ':libs:jetpack:lib-arch',
         // Room数据库
         ':libs:jetpack:lib-room',
         // Paging分页库
-        ':libs:jetpack:lib-paging'
+        ':libs:jetpack:lib-paging',
+        // Binding
+        ':libs:jetpack:lib-binding',
+        // 可延迟的异步任务
+        ':libs:jetpack:lib-workmanager',
+        // 导航
+        ':libs:jetpack:lib-navigation'
 
 //============ 第三方资源
 

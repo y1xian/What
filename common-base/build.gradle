@@ -7,6 +7,7 @@ dependencies {
     api libs.lib_arch
     // 数据库
     api libs.lib_room
+    api libs.lib_binding
 
     // 网络框架
     api libs.lib_network
