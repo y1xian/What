@@ -101,16 +101,6 @@ dependencies {
     // 避免65K限制       https://developer.android.com/tools/building/multidex.html
     api libs.multidex
 
-    configurations.all {
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == 'com.android.support') {
-                if (!requested.name.startsWith("multidex")) {
-                    details.useVersion versions.support
-                }
-            }
-        }
-    }
 }
 
 
