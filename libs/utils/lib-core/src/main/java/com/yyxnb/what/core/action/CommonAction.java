@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author yyx
  */
-public interface CommonAction extends WidgetAction {
+public interface CommonAction extends CoreAction {
 
     /**
      * toast

@@ -29,7 +29,7 @@ import com.yyxnb.what.core.action.ResourcesAction;
 import com.yyxnb.what.dialog.R;
 import com.yyxnb.what.core.action.ClickAction;
 import com.yyxnb.what.core.action.HandlerAction;
-import com.yyxnb.what.core.action.WidgetAction;
+import com.yyxnb.what.core.action.CoreAction;
 
 import java.util.Objects;
 
@@ -545,7 +545,7 @@ public class BaseDialogFragment extends AppCompatDialogFragment implements Lifec
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public static class Builder<B extends Builder> implements LifecycleOwner, WidgetAction, ResourcesAction, ClickAction {
+    public static class Builder<B extends Builder> implements LifecycleOwner, CoreAction, ResourcesAction, ClickAction {
 
         /**
          * 上下文对象

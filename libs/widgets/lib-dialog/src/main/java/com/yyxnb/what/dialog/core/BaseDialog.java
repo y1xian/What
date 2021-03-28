@@ -42,7 +42,7 @@ import com.yyxnb.what.core.action.ResourcesAction;
 import com.yyxnb.what.dialog.R;
 import com.yyxnb.what.core.action.ClickAction;
 import com.yyxnb.what.core.action.HandlerAction;
-import com.yyxnb.what.core.action.WidgetAction;
+import com.yyxnb.what.core.action.CoreAction;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ import java.util.List;
  * Dialog 基类
  */
 public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
-        WidgetAction, ResourcesAction, HandlerAction, ClickAction, AnimAction,
+        CoreAction, ResourcesAction, HandlerAction, ClickAction, AnimAction,
         DialogInterface.OnShowListener, DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
 
     private final ListenersWrapper<BaseDialog> mListeners = new ListenersWrapper<>(this);
@@ -401,7 +401,7 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public static class Builder<B extends Builder> implements LifecycleOwner, WidgetAction, ResourcesAction, ClickAction {
+    public static class Builder<B extends Builder> implements LifecycleOwner, CoreAction, ResourcesAction, ClickAction {
 
         /**
          * 上下文对象

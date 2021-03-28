@@ -9,7 +9,7 @@ import android.content.ContextWrapper;
  *
  * @author yyx
  */
-public interface WidgetAction {
+public interface CoreAction {
 
     /**
      * 获取 Context
