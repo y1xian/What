@@ -32,11 +32,14 @@ public class ServerFragment extends BaseFragment {
             ToastUtils.normal("点我没用啊");
         });
 
+    }
+
+    @Override
+    public void initViewData() {
         if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
             PermissionUtils.with(getActivity())
                     .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
                     .defaultConfig();
         }
     }
-
 }

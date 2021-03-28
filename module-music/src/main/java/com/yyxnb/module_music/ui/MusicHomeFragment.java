@@ -98,10 +98,7 @@ public class MusicHomeFragment extends BaseFragment implements MusicPlayerEventL
                     public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
                     }
                 })
-                .createConfig()
-                .setForceAllPermissionsGranted(true)
-                .buildConfig()
-                .startCheckPermission();
+                .defaultConfig();
     }
 
     @Override

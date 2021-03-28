@@ -46,15 +46,16 @@ public class WidgetMainFragment extends BaseFragment {
         binding = getBinding();
         mTabLayout = binding.tabLayout;
 
+    }
+
+    @Override
+    public void initViewData() {
+
         if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
             PermissionUtils.with(getActivity())
                     .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
                     .defaultConfig();
         }
-    }
-
-    @Override
-    public void initViewData() {
 
         if (fragments == null) {
             fragments = new ArrayList<>();
