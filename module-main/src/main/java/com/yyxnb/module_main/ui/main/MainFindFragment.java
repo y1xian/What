@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.base.IFragment;
 import com.yyxnb.module_main.R;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.base.IFragment;
 
 /**
  * ================================================

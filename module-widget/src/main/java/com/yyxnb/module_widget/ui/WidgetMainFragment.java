@@ -1,19 +1,18 @@
 package com.yyxnb.module_widget.ui;
 
-import android.Manifest;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_view.tabbar.Tab;
-import com.yyxnb.lib_view.tabbar.TabBarView;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.databinding.FragmentWidgetMainBinding;
-import com.yyxnb.util_permission.PermissionListener;
-import com.yyxnb.util_permission.PermissionUtils;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.permission.PermissionUtils;
+import com.yyxnb.what.view.tabbar.Tab;
+import com.yyxnb.what.view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +25,7 @@ import java.util.List;
  * ================================================
  */
 @BindRes
+@Route(path = "/widget/main_fragment")
 public class WidgetMainFragment extends BaseFragment {
 
     private FragmentWidgetMainBinding binding;
@@ -45,27 +45,18 @@ public class WidgetMainFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mTabLayout = binding.vTabLayout;
+        mTabLayout = binding.tabLayout;
 
-        PermissionUtils.with(getActivity())
-                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .setPermissionsCheckListener(new PermissionListener() {
-                    @Override
-                    public void permissionRequestSuccess() {
-                    }
-
-                    @Override
-                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
-                    }
-                })
-                .createConfig()
-                .setForceAllPermissionsGranted(true)
-                .buildConfig()
-                .startCheckPermission();
     }
 
     @Override
     public void initViewData() {
+
+        if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
+            PermissionUtils.with(getActivity())
+                    .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
+                    .defaultConfig();
+        }
 
         if (fragments == null) {
             fragments = new ArrayList<>();
@@ -100,7 +91,7 @@ public class WidgetMainFragment extends BaseFragment {
         ft.hide(fragments.get(currentIndex));
         //判断Fragment是否已经添加
         if (!fragments.get(index).isAdded()) {
-            ft.add(R.id.fl_content, fragments.get(index)).show(fragments.get(index));
+            ft.add(R.id.flContent, fragments.get(index)).show(fragments.get(index));
         } else {
             //显示新的Fragment
             ft.show(fragments.get(index));

@@ -1,0 +1,28 @@
+ext.isLibrary = true
+apply from: rootProject.file('module.gradle')
+apply plugin: 'com.yanzhenjie.andserver'
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_server'
+        }
+    }
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "server_"
+
+}
+
+dependencies {
+    implementation project(':common-base')
+    implementation libs.lib_service
+    implementation libs.hutool_core, libs.hutool_crypto
+    annotationProcessor libs.room_compiler
+
+    // https://github.com/yanzhenjie/AndServer
+    // https://yanzhenjie.com/AndServer/
+    implementation 'com.yanzhenjie.andserver:api:2.1.8'
+    annotationProcessor 'com.yanzhenjie.andserver:processor:2.1.8'
+}

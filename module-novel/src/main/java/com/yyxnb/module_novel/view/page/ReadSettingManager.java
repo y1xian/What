@@ -1,6 +1,6 @@
 package com.yyxnb.module_novel.view.page;
 
-import com.yyxnb.util_cache.KvUtils;
+import com.yyxnb.what.cache.KvUtils;
 
 /**
  * Created by newbiechen on 17-5-17.

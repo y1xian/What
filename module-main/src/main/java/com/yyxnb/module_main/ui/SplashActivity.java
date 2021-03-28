@@ -3,13 +3,12 @@ package com.yyxnb.module_main.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.module_main.R;
+import com.yyxnb.what.arch.base.IActivity;
 
 /**
  * 启动页
@@ -26,7 +25,6 @@ public class SplashActivity extends AppCompatActivity implements IActivity {
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
         // 白屏时间 + 2秒进入首页 ≈ 3~5秒
-        Log.e("SplashActivity", "22222222222222222222222222");
         handler.sendEmptyMessageDelayed(1, 2 * 1000);
     }
 

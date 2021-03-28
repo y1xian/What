@@ -13,7 +13,7 @@
         tools:context="com.yyxnb.module_video.ui.main.VideoMainBottomFragment">
 
         <FrameLayout
-            android:id="@+id/fl_content"
+            android:id="@+id/flContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -24,8 +24,8 @@
             android:background="@mipmap/bg_home_bottom"
             android:orientation="horizontal">
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
-                android:id="@+id/btn_home"
+            <com.yyxnb.what.view.text.DrawableRadioButton
+                android:id="@+id/btnHome"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -36,8 +36,8 @@
                 android:textColor="@color/main_text"
                 android:textSize="16sp" />
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
-                android:id="@+id/btn_find"
+            <com.yyxnb.what.view.text.DrawableRadioButton
+                android:id="@+id/btnFind"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="70dp"
@@ -49,8 +49,8 @@
                 android:textColor="@color/main_text"
                 android:textSize="16sp" />
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
-                android:id="@+id/btn_msg"
+            <com.yyxnb.what.view.text.DrawableRadioButton
+                android:id="@+id/btnMsg"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -60,8 +60,8 @@
                 android:textColor="@color/main_text"
                 android:textSize="16sp" />
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
-                android:id="@+id/btn_me"
+            <com.yyxnb.what.view.text.DrawableRadioButton
+                android:id="@+id/btnMe"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -74,23 +74,23 @@
         </RadioGroup>
 
         <ImageView
-            android:id="@+id/btn_record"
+            android:id="@+id/btnRecord"
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:padding="2dp"
-            android:src="@mipmap/icon_record" />
+            android:src="@mipmap/ic_record" />
 
         <ImageView
             android:id="@+id/iv_record_tip"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_above="@id/btn_record"
+            android:layout_above="@id/btnRecord"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            android:src="@mipmap/icon_no_works"
+            android:src="@mipmap/ic_no_works"
             android:visibility="invisible" />
 
 

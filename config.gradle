@@ -3,7 +3,7 @@ ext {
     build_version = [
             compileSdkVersion: 30,
             buildToolsVersion: '30.0.3',
-            minSdkVersion    : 21,
+            minSdkVersion    : 19,
             applicationId    : "com.yyxnb.what",
             targetSdkVersion : 30,
             versionCode      : 1,
@@ -36,20 +36,16 @@ ext {
 
             retrofit      : '2.5.0',
             okhttp        : '3.12.0',
-            glide         : '4.11.0',
+            glide         : '4.12.0',
 
             rxjava2       : '2.2.19',
             rxandroid2    : '2.1.1',
             rxbinding2    : '2.2.0',
             autodispose   : '1.0.0-RC3',
 
-            rxjava3       : '3.0.2',
-            rxandroid3    : '3.0.0',
-            rxbinding3    : '3.1.0',
-
             gson          : '2.8.6',
 
-            mmkv          : '1.2.7',
+            mmkv          : '1.0.19',
 
             leakcanary    : '1.6.3',
 
@@ -59,8 +55,7 @@ ext {
 
             material      : '1.2.1',
 
-            hutool        : '5.5.9',
-            what          : '1.0.9-s'
+            hutool        : '5.6.1'
     ]
 
     build_plugins = [
@@ -69,7 +64,6 @@ ext {
             aspectjx_gradle: [group: 'com.hujiang.aspectjx', name: 'gradle-android-plugin-aspectjx', version: '2.0.8']
     ]
     libs = [
-
             appcompat                : [group: 'androidx.appcompat', name: 'appcompat', version: versions.appcompat],
             core                     : [group: 'androidx.core', name: 'core', version: versions.core],
             fragment                 : [group: 'androidx.fragment', name: 'fragment', version: versions.fragment],
@@ -81,28 +75,18 @@ ext {
 
             startup                  : [group: 'androidx.startup', name: 'startup-runtime', version: versions.startup],
 
-            lifecycle_extensions     : [group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: versions.lifecycle],
+            lifecycle                : [group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: versions.lifecycle],
             lifecycle_java8          : [group: 'androidx.lifecycle', name: 'lifecycle-common-java8', version: versions.lifecycle],
-            lifecycle_compiler       : [group: 'androidx.lifecycle', name: 'lifecycle-compiler', version: versions.lifecycle],
-            lifecycle_viewmodel      : [group: 'androidx.lifecycle', name: 'lifecycle-viewmodel', version: versions.lifecycle],
-            lifecycle_livedata       : [group: 'androidx.lifecycle', name: 'lifecycle-livedata', version: versions.lifecycle],
-            lifecycle_runtime        : [group: 'androidx.lifecycle', name: 'lifecycle-runtime', version: versions.lifecycle],
 
-            navigation_runtime       : [group: 'androidx.navigation', name: 'navigation-runtime', version: versions.navigation],
+            navigation               : [group: 'androidx.navigation', name: 'navigation-runtime', version: versions.navigation],
             navigation_common        : [group: 'androidx.navigation', name: 'navigation-common', version: versions.navigation],
-            navigation_common_ktx    : [group: 'androidx.navigation', name: 'navigation-common-ktx', version: versions.navigation],
-            navigation               : [group: 'androidx.navigation', name: 'navigation-fragment-ktx', version: versions.navigation],
-            navigation_ui            : [group: 'androidx.navigation', name: 'navigation-ui-ktx', version: versions.navigation],
 
             work                     : [group: 'androidx.work', name: 'work-runtime', version: versions.work],
 
             paging                   : [group: 'androidx.paging', name: 'paging-runtime', version: versions.paging],
-            paging_rxjava            : [group: 'androidx.paging', name: 'paging-rxjava2', version: versions.paging],
 
             room                     : [group: 'androidx.room', name: 'room-runtime', version: versions.room],
             room_compiler            : [group: 'androidx.room', name: 'room-compiler', version: versions.room],
-            room_rxjava              : [group: 'androidx.room', name: 'room-rxjava2', version: versions.room],
-            room_test                : [group: 'androidx.room', name: 'room-testing', version: versions.room],
 
             //阿里路由框架    https://github.com/alibaba/ARouter
             "arouter_api"            : "com.alibaba:arouter-api:1.5.0",
@@ -127,11 +111,11 @@ ext {
             //  https://github.com/ReactiveX/RxAndroid
             rxandroid2               : [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: versions.rxandroid2],
 
-            // rxjava3
-            rxjava3                  : [group: 'io.reactivex.rxjava3', name: 'rxjava', version: versions.rxjava3],
-            rxandroid3               : [group: 'io.reactivex.rxjava3', name: 'rxandroid', version: versions.rxandroid3],
-            rxbinding3               : [group: 'com.jakewharton.rxbinding3', name: 'rxbinding', version: versions.rxbinding3],
+            //  https://github.com/tbruyelle/RxPermissions
+            rxpermissions            : [group: 'com.github.tbruyelle', name: 'rxpermissions', version: '0.10.2'],
 
+            rximagepicker            : [group: 'com.github.qingmei2', name: 'rximagepicker', version: '2.3.0-alpha03'],
+            rxweaver                 : [group: 'com.github.qingmei2.rxweaver', name: 'rxweaver', version: '0.3.0'],
             //  https://github.com/JakeWharton/RxBinding
             rxbinding2               : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding', version: versions.rxbinding2],
             rxbinding2_v7            : [group: 'com.jakewharton.rxbinding2', name: 'rxbinding-appcompat-v7', version: versions.rxbinding2],
@@ -175,7 +159,7 @@ ext {
             shimmerlayout            : [group: 'io.supercharge', name: 'shimmerlayout', version: '2.1.0'],
 
             //https://github.com/JeremyLiao/LiveEventBus
-            live_event_bus           : [group: 'com.jeremyliao', name: 'live-event-bus-x', version: '1.7.3'],
+            live_event_bus           : [group: 'com.jeremyliao', name: 'live-event-bus-x', version: '1.7.2'],
 
             //https://github.com/anzewei/ParallaxBackLayout
             parallaxbacklayout       : [group: 'com.github.anzewei', name: 'parallaxbacklayout', version: '1.1.9'],
@@ -184,52 +168,89 @@ ext {
             swipe                    : [group: 'com.billy.android', name: 'smart-swipe', version: '1.0.8'],
             swipe_support            : [group: 'com.billy.android', name: 'smart-swipe-support', version: '1.0.0'],
 
+            material                 : [group: 'com.google.android.material', name: 'material', version: versions.material],
+
             //https://github.com/JessYanCoding/AndroidAutoSize
             autosize                 : [group: 'me.jessyan', name: 'autosize', version: '1.2.1'],
-
-            material                 : [group: 'com.google.android.material', name: 'material', version: versions.material],
 
             // java工具类 https://hutool.cn/docs/#/
             hutool_all               : [group: 'cn.hutool', name: 'hutool-all', version: versions.hutool],
             hutool_core              : [group: 'cn.hutool', name: 'hutool-core', version: versions.hutool],
             hutool_cache             : [group: 'cn.hutool', name: 'hutool-cache', version: versions.hutool],
+            hutool_crypto            : [group: 'cn.hutool', name: 'hutool-crypto', version: versions.hutool],
+            hutool_http              : [group: 'cn.hutool', name: 'hutool-http', version: versions.hutool],
 
-            // https://github.com/y1xian/What
-            // widgets
-            lib_all                  : [group: 'com.github.y1xian.What', name: 'lib-all', version: versions.what],
-            lib_arch                 : [group: 'com.github.y1xian.What', name: 'lib-arch', version: versions.what],
-            lib_common               : [group: 'com.github.y1xian.What', name: 'lib-common', version: versions.what],
-            lib_adapter              : [group: 'com.github.y1xian.What', name: 'lib-adapter', version: versions.what],
-            lib_network              : [group: 'com.github.y1xian.What', name: 'lib-network', version: versions.what],
-            lib_image                : [group: 'com.github.y1xian.What', name: 'lib-image', version: versions.what],
-            lib_video                : [group: 'com.github.y1xian.What', name: 'lib-video', version: versions.what],
-            lib_music                : [group: 'com.github.y1xian.What', name: 'lib-music', version: versions.what],
-            lib_dialog               : [group: 'com.github.y1xian.What', name: 'lib-dialog', version: versions.what],
-            lib_popup                : [group: 'com.github.y1xian.What', name: 'lib-popup', version: versions.what],
-            lib_localservice         : [group: 'com.github.y1xian.What', name: 'lib-localservice', version: versions.what],
-            lib_view                 : [group: 'com.github.y1xian.What', name: 'lib-view', version: versions.what],
-            lib_webview              : [group: 'com.github.y1xian.What', name: 'lib-webview', version: versions.what],
-            lib_room                 : [group: 'com.github.y1xian.What', name: 'lib-room', version: versions.what],
-            lib_file                 : [group: 'com.github.y1xian.What', name: 'lib-file', version: versions.what],
-            lib_floatwindow          : [group: 'com.github.y1xian.What', name: 'lib-floatwindow', version: versions.what],
-            lib_skinloader           : [group: 'com.github.y1xian.What', name: 'lib-skinloader', version: versions.what],
-            // utils
-            util_all                 : [group: 'com.github.y1xian.What', name: 'util-all', version: versions.what],
-            util_app                 : [group: 'com.github.y1xian.What', name: 'util-app', version: versions.what],
-            util_core                : [group: 'com.github.y1xian.What', name: 'util-core', version: versions.what],
-            util_cache               : [group: 'com.github.y1xian.What', name: 'util-cache', version: versions.what],
-            util_okhttp              : [group: 'com.github.y1xian.What', name: 'util-okhttp', version: versions.what],
-            util_common              : [group: 'com.github.y1xian.What', name: 'util-common', version: versions.what],
-            util_media               : [group: 'com.github.y1xian.What', name: 'util-media', version: versions.what],
-            util_encrypt             : [group: 'com.github.y1xian.What', name: 'util-encrypt', version: versions.what],
-            util_file                : [group: 'com.github.y1xian.What', name: 'util-file', version: versions.what],
-            util_rxtool              : [group: 'com.github.y1xian.What', name: 'util-rxtool', version: versions.what],
-            util_system              : [group: 'com.github.y1xian.What', name: 'util-system', version: versions.what],
-            util_task                : [group: 'com.github.y1xian.What', name: 'util-task', version: versions.what],
-            util_language            : [group: 'com.github.y1xian.What', name: 'util-language', version: versions.what],
-            util_permission          : [group: 'com.github.y1xian.What', name: 'util-permission', version: versions.what],
-            util_notification        : [group: 'com.github.y1xian.What', name: 'util-notification', version: versions.what],
-            util_other               : [group: 'com.github.y1xian.What', name: 'util-other', version: versions.what]
+
+            // 底层框架 Lifecycle、LiveData、ViewModel
+            lib_arch                 : project(':libs:jetpack:lib-arch'),
+            // Room数据库
+            lib_room                 : project(':libs:jetpack:lib-room'),
+            // Paging分页库
+            lib_paging               : project(':libs:jetpack:lib-paging'),
+            // 可延迟的异步任务
+            lib_workmanager          : project(':libs:jetpack:lib-workmanager'),
+            // 导航
+            lib_navigation           : project(':libs:jetpack:lib-navigation'),
+            // Binding
+            lib_binding              : project(':libs:jetpack:lib-binding'),
+            // app相关
+            lib_app                  : project(':libs:utils:lib-app'),
+            // 核心
+            lib_core                 : project(':libs:utils:lib-core'),
+            // 缓存
+            lib_cache                : project(':libs:utils:lib-cache'),
+            // 简单实现okhttp
+            lib_okhttp               : project(':libs:utils:lib-okhttp'),
+            // 网络请求
+            lib_network              : project(':libs:utils:lib-network'),
+            // 适配器
+            lib_adapter              : project(':libs:utils:lib-adapter'),
+            // 图片框架
+            lib_image                : project(':libs:utils:lib-image'),
+            // 媒体
+            lib_media                : project(':libs:utils:lib-media'),
+            // 加密
+            lib_encrypt              : project(':libs:utils:lib-encrypt'),
+            // 文件
+            lib_file                 : project(':libs:utils:lib-file'),
+            // rxjava封装
+            lib_rxtool               : project(':libs:utils:lib-rxtool'),
+            // 系统相关
+            lib_system               : project(':libs:utils:lib-system'),
+            // 任务队列
+            lib_task                 : project(':libs:utils:lib-task'),
+            // 多语言
+            lib_language             : project(':libs:utils:lib-language'),
+            // 权限
+            lib_permission           : project(':libs:utils:lib-permission'),
+            // 通知栏
+            lib_notification         : project(':libs:utils:lib-notification'),
+            // 封装服务
+            lib_service              : project(':libs:utils:lib-service'),
+            // 不常用工具，未分类的
+            lib_utils                : project(':libs:utils:lib-utils'),
+            // 视频
+            lib_video                : project(':libs:widgets:lib-video'),
+            // 音乐
+            lib_music                : project(':libs:widgets:lib-music'),
+            // dialog
+            lib_dialog               : project(':libs:widgets:lib-dialog'),
+            // popup
+            lib_popup                : project(':libs:widgets:lib-popup'),
+            // 本地服务
+            lib_localservice         : project(':libs:widgets:lib-localservice'),
+            // 自定义控件
+            lib_view                 : project(':libs:widgets:lib-view'),
+            // web
+            lib_webview              : project(':libs:widgets:lib-webview'),
+            // 悬浮框
+            lib_floatwindow          : project(':libs:widgets:lib-floatwindow'),
+            // 换肤
+            lib_skinloader           : project(':libs:widgets:lib-skinloader'),
+            // 文件下载
+            lib_download             : project(':libs:widgets:lib-download')
+
+
     ]
 
 }

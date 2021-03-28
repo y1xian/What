@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/_popup_loading_bg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="20dp">
+
+    <com.yyxnb.what.popup.widget.LoadingView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingStart="5dp"
+        android:paddingEnd="14dp"
+        android:textColor="#EEEEEE"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+</LinearLayout>
+

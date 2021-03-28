@@ -5,9 +5,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.yyxnb.common_res.bean.UserBean;
-import com.yyxnb.lib_room.DateConverter;
-import com.yyxnb.util_app.AppUtils;
+import com.yyxnb.common_res.bean.UserVo;
+import com.yyxnb.what.app.AppUtils;
+import com.yyxnb.what.room.DateConverter;
 
 /**
  * Database这个对象我们需要指定三个参数entities 代表数据库需要操作的实体类集合，第二个参数代表数据库的版本第三个参数代表在编译时，
@@ -15,7 +15,7 @@ import com.yyxnb.util_app.AppUtils;
  * <p>
  * TypeConverters 自定义类型(通常情况下，数据库存储的是基本类型float，int，String等)
  */
-@Database(entities = {UserBean.class}, version = 2, exportSchema = false)
+@Database(entities = {UserVo.class}, version = 2, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 

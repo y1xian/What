@@ -10,7 +10,7 @@
     </data>
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
-        android:id="@+id/cl_content"
+        android:id="@+id/clContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -30,12 +30,12 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:src="@mipmap/ic_main_smiling_face"
-                app:layout_constraintBottom_toTopOf="@+id/tv_title"
+                app:layout_constraintBottom_toTopOf="@+id/tvTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:riv_oval="true" />
 
             <TextView
-                android:id="@+id/tv_title"
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -50,14 +50,14 @@
                 app:layout_constraintVertical_bias="0.15" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_content"
+                android:id="@+id/rvContent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

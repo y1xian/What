@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.paging.DataSource;
 import androidx.paging.PageKeyedDataSource;
 
-import com.yyxnb.common_base.core.BasePagedViewModel;
+import com.yyxnb.common_base.base.BasePagedViewModel;
 import com.yyxnb.module_widget.bean.MainBean;
 import com.yyxnb.module_widget.config.DataConfig;
 

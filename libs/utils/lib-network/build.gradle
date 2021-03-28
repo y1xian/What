@@ -1,0 +1,10 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    implementation libs.lib_core
+    // retrofit2    https://github.com/square/retrofit
+    api([libs.retrofit2, libs.retrofit2_gson])
+    // okhttp3     https://github.com/square/okhttp
+    api libs.lib_okhttp
+}

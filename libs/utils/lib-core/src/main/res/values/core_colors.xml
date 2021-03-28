@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 如需 - 重写配置颜色 start -->
+
+    <!-- 系统应用的主题色 -->
+    <!-- 应用的主要色调,actionBar默认使用该颜色,Toolbar导航栏的底色 -->
+    <color name="colorPrimary">@color/white</color>
+    <!-- 状态栏颜色,应用的主要暗色调,statusBarColor默认使用该颜色 -->
+    <color name="colorPrimaryDark">@color/white</color>
+    <!-- CheckBox,RadioButton,SwitchCompat等一般控件的选中效果默认采用该颜色 -->
+    <color name="colorAccent">@color/colorTheme</color>
+    <!-- 控件按压时的色调 -->
+    <color name="colorControlHighlight">@color/pale_grey</color>
+    <!-- 默认按钮的背景颜色 -->
+    <color name="colorButtonNormal">@color/pale_grey</color>
+    <!-- 窗口背景颜色 - 所以页面背景色 -->
+    <color name="windowBackground">#F2F3F5</color>
+    <!--底部栏颜色 -->
+    <color name="navigationBarColor">@color/colorPrimary</color>
+
+    <!-- 界面颜色 -->
+    <!-- 非非非！非系统应用 - 主题颜色 -->
+    <color name="colorTheme">#00C6FF</color>
+    <!-- 所有界面的状态栏的背景颜色 -->
+    <color name="statusBar">@color/colorPrimary</color>
+    <!-- 所有界面的标题栏的背景颜色 -->
+    <color name="titleBar">@color/colorPrimary</color>
+    <!-- 所有界面的分割线颜色 -->
+    <color name="colorLine">#EAEAEA</color>
+
+    <!-- 文字颜色 -->
+    <!-- 一级标题、正文字体颜色，二级页面导航栏返回键/其他图标颜色 -->
+    <color name="colorTitle">#FF1C2124</color>
+    <!-- 二级标题 副标题 -->
+    <color name="colorSubTitle">#1F2336</color>
+    <!-- 正文字体颜色 -->
+    <color name="colorText">#878B99</color>
+    <!-- 辅助字体（注释、时间等）颜色 -->
+    <color name="colorHint">#FF9E9FA3</color>
+    <!-- 提示性文字 -->
+    <color name="colorTips">#A9A9A9</color>
+
+
+    <!-- 如需 - 重写配置颜色 end -->
+
+    <!--黑色透明度-->
+    <color name="black_100">#FF000000</color>
+    <color name="black_95">#F2000000</color>
+    <color name="black_90">#E6000000</color>
+    <color name="black_85">#D9000000</color>
+    <color name="black_80">#CC000000</color>
+    <color name="black_75">#B000000F</color>
+    <color name="black_70">#B3000000</color>
+    <color name="black_65">#A6000000</color>
+    <color name="black_60">#99000000</color>
+    <color name="black_50">@color/translucent</color>
+    <color name="black_45">#73000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_35">#59000000</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_25">#40000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_15">#26000000</color>
+    <color name="black_10">#1A000000</color>
+    <color name="black_5">#0D000000</color>
+    <color name="black_0">@color/transparent</color>
+
+    <!--常见颜色-->
+
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+    <!-- 黑色 -->
+    <color name="black">#000000</color>
+    <!-- 金色 -->
+    <color name="gold">#FFFFD700</color>
+    <!-- 黄色 -->
+    <color name="yellow">#FFFFFF00</color>
+    <!-- 橙色 -->
+    <color name="orange">#FFFFA500</color>
+    <!-- 红色 -->
+    <color name="red">#FFFF0000</color>
+    <!-- 灰色 -->
+    <color name="gray">#FF808080</color>
+    <!-- 淡灰色-->
+    <color name="pale_grey">#FFF2F2F2</color>
+    <!-- 紫色 -->
+    <color name="purple">#FF800080</color>
+    <!-- 青色 -->
+    <color name="cyan">#FF00FFFF</color>
+    <!-- 绿色 -->
+    <color name="green">#FF008000</color>
+    <!-- 蓝色 -->
+    <color name="blue">#FF0000FF</color>
+    <!-- 粉色 -->
+    <color name="pink">#FFFFC0CB</color>
+    <!--透明 -->
+    <color name="transparent">#00000000</color>
+    <!--半透明-->
+    <color name="translucent">#80000000</color>
+
+</resources>

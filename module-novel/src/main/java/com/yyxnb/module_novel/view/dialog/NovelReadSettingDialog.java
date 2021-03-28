@@ -12,9 +12,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.NovelPageStyleAdapter;
 import com.yyxnb.module_novel.view.page.BrightnessUtils;
@@ -22,6 +19,9 @@ import com.yyxnb.module_novel.view.page.PageLoader;
 import com.yyxnb.module_novel.view.page.PageMode;
 import com.yyxnb.module_novel.view.page.PageStyle;
 import com.yyxnb.module_novel.view.page.ReadSettingManager;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.dialog.core.BaseDialog;
 
 import java.util.Arrays;
 
@@ -92,7 +92,7 @@ public class NovelReadSettingDialog {
             mRbSlide = findViewById(R.id.read_setting_rb_slide);
             mRbScroll = findViewById(R.id.read_setting_rb_scroll);
             mRbNone = findViewById(R.id.read_setting_rb_none);
-            mRecyclerView = findViewById(R.id.rv_content);
+            mRecyclerView = findViewById(R.id.rvContent);
 
 
             initData();

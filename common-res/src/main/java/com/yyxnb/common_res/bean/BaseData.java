@@ -1,6 +1,6 @@
 package com.yyxnb.common_res.bean;
 
-import com.yyxnb.lib_common.interfaces.IData;
+import com.yyxnb.what.core.interfaces.IData;
 
 /**
  * 常用的数据结构
@@ -9,18 +9,18 @@ import com.yyxnb.lib_common.interfaces.IData;
  */
 public class BaseData<T> implements IData<T> {
 
-    public String status;
-    public String message;
+    public String code;
+    public String msg;
     public T data;
 
     @Override
     public String getCode() {
-        return status;
+        return code;
     }
 
     @Override
     public String getMsg() {
-        return message;
+        return msg;
     }
 
     @Override
@@ -30,6 +30,7 @@ public class BaseData<T> implements IData<T> {
 
     @Override
     public boolean isSuccess() {
-        return "200".equals(status);
+        return "200".equals(code);
     }
+
 }

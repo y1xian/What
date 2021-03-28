@@ -3,12 +3,11 @@ package com.yyxnb.module_mall.ui.provide;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.MallRouterPath;
+import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.module_mall.R;
 import com.yyxnb.module_mall.databinding.FragmentMallHomeProvideBinding;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================
@@ -18,7 +17,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_HOME_PROVIDE_FRA
  * ================================================
  */
 @BindRes(subPage = true)
-@Route(path = MALL_HOME_PROVIDE_FRAGMENT)
+@Route(path = MallRouterPath.SHOW_FRAGMENT)
 public class MallHomeProvideFragment extends BaseFragment {
 
     private FragmentMallHomeProvideBinding binding;

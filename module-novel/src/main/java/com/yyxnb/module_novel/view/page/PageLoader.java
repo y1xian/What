@@ -8,17 +8,19 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import androidx.core.content.ContextCompat;
 import android.text.TextPaint;
 
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_res.bean.UserBean;
+import androidx.core.content.ContextCompat;
+
+import com.yyxnb.common_res.bean.UserVo;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;
 import com.yyxnb.module_novel.config.Constant;
 import com.yyxnb.module_novel.db.NovelDatabase;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.core.UITask;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -32,7 +34,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
-import static com.yyxnb.common_res.config.Constants.TOURIST_ID;
+import static com.yyxnb.common_res.constants.Constants.TOURIST_ID;
 
 
 /**
@@ -569,13 +571,13 @@ public abstract class PageLoader {
             return;
         }
 
-        UserBean loginBean = LoginImpl.getInstance().getUserInfo();
+        UserVo loginBean = UserImpl.getInstance().getUserInfo();
         if (loginBean == null) {
-            loginBean = new UserBean();
-            loginBean.userId = (TOURIST_ID);
+            loginBean = new UserVo();
+//            loginBean.setUserId(TOURIST_ID);
         }
 
-        mBookRecord.userId = loginBean.userId + "";
+        mBookRecord.userId = loginBean.getUserId();
         mBookRecord.bookInfoBean = bookInfoBean;
         mBookRecord.chapter = (mCurChapterPos);
 
@@ -589,7 +591,7 @@ public abstract class PageLoader {
 //        BookRepository.getInstance()
 //                .saveBookRecord(mBookRecord);
 
-        new Thread(() -> {
+        UITask.run(() -> {
 
 //            if (DBHelper.getInstance().getDb().bookRecordDao().getUserId(loginBean.getUserId(), mCollBook.getBookId()) == null) {
             NovelDatabase.getInstance().bookRecordDao().insertItem(mBookRecord);
@@ -598,7 +600,7 @@ public abstract class PageLoader {
 //            }
 
 //            LogUtils.INSTANCE.e(DBHelper.getInstance().getDb().bookRecordDao().getAllByIds(mCollBook.getBookId()).toString());
-        }).start();
+        });
 
 
     }
@@ -608,18 +610,18 @@ public abstract class PageLoader {
      */
     private void prepareBook() {
 
-        UserBean loginBean = LoginImpl.getInstance().getUserInfo();
+        UserVo loginBean = UserImpl.getInstance().getUserInfo();
         if (loginBean == null) {
-            loginBean = new UserBean();
-            loginBean.userId = (TOURIST_ID);
+            loginBean = new UserVo();
+            loginBean.setUserId(TOURIST_ID);
         }
 
-        mBookRecord = NovelDatabase.getInstance().bookRecordDao().getUserId(loginBean.userId + "", bookInfoBean.bookId + "");
+        mBookRecord = NovelDatabase.getInstance().bookRecordDao().getUserId(loginBean.getUserId(), bookInfoBean.bookId + "");
 
         if (mBookRecord == null) {
             mBookRecord = new BookRecordBean();
         }
-        mBookRecord.userId = loginBean.userId + "";
+        mBookRecord.userId = loginBean.getUserId();
         mBookRecord.bookInfoBean = bookInfoBean;
         mBookRecord.addTime = System.currentTimeMillis();
         NovelDatabase.getInstance().bookRecordDao().insertItem(mBookRecord);

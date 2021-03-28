@@ -1,7 +1,5 @@
 package com.yyxnb.module_chat;
 
-import android.app.Application;
-
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.EaseUI;
@@ -9,13 +7,13 @@ import com.hyphenate.push.EMPushHelper;
 import com.hyphenate.push.EMPushType;
 import com.hyphenate.push.PushListener;
 import com.hyphenate.util.EMLog;
-import com.yyxnb.common_base.module.IModuleInit;
-import com.yyxnb.util_app.AppUtils;
+import com.yyxnb.common_base.module.ModuleInitImpl;
+import com.yyxnb.what.app.AppUtils;
 
-public class ModuleInit implements IModuleInit {
+public class ModuleInit extends ModuleInitImpl {
 
     @Override
-    public void onCreate(Application application) {
+    public void onCreate() {
 
         EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证

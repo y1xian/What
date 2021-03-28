@@ -12,13 +12,13 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.yyxnb.lib_adapter.BaseAdapter;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_video.cache.PreloadManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.widget.tiktok.TikTokView;
-import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.video.cache.PreloadManager;
 
 public class TikTokRvAdapter extends BaseAdapter<TikTokBean> {
 
@@ -47,7 +47,7 @@ public class TikTokRvAdapter extends BaseAdapter<TikTokBean> {
 
         mThumb = mTikTokView.getView().findViewById(R.id.iv_thumb);
         mPlayerContainer = mTikTokView.findViewById(R.id.container);
-        mTitle = mTikTokView.findViewById(R.id.tv_title);
+        mTitle = mTikTokView.findViewById(R.id.tvTitle);
         tvLikeCount = mTikTokView.findViewById(R.id.tvLikeCount);
         tvCommentCount = mTikTokView.findViewById(R.id.tvCommentCount);
         mThumb = mTikTokView.findViewById(R.id.iv_thumb);

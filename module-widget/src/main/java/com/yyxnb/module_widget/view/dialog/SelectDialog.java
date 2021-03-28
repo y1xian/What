@@ -9,12 +9,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.lib_adapter.BaseAdapter;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_dialog.core.BaseDialog;
-import com.yyxnb.lib_dialog.core.UIDialog;
 import com.yyxnb.module_widget.R;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.dialog.core.BaseDialog;
+import com.yyxnb.what.dialog.core.UIDialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;

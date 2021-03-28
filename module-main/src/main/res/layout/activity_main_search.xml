@@ -14,7 +14,7 @@
         tools:context="com.yyxnb.module_main.ui.MainSearchActivity">
 
         <com.noober.background.view.BLConstraintLayout
-            android:id="@+id/cl_content"
+            android:id="@+id/clContent"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="16dp"
@@ -28,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <EditText
-                android:id="@+id/et_input"
+                android:id="@+id/etInput"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
@@ -37,12 +37,12 @@
                 android:singleLine="true"
                 android:textColor="@color/colorText"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_search"
+                app:layout_constraintEnd_toStartOf="@+id/tvSearch"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_search"
+                android:id="@+id/tvSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"

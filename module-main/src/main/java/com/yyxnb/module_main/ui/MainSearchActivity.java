@@ -6,10 +6,10 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.yyxnb.lib_arch.base.IActivity;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.databinding.ActivityMainSearchBinding;
-import com.yyxnb.util_core.KeyboardUtils;
+import com.yyxnb.what.arch.base.IActivity;
+import com.yyxnb.what.core.KeyboardUtils;
 
 /**
  * 搜索

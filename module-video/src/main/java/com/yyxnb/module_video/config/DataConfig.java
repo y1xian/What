@@ -1,9 +1,9 @@
 package com.yyxnb.module_video.config;
 
 import com.yyxnb.module_video.bean.TikTokBean;
-import com.yyxnb.util_okhttp.utils.GsonUtils;
-import com.yyxnb.util_file.FileUtils;
-import com.yyxnb.util_app.AppUtils;
+import com.yyxnb.what.okhttp.utils.GsonUtils;
+import com.yyxnb.what.file.FileUtils;
+import com.yyxnb.what.app.AppUtils;
 
 import java.math.BigDecimal;
 import java.util.Collections;

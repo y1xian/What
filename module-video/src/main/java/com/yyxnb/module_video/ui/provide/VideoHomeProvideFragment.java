@@ -3,12 +3,11 @@ package com.yyxnb.module_video.ui.provide;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.viewmodel.ViewModelFactory;
+import com.yyxnb.common_res.constants.VideoRouterPath;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.viewmodel.ViewModelFactory;
 import com.yyxnb.module_video.ui.play.VideoPlayFragment;
 import com.yyxnb.module_video.viewmodel.VideoViewModel;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.VIDEO_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================
@@ -20,7 +19,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.VIDEO_HOME_PROVIDE_FR
  * ================================================
  */
 @BindRes(subPage = true)
-@Route(path = VIDEO_HOME_PROVIDE_FRAGMENT)
+@Route(path = VideoRouterPath.SHOW_FRAGMENT)
 public class VideoHomeProvideFragment extends VideoPlayFragment {
 
 //    @Override

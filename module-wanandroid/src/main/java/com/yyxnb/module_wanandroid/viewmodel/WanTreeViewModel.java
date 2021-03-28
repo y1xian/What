@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.WanData;
 import com.yyxnb.common_res.config.Http;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
@@ -23,45 +23,42 @@ public class WanTreeViewModel extends CommonViewModel {
 
     public void getSquareData(int page){
 
-        launchOnlyResult(mApi.getSquareData(page), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getSquareData(page), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<WanStatus<WanAriticleBean>> data) {
+            public void onSuccess(WanData<WanStatus<WanAriticleBean>> data) {
                 squareData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void getSystemData(){
 
-        launchOnlyResult(mApi.getSystemData(), new OnHandleException<WanData<List<WanSystemBean>>>() {
+        launchOnlyResult(mApi.getSystemData(), new HttpResponseCallback<WanData<List<WanSystemBean>>>() {
             @Override
-            public void success(WanData<List<WanSystemBean>> data) {
+            public void onSuccess(WanData<List<WanSystemBean>> data) {
                 systemData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void getNavigationData(){
 
-        launchOnlyResult(mApi.getNavigationData(), new OnHandleException<WanData<List<WanNavigationBean>>>() {
+        launchOnlyResult(mApi.getNavigationData(), new HttpResponseCallback<WanData<List<WanNavigationBean>>>() {
             @Override
-            public void success(WanData<List<WanNavigationBean>> data) {
+            public void onSuccess(WanData<List<WanNavigationBean>> data) {
                 navigationData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }

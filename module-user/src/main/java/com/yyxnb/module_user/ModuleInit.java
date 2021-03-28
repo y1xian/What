@@ -1,14 +1,11 @@
 package com.yyxnb.module_user;
 
-import android.app.Application;
+import com.yyxnb.common_base.module.ModuleInitImpl;
 
-import com.yyxnb.common_base.module.IModuleInit;
-
-public class ModuleInit implements IModuleInit {
+public class ModuleInit extends ModuleInitImpl {
 
     @Override
-    public void onCreate(Application application) {
-
+    public void onCreate() {
 
     }
 }

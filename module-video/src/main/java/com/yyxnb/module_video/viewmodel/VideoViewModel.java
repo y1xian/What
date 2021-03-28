@@ -3,7 +3,7 @@ package com.yyxnb.module_video.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.StateData;
 import com.yyxnb.common_res.config.Http;
 import com.yyxnb.module_video.bean.TikTokBean;
@@ -38,7 +38,6 @@ public class VideoViewModel extends CommonViewModel {
 //                AppConfig.getInstance().log(msg);
 //            }
 //        });
-        list(DataConfig.getTikTokBeans());
         mVideoDao.insertItems(DataConfig.getTikTokBeans());
 
 

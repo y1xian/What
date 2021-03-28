@@ -1,14 +1,16 @@
 package com.yyxnb.common_res.config;
 
-import com.yyxnb.lib_network.AbsRetrofit;
+import com.yyxnb.common_res.utils.UrlInterceptor;
+import com.yyxnb.what.network.AbsRetrofit;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import cn.hutool.core.collection.ListUtil;
 import okhttp3.Interceptor;
 
 import static com.yyxnb.common_res.config.BaseAPI.URL_APIOPEN;
 import static com.yyxnb.common_res.config.BaseAPI.URL_JISU;
+import static com.yyxnb.common_res.config.BaseAPI.URL_LOCAL;
 import static com.yyxnb.common_res.config.BaseAPI.URL_MOCKY;
 import static com.yyxnb.common_res.config.BaseAPI.URL_WAN_ANDROID;
 
@@ -33,20 +35,17 @@ public class Http extends AbsRetrofit {
 
     @Override
     protected String baseUrl() {
-        return URL_MOCKY;
+        return URL_LOCAL;
     }
 
     @Override
     protected Iterable<Interceptor> interceptors() {
 
-        final List<String> urlBucket = new ArrayList<>();
-        urlBucket.add(URL_WAN_ANDROID);
-        urlBucket.add(URL_APIOPEN);
-        urlBucket.add(URL_JISU);
-
-        final List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new UrlInterceptor(urlBucket));
-//        interceptorList.add(new BaseUrlInterceptor());
-        return interceptorList;
+        final List<String> urlBucket = ListUtil.list(false,
+                URL_MOCKY, URL_WAN_ANDROID, URL_APIOPEN, URL_JISU
+        );
+        return ListUtil.list(false,
+                new UrlInterceptor(urlBucket)
+        );
     }
 }

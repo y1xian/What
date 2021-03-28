@@ -6,10 +6,7 @@ import android.view.View;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.config.DataConfig;
@@ -17,12 +14,15 @@ import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
 import com.yyxnb.module_widget.ui.tools.DialogFragment;
 import com.yyxnb.module_widget.ui.tools.PopupFragment;
 import com.yyxnb.module_widget.ui.tools.WidgetTitleFragment;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 
 /**
  * ================================================
  * 作    者：yyx
  * 日    期：2020/12/02
- * 描    述：工具类
+ * 描    述：控件 自定义view之类的
  * ================================================
  */
 public class WidgetToolFragment extends BaseFragment {
@@ -81,9 +81,8 @@ public class WidgetToolFragment extends BaseFragment {
             case "dialog":
                 startFragment(new DialogFragment());
                 break;
-//            case "tag":
+            case "tag":
 //                startFragment(new TagFragment());
-//                break;
             case "popup":
                 startFragment(new PopupFragment());
                 break;

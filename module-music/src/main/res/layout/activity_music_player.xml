@@ -31,7 +31,7 @@
                 android:layout_margin="10dp"
                 android:padding="5dp"
                 android:src="@mipmap/ic_titlebar_back"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"

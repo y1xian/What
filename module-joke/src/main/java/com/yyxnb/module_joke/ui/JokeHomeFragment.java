@@ -2,6 +2,7 @@ package com.yyxnb.module_joke.ui;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.transition.Transition;
 import android.view.View;
@@ -23,29 +24,29 @@ import com.dueeeke.videocontroller.component.VodControlView;
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.dueeeke.videoplayer.util.L;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_video.Utils;
-import com.yyxnb.lib_video.cache.PreloadManager;
-import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.JokeRouterPath;
 import com.yyxnb.module_joke.R;
 import com.yyxnb.module_joke.adapter.JokeHomeAdapter;
 import com.yyxnb.module_joke.bean.TikTokBean;
 import com.yyxnb.module_joke.config.DataConfig;
 import com.yyxnb.module_joke.databinding.FragmentJokeHomeBinding;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.video.Utils;
+import com.yyxnb.what.video.cache.PreloadManager;
+import com.yyxnb.what.video.cache.ProxyVideoCacheManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
-import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_HOME_FRAGMENT;
 
 /**
  * joke 首页.
  */
-@Route(path = JOKE_HOME_FRAGMENT)
+@Route(path = JokeRouterPath.HOME_FRAGMENT)
 public class JokeHomeFragment extends BaseFragment {
 
     private FragmentJokeHomeBinding binding;
@@ -289,6 +290,7 @@ public class JokeHomeFragment extends BaseFragment {
         mRecyclerView.postDelayed(() -> mVideoView.setVideoController(mController), 100);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onStart() {
         super.onStart();

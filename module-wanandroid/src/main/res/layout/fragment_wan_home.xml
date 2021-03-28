@@ -14,7 +14,7 @@
         tools:context="com.yyxnb.module_wanandroid.ui.home.WanHomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_head"
+            android:id="@+id/clHead"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@color/colorTheme"
@@ -32,20 +32,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_search"
+                android:id="@+id/ivSearch"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginEnd="16dp"
                 android:src="@mipmap/ic_search"
+                app:tint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/white" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <include
-            android:id="@+id/i_rv"
+            android:id="@+id/iRvContent"
             layout="@layout/include_srl_rv_layout" />
 
     </LinearLayout>

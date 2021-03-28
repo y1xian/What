@@ -6,14 +6,14 @@ import android.view.View;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.config.DataConfig;
 import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 
 /**
  * ================================================

@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_dialog.core.BaseDialog;
-import com.yyxnb.lib_dialog.core.MessageDialog;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.what.arch.annotations.BindViewModel;
+import com.yyxnb.what.dialog.core.BaseDialog;
+import com.yyxnb.what.dialog.core.MessageDialog;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookShelfBean;
@@ -64,7 +65,7 @@ public class BookDetailsFragment extends BaseFragment {
                 if (bookShelfBean == null) {
                     bookShelfBean = new BookShelfBean();
                     bookShelfBean.bookInfoBean = bookInfoBean;
-                    bookShelfBean.userId = LoginImpl.getInstance().getUserInfo().userId;
+                    bookShelfBean.userId = UserImpl.getInstance().getUserInfo().getUserId();
                     bookShelfBean.addTime = System.currentTimeMillis();
                     NovelDatabase.getInstance().bookShelfDao().insertItem(bookShelfBean);
                     tvAddBookshelf.setText(getString(R.string.novel_remove_bookshelf));
@@ -98,7 +99,7 @@ public class BookDetailsFragment extends BaseFragment {
                             .show();
                 }
             } else {
-                LoginImpl.getInstance().login(getContext());
+                LoginImpl.getInstance().start(getContext());
             }
         } else if (v.getId() == R.id.tv_read) {
             // 开始阅读

@@ -11,7 +11,7 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.adapters.ListenerUtil;
 
 import com.yyxnb.common_base.R;
-import com.yyxnb.lib_image_loader.ImageManager;
+import com.yyxnb.what.image.ImageManager;
 
 public class BindingAdapters {
 

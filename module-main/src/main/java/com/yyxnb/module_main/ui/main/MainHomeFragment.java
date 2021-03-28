@@ -9,20 +9,28 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.arouter.ARouterUtils;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.JokeRouterPath;
+import com.yyxnb.common_res.constants.LiveRouterPath;
+import com.yyxnb.common_res.constants.MallRouterPath;
+import com.yyxnb.common_res.constants.MusicRouterPath;
+import com.yyxnb.common_res.constants.NewsRouterPath;
+import com.yyxnb.common_res.constants.NovelRouterPath;
+import com.yyxnb.common_res.constants.VideoRouterPath;
+import com.yyxnb.common_res.constants.WanRouterPath;
+import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.common_res.weight.NoScrollViewPager;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
-import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.bean.MainHomeBean;
 import com.yyxnb.module_main.config.DataConfig;
 import com.yyxnb.module_main.databinding.FragmentMainHomeBinding;
 import com.yyxnb.module_main.ui.MainTestFragment;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
-import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
+import com.yyxnb.what.core.DpUtils;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -34,15 +42,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.Li
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.LIVE_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.MALL_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.MUSIC_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.NEWS_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.VIDEO_HOME_PROVIDE_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.WAN_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================
@@ -106,22 +105,22 @@ public class MainHomeFragment extends BaseFragment {
             case "关注":
                 return new MainFollowFragment();
             case "推荐":
-                return (Fragment) ARouterUtils.navFragment(JOKE_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(JokeRouterPath.SHOW_FRAGMENT);
             case "视频":
             case "短视频":
-                return (Fragment) ARouterUtils.navFragment(VIDEO_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(VideoRouterPath.SHOW_FRAGMENT);
             case "玩安卓":
-                return (Fragment) ARouterUtils.navFragment(WAN_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(WanRouterPath.SHOW_FRAGMENT);
             case "音乐":
-                return (Fragment) ARouterUtils.navFragment(MUSIC_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(MusicRouterPath.SHOW_FRAGMENT);
             case "小说":
-                return (Fragment) ARouterUtils.navFragment(NOVEL_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(NovelRouterPath.SHOW_FRAGMENT);
             case "头条":
-                return (Fragment) ARouterUtils.navFragment(NEWS_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(NewsRouterPath.SHOW_FRAGMENT);
             case "商城":
-                return (Fragment) ARouterUtils.navFragment(MALL_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(MallRouterPath.SHOW_FRAGMENT);
             case "直播":
-                return (Fragment) ARouterUtils.navFragment(LIVE_HOME_PROVIDE_FRAGMENT);
+                return (Fragment) ARouterUtils.navFragment(LiveRouterPath.SHOW_FRAGMENT);
             default:
                 break;
         }
@@ -131,6 +130,17 @@ public class MainHomeFragment extends BaseFragment {
     @Override
     public void initObservable() {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mViewPager = null;
+        mIndicator = null;
+        fragments.clear();
+        fragments = null;
+        titles.clear();
+        titles = null;
     }
 
     @Override

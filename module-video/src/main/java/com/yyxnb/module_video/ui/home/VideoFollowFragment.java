@@ -8,11 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_video.Utils;
-import com.yyxnb.lib_video.cache.PreloadManager;
-import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokRvAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;
@@ -23,6 +19,10 @@ import com.yyxnb.module_video.widget.ViewPagerLayoutManager;
 import com.yyxnb.module_video.widget.tiktok.TikTokController;
 import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory;
 import com.yyxnb.module_video.widget.tiktok.TikTokView;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.video.Utils;
+import com.yyxnb.what.video.cache.PreloadManager;
+import com.yyxnb.what.video.cache.ProxyVideoCacheManager;
 
 import java.util.ArrayList;
 import java.util.List;

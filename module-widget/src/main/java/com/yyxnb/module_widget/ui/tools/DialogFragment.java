@@ -7,13 +7,7 @@ import android.view.View;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_dialog.core.BaseDialog;
-import com.yyxnb.lib_dialog.core.MessageDialog;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_widget.R;
 import com.yyxnb.module_widget.adapter.MainListAdapter;
 import com.yyxnb.module_widget.config.DataConfig;
@@ -23,6 +17,12 @@ import com.yyxnb.module_widget.view.dialog.InputDialog;
 import com.yyxnb.module_widget.view.dialog.MenuDialog;
 import com.yyxnb.module_widget.view.dialog.SelectDialog;
 import com.yyxnb.module_widget.view.dialog.WaitDialog;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.dialog.core.BaseDialog;
+import com.yyxnb.what.dialog.core.MessageDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -3,12 +3,11 @@ package com.yyxnb.module_chat.ui.provide;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.ChatRouterPath;
+import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.databinding.FragmentChatHomeProvideBinding;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_HOME_PROVIDE_FRAGMENT;
 
 /**
  * ================================================
@@ -18,7 +17,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_HOME_PROVIDE_FRA
  * ================================================
  */
 @BindRes(subPage = true)
-@Route(path = CHAT_HOME_PROVIDE_FRAGMENT)
+@Route(path = ChatRouterPath.SHOW_FRAGMENT)
 public class ChatHomeProvideFragment extends BaseFragment {
 
     private FragmentChatHomeProvideBinding binding;

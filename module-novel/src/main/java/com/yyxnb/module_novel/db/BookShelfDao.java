@@ -3,8 +3,8 @@ package com.yyxnb.module_novel.db;
 import androidx.room.Dao;
 import androidx.room.Query;
 
-import com.yyxnb.lib_room.BaseDao;
 import com.yyxnb.module_novel.bean.BookShelfBean;
+import com.yyxnb.what.room.BaseDao;
 
 import java.util.List;
 

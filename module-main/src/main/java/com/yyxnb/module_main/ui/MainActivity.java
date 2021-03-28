@@ -2,7 +2,7 @@ package com.yyxnb.module_main.ui;
 
 import androidx.fragment.app.Fragment;
 
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.module_main.ui.main.MainFragment;
 
 /**

@@ -7,7 +7,7 @@
 
     <data>
 
-        <import type="com.yyxnb.common_res.arouter.service.impl.LoginImpl" />
+        <import type="com.yyxnb.common_res.service.impl.LoginImpl" />
 
         <import type="android.view.View" />
     </data>
@@ -21,7 +21,7 @@
         tools:context="com.yyxnb.module_user.ui.UserSetUpFragment">
 
         <include
-            android:id="@+id/i_title"
+            android:id="@+id/iTitle"
             layout="@layout/include_title_layout" />
 
         <com.noober.background.view.BLTextView

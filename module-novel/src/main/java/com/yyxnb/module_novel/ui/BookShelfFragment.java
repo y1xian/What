@@ -7,18 +7,18 @@ import android.view.View;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDecoration;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_dialog.core.BaseDialog;
-import com.yyxnb.lib_dialog.core.MessageDialog;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.BookShelfAdapter;
 import com.yyxnb.module_novel.bean.BookShelfBean;
 import com.yyxnb.module_novel.databinding.FragmentBookShelfBinding;
 import com.yyxnb.module_novel.db.NovelDatabase;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.dialog.core.BaseDialog;
+import com.yyxnb.what.dialog.core.MessageDialog;
 
 import java.util.List;
 
