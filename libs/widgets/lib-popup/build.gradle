@@ -1,0 +1,6 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    implementation libs.lib_adapter, libs.lib_app, libs.lib_core
+}

@@ -9,7 +9,7 @@
 
         <variable
             name="data"
-            type="com.yyxnb.common_res.bean.UserBean" />
+            type="com.yyxnb.common_res.bean.UserVo" />
 
         <!--        <variable-->
         <!--            name="lifeCycleOwner"-->
@@ -22,7 +22,7 @@
     </data>
 
     <RelativeLayout
-        android:id="@+id/rl_content"
+        android:id="@+id/rlContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBackground"
@@ -30,7 +30,7 @@
         tools:context=".ui.UserFragment">
 
         <ImageView
-            android:id="@+id/iv_headBg"
+            android:id="@+id/ivHeadBg"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:background="@color/colorUserHead"
@@ -46,7 +46,7 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/cl_head"
+                    android:id="@+id/clHead"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:orientation="vertical"
@@ -54,12 +54,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
+                    <androidx.constraintlayout.widget.ConstraintLayout                        android:layout_width="match_parent"
                         android:layout_height="150dp">
 
                         <com.makeramen.roundedimageview.RoundedImageView
-                            android:id="@+id/iv_avatar"
+                            android:id="@+id/ivAvatar"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:layout_marginEnd="24dp"
@@ -72,20 +71,20 @@
                             app:riv_corner_radius="6dp" />
 
                         <TextView
-                            android:id="@+id/tv_name"
+                            android:id="@+id/tvName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
                             android:layout_marginTop="4dp"
-                            android:text="@{!TextUtils.isEmpty(data.nickname) ? data.nickname : @string/not_logged_in }"
+                            android:text="@{!TextUtils.isEmpty(data.nickName) ? data.nickName : @string/not_logged_in }"
                             android:textColor="@color/white"
                             android:textSize="17sp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+                            app:layout_constraintTop_toTopOf="@+id/ivAvatar"
                             tools:text="@string/not_logged_in" />
 
                         <TextView
-                            android:id="@+id/tv_sign"
+                            android:id="@+id/tvSign"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -95,9 +94,9 @@
                             android:text="@{!TextUtils.isEmpty(data.signature) ? data.signature : @string/no_signature }"
                             android:textColor="@color/white"
                             android:textSize="14sp"
-                            app:layout_constraintEnd_toStartOf="@+id/iv_avatar"
+                            app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                            app:layout_constraintTop_toBottomOf="@+id/tvName"
                             tools:text="@string/no_signature" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -198,7 +197,7 @@
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:src="@mipmap/ic_user_wallet"
-                                android:tint="@color/colorPrimary" />
+                                app:tint="@color/colorPrimary" />
 
                         </LinearLayout>
 
@@ -220,14 +219,14 @@
                             skin:enable="true" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_menuBg"
+                            android:id="@+id/clMenuBg"
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
                             android:layout_margin="20dp"
                             android:background="@drawable/shape_r8_bg_ffffff"
                             skin:enable="true">
 
-                            <com.yyxnb.lib_view.text.TextImageView
+                            <com.yyxnb.what.view.text.TextImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableTop="@color/colorLine"
@@ -244,7 +243,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 skin:enable="true" />
 
-                            <com.yyxnb.lib_view.text.TextImageView
+                            <com.yyxnb.what.view.text.TextImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableTop="@color/colorLine"
@@ -260,7 +259,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 skin:enable="true" />
 
-                            <com.yyxnb.lib_view.text.TextImageView
+                            <com.yyxnb.what.view.text.TextImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableTop="@color/colorLine"
@@ -285,17 +284,17 @@
                 </LinearLayout>
 
                 <View
-                    android:id="@+id/v_bottomMenuBg"
+                    android:id="@+id/bottomMenuBg"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_alignParentBottom="true"
                     android:background="@color/colorBackground"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_head"
+                    app:layout_constraintTop_toBottomOf="@+id/clHead"
                     skin:enable="true" />
 
                 <LinearLayout
-                    android:id="@+id/ll_bottomMenuBg"
+                    android:id="@+id/centreMenuBg"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginStart="20dp"
@@ -304,10 +303,9 @@
                     android:orientation="vertical"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_head"
+                    app:layout_constraintTop_toBottomOf="@+id/clHead"
                     skin:enable="true">
 
                     <LinearLayout
@@ -315,8 +313,8 @@
                         android:layout_height="50dp"
                         android:orientation="horizontal">
 
-                        <com.yyxnb.lib_view.text.DrawableRadioButton
-                            android:id="@+id/rb_nightMode"
+                        <com.yyxnb.what.view.text.DrawableRadioButton
+                            android:id="@+id/rbNightMode"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="1"
@@ -333,7 +331,7 @@
                             skin:enable="true" />
 
                         <CheckBox
-                            android:id="@+id/cb_mode"
+                            android:id="@+id/cbMode"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginStart="16dp"
@@ -350,7 +348,7 @@
                         android:background="@color/colorLine"
                         skin:enable="true" />
 
-                    <com.yyxnb.lib_view.text.DrawableRadioButton
+                    <com.yyxnb.what.view.text.DrawableRadioButton
                         android:id="@+id/rb_feedback"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -375,8 +373,8 @@
                         android:background="@color/colorLine"
                         skin:enable="true" />
 
-                    <com.yyxnb.lib_view.text.DrawableRadioButton
-                        android:id="@+id/rb_setUp"
+                    <com.yyxnb.what.view.text.DrawableRadioButton
+                        android:id="@+id/rbSetUp"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@color/colorPrimary"

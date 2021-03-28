@@ -9,17 +9,16 @@ import androidx.fragment.app.FragmentTransaction;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_view.tabbar.Tab;
-import com.yyxnb.lib_view.tabbar.TabBarView;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.ChatRouterPath;
 import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.databinding.FragmentChatMainBinding;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.view.tabbar.Tab;
+import com.yyxnb.what.view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN_FRAGMENT;
 
 /**
  * ================================================
@@ -31,7 +30,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN_FRAGMENT;
  * ================================================
  */
 @BindRes(fitsSystemWindows = true)
-@Route(path = CHAT_MAIN_FRAGMENT)
+@Route(path = ChatRouterPath.MAIN_FRAGMENT)
 public class ChatMainFragment extends BaseFragment {
 
     private FragmentChatMainBinding binding;

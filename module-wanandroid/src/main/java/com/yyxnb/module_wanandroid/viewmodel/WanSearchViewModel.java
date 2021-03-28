@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.WanData;
 import com.yyxnb.common_res.config.Http;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
@@ -21,29 +21,27 @@ public class WanSearchViewModel extends CommonViewModel {
 
     public void getSearchData() {
 
-        launchOnlyResult(mApi.getSearchData(), new OnHandleException<WanData<List<WanClassifyBean>>>() {
+        launchOnlyResult(mApi.getSearchData(), new HttpResponseCallback<WanData<List<WanClassifyBean>>>() {
             @Override
-            public void success(WanData<List<WanClassifyBean>> data) {
+            public void onSuccess(WanData<List<WanClassifyBean>> data) {
                 searchData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void getSearchDataByKey(int page, String key) {
-        launchOnlyResult(mApi.getSearchDataByKey(page, key), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getSearchDataByKey(page, key), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<WanStatus<WanAriticleBean>> data) {
+            public void onSuccess(WanData<WanStatus<WanAriticleBean>> data) {
                 searchDataByKey.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }

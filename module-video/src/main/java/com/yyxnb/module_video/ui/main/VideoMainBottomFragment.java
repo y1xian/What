@@ -10,20 +10,18 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.arouter.ARouterUtils;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_view.text.DrawableRadioButton;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.ChatRouterPath;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
 import com.yyxnb.module_video.ui.home.VideoHomeFragment;
-import com.yyxnb.util_core.DpUtils;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_LIST_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.view.text.DrawableRadioButton;
 
 /**
  * 主页
@@ -82,9 +80,8 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
             mHomeFragment = new VideoHomeFragment();
             mSparseArray.put(HOME, mHomeFragment);
             mSparseArray.put(FIND, new VideoFindFragment());
-            mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(CHAT_LIST_FRAGMENT));
-//            mSparseArray.put(ME, VideoUserFragment.newInstance(true));
-            mSparseArray.put(ME, (Fragment) ARouterUtils.navFragment(USER_MAIN_FRAGMENT));
+            mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(ChatRouterPath.LIST_FRAGMENT));
+            mSparseArray.put(ME, (Fragment) UserImpl.getInstance().mainPage(getContext()));
         }
 
         mCurKey = HOME;
@@ -92,7 +89,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
         FragmentTransaction ft = mFragmentManager.beginTransaction();
         for (int i = 0, size = mSparseArray.size(); i < size; i++) {
             Fragment fragment = mSparseArray.valueAt(i);
-            ft.add(R.id.fl_content, fragment);
+            ft.add(R.id.flContent, fragment);
             if (mSparseArray.keyAt(i) == mCurKey) {
                 ft.show(fragment);
             } else {
@@ -132,13 +129,13 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.btn_home) {
+        if (id == R.id.btnHome) {
             toggleHome();
-        } else if (id == R.id.btn_find) {
+        } else if (id == R.id.btnFind) {
             toggleFind();
-        } else if (id == R.id.btn_msg) {
+        } else if (id == R.id.btnMsg) {
             toggleMsg();
-        } else if (id == R.id.btn_me) {
+        } else if (id == R.id.btnMe) {
             toggleMe();
         } else if (id == R.id.iv_record_tip) {
             // 跳录制
@@ -198,12 +195,12 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
      */
     private void toggleMsg() {
 //        if (BaseConfig.getInstance().isLogin()) {
-            toggle(MSG);
-            if (mBtnMsg != null) {
-                mBtnMsg.doToggle();
-            }
-            setCanScroll(false);
-            toggleRecordTip(false);
+        toggle(MSG);
+        if (mBtnMsg != null) {
+            mBtnMsg.doToggle();
+        }
+        setCanScroll(false);
+        toggleRecordTip(false);
 //        } else {
 //            forwardLogin();
 //        }
@@ -214,12 +211,12 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
      */
     private void toggleMe() {
 //        if (BaseConfig.getInstance().isLogin()) {
-            toggle(ME);
-            if (mBtnMe != null) {
-                mBtnMe.doToggle();
-            }
-            setCanScroll(false);
-            toggleRecordTip(true);
+        toggle(ME);
+        if (mBtnMe != null) {
+            mBtnMe.doToggle();
+        }
+        setCanScroll(false);
+        toggleRecordTip(true);
 //        } else {
 //            forwardLogin();
 //        }
@@ -248,8 +245,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     // 跳转登录
     private void forwardLogin() {
-        log("跳登录 " + LoginImpl.getInstance().getUserInfo().toString());
-        startFragment(ARouterUtils.navFragment(LOGIN_FRAGMENT));
+        LoginImpl.getInstance().start(getContext());
     }
 
     // 最底层vp { @link VideoMainFragment } 是否能切换 （视频/个人）

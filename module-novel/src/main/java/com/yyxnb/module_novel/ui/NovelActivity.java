@@ -1,13 +1,13 @@
 package com.yyxnb.module_novel.ui;
 
+
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
+import com.yyxnb.common_res.constants.NovelRouterPath;
 
-import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_MAIN;
-
-@Route(path = NOVEL_MAIN)
+@Route(path = NovelRouterPath.MAIN_ACTIVITY)
 public class NovelActivity extends ContainerActivity {
 
     @Override

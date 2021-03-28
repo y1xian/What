@@ -7,23 +7,22 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.arouter.ARouterUtils;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.lib_popup.PopupManager;
-import com.yyxnb.lib_view.tabbar.Tab;
-import com.yyxnb.lib_view.tabbar.TabBarView;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.ChatRouterPath;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.databinding.FragmentMainBinding;
 import com.yyxnb.module_main.ui.MainTestFragment;
 import com.yyxnb.module_main.viewmodel.MainViewModel;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
+import com.yyxnb.what.popup.PopupManager;
+import com.yyxnb.what.view.tabbar.Tab;
+import com.yyxnb.what.view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN_FRAGMENT;
-import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN_FRAGMENT;
 
 /**
  * ================================================
@@ -57,7 +56,7 @@ public class MainFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mTabLayout = binding.vTabLayout;
+        mTabLayout = binding.tabLayout;
     }
 
     @Override
@@ -78,8 +77,8 @@ public class MainFragment extends BaseFragment {
             fragments.add(new MainHomeFragment());
 //            fragments.add(new MainFindFragment());
             fragments.add(new MainTestFragment());
-            fragments.add((Fragment) ARouterUtils.navFragment(CHAT_MAIN_FRAGMENT));
-            fragments.add((Fragment) ARouterUtils.navFragment(USER_MAIN_FRAGMENT));
+            fragments.add((Fragment) ARouterUtils.navFragment(ChatRouterPath.MAIN_FRAGMENT));
+            fragments.add((Fragment) UserImpl.getInstance().mainPage(getContext()));
 
             tabs = new ArrayList<>();
             tabs.add(new Tab(getContext(), "首页", R.mipmap.ic_titlebar_progress));
@@ -120,7 +119,7 @@ public class MainFragment extends BaseFragment {
         ft.hide(fragments.get(currentIndex));
         //判断Fragment是否已经添加
         if (!fragments.get(index).isAdded()) {
-            ft.add(R.id.fl_content, fragments.get(index)).show(fragments.get(index));
+            ft.add(R.id.flContent, fragments.get(index)).show(fragments.get(index));
         } else {
             //显示新的Fragment
             ft.show(fragments.get(index));

@@ -1,6 +1,5 @@
 package com.yyxnb.module_login.ui;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -17,19 +16,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.event.MessageEvent;
+import com.yyxnb.common_base.event.StatusEvent;
+import com.yyxnb.common_base.event.TypeEvent;
+import com.yyxnb.common_res.constants.LoginRouterPath;
 import com.yyxnb.module_login.R;
-import com.yyxnb.module_login.config.UserManager;
+import com.yyxnb.module_login.config.LoginManager;
+import com.yyxnb.module_login.constants.ExtraKeys;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.utils.DownTimer;
 import com.yyxnb.module_login.viewmodel.LoginViewModel;
-import com.yyxnb.util_permission.PermissionListener;
-import com.yyxnb.util_permission.PermissionUtils;
-import com.yyxnb.util_system.PhoneInfoUtils;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 
 
 /**
@@ -41,14 +40,14 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.LOGIN_FRAGMENT;
  * 描    述：登录界面
  * ================================================
  */
-@Route(path = LOGIN_FRAGMENT)
+@Route(path = LoginRouterPath.MAIN_FRAGMENT)
 @BindRes
 public class LoginFragment extends BaseFragment {
 
     private FragmentLoginBinding binding;
 
     private EditText etPhone;
-    private DownTimer timer = new DownTimer(this);
+    private final DownTimer timer = new DownTimer(this);
 
     private final String[] words = new String[]{"《用户协议》", "《隐私政策》"};
 
@@ -66,34 +65,6 @@ public class LoginFragment extends BaseFragment {
         etPhone = binding.etPhone;
 
         timer.setTotalTime(10 * 1000);
-        etPhone.setText(UserManager.getInstance().getUserBean().phone);
-
-        binding.ivBack.setOnClickListener(v -> {
-            finish();
-        });
-        binding.tvLogin.setOnClickListener(v -> {
-            if (!binding.ivUserAgreeCheck.isSelected()) {
-                toast("请先勾选协议！");
-                return;
-            }
-            String phone = etPhone.getText().toString();
-            String code = binding.etCode.getText().toString();
-            mViewModel.reqLogin(phone, code);
-        });
-        binding.tvVisitorLogin.setOnClickListener(v -> {
-            if (!binding.ivUserAgreeCheck.isSelected()) {
-                toast("请先勾选协议！");
-                return;
-            }
-            mViewModel.reqVisitorLogin();
-        });
-        binding.tvVerificationCode.setOnClickListener(v -> {
-            String phone = etPhone.getText().toString();
-            mViewModel.reqSmsCode(phone);
-        });
-        binding.ivUserAgreeCheck.setOnClickListener(v -> {
-            binding.ivUserAgreeCheck.setSelected(!binding.ivUserAgreeCheck.isSelected());
-        });
 
         timer.setTimerListener(new DownTimer.TimeListener() {
             @Override
@@ -111,48 +82,15 @@ public class LoginFragment extends BaseFragment {
             }
         });
 
+        setOnClickListener(binding.ivBack, binding.tvLogin, binding.tvVisitorLogin, binding.tvVerificationCode, binding.ivUserAgreeCheck);
+
     }
 
     @Override
     public void initViewData() {
         super.initViewData();
 
-        PermissionUtils.with(getActivity())
-                //添加所有你需要申请的权限
-                .addPermissions(Manifest.permission.READ_PHONE_STATE)
-                //添加权限申请回调监听 如果申请失败 会返回已申请成功的权限列表，用户拒绝的权限列表和用户点击了不再提醒的永久拒绝的权限列表
-                .setPermissionsCheckListener(new PermissionListener() {
-                    @Override
-                    public void permissionRequestSuccess() {
-                        //所有权限授权成功才会回调这里
-                        try {
-                            log("" + PhoneInfoUtils.getPhoneInfo());
-//                            log("" + PhoneInfoUtils.getNativePhoneNumber());
-                            // 去掉+86 ，默认是+86手机号
-                            binding.etPhone.setText(PhoneInfoUtils.getNativePhoneNumber().replace("+86", ""));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
-                        //当有权限没有被授权就会回调这里
-                        //会返回已申请成功的权限列表（grantedPermissions）
-                        //用户拒绝的权限列表（deniedPermissions）
-                        //用户点击了不再提醒的永久拒绝的权限列表（forceDeniedPermissions）
-                    }
-                })
-                //生成配置
-                .createConfig()
-                //配置是否强制用户授权才可以使用，当设置为true的时候，如果用户拒绝授权，会一直弹出授权框让用户授权
-                .setForceAllPermissionsGranted(true)
-                //配置当用户点击了不再提示的时候，会弹窗指引用户去设置页面授权，这个参数是弹窗里面的提示内容
-                .setForceDeniedPermissionTips("请前往设置->应用->【" + PermissionUtils.getAppName(getContext()) + "】->权限中打开相关权限，否则功能无法正常运行！")
-                //构建配置并生效
-                .buildConfig()
-                //开始授权
-                .startCheckPermission();
+        binding.etPhone.setText("19999999999");
 
         initWords();
     }
@@ -162,39 +100,53 @@ public class LoginFragment extends BaseFragment {
     public void initObservable() {
         super.initObservable();
 
-        log("---initObservable--");
+        mViewModel.getMessageEvent().observe(this, (MessageEvent.MessageObserver) this::toast);
 
-        mViewModel.getUser().observe(this, userBean -> {
-            if (userBean != null) {
-                log("userBean : " + userBean.toString());
-                UserManager.getInstance().setUserBean(userBean);
+        mViewModel.getTypeEvent().observe(this, (TypeEvent.TypeObserver) t -> {
+            if (ExtraKeys.LOGIN.equals(t.type)) {
+                LoginManager.getInstance().setToken(t.value.toString());
+                mViewModel.userLiveData.reqUser();
                 finish();
+            } else if (ExtraKeys.CODE.equals(t.type)) {
+                binding.etCode.setText(t.value.toString());
+                binding.tvVerificationCode.setEnabled(false);
+                timer.start();
             }
         });
 
-        mViewModel.msgEvent.observe(this, msgData -> {
-            if (LoginViewModel.key.equals(msgData.key)) {
-                switch (msgData.type) {
-                    case TOAST:
-                        toast(msgData.value.toString());
-                        break;
-                    case MSG:
-                        break;
-                    case NUMBER:
-                        binding.etCode.setText(msgData.value.toString());
-                        binding.tvVerificationCode.setEnabled(false);
-                        timer.start();
-                        break;
-                    case LOADING:
-                        break;
-                    case HIDE_LOADING:
-                        break;
-                    default:
-                        break;
-                }
-            }
+        mViewModel.getStatusEvent().observe(this, (StatusEvent.StatusObserver) status -> {
+
+            log("login " + status.name());
+
         });
 
+    }
+
+    @Override
+    public void onClickEvent(View v) {
+        int id = v.getId();
+        if (id == R.id.ivBack) {
+            finish();
+        } else if (id == R.id.tvLogin) {
+            if (!binding.ivUserAgreeCheck.isSelected()) {
+                toast("请先勾选协议！");
+                return;
+            }
+            String phone = etPhone.getText().toString();
+            String code = binding.etCode.getText().toString();
+            mViewModel.reqLogin(phone, code);
+        } else if (id == R.id.tvVisitorLogin) {
+            if (!binding.ivUserAgreeCheck.isSelected()) {
+                toast("请先勾选协议！");
+                return;
+            }
+            mViewModel.reqVisitorLogin();
+        } else if (id == R.id.tvVerificationCode) {
+            String phone = etPhone.getText().toString();
+            mViewModel.reqSmsCode(phone);
+        } else if (id == R.id.ivUserAgreeCheck) {
+            binding.ivUserAgreeCheck.setSelected(!binding.ivUserAgreeCheck.isSelected());
+        }
     }
 
     /**

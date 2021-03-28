@@ -1,13 +1,14 @@
 package com.yyxnb.module_login.utils;
 
 import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
+
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
 
 /**
  * DownTimer
@@ -55,34 +56,26 @@ public class DownTimer implements LifecycleObserver {
 
         systemAddTotalTime = SystemClock.elapsedRealtime() + totalTime;
 
-        if (null != mHandler) {
-            mHandler.sendEmptyMessage(TIME);
-        }
+        mHandler.sendEmptyMessage(TIME);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void cancel() {
-        if (mHandler != null) {
-            mHandler.removeMessages(TIME);
-            mHandler.removeCallbacksAndMessages(this);
-//            mHandler = null;
-        }
-
+        mHandler.removeMessages(TIME);
+        mHandler.removeCallbacksAndMessages(this);
     }
 
     //    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void pause() {
-        if (mHandler != null) {
-            mHandler.removeMessages(TIME);
-            isPause = true;
-            curReminTime = remainTime;
-        }
+        mHandler.removeMessages(TIME);
+        isPause = true;
+        curReminTime = remainTime;
 
     }
 
     //    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void resume() {
-        if (isPause == true) {
+        if (isPause) {
             isPause = false;
             totalTime = curReminTime;
             start();
@@ -90,7 +83,7 @@ public class DownTimer implements LifecycleObserver {
 
     }
 
-    private Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler() {
 
         @SuppressLint("HandlerLeak")
         @Override
@@ -122,9 +115,7 @@ public class DownTimer implements LifecycleObserver {
                 cancel();
             }
         } else if (remainTime < intervalTime) {
-            if (null != mHandler) {
-                mHandler.sendEmptyMessageDelayed(TIME, remainTime);
-            }
+            mHandler.sendEmptyMessageDelayed(TIME, remainTime);
         } else {
             long curSystemTime = SystemClock.elapsedRealtime();
             if (listener != null) {
@@ -137,9 +128,7 @@ public class DownTimer implements LifecycleObserver {
                 delay += intervalTime;
             }
 
-            if (null != mHandler) {
-                mHandler.sendEmptyMessageDelayed(TIME, delay);
-            }
+            mHandler.sendEmptyMessageDelayed(TIME, delay);
         }
     }
 

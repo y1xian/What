@@ -1,0 +1,109 @@
+//设置到ext中，供lib的build.gradle使用
+
+//是否发布
+def isPublish = ext.has('isPublish')
+ext.isPublish = isPublish
+//
+def isMainLibrary = ext.has('isMainLibrary')
+ext.isMainLibrary = isMainLibrary
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+// 发布
+if (isPublish) {
+    apply plugin: 'com.github.dcendents.android-maven'
+    group = 'com.github.y1xian'
+}
+
+android {
+    //版本配置
+    compileSdkVersion build_version.compileSdkVersion
+    defaultConfig {
+        minSdkVersion build_version.minSdkVersion
+        targetSdkVersion build_version.targetSdkVersion
+        versionCode build_version.versionCode
+        versionName build_version.versionName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        debug {
+            //混淆
+            minifyEnabled build_version.minifyEnabled
+//            applicationIdSuffix ".debug"
+//            versionNameSuffix "-DEV"
+//            //停用 Crashlytics（Fabric）
+//            ext.enableCrashlytics = false
+            //是否清理无用资源
+            shrinkResources build_version.shrinkResources
+            //是否启用zipAlign压缩
+            zipAlignEnabled build_version.zipAlignEnabled
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            //混淆
+            minifyEnabled build_version.minifyEnabled
+            //是否清理无用资源
+            shrinkResources build_version.shrinkResources
+            //是否启用zipAlign压缩
+            zipAlignEnabled build_version.zipAlignEnabled
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //防止编译的时候oom、GC
+    dexOptions {
+        preDexLibraries false
+        maxProcessCount 8
+        //分配给gradle的内存
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        // true--关闭lint报告的分析进度
+//        quiet false
+        //  true--所有正式版构建执行规则生成崩溃的lint检查，如果有崩溃问题将停止构建
+        checkReleaseBuilds false
+        // true--错误发生后停止gradle构建
+        abortOnError false
+    }
+
+    aaptOptions {
+        //停用 PNG 处理
+        cruncherEnabled false
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    // 避免65K限制       https://developer.android.com/tools/building/multidex.html
+    api libs.multidex
+    // kotlin
+    api libs.kotlin_stdlib, libs.kotlin_coroutines, libs.kotlin_coroutines_core
+}
+
+

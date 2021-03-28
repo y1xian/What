@@ -4,9 +4,8 @@ package com.yyxnb.module_chat.ui;
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.ContainerActivity;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN;
+import com.yyxnb.common_base.base.ContainerActivity;
+import com.yyxnb.common_res.constants.ChatRouterPath;
 
 /**
  * ================================================
@@ -15,7 +14,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.CHAT_MAIN;
  * 描    述：聊天 主界面
  * ================================================
  */
-@Route(path = CHAT_MAIN)
+@Route(path = ChatRouterPath.MAIN_ACTIVITY)
 public class ChatActivity extends ContainerActivity {
 
     @Override

@@ -1,4 +1,4 @@
-ext.isPublish = true
+ext.isLibrary = true
 apply from: rootProject.file('module.gradle')
 
 android {
@@ -18,15 +18,17 @@ dependencies {
 
     implementation project(':common-base')
 
-    implementation libs.util_task
+    implementation libs.lib_task, libs.cardview
 
     // 路由
     implementation libs.arouter_api
     annotationProcessor libs.arouter_compiler
+    // 通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
+    implementation 'com.noober.background:core:1.6.5'
 
     if (runAsApp) {
         //模块化下需要引用到的模块
-
+        addComponent 'module-server'
     }
 
 

@@ -1,5 +1,6 @@
 package com.yyxnb.module_widget.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -90,6 +91,7 @@ public final class ProgressView extends View {
         this(context, attrs, defStyleAttr, 0);
     }
 
+    @SuppressLint("NewApi")
     public ProgressView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 

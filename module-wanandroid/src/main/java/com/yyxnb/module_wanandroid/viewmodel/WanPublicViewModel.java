@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.WanData;
 import com.yyxnb.common_res.config.Http;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
@@ -21,30 +21,28 @@ public class WanPublicViewModel extends CommonViewModel {
 
     public void getPublicTypes() {
 
-        launchOnlyResult(mApi.getPublicTypes(), new OnHandleException<WanData<List<WanClassifyBean>>>() {
+        launchOnlyResult(mApi.getPublicTypes(), new HttpResponseCallback<WanData<List<WanClassifyBean>>>() {
             @Override
-            public void success(WanData<List<WanClassifyBean>> data) {
+            public void onSuccess(WanData<List<WanClassifyBean>> data) {
                 publicTypes.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void getPublicData(int page, int id) {
 
-        launchOnlyResult(mApi.getPublicData(page, id), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getPublicData(page, id), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<WanStatus<WanAriticleBean>> data) {
+            public void onSuccess(WanData<WanStatus<WanAriticleBean>> data) {
                 publicData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }

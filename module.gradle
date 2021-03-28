@@ -37,6 +37,7 @@ if (runAsApp) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 //对组件库的依赖格式： addComponent dependencyName [, realDependency]
 // 使用示例见demo/build.gradle
@@ -99,6 +100,13 @@ ext.addComponent = { dependencyName, realDependency = null ->
     }
 }
 
+// 阿里路由框架配置
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
 //默认配置了AndroidManifest.xml在library模式和application模式下的文件路径
 android {
     //版本配置
@@ -109,23 +117,19 @@ android {
         targetSdkVersion build_version.targetSdkVersion
         versionCode build_version.versionCode
         versionName build_version.versionName
+        // 仅保留中、英文资源
+//        resConfigs "en", "zh-rCN"
+        // 启用多 dex 文件
         multiDexEnabled true
+        // 使用矢量图
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // 将混淆文件解耦到每个模块中，并且不会影响编译效率
         consumerProguardFiles 'consumer-rules.pro'
-        // 阿里路由框架配置
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
     }
 
     buildTypes {
         debug {
-            // port
-            resValue("string", "PORT_NUMBER", "18082")
             //混淆
             minifyEnabled build_version.minifyEnabled
 //            applicationIdSuffix ".debug"
@@ -216,7 +220,6 @@ android {
         cruncherEnabled false
     }
 
-    // 4.0
     buildFeatures {
         dataBinding true
         viewBinding true
@@ -238,39 +241,10 @@ dependencies {
     if (!isLibrary) {
         implementation project(':common-res')
         //组件中依赖阿里路由编译框架
-        annotationProcessor libs.arouter_compiler
-        annotationProcessor libs.room_compiler
+        kapt libs.arouter_compiler
+        kapt libs.room_compiler
     }
 
-    configurations.all {
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == 'androidx.appcompat') {
-                details.useVersion versions.appcompat
-            }
-            if (requested.group == 'androidx.core') {
-                details.useVersion versions.appcompat
-            }
-            if (requested.group == 'androidx.lifecycle') {
-                details.useVersion versions.lifecycle
-            }
-            if (requested.group == 'androidx.paging') {
-                details.useVersion versions.paging
-            }
-            if (requested.group == 'androidx.recyclerview') {
-                details.useVersion versions.recyclerview
-            }
-            if (requested.group == 'androidx.fragment') {
-                details.useVersion versions.fragment
-            }
-            if (details.requested.group == 'androidx.core') {
-                details.useVersion versions.core
-            }
-            if (details.requested.group == 'androidx.multidex') {
-                details.useVersion versions.multidex
-            }
-        }
-    }
 }
 
 

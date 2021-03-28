@@ -16,7 +16,7 @@ public class BookShelfBean {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    public int userId;
+    public String userId;
 
     /**
      * 需要更新

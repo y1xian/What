@@ -1,0 +1,7 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    // rx全家桶
+    api([libs.rxjava2, libs.rxandroid2, libs.rxbinding2])
+}

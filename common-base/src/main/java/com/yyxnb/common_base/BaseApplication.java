@@ -3,22 +3,24 @@ package com.yyxnb.common_base;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.DefaultLifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.multidex.MultiDex;
 
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
-import com.yyxnb.lib_arch.annotations.SwipeStyle;
-import com.yyxnb.lib_arch.common.ArchConfig;
-import com.yyxnb.lib_arch.common.ArchManager;
-import com.yyxnb.lib_image_loader.ImageManager;
-import com.yyxnb.util_app.AppUtils;
-
-import java.util.concurrent.ExecutorService;
+import com.yyxnb.what.app.AppUtils;
+import com.yyxnb.what.arch.annotations.SwipeStyle;
+import com.yyxnb.what.arch.config.AppManager;
+import com.yyxnb.what.arch.config.ArchConfig;
+import com.yyxnb.what.arch.config.ArchManager;
+import com.yyxnb.what.core.UITask;
+import com.yyxnb.what.image.ImageManager;
 
 import me.jessyan.autosize.AutoSizeConfig;
-
-import static java.util.concurrent.Executors.newFixedThreadPool;
 
 /**
  * ================================================
@@ -29,22 +31,10 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
  */
 public class BaseApplication extends Application {
 
-    /**
-     * 返回可用处理器的Java虚拟机的数量
-     */
-    public static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    /**
-     * 线程池中至少有2个线程，最多4个线程
-     */
-    public static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
-    /**
-     * 创建容器大小为n的线程池，表示正在执行中的线程只有n个
-     */
-    public static final ExecutorService SERVICE = newFixedThreadPool(CORE_POOL_SIZE);
-
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        ModuleLifecycleConfig.getInstance().initModule(base);
         // you must install multiDex whatever tinker is installed!
         MultiDex.install(base);
     }
@@ -52,8 +42,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        SERVICE.submit(() -> {
+        UITask.run(() -> {
             // 布局
             AutoSizeConfig.getInstance()
                     //按照宽度适配 默认true
@@ -64,7 +53,7 @@ public class BaseApplication extends Application {
             // 侧滑监听
             AppUtils.getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
         });
-        SERVICE.submit(() -> {
+        UITask.run(() -> {
             // 图片框架 集成glide
             ImageManager.getInstance().init(this.getApplicationContext());
 
@@ -76,7 +65,34 @@ public class BaseApplication extends Application {
             ArchManager.getInstance().setConfig(archConfig);
         });
 
-        //初始化组件
-        ModuleLifecycleConfig.getInstance().initModule(this);
+        ModuleLifecycleConfig.getInstance().onCreate();
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(new DefaultLifecycleObserver() {
+            @Override
+            public void onStop(@NonNull LifecycleOwner owner) {
+                if (AppManager.getInstance().activityCount() == 0) {
+                    ModuleLifecycleConfig.getInstance().onDestroy();
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        ModuleLifecycleConfig.getInstance().onTerminate();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        ModuleLifecycleConfig.getInstance().onLowMemory();
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        ModuleLifecycleConfig.getInstance().onTrimMemory(level);
     }
 }

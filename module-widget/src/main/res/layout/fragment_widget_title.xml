@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".ui.tools.WidgetTitleFragment">
 
-    <com.yyxnb.lib_view.titlebar.TitleBar
+    <com.yyxnb.what.view.titlebar.TitleBar
         android:id="@+id/v_titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         app:tb_centerSubTextColor="@color/white"
         app:tb_centerText="沉浸式标题" />
 
-    <com.yyxnb.lib_view.titlebar.TitleBar
+    <com.yyxnb.what.view.titlebar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -24,7 +24,7 @@
         app:tb_leftType="none"
         app:tb_titleBarColor="@color/colorTheme" />
 
-    <com.yyxnb.lib_view.titlebar.TitleBar
+    <com.yyxnb.what.view.titlebar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -38,7 +38,7 @@
         app:tb_rightType="textView"
         app:tb_titleBarColor="@color/colorTheme" />
 
-    <com.yyxnb.lib_view.titlebar.TitleBar
+    <com.yyxnb.what.view.titlebar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -53,7 +53,7 @@
         app:tb_rightType="textView"
         app:tb_titleBarColor="@color/colorTheme" />
 
-    <com.yyxnb.lib_view.titlebar.TitleBar
+    <com.yyxnb.what.view.titlebar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

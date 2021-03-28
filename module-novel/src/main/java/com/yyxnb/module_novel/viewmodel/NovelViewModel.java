@@ -3,7 +3,7 @@ package com.yyxnb.module_novel.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.JiSuData;
 import com.yyxnb.common_res.config.BaseConfig;
 import com.yyxnb.common_res.config.Http;
@@ -29,30 +29,28 @@ public class NovelViewModel extends CommonViewModel {
     }
 
     public void reqChapterList(String cst) {
-        launchOnlyResult(mApi.getChapterList(cst, BaseConfig.JISU_APPKEY), new OnHandleException<JiSuData<List<BookChapterBean>>>() {
+        launchOnlyResult(mApi.getChapterList(cst, BaseConfig.JISU_APPKEY), new HttpResponseCallback<JiSuData<List<BookChapterBean>>>() {
             @Override
-            public void success(JiSuData<List<BookChapterBean>> data) {
+            public void onSuccess(JiSuData<List<BookChapterBean>> data) {
                 chapterList.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void reqChapterDetail(String cst, String detailid) {
         launchOnlyResult(mApi.getChapterDetail(cst, BaseConfig.JISU_APPKEY, detailid, "1"),
-                new OnHandleException<JiSuData<BookDetailBean>>() {
+                new HttpResponseCallback<JiSuData<BookDetailBean>>() {
             @Override
-            public void success(JiSuData<BookDetailBean> data) {
+            public void onSuccess(JiSuData<BookDetailBean> data) {
                 chapterDetail.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }

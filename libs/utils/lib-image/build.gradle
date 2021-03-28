@@ -1,0 +1,7 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    api libs.glide
+    kapt libs.glide_compiler
+}

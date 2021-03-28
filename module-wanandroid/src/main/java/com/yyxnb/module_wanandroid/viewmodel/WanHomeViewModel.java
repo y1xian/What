@@ -2,14 +2,14 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.WanData;
 import com.yyxnb.common_res.config.Http;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.bean.WanStatus;
 import com.yyxnb.module_wanandroid.config.WanService;
-import com.yyxnb.util_okhttp.OkHttpUtils;
-import com.yyxnb.util_okhttp.utils.HttpCallBack;
+import com.yyxnb.what.okhttp.OkHttpUtils;
+import com.yyxnb.what.okhttp.utils.HttpCallBack;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,30 +27,28 @@ public class WanHomeViewModel extends CommonViewModel {
 
     public void getAritrilList(int page) {
 
-        launchOnlyResult(mApi.getAritrilList(page), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getAritrilList(page), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<WanStatus<WanAriticleBean>> data) {
+            public void onSuccess(WanData<WanStatus<WanAriticleBean>> data) {
                 homeListData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void getTopAritrilList() {
 
-        launchOnlyResult(mApi.getTopAritrilList(), new OnHandleException<WanData<List<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getTopAritrilList(), new HttpResponseCallback<WanData<List<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<List<WanAriticleBean>> data) {
+            public void onSuccess(WanData<List<WanAriticleBean>> data) {
                 topArticleData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }

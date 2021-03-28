@@ -1,0 +1,14 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+android{
+
+    // 4.0
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+}
+
+dependencies {
+}

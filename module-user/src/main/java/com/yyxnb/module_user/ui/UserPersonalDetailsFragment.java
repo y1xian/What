@@ -2,9 +2,9 @@ package com.yyxnb.module_user.ui;
 
 import android.os.Bundle;
 
-import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserPersonalDetailsBinding;
 import com.yyxnb.module_user.viewmodel.UserViewModel;
@@ -18,7 +18,6 @@ public class UserPersonalDetailsFragment extends BaseFragment {
 
     @BindViewModel
     UserViewModel mViewModel;
-
 
     @Override
     public int initLayoutResId() {
@@ -35,10 +34,9 @@ public class UserPersonalDetailsFragment extends BaseFragment {
 
     @Override
     public void initViewData() {
-        mViewModel.reqUserId.postValue(LoginImpl.getInstance().getUserInfo().userId);
-        mViewModel.getUser().observe(this, userBean -> {
+        mViewModel.userLiveData.getUser().observe(this, userBean -> {
             if (userBean != null) {
-                LoginImpl.getInstance().updateUserInfo(userBean);
+                UserImpl.getInstance().updateUserInfo(userBean);
                 binding.setData(userBean);
             }
             binding.setData(userBean);

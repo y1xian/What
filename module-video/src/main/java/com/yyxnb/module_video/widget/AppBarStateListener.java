@@ -1,6 +1,5 @@
 package com.yyxnb.module_video.widget;
 
-
 import com.google.android.material.appbar.AppBarLayout;
 
 /**

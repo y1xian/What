@@ -1,8 +1,8 @@
 package com.yyxnb.module_chat.adapter;
 
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDelegate;
-import com.yyxnb.lib_adapter.MultiItemTypeAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.ItemDelegate;
+import com.yyxnb.what.adapter.base.MultiItemTypeAdapter;
 import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.bean.MessageBean;
 

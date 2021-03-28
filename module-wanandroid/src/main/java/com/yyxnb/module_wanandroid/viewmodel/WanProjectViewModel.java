@@ -2,7 +2,7 @@ package com.yyxnb.module_wanandroid.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.WanData;
 import com.yyxnb.common_res.config.Http;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
@@ -22,45 +22,42 @@ public class WanProjectViewModel extends CommonViewModel {
 
     public void getProjecTypes() {
 
-        launchOnlyResult(mApi.getProjecTypes(), new OnHandleException<WanData<List<WanClassifyBean>>>() {
+        launchOnlyResult(mApi.getProjecTypes(), new HttpResponseCallback<WanData<List<WanClassifyBean>>>() {
             @Override
-            public void success(WanData<List<WanClassifyBean>> data) {
+            public void onSuccess(WanData<List<WanClassifyBean>> data) {
                 projecTypes.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void getProjecDataByType(int page, int cid) {
 
-        launchOnlyResult(mApi.getProjecDataByType(page, cid), new OnHandleException<WanData<WanStatus<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getProjecDataByType(page, cid), new HttpResponseCallback<WanData<WanStatus<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<WanStatus<WanAriticleBean>> data) {
+            public void onSuccess(WanData<WanStatus<WanAriticleBean>> data) {
                 projecDataByType.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }
 
     public void getProjecNewData(int page) {
 
-        launchOnlyResult(mApi.getProjecNewData(page), new OnHandleException<WanData<List<WanAriticleBean>>>() {
+        launchOnlyResult(mApi.getProjecNewData(page), new HttpResponseCallback<WanData<List<WanAriticleBean>>>() {
             @Override
-            public void success(WanData<List<WanAriticleBean>> data) {
+            public void onSuccess(WanData<List<WanAriticleBean>> data) {
                 projecNewData.postValue(data.getResult());
             }
 
             @Override
-            public void error(String msg) {
-                loge(msg);
+            public void onError(String msg) {
             }
         });
     }

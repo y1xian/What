@@ -1,0 +1,8 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    // 微信 键值对储存
+    api libs.mmkv
+    api libs.hutool_cache
+}

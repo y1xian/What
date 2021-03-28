@@ -5,43 +5,39 @@ dependencies {
 
     // 底层架构
     api libs.lib_arch
-    // 网络框架
-    api libs.lib_network
     // 数据库
     api libs.lib_room
+    api libs.lib_binding
+
+    // 网络框架
+    api libs.lib_network
     // 图片框架
     api libs.lib_image
-    annotationProcessor libs.glide_compiler
+    kapt libs.glide_compiler
     // 对话框
     api libs.lib_dialog
     api libs.lib_popup
-    // 适配器
-    api libs.lib_adapter
-    // 自定义view
-    api libs.lib_view
-    // 悬浮窗
-    api libs.lib_floatwindow
     // 换肤
     api libs.lib_skinloader
+    // 适配器
+    api libs.lib_adapter
+    api libs.lib_paging
+    // 自定义view
+    api libs.lib_view
+    // 文件下载
+    api libs.lib_download
 
     // app相关
-    api libs.util_app
+    api libs.lib_app
     // 主要的工具
-    api libs.util_core
+    api libs.lib_core
     // 缓存
-    api libs.util_cache
-    // 加密
-    api libs.util_encrypt
-    // 常用
-    api libs.util_common
+    api libs.lib_cache
     // 文件
-    api libs.util_file
+    api libs.lib_file
     // 权限
-    api libs.util_permission
-    // 系统信息
-    api libs.util_system
-    // 不常用工具，大杂烩
-    api libs.util_other
+    api libs.lib_permission
+
 
     // 屏幕适配 https://github.com/JessYanCoding/AndroidAutoSize
     api libs.autosize

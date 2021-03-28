@@ -1,0 +1,17 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+
+    def dk = '3.2.6'
+    //视频框架 https://github.com/Doikki/DKVideoPlayer
+    // 必选，内部默认使用系统mediaplayer进行解码
+    api 'com.github.dueeeke.dkplayer:dkplayer-java:' + dk
+    // 可选，包含StandardVideoController的实现
+    api 'com.github.dueeeke.dkplayer:dkplayer-ui:' + dk
+    // 可选，使用ijkplayer进行解码
+    api 'com.github.dueeeke.dkplayer:player-ijk:' + dk
+    // 可选，如需要缓存或者抖音预加载功能请引入此库
+    api 'com.github.dueeeke.dkplayer:videocache:' + dk
+
+}

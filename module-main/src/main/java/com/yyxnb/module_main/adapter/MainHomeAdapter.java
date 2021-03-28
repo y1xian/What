@@ -7,12 +7,12 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.noober.background.drawable.DrawableCreator;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.ItemDelegate;
-import com.yyxnb.lib_adapter.MultiItemTypeAdapter;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.bean.MainHomeBean;
-import com.yyxnb.util_core.DpUtils;
+import com.yyxnb.what.adapter.ItemDelegate;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.adapter.base.MultiItemTypeAdapter;
+import com.yyxnb.what.core.DpUtils;
 
 public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 
@@ -48,8 +48,8 @@ public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 
             @Override
             public void convert(BaseViewHolder holder, MainHomeBean mainHomeBean, int position) {
-                ConstraintLayout mLayout = holder.getView(R.id.cl_content);
-                TextView tvTitle = holder.getView(R.id.tv_title);
+                ConstraintLayout mLayout = holder.getView(R.id.clContent);
+                TextView tvTitle = holder.getView(R.id.tvTitle);
                 setView(mLayout, tvTitle, mainHomeBean);
             }
         });
@@ -66,8 +66,8 @@ public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 
             @Override
             public void convert(BaseViewHolder holder, MainHomeBean mainHomeBean, int position) {
-                ConstraintLayout mLayout = holder.getView(R.id.cl_content);
-                TextView tvTitle = holder.getView(R.id.tv_title);
+                ConstraintLayout mLayout = holder.getView(R.id.clContent);
+                TextView tvTitle = holder.getView(R.id.tvTitle);
                 setView(mLayout, tvTitle, mainHomeBean);
             }
         });
@@ -84,8 +84,8 @@ public class MainHomeAdapter extends MultiItemTypeAdapter<MainHomeBean> {
 
             @Override
             public void convert(BaseViewHolder holder, MainHomeBean mainHomeBean, int position) {
-                ConstraintLayout mLayout = holder.getView(R.id.cl_content);
-                TextView tvTitle = holder.getView(R.id.tv_title);
+                ConstraintLayout mLayout = holder.getView(R.id.clContent);
+                TextView tvTitle = holder.getView(R.id.tvTitle);
                 setView(mLayout, tvTitle, mainHomeBean);
             }
         });

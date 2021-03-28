@@ -14,7 +14,7 @@
         tools:context=".ui.provide.MallHomeProvideFragment">
 
         <include
-            android:id="@+id/i_title"
+            android:id="@+id/iTitle"
             layout="@layout/include_main_home_title_layout" />
 
         <include

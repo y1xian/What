@@ -35,15 +35,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
-import com.yyxnb.common_base.core.BaseActivity;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_arch.annotations.BarStyle;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.lib_dialog.core.BaseDialog;
-import com.yyxnb.lib_dialog.core.MessageDialog;
+import com.yyxnb.common_base.base.BaseActivity;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.NovelCategoryAdapter;
 import com.yyxnb.module_novel.bean.BookChapterBean;
@@ -61,9 +55,16 @@ import com.yyxnb.module_novel.view.page.PageView;
 import com.yyxnb.module_novel.view.page.ReadSettingManager;
 import com.yyxnb.module_novel.view.page.TxtChapter;
 import com.yyxnb.module_novel.viewmodel.NovelViewModel;
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.util_core.StatusBarUtils;
-import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BarStyle;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.core.StatusBarUtils;
+import com.yyxnb.what.core.log.LogUtils;
+import com.yyxnb.what.dialog.core.BaseDialog;
+import com.yyxnb.what.dialog.core.MessageDialog;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -355,7 +356,7 @@ public class NovelReadActivity extends BaseActivity {
             if (LoginImpl.getInstance().isLogin()) {
                 BookShelfBean bookShelfBean = new BookShelfBean();
                 bookShelfBean.bookInfoBean = bookInfoBean;
-                bookShelfBean.userId = LoginImpl.getInstance().getUserInfo().userId;
+                bookShelfBean.userId = UserImpl.getInstance().getUserInfo().getUserId();
                 bookShelfBean.addTime = System.currentTimeMillis();
                 NovelDatabase.getInstance().bookShelfDao().insertItem(bookShelfBean);
                 tvJoin.setVisibility(GONE);
@@ -363,7 +364,7 @@ public class NovelReadActivity extends BaseActivity {
                 isBookShelf = true;
                 toast("加入成功");
             } else {
-                LoginImpl.getInstance().login(getContext());
+                LoginImpl.getInstance().start(getContext());
             }
         } else if (id == R.id.ivPic) {
             // 首次进入阅读
@@ -901,7 +902,7 @@ public class NovelReadActivity extends BaseActivity {
                             if (LoginImpl.getInstance().isLogin()) {
                                 BookShelfBean bookShelfBean = new BookShelfBean();
                                 bookShelfBean.bookInfoBean = bookInfoBean;
-                                bookShelfBean.userId = LoginImpl.getInstance().getUserInfo().userId;
+                                bookShelfBean.userId = UserImpl.getInstance().getUserInfo().getUserId();
                                 bookShelfBean.addTime = System.currentTimeMillis();
                                 NovelDatabase.getInstance().bookShelfDao().insertItem(bookShelfBean);
                                 tvJoin.setVisibility(GONE);
@@ -910,7 +911,7 @@ public class NovelReadActivity extends BaseActivity {
                                 // 给点时间 避免泄漏
                                 postAtTime(() -> exit(), 500);
                             } else {
-                                LoginImpl.getInstance().login(getContext());
+                                LoginImpl.getInstance().start(getContext());
                             }
 
                         }

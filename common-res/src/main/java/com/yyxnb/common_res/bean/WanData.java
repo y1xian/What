@@ -1,6 +1,7 @@
 package com.yyxnb.common_res.bean;
 
-import com.yyxnb.lib_common.interfaces.IData;
+
+import com.yyxnb.what.core.interfaces.IData;
 
 /**
  * 玩安卓api数据结构

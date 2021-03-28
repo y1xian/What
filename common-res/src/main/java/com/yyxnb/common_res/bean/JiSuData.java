@@ -1,6 +1,7 @@
 package com.yyxnb.common_res.bean;
 
-import com.yyxnb.lib_common.interfaces.IData;
+
+import com.yyxnb.what.core.interfaces.IData;
 
 /**
  * 极速api的数据结构

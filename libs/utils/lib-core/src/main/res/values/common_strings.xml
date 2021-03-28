@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">lib_common</string>
+
+    <string name="permissions_check_warn">警告！</string>
+    <string name="permissions_check_ok">确定</string>
+
+    <string name="common_confirm">确定</string>
+    <string name="common_cancel">取消</string>
+
+</resources>

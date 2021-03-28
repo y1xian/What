@@ -1,0 +1,10 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    implementation(libs.lib_app, libs.lib_core)
+    // okhttp3
+    api libs.okhttp3, libs.okhttp3_logging
+    // gson  https://github.com/google/gson
+    api libs.gson
+}

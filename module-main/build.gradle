@@ -29,6 +29,7 @@ dependencies {
         addComponent 'module-mall'
         addComponent 'module-live'
         addComponent 'module-widget'
+        addComponent 'module-server'
     }
 
 }

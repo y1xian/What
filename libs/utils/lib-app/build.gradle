@@ -1,0 +1,7 @@
+ext.isMainLibrary = true
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    api libs.appcompat
+}

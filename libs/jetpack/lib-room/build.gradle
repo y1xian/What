@@ -1,0 +1,7 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    api libs.lib_app, libs.room
+    kapt libs.room_compiler
+}

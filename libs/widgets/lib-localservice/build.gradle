@@ -1,0 +1,9 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    api libs.glide
+    kapt libs.glide_compiler
+    implementation libs.lib_image, libs.lib_app
+    implementation libs.recyclerview
+}

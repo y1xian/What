@@ -2,8 +2,8 @@ package com.yyxnb.module_video.ui;
 
 import android.os.Bundle;
 
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 
 /**

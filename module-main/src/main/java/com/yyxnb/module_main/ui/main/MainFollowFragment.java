@@ -2,8 +2,8 @@ package com.yyxnb.module_main.ui.main;
 
 import android.os.Bundle;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.databinding.FragmentMainFollowBinding;
 
@@ -33,6 +33,6 @@ public class MainFollowFragment extends BaseFragment {
     public void initViewData() {
         binding = getBinding();
 
-        binding.iRv.vStatus.showEmptyView();
+        binding.iRvContent.vStatus.showEmptyView();
     }
 }

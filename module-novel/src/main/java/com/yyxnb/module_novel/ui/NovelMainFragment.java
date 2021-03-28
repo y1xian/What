@@ -6,21 +6,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_view.tabbar.Tab;
-import com.yyxnb.lib_view.tabbar.TabBarView;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.constants.NovelRouterPath;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.databinding.FragmentNovelMainBinding;
+import com.yyxnb.what.view.tabbar.Tab;
+import com.yyxnb.what.view.tabbar.TabBarView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_res.arouter.ARouterConstant.NOVEL_MAIN_FRAGMENT;
-
 /**
  * 小说主页.
  */
-@Route(path = NOVEL_MAIN_FRAGMENT)
+@Route(path = NovelRouterPath.MAIN_FRAGMENT)
 public class NovelMainFragment extends BaseFragment {
 
     private FragmentNovelMainBinding binding;

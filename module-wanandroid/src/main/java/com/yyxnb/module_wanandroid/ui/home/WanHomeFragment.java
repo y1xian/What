@@ -13,18 +13,18 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.youth.banner.Banner;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.weight.GlideImageLoader;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanHomeBinding;
 import com.yyxnb.module_wanandroid.ui.WanWebActivity;
 import com.yyxnb.module_wanandroid.viewmodel.WanHomeViewModel;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +57,8 @@ public class WanHomeFragment extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         binding = getBinding();
-        mRefreshLayout = binding.iRv.srlContent;
-        mRecyclerView = binding.iRv.rvContent;
+        mRefreshLayout = binding.iRvContent.srlContent;
+        mRecyclerView = binding.iRvContent.rvContent;
 
 //        mRefreshLayout.setEnablePureScrollMode(false)
 //                .setEnableRefresh(true).setEnableLoadMore(true);
@@ -76,7 +76,7 @@ public class WanHomeFragment extends BaseFragment {
         mRecyclerView.setAdapter(mAdapter);
 
         View mHeader = LayoutInflater.from(getContext()).inflate(R.layout.item_home_header_layout, mRecyclerView, false);
-        mBanner = mHeader.findViewById(R.id.v_banner);
+        mBanner = mHeader.findViewById(R.id.banner);
         mBanner.setImageLoader(new GlideImageLoader());
         mAdapter.addHeaderView(mHeader);
 

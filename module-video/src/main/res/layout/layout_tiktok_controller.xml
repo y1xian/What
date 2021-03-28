@@ -31,7 +31,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerInParent="true"
-        android:src="@mipmap/icon_play"
+        android:src="@mipmap/ic_play"
         android:visibility="gone"
         tools:visibility="visible" />
 
@@ -64,7 +64,7 @@
                 android:layout_height="24dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="36dp"
-                android:src="@mipmap/icon_video_unfollow" />
+                android:src="@mipmap/ic_video_unfollow" />
 
         </RelativeLayout>
 
@@ -73,7 +73,7 @@
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/icon_video_like" />
+            android:src="@mipmap/ic_video_like" />
 
         <TextView
             android:id="@+id/tvLikeCount"
@@ -89,7 +89,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/icon_video_comment" />
+            android:src="@mipmap/ic_video_comment" />
 
         <TextView
             android:id="@+id/tvCommentCount"
@@ -105,7 +105,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/icon_video_share" />
+            android:src="@mipmap/ic_video_share" />
 
         <TextView
             android:id="@+id/tvShareCount"
@@ -118,7 +118,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"

@@ -1,0 +1,10 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    api libs.lib_app, libs.lib_core
+    //  v7 v4 约束
+    api([libs.appcompat, libs.constraint])
+    //bus
+    api libs.live_event_bus
+}

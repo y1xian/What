@@ -14,13 +14,13 @@
         tools:context="com.yyxnb.module_widget.ui.WidgetMainFragment">
 
         <FrameLayout
-            android:id="@+id/fl_content"
+            android:id="@+id/flContent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <com.yyxnb.lib_view.tabbar.TabBarView
-            android:id="@+id/v_tabLayout"
+        <com.yyxnb.what.view.tabbar.TabBarView
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"

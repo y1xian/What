@@ -1,12 +1,10 @@
 package com.yyxnb.module_live.ui;
 
-
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.ContainerActivity;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.LIVE_MAIN;
+import com.yyxnb.common_base.base.ContainerActivity;
+import com.yyxnb.common_res.constants.LiveRouterPath;
 
 /**
  * ================================================
@@ -15,7 +13,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.LIVE_MAIN;
  * 描    述：主播 主界面
  * ================================================
  */
-@Route(path = LIVE_MAIN)
+@Route(path = LiveRouterPath.MAIN_ACTIVITY)
 public class LiveActivity extends ContainerActivity {
 
     @Override

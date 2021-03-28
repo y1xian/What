@@ -31,8 +31,88 @@ include ':module-main',
         // 资讯
         ':module-news',
         // 组件演示
-        ':module-widget'
+        ':module-widget',
+        // 本地Http Api
+        ':module-server'
 
+//============ 功能、控件
+
+// 通用控件
+// 视频
+include ':libs:widgets:lib-video',
+        // 音乐
+        ':libs:widgets:lib-music',
+        // dialog
+        ':libs:widgets:lib-dialog',
+        // popup
+        ':libs:widgets:lib-popup',
+        // 本地服务
+        ':libs:widgets:lib-localservice',
+        // 自定义控件
+        ':libs:widgets:lib-view',
+        // web
+        ':libs:widgets:lib-webview',
+        // 悬浮框
+        ':libs:widgets:lib-floatwindow',
+        // 换肤
+        ':libs:widgets:lib-skinloader',
+        // 文件下载
+        ':libs:widgets:lib-download'
+
+
+//============ 无业务逻辑的常用工具
+
+// app相关
+include ':libs:utils:lib-app',
+        // 核心
+        ':libs:utils:lib-core',
+        // 缓存
+        ':libs:utils:lib-cache',
+        // 简单实现okhttp
+        ':libs:utils:lib-okhttp',
+        // 网络请求
+        ':libs:utils:lib-network',
+        // 适配器
+        ':libs:utils:lib-adapter',
+        // 图片框架
+        ':libs:utils:lib-image',
+        // 媒体
+        ':libs:utils:lib-media',
+        // 加密
+        ':libs:utils:lib-encrypt',
+        // 文件
+        ':libs:utils:lib-file',
+        // rxjava封装
+        ':libs:utils:lib-rxtool',
+        // 系统相关
+        ':libs:utils:lib-system',
+        // 任务队列
+        ':libs:utils:lib-task',
+        // 多语言
+        ':libs:utils:lib-language',
+        // 权限
+        ':libs:utils:lib-permission',
+        // 通知栏
+        ':libs:utils:lib-notification',
+        // 封装服务
+        ':libs:utils:lib-service',
+        // 不常用工具，未分类的
+        ':libs:utils:lib-utils'
+
+//============ JetPack
+
+// jetpack架构
+include ':libs:jetpack:lib-arch',
+        // Room数据库
+        ':libs:jetpack:lib-room',
+        // Paging分页库
+        ':libs:jetpack:lib-paging',
+        // Binding
+        ':libs:jetpack:lib-binding',
+        // 可延迟的异步任务
+        ':libs:jetpack:lib-workmanager',
+        // 导航
+        ':libs:jetpack:lib-navigation'
 
 //============ 第三方资源
 

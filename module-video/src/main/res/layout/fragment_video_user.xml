@@ -157,7 +157,7 @@
                     android:layout_height="50dp">
 
                     <net.lucode.hackware.magicindicator.MagicIndicator
-                        android:id="@+id/v_indicator"
+                        android:id="@+id/vIndicator"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
@@ -165,11 +165,10 @@
 
                 </RelativeLayout>
 
-
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_content"
+                android:id="@+id/vpContent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
@@ -198,17 +197,17 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/iv_back"
+                android:id="@+id/ivBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="5dp"
                 android:padding="7dp"
-                android:src="@mipmap/icon_back"
+                android:src="@mipmap/ic_back"
                 android:visibility="visible" />
 
             <ImageView
-                android:id="@+id/iv_more"
+                android:id="@+id/ivMore"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
@@ -216,7 +215,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:padding="7dp"
-                android:src="@mipmap/icon_more"
+                android:src="@mipmap/ic_more"
                 android:visibility="invisible" />
         </RelativeLayout>
 

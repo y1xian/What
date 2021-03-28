@@ -14,7 +14,7 @@
         tools:context="com.yyxnb.module_wanandroid.ui.WanMainFragment">
 
         <FrameLayout
-            android:id="@+id/fl_content"
+            android:id="@+id/flContent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -25,8 +25,8 @@
             android:layout_height="1px"
             android:background="@color/colorLine" />
 
-        <com.yyxnb.lib_view.tabbar.TabBarView
-            android:id="@+id/v_tabLayout"
+        <com.yyxnb.what.view.tabbar.TabBarView
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:tb_focusColor="@color/colorTheme"

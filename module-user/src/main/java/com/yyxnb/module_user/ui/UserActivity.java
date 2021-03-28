@@ -3,11 +3,10 @@ package com.yyxnb.module_user.ui;
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
+import com.yyxnb.common_res.constants.UserRouterPath;
 
-import static com.yyxnb.common_res.arouter.ARouterConstant.USER_MAIN;
-
-@Route(path = USER_MAIN)
+@Route(path = UserRouterPath.MAIN_ACTIVITY)
 public class UserActivity extends ContainerActivity {
 
     @Override

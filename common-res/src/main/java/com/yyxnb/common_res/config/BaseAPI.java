@@ -1,9 +1,16 @@
 package com.yyxnb.common_res.config;
 
 
-public class BaseAPI {
+import com.yyxnb.common_res.utils.UrlInterceptor;
+import com.yyxnb.what.core.NetworkUtils;
+
+public final class BaseAPI {
+
 
     // 切换请求url  @Headers()
+
+    // 本地
+    public static final String HEADER_LOCAL = UrlInterceptor.URL_PREFIX + BaseAPI.URL_LOCAL;
     //apiopen
     public static final String HEADER_APIOPEN = UrlInterceptor.URL_PREFIX + BaseAPI.URL_APIOPEN;
     // 玩安卓
@@ -11,7 +18,11 @@ public class BaseAPI {
     // 极速
     public static final String HEADER_JISU = UrlInterceptor.URL_PREFIX + BaseAPI.URL_JISU;
 
+
     //====\key
+
+    // 本地ip
+    public final static String URL_LOCAL = String.format("http:/%s:8080/", NetworkUtils.getLocalIPAddress());
 
     //免费开放接口API
     public final static String URL_APIOPEN = "https://api.apiopen.top/";

@@ -34,6 +34,8 @@ public class ModuleLifecycleReflexs {
     private static final String LIVE_INIT = APP_ID + ".module_live.ModuleInit";
     // 功能测试模块
     private static final String WIDGET_INIT = APP_ID + ".module_widget.ModuleInit";
+    // http api
+    private static final String SERVER_INIT = APP_ID + ".module_server.ModuleInit";
 
     public static String[] initModuleNames = {
             MAIN_INIT
@@ -49,5 +51,6 @@ public class ModuleLifecycleReflexs {
             , MALL_INIT
             , LIVE_INIT
             , WIDGET_INIT
+            , SERVER_INIT
     };
 }

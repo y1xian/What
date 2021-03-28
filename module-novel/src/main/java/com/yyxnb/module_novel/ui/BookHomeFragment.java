@@ -6,15 +6,15 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_adapter.SimpleOnItemClickListener;
-import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.BookHomeAdapter;
 import com.yyxnb.module_novel.config.DataConfig;
 import com.yyxnb.module_novel.databinding.FragmentBookHomeBinding;
 import com.yyxnb.module_novel.db.NovelDatabase;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BindRes;
 
 /**
  * 小说 - 首页 精选.

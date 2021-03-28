@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/i_title"
+        android:id="@+id/iTitle"
         layout="@layout/include_title_layout"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/i_title" />
+        app:layout_constraintTop_toBottomOf="@+id/iTitle" />
 
     <ViewStub
         android:id="@+id/vs_loading"
@@ -39,7 +39,7 @@
     <!--        android:id="@+id/vs_error"-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_below="@+id/v_title"-->
+    <!--        android:layout_below="@+id/vTitle"-->
     <!--        android:layout="@layout/common_base_error" />-->
 
 

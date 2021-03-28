@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Query;
 
-import com.yyxnb.lib_room.BaseDao;
 import com.yyxnb.module_video.bean.TikTokBean;
+import com.yyxnb.what.room.BaseDao;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <androidx.core.widget.SwipeRefreshLayout
+    <android.support.v4.widget.SwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/chat_swipe_layout"
         android:layout_width="match_parent"
@@ -19,6 +19,6 @@
             android:listSelector="#00000000"
             android:scrollbarStyle="outsideOverlay"
             android:transcriptMode="normal" />
-    </androidx.core.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.yyxnb.lib_adapter.BaseAdapter;
-import com.yyxnb.lib_adapter.BaseViewHolder;
-import com.yyxnb.lib_image_loader.ImageManager;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.bean.BookShelfBean;
+import com.yyxnb.what.adapter.base.BaseAdapter;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.image.ImageManager;
 
 public class BookShelfAdapter extends BaseAdapter<BookShelfBean> {
 

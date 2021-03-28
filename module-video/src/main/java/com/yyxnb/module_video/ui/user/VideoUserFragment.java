@@ -14,19 +14,19 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.AppBarLayout;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_adapter.BaseFragmentPagerAdapter;
-import com.yyxnb.lib_arch.annotations.BarStyle;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.common.Bus;
-import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.lib_image_loader.utils.DrawableTintUtil;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoUserBinding;
 import com.yyxnb.module_video.ui.VideoListFragment;
 import com.yyxnb.module_video.widget.AppBarStateListener;
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.arch.annotations.BarStyle;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.bean.MsgEvent;
+import com.yyxnb.what.arch.helper.BusHelper;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.core.log.LogUtils;
+import com.yyxnb.what.image.utils.DrawableTintUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -41,8 +41,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 视频 - 个人页面
@@ -98,7 +98,7 @@ public class VideoUserFragment extends BaseFragment {
         }
 
         binding.ivBack.setOnClickListener(v -> {
-            Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 0));
+            BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 0));
         });
 
         initIndicator();
@@ -149,7 +149,7 @@ public class VideoUserFragment extends BaseFragment {
     public void onVisible() {
 //        isUser = getArguments().getBoolean("isUser", false);
 //        binding.btnBack.setVisibility(isUser ? View.GONE : View.VISIBLE);
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false));
+        BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false));
         LogUtils.w("user v");
 //        if (!isUser && binding.btnBack.getVisibility() == View.VISIBLE){
 //            monitor(true);
@@ -161,7 +161,7 @@ public class VideoUserFragment extends BaseFragment {
 
     @Override
     public void onInVisible() {
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
+        BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
         LogUtils.w("user iv");
     }
 
@@ -179,7 +179,7 @@ public class VideoUserFragment extends BaseFragment {
             getView().setOnKeyListener((v, keyCode, event) -> {
                 if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
                     // 监听到返回按钮点击事件
-                    Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 0));
+                    BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 0));
                     return true;
                 }
                 return false;

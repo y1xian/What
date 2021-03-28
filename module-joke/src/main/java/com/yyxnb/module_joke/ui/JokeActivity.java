@@ -3,9 +3,8 @@ package com.yyxnb.module_joke.ui;
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.ContainerActivity;
-
-import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_MAIN;
+import com.yyxnb.common_base.base.ContainerActivity;
+import com.yyxnb.common_res.constants.JokeRouterPath;
 
 /**
  * ================================================
@@ -14,7 +13,7 @@ import static com.yyxnb.common_res.arouter.ARouterConstant.JOKE_MAIN;
  * 描    述：娱乐 主界面
  * ================================================
  */
-@Route(path = JOKE_MAIN)
+@Route(path = JokeRouterPath.MAIN_ACTIVITY)
 public class JokeActivity extends ContainerActivity {
 
     @Override

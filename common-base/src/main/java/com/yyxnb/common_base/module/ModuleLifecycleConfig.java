@@ -1,8 +1,9 @@
 package com.yyxnb.common_base.module;
 
-import android.app.Application;
+import android.content.Context;
 
-import androidx.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -11,26 +12,33 @@ import androidx.annotation.Nullable;
  * @author yyx
  */
 public class ModuleLifecycleConfig {
-    //内部类，在装载该内部类时才会去创建单例对象
-    private static class SingletonHolder {
-        public static ModuleLifecycleConfig instance = new ModuleLifecycleConfig();
-    }
 
-    public static ModuleLifecycleConfig getInstance() {
-        return SingletonHolder.instance;
-    }
+    private static volatile ModuleLifecycleConfig mInstance = null;
+    private List<IModuleInit> moduleInits = new ArrayList<>();
 
     private ModuleLifecycleConfig() {
     }
 
-    //初始化组件-靠前
-    public void initModule(@Nullable Application application) {
+    public static ModuleLifecycleConfig getInstance() {
+        if (null == mInstance) {
+            synchronized (ModuleLifecycleConfig.class) {
+                if (null == mInstance) {
+                    mInstance = new ModuleLifecycleConfig();
+                }
+            }
+        }
+        return mInstance;
+    }
+
+    //初始化组件
+    public void initModule(Context base) {
         for (String moduleInitName : ModuleLifecycleReflexs.initModuleNames) {
             try {
                 Class<?> clazz = Class.forName(moduleInitName);
                 IModuleInit init = (IModuleInit) clazz.newInstance();
                 //调用初始化方法
-                init.onCreate(application);
+                init.attachBaseContext(base);
+                moduleInits.add(init);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (InstantiationException e) {
@@ -40,5 +48,39 @@ public class ModuleLifecycleConfig {
             }
         }
     }
+
+    public void onCreate() {
+        for (IModuleInit init : moduleInits) {
+            init.onCreate();
+        }
+    }
+
+    public void onTerminate() {
+        for (IModuleInit init : moduleInits) {
+            init.onTerminate();
+        }
+
+    }
+
+    public void onLowMemory() {
+        for (IModuleInit init : moduleInits) {
+            init.onLowMemory();
+        }
+    }
+
+    public void onTrimMemory(int level) {
+        for (IModuleInit init : moduleInits) {
+            init.onTrimMemory(level);
+        }
+    }
+
+    public void onDestroy() {
+        for (IModuleInit init : moduleInits) {
+            init.onDestroy();
+        }
+        moduleInits.clear();
+        moduleInits = null;
+    }
+
 
 }

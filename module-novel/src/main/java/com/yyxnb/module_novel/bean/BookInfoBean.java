@@ -3,6 +3,7 @@ package com.yyxnb.module_novel.bean;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+
 /**
  * 书籍信息
  */

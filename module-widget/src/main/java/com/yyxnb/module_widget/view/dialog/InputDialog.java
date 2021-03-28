@@ -7,9 +7,9 @@ import android.widget.EditText;
 
 import androidx.annotation.StringRes;
 
-import com.yyxnb.lib_dialog.core.BaseDialog;
-import com.yyxnb.lib_dialog.core.UIDialog;
 import com.yyxnb.module_widget.R;
+import com.yyxnb.what.dialog.core.BaseDialog;
+import com.yyxnb.what.dialog.core.UIDialog;
 
 
 /**

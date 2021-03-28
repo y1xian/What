@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
-import com.yyxnb.lib_dialog.core.BaseDialog;
 import com.yyxnb.module_widget.R;
+import com.yyxnb.what.dialog.core.BaseDialog;
 
 
 /**
