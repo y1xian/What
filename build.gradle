@@ -36,8 +36,41 @@ allprojects {
         options.addStringOption('Xdoclint:none', '-quiet')
         options.addStringOption('encoding', 'UTF-8')
     }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'androidx.appcompat') {
+                details.useVersion versions.appcompat
+            }
+            if (requested.group == 'androidx.core') {
+                details.useVersion versions.core
+            }
+            if (requested.group == 'androidx.lifecycle') {
+                details.useVersion versions.lifecycle
+            }
+            if (requested.group == 'androidx.paging') {
+                details.useVersion versions.paging
+            }
+            if (requested.group == 'androidx.recyclerview') {
+                details.useVersion versions.recyclerview
+            }
+            if (requested.group == 'androidx.fragment') {
+                details.useVersion versions.fragment
+            }
+            if (requested.group == 'androidx.multidex') {
+                details.useVersion versions.multidex
+            }
+            if (requested.group == 'androidx.collection') {
+                details.useVersion versions.collection
+            }
+        }
+    }
+
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
