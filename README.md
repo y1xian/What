@@ -45,13 +45,13 @@
 -  自行查看 `utils` `widgets`目录，工具包都在其包下。具体实现方法可在 `module-widget` 模块下查看 (不完全)
 
 
-开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion support 28 - AndroidX 30
+开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.30 、JDK 1.8 、SdkVersion support 28 - AndroidX 30
 
 - 最新Java + support版本的看 [java-support](https://github.com/y1xian/What/tree/java-support) 分支；**（ 默认分支 - 更新快 ，要稳定的看`master`分支 ）**
 
 - 最新Java + AndroidX版本的看 [java-androidx](https://github.com/y1xian/What/tree/java-androidx) 分支；**（ 等`java-support`分支稳定再更新，更新频率低 ）**
 
-- 最新AndroidX + Kotlin版本的看 [kt-androidx](https://github.com/y1xian/What/tree/kt-androidx) 分支，**【 kotlin版本会比java版本更新慢，重心还在java版本上（kotlin也就图一乐，吃饭还是得靠java 】**；
+- 最新AndroidX + Kotlin版本的看 [kt-androidx](https://github.com/y1xian/What-Kotlin) ，**【 kotlin版本会比java版本更新慢，重心还在java版本上（kotlin也就图一乐，吃饭还是得靠java 】**；
 
 - 主干与其它分支：主干会同步 `java-support` 分支代码，也可能会同步不及时，所以还是看分支优先；其它久远分支可能废弃掉了或不更新了。
 
