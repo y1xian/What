@@ -14,12 +14,11 @@ import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.squareup.leakcanary.LeakCanary;
 import com.yyxnb.common_base.BaseApplication;
 import com.yyxnb.common_res.weight.skin.ExtraAttrRegister;
-import com.yyxnb.lib_skinloader.SkinManager;
-import com.yyxnb.util_app.AppUtils;
-import com.yyxnb.util_cache.KvUtils;
-import com.yyxnb.util_core.UITask;
+import com.yyxnb.what.app.AppUtils;
+import com.yyxnb.what.cache.KvUtils;
+import com.yyxnb.what.skinloader.SkinManager;
 
-import static com.yyxnb.common_res.config.Constants.SKIN_PATH;
+import static com.yyxnb.common_res.constants.Constants.SKIN_PATH;
 
 
 /**
@@ -43,13 +42,13 @@ public class ModuleApplication extends BaseApplication {
         ARouter.init(this);
 
         KvUtils.initialize(this.getApplicationContext());
-        UITask.run(() -> {
+//        UITask.run(() -> {
             // 换肤
             ExtraAttrRegister.init();
 //        SkinConfig.DEBUG = true;
             SkinManager.get().init(getApplicationContext());
             SkinManager.get().loadSkin(KvUtils.get(SKIN_PATH, ""));
-        });
+//        });
 
 //        ImageView imageView = new ImageView(getApplicationContext());
 //        imageView.setImageResource(R.drawable.ic_launcher_background);

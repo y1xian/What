@@ -1,12 +1,12 @@
 package com.yyxnb.module_novel.view.page;
 
 
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.config.Constant;
-import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.what.core.log.LogUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +15,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_res.config.Constants.TOURIST_ID;
+import static com.yyxnb.common_res.constants.Constants.TOURIST_ID;
 
 
 /**

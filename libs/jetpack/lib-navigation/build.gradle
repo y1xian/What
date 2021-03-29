@@ -1,0 +1,7 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    implementation libs.lib_core
+    api libs.navigation
+}

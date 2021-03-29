@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.common_res.constants.MusicRouterPath;
-import com.yyxnb.lib_arch.common.AppManager;
+import com.yyxnb.what.arch.config.AppManager;
 
 /**
  * ================================================

@@ -7,11 +7,11 @@ import android.widget.FrameLayout;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_video.Utils;
-import com.yyxnb.lib_video.cache.PreloadManager;
-import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.what.video.Utils;
+import com.yyxnb.what.video.cache.PreloadManager;
+import com.yyxnb.what.video.cache.ProxyVideoCacheManager;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokRvAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;

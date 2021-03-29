@@ -3,10 +3,10 @@ package com.yyxnb.module_login.service;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_res.arouter.ARouterUtils;
-import com.yyxnb.common_res.arouter.service.LoginService;
+import com.yyxnb.common_res.utils.ARouterUtils;
+import com.yyxnb.common_res.service.LoginService;
 import com.yyxnb.common_res.constants.LoginRouterPath;
-import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.what.arch.base.IFragment;
 import com.yyxnb.module_login.config.LoginManager;
 
 

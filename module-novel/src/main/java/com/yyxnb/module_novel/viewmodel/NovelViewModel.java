@@ -3,7 +3,7 @@ package com.yyxnb.module_novel.viewmodel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.JiSuData;
 import com.yyxnb.common_res.config.BaseConfig;
 import com.yyxnb.common_res.config.Http;

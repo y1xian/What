@@ -6,8 +6,8 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
 import com.yyxnb.common_res.bean.UserVo;
-import com.yyxnb.lib_room.DateConverter;
-import com.yyxnb.util_app.AppUtils;
+import com.yyxnb.what.room.DateConverter;
+import com.yyxnb.what.app.AppUtils;
 
 /**
  * Database这个对象我们需要指定三个参数entities 代表数据库需要操作的实体类集合，第二个参数代表数据库的版本第三个参数代表在编译时，

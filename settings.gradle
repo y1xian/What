@@ -37,77 +37,82 @@ include ':module-main',
 
 //============ 功能、控件
 
-include ':widgets:lib-all',
-        // jetpack架构
-        ':widgets:lib-arch',
-        // 通用控件
-        ':widgets:lib-common',
-        // 网络请求
-        ':widgets:lib-network',
-        // 视频
-        ':widgets:lib-video',
+// 通用控件
+// 视频
+include ':libs:widgets:lib-video',
         // 音乐
-        ':widgets:lib-music',
+        ':libs:widgets:lib-music',
         // dialog
-        ':widgets:lib-dialog',
-        // 图片框架
-        ':widgets:lib-image',
-        // 适配器
-        ':widgets:lib-adapter',
+        ':libs:widgets:lib-dialog',
         // popup
-        ':widgets:lib-popup',
+        ':libs:widgets:lib-popup',
         // 本地服务
-        ':widgets:lib-localservice',
+        ':libs:widgets:lib-localservice',
         // 自定义控件
-        ':widgets:lib-view',
+        ':libs:widgets:lib-view',
         // web
-        ':widgets:lib-webview',
-        // 数据库
-        ':widgets:lib-room',
+        ':libs:widgets:lib-webview',
         // 悬浮框
-        ':widgets:lib-floatwindow',
+        ':libs:widgets:lib-floatwindow',
         // 换肤
-        ':widgets:lib-skinloader',
-        // 文件处理 下载、上传
-        ':widgets:lib-file'
+        ':libs:widgets:lib-skinloader',
+        // 文件下载
+        ':libs:widgets:lib-download'
 
 
 //============ 无业务逻辑的常用工具
 
-include ':utils:util-all',
-        // app相关
-        ':utils:util-app',
+// app相关
+include ':libs:utils:lib-app',
         // 核心
-        ':utils:util-core',
+        ':libs:utils:lib-core',
         // 缓存
-        ':utils:util-cache',
+        ':libs:utils:lib-cache',
         // 简单实现okhttp
-        ':utils:util-okhttp',
-        // 常用
-        ':utils:util-common',
+        ':libs:utils:lib-okhttp',
+        // 网络请求
+        ':libs:utils:lib-network',
+        // 适配器
+        ':libs:utils:lib-adapter',
+        // 图片框架
+        ':libs:utils:lib-image',
         // 媒体
-        ':utils:util-media',
+        ':libs:utils:lib-media',
         // 加密
-        ':utils:util-encrypt',
+        ':libs:utils:lib-encrypt',
         // 文件
-        ':utils:util-file',
+        ':libs:utils:lib-file',
         // rxjava封装
-        ':utils:util-rxtool',
+        ':libs:utils:lib-rxtool',
         // 系统相关
-        ':utils:util-system',
+        ':libs:utils:lib-system',
         // 任务队列
-        ':utils:util-task',
+        ':libs:utils:lib-task',
         // 多语言
-        ':utils:util-language',
+        ':libs:utils:lib-language',
         // 权限
-        ':utils:util-permission',
+        ':libs:utils:lib-permission',
         // 通知栏
-        ':utils:util-notification',
+        ':libs:utils:lib-notification',
         // 封装服务
-        ':utils:util-service',
-        // 不常用工具，堆放着，用时再说
-        ':utils:util-other'
+        ':libs:utils:lib-service',
+        // 不常用工具，未分类的
+        ':libs:utils:lib-utils'
 
+//============ JetPack
+
+// jetpack架构
+include ':libs:jetpack:lib-arch',
+        // Room数据库
+        ':libs:jetpack:lib-room',
+        // Paging分页库
+        ':libs:jetpack:lib-paging',
+        // Binding
+        ':libs:jetpack:lib-binding',
+        // 可延迟的异步任务
+        ':libs:jetpack:lib-workmanager',
+        // 导航
+        ':libs:jetpack:lib-navigation'
 
 //============ 第三方资源
 

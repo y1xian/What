@@ -1,18 +1,23 @@
 package com.yyxnb.common_base;
 
 import android.app.Application;
+import android.arch.lifecycle.DefaultLifecycleObserver;
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
-import com.yyxnb.common_base.core.ContainerActivity;
+import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.common_base.module.ModuleLifecycleConfig;
-import com.yyxnb.lib_arch.annotations.SwipeStyle;
-import com.yyxnb.lib_arch.common.ArchConfig;
-import com.yyxnb.lib_arch.common.ArchManager;
-import com.yyxnb.lib_image_loader.ImageManager;
-import com.yyxnb.util_app.AppUtils;
-import com.yyxnb.util_core.UITask;
+import com.yyxnb.what.app.AppUtils;
+import com.yyxnb.what.arch.annotations.SwipeStyle;
+import com.yyxnb.what.arch.config.AppManager;
+import com.yyxnb.what.arch.config.ArchConfig;
+import com.yyxnb.what.arch.config.ArchManager;
+import com.yyxnb.what.core.UITask;
+import com.yyxnb.what.image.ImageManager;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -28,6 +33,7 @@ public class BaseApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        ModuleLifecycleConfig.getInstance().initModule(base);
         // you must install multiDex whatever tinker is installed!
         MultiDex.install(base);
     }
@@ -35,7 +41,6 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         UITask.run(() -> {
             // 布局
             AutoSizeConfig.getInstance()
@@ -59,7 +64,34 @@ public class BaseApplication extends Application {
             ArchManager.getInstance().setConfig(archConfig);
         });
 
-        //初始化组件
-        ModuleLifecycleConfig.getInstance().initModule(this);
+        ModuleLifecycleConfig.getInstance().onCreate();
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(new DefaultLifecycleObserver() {
+            @Override
+            public void onStop(@NonNull LifecycleOwner owner) {
+                if (AppManager.getInstance().activityCount() == 0) {
+                    ModuleLifecycleConfig.getInstance().onDestroy();
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        ModuleLifecycleConfig.getInstance().onTerminate();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        ModuleLifecycleConfig.getInstance().onLowMemory();
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        ModuleLifecycleConfig.getInstance().onTrimMemory(level);
     }
 }

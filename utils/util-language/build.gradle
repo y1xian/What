@@ -1,6 +1,0 @@
-ext.isPublish = true
-apply from: rootProject.file('lib_util.gradle')
-
-dependencies {
-    implementation(project(':utils:util-cache'))
-}

@@ -1,0 +1,10 @@
+ext.isPublish = true
+apply from: rootProject.file('lib-util.gradle')
+
+dependencies {
+    implementation libs.lib_app, libs.lib_core
+    // https://github.com/Justson/AgentWeb
+    api 'com.just.agentweb:agentweb:4.1.4' // (必选)
+    api 'com.just.agentweb:filechooser:4.1.4'// (可选)
+    api 'com.download.library:Downloader:4.1.4'
+}

@@ -5,10 +5,9 @@ import android.content.Intent;
 import com.yanzhenjie.andserver.AndServer;
 import com.yanzhenjie.andserver.Server;
 import com.yyxnb.module_server.ServerManager;
-import com.yyxnb.util_core.NetworkUtils;
-import com.yyxnb.util_core.UITask;
-import com.yyxnb.util_core.log.LogUtils;
-import com.yyxnb.util_service.BaseService;
+import com.yyxnb.what.core.NetworkUtils;
+import com.yyxnb.what.core.log.LogUtils;
+import com.yyxnb.what.service.BaseService;
 
 import java.net.InetAddress;
 import java.util.concurrent.TimeUnit;
@@ -28,9 +27,14 @@ public class ServerService extends BaseService {
                     @Override
                     public void onStarted() {
                         // TODO The server started successfully.
-                        InetAddress address = NetworkUtils.getLocalIPAddress();
-                        LogUtils.w(String.format("onStarted : http:/%s:8080", address));
-                        ServerManager.getInstance().onServerStart(ServerService.this, address.getHostAddress());
+                        try {
+                            InetAddress address = NetworkUtils.getLocalIPAddress();
+                            LogUtils.w(String.format("onStarted : http:/%s:8080", address));
+                            ServerManager.getInstance().onServerStart(ServerService.this, address.getHostAddress());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            LogUtils.e("无网络或开了飞行模式，获取不到ip地址");
+                        }
                     }
 
                     @Override
@@ -38,9 +42,6 @@ public class ServerService extends BaseService {
                         // TODO The server has stopped.
                         LogUtils.w("onStopped");
                         ServerManager.getInstance().onServerStop(ServerService.this);
-
-                        // 1秒后重启
-                        UITask.postDelayed(() -> startServer(), 1000);
                     }
 
                     @Override

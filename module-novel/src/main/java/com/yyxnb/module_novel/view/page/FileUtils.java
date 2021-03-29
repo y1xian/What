@@ -2,7 +2,7 @@ package com.yyxnb.module_novel.view.page;
 
 import android.os.Environment;
 
-import com.yyxnb.util_app.AppUtils;
+import com.yyxnb.what.app.AppUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

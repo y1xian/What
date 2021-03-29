@@ -1,8 +1,8 @@
 package com.yyxnb.module_user.config;
 
 import com.yyxnb.common_res.bean.UserVo;
-import com.yyxnb.common_res.config.Constants;
-import com.yyxnb.util_cache.KvUtils;
+import com.yyxnb.common_res.constants.Constants;
+import com.yyxnb.what.cache.KvUtils;
 
 import cn.hutool.core.util.StrUtil;
 

@@ -3,9 +3,9 @@ package com.yyxnb.module_chat.ui.provide;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
-import com.yyxnb.lib_arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.databinding.FragmentChatHomeProvideBinding;
 

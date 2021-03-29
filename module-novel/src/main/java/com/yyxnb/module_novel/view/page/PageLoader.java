@@ -11,15 +11,15 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 
-import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;
 import com.yyxnb.module_novel.config.Constant;
 import com.yyxnb.module_novel.db.NovelDatabase;
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.util_core.UITask;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.core.UITask;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -33,7 +33,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
-import static com.yyxnb.common_res.config.Constants.TOURIST_ID;
+import static com.yyxnb.common_res.constants.Constants.TOURIST_ID;
 
 
 /**

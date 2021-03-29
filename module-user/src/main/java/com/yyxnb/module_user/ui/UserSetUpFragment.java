@@ -2,11 +2,11 @@ package com.yyxnb.module_user.ui;
 
 import android.os.Bundle;
 
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserSetUpBinding;
-import com.yyxnb.lib_popup.PopupManager;
+import com.yyxnb.what.popup.PopupManager;
 
 /**
  * 设置.

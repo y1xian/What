@@ -1,7 +1,7 @@
 package com.yyxnb.module_user.viewmodel;
 
-import com.yyxnb.common_base.core.CommonViewModel;
-import com.yyxnb.common_res.config.UserLiveData;
+import com.yyxnb.common_base.base.CommonViewModel;
+import com.yyxnb.common_res.utils.UserLiveData;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.common_res.db.UserDao;
 

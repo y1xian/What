@@ -1,9 +1,9 @@
-ext.mainApp = true //标记为主app module
-apply from: rootProject.file('module.gradle')
+ext.mainApp = true
+apply from: rootProject.file('simple.gradle')
 
 android {
     defaultConfig {
-        applicationId "com.yyxnb.skin_night"
+//        applicationId "com.yyxnb.skin_night"
     }
 
     android.applicationVariants.all { variant ->

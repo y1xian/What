@@ -5,7 +5,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
 
 import com.yyxnb.common_res.bean.UserVo;
-import com.yyxnb.lib_room.BaseDao;
+import com.yyxnb.what.room.BaseDao;
 
 import java.util.List;
 

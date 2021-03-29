@@ -3,11 +3,11 @@ package com.yyxnb.module_user.service;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_res.arouter.ARouterUtils;
-import com.yyxnb.common_res.arouter.service.UserService;
+import com.yyxnb.common_res.utils.ARouterUtils;
+import com.yyxnb.common_res.service.UserService;
 import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.common_res.constants.UserRouterPath;
-import com.yyxnb.lib_arch.base.IFragment;
+import com.yyxnb.what.arch.base.IFragment;
 import com.yyxnb.module_user.config.UserManager;
 
 @Route(path = UserRouterPath.SERVICE)

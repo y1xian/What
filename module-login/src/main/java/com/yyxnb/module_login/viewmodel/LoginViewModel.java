@@ -1,17 +1,17 @@
 package com.yyxnb.module_login.viewmodel;
 
-import com.yyxnb.common_base.bean.LiveEvent;
-import com.yyxnb.common_base.core.CommonViewModel;
+import com.yyxnb.common_base.base.CommonViewModel;
+import com.yyxnb.common_base.event.TypeEvent;
 import com.yyxnb.common_res.bean.BaseData;
 import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.common_res.config.Http;
-import com.yyxnb.common_res.config.UserLiveData;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.common_res.db.UserDao;
-import com.yyxnb.lib_network.SingleLiveEvent;
+import com.yyxnb.common_res.utils.UserLiveData;
 import com.yyxnb.module_login.bean.request.LoginDto;
 import com.yyxnb.module_login.config.LoginApi;
-import com.yyxnb.util_core.log.LogUtils;
+import com.yyxnb.module_login.constants.ExtraKeys;
+import com.yyxnb.what.core.log.LogUtils;
 
 import cn.hutool.core.util.PhoneUtil;
 
@@ -28,7 +28,6 @@ public class LoginViewModel extends CommonViewModel {
 
     private final LoginApi mApi = Http.getInstance().create(LoginApi.class);
     private final UserDao userDao = AppDatabase.getInstance().userDao();
-    public SingleLiveEvent<LiveEvent> liveEvent = new SingleLiveEvent<>();
     public UserLiveData userLiveData = UserLiveData.getInstance();
 
     /**
@@ -41,7 +40,7 @@ public class LoginViewModel extends CommonViewModel {
         if (PhoneUtil.isPhone(phone)) {
 
             if (code.length() != 4) {
-                liveEvent.setValue(new LiveEvent("验证码填写错误！"));
+                getMessageEvent().setValue("验证码填写错误！");
                 return;
             }
 
@@ -52,7 +51,7 @@ public class LoginViewModel extends CommonViewModel {
                 @Override
                 public void onSuccess(BaseData<UserVo> data) {
                     userDao.insertItem(data.data);
-                    liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data.getToken(), "login"));
+                    getTypeEvent().postValue(new TypeEvent(ExtraKeys.LOGIN, data.data.getToken()));
                 }
 
                 @Override
@@ -61,7 +60,7 @@ public class LoginViewModel extends CommonViewModel {
             });
 
         } else {
-            liveEvent.setValue(new LiveEvent("请输入正确的手机号码"));
+            getMessageEvent().setValue("请输入正确的手机号码");
         }
     }
 
@@ -73,7 +72,7 @@ public class LoginViewModel extends CommonViewModel {
             @Override
             public void onSuccess(BaseData<UserVo> data) {
                 userDao.insertItem(data.data);
-                liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data.getToken(), "login"));
+                getTypeEvent().postValue(new TypeEvent(ExtraKeys.LOGIN, data.data.getToken()));
             }
 
             @Override
@@ -93,7 +92,7 @@ public class LoginViewModel extends CommonViewModel {
             launchOnlyResult(mApi.verificationCode(phone), new HttpResponseCallback<BaseData<String>>() {
                 @Override
                 public void onSuccess(BaseData<String> data) {
-                    liveEvent.postValue(new LiveEvent(LiveEvent.MsgType.VALUE, data.data, "code"));
+                    getTypeEvent().postValue(new TypeEvent(ExtraKeys.CODE, data.data));
                 }
 
                 @Override
@@ -102,7 +101,7 @@ public class LoginViewModel extends CommonViewModel {
                 }
             });
         } else {
-            liveEvent.setValue(new LiveEvent("请输入正确的手机号码"));
+            getMessageEvent().setValue("请输入正确的手机号码");
         }
 
     }

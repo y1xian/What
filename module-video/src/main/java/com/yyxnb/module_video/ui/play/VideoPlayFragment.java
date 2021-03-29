@@ -1,23 +1,12 @@
 package com.yyxnb.module_video.ui.play;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
-import com.yyxnb.lib_arch.common.Bus;
-import com.yyxnb.lib_arch.common.MsgEvent;
-import com.yyxnb.util_core.log.LogUtils;
-import com.yyxnb.util_permission.PermissionListener;
-import com.yyxnb.util_permission.PermissionUtils;
-import com.yyxnb.lib_video.Utils;
-import com.yyxnb.lib_video.cache.PreloadManager;
-import com.yyxnb.lib_video.cache.ProxyVideoCacheManager;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.TikTokAdapter;
 import com.yyxnb.module_video.bean.TikTokBean;
@@ -27,13 +16,22 @@ import com.yyxnb.module_video.viewmodel.VideoViewModel;
 import com.yyxnb.module_video.widget.VerticalViewPager;
 import com.yyxnb.module_video.widget.tiktok.TikTokController;
 import com.yyxnb.module_video.widget.tiktok.TikTokRenderViewFactory;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
+import com.yyxnb.what.arch.bean.MsgEvent;
+import com.yyxnb.what.arch.helper.BusHelper;
+import com.yyxnb.what.core.log.LogUtils;
+import com.yyxnb.what.permission.PermissionUtils;
+import com.yyxnb.what.video.Utils;
+import com.yyxnb.what.video.cache.PreloadManager;
+import com.yyxnb.what.video.cache.ProxyVideoCacheManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP;
-import static com.yyxnb.common_res.config.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP;
+import static com.yyxnb.common_res.constants.Constants.KEY_VIDEO_BOTTOM_VP_SWITCH;
 
 /**
  * 短视频播放的fragment 可以上下滑动
@@ -75,27 +73,19 @@ public class VideoPlayFragment extends BaseFragment {
         binding = getBinding();
         mViewPager = binding.vpContent;
 
-        PermissionUtils.with(getActivity())
-                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .setPermissionsCheckListener(new PermissionListener() {
-                    @Override
-                    public void permissionRequestSuccess() {
-                    }
-
-                    @Override
-                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
-                    }
-                })
-                .createConfig()
-                .setForceAllPermissionsGranted(true)
-                .buildConfig()
-                .startCheckPermission();
     }
 
     @Override
     public void initViewData() {
 //        mCurPos = getArguments().getInt("CurPos",0);
 //        mVideoList = (List<TikTokBean>) getArguments().getSerializable("data");
+
+        if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
+            PermissionUtils.with(getActivity())
+                    .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
+                    .defaultConfig();
+        }
+
         initViewPager();
         initVideoView();
         mPreloadManager = PreloadManager.getInstance(getContext());
@@ -110,7 +100,7 @@ public class VideoPlayFragment extends BaseFragment {
                 case 0:
                     break;
                 case 5:
-                    Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
+                    BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP_SWITCH, 1));
                     break;
             }
             toast(text);
@@ -244,7 +234,7 @@ public class VideoPlayFragment extends BaseFragment {
     public void onVisible() {
         isCur = true;
         log("Play onVisible");
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
+        BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, false), 100);
         if (mVideoView != null) {
             mVideoView.resume();
         }
@@ -254,7 +244,7 @@ public class VideoPlayFragment extends BaseFragment {
     public void onInVisible() {
         isCur = false;
         log("Play onInVisible");
-        Bus.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
+        BusHelper.post(new MsgEvent(KEY_VIDEO_BOTTOM_VP, true));
         if (mVideoView != null) {
             mVideoView.pause();
         }

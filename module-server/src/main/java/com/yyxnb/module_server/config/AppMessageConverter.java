@@ -9,7 +9,7 @@ import com.yanzhenjie.andserver.framework.body.JsonBody;
 import com.yanzhenjie.andserver.http.ResponseBody;
 import com.yanzhenjie.andserver.util.IOUtils;
 import com.yanzhenjie.andserver.util.MediaType;
-import com.yyxnb.util_okhttp.utils.GsonUtils;
+import com.yyxnb.what.okhttp.utils.GsonUtils;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -15,12 +15,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.yyxnb.util_core.DpUtils;
-import com.yyxnb.lib_common.interfaces.OnSelectListener;
+import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.core.interfaces.OnSelectListener;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.bean.TikTokBean;
 import com.yyxnb.module_video.config.DataConfig;
-import com.yyxnb.lib_video.cache.PreloadManager;
+import com.yyxnb.what.video.cache.PreloadManager;
 import com.yyxnb.module_video.widget.tiktok.TikTokView;
 
 import java.util.ArrayList;

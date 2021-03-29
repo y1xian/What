@@ -1,7 +1,8 @@
 package com.yyxnb.common_res.config;
 
 
-import com.yyxnb.util_core.NetworkUtils;
+import com.yyxnb.common_res.utils.UrlInterceptor;
+import com.yyxnb.what.core.NetworkUtils;
 
 public final class BaseAPI {
 

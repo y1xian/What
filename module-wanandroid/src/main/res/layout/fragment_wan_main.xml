@@ -25,7 +25,7 @@
             android:layout_height="1px"
             android:background="@color/colorLine" />
 
-        <com.yyxnb.lib_view.tabbar.TabBarView
+        <com.yyxnb.what.view.tabbar.TabBarView
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"

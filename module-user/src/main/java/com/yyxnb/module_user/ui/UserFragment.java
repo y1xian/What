@@ -6,13 +6,15 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.yyxnb.common_base.core.BaseFragment;
-import com.yyxnb.common_res.arouter.service.impl.LoginImpl;
-import com.yyxnb.common_res.arouter.service.impl.UserImpl;
+import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_base.event.MessageEvent;
+import com.yyxnb.common_base.event.StatusEvent;
 import com.yyxnb.common_res.constants.UserRouterPath;
-import com.yyxnb.lib_arch.annotations.BarStyle;
-import com.yyxnb.lib_arch.annotations.BindRes;
-import com.yyxnb.lib_arch.annotations.BindViewModel;
+import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.what.arch.annotations.BarStyle;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
@@ -73,6 +75,23 @@ public class UserFragment extends BaseFragment {
                 binding.setData(vo);
             }
             binding.setData(vo);
+        });
+
+        mViewModel.getMessageEvent().observe(this, (MessageEvent.MessageObserver) this::log);
+
+        mViewModel.getStatusEvent().observe(this, (StatusEvent.StatusObserver) status -> {
+
+            log("user " + status);
+            switch (status) {
+                case LOADING:
+                    break;
+                case SUCCESS:
+                    break;
+                case FAILURE:
+                    break;
+                case ERROR:
+                    break;
+            }
         });
 
     }

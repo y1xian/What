@@ -2,7 +2,7 @@
 
 该框架基于 Jetpack + Arouter + Retrofit + MVVM 等实现的一款开源学习项目，该框架存在的意义一方面是为了能实现快速开发、协同开发、实现可复用等，另一方面是想把自己会的、有趣的、可复用的东西写出来，分Java、Kotlin版本
 
-### [流程图 - 项目业务开发方向](https://www.processon.com/view/link/5ee9e48407912929cb49f28d)
+### [流程图 - 项目业务开发方向](https://www.processon.com/view/link/5ee9e48407912929cb49f28d)（ 2021-3-17 更新了个寂寞 ）
 
 ### [组件化流程图 - 大概](https://www.processon.com/view/link/5ee9d5bdf346fb1ae569847d)
 
@@ -13,7 +13,7 @@
 -   主要使用了 JitPack 、 ARouter 、RxJava2 、Retrofit2 等主流框架，MVVM模式
 -   主工程运行、业务模块独立运行
 -   各模块相互跳转、通信等
--   功能、业务分离解耦
+-   功能（Package By Feature）、业务（Package By Layer）分离解耦
 -   SpringMVC模式开发接口
 
 
@@ -21,31 +21,37 @@
 
 #### 工欲善其事，必先利其器 skr
 
+-   `jetpack` 包下封装了 `JetPack` 功能
+    -   底层框架 `lib-arch` ：集成 `JetPack` ，解决单继承问题，只需实现 `IActivity` 、 `IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
+    -	数据库 Room `lib-room`：集成 `Room` 简单封装了个泛型BaseDao，少实现增删改
+    -   分页库 Paging `lib-paging`：集成 `Paging` 分页库功能
+
 -   `utils` 包下 **存放无业务逻辑相关的常用工具 轻量级的**
     -   Android & Java 的工具库，通过静态方法封装，降低相关API的学习成本，提高工作效率
+    -	适配器 `lib-adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
     -   Okhttp3 `util-okhttp`：集成 `Okhttp3`，简单的抽象封装，实现网络请求
+    -   网络请求 `lib-network`：
+        -	java： `Retrofit2` + `LiveData` + `Okhttp3`
+        -	kotlin：`Retrofit2` + `Okhttp3` + `Coroutine`
 	-	...
 
--  `widget`包下 **存放与业务逻辑相关的组件工具**
-    -	通用框架 `lib-common`：简单的集成了通用的 toast、log、状态栏等工具类，部分lib包下都会集成该框架
-    -	底层框架 `lib-arch` ：集成 `JetPack` ，解决单继承问题，只需实现 `IActivity` 、 `IFragment` 和 部分注解 `@BindRes`、`@BindViewModel`等
-    -	适配器 `lib-adapter`：封装 普通 and `Paging` 两种适配器，实现头尾、增删查改、多状态布局等
-    -	数据库 room `lib-room`：集成 `Room` 简单封装了个泛型BaseDao，少实现增删改
-    -   网络请求 `lib-network`：
-        -	java： `Retrofit2` + `RxJava2` + `Okhttp3`
-        -	kotlin：`Retrofit2` + `Okhttp3` + `Coroutine`
+-  `widgets`包下 **存放与业务逻辑相关的组件工具**
+    -	对话框
+    -	悬浮框
+    -	换肤
+    -	下载
     -	...
 
 -  自行查看 `utils` `widgets`目录，工具包都在其包下。具体实现方法可在 `module-widget` 模块下查看 (不完全)
 
 
-开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.10 、JDK 1.8 、SdkVersion support 28 - AndroidX 30
+开发环境：Android Studio 4.1.1 、gradle 6.6 、kotlin 1.4.30 、JDK 1.8 、SdkVersion support 28 - AndroidX 30
 
-- 最新Java + support版本的看 [java-support](https://github.com/y1xian/What/tree/java-support) 分支；
+- 最新Java + support版本的看 [java-support](https://github.com/y1xian/What/tree/java-support) 分支；**（ 默认分支 - 更新快 ，要稳定的看`master`分支 ）**
 
-- 最新Java + AndroidX版本的看 [java-androidx](https://github.com/y1xian/What/tree/java-androidx) 分支；
+- 最新Java + AndroidX版本的看 [java-androidx](https://github.com/y1xian/What/tree/java-androidx) 分支；**（ 等`java-support`分支稳定再更新，更新频率低 ）**
 
-- 最新AndroidX + Kotlin版本的看 [kt-androidx](https://github.com/y1xian/What/tree/kt-androidx) 分支，**【 kotlin版本会比java版本更新慢，重心还在java版本上（kotlin也就图一乐，吃饭还是得靠java 】**；
+- 最新AndroidX + Kotlin版本的看 [kt-androidx](https://github.com/y1xian/What-Kotlin) ，**【 kotlin版本会比java版本更新慢，重心还在java版本上（kotlin也就图一乐，吃饭还是得靠java 】**；
 
 - 主干与其它分支：主干会同步 `java-support` 分支代码，也可能会同步不及时，所以还是看分支优先；其它久远分支可能废弃掉了或不更新了。
 
@@ -154,7 +160,9 @@ module-live=true
 module-widget=true
 ...
 ```
-之后build一下
+
+之后 `build` 一下
+
 
 2. 如在单项目需要引用到其他项目（如用户模块需要登录），则
 ```
@@ -235,7 +243,7 @@ dependencies {
 
  -	`module.gradle` 为业务模块配置的，每个业务模块都需配置
  -	`lib-util.gradle` 为工具类配置
- -	`lib-widget.gradle` 为组件类配置
+ -	`simple.gradle` 为简单配置
 
 #### 换肤
  -	新建模块，只需`res`包且对应资源名即可，可更换颜色，图片，shape。

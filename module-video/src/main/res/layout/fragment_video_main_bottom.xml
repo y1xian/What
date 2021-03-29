@@ -24,7 +24,7 @@
             android:background="@mipmap/bg_home_bottom"
             android:orientation="horizontal">
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
+            <com.yyxnb.what.view.text.DrawableRadioButton
                 android:id="@+id/btnHome"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -36,7 +36,7 @@
                 android:textColor="@color/main_text"
                 android:textSize="16sp" />
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
+            <com.yyxnb.what.view.text.DrawableRadioButton
                 android:id="@+id/btnFind"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -49,7 +49,7 @@
                 android:textColor="@color/main_text"
                 android:textSize="16sp" />
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
+            <com.yyxnb.what.view.text.DrawableRadioButton
                 android:id="@+id/btnMsg"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -60,7 +60,7 @@
                 android:textColor="@color/main_text"
                 android:textSize="16sp" />
 
-            <com.yyxnb.lib_view.text.DrawableRadioButton
+            <com.yyxnb.what.view.text.DrawableRadioButton
                 android:id="@+id/btnMe"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

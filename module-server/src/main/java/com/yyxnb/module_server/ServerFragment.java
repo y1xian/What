@@ -2,11 +2,11 @@ package com.yyxnb.module_server;
 
 import android.os.Bundle;
 
-import com.yyxnb.common_base.core.BaseFragment;
+import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_server.databinding.FragmentServerBinding;
-import com.yyxnb.util_common.ClickUtils;
-import com.yyxnb.util_core.ToastUtils;
-import com.yyxnb.util_permission.PermissionUtils;
+import com.yyxnb.what.core.ClickUtils;
+import com.yyxnb.what.core.ToastUtils;
+import com.yyxnb.what.permission.PermissionUtils;
 
 /**
  * ================================================
@@ -32,11 +32,14 @@ public class ServerFragment extends BaseFragment {
             ToastUtils.normal("点我没用啊");
         });
 
+    }
+
+    @Override
+    public void initViewData() {
         if (!PermissionUtils.hasPermissions(getActivity(), PermissionUtils.FILE_REQUIRE_PERMISSIONS)) {
             PermissionUtils.with(getActivity())
                     .addPermissions(PermissionUtils.FILE_REQUIRE_PERMISSIONS)
                     .defaultConfig();
         }
     }
-
 }
