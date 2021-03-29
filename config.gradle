@@ -58,7 +58,7 @@ ext {
             cardview                 : [group: 'com.android.support', name: 'cardview-v7', version: versions.support],
             annotation               : [group: 'com.android.support', name: 'support-annotations', version: versions.support],
 
-            constraint               : [group: 'com.android.support.constraint', name: 'constraint-layout', version: '2.0.0-beta6'],
+            constraint               : [group: 'com.android.support.constraint', name: 'constraint-layout', version: '2.0.4'],
             flexbox                  : [group: 'com.google.android', name: 'flexbox', version: '1.1.0'],
 
             lifecycle                : [group: 'android.arch.lifecycle', name: 'extensions', version: versions.lifecycle],
@@ -118,23 +118,15 @@ ext {
             //https://github.com/google/gson
             gson                     : [group: 'com.google.code.gson', name: 'gson', version: versions.gson],
 
-            junit                    : [group: 'junit', name: 'junit', version: '4.12'],
+            junit                    : [group: 'junit', name: 'junit', version: versions.junit],
 
             test_runner              : [group: 'com.android.support.test', name: 'runner', version: '1.0.2'],
-            test_espresso            : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: '3.0.2'],
+            test_espresso            : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: versions.espresso],
 
             multidex                 : [group: 'com.android.support', name: 'multidex', version: '1.0.3'],
 
             //单元测试
             robolectric              : [group: 'org.robolectric', name: 'robolectric', version: versions.robolectric],
-            robolectric_v4           : [group: 'org.robolectric', name: 'shadows-support-v4', version: versions.robolectric],
-
-            //单元测试
-            espresso_core            : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: versions.espresso],
-            espresso_contrib         : [group: 'com.android.support.test.espresso', name: 'espresso-contrib', version: versions.espresso],
-            espresso_idling_resource : [group: 'com.android.support.test.espresso', name: 'espresso-idling-resource', version: versions.espresso],
-            espresso_test_runner     : [group: 'com.android.support.test.espresso', name: 'runner', version: '1.1.0'],
-            espresso_test_rules      : [group: 'com.android.support.test.espresso', name: 'rules', version: '1.1.0'],
 
             //https://github.com/Tencent/MMKV
             mmkv                     : [group: 'com.tencent', name: 'mmkv', version: versions.mmkv],
