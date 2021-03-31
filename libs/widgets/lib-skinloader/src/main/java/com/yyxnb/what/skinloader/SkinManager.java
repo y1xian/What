@@ -4,20 +4,21 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.res.Resources;
-import android.support.annotation.ColorRes;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
+import androidx.annotation.ColorRes;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+
 import com.yyxnb.what.skinloader.bean.SkinAttr;
 import com.yyxnb.what.skinloader.impl.SkinResourceManagerImpl;
 import com.yyxnb.what.skinloader.parser.SkinAttributeParser;
+import com.yyxnb.what.skinloader.pluginLoader.PluginLoadUtils;
 import com.yyxnb.what.skinloader.skinInterface.ISkinResDeployer;
 import com.yyxnb.what.skinloader.skinInterface.ISkinResourceManager;
-import com.yyxnb.what.skinloader.pluginLoader.PluginLoadUtils;
 
 import java.io.File;
 import java.util.HashMap;

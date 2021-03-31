@@ -3,11 +3,12 @@ package com.yyxnb.module_main.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
-import com.yyxnb.what.arch.base.IActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.yyxnb.module_main.R;
+import com.yyxnb.what.arch.base.IActivity;
 
 /**
  * 启动页

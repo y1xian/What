@@ -1,11 +1,12 @@
 package com.yyxnb.common_res.base;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.arch.paging.PagedList;
-import android.arch.paging.PagedListAdapter;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.paging.PagedList;
+import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
@@ -13,9 +14,9 @@ import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.base.BasePagedViewModel;
-import com.yyxnb.what.adapter.ItemDecoration;
 import com.yyxnb.common_res.R;
 import com.yyxnb.common_res.databinding.LayoutRefreshViewBinding;
+import com.yyxnb.what.adapter.ItemDecoration;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

@@ -12,9 +12,11 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.hyphenate.easeui.R;
 
@@ -51,7 +53,7 @@ class CanvasLegacy {
         }
     }
 
-    static void saveLayer(Canvas canvas, float left, float top, float right, float bottom, @Nullable Paint paint,  int saveFlags) {
+    static void saveLayer(Canvas canvas, float left, float top, float right, float bottom, @Nullable Paint paint, int saveFlags) {
         try {
             SAVE.invoke(canvas, left, top, right, bottom, paint, saveFlags);
         } catch (Throwable e) {
@@ -75,7 +77,7 @@ class CanvasLegacy {
  * Created by lzan13 on 2015/4/30.
  * customized ImageView，Rounded Rectangle and border is implemented, and change color when you press
  */
-public class EaseImageView extends android.support.v7.widget.AppCompatImageView {
+public class EaseImageView extends AppCompatImageView {
     // paint when user press
     private Paint pressPaint;
     private int width;

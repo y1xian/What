@@ -2,13 +2,21 @@ package com.yyxnb.module_music.ui;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.module_music.R;
+import com.yyxnb.module_music.adapter.MusicLocalListAdapter;
+import com.yyxnb.module_music.bean.MusicBean;
+import com.yyxnb.module_music.bean.MusicLocalBean;
+import com.yyxnb.module_music.databinding.FragmentMusicLocalListBinding;
+import com.yyxnb.module_music.db.MusicDatabase;
+import com.yyxnb.module_music.viewmodel.MusicViewModel;
 import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.what.localservice.LocalConfig;
@@ -19,13 +27,6 @@ import com.yyxnb.what.localservice.manager.DataCallback;
 import com.yyxnb.what.music.MusicPlayerManager;
 import com.yyxnb.what.permission.PermissionListener;
 import com.yyxnb.what.permission.PermissionUtils;
-import com.yyxnb.module_music.R;
-import com.yyxnb.module_music.adapter.MusicLocalListAdapter;
-import com.yyxnb.module_music.bean.MusicBean;
-import com.yyxnb.module_music.bean.MusicLocalBean;
-import com.yyxnb.module_music.databinding.FragmentMusicLocalListBinding;
-import com.yyxnb.module_music.db.MusicDatabase;
-import com.yyxnb.module_music.viewmodel.MusicViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

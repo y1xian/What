@@ -1,14 +1,15 @@
 package com.yyxnb.what.dialog.core;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.StringRes;
 
 import com.yyxnb.what.dialog.R;
 

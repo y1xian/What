@@ -1,8 +1,6 @@
 package com.yyxnb.module_login.ui;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -14,20 +12,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.event.MessageEvent;
 import com.yyxnb.common_base.event.StatusEvent;
 import com.yyxnb.common_base.event.TypeEvent;
 import com.yyxnb.common_res.constants.LoginRouterPath;
-import com.yyxnb.what.arch.annotations.BindRes;
-import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_login.R;
 import com.yyxnb.module_login.config.LoginManager;
 import com.yyxnb.module_login.constants.ExtraKeys;
 import com.yyxnb.module_login.databinding.FragmentLoginBinding;
 import com.yyxnb.module_login.utils.DownTimer;
 import com.yyxnb.module_login.viewmodel.LoginViewModel;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 
 
 /**

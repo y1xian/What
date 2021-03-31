@@ -1,9 +1,9 @@
 package com.yyxnb.module_user.ui;
 
-
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseFragment;
@@ -12,13 +12,13 @@ import com.yyxnb.common_base.event.StatusEvent;
 import com.yyxnb.common_res.constants.UserRouterPath;
 import com.yyxnb.common_res.service.impl.LoginImpl;
 import com.yyxnb.common_res.service.impl.UserImpl;
-import com.yyxnb.what.arch.annotations.BarStyle;
-import com.yyxnb.what.arch.annotations.BindRes;
-import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
 import com.yyxnb.module_user.viewmodel.UserViewModel;
+import com.yyxnb.what.arch.annotations.BarStyle;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 
 /**
  * 我的 - 界面.

@@ -23,4 +23,5 @@ dependencies {
     }
 
     implementation libs.lib_video
+    implementation libs.material
 }

@@ -1,8 +1,9 @@
 package com.yyxnb.what.arch.base;
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.support.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.yyxnb.what.core.interfaces.ILifecycle;
 

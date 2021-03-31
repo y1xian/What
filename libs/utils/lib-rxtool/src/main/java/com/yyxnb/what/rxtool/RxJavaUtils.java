@@ -1,7 +1,6 @@
 package com.yyxnb.what.rxtool;
 
-import android.support.annotation.NonNull;
-
+import androidx.annotation.NonNull;
 
 import com.yyxnb.what.rxtool.subsciber.BaseSubscriber;
 import com.yyxnb.what.rxtool.subsciber.SimpleThrowableAction;

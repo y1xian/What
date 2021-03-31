@@ -1,20 +1,21 @@
 package com.yyxnb.module_chat.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
+import com.yyxnb.module_chat.R;
+import com.yyxnb.module_chat.databinding.FragmentChatMainBinding;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.view.tabbar.Tab;
 import com.yyxnb.what.view.tabbar.TabBarView;
-import com.yyxnb.module_chat.R;
-import com.yyxnb.module_chat.databinding.FragmentChatMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;

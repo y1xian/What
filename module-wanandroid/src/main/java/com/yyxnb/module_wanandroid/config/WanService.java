@@ -1,6 +1,6 @@
 package com.yyxnb.module_wanandroid.config;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import com.yyxnb.common_res.bean.WanData;
 import com.yyxnb.module_wanandroid.bean.WanAriticleBean;

@@ -1,8 +1,8 @@
 package com.yyxnb.module_novel.db;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Query;
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Query;
 
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.what.room.BaseDao;

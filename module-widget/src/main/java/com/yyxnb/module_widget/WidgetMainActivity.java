@@ -1,6 +1,6 @@
 package com.yyxnb.module_widget;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.ContainerActivity;

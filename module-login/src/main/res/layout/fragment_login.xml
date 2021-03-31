@@ -8,7 +8,7 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -51,7 +51,7 @@
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clInput"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -156,7 +156,7 @@
                 android:background="@color/colorLine"
                 app:layout_constraintTop_toBottomOf="@+id/ivPassword" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -226,7 +226,7 @@
         </LinearLayout>
 
         <!-- 第三方 -->
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clThirdLogin"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -287,7 +287,7 @@
                 app:riv_oval="true" />
 
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -3,8 +3,8 @@ package com.yyxnb.what.music.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
-import android.support.v4.util.LruCache;
 import android.text.TextUtils;
+import android.util.LruCache;
 
 /**
  * Music AlbumCache

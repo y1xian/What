@@ -1,9 +1,6 @@
 package com.yyxnb.module_widget.view.dialog;
 
 import android.content.Context;
-import android.support.annotation.StringRes;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -12,11 +9,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.annotation.StringRes;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.yyxnb.module_widget.R;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.adapter.base.BaseAdapter;
 import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.dialog.core.BaseDialog;
-import com.yyxnb.module_widget.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

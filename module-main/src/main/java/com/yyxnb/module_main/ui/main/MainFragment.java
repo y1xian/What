@@ -1,24 +1,25 @@
 package com.yyxnb.module_main.ui.main;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_res.utils.ARouterUtils;
-import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.constants.ChatRouterPath;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.utils.ARouterUtils;
+import com.yyxnb.module_main.R;
+import com.yyxnb.module_main.databinding.FragmentMainBinding;
+import com.yyxnb.module_main.ui.MainTestFragment;
+import com.yyxnb.module_main.viewmodel.MainViewModel;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.what.popup.PopupManager;
 import com.yyxnb.what.view.tabbar.Tab;
 import com.yyxnb.what.view.tabbar.TabBarView;
-import com.yyxnb.module_main.R;
-import com.yyxnb.module_main.databinding.FragmentMainBinding;
-import com.yyxnb.module_main.ui.MainTestFragment;
-import com.yyxnb.module_main.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

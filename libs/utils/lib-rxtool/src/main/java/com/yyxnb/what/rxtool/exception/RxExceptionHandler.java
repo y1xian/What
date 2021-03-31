@@ -1,6 +1,6 @@
 package com.yyxnb.what.rxtool.exception;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * 错误信息处理

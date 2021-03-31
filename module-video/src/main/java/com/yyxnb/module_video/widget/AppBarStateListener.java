@@ -1,6 +1,6 @@
 package com.yyxnb.module_video.widget;
 
-import android.support.design.widget.AppBarLayout;
+import com.google.android.material.appbar.AppBarLayout;
 
 /**
  * Created by cxf on 2018/7/9.

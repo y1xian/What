@@ -100,7 +100,4 @@ dependencies {
 
     // 避免65K限制       https://developer.android.com/tools/building/multidex.html
     api libs.multidex
-
 }
-
-

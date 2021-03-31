@@ -2,19 +2,20 @@ package com.yyxnb.module_video.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.adapter.ItemDecoration;
-import com.yyxnb.what.adapter.SimpleOnItemClickListener;
-import com.yyxnb.what.arch.annotations.BindRes;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.adapter.VideoListAdapter;
 import com.yyxnb.module_video.config.DataConfig;
 import com.yyxnb.module_video.databinding.FragmentVideoListBinding;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BindRes;
 
 /**
  * 视频列表

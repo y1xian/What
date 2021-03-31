@@ -1,6 +1,6 @@
 package com.yyxnb.common_base.base;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import com.yyxnb.common_base.event.MessageEvent;
 import com.yyxnb.common_base.event.StatusEvent;

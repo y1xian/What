@@ -1,7 +1,6 @@
 package com.yyxnb.common_base.event;
 
-
-import android.arch.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleOwner;
 
 /**
  * ================================================

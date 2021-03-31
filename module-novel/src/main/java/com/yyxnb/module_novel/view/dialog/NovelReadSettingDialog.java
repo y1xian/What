@@ -2,8 +2,6 @@ package com.yyxnb.module_novel.view.dialog;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -11,9 +9,9 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.adapter.SimpleOnItemClickListener;
-import com.yyxnb.what.dialog.core.BaseDialog;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.NovelPageStyleAdapter;
 import com.yyxnb.module_novel.view.page.BrightnessUtils;
@@ -21,6 +19,9 @@ import com.yyxnb.module_novel.view.page.PageLoader;
 import com.yyxnb.module_novel.view.page.PageMode;
 import com.yyxnb.module_novel.view.page.PageStyle;
 import com.yyxnb.module_novel.view.page.ReadSettingManager;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.dialog.core.BaseDialog;
 
 import java.util.Arrays;
 

@@ -1,13 +1,13 @@
 package com.yyxnb.common_res.utils;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Transformations;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 
+import com.yyxnb.common_base.event.SingleLiveEvent;
 import com.yyxnb.common_res.bean.UserVo;
 import com.yyxnb.common_res.constants.Constants;
 import com.yyxnb.common_res.db.AppDatabase;
 import com.yyxnb.common_res.db.UserDao;
-import com.yyxnb.common_base.event.SingleLiveEvent;
 import com.yyxnb.what.cache.KvUtils;
 import com.yyxnb.what.core.log.LogUtils;
 

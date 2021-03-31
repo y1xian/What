@@ -1,8 +1,8 @@
 package com.yyxnb.what.arch.helper;
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.yyxnb.what.arch.bean.MsgEvent;

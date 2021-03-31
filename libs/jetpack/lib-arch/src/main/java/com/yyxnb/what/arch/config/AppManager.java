@@ -2,7 +2,8 @@ package com.yyxnb.what.arch.config;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 
 import com.yyxnb.what.arch.base.IActivity;
 import com.yyxnb.what.arch.base.IFragment;

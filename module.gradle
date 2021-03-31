@@ -114,7 +114,7 @@ android {
         multiDexEnabled true
         // 使用矢量图
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // 将混淆文件解耦到每个模块中，并且不会影响编译效率
         consumerProguardFiles 'consumer-rules.pro'
         // 阿里路由框架配置
@@ -228,7 +228,7 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     if (runAsApp) {
         testImplementation libs.junit
-        androidTestImplementation libs.test_runner
+        androidTestImplementation libs.test_junit
         androidTestImplementation libs.test_espresso
     }
 

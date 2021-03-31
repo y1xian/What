@@ -2,12 +2,13 @@ package com.yyxnb.what.popup.impl;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.what.popup.animator.PopupAnimation;
 import com.yyxnb.what.popup.animator.PopupAnimator;

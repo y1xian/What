@@ -4,13 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
@@ -24,10 +25,10 @@ import com.yyxnb.what.arch.base.IFragment;
 import com.yyxnb.what.arch.base.Java8Observer;
 import com.yyxnb.what.arch.config.AppManager;
 import com.yyxnb.what.arch.delegate.ActivityDelegate;
+import com.yyxnb.what.core.KeyboardUtils;
 import com.yyxnb.what.core.action.AnimAction;
 import com.yyxnb.what.core.action.ClickAction;
 import com.yyxnb.what.core.action.HandlerAction;
-import com.yyxnb.what.core.KeyboardUtils;
 import com.yyxnb.what.skinloader.SkinInflaterFactory;
 
 import java.lang.ref.WeakReference;

@@ -1,7 +1,8 @@
 package com.yyxnb.what.okhttp;
 
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
+
+import androidx.core.app.ActivityCompat;
 
 import com.yyxnb.what.app.AppUtils;
 import com.yyxnb.what.okhttp.annotation.CacheType;

@@ -1,12 +1,11 @@
 package com.yyxnb.module_novel.bean;
 
-
-import android.arch.persistence.room.Embedded;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Index;
-import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.RoomWarnings;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+import androidx.room.RoomWarnings;
 
 /**
  * 阅读记录

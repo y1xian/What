@@ -1,12 +1,13 @@
 package com.yyxnb.common_base;
 
 import android.app.Application;
-import android.arch.lifecycle.DefaultLifecycleObserver;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.multidex.MultiDex;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.DefaultLifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ProcessLifecycleOwner;
+import androidx.multidex.MultiDex;
 
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.yyxnb.common_base.base.ContainerActivity;

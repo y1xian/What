@@ -1,16 +1,17 @@
 package com.yyxnb.what.popup.impl;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.adapter.base.BaseAdapter;
 import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.popup.PopupManager;
 import com.yyxnb.what.popup.R;
 import com.yyxnb.what.popup.code.BottomPopupView;

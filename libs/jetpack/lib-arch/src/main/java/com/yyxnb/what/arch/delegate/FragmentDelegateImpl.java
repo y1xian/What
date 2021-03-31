@@ -1,16 +1,17 @@
 package com.yyxnb.what.arch.delegate;
 
-import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModel;
 
 import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.what.arch.base.IFragment;
-import com.yyxnb.what.arch.viewmodel.ViewModelFactory;
 import com.yyxnb.what.arch.config.AppManager;
+import com.yyxnb.what.arch.viewmodel.ViewModelFactory;
 import com.yyxnb.what.core.action.HandlerAction;
 
 import java.lang.reflect.Field;

@@ -1,6 +1,6 @@
 package com.yyxnb.module_novel.config;
 
-import android.support.annotation.StringDef;
+import androidx.annotation.StringDef;
 
 import com.yyxnb.module_novel.view.page.FileUtils;
 

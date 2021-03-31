@@ -1,14 +1,15 @@
 package com.yyxnb.module_widget.view.dialog;
 
 import android.content.Context;
-import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import androidx.annotation.StringRes;
+
+import com.yyxnb.module_widget.R;
 import com.yyxnb.what.dialog.core.BaseDialog;
 import com.yyxnb.what.dialog.core.UIDialog;
-import com.yyxnb.module_widget.R;
 
 
 /**

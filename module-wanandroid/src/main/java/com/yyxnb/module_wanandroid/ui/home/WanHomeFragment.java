@@ -2,20 +2,17 @@ package com.yyxnb.module_wanandroid.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.youth.banner.Banner;
-import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.adapter.SimpleOnItemClickListener;
-import com.yyxnb.what.arch.annotations.BindRes;
-import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.weight.GlideImageLoader;
 import com.yyxnb.module_wanandroid.R;
@@ -24,6 +21,10 @@ import com.yyxnb.module_wanandroid.bean.WanAriticleBean;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanHomeBinding;
 import com.yyxnb.module_wanandroid.ui.WanWebActivity;
 import com.yyxnb.module_wanandroid.viewmodel.WanHomeViewModel;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

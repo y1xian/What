@@ -21,7 +21,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -30,6 +29,8 @@ import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

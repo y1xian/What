@@ -2,8 +2,9 @@ package com.yyxnb.what.popup.animator;
 
 import android.animation.IntEvaluator;
 import android.animation.ValueAnimator;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
+
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.yyxnb.what.popup.PopupManager;
 

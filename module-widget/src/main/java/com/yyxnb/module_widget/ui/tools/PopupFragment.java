@@ -1,23 +1,24 @@
 package com.yyxnb.module_widget.ui.tools;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.module_widget.R;
+import com.yyxnb.module_widget.adapter.MainListAdapter;
+import com.yyxnb.module_widget.config.DataConfig;
+import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
 import com.yyxnb.what.adapter.ItemDecoration;
 import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.popup.PopupManager;
 import com.yyxnb.what.popup.impl.LoadingPopupView;
 import com.yyxnb.what.popup.interfaces.OnInputConfirmListener;
 import com.yyxnb.what.popup.interfaces.OnSelectListener;
-import com.yyxnb.module_widget.R;
-import com.yyxnb.module_widget.adapter.MainListAdapter;
-import com.yyxnb.module_widget.config.DataConfig;
-import com.yyxnb.module_widget.databinding.IncludeWidgetSrlRvLayoutBinding;
 
 /**
  * Popup.

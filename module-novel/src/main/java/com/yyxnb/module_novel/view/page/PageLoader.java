@@ -8,11 +8,12 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 
-import com.yyxnb.common_res.service.impl.UserImpl;
+import androidx.core.content.ContextCompat;
+
 import com.yyxnb.common_res.bean.UserVo;
+import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;

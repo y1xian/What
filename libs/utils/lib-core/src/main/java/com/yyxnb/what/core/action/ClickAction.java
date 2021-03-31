@@ -1,7 +1,8 @@
 package com.yyxnb.what.core.action;
 
-import android.support.annotation.IdRes;
 import android.view.View;
+
+import androidx.annotation.IdRes;
 
 import com.yyxnb.what.core.ClickUtils;
 

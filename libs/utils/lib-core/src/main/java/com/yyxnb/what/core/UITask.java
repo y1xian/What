@@ -1,12 +1,13 @@
 package com.yyxnb.what.core;
 
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.yyxnb.what.core.callback.ResultCallback;
 

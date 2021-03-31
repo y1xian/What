@@ -1,15 +1,16 @@
 package com.yyxnb.module_novel.adapter;
 
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.yyxnb.module_novel.R;
+import com.yyxnb.module_novel.bean.BookShelfBean;
 import com.yyxnb.what.adapter.base.BaseAdapter;
 import com.yyxnb.what.adapter.base.BaseViewHolder;
 import com.yyxnb.what.image.ImageManager;
-import com.yyxnb.module_novel.R;
-import com.yyxnb.module_novel.bean.BookShelfBean;
 
 public class BookShelfAdapter extends BaseAdapter<BookShelfBean> {
 

@@ -2,7 +2,8 @@ package com.yyxnb.common_base.module;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * 代理{@link Application} 的生命周期

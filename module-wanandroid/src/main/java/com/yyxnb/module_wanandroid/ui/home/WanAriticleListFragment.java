@@ -1,20 +1,21 @@
 package com.yyxnb.module_wanandroid.ui.home;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-import com.yyxnb.what.arch.annotations.BindRes;
-import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanHomeAdapter;
 import com.yyxnb.module_wanandroid.databinding.FragmentWanAriticleListBinding;
 import com.yyxnb.module_wanandroid.viewmodel.WanSearchViewModel;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 
 import static com.yyxnb.module_wanandroid.config.DataConfig.DATA_SIZE;
 

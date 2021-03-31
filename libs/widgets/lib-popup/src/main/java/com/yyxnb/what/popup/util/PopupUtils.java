@@ -21,7 +21,6 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-import android.support.annotation.FloatRange;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -32,6 +31,8 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import androidx.annotation.FloatRange;
 
 import com.yyxnb.what.popup.code.AttachPopupView;
 import com.yyxnb.what.popup.code.BasePopupView;

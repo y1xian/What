@@ -1,18 +1,19 @@
 package com.yyxnb.module_chat.ui;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
-import com.yyxnb.what.adapter.ItemDecoration;
-import com.yyxnb.what.skinloader.SkinManager;
 import com.yyxnb.module_chat.R;
 import com.yyxnb.module_chat.adapter.MessageAdapter;
 import com.yyxnb.module_chat.config.DataConfig;
 import com.yyxnb.module_chat.databinding.FragmentMessageListBinding;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.skinloader.SkinManager;
 
 /**
  * 消息列表.

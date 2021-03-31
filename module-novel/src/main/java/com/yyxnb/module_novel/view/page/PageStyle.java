@@ -1,6 +1,6 @@
 package com.yyxnb.module_novel.view.page;
 
-import android.support.annotation.ColorRes;
+import androidx.annotation.ColorRes;
 
 import com.yyxnb.module_novel.R;
 

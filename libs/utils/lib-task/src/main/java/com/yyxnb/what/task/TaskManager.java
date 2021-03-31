@@ -3,8 +3,9 @@ package com.yyxnb.what.task;
 import android.content.Context;
 import android.os.Build;
 import android.os.Looper;
-import android.support.annotation.RequiresApi;
-import android.support.annotation.UiThread;
+
+import androidx.annotation.RequiresApi;
+import androidx.annotation.UiThread;
 
 import com.yyxnb.what.task.sort.TaskSortUtil;
 import com.yyxnb.what.task.task.ITask;

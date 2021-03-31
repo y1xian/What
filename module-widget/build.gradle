@@ -18,7 +18,7 @@ dependencies {
 
     implementation project(':common-base')
 
-    implementation libs.lib_task
+    implementation libs.lib_task, libs.cardview
 
     // 路由
     implementation libs.arouter_api

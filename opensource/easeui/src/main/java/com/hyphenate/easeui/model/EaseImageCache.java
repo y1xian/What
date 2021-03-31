@@ -14,7 +14,7 @@
 package com.hyphenate.easeui.model;
 
 import android.graphics.Bitmap;
-import android.support.v4.util.LruCache;
+import android.util.LruCache;
 
 public class EaseImageCache {
 	

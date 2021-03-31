@@ -1,8 +1,9 @@
 package com.yyxnb.module_video.ui.play;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;

@@ -1,8 +1,9 @@
 package com.yyxnb.what.popup.animator;
 
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.yyxnb.what.popup.PopupManager;
 

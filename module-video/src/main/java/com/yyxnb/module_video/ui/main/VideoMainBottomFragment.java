@@ -1,26 +1,27 @@
 package com.yyxnb.module_video.ui.main;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_res.utils.ARouterUtils;
+import com.yyxnb.common_res.constants.ChatRouterPath;
 import com.yyxnb.common_res.service.impl.LoginImpl;
 import com.yyxnb.common_res.service.impl.UserImpl;
-import com.yyxnb.common_res.constants.ChatRouterPath;
-import com.yyxnb.what.arch.annotations.BindRes;
-import com.yyxnb.what.view.text.DrawableRadioButton;
+import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
 import com.yyxnb.module_video.ui.find.VideoFindFragment;
 import com.yyxnb.module_video.ui.home.VideoHomeFragment;
+import com.yyxnb.what.arch.annotations.BindRes;
 import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.view.text.DrawableRadioButton;
 
 /**
  * 主页

@@ -13,7 +13,7 @@
         android:orientation="vertical"
         tools:context="com.yyxnb.module_wanandroid.ui.home.WanHomeFragment">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clHead"
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -37,12 +37,12 @@
                 android:layout_height="20dp"
                 android:layout_marginEnd="16dp"
                 android:src="@mipmap/ic_search"
-                android:tint="@color/white"
+                app:tint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <include
             android:id="@+id/iRvContent"

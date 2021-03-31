@@ -2,8 +2,9 @@ package com.yyxnb.what.core;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;

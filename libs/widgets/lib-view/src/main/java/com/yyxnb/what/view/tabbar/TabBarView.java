@@ -6,9 +6,6 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.Nullable;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -20,9 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.DrawableCompat;
+
 import com.yyxnb.what.core.DpUtils;
-import com.yyxnb.what.view.R;
 import com.yyxnb.what.core.interfaces.OnSelectListener;
+import com.yyxnb.what.view.R;
 
 import java.util.ArrayList;
 import java.util.List;

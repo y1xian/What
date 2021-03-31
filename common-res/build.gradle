@@ -5,6 +5,8 @@ dependencies {
 
     // 基类
     api project(':common-base')
+    api libs.cardview
+
     // 悬浮窗
     api libs.lib_floatwindow
 

@@ -1,7 +1,7 @@
 package com.yyxnb.module_video.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.yyxnb.common_base.base.CommonViewModel;
 import com.yyxnb.common_res.bean.StateData;

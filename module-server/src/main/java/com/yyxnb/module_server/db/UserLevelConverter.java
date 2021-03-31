@@ -1,6 +1,6 @@
 package com.yyxnb.module_server.db;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 
 import com.yyxnb.module_server.constants.UserLevel;
 

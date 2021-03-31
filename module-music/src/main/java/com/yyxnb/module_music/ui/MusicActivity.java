@@ -1,7 +1,8 @@
 package com.yyxnb.module_music.ui;
 
-import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
+
+import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.ContainerActivity;

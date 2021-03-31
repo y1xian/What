@@ -2,18 +2,19 @@ package com.yyxnb.module_widget.view.dialog;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.yyxnb.module_widget.R;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.adapter.base.BaseAdapter;
 import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.adapter.SimpleOnItemClickListener;
 import com.yyxnb.what.dialog.core.BaseDialog;
 import com.yyxnb.what.dialog.core.UIDialog;
-import com.yyxnb.module_widget.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

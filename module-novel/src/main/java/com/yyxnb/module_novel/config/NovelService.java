@@ -1,6 +1,6 @@
 package com.yyxnb.module_novel.config;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import com.yyxnb.common_res.bean.JiSuData;
 import com.yyxnb.module_novel.bean.BookChapterBean;

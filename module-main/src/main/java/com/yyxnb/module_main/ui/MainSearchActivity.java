@@ -1,14 +1,15 @@
 package com.yyxnb.module_main.ui;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-import com.yyxnb.what.arch.base.IActivity;
-import com.yyxnb.what.core.KeyboardUtils;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.databinding.ActivityMainSearchBinding;
+import com.yyxnb.what.arch.base.IActivity;
+import com.yyxnb.what.core.KeyboardUtils;
 
 /**
  * 搜索

@@ -1,14 +1,14 @@
 package com.yyxnb.module_server.db;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.TypeConverters;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
-import com.yyxnb.what.room.DateConverter;
 import com.yyxnb.module_server.bean.response.CodeVo;
 import com.yyxnb.module_server.bean.response.UserVo;
 import com.yyxnb.what.app.AppUtils;
+import com.yyxnb.what.room.DateConverter;
 
 /**
  * Database这个对象我们需要指定三个参数entities 代表数据库需要操作的实体类集合，第二个参数代表数据库的版本第三个参数代表在编译时，

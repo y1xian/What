@@ -1,6 +1,7 @@
 package com.yyxnb.what.adapter;
 
-import android.support.v4.util.SparseArrayCompat;
+
+import androidx.collection.SparseArrayCompat;
 
 import com.yyxnb.what.adapter.base.BaseViewHolder;
 

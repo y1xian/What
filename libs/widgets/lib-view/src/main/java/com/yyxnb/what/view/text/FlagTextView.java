@@ -7,9 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -18,6 +15,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.lang.reflect.Field;
 

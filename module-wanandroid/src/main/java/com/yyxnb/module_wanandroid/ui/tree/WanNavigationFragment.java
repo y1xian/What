@@ -1,17 +1,18 @@
 package com.yyxnb.module_wanandroid.ui.tree;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.yyxnb.common_res.databinding.IncludeSrlRvLayoutBinding;
-import com.yyxnb.what.arch.annotations.BindRes;
-import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.common_base.base.BaseFragment;
+import com.yyxnb.common_res.databinding.IncludeSrlRvLayoutBinding;
 import com.yyxnb.module_wanandroid.R;
 import com.yyxnb.module_wanandroid.adapter.WanNavigationAdapter;
 import com.yyxnb.module_wanandroid.viewmodel.WanTreeViewModel;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 
 /**
  * 导航.

@@ -1,17 +1,18 @@
 package com.yyxnb.module_joke.view;
 
 import android.content.Context;
-import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;

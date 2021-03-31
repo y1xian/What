@@ -4,15 +4,14 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_res.utils.ARouterUtils;
-import com.yyxnb.common_res.service.impl.UserImpl;
 import com.yyxnb.common_res.constants.ChatRouterPath;
 import com.yyxnb.common_res.constants.JokeRouterPath;
 import com.yyxnb.common_res.constants.MusicRouterPath;
@@ -20,17 +19,19 @@ import com.yyxnb.common_res.constants.NovelRouterPath;
 import com.yyxnb.common_res.constants.VideoRouterPath;
 import com.yyxnb.common_res.constants.WanRouterPath;
 import com.yyxnb.common_res.constants.WidgetRouterPath;
-import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.adapter.ItemDecoration;
-import com.yyxnb.what.adapter.SimpleOnItemClickListener;
-import com.yyxnb.what.arch.annotations.BindRes;
-import com.yyxnb.what.arch.annotations.BindViewModel;
-import com.yyxnb.what.popup.PopupManager;
+import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.adapter.MainHomeAdapter;
 import com.yyxnb.module_main.config.DataConfig;
 import com.yyxnb.module_main.databinding.FragmentMainTestBinding;
 import com.yyxnb.module_main.viewmodel.MainTestViewModel;
+import com.yyxnb.what.adapter.ItemDecoration;
+import com.yyxnb.what.adapter.SimpleOnItemClickListener;
+import com.yyxnb.what.adapter.base.BaseViewHolder;
+import com.yyxnb.what.arch.annotations.BindRes;
+import com.yyxnb.what.arch.annotations.BindViewModel;
+import com.yyxnb.what.popup.PopupManager;
 
 /**
  * ================================================

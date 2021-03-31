@@ -8,7 +8,7 @@
 
     </data>
 
-    <android.support.v4.widget.DrawerLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/mDrawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,7 +44,7 @@
                 android:visibility="gone" />
 
             <!--头部-->
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clHead"
                 android:layout_width="match_parent"
                 android:layout_height="69dp"
@@ -60,7 +60,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginStart="16dp"
                     android:src="@mipmap/ic_titlebar_back"
-                    android:tint="@color/white"
+                    app:tint="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -89,7 +89,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <!--底部页面-->
@@ -143,7 +143,7 @@
                 </LinearLayout>
 
                 <!--菜单栏-->
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:background="#E6000000"
@@ -195,7 +195,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
 
@@ -237,7 +237,7 @@
             android:background="#313131"
             android:orientation="vertical">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
@@ -274,9 +274,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvContent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -284,6 +284,6 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

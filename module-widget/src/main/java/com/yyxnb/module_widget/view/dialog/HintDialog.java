@@ -1,14 +1,15 @@
 package com.yyxnb.module_widget.view.dialog;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yyxnb.what.dialog.core.BaseDialog;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
+
 import com.yyxnb.module_widget.R;
+import com.yyxnb.what.dialog.core.BaseDialog;
 
 
 /**

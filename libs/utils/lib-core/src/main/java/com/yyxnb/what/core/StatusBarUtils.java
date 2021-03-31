@@ -11,7 +11,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.view.ViewCompat;
 import android.view.DisplayCutout;
 import android.view.Gravity;
 import android.view.View;
@@ -20,6 +19,8 @@ import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+
+import androidx.core.view.ViewCompat;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;

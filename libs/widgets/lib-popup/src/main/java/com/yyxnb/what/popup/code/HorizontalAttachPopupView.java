@@ -2,7 +2,8 @@ package com.yyxnb.what.popup.code;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.yyxnb.what.popup.animator.PopupAnimation;
 import com.yyxnb.what.popup.animator.PopupAnimator;

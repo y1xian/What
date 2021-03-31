@@ -1,6 +1,6 @@
 package com.yyxnb.module_server.config;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.yanzhenjie.andserver.annotation.Interceptor;
 import com.yanzhenjie.andserver.error.HttpException;

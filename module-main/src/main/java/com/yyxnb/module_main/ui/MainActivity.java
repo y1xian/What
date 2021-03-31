@@ -1,6 +1,6 @@
 package com.yyxnb.module_main.ui;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.yyxnb.common_base.base.ContainerActivity;
 import com.yyxnb.module_main.ui.main.MainFragment;

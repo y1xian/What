@@ -1,7 +1,8 @@
 package com.yyxnb.what.arch;
 
-import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.util.Log;
+
+import androidx.lifecycle.ProcessLifecycleOwner;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.yyxnb.what.app.AppUtils;

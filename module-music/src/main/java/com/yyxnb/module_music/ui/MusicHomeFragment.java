@@ -4,19 +4,14 @@ import android.Manifest;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.MusicRouterPath;
 import com.yyxnb.common_res.weight.ScaleTransitionPagerTitleView;
-import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
-import com.yyxnb.what.arch.annotations.BindViewModel;
-import com.yyxnb.what.music.MusicPlayerManager;
-import com.yyxnb.what.music.interfaces.MusicInitializeCallBack;
-import com.yyxnb.what.music.interfaces.MusicPlayerEventListener;
-import com.yyxnb.what.music.interfaces.MusicPlayerInfoListener;
 import com.yyxnb.module_music.R;
 import com.yyxnb.module_music.bean.MusicBean;
 import com.yyxnb.module_music.bean.MusicRecordBean;
@@ -24,7 +19,13 @@ import com.yyxnb.module_music.databinding.FragmentMusicHomeBinding;
 import com.yyxnb.module_music.db.MusicDatabase;
 import com.yyxnb.module_music.view.BottomMusicView;
 import com.yyxnb.module_music.viewmodel.MusicViewModel;
+import com.yyxnb.what.adapter.base.BaseFragmentPagerAdapter;
+import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.what.core.DpUtils;
+import com.yyxnb.what.music.MusicPlayerManager;
+import com.yyxnb.what.music.interfaces.MusicInitializeCallBack;
+import com.yyxnb.what.music.interfaces.MusicPlayerEventListener;
+import com.yyxnb.what.music.interfaces.MusicPlayerInfoListener;
 import com.yyxnb.what.permission.PermissionListener;
 import com.yyxnb.what.permission.PermissionUtils;
 
