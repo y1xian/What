@@ -23,7 +23,7 @@ import com.yyxnb.what.arch.action.BundleAction;
 import com.yyxnb.what.arch.base.IFragment;
 import com.yyxnb.what.arch.base.Java8Observer;
 import com.yyxnb.what.arch.delegate.FragmentDelegate;
-import com.yyxnb.what.core.action.AnimAction;
+import com.yyxnb.what.anim.action.AnimAction;
 import com.yyxnb.what.core.action.ClickAction;
 import com.yyxnb.what.core.action.HandlerAction;
 

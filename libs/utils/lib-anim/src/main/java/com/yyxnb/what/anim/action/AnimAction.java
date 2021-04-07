@@ -1,6 +1,6 @@
-package com.yyxnb.what.core.action;
+package com.yyxnb.what.anim.action;
 
-import com.yyxnb.what.core.R;
+import com.yyxnb.what.anim.R;
 
 /**
  * 动画样式

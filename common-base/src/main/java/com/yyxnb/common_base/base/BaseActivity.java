@@ -26,7 +26,7 @@ import com.yyxnb.what.arch.base.Java8Observer;
 import com.yyxnb.what.arch.config.AppManager;
 import com.yyxnb.what.arch.delegate.ActivityDelegate;
 import com.yyxnb.what.core.KeyboardUtils;
-import com.yyxnb.what.core.action.AnimAction;
+import com.yyxnb.what.anim.action.AnimAction;
 import com.yyxnb.what.core.action.ClickAction;
 import com.yyxnb.what.core.action.HandlerAction;
 import com.yyxnb.what.skinloader.SkinInflaterFactory;

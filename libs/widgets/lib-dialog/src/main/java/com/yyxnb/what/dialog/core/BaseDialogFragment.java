@@ -26,6 +26,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import com.yyxnb.what.anim.action.AnimAction;
 import com.yyxnb.what.core.action.ClickAction;
 import com.yyxnb.what.core.action.CoreAction;
 import com.yyxnb.what.core.action.HandlerAction;
@@ -717,7 +718,7 @@ public class BaseDialogFragment extends AppCompatDialogFragment implements Lifec
         }
 
         /**
-         * 设置动画，已经封装好几种样式，具体可见{@link com.yyxnb.what.core.action.AnimAction}类
+         * 设置动画，已经封装好几种样式，具体可见{@link AnimAction}类
          */
         public B setAnimStyle(@StyleRes int id) {
             mAnimStyle = id;

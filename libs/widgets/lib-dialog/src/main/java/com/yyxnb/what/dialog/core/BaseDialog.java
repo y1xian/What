@@ -38,7 +38,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import com.yyxnb.what.core.action.AnimAction;
+import com.yyxnb.what.anim.action.AnimAction;
 import com.yyxnb.what.core.action.ClickAction;
 import com.yyxnb.what.core.action.CoreAction;
 import com.yyxnb.what.core.action.HandlerAction;

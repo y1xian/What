@@ -37,6 +37,8 @@ dependencies {
     api libs.lib_file
     // 权限
     api libs.lib_permission
+    // 动画
+    api libs.lib_anim
 
 
     // 屏幕适配 https://github.com/JessYanCoding/AndroidAutoSize

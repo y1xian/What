@@ -186,6 +186,7 @@ ext {
             lib_navigation           : project(':libs:jetpack:lib-navigation'),
             // Binding
             lib_binding              : project(':libs:jetpack:lib-binding'),
+
             // app相关
             lib_app                  : project(':libs:utils:lib-app'),
             // 核心
@@ -220,8 +221,13 @@ ext {
             lib_notification         : project(':libs:utils:lib-notification'),
             // 封装服务
             lib_service              : project(':libs:utils:lib-service'),
+            // 动画
+            lib_anim                 : project(':libs:utils:lib-anim'),
+            // SnackBar
+            lib_snackbar             : project(':libs:utils:lib-snackbar'),
             // 不常用工具，未分类的
             lib_utils                : project(':libs:utils:lib-utils'),
+
             // 视频
             lib_video                : project(':libs:widgets:lib-video'),
             // 音乐

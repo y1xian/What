@@ -96,6 +96,10 @@ include ':libs:utils:lib-app',
         ':libs:utils:lib-notification',
         // 封装服务
         ':libs:utils:lib-service',
+        // SnackBar
+        ':libs:utils:lib-snackbar',
+        // 动画
+        ':libs:utils:lib-anim',
         // 不常用工具，未分类的
         ':libs:utils:lib-utils'
 
