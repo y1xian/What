@@ -10,8 +10,8 @@ import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_base.event.MessageEvent;
 import com.yyxnb.common_base.event.StatusEvent;
 import com.yyxnb.common_res.constants.UserRouterPath;
-import com.yyxnb.common_res.service.impl.LoginImpl;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.LoginHelper;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserBinding;
 import com.yyxnb.module_user.ui.wallet.UserWalletFragment;
@@ -49,8 +49,8 @@ public class UserFragment extends BaseFragment {
     public void onClickEvent(View v) {
         int id = v.getId();
         if (id == R.id.clHead) {
-            if (!LoginImpl.getInstance().isLogin()) {
-                startFragment(LoginImpl.getInstance().mainPage(getContext()));
+            if (!LoginHelper.isLogin()) {
+                startFragment(LoginHelper.mainPage(getContext()));
             } else {
                 startFragment(new UserPersonalDetailsFragment());
             }
@@ -71,7 +71,7 @@ public class UserFragment extends BaseFragment {
 
         mViewModel.userLiveData.getUser().observe(this, vo -> {
             if (vo != null) {
-                UserImpl.getInstance().updateUserInfo(vo);
+                UserHelper.updateUserInfo(vo);
                 binding.setData(vo);
             }
             binding.setData(vo);

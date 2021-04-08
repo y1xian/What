@@ -12,8 +12,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
-import com.yyxnb.common_res.service.impl.LoginImpl;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.LoginHelper;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.module_video.R;
 import com.yyxnb.module_video.databinding.FragmentVideoMainBottomBinding;
@@ -81,7 +81,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
             mSparseArray.put(HOME, mHomeFragment);
             mSparseArray.put(FIND, new VideoFindFragment());
             mSparseArray.put(MSG, (Fragment) ARouterUtils.navFragment(ChatRouterPath.LIST_FRAGMENT));
-            mSparseArray.put(ME, (Fragment) UserImpl.getInstance().mainPage(getContext()));
+            mSparseArray.put(ME, (Fragment) UserHelper.mainPage(getContext()));
         }
 
         mCurKey = HOME;
@@ -245,7 +245,7 @@ public class VideoMainBottomFragment extends BaseFragment implements View.OnClic
 
     // 跳转登录
     private void forwardLogin() {
-        LoginImpl.getInstance().start(getContext());
+        LoginHelper.start(getContext());
     }
 
     // 最底层vp { @link VideoMainFragment } 是否能切换 （视频/个人）

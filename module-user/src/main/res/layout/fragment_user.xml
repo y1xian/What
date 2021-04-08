@@ -54,7 +54,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout                        android:layout_width="match_parent"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="150dp">
 
                         <com.makeramen.roundedimageview.RoundedImageView
@@ -322,8 +323,8 @@
                             android:button="@null"
                             android:drawablePadding="12dp"
                             android:gravity="center_vertical"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="10dp"
+                            android:paddingStart="15dp"
+                            android:paddingEnd="10dp"
                             android:text="@string/night_mode"
                             android:textColor="@color/colorText"
                             app:left_drawable="@color/colorLine"
@@ -337,7 +338,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginEnd="10dp"
                             android:checked="@{UserPresenter.isChecked()}"
-                            android:onCheckedChanged="@{(v,isChecked) -> UserPresenter.onCheckedChange(v,isChecked)}" />
+                            app:onCheckedChanged="@{(v,isChecked) -> UserPresenter.onCheckedChange(v,isChecked)}" />
 
                     </LinearLayout>
 

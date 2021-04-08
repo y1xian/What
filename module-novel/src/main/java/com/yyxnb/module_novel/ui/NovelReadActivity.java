@@ -36,8 +36,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import com.yyxnb.common_base.base.BaseActivity;
-import com.yyxnb.common_res.service.impl.LoginImpl;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.LoginHelper;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.adapter.NovelCategoryAdapter;
 import com.yyxnb.module_novel.bean.BookChapterBean;
@@ -216,7 +216,7 @@ public class NovelReadActivity extends BaseActivity {
 
         bookId = getInt("bookId");
 
-        if (LoginImpl.getInstance().isLogin()) {
+        if (LoginHelper.isLogin()) {
             isBookShelf = NovelDatabase.getInstance().bookShelfDao().isInBookshelf(bookId);
         }
 
@@ -353,10 +353,10 @@ public class NovelReadActivity extends BaseActivity {
             // 下载
         } else if (id == R.id.tvJoin) {
             // 加入书架
-            if (LoginImpl.getInstance().isLogin()) {
+            if (LoginHelper.isLogin()) {
                 BookShelfBean bookShelfBean = new BookShelfBean();
                 bookShelfBean.bookInfoBean = bookInfoBean;
-                bookShelfBean.userId = UserImpl.getInstance().getUserInfo().getUserId();
+                bookShelfBean.userId = UserHelper.getUserInfo().getUserId();
                 bookShelfBean.addTime = System.currentTimeMillis();
                 NovelDatabase.getInstance().bookShelfDao().insertItem(bookShelfBean);
                 tvJoin.setVisibility(GONE);
@@ -364,7 +364,7 @@ public class NovelReadActivity extends BaseActivity {
                 isBookShelf = true;
                 toast("加入成功");
             } else {
-                LoginImpl.getInstance().start(getContext());
+                LoginHelper.start(getContext());
             }
         } else if (id == R.id.ivPic) {
             // 首次进入阅读
@@ -801,7 +801,7 @@ public class NovelReadActivity extends BaseActivity {
         if (mWakeLock != null) {
             mWakeLock.acquire();
         }
-        if (LoginImpl.getInstance().isLogin()) {
+        if (LoginHelper.isLogin()) {
             isBookShelf = NovelDatabase.getInstance().bookShelfDao().isInBookshelf(bookId);
         }
 
@@ -899,10 +899,10 @@ public class NovelReadActivity extends BaseActivity {
                         @Override
                         public void onConfirm(BaseDialog dialog) {
 
-                            if (LoginImpl.getInstance().isLogin()) {
+                            if (LoginHelper.isLogin()) {
                                 BookShelfBean bookShelfBean = new BookShelfBean();
                                 bookShelfBean.bookInfoBean = bookInfoBean;
-                                bookShelfBean.userId = UserImpl.getInstance().getUserInfo().getUserId();
+                                bookShelfBean.userId = UserHelper.getUserInfo().getUserId();
                                 bookShelfBean.addTime = System.currentTimeMillis();
                                 NovelDatabase.getInstance().bookShelfDao().insertItem(bookShelfBean);
                                 tvJoin.setVisibility(GONE);
@@ -911,7 +911,7 @@ public class NovelReadActivity extends BaseActivity {
                                 // 给点时间 避免泄漏
                                 postAtTime(() -> exit(), 500);
                             } else {
-                                LoginImpl.getInstance().start(getContext());
+                                LoginHelper.start(getContext());
                             }
 
                         }

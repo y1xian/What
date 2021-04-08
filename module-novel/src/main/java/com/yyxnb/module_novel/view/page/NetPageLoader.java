@@ -1,8 +1,8 @@
 package com.yyxnb.module_novel.view.page;
 
 
-import com.yyxnb.common_res.service.impl.LoginImpl;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.LoginHelper;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.config.Constant;
@@ -71,8 +71,8 @@ public class NetPageLoader extends PageLoader {
 
 
         String userId = TOURIST_ID;
-        if (LoginImpl.getInstance().isLogin()) {
-            userId = UserImpl.getInstance().getUserInfo().getUserId();
+        if (LoginHelper.isLogin()) {
+            userId = UserHelper.getUserInfo().getUserId();
         }
 
         File file = new File(Constant.BOOK_CACHE_PATH + userId + File.separator

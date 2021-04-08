@@ -7,7 +7,7 @@
 
     <data>
 
-        <import type="com.yyxnb.common_res.service.impl.LoginImpl" />
+        <import type="com.yyxnb.common_res.helper.LoginHelper" />
 
         <import type="android.view.View" />
     </data>
@@ -32,7 +32,7 @@
             android:gravity="center"
             android:text="@string/login_out"
             android:textColor="@color/white"
-            android:visibility="@{LoginImpl.getInstance().isLogin() ? View.VISIBLE : View.GONE}"
+            android:visibility="@{LoginHelper.isLogin() ? View.VISIBLE : View.GONE}"
             app:bl_corners_radius="8dp"
             app:bl_solid_color="#ee5253"
             tools:visibility="visible" />

@@ -13,7 +13,7 @@ import android.text.TextPaint;
 import androidx.core.content.ContextCompat;
 
 import com.yyxnb.common_res.bean.UserVo;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.module_novel.bean.BookChapterBean;
 import com.yyxnb.module_novel.bean.BookInfoBean;
 import com.yyxnb.module_novel.bean.BookRecordBean;
@@ -571,7 +571,7 @@ public abstract class PageLoader {
             return;
         }
 
-        UserVo loginBean = UserImpl.getInstance().getUserInfo();
+        UserVo loginBean = UserHelper.getUserInfo();
         if (loginBean == null) {
             loginBean = new UserVo();
 //            loginBean.setUserId(TOURIST_ID);
@@ -610,7 +610,7 @@ public abstract class PageLoader {
      */
     private void prepareBook() {
 
-        UserVo loginBean = UserImpl.getInstance().getUserInfo();
+        UserVo loginBean = UserHelper.getUserInfo();
         if (loginBean == null) {
             loginBean = new UserVo();
             loginBean.setUserId(TOURIST_ID);

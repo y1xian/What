@@ -21,14 +21,12 @@ public final class AppUtils {
 
     @SuppressLint("StaticFieldLeak")
     private static Application sApp;
-    private static boolean sFirstRun = true;
 
     public static void init(final Application app) {
         if (app == null) {
             Log.e("AppUtils", "app is null.");
             return;
         }
-        sFirstRun = false;
         if (sApp == null) {
             sApp = app;
             return;
@@ -95,10 +93,6 @@ public final class AppUtils {
     @SuppressWarnings("unchecked")
     public static <T> Class<T> getFiledClazz(Field field) {
         return (Class<T>) field.getGenericType();
-    }
-
-    public static boolean isFirstRun() {
-        return sFirstRun;
     }
 
     public static class ActivityLifecycleCallbacks {

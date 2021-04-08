@@ -3,7 +3,7 @@ package com.yyxnb.module_user.ui;
 import android.os.Bundle;
 
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserPersonalDetailsBinding;
@@ -36,7 +36,7 @@ public class UserPersonalDetailsFragment extends BaseFragment {
     public void initViewData() {
         mViewModel.userLiveData.getUser().observe(this, userBean -> {
             if (userBean != null) {
-                UserImpl.getInstance().updateUserInfo(userBean);
+                UserHelper.updateUserInfo(userBean);
                 binding.setData(userBean);
             }
             binding.setData(userBean);

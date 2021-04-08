@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yyxnb.common_base.base.BaseFragment;
-import com.yyxnb.common_res.service.impl.LoginImpl;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.LoginHelper;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.what.arch.annotations.BindViewModel;
 import com.yyxnb.what.dialog.core.BaseDialog;
 import com.yyxnb.what.dialog.core.MessageDialog;
@@ -60,12 +60,12 @@ public class BookDetailsFragment extends BaseFragment {
     public void onClick(View v) {
         if (v.getId() == R.id.tv_add_bookshelf) {
             // 加入书架
-            if (LoginImpl.getInstance().isLogin()) {
+            if (LoginHelper.isLogin()) {
                 BookShelfBean bookShelfBean = NovelDatabase.getInstance().bookShelfDao().getDataById(bookId);
                 if (bookShelfBean == null) {
                     bookShelfBean = new BookShelfBean();
                     bookShelfBean.bookInfoBean = bookInfoBean;
-                    bookShelfBean.userId = UserImpl.getInstance().getUserInfo().getUserId();
+                    bookShelfBean.userId = UserHelper.getUserInfo().getUserId();
                     bookShelfBean.addTime = System.currentTimeMillis();
                     NovelDatabase.getInstance().bookShelfDao().insertItem(bookShelfBean);
                     tvAddBookshelf.setText(getString(R.string.novel_remove_bookshelf));
@@ -99,7 +99,7 @@ public class BookDetailsFragment extends BaseFragment {
                             .show();
                 }
             } else {
-                LoginImpl.getInstance().start(getContext());
+                LoginHelper.start(getContext());
             }
         } else if (v.getId() == R.id.tv_read) {
             // 开始阅读
@@ -121,7 +121,7 @@ public class BookDetailsFragment extends BaseFragment {
             }
         });
 
-        if (LoginImpl.getInstance().isLogin()) {
+        if (LoginHelper.isLogin()) {
             BookShelfBean bookShelfBean = NovelDatabase.getInstance().bookShelfDao().getDataById(bookId);
             if (bookShelfBean != null) {
                 tvAddBookshelf.setText(getString(R.string.novel_remove_bookshelf));
@@ -132,7 +132,7 @@ public class BookDetailsFragment extends BaseFragment {
 
     @Override
     public void onVisible() {
-        if (LoginImpl.getInstance().isLogin()) {
+        if (LoginHelper.isLogin()) {
             tvAddBookshelf.setText(NovelDatabase.getInstance().bookShelfDao().isInBookshelf(bookId) ? getString(R.string.novel_remove_bookshelf) : getString(R.string.novel_put_in_bookshelf));
         }
     }

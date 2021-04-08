@@ -2,7 +2,7 @@ package com.yyxnb.module_user.ui;
 
 import android.os.Bundle;
 
-import com.yyxnb.common_res.service.impl.LoginImpl;
+import com.yyxnb.common_res.helper.LoginHelper;
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.module_user.R;
 import com.yyxnb.module_user.databinding.FragmentUserSetUpBinding;
@@ -32,7 +32,7 @@ public class UserSetUpFragment extends BaseFragment {
             new PopupManager.Builder(getContext())
                     .asConfirm(null, "是否确认退出登录", () -> {
                         // 确定
-                        LoginImpl.getInstance().loginOut();
+                        LoginHelper.loginOut();
                         finish();
                     }, () -> {
 

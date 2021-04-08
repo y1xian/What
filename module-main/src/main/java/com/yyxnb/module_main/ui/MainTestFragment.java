@@ -19,7 +19,7 @@ import com.yyxnb.common_res.constants.NovelRouterPath;
 import com.yyxnb.common_res.constants.VideoRouterPath;
 import com.yyxnb.common_res.constants.WanRouterPath;
 import com.yyxnb.common_res.constants.WidgetRouterPath;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.adapter.MainHomeAdapter;
@@ -105,7 +105,7 @@ public class MainTestFragment extends BaseFragment {
         mAdapter.setDataItems(DataConfig.getMainBeans());
 
         binding.ivHead.setOnClickListener(v -> {
-            startFragment(UserImpl.getInstance().mainPage(getContext()));
+            startFragment(UserHelper.mainPage(getContext()));
         });
 
         binding.tvTitle.setOnClickListener(v -> {

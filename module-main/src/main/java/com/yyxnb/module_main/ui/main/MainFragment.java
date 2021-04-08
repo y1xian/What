@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.yyxnb.common_base.base.BaseFragment;
 import com.yyxnb.common_res.constants.ChatRouterPath;
-import com.yyxnb.common_res.service.impl.UserImpl;
+import com.yyxnb.common_res.helper.UserHelper;
 import com.yyxnb.common_res.utils.ARouterUtils;
 import com.yyxnb.module_main.R;
 import com.yyxnb.module_main.databinding.FragmentMainBinding;
@@ -78,7 +78,7 @@ public class MainFragment extends BaseFragment {
 //            fragments.add(new MainFindFragment());
             fragments.add(new MainTestFragment());
             fragments.add((Fragment) ARouterUtils.navFragment(ChatRouterPath.MAIN_FRAGMENT));
-            fragments.add((Fragment) UserImpl.getInstance().mainPage(getContext()));
+            fragments.add((Fragment) UserHelper.mainPage(getContext()));
 
             tabs = new ArrayList<>();
             tabs.add(new Tab(getContext(), "首页", R.mipmap.ic_titlebar_progress));
