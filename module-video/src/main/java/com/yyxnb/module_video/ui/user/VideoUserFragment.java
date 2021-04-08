@@ -26,7 +26,7 @@ import com.yyxnb.what.arch.bean.MsgEvent;
 import com.yyxnb.what.arch.helper.BusHelper;
 import com.yyxnb.what.core.DpUtils;
 import com.yyxnb.what.core.log.LogUtils;
-import com.yyxnb.what.image.utils.DrawableTintUtil;
+import com.yyxnb.what.image.utils.DrawableTintUtils;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -120,9 +120,9 @@ public class VideoUserFragment extends BaseFragment {
             Log.w("000000", "r : " + rate);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (rate <= 0.2f){
-                    binding.ivBack.setImageDrawable(DrawableTintUtil.tintDrawable(binding.ivBack.getDrawable(),Color.WHITE));
+                    binding.ivBack.setImageDrawable(DrawableTintUtils.tintDrawable(binding.ivBack.getDrawable(),Color.WHITE));
                 }else {
-                    binding.ivBack.setImageDrawable(DrawableTintUtil.tintListDrawable(binding.ivBack.getDrawable()
+                    binding.ivBack.setImageDrawable(DrawableTintUtils.tintListDrawable(binding.ivBack.getDrawable()
                             , ColorStateList.valueOf(Color.argb(rate, 0, 0, 0))));
                 }
             }

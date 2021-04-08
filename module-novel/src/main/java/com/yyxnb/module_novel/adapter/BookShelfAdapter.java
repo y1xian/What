@@ -10,7 +10,7 @@ import com.yyxnb.module_novel.R;
 import com.yyxnb.module_novel.bean.BookShelfBean;
 import com.yyxnb.what.adapter.base.BaseAdapter;
 import com.yyxnb.what.adapter.base.BaseViewHolder;
-import com.yyxnb.what.image.ImageManager;
+import com.yyxnb.what.image.ImageHelper;
 
 public class BookShelfAdapter extends BaseAdapter<BookShelfBean> {
 
@@ -41,7 +41,7 @@ public class BookShelfAdapter extends BaseAdapter<BookShelfBean> {
         ImageView ivHead = holder.getView(R.id.ivHead);
 
 //            Glide.with(ivHead.getContext()).load(item.getCoverPath()).error(R.drawable.ic_error).into(ivHead);
-        ImageManager.getInstance().displayImage(item.bookInfoBean.picture, ivHead);
+        ImageHelper.displayImage(item.bookInfoBean.picture, ivHead);
 
         holder.setText(R.id.tvTitle, item.bookInfoBean.title);
         holder.setText(R.id.tvAuthor, item.bookInfoBean.author);

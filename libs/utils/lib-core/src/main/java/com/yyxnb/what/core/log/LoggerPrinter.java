@@ -29,7 +29,7 @@ final class LoggerPrinter implements IPrinter {
     /**
      * log settings
      */
-    private static final LogConfig config = new LogConfig();
+    private static final LogConfig CONFIG = new LogConfig();
     /**
      * 样式
      */
@@ -45,14 +45,14 @@ final class LoggerPrinter implements IPrinter {
 
     public static String LINE_SEPARATOR = System.getProperty("line.separator");
 
-    private StringBuilder logStr = new StringBuilder();
+    private final StringBuilder logStr = new StringBuilder();
 
     /**
      * 初始化
      */
     @Override
     public LogConfig init() {
-        return config;
+        return CONFIG;
     }
 
     /**
@@ -159,6 +159,7 @@ final class LoggerPrinter implements IPrinter {
     /**
      * 格式化Map集合
      */
+    @SuppressWarnings("rawtypes")
     @Override
     public void map(Map map) {
         if (map != null) {
@@ -177,12 +178,13 @@ final class LoggerPrinter implements IPrinter {
     /**
      * 格式化List集合
      */
+    @SuppressWarnings("rawtypes")
     @Override
     public void list(List list) {
         if (list != null) {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < list.size(); i++) {
-                stringBuilder.append("[" + i + "] → ");
+                stringBuilder.append("[").append(i).append("] → ");
                 stringBuilder.append(list.get(i));
                 stringBuilder.append(LINE_SEPARATOR);
             }
@@ -194,13 +196,13 @@ final class LoggerPrinter implements IPrinter {
      * 同步日志打印顺序
      */
     private synchronized void log(int priority, String msg, Object... args) {
-        if (!config.isDebug()) {
+        if (!CONFIG.isDebug()) {
             return;
         }
         logStr.delete(0, logStr.length());
         String message = args.length == 0 ? msg : String.format(msg, args);
         logChunk(priority, TOP_BORDER);
-        if (config.isShowThreadInfo()) {
+        if (CONFIG.isShowThreadInfo()) {
             //打印线程
             getStackInfo(priority);
         }
@@ -230,7 +232,7 @@ final class LoggerPrinter implements IPrinter {
     private void logChunk(int priority, String chunk) {
         logStr.append(LINE_SEPARATOR);
         logStr.append(chunk);
-        String tag = config.getTag();
+        String tag = CONFIG.getTag();
         switch (priority) {
             case Log.ERROR:
                 Log.e(tag, chunk);
@@ -263,8 +265,7 @@ final class LoggerPrinter implements IPrinter {
         String str = "";
         StackTraceElement[] traces = Thread.currentThread().getStackTrace();
 
-        for (int i = 0; i < traces.length; i++) {
-            StackTraceElement element = traces[i];
+        for (StackTraceElement element : traces) {
             StringBuilder perTrace = new StringBuilder(str);
             if (element.isNativeMethod()) {
                 continue;

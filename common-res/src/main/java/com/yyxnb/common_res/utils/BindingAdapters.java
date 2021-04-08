@@ -11,7 +11,7 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.adapters.ListenerUtil;
 
 import com.yyxnb.common_base.R;
-import com.yyxnb.what.image.ImageManager;
+import com.yyxnb.what.image.ImageHelper;
 
 public class BindingAdapters {
 
@@ -41,7 +41,7 @@ public class BindingAdapters {
         if (error == 0) {
             error = Color.BLACK;
         }
-        ImageManager.getInstance().displayImage(url, imageView, placeholder, error);
+        ImageHelper.displayImage(url, imageView, placeholder, error);
     }
 
     /**

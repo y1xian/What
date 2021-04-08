@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.yyxnb.what.core.ToastUtils;
 import com.yyxnb.what.core.log.LogUtils;
-import com.yyxnb.what.image.ImageManager;
+import com.yyxnb.what.image.ImageHelper;
 import com.yyxnb.what.music.MusicPlayerManager;
 import com.yyxnb.what.music.interfaces.MusicPlayerEventListener;
 import com.yyxnb.what.music.utils.MusicStatus;
@@ -159,7 +159,7 @@ public class BottomMusicView extends RelativeLayout implements MusicPlayerEventL
 //        mMusicBean = MusicPlayerManager.getInstance().getCurrentPlayerMusic();
             //目前loading状态的UI处理与pause逻辑一样，分开为了以后好扩展
             if (mMusicBean != null) {
-                ImageManager.getInstance().displayImage(mMusicBean.albumPic, mLeftView,
+                ImageHelper.displayImage(mMusicBean.albumPic, mLeftView,
                         R.drawable.ic_music_default_cover, R.drawable.ic_music_default_cover);
                 mTitleView.setText(mMusicBean.title);
                 mAlbumView.setText(mMusicBean.author + " - " + mMusicBean.album);
@@ -178,7 +178,7 @@ public class BottomMusicView extends RelativeLayout implements MusicPlayerEventL
         mMusicBean = MusicPlayerManager.getInstance().getCurrentPlayerMusic();
         //目前loading状态的UI处理与pause逻辑一样，分开为了以后好扩展
         if (mMusicBean != null) {
-            ImageManager.getInstance().displayImage(mMusicBean.albumPic, mLeftView,
+            ImageHelper.displayImage(mMusicBean.albumPic, mLeftView,
                     R.drawable.ic_music_default_cover, R.drawable.ic_music_default_cover);
             mTitleView.setText(mMusicBean.title);
             mAlbumView.setText(mMusicBean.author + " - " + mMusicBean.album);

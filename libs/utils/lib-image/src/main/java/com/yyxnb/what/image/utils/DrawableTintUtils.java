@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.drawable.DrawableCompat;
 
-public class DrawableTintUtil {
+public class DrawableTintUtils {
 
   /**
    * Drawable 颜色转化类

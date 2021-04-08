@@ -18,7 +18,6 @@ import com.yyxnb.what.arch.config.AppManager;
 import com.yyxnb.what.arch.config.ArchConfig;
 import com.yyxnb.what.arch.config.ArchManager;
 import com.yyxnb.what.core.UITask;
-import com.yyxnb.what.image.ImageManager;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -54,9 +53,6 @@ public class BaseApplication extends Application {
             AppUtils.getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
         });
         UITask.run(() -> {
-            // 图片框架 集成glide
-            ImageManager.getInstance().init(this.getApplicationContext());
-
             // 框架配置
             ArchConfig archConfig = new ArchConfig.Builder()
                     .setSwipeBack(SwipeStyle.EDGE)

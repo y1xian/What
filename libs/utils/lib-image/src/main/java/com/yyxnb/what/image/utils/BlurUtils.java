@@ -2,7 +2,7 @@ package com.yyxnb.what.image.utils;
 
 import android.graphics.Bitmap;
 
-public class Utils {
+public class BlurUtils {
 
     /**
      * 毛玻璃模糊算法

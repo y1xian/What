@@ -225,6 +225,8 @@ ext {
             lib_anim                 : project(':libs:utils:lib-anim'),
             // SnackBar
             lib_snackbar             : project(':libs:utils:lib-snackbar'),
+            // 通讯录
+            lib_contact              : project(':libs:utils:lib-contact'),
             // 不常用工具，未分类的
             lib_utils                : project(':libs:utils:lib-utils'),
 

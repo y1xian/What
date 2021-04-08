@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yyxnb.what.image.ImageManager;
+import com.yyxnb.what.image.ImageHelper;
 import com.yyxnb.what.localservice.bean.LocalMedia;
 import com.yyxnb.what.localservice.utils.DateUtils;
 
@@ -65,7 +65,7 @@ public class MediaSelectAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         media.setPosition(viewHolder.getAdapterPosition());
 
 //        Glide.with(mContext).load(media.getPath()).centerCrop().into(viewHolder.ivPic);
-        ImageManager.getInstance().displayImage(media.getPath(), viewHolder.ivPic);
+        ImageHelper.displayImage(media.getPath(), viewHolder.ivPic);
         nitifyCheckChanged(viewHolder, media);
 
         viewHolder.tvDuration.setVisibility(media.getMimeType().contains("video") ? View.VISIBLE : View.GONE);
