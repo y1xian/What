@@ -42,13 +42,11 @@ public class ModuleApplication extends BaseApplication {
         ARouter.init(this);
 
         KvUtils.initialize(this.getApplicationContext());
-//        UITask.run(() -> {
-            // 换肤
-            ExtraAttrRegister.init();
+        // 换肤
+        ExtraAttrRegister.init();
 //        SkinConfig.DEBUG = true;
-            SkinManager.get().init(getApplicationContext());
-            SkinManager.get().loadSkin(KvUtils.get(SKIN_PATH, ""));
-//        });
+        SkinManager.get().init(getApplicationContext());
+        SkinManager.get().loadSkin(KvUtils.get(SKIN_PATH, ""));
 
 //        ImageView imageView = new ImageView(getApplicationContext());
 //        imageView.setImageResource(R.drawable.ic_launcher_background);

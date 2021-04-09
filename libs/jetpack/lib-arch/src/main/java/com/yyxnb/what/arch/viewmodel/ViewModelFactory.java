@@ -3,7 +3,7 @@ package com.yyxnb.what.arch.viewmodel;
 import androidx.annotation.MainThread;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.yyxnb.what.app.AppUtils;
 
@@ -42,11 +42,12 @@ public class ViewModelFactory implements Serializable {
 
     @MainThread
     public static <T extends BaseViewModel> T createViewModel(Fragment fragment, Class<T> viewModel) {
-        return ViewModelProviders.of(fragment).get(viewModel).attachLifecycleOwner(fragment);
+        return new ViewModelProvider(fragment).get(viewModel).attachLifecycleOwner(fragment);
     }
 
     @MainThread
     public static <T extends BaseViewModel> T createViewModel(FragmentActivity activity, Class<T> viewModel) {
-        return ViewModelProviders.of(activity).get(viewModel).attachLifecycleOwner(activity);
+        return new ViewModelProvider(activity).get(viewModel).attachLifecycleOwner(activity);
     }
+
 }

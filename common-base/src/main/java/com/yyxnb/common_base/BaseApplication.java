@@ -17,7 +17,6 @@ import com.yyxnb.what.arch.annotations.SwipeStyle;
 import com.yyxnb.what.arch.config.AppManager;
 import com.yyxnb.what.arch.config.ArchConfig;
 import com.yyxnb.what.arch.config.ArchManager;
-import com.yyxnb.what.core.UITask;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -41,25 +40,21 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        UITask.run(() -> {
-            // 布局
-            AutoSizeConfig.getInstance()
-                    //按照宽度适配 默认true
-                    .setBaseOnWidth(true)
-                    //是否让框架支持自定义 Fragment 的适配参数, 由于这个需求是比较少见的, 所以须要使用者手动开启
-                    //如果没有这个需求建议不开启
-                    .setCustomFragment(true);
-            // 侧滑监听
-            AppUtils.getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
-        });
-        UITask.run(() -> {
-            // 框架配置
-            ArchConfig archConfig = new ArchConfig.Builder()
-                    .setSwipeBack(SwipeStyle.EDGE)
-                    .setContainerActivityClassName(ContainerActivity.class.getCanonicalName())
-                    .build();
-            ArchManager.getInstance().setConfig(archConfig);
-        });
+        // 布局
+        AutoSizeConfig.getInstance()
+                //按照宽度适配 默认true
+                .setBaseOnWidth(true)
+                //是否让框架支持自定义 Fragment 的适配参数, 由于这个需求是比较少见的, 所以须要使用者手动开启
+                //如果没有这个需求建议不开启
+                .setCustomFragment(true);
+        // 侧滑监听
+        AppUtils.getApp().registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
+        // 框架配置
+        ArchConfig archConfig = new ArchConfig.Builder()
+                .setSwipeBack(SwipeStyle.EDGE)
+                .setContainerActivityClassName(ContainerActivity.class.getCanonicalName())
+                .build();
+        ArchManager.getInstance().setConfig(archConfig);
 
         ModuleLifecycleConfig.getInstance().onCreate();
 
